@@ -113,8 +113,8 @@ body::before {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
 }
 
 .brand-logo {
@@ -124,6 +124,10 @@ body::before {
   object-fit: contain;
   flex-shrink: 0;
   border-radius: 50%;
+}
+
+.brand span {
+  display: inline-block;
 }
 
 .nav-toggle {
