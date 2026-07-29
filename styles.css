@@ -124,6 +124,7 @@ body::before {
   object-fit: contain;
   flex-shrink: 0;
   border-radius: 50%;
+  background: transparent;
 }
 
 .brand span {
