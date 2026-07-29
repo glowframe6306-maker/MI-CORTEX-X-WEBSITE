@@ -39,6 +39,7 @@ body::before {
   background-image: linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
   background-size: 36px 36px;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
   pointer-events: none;
 }
@@ -79,8 +80,8 @@ body::before {
   background: var(--surface);
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
-  backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
 }
 
 .site-header {
@@ -438,7 +439,7 @@ h3 {
   }
 
   .hero-panel {
-    min-height: auto;
+    min-height: initial;
   }
 }
 
