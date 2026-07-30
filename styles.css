@@ -1190,3 +1190,347 @@ main {
 
 /* MI_REMOVE_INTRO_ROBOT_END */
 
+/* MI_NEURAL_LOGO_SEQUENCE_START */
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+.mi-neural-intro {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483600;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    background:
+        radial-gradient(
+            circle at 50% 48%,
+            rgba(11, 16, 32, 0.96) 0%,
+            rgba(5, 8, 22, 0.99) 48%,
+            #02040c 100%
+        );
+    transform: translate3d(0, 0, 0);
+    will-change: transform, opacity;
+}
+
+.mi-neural-intro.mi-neural-visible {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 1.2s cubic-bezier(.22, 1, .36, 1);
+}
+
+.mi-neural-background {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.mi-neural-network {
+    position: absolute;
+    inset: -2%;
+    width: 104%;
+    height: 104%;
+    opacity: 0;
+    transform: scale(1.035);
+    filter: blur(9px);
+    will-change: opacity, filter, transform;
+}
+
+.mi-neural-visible .mi-neural-network {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+    transition:
+        opacity 1.8s cubic-bezier(.22, 1, .36, 1),
+        filter 2.2s cubic-bezier(.22, 1, .36, 1),
+        transform 8s ease-out;
+}
+
+.mi-neural-line {
+    fill: none;
+    stroke: rgba(79, 140, 255, 0.20);
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
+}
+
+.mi-neural-line.mi-line-secondary {
+    stroke: rgba(110, 231, 255, 0.12);
+    stroke-width: 0.75;
+}
+
+.mi-neural-pulse {
+    fill: none;
+    stroke: rgba(110, 231, 255, 0.88);
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-dasharray: 4 120;
+    vector-effect: non-scaling-stroke;
+    filter: drop-shadow(0 0 5px rgba(110, 231, 255, 0.72));
+    animation: miNeuralPulse 4.8s linear infinite;
+}
+
+.mi-neural-node-halo {
+    fill: rgba(79, 140, 255, 0.08);
+    stroke: rgba(79, 140, 255, 0.12);
+    stroke-width: 1;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: miNodeHalo 3.8s ease-in-out infinite alternate;
+}
+
+.mi-neural-node {
+    fill: #6ee7ff;
+    stroke: rgba(255, 255, 255, 0.55);
+    stroke-width: 0.7;
+    filter:
+        drop-shadow(0 0 5px rgba(110, 231, 255, 0.95))
+        drop-shadow(0 0 15px rgba(79, 140, 255, 0.48));
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: miNodePulse 2.9s ease-in-out infinite alternate;
+}
+
+.mi-neural-vignette {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 0%,
+            rgba(5, 8, 22, 0.18) 42%,
+            rgba(2, 4, 12, 0.72) 100%
+        );
+}
+
+.mi-neural-light {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(79, 140, 255, 0.035),
+            transparent 38%
+        );
+    animation: miAmbientLight 5s ease-in-out infinite alternate;
+}
+
+.mi-logo-reveal {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    place-items: center;
+    width: clamp(150px, 18vw, 280px);
+    aspect-ratio: 1;
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.68);
+    filter: blur(18px);
+    will-change: opacity, transform, filter;
+}
+
+.mi-neural-intro.mi-logo-entering .mi-logo-reveal {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1.16);
+    filter: blur(0);
+    transition:
+        opacity 1.15s cubic-bezier(.22, 1, .36, 1),
+        transform 1.8s cubic-bezier(.16, 1, .3, 1),
+        filter 1.3s cubic-bezier(.22, 1, .36, 1);
+}
+
+.mi-neural-intro.mi-logo-settled .mi-logo-reveal {
+    transform: scale(1);
+    transition: transform 1.5s cubic-bezier(.22, 1, .36, 1);
+}
+
+.mi-neural-intro.mi-logo-leaving .mi-logo-reveal {
+    opacity: 0;
+    transform: scale(0.88);
+    filter: blur(14px);
+    transition:
+        opacity 1.15s cubic-bezier(.22, 1, .36, 1),
+        transform 1.15s cubic-bezier(.22, 1, .36, 1),
+        filter 1.15s cubic-bezier(.22, 1, .36, 1);
+}
+
+.mi-intro-logo {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+    user-select: none;
+    filter:
+        drop-shadow(0 0 15px rgba(79, 140, 255, 0.36))
+        drop-shadow(0 0 42px rgba(110, 231, 255, 0.20));
+}
+
+.mi-logo-glow {
+    position: absolute;
+    inset: 5%;
+    border-radius: 50%;
+    background:
+        radial-gradient(
+            circle,
+            rgba(110, 231, 255, 0.20),
+            rgba(79, 140, 255, 0.08) 45%,
+            transparent 72%
+        );
+    filter: blur(20px);
+    transform: scale(1.22);
+    animation: miLogoGlow 2.8s ease-in-out infinite alternate;
+}
+
+.mi-logo-shine {
+    position: absolute;
+    z-index: 4;
+    inset: -10%;
+    overflow: hidden;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.mi-logo-shine::before {
+    content: "";
+    position: absolute;
+    top: -25%;
+    bottom: -25%;
+    left: -55%;
+    width: 24%;
+    transform: rotate(18deg);
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.78),
+            rgba(110, 231, 255, 0.42),
+            transparent
+        );
+    filter: blur(5px);
+}
+
+.mi-logo-settled .mi-logo-shine {
+    opacity: 1;
+}
+
+.mi-logo-settled .mi-logo-shine::before {
+    animation: miLogoShine 1.6s cubic-bezier(.22, 1, .36, 1) forwards;
+}
+
+.mi-neural-intro.mi-neural-exiting {
+    transform: translate3d(0, -100%, 0);
+    transition: transform 2.2s cubic-bezier(.76, 0, .24, 1);
+}
+
+@keyframes miNeuralPulse {
+    from {
+        stroke-dashoffset: 0;
+    }
+
+    to {
+        stroke-dashoffset: -248;
+    }
+}
+
+@keyframes miNodePulse {
+    from {
+        opacity: 0.62;
+        transform: scale(0.82);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.16);
+    }
+}
+
+@keyframes miNodeHalo {
+    from {
+        opacity: 0.24;
+        transform: scale(0.78);
+    }
+
+    to {
+        opacity: 0.72;
+        transform: scale(1.22);
+    }
+}
+
+@keyframes miAmbientLight {
+    from {
+        opacity: 0.38;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 0.78;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes miLogoGlow {
+    from {
+        opacity: 0.42;
+        transform: scale(1.08);
+    }
+
+    to {
+        opacity: 0.9;
+        transform: scale(1.3);
+    }
+}
+
+@keyframes miLogoShine {
+    from {
+        left: -55%;
+    }
+
+    to {
+        left: 135%;
+    }
+}
+
+@media (max-width: 700px) {
+    .mi-logo-reveal {
+        width: clamp(130px, 42vw, 210px);
+    }
+
+    .mi-neural-network {
+        inset: -8%;
+        width: 116%;
+        height: 116%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mi-neural-node,
+    .mi-neural-node-halo,
+    .mi-neural-pulse,
+    .mi-neural-light,
+    .mi-logo-glow,
+    .mi-logo-shine::before {
+        animation: none !important;
+    }
+
+    .mi-neural-intro,
+    .mi-neural-network,
+    .mi-logo-reveal {
+        transition-duration: 0.4s !important;
+    }
+
+    .mi-neural-intro.mi-neural-exiting {
+        transition-duration: 0.7s !important;
+    }
+}
+
+/* MI_NEURAL_LOGO_SEQUENCE_END */
+
