@@ -2734,3 +2734,122 @@ html.mi-page-is-scrolling .mi-fixed-glass-nav {
 
 /* MI_NAV_SINGLE_LINE_LIGHT_END */
 
+
+
+/* MI_PREMIUM_NAV_UPGRADE_START */
+
+/* ===== PREMIUM GLASS ===== */
+
+.mi-fixed-glass-nav{
+
+    background:
+    linear-gradient(
+        120deg,
+        rgba(20,35,60,.88),
+        rgba(10,15,38,.84),
+        rgba(28,18,62,.88)
+    ) !important;
+
+    -webkit-backdrop-filter:
+        blur(42px)
+        saturate(190%)
+        brightness(1.25) !important;
+
+    backdrop-filter:
+        blur(42px)
+        saturate(190%)
+        brightness(1.25) !important;
+
+    box-shadow:
+        0 22px 70px rgba(0,0,0,.45),
+        0 0 60px rgba(72,170,255,.18),
+        inset 0 1px 0 rgba(255,255,255,.10) !important;
+}
+
+/* ===== LOGO AREA ===== */
+
+.mi-fixed-glass-nav .logo,
+.mi-fixed-glass-nav .brand,
+.mi-fixed-glass-nav .navbar-brand,
+.mi-fixed-glass-nav .site-logo,
+.mi-fixed-glass-nav .nav-logo{
+
+    display:flex !important;
+    align-items:center !important;
+    gap:18px !important;
+
+    margin-right:120px !important;
+
+    flex-shrink:0 !important;
+}
+
+/* ===== COMPANY NAME ===== */
+
+.mi-fixed-glass-nav .logo span,
+.mi-fixed-glass-nav .brand span,
+.mi-fixed-glass-nav .navbar-brand span,
+.mi-fixed-glass-nav .site-logo span,
+.mi-fixed-glass-nav .nav-logo span{
+
+    font-size:26px !important;
+    font-weight:800 !important;
+    letter-spacing:1px !important;
+
+    color:#FFD86A !important;
+
+    white-space:nowrap !important;
+
+    text-shadow:
+        0 0 8px rgba(255,216,106,.55),
+        0 0 18px rgba(255,216,106,.28),
+        0 0 35px rgba(255,180,0,.15) !important;
+}
+
+/* ===== MENU ===== */
+
+.mi-fixed-glass-nav ul{
+
+    display:flex !important;
+    align-items:center !important;
+
+    gap:42px !important;
+
+    margin-left:auto !important;
+}
+
+/* ===== MENU LINKS ===== */
+
+.mi-fixed-glass-nav li{
+
+    margin:0 !important;
+}
+
+.mi-fixed-glass-nav a{
+
+    color:rgba(240,245,255,.90) !important;
+
+    font-size:18px !important;
+    font-weight:600 !important;
+
+    transition:.25s !important;
+}
+
+.mi-fixed-glass-nav a:hover{
+
+    color:white !important;
+
+    text-shadow:
+        0 0 12px rgba(120,220,255,.40),
+        0 0 24px rgba(120,220,255,.20);
+}
+
+/* ===== LOGO ===== */
+
+.mi-fixed-glass-nav img{
+
+    width:68px !important;
+    height:68px !important;
+}
+
+/* MI_PREMIUM_NAV_UPGRADE_END */
+
