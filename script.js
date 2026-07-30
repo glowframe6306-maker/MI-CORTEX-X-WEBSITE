@@ -118,47 +118,14 @@ document.addEventListener('DOMContentLoaded', function () {
     titleClearTimer = window.setTimeout(function () {
       title.classList.add('title-transforming');
 
-      if (robot) {
-        robot.classList.add('intro-robot-assembling');
-      }
-
-      const assemblyDuration = reducedMotion ? 700 : 1400;
-      const walkDuration = reducedMotion ? 1200 : 2400;
-
-      robotAssemblyTimer = window.setTimeout(function () {
-        if (robot) {
-          robot.classList.remove('intro-robot-assembling');
-          robot.classList.add('intro-robot-ready');
-          if (reducedMotion) {
-            robot.classList.add('intro-robot-walking-left-reduced');
-          } else {
-            robot.classList.add('intro-robot-walking-left');
-          }
+      window.setTimeout(function () {
+        if (welcomeScreen && welcomeScreen.isConnected) {
+          welcomeScreen.setAttribute('aria-hidden', 'true');
+          welcomeScreen.remove();
         }
 
-        const handleWalkEnd = function () {
-          if (robot) {
-            robot.removeEventListener('animationend', handleWalkEnd);
-          }
-          removeIntro();
-        };
-
-        if (robot) {
-          robot.addEventListener('animationend', handleWalkEnd, { once: true });
-        }
-
-        window.setTimeout(function () {
-          if (!robot) {
-            removeIntro();
-            return;
-          }
-          if (robot.classList.contains('intro-robot-walking-left') || robot.classList.contains('intro-robot-walking-left-reduced')) {
-            if (robot.getAnimations().length === 0) {
-              handleWalkEnd();
-            }
-          }
-        }, walkDuration + 100);
-      }, assemblyDuration);
+        window.dispatchEvent(new CustomEvent('mi:letters-complete'));
+      }, reducedMotion ? 500 : 1400);
     }, 5200);
 
     fallbackTimer = window.setTimeout(function () {
@@ -230,14 +197,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     "use strict";
 
-    const INTRO_START_DELAY = 0;
+    const INTRO_START_DELAY = 6600;
     const NETWORK_REVEAL_TIME = 2100;
     const LOGO_ZOOM_IN_TIME = 1900;
     const LOGO_ZOOM_OUT_TIME = 1500;
     const LOGO_HOLD_TIME = 900;
     const LOGO_FADE_TIME = 1200;
     const SCREEN_LIFT_TIME = 2200;
-    const FALLBACK_TIME = 12000;
+    const FALLBACK_TIME = 20000;
 
     const sleep = (milliseconds) =>
         new Promise((resolve) => window.setTimeout(resolve, milliseconds));
