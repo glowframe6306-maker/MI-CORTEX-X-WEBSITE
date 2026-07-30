@@ -937,1272 +937,56 @@ main {
     content:none !important;
 }
 
-/* MI_LARGE_LEFT_WALKING_ROBOT_START */
-
-/* Make the complete robot noticeably larger. */
-.intro-robot {
-    transform-origin: center bottom !important;
-    scale: 1.65;
-    will-change: transform, opacity !important;
-}
-
-/* Support either location of the walking state class. */
-.robot-walking-left .intro-robot,
-.intro-robot.robot-walking-left,
-.welcome-screen.robot-walking-left .intro-robot {
-    visibility: visible !important;
-    opacity: 1 !important;
-    scale: unset !important;
-    animation:
-        miRobotWalkLeft 3.2s cubic-bezier(.45, .05, .25, 1) forwards !important;
-}
-
-/* Move the robot completely through the left side of the viewport. */
-@keyframes miRobotWalkLeft {
-    0% {
-        transform:
-            translate3d(-50%, 0, 0)
-            scale(1.65);
-    }
-
-    12% {
-        transform:
-            translate3d(calc(-50% - 5vw), -5px, 0)
-            scale(1.65);
-    }
-
-    25% {
-        transform:
-            translate3d(calc(-50% - 14vw), 0, 0)
-            scale(1.65);
-    }
-
-    38% {
-        transform:
-            translate3d(calc(-50% - 23vw), -5px, 0)
-            scale(1.65);
-    }
-
-    52% {
-        transform:
-            translate3d(calc(-50% - 33vw), 0, 0)
-            scale(1.65);
-    }
-
-    66% {
-        transform:
-            translate3d(calc(-50% - 43vw), -5px, 0)
-            scale(1.65);
-    }
-
-    80% {
-        transform:
-            translate3d(calc(-50% - 54vw), 0, 0)
-            scale(1.65);
-    }
-
-    100% {
-        transform:
-            translate3d(calc(-50% - 75vw - 350px), -3px, 0)
-            scale(1.65);
-    }
-}
-
-/* Alternate the arms while walking. */
-.robot-walking-left .intro-robot-arm-left,
-.intro-robot.robot-walking-left .intro-robot-arm-left,
-.welcome-screen.robot-walking-left .intro-robot-arm-left {
-    transform-origin: 50% 10% !important;
-    animation: miRobotLeftArmWalk 0.56s ease-in-out infinite alternate !important;
-}
-
-.robot-walking-left .intro-robot-arm-right,
-.intro-robot.robot-walking-left .intro-robot-arm-right,
-.welcome-screen.robot-walking-left .intro-robot-arm-right {
-    transform-origin: 50% 10% !important;
-    animation: miRobotRightArmWalk 0.56s ease-in-out infinite alternate !important;
-}
-
-@keyframes miRobotLeftArmWalk {
-    from {
-        transform: rotate(17deg);
-    }
-
-    to {
-        transform: rotate(-19deg);
-    }
-}
-
-@keyframes miRobotRightArmWalk {
-    from {
-        transform: rotate(-19deg);
-    }
-
-    to {
-        transform: rotate(17deg);
-    }
-}
-
-/* Alternate the legs while walking. */
-.robot-walking-left .intro-robot-leg-left,
-.intro-robot.robot-walking-left .intro-robot-leg-left,
-.welcome-screen.robot-walking-left .intro-robot-leg-left {
-    transform-origin: 50% 5% !important;
-    animation: miRobotLeftLegWalk 0.56s ease-in-out infinite alternate !important;
-}
-
-.robot-walking-left .intro-robot-leg-right,
-.intro-robot.robot-walking-left .intro-robot-leg-right,
-.welcome-screen.robot-walking-left .intro-robot-leg-right {
-    transform-origin: 50% 5% !important;
-    animation: miRobotRightLegWalk 0.56s ease-in-out infinite alternate !important;
-}
-
-@keyframes miRobotLeftLegWalk {
-    from {
-        transform: rotate(-15deg) translateY(0);
-    }
-
-    to {
-        transform: rotate(17deg) translateY(-3px);
-    }
-}
-
-@keyframes miRobotRightLegWalk {
-    from {
-        transform: rotate(17deg) translateY(-3px);
-    }
-
-    to {
-        transform: rotate(-15deg) translateY(0);
-    }
-}
-
-/* Move and resize the robot shadow with the robot. */
-.robot-walking-left .intro-robot-shadow,
-.intro-robot.robot-walking-left .intro-robot-shadow,
-.welcome-screen.robot-walking-left .intro-robot-shadow {
-    animation: miRobotShadowWalk 0.56s ease-in-out infinite alternate !important;
-}
-
-@keyframes miRobotShadowWalk {
-    from {
-        transform: translateX(-50%) scaleX(1);
-        opacity: .36;
-    }
-
-    to {
-        transform: translateX(-50%) scaleX(.76);
-        opacity: .20;
-    }
-}
-
-/* Keep the robot large but responsive on smaller screens. */
-@media (max-width: 700px) {
-    .intro-robot {
-        scale: 1.3;
-    }
-
-    .robot-walking-left .intro-robot,
-    .intro-robot.robot-walking-left,
-    .welcome-screen.robot-walking-left .intro-robot {
-        animation-name: miRobotWalkLeftMobile !important;
-    }
-
-    @keyframes miRobotWalkLeftMobile {
-        0% {
-            transform:
-                translate3d(-50%, 0, 0)
-                scale(1.3);
-        }
-
-        25% {
-            transform:
-                translate3d(calc(-50% - 20vw), -4px, 0)
-                scale(1.3);
-        }
-
-        50% {
-            transform:
-                translate3d(calc(-50% - 40vw), 0, 0)
-                scale(1.3);
-        }
-
-        75% {
-            transform:
-                translate3d(calc(-50% - 62vw), -4px, 0)
-                scale(1.3);
-        }
-
-        100% {
-            transform:
-                translate3d(calc(-50% - 95vw - 240px), 0, 0)
-                scale(1.3);
-        }
-    }
-}
-
-.welcome-screen,
-.welcome-stage {
-    overflow: hidden !important;
-}
-
-/* MI_LARGE_LEFT_WALKING_ROBOT_END */
-
-/* MI_REMOVE_INTRO_ROBOT_START */
-
-/* Permanently hide every old robot element and robot artifact. */
-.intro-robot,
-.intro-robot-shadow,
-.intro-robot-head,
-.intro-robot-eye,
-.intro-robot-eye-left,
-.intro-robot-eye-right,
-.intro-robot-neck,
-.intro-robot-torso,
-.intro-robot-core,
-.intro-robot-arm,
-.intro-robot-arm-left,
-.intro-robot-arm-right,
-.intro-robot-leg,
-.intro-robot-leg-left,
-.intro-robot-leg-right,
-.ai-robot,
-.robot-head,
-.robot-body,
-.robot-arm,
-.robot-leg,
-.robot-shadow,
-.letter-particles {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    animation: none !important;
-    transition: none !important;
-    pointer-events: none !important;
-}
-
-/* Preserve the existing slow upward welcome-screen exit. */
-.welcome-screen.intro-exiting,
-.intro-exiting.welcome-screen {
-    transform: translate3d(0, -100%, 0) !important;
-}
-
-/* MI_REMOVE_INTRO_ROBOT_END */
-
-/* MI_NEURAL_LOGO_SEQUENCE_START */
-
-html,
-body {
-    overflow-x: hidden;
-}
-
-.mi-neural-intro {
-    position: fixed;
-    inset: 0;
-    z-index: 2147483600;
-    display: grid;
-    place-items: center;
-    overflow: hidden;
-    pointer-events: none;
-    visibility: hidden;
-    opacity: 0;
-    background:
-        radial-gradient(
-            circle at 50% 48%,
-            rgba(11, 16, 32, 0.96) 0%,
-            rgba(5, 8, 22, 0.99) 48%,
-            #02040c 100%
-        );
-    transform: translate3d(0, 0, 0);
-    will-change: transform, opacity;
-}
-
-.mi-neural-intro.mi-neural-visible {
-    visibility: visible;
-    opacity: 1;
-    transition: opacity 1.2s cubic-bezier(.22, 1, .36, 1);
-}
-
-.mi-neural-background {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-}
-
-.mi-neural-network {
-    position: absolute;
-    inset: -2%;
-    width: 104%;
-    height: 104%;
-    opacity: 0;
-    transform: scale(1.035);
-    filter: blur(9px);
-    will-change: opacity, filter, transform;
-}
-
-.mi-neural-visible .mi-neural-network {
-    opacity: 1;
-    filter: blur(0);
-    transform: scale(1);
-    transition:
-        opacity 1.8s cubic-bezier(.22, 1, .36, 1),
-        filter 2.2s cubic-bezier(.22, 1, .36, 1),
-        transform 8s ease-out;
-}
-
-.mi-neural-line {
-    fill: none;
-    stroke: rgba(79, 140, 255, 0.20);
-    stroke-width: 1;
-    vector-effect: non-scaling-stroke;
-}
-
-.mi-neural-line.mi-line-secondary {
-    stroke: rgba(110, 231, 255, 0.12);
-    stroke-width: 0.75;
-}
-
-.mi-neural-pulse {
-    fill: none;
-    stroke: rgba(110, 231, 255, 0.88);
-    stroke-width: 1.6;
-    stroke-linecap: round;
-    stroke-dasharray: 4 120;
-    vector-effect: non-scaling-stroke;
-    filter: drop-shadow(0 0 5px rgba(110, 231, 255, 0.72));
-    animation: miNeuralPulse 4.8s linear infinite;
-}
-
-.mi-neural-node-halo {
-    fill: rgba(79, 140, 255, 0.08);
-    stroke: rgba(79, 140, 255, 0.12);
-    stroke-width: 1;
-    transform-box: fill-box;
-    transform-origin: center;
-    animation: miNodeHalo 3.8s ease-in-out infinite alternate;
-}
-
-.mi-neural-node {
-    fill: #6ee7ff;
-    stroke: rgba(255, 255, 255, 0.55);
-    stroke-width: 0.7;
-    filter:
-        drop-shadow(0 0 5px rgba(110, 231, 255, 0.95))
-        drop-shadow(0 0 15px rgba(79, 140, 255, 0.48));
-    transform-box: fill-box;
-    transform-origin: center;
-    animation: miNodePulse 2.9s ease-in-out infinite alternate;
-}
-
-.mi-neural-vignette {
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(
-            ellipse at center,
-            transparent 0%,
-            rgba(5, 8, 22, 0.18) 42%,
-            rgba(2, 4, 12, 0.72) 100%
-        );
-}
-
-.mi-neural-light {
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(
-            circle at 50% 50%,
-            rgba(79, 140, 255, 0.035),
-            transparent 38%
-        );
-    animation: miAmbientLight 5s ease-in-out infinite alternate;
-}
-
-.mi-logo-reveal {
-    position: relative;
-    z-index: 3;
-    display: grid;
-    place-items: center;
-    width: clamp(150px, 18vw, 280px);
-    aspect-ratio: 1;
-    visibility: hidden;
-    opacity: 0;
-    transform: scale(0.68);
-    filter: blur(18px);
-    will-change: opacity, transform, filter;
-}
-
-.mi-neural-intro.mi-logo-entering .mi-logo-reveal {
-    visibility: visible;
-    opacity: 1;
-    transform: scale(1.16);
-    filter: blur(0);
-    transition:
-        opacity 1.15s cubic-bezier(.22, 1, .36, 1),
-        transform 1.8s cubic-bezier(.16, 1, .3, 1),
-        filter 1.3s cubic-bezier(.22, 1, .36, 1);
-}
-
-.mi-neural-intro.mi-logo-settled .mi-logo-reveal {
-    transform: scale(1);
-    transition: transform 1.5s cubic-bezier(.22, 1, .36, 1);
-}
-
-.mi-neural-intro.mi-logo-leaving .mi-logo-reveal {
-    opacity: 0;
-    transform: scale(0.88);
-    filter: blur(14px);
-    transition:
-        opacity 1.15s cubic-bezier(.22, 1, .36, 1),
-        transform 1.15s cubic-bezier(.22, 1, .36, 1),
-        filter 1.15s cubic-bezier(.22, 1, .36, 1);
-}
-
-.mi-intro-logo {
-    position: relative;
-    z-index: 2;
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 50%;
-    user-select: none;
-    filter:
-        drop-shadow(0 0 15px rgba(79, 140, 255, 0.36))
-        drop-shadow(0 0 42px rgba(110, 231, 255, 0.20));
-}
-
-.mi-logo-glow {
-    position: absolute;
-    inset: 5%;
-    border-radius: 50%;
-    background:
-        radial-gradient(
-            circle,
-            rgba(110, 231, 255, 0.20),
-            rgba(79, 140, 255, 0.08) 45%,
-            transparent 72%
-        );
-    filter: blur(20px);
-    transform: scale(1.22);
-    animation: miLogoGlow 2.8s ease-in-out infinite alternate;
-}
-
-.mi-logo-shine {
-    position: absolute;
-    z-index: 4;
-    inset: -10%;
-    overflow: hidden;
-    border-radius: 50%;
-    opacity: 0;
-    pointer-events: none;
-}
-
-.mi-logo-shine::before {
-    content: "";
-    position: absolute;
-    top: -25%;
-    bottom: -25%;
-    left: -55%;
-    width: 24%;
-    transform: rotate(18deg);
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255, 255, 255, 0.78),
-            rgba(110, 231, 255, 0.42),
-            transparent
-        );
-    filter: blur(5px);
-}
-
-.mi-logo-settled .mi-logo-shine {
-    opacity: 1;
-}
-
-.mi-logo-settled .mi-logo-shine::before {
-    animation: miLogoShine 1.6s cubic-bezier(.22, 1, .36, 1) forwards;
-}
-
-.mi-neural-intro.mi-neural-exiting {
-    transform: translate3d(0, -100%, 0);
-    transition: transform 2.2s cubic-bezier(.76, 0, .24, 1);
-}
-
-@keyframes miNeuralPulse {
-    from {
-        stroke-dashoffset: 0;
-    }
-
-    to {
-        stroke-dashoffset: -248;
-    }
-}
-
-@keyframes miNodePulse {
-    from {
-        opacity: 0.62;
-        transform: scale(0.82);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1.16);
-    }
-}
-
-@keyframes miNodeHalo {
-    from {
-        opacity: 0.24;
-        transform: scale(0.78);
-    }
-
-    to {
-        opacity: 0.72;
-        transform: scale(1.22);
-    }
-}
-
-@keyframes miAmbientLight {
-    from {
-        opacity: 0.38;
-        transform: scale(0.95);
-    }
-
-    to {
-        opacity: 0.78;
-        transform: scale(1.05);
-    }
-}
-
-@keyframes miLogoGlow {
-    from {
-        opacity: 0.42;
-        transform: scale(1.08);
-    }
-
-    to {
-        opacity: 0.9;
-        transform: scale(1.3);
-    }
-}
-
-@keyframes miLogoShine {
-    from {
-        left: -55%;
-    }
-
-    to {
-        left: 135%;
-    }
-}
-
-@media (max-width: 700px) {
-    .mi-logo-reveal {
-        width: clamp(130px, 42vw, 210px);
-    }
-
-    .mi-neural-network {
-        inset: -8%;
-        width: 116%;
-        height: 116%;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .mi-neural-node,
-    .mi-neural-node-halo,
-    .mi-neural-pulse,
-    .mi-neural-light,
-    .mi-logo-glow,
-    .mi-logo-shine::before {
-        animation: none !important;
-    }
-
-    .mi-neural-intro,
-    .mi-neural-network,
-    .mi-logo-reveal {
-        transition-duration: 0.4s !important;
-    }
-
-    .mi-neural-intro.mi-neural-exiting {
-        transition-duration: 0.7s !important;
-    }
-}
-
-/* MI_NEURAL_LOGO_SEQUENCE_END */
-
-/* MI_LARGE_LOGO_TAGLINE_START */
-
-.mi-logo-reveal {
-    width: clamp(190px, 22vw, 340px) !important;
-    overflow: visible !important;
-}
-
-.mi-logo-tagline {
-    position: absolute;
-    top: calc(100% + 30px);
-    left: 50%;
-    width: max-content;
-    max-width: 92vw;
-    transform: translateX(-50%) translateY(18px);
-    opacity: 0;
-    visibility: hidden;
-    filter: blur(14px);
-    white-space: nowrap;
-    text-align: center;
-    font-size: clamp(0.72rem, 1.25vw, 1.08rem);
-    font-weight: 700;
-    line-height: 1.4;
-    letter-spacing: clamp(0.18em, 0.5vw, 0.48em);
-    color: #6ee7ff;
-    background: linear-gradient(
-        90deg,
-        #4f8cff 0%,
-        #6ee7ff 28%,
-        #ffffff 50%,
-        #6ee7ff 72%,
-        #4f8cff 100%
-    );
-    background-size: 220% 100%;
-    background-position: 0% 50%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow:
-        0 0 10px rgba(110, 231, 255, 0.42),
-        0 0 24px rgba(79, 140, 255, 0.25);
-    pointer-events: none;
-    will-change: opacity, transform, filter;
-}
-
-.mi-logo-tagline span {
-    display: inline-block;
-    margin: 0 0.35em;
-    color: #ffffff;
-    -webkit-text-fill-color: #ffffff;
-    text-shadow:
-        0 0 8px rgba(255, 255, 255, 0.55),
-        0 0 18px rgba(110, 231, 255, 0.4);
-}
-
-.mi-neural-intro.mi-logo-entering .mi-logo-tagline,
-.mi-neural-intro.mi-logo-settled .mi-logo-tagline {
-    visibility: visible;
-    opacity: 1;
-    filter: blur(0);
-    transform: translateX(-50%) translateY(0);
-    transition:
-        opacity 1.2s cubic-bezier(.22, 1, .36, 1) 0.35s,
-        filter 1.5s cubic-bezier(.22, 1, .36, 1) 0.35s,
-        transform 1.5s cubic-bezier(.22, 1, .36, 1) 0.35s;
-    animation: miTaglineLightSweep 4s ease-in-out infinite;
-}
-
-.mi-neural-intro.mi-logo-leaving .mi-logo-tagline {
-    opacity: 0;
-    filter: blur(12px);
-    transform: translateX(-50%) translateY(12px);
-    transition:
-        opacity 0.9s cubic-bezier(.22, 1, .36, 1),
-        filter 0.9s cubic-bezier(.22, 1, .36, 1),
-        transform 0.9s cubic-bezier(.22, 1, .36, 1);
-}
-
-@keyframes miTaglineLightSweep {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-@media (max-width: 700px) {
-    .mi-logo-reveal {
-        width: clamp(155px, 48vw, 230px) !important;
-    }
-
-    .mi-logo-tagline {
-        top: calc(100% + 22px);
-        max-width: 94vw;
-        font-size: clamp(0.56rem, 2.8vw, 0.76rem);
-        letter-spacing: clamp(0.08em, 0.6vw, 0.2em);
-    }
-
-    .mi-logo-tagline span {
-        margin: 0 0.16em;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .mi-logo-tagline {
-        animation: none !important;
-        transition-duration: 0.3s !important;
-    }
-}
-
-/* MI_LARGE_LOGO_TAGLINE_END */
-
-/* MI_FRONT_PAGE_START */
-
-html {
-    scroll-behavior: smooth;
-}
-
-html,
-body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-.mi-front-page {
-    position: relative;
-    isolation: isolate;
-    width: 100%;
-    height: 100vh;
-    height: 100svh;
-    min-height: 620px;
-    overflow: hidden;
-    background: #02040a;
-}
-
-/*
+ MI_LARGE_LEFT_WALKING_ROBOT_START * Make the complete robot noticeably larger. * Support either location of the walking state class. * Move the robot completely through the left side of the viewport. * Alternate the arms while walking. * Alternate the legs while walking. * Move and resize the robot shadow with the robot. * Keep the robot large but responsive on smaller screens. * MI_LARGE_LEFT_WALKING_ROBOT_END * MI_REMOVE_INTRO_ROBOT_START * Permanently hide every old robot element and robot artifact. * Preserve the existing slow upward welcome-screen exit. * MI_REMOVE_INTRO_ROBOT_END * MI_NEURAL_LOGO_SEQUENCE_START * MI_NEURAL_LOGO_SEQUENCE_END * MI_LARGE_LOGO_TAGLINE_START * MI_LARGE_LOGO_TAGLINE_END * MI_FRONT_PAGE_START *
 The banner belongs to this section.
 It is not fixed, so the complete front page scrolls away normally.
-*/
-.mi-front-page-banner {
-    position: absolute;
-    z-index: -3;
-    inset: 0;
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-    user-select: none;
-    pointer-events: none;
-}
-
-.mi-front-page-shade {
-    position: absolute;
-    z-index: -2;
-    inset: 0;
-    pointer-events: none;
-    background:
-        linear-gradient(
-            180deg,
-            rgba(0, 0, 0, 0.05) 0%,
-            rgba(0, 0, 0, 0.01) 48%,
-            rgba(0, 0, 0, 0.42) 100%
-        );
-}
-
-.mi-front-page-scroll-button {
-    position: absolute;
-    z-index: 5;
-    bottom: clamp(24px, 4vh, 48px);
-    left: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 11px;
-    color: rgba(255, 255, 255, 0.92);
-    text-decoration: none;
-    transform: translateX(-50%);
-    transition:
-        opacity 250ms ease,
-        transform 250ms ease;
-}
-
-.mi-front-page-scroll-button:hover {
-    transform: translateX(-50%) translateY(-5px);
-}
-
-.mi-front-page-scroll-text {
-    font-size: 0.6rem;
-    font-weight: 700;
-    line-height: 1;
-    letter-spacing: 0.36em;
-    text-indent: 0.36em;
-    text-shadow:
-        0 0 10px rgba(255, 255, 255, 0.35),
-        0 0 20px rgba(71, 178, 255, 0.38);
-}
-
-.mi-front-page-scroll-mouse {
-    position: relative;
-    display: block;
-    width: 24px;
-    height: 38px;
-    border: 1px solid rgba(255, 255, 255, 0.65);
-    border-radius: 18px;
-    box-shadow:
-        0 0 12px rgba(255, 255, 255, 0.12),
-        0 0 22px rgba(71, 178, 255, 0.18);
-}
-
-.mi-front-page-scroll-mouse span {
-    position: absolute;
-    top: 7px;
-    left: 50%;
-    width: 3px;
-    height: 7px;
-    border-radius: 99px;
-    background: #ffffff;
-    box-shadow: 0 0 9px rgba(100, 210, 255, 0.9);
-    transform: translateX(-50%);
-    animation: miFrontPageScrollIndicator 1.8s ease-in-out infinite;
-}
-
-.mi-main-content-start {
-    width: 100%;
-    height: 0;
-    scroll-margin-top: 0;
-}
-
-@keyframes miFrontPageScrollIndicator {
-    0% {
-        opacity: 0;
-        transform: translateX(-50%) translateY(0);
-    }
-
-    25% {
-        opacity: 1;
-    }
-
-    75% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-        transform: translateX(-50%) translateY(15px);
-    }
-}
-
-@media (max-width: 700px) {
-    .mi-front-page {
-        min-height: 520px;
-    }
-
-    .mi-front-page-banner {
-        object-position: center center;
-    }
-
-    .mi-front-page-scroll-button {
-        bottom: 20px;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-
-    .mi-front-page-scroll-mouse span {
-        animation: none;
-    }
-}
-
-/* MI_FRONT_PAGE_END */
-
-/* MI_WELCOME_FRONT_PAGE_REPAIR_START */
-
-/*
+* MI_FRONT_PAGE_END * MI_WELCOME_FRONT_PAGE_REPAIR_START *
 Normal document scrolling.
 Do not use scroll snapping because it can trap the welcome overlay
 on a blank black screen.
-*/
-html {
-    width: 100% !important;
-    min-height: 100% !important;
-    height: auto !important;
-    margin: 0 !important;
-    overflow-x: hidden !important;
-    overflow-y: auto !important;
-    scroll-snap-type: none !important;
-    scroll-behavior: smooth;
-}
-
-body {
-    position: relative !important;
-    width: 100% !important;
-    min-height: 100% !important;
-    height: auto !important;
-    margin: 0 !important;
-    overflow-x: hidden !important;
-    overflow-y: visible !important;
-    scroll-snap-type: none !important;
-}
-
-/*
+*
 Keep the welcome animation above everything while it is active.
-*/
-.mi-neural-intro {
-    position: fixed !important;
-    z-index: 2147483000 !important;
-    inset: 0 !important;
-    display: block;
-    width: 100vw !important;
-    height: 100vh !important;
-    height: 100dvh !important;
-    overflow: hidden !important;
-    background: #000000;
-    pointer-events: auto;
-}
-
-/*
+*
 Do not permanently hide the logo.
 Its existing animation classes remain responsible for opacity
 and transform changes.
-*/
-.mi-neural-intro .mi-logo-reveal {
-    display: flex !important;
-    visibility: visible !important;
-}
-
-.mi-neural-intro .mi-intro-logo,
-.mi-neural-intro .mi-logo-reveal img {
-    display: block !important;
-    visibility: visible !important;
-    max-width: 100% !important;
-    height: auto !important;
-}
-
-/*
+*
 The tagline must remain available during the logo animation.
-*/
-.mi-neural-intro .mi-logo-tagline {
-    display: block !important;
-}
-
-/*
+*
 When the intro JavaScript finishes, the overlay may use one of
 these common completion classes.
-*/
-.mi-neural-intro.mi-intro-complete,
-.mi-neural-intro.mi-intro-finished,
-.mi-neural-intro.mi-intro-hidden,
-.mi-neural-intro.is-complete,
-.mi-neural-intro.is-finished,
-.mi-neural-intro.is-hidden {
-    pointer-events: none !important;
-}
-
-/*
+*
 The front banner is a real standalone first section.
 It occupies exactly one complete visible browser viewport.
-*/
-#mi-front-page,
-.mi-front-page {
-    position: relative !important;
-    z-index: 1 !important;
-    inset: auto !important;
-    display: block !important;
-
-    width: 100% !important;
-    height: 100vh !important;
-    height: 100dvh !important;
-    min-height: 100vh !important;
-    min-height: 100dvh !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow: hidden !important;
-
-    transform: none !important;
-    translate: none !important;
-    scroll-snap-align: none !important;
-    scroll-snap-stop: normal !important;
-
-    background: #02040a;
-}
-
-/*
+*
 The banner scrolls upward together with its section.
 It is not fixed or sticky.
-*/
-.mi-front-page-banner,
-.mi-front-page-image {
-    position: absolute !important;
-    z-index: -3 !important;
-    inset: 0 !important;
-
-    display: block !important;
-    width: 100% !important;
-    height: 100% !important;
-
-    object-fit: cover !important;
-    object-position: center center !important;
-
-    background-position: center center !important;
-    background-size: cover !important;
-    background-repeat: no-repeat !important;
-    background-attachment: scroll !important;
-
-    transform: none !important;
-    translate: none !important;
-    pointer-events: none !important;
-    user-select: none !important;
-}
-
-/*
+*
 Remove all previous SCROLL text and mouse indicators.
-*/
-.mi-front-page-scroll-button,
-.mi-front-page-scroll,
-.mi-front-page-scroll-text,
-.mi-front-page-scroll-mouse,
-.mi-front-page-scroll-line,
-.mi-front-page-scroll-label {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-}
-
-/*
+*
 The anchor takes no space.
 The real website begins immediately after the complete banner section.
-*/
-#mi-main-content-start,
-.mi-main-content-start,
-#main-website-content,
-.mi-main-website-anchor {
-    position: relative !important;
-    display: block !important;
-    width: 100% !important;
-    height: 0 !important;
-    min-height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow: visible !important;
-}
-
-/*
+*
 Prevent existing navigation or hero sections from overlapping
 the front banner with negative margins or vertical transforms.
-*/
-#mi-main-content-start ~ header,
-#mi-main-content-start ~ main,
-#mi-main-content-start ~ section,
-#mi-main-content-start ~ footer,
-.mi-main-content-start ~ header,
-.mi-main-content-start ~ main,
-.mi-main-content-start ~ section,
-.mi-main-content-start ~ footer {
-    position: relative;
-    margin-top: 0 !important;
-    translate: none !important;
-}
-
-/*
+*
 Do not force any main website section to snap into view.
 The banner must scroll away naturally before the next content appears.
-*/
-body > header,
-body > main,
-body > section,
-body > footer {
-    scroll-snap-align: none !important;
-    scroll-snap-stop: normal !important;
-}
-
-/*
+*
 Keep the front page behind the welcome intro until the intro finishes.
-*/
-body:has(.mi-neural-intro:not(.mi-intro-complete):not(.mi-intro-finished):not(.mi-intro-hidden):not(.is-complete):not(.is-finished):not(.is-hidden)) {
-    overflow: hidden;
-}
-
-@media (max-width: 700px) {
-    #mi-front-page,
-    .mi-front-page {
-        height: 100svh !important;
-        min-height: 100svh !important;
-    }
-
-    .mi-front-page-banner,
-    .mi-front-page-image {
-        object-position: center center !important;
-        background-position: center center !important;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-}
-
-/* MI_WELCOME_FRONT_PAGE_REPAIR_END */
-
-/* MI_INTRO_LOGO_CENTER_START */
-
-/*
+* MI_WELCOME_FRONT_PAGE_REPAIR_END * MI_INTRO_LOGO_CENTER_START *
 Center the complete logo and tagline group in the visible screen.
-*/
-.mi-neural-intro {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-
-.mi-neural-intro .mi-logo-reveal {
-    position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
-
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    width: clamp(210px, 24vw, 360px) !important;
-    height: auto !important;
-
-    margin: 0 !important;
-    transform: translate(-50%, -50%) !important;
-    transform-origin: center center !important;
-}
-
-.mi-neural-intro .mi-intro-logo,
-.mi-neural-intro .mi-logo-reveal img {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-
-    display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-
-    margin: 0 auto !important;
-    transform-origin: center center !important;
-}
-
-.mi-neural-intro .mi-logo-tagline {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-
-    width: max-content !important;
-    max-width: 94vw !important;
-
-    margin-top: 28px !important;
-
-    transform: none !important;
-    text-align: center !important;
-}
-
-/*
+*
 Preserve the existing zoom animation while keeping it centered.
-*/
-.mi-neural-intro.mi-logo-entering .mi-logo-reveal,
-.mi-neural-intro.mi-logo-settled .mi-logo-reveal {
-    left: 50% !important;
-    top: 50% !important;
-}
-
-@media (max-width: 700px) {
-    .mi-neural-intro .mi-logo-reveal {
-        width: clamp(180px, 58vw, 280px) !important;
-    }
-
-    .mi-neural-intro .mi-logo-tagline {
-        margin-top: 22px !important;
-    }
-}
-
-/* MI_INTRO_LOGO_CENTER_END */
-
-/* MI_FRONT_PAGE_FULL_SCROLL_START */
-
-/*
+* MI_INTRO_LOGO_CENTER_END * MI_FRONT_PAGE_FULL_SCROLL_START *
 The front page always occupies one complete browser viewport.
 It scrolls as one full page and cannot remain partially visible.
-*/
-html,
-body {
-    scroll-snap-type: none !important;
-    scroll-behavior: smooth !important;
-}
-
-#mi-front-page,
-.mi-front-page {
-    position: relative !important;
-    width: 100% !important;
-
-    height: 100vh !important;
-    height: 100dvh !important;
-    min-height: 100vh !important;
-    min-height: 100dvh !important;
-    max-height: 100dvh !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow: hidden !important;
-
-    transform: none !important;
-    translate: none !important;
-}
-
-.mi-front-page-banner,
-.mi-front-page-image {
-    position: absolute !important;
-    inset: 0 !important;
-
-    width: 100% !important;
-    height: 100% !important;
-
-    object-fit: cover !important;
-    object-position: center center !important;
-
-    background-size: cover !important;
-    background-position: center center !important;
-    background-attachment: scroll !important;
-
-    transform: none !important;
-}
-
-/*
+*
 Remove every old scroll icon, mouse and label.
-*/
-.mi-front-page-scroll-button,
-.mi-front-page-scroll,
-.mi-front-page-scroll-text,
-.mi-front-page-scroll-mouse,
-.mi-front-page-scroll-line,
-.mi-front-page-scroll-label {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-}
-
-#mi-main-content-start,
-.mi-main-content-start {
-    display: block !important;
-    width: 100% !important;
-    height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-/*
+*
 Prevent the navigation and main website from moving over
 the front-page banner.
-*/
-#mi-main-content-start ~ *,
+*,
 .mi-main-content-start ~ * {
     margin-top: 0 !important;
 }
@@ -2221,778 +1005,60 @@ html.mi-front-page-scrolling body {
     }
 }
 
-/* MI_FRONT_PAGE_FULL_SCROLL_END */
-
-/* MI_FIXED_GLASS_NAV_START */
-
-/*
+ MI_FRONT_PAGE_FULL_SCROLL_END * MI_FIXED_GLASS_NAV_START *
 The MI CORTEX X navigation becomes fixed only after
 the full front-page banner has scrolled away.
-*/
-.mi-fixed-glass-nav {
-    position: fixed !important;
-    z-index: 999999 !important;
-
-    top: 16px !important;
-    left: clamp(20px, 6.3vw, 88px) !important;
-    right: clamp(20px, 6.3vw, 88px) !important;
-
-    width: auto !important;
-    max-width: none !important;
-
-    margin: 0 !important;
-
-    background:
-        linear-gradient(
-            115deg,
-            rgba(4, 13, 27, 0.78),
-            rgba(8, 9, 31, 0.72)
-        ) !important;
-
-    border: 1px solid rgba(170, 205, 255, 0.18) !important;
-    border-radius: 999px !important;
-
-    -webkit-backdrop-filter:
-        blur(24px)
-        saturate(145%) !important;
-
-    backdrop-filter:
-        blur(24px)
-        saturate(145%) !important;
-
-    box-shadow:
-        0 12px 45px rgba(0, 0, 0, 0.34),
-        inset 0 1px 0 rgba(255, 255, 255, 0.055),
-        0 0 28px rgba(48, 145, 255, 0.06) !important;
-
-    transform: translateY(-135%) !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-
-    transition:
-        transform 650ms cubic-bezier(.22, 1, .36, 1),
-        opacity 450ms ease,
-        background-color 350ms ease,
-        box-shadow 350ms ease !important;
-
-    will-change: transform, opacity;
-}
-
-/*
+*
 Show the blurred navigation after the front page
 has completely left the screen.
-*/
-html.mi-main-site-visible .mi-fixed-glass-nav {
-    transform: translateY(0) !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
-}
-
-/*
+*
 Increase the blur slightly while scrolling.
-*/
-html.mi-page-is-scrolling .mi-fixed-glass-nav {
-    background:
-        linear-gradient(
-            115deg,
-            rgba(3, 11, 24, 0.86),
-            rgba(10, 8, 34, 0.82)
-        ) !important;
-
-    -webkit-backdrop-filter:
-        blur(30px)
-        saturate(155%) !important;
-
-    backdrop-filter:
-        blur(30px)
-        saturate(155%) !important;
-
-    box-shadow:
-        0 16px 52px rgba(0, 0, 0, 0.42),
-        inset 0 1px 0 rgba(255, 255, 255, 0.07),
-        0 0 35px rgba(48, 145, 255, 0.09) !important;
-}
-
-@media (max-width: 850px) {
-    .mi-fixed-glass-nav {
-        top: 10px !important;
-        left: 12px !important;
-        right: 12px !important;
-        border-radius: 28px !important;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .mi-fixed-glass-nav {
-        transition-duration: 0.2s !important;
-    }
-}
-
-/* MI_FIXED_GLASS_NAV_END */
-
-/* MI_INNER_ROUNDED_NAV_START */
-
-/*
+* MI_FIXED_GLASS_NAV_END * MI_INNER_ROUNDED_NAV_START *
 The outer header must remain completely invisible.
 Only the original inner rounded navigation bar is displayed.
-*/
-.mi-fixed-glass-nav {
-    position: fixed !important;
-    z-index: 999999 !important;
-
-    top: 16px !important;
-    left: clamp(20px, 6.3vw, 88px) !important;
-    right: clamp(20px, 6.3vw, 88px) !important;
-
-    width: auto !important;
-    max-width: none !important;
-    margin: 0 !important;
-
-    border: none !important;
-    outline: none !important;
-    border-radius: 999px !important;
-
-    background:
-        linear-gradient(
-            115deg,
-            rgba(4, 13, 27, 0.76),
-            rgba(8, 9, 31, 0.72)
-        ) !important;
-
-    -webkit-backdrop-filter:
-        blur(24px)
-        saturate(145%) !important;
-
-    backdrop-filter:
-        blur(24px)
-        saturate(145%) !important;
-
-    box-shadow:
-        0 12px 45px rgba(0, 0, 0, 0.30),
-        inset 0 1px 0 rgba(255, 255, 255, 0.055) !important;
-
-    transform: translateY(-135%) !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-
-    transition:
-        transform 650ms cubic-bezier(.22, 1, .36, 1),
-        opacity 450ms ease !important;
-}
-
-html.mi-main-site-visible .mi-fixed-glass-nav {
-    transform: translateY(0) !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
-}
-
-/*
+*
 Remove the large outer rectangle created by the header.
-*/
-.mi-fixed-nav-outer-clean {
-    position: static !important;
-    inset: auto !important;
-
-    width: auto !important;
-    height: auto !important;
-    min-height: 0 !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    border: none !important;
-    outline: none !important;
-    border-radius: 0 !important;
-
-    background: transparent !important;
-
-    -webkit-backdrop-filter: none !important;
-    backdrop-filter: none !important;
-
-    box-shadow: none !important;
-    transform: none !important;
-}
-
-/*
+*
 Disable pseudo-elements that may create another outer panel.
-*/
-.mi-fixed-nav-outer-clean::before,
-.mi-fixed-nav-outer-clean::after {
-    content: none !important;
-    display: none !important;
-}
-
-/*
+*
 Do not add a second background or outline inside the selected rounded bar.
-*/
-.mi-fixed-glass-nav::before,
-.mi-fixed-glass-nav::after {
-    content: none !important;
-    display: none !important;
-}
-
-/*
+*
 Preserve the original spacing and layout inside the rounded bar.
-*/
-.mi-fixed-glass-nav > div,
-.mi-fixed-glass-nav > nav {
-    width: 100% !important;
-    margin: 0 !important;
-
-    border: none !important;
-    outline: none !important;
-
-    background: transparent !important;
-    box-shadow: none !important;
-}
-
-html.mi-page-is-scrolling .mi-fixed-glass-nav {
-    background:
-        linear-gradient(
-            115deg,
-            rgba(3, 11, 24, 0.84),
-            rgba(10, 8, 34, 0.80)
-        ) !important;
-
-    -webkit-backdrop-filter:
-        blur(30px)
-        saturate(155%) !important;
-
-    backdrop-filter:
-        blur(30px)
-        saturate(155%) !important;
-
-    box-shadow:
-        0 15px 48px rgba(0, 0, 0, 0.38),
-        inset 0 1px 0 rgba(255, 255, 255, 0.065) !important;
-}
-
-@media (max-width: 850px) {
-    .mi-fixed-glass-nav {
-        top: 10px !important;
-        left: 12px !important;
-        right: 12px !important;
-        border-radius: 28px !important;
-    }
-}
-
-/* MI_INNER_ROUNDED_NAV_END */
-
-/* MI_NAV_SINGLE_LINE_LIGHT_START */
-
-/*
+* MI_INNER_ROUNDED_NAV_END * MI_NAV_SINGLE_LINE_LIGHT_START *
 Keep the entire navigation bar on one horizontal line.
-*/
-.mi-fixed-glass-nav {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-
-    min-height: 92px !important;
-    height: auto !important;
-
-    padding: 14px 24px !important;
-
-    overflow: hidden !important;
-    white-space: nowrap !important;
-
-    background:
-        linear-gradient(
-            110deg,
-            rgba(18, 35, 54, 0.82) 0%,
-            rgba(11, 19, 40, 0.78) 48%,
-            rgba(25, 17, 58, 0.80) 100%
-        ) !important;
-
-    -webkit-backdrop-filter:
-        blur(28px)
-        saturate(165%)
-        brightness(1.12) !important;
-
-    backdrop-filter:
-        blur(28px)
-        saturate(165%)
-        brightness(1.12) !important;
-
-    box-shadow:
-        0 14px 46px rgba(0, 0, 0, 0.30),
-        0 0 32px rgba(65, 178, 255, 0.11),
-        inset 0 1px 0 rgba(255, 255, 255, 0.09) !important;
-}
-
-/*
+*
 Ensure the direct navigation container also stays on one line.
-*/
-.mi-fixed-glass-nav > div,
-.mi-fixed-glass-nav > nav,
-.mi-fixed-glass-nav .navbar,
-.mi-fixed-glass-nav .nav-container,
-.mi-fixed-glass-nav .navigation {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-
-    width: 100% !important;
-    min-width: 0 !important;
-
-    gap: 24px !important;
-    flex-wrap: nowrap !important;
-
-    white-space: nowrap !important;
-}
-
-/*
+*
 Keep the logo and MI CORTEX X title on the same line.
-*/
-.mi-fixed-glass-nav a:has(img),
-.mi-fixed-glass-nav .logo,
-.mi-fixed-glass-nav .brand,
-.mi-fixed-glass-nav .navbar-brand,
-.mi-fixed-glass-nav .site-logo,
-.mi-fixed-glass-nav .nav-logo {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-
-    flex: 0 0 auto !important;
-    gap: 14px !important;
-
-    width: auto !important;
-    min-width: max-content !important;
-
-    white-space: nowrap !important;
-}
-
-/*
+*
 Prevent MI CORTEX X from breaking into three lines.
-*/
-.mi-fixed-glass-nav .logo span,
-.mi-fixed-glass-nav .brand span,
-.mi-fixed-glass-nav .navbar-brand span,
-.mi-fixed-glass-nav .site-logo span,
-.mi-fixed-glass-nav .nav-logo span,
-.mi-fixed-glass-nav a:has(img) span {
-    display: inline-block !important;
-
-    width: auto !important;
-    max-width: none !important;
-
-    white-space: nowrap !important;
-    word-break: keep-all !important;
-    overflow-wrap: normal !important;
-
-    line-height: 1 !important;
-}
-
-/*
+*
 Keep the menu links on one horizontal line.
-*/
-.mi-fixed-glass-nav ul {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-
-    flex: 1 1 auto !important;
-    flex-wrap: nowrap !important;
-
-    gap: clamp(16px, 2vw, 30px) !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    white-space: nowrap !important;
-    list-style: none !important;
-}
-
-.mi-fixed-glass-nav li {
-    display: block !important;
-    flex: 0 0 auto !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    white-space: nowrap !important;
-}
-
-.mi-fixed-glass-nav a {
-    white-space: nowrap !important;
-    word-break: keep-all !important;
-    overflow-wrap: normal !important;
-}
-
-/*
+*
 Make the navigation text slightly brighter.
-*/
-.mi-fixed-glass-nav a,
-.mi-fixed-glass-nav button {
-    color: rgba(225, 235, 255, 0.82) !important;
-    text-shadow:
-        0 0 12px rgba(110, 210, 255, 0.08) !important;
-}
-
-.mi-fixed-glass-nav a:hover,
-.mi-fixed-glass-nav a[aria-current="page"],
-.mi-fixed-glass-nav .active {
-    color: #ffffff !important;
-    text-shadow:
-        0 0 10px rgba(255, 255, 255, 0.20),
-        0 0 18px rgba(100, 205, 255, 0.18) !important;
-}
-
-/*
+*
 Keep the logo at a stable size.
-*/
-.mi-fixed-glass-nav img {
-    flex: 0 0 auto !important;
-
-    width: 62px !important;
-    height: 62px !important;
-
-    max-width: 62px !important;
-    max-height: 62px !important;
-
-    object-fit: contain !important;
-}
-
-/*
+*
 Slightly brighter appearance while scrolling.
-*/
-html.mi-page-is-scrolling .mi-fixed-glass-nav {
-    background:
-        linear-gradient(
-            110deg,
-            rgba(20, 39, 59, 0.88) 0%,
-            rgba(12, 21, 43, 0.86) 48%,
-            rgba(28, 19, 65, 0.87) 100%
-        ) !important;
-
-    -webkit-backdrop-filter:
-        blur(32px)
-        saturate(175%)
-        brightness(1.15) !important;
-
-    backdrop-filter:
-        blur(32px)
-        saturate(175%)
-        brightness(1.15) !important;
-}
-
-@media (max-width: 1050px) {
-    .mi-fixed-glass-nav {
-        padding: 12px 18px !important;
-    }
-
-    .mi-fixed-glass-nav > div,
-    .mi-fixed-glass-nav > nav,
-    .mi-fixed-glass-nav .navbar,
-    .mi-fixed-glass-nav .nav-container,
-    .mi-fixed-glass-nav .navigation {
-        gap: 15px !important;
-    }
-
-    .mi-fixed-glass-nav ul {
-        gap: 15px !important;
-    }
-
-    .mi-fixed-glass-nav a {
-        font-size: 0.9rem !important;
-    }
-
-    .mi-fixed-glass-nav img {
-        width: 56px !important;
-        height: 56px !important;
-        max-width: 56px !important;
-        max-height: 56px !important;
-    }
-}
-
-@media (max-width: 850px) {
-    .mi-fixed-glass-nav {
-        overflow-x: auto !important;
-        overflow-y: hidden !important;
-        scrollbar-width: none !important;
-    }
-
-    .mi-fixed-glass-nav::-webkit-scrollbar {
-        display: none !important;
-    }
-
-    .mi-fixed-glass-nav > div,
-    .mi-fixed-glass-nav > nav,
-    .mi-fixed-glass-nav .navbar,
-    .mi-fixed-glass-nav .nav-container,
-    .mi-fixed-glass-nav .navigation {
-        min-width: max-content !important;
-    }
-}
-
-/* MI_NAV_SINGLE_LINE_LIGHT_END */
-
-
-
-
-
-
-
-
-
-/* MI_IPHONE_LIQUID_GLASS_START */
-
-/*
+* MI_NAV_SINGLE_LINE_LIGHT_END * MI_IPHONE_LIQUID_GLASS_START *
 Transparent liquid-glass navigation.
 The content moving behind the bar remains visible,
 but appears strongly blurred, brighter and optically softened.
-*/
-.mi-fixed-glass-nav {
-    isolation: isolate !important;
-
-    overflow: hidden !important;
-
-    border: 1px solid rgba(190, 220, 255, 0.10) !important;
-    outline: none !important;
-    border-radius: 999px !important;
-
-    background:
-        linear-gradient(
-            115deg,
-            rgba(34, 70, 98, 0.18) 0%,
-            rgba(14, 25, 54, 0.16) 46%,
-            rgba(54, 28, 98, 0.18) 100%
-        ) !important;
-
-    -webkit-backdrop-filter:
-        blur(30px)
-        saturate(185%)
-        brightness(1.18)
-        contrast(1.04) !important;
-
-    backdrop-filter:
-        blur(30px)
-        saturate(185%)
-        brightness(1.18)
-        contrast(1.04) !important;
-
-    box-shadow:
-        0 18px 55px rgba(0, 0, 0, 0.28),
-        0 0 42px rgba(66, 190, 255, 0.10),
-        inset 0 1px 0 rgba(255, 255, 255, 0.16),
-        inset 0 -1px 0 rgba(104, 125, 255, 0.08) !important;
-}
-
-/*
+*
 Liquid refraction layer.
 This creates the soft magnified-lens appearance.
-*/
-.mi-fixed-glass-nav::before {
-    content: "" !important;
-
-    position: absolute !important;
-    z-index: -2 !important;
-
-    inset: -18px !important;
-
-    display: block !important;
-    pointer-events: none !important;
-
-    border-radius: inherit !important;
-
-    background:
-        radial-gradient(
-            circle at 18% 20%,
-            rgba(140, 230, 255, 0.16),
-            transparent 31%
-        ),
-        radial-gradient(
-            circle at 82% 75%,
-            rgba(147, 91, 255, 0.15),
-            transparent 36%
-        ),
-        linear-gradient(
-            105deg,
-            rgba(255, 255, 255, 0.055),
-            transparent 34%,
-            rgba(255, 255, 255, 0.025) 65%,
-            rgba(148, 105, 255, 0.07)
-        ) !important;
-
-    -webkit-backdrop-filter:
-        blur(23px)
-        saturate(205%)
-        brightness(1.22) !important;
-
-    backdrop-filter:
-        blur(23px)
-        saturate(205%)
-        brightness(1.22) !important;
-
-    transform: scale(1.035) !important;
-    transform-origin: center center !important;
-
-    opacity: 0.96 !important;
-}
-
-/*
+*
 Gloss and curved liquid reflections.
-*/
-.mi-fixed-glass-nav::after {
-    content: "" !important;
-
-    position: absolute !important;
-    z-index: -1 !important;
-
-    top: 2px !important;
-    right: 18px !important;
-    bottom: 2px !important;
-    left: 18px !important;
-
-    display: block !important;
-    pointer-events: none !important;
-
-    border-radius: inherit !important;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.13) 0%,
-            rgba(255, 255, 255, 0.025) 24%,
-            transparent 48%,
-            rgba(80, 150, 255, 0.025) 75%,
-            rgba(125, 83, 255, 0.07) 100%
-        ) !important;
-
-    box-shadow:
-        inset 0 1px 1px rgba(255, 255, 255, 0.12),
-        inset 0 -1px 1px rgba(110, 95, 255, 0.06) !important;
-
-    opacity: 0.85 !important;
-}
-
-/*
+*
 Remove opaque backgrounds from internal navigation containers.
 They must remain transparent so the background can be seen.
-*/
-.mi-fixed-glass-nav > div,
-.mi-fixed-glass-nav > nav,
-.mi-fixed-glass-nav .navbar,
-.mi-fixed-glass-nav .nav-container,
-.mi-fixed-glass-nav .navigation {
-    position: relative !important;
-    z-index: 2 !important;
-
-    background: transparent !important;
-    border: none !important;
-    outline: none !important;
-    box-shadow: none !important;
-}
-
-/*
+*
 Increase the liquid effect while the page is moving.
-*/
-html.mi-page-is-scrolling .mi-fixed-glass-nav {
-    background:
-        linear-gradient(
-            115deg,
-            rgba(35, 78, 108, 0.15) 0%,
-            rgba(14, 24, 52, 0.13) 46%,
-            rgba(58, 28, 105, 0.15) 100%
-        ) !important;
-
-    -webkit-backdrop-filter:
-        blur(38px)
-        saturate(215%)
-        brightness(1.22)
-        contrast(1.06) !important;
-
-    backdrop-filter:
-        blur(38px)
-        saturate(215%)
-        brightness(1.22)
-        contrast(1.06) !important;
-
-    box-shadow:
-        0 22px 68px rgba(0, 0, 0, 0.34),
-        0 0 52px rgba(65, 190, 255, 0.14),
-        inset 0 1px 0 rgba(255, 255, 255, 0.19),
-        inset 0 -1px 0 rgba(135, 95, 255, 0.11) !important;
-}
-
-html.mi-page-is-scrolling .mi-fixed-glass-nav::before {
-    transform: scale(1.055) !important;
-
-    -webkit-backdrop-filter:
-        blur(29px)
-        saturate(225%)
-        brightness(1.25) !important;
-
-    backdrop-filter:
-        blur(29px)
-        saturate(225%)
-        brightness(1.25) !important;
-}
-
-/*
+*
 Keep all text and the logo clear above the liquid background.
-*/
-.mi-fixed-glass-nav img,
-.mi-fixed-glass-nav a,
-.mi-fixed-glass-nav button,
-.mi-fixed-glass-nav span,
-.mi-fixed-glass-nav ul,
-.mi-fixed-glass-nav li {
-    position: relative !important;
-    z-index: 3 !important;
-}
-
-/*
+*
 Preserve the premium gold company name.
-*/
-.mi-fixed-glass-nav .logo span,
-.mi-fixed-glass-nav .brand span,
-.mi-fixed-glass-nav .navbar-brand span,
-.mi-fixed-glass-nav .site-logo span,
-.mi-fixed-glass-nav .nav-logo span,
-.mi-fixed-glass-nav a:has(img) span {
-    color: #ffd86a !important;
-
-    text-shadow:
-        0 0 8px rgba(255, 216, 106, 0.58),
-        0 0 20px rgba(255, 194, 65, 0.30),
-        0 0 38px rgba(255, 170, 0, 0.16) !important;
-}
-
-@media (max-width: 850px) {
-    .mi-fixed-glass-nav {
-        border-radius: 30px !important;
-
-        -webkit-backdrop-filter:
-            blur(26px)
-            saturate(185%)
-            brightness(1.17) !important;
-
-        backdrop-filter:
-            blur(26px)
-            saturate(185%)
-            brightness(1.17) !important;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .mi-fixed-glass-nav::before {
-        transform: scale(1.035) !important;
-    }
-}
-
-/* MI_IPHONE_LIQUID_GLASS_END */
-
-/* MI_PROFESSIONAL_NAV_REFINEMENT_START */
-
-/*
+* MI_IPHONE_LIQUID_GLASS_END * MI_PROFESSIONAL_NAV_REFINEMENT_START *
 Professional navigation refinement.
 
 Removed:
@@ -3009,322 +1075,25 @@ Preserved:
 - rounded shape
 - gold company title
 - single-line layout
-*/
-
-.mi-fixed-glass-nav {
-    isolation: isolate !important;
-
-    min-height: 88px !important;
-    padding: 12px 24px !important;
-
-    border: 1px solid rgba(190, 215, 255, 0.14) !important;
-    outline: none !important;
-    border-radius: 999px !important;
-
-    background:
-        linear-gradient(
-            110deg,
-            rgba(17, 40, 58, 0.38) 0%,
-            rgba(8, 17, 37, 0.42) 48%,
-            rgba(32, 20, 70, 0.42) 100%
-        ) !important;
-
-    -webkit-backdrop-filter:
-        blur(26px)
-        saturate(150%)
-        brightness(1.06) !important;
-
-    backdrop-filter:
-        blur(26px)
-        saturate(150%)
-        brightness(1.06) !important;
-
-    box-shadow:
-        0 14px 42px rgba(0, 0, 0, 0.30),
-        inset 0 1px 0 rgba(255, 255, 255, 0.10),
-        inset 0 -1px 0 rgba(105, 130, 255, 0.045) !important;
-}
-
-/*
+*
 Keep the glass layers subtle and clean.
-*/
-.mi-fixed-glass-nav::before {
-    content: "" !important;
-
-    position: absolute !important;
-    z-index: -2 !important;
-    inset: 0 !important;
-
-    display: block !important;
-    pointer-events: none !important;
-
-    border-radius: inherit !important;
-
-    background:
-        radial-gradient(
-            circle at 14% 20%,
-            rgba(94, 207, 255, 0.10),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 86% 75%,
-            rgba(126, 84, 255, 0.09),
-            transparent 34%
-        ) !important;
-
-    opacity: 0.80 !important;
-    transform: none !important;
-
-    -webkit-backdrop-filter: none !important;
-    backdrop-filter: none !important;
-}
-
-.mi-fixed-glass-nav::after {
-    content: "" !important;
-
-    position: absolute !important;
-    z-index: -1 !important;
-
-    inset: 1px !important;
-
-    display: block !important;
-    pointer-events: none !important;
-
-    border-radius: inherit !important;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.075) 0%,
-            rgba(255, 255, 255, 0.018) 30%,
-            transparent 58%
-        ) !important;
-
-    box-shadow: none !important;
-    opacity: 0.85 !important;
-}
-
-/*
+*
 Transparent inner containers.
-*/
-.mi-fixed-glass-nav > div,
-.mi-fixed-glass-nav > nav,
-.mi-fixed-glass-nav .navbar,
-.mi-fixed-glass-nav .nav-container,
-.mi-fixed-glass-nav .navigation {
-    position: relative !important;
-    z-index: 2 !important;
-
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-
-    width: 100% !important;
-    min-width: 0 !important;
-
-    gap: 30px !important;
-    flex-wrap: nowrap !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    border: none !important;
-    outline: none !important;
-
-    background: transparent !important;
-    box-shadow: none !important;
-
-    white-space: nowrap !important;
-}
-
-/*
+*
 Professional company identity.
-*/
-.mi-fixed-glass-nav .logo,
-.mi-fixed-glass-nav .brand,
-.mi-fixed-glass-nav .navbar-brand,
-.mi-fixed-glass-nav .site-logo,
-.mi-fixed-glass-nav .nav-logo,
-.mi-fixed-glass-nav a:has(img) {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-
-    flex: 0 0 auto !important;
-
-    gap: 15px !important;
-    margin-right: clamp(46px, 5vw, 88px) !important;
-
-    width: auto !important;
-    min-width: max-content !important;
-
-    white-space: nowrap !important;
-}
-
-/*
+*
 Professional gold title without the heavy black outline.
-*/
-.mi-fixed-glass-nav .logo span,
-.mi-fixed-glass-nav .brand span,
-.mi-fixed-glass-nav .navbar-brand span,
-.mi-fixed-glass-nav .site-logo span,
-.mi-fixed-glass-nav .nav-logo span,
-.mi-fixed-glass-nav a:has(img) span {
-    display: inline-block !important;
-
-    width: auto !important;
-    max-width: none !important;
-
-    color: #f4cf72 !important;
-
-    font-size: clamp(1.05rem, 1.45vw, 1.34rem) !important;
-    font-weight: 750 !important;
-    line-height: 1 !important;
-    letter-spacing: 0.025em !important;
-
-    white-space: nowrap !important;
-    word-break: keep-all !important;
-    overflow-wrap: normal !important;
-
-    -webkit-text-stroke: 0 !important;
-    paint-order: normal !important;
-
-    text-shadow:
-        0 1px 1px rgba(0, 0, 0, 0.42),
-        0 0 10px rgba(244, 207, 114, 0.20) !important;
-}
-
-/*
+*
 Clean logo size.
-*/
-.mi-fixed-glass-nav img {
-    display: block !important;
-    flex: 0 0 auto !important;
-
-    width: 62px !important;
-    height: 62px !important;
-
-    max-width: 62px !important;
-    max-height: 62px !important;
-
-    object-fit: contain !important;
-
-    filter:
-        drop-shadow(0 0 9px rgba(42, 187, 255, 0.22)) !important;
-}
-
-/*
+*
 Balanced navigation spacing.
-*/
-.mi-fixed-glass-nav ul {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-
-    flex: 1 1 auto !important;
-    flex-wrap: nowrap !important;
-
-    gap: clamp(22px, 2.25vw, 36px) !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    list-style: none !important;
-    white-space: nowrap !important;
-}
-
-.mi-fixed-glass-nav li {
-    display: block !important;
-    flex: 0 0 auto !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    white-space: nowrap !important;
-}
-
-/*
+*
 Professional menu typography.
-*/
-.mi-fixed-glass-nav a,
-.mi-fixed-glass-nav button {
-    color: rgba(224, 232, 248, 0.86) !important;
-
-    font-size: clamp(0.86rem, 1.05vw, 1rem) !important;
-    font-weight: 600 !important;
-    line-height: 1 !important;
-    letter-spacing: -0.01em !important;
-
-    white-space: nowrap !important;
-    word-break: keep-all !important;
-    overflow-wrap: normal !important;
-
-    text-shadow: none !important;
-
-    transition:
-        color 220ms ease,
-        opacity 220ms ease,
-        transform 220ms ease !important;
-}
-
-.mi-fixed-glass-nav a:hover,
-.mi-fixed-glass-nav button:hover {
-    color: #ffffff !important;
-    transform: translateY(-1px) !important;
-
-    text-shadow:
-        0 0 10px rgba(115, 206, 255, 0.16) !important;
-}
-
-.mi-fixed-glass-nav a[aria-current="page"],
-.mi-fixed-glass-nav a.active,
-.mi-fixed-glass-nav .active {
-    color: #ffffff !important;
-
-    text-shadow:
-        0 0 10px rgba(115, 206, 255, 0.16) !important;
-}
-
-/*
+*
 Keep scrolling blur professional instead of excessive.
-*/
-html.mi-page-is-scrolling .mi-fixed-glass-nav {
-    background:
-        linear-gradient(
-            110deg,
-            rgba(15, 36, 54, 0.44) 0%,
-            rgba(7, 15, 34, 0.48) 48%,
-            rgba(29, 18, 66, 0.48) 100%
-        ) !important;
-
-    -webkit-backdrop-filter:
-        blur(30px)
-        saturate(160%)
-        brightness(1.07) !important;
-
-    backdrop-filter:
-        blur(30px)
-        saturate(160%)
-        brightness(1.07) !important;
-
-    box-shadow:
-        0 16px 48px rgba(0, 0, 0, 0.34),
-        inset 0 1px 0 rgba(255, 255, 255, 0.11) !important;
-}
-
-html.mi-page-is-scrolling .mi-fixed-glass-nav::before {
-    transform: none !important;
-
-    -webkit-backdrop-filter: none !important;
-    backdrop-filter: none !important;
-}
-
-/*
+*
 Remove visual effects that can make the navigation look artificial.
-*/
-.mi-fixed-glass-nav * {
+* {
     animation-timing-function: ease !important;
 }
 
@@ -3401,70 +1170,317 @@ Remove visual effects that can make the navigation look artificial.
     }
 }
 
-/* MI_PROFESSIONAL_NAV_REFINEMENT_END */
-
-/* MI_ACTIVE_NAV_GOLD_START */
-
-/*
+ MI_PROFESSIONAL_NAV_REFINEMENT_END * MI_ACTIVE_NAV_GOLD_START *
 Make the currently open navigation category gold.
 Supports common active-link patterns.
-*/
-.mi-fixed-glass-nav a.active,
-.mi-fixed-glass-nav a[aria-current="page"],
-.mi-fixed-glass-nav li.active > a,
-.mi-fixed-glass-nav .active > a,
-.mi-fixed-glass-nav a.is-active,
-.mi-fixed-glass-nav a.current {
-    color: #f4cf72 !important;
-
-    text-shadow:
-        0 0 8px rgba(244, 207, 114, 0.34),
-        0 0 18px rgba(244, 207, 114, 0.16) !important;
-}
-
-/*
+*
 Keep hover clean without overriding the active gold color.
-*/
-.mi-fixed-glass-nav a.active:hover,
-.mi-fixed-glass-nav a[aria-current="page"]:hover,
-.mi-fixed-glass-nav li.active > a:hover,
-.mi-fixed-glass-nav .active > a:hover,
-.mi-fixed-glass-nav a.is-active:hover,
-.mi-fixed-glass-nav a.current:hover {
-    color: #ffe39a !important;
-}
-
-/* MI_ACTIVE_NAV_GOLD_END */
-
-/* MI_COMPANY_TITLE_BLACK_OUTLINE_START */
-
-/*
+* MI_ACTIVE_NAV_GOLD_END * MI_COMPANY_TITLE_BLACK_OUTLINE_START *
 Professional black outline for MI CORTEX X.
-*/
-.mi-fixed-glass-nav .logo span,
-.mi-fixed-glass-nav .brand span,
-.mi-fixed-glass-nav .navbar-brand span,
-.mi-fixed-glass-nav .site-logo span,
-.mi-fixed-glass-nav .nav-logo span,
-.mi-fixed-glass-nav a:has(img) span {
+* MI_COMPANY_TITLE_BLACK_OUTLINE_END */
 
-    color:#F4CF72 !important;
+/* MI_PREMIUM_NAV_EFFECTS_START */
 
-    -webkit-text-stroke:1px rgba(0,0,0,.95) !important;
-    paint-order:stroke fill !important;
-
-    text-shadow:
-        -1px 0 #000,
-         1px 0 #000,
-         0 -1px #000,
-         0  1px #000,
-        -1px -1px #000,
-         1px -1px #000,
-        -1px  1px #000,
-         1px  1px #000,
-         0 0 8px rgba(244,207,114,.28),
-         0 0 18px rgba(244,207,114,.12) !important;
+/* Smooth slide-down appearance */
+.mi-fixed-glass-nav {
+    transition:
+        top 420ms cubic-bezier(.22, 1, .36, 1),
+        min-height 420ms cubic-bezier(.22, 1, .36, 1),
+        padding 420ms cubic-bezier(.22, 1, .36, 1),
+        transform 620ms cubic-bezier(.22, 1, .36, 1),
+        opacity 420ms ease,
+        background 320ms ease,
+        box-shadow 320ms ease,
+        backdrop-filter 320ms ease !important;
 }
 
-/* MI_COMPANY_TITLE_BLACK_OUTLINE_END */
+html.mi-main-site-visible .mi-fixed-glass-nav {
+    animation: miPremiumNavSlideDown 720ms cubic-bezier(.22, 1, .36, 1) both;
+}
+
+/* Shrink the navbar after scrolling */
+html.mi-nav-shrunk .mi-fixed-glass-nav {
+    top: 9px !important;
+    min-height: 70px !important;
+    padding-top: 7px !important;
+    padding-bottom: 7px !important;
+
+    background:
+        linear-gradient(
+            110deg,
+            rgba(14, 33, 50, 0.48) 0%,
+            rgba(7, 14, 32, 0.52) 48%,
+            rgba(27, 17, 61, 0.52) 100%
+        ) !important;
+
+    -webkit-backdrop-filter:
+        blur(32px)
+        saturate(165%)
+        brightness(1.07) !important;
+
+    backdrop-filter:
+        blur(32px)
+        saturate(165%)
+        brightness(1.07) !important;
+
+    box-shadow:
+        0 14px 42px rgba(0, 0, 0, 0.36),
+        inset 0 1px 0 rgba(255, 255, 255, 0.11) !important;
+}
+
+html.mi-nav-shrunk .mi-fixed-glass-nav img {
+    width: 50px !important;
+    height: 50px !important;
+    max-width: 50px !important;
+    max-height: 50px !important;
+}
+
+html.mi-nav-shrunk .mi-fixed-glass-nav .logo span,
+html.mi-nav-shrunk .mi-fixed-glass-nav .brand span,
+html.mi-nav-shrunk .mi-fixed-glass-nav .navbar-brand span,
+html.mi-nav-shrunk .mi-fixed-glass-nav .site-logo span,
+html.mi-nav-shrunk .mi-fixed-glass-nav .nav-logo span,
+html.mi-nav-shrunk .mi-fixed-glass-nav a:has(img) span {
+    font-size: clamp(1rem, 1.25vw, 1.18rem) !important;
+}
+
+/* Very slow professional logo glow */
+.mi-fixed-glass-nav img {
+    animation: miPremiumLogoGlow 6.5s ease-in-out infinite !important;
+}
+
+/* Mobile menu button */
+.mi-premium-menu-button {
+    display: none;
+    position: relative;
+    z-index: 50;
+
+    width: 48px;
+    height: 48px;
+
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+    margin-left: auto;
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.08),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    -webkit-backdrop-filter: blur(18px) saturate(145%);
+    backdrop-filter: blur(18px) saturate(145%);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.11),
+        0 8px 24px rgba(0, 0, 0, 0.22);
+
+    cursor: pointer;
+}
+
+.mi-premium-menu-button span {
+    position: absolute;
+    left: 50%;
+
+    width: 21px;
+    height: 2px;
+
+    border-radius: 999px;
+
+    background: rgba(244, 207, 114, 0.96);
+    box-shadow: 0 0 8px rgba(244, 207, 114, 0.22);
+
+    transform: translateX(-50%);
+    transition:
+        top 280ms ease,
+        transform 280ms ease,
+        opacity 220ms ease;
+}
+
+.mi-premium-menu-button span:nth-child(1) {
+    top: 16px;
+}
+
+.mi-premium-menu-button span:nth-child(2) {
+    top: 23px;
+}
+
+.mi-premium-menu-button span:nth-child(3) {
+    top: 30px;
+}
+
+.mi-premium-menu-button[aria-expanded="true"] span:nth-child(1) {
+    top: 23px;
+    transform: translateX(-50%) rotate(45deg);
+}
+
+.mi-premium-menu-button[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.mi-premium-menu-button[aria-expanded="true"] span:nth-child(3) {
+    top: 23px;
+    transform: translateX(-50%) rotate(-45deg);
+}
+
+@keyframes miPremiumNavSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-24px) scale(0.985);
+        filter: blur(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes miPremiumLogoGlow {
+    0%,
+    100% {
+        filter:
+            drop-shadow(0 0 7px rgba(42, 187, 255, 0.20))
+            drop-shadow(0 0 12px rgba(117, 84, 255, 0.08));
+    }
+
+    50% {
+        filter:
+            drop-shadow(0 0 12px rgba(42, 187, 255, 0.34))
+            drop-shadow(0 0 24px rgba(117, 84, 255, 0.16));
+    }
+}
+
+@media (max-width: 850px) {
+    .mi-fixed-glass-nav {
+        overflow: visible !important;
+    }
+
+    .mi-premium-menu-button {
+        display: flex !important;
+    }
+
+    .mi-fixed-glass-nav ul {
+        position: absolute !important;
+        z-index: 40 !important;
+
+        top: calc(100% + 12px) !important;
+        right: 0 !important;
+        left: 0 !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+
+        width: 100% !important;
+        max-height: 0 !important;
+
+        gap: 6px !important;
+
+        margin: 0 !important;
+        padding: 0 14px !important;
+
+        overflow: hidden !important;
+
+        border: 1px solid rgba(190, 215, 255, 0.11) !important;
+        border-radius: 24px !important;
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(12, 29, 45, 0.76),
+                rgba(8, 14, 32, 0.80),
+                rgba(29, 18, 62, 0.77)
+            ) !important;
+
+        -webkit-backdrop-filter:
+            blur(30px)
+            saturate(165%)
+            brightness(1.06) !important;
+
+        backdrop-filter:
+            blur(30px)
+            saturate(165%)
+            brightness(1.06) !important;
+
+        box-shadow:
+            0 20px 55px rgba(0, 0, 0, 0.38),
+            inset 0 1px 0 rgba(255, 255, 255, 0.09) !important;
+
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+
+        transform: translateY(-12px) scale(0.985) !important;
+        transform-origin: top center !important;
+
+        transition:
+            max-height 460ms cubic-bezier(.22, 1, .36, 1),
+            padding 360ms ease,
+            opacity 280ms ease,
+            visibility 280ms ease,
+            transform 420ms cubic-bezier(.22, 1, .36, 1) !important;
+    }
+
+    .mi-fixed-glass-nav.mi-mobile-menu-open ul {
+        max-height: 520px !important;
+        padding: 14px !important;
+
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+
+        transform: translateY(0) scale(1) !important;
+    }
+
+    .mi-fixed-glass-nav ul li {
+        width: 100% !important;
+    }
+
+    .mi-fixed-glass-nav ul a {
+        display: flex !important;
+        align-items: center !important;
+
+        width: 100% !important;
+        min-height: 48px !important;
+
+        padding: 0 16px !important;
+
+        border-radius: 15px !important;
+
+        transition:
+            background 220ms ease,
+            color 220ms ease,
+            transform 220ms ease !important;
+    }
+
+    .mi-fixed-glass-nav ul a:hover,
+    .mi-fixed-glass-nav ul a.active,
+    .mi-fixed-glass-nav ul a[aria-current="page"] {
+        background: rgba(255, 255, 255, 0.065) !important;
+        transform: translateX(3px) !important;
+    }
+
+    html.mi-nav-shrunk .mi-fixed-glass-nav {
+        min-height: 66px !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html.mi-main-site-visible .mi-fixed-glass-nav,
+    .mi-fixed-glass-nav img {
+        animation: none !important;
+    }
+}
+
+/* MI_PREMIUM_NAV_EFFECTS_END */
 
