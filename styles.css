@@ -2125,3 +2125,101 @@ Preserve the existing zoom animation while keeping it centered.
 
 /* MI_INTRO_LOGO_CENTER_END */
 
+/* MI_FRONT_PAGE_FULL_SCROLL_START */
+
+/*
+The front page always occupies one complete browser viewport.
+It scrolls as one full page and cannot remain partially visible.
+*/
+html,
+body {
+    scroll-snap-type: none !important;
+    scroll-behavior: smooth !important;
+}
+
+#mi-front-page,
+.mi-front-page {
+    position: relative !important;
+    width: 100% !important;
+
+    height: 100vh !important;
+    height: 100dvh !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    max-height: 100dvh !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+
+    transform: none !important;
+    translate: none !important;
+}
+
+.mi-front-page-banner,
+.mi-front-page-image {
+    position: absolute !important;
+    inset: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: cover !important;
+    object-position: center center !important;
+
+    background-size: cover !important;
+    background-position: center center !important;
+    background-attachment: scroll !important;
+
+    transform: none !important;
+}
+
+/*
+Remove every old scroll icon, mouse and label.
+*/
+.mi-front-page-scroll-button,
+.mi-front-page-scroll,
+.mi-front-page-scroll-text,
+.mi-front-page-scroll-mouse,
+.mi-front-page-scroll-line,
+.mi-front-page-scroll-label {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+#mi-main-content-start,
+.mi-main-content-start {
+    display: block !important;
+    width: 100% !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/*
+Prevent the navigation and main website from moving over
+the front-page banner.
+*/
+#mi-main-content-start ~ *,
+.mi-main-content-start ~ * {
+    margin-top: 0 !important;
+}
+
+html.mi-front-page-scrolling,
+html.mi-front-page-scrolling body {
+    overscroll-behavior-y: none !important;
+}
+
+@media (max-width: 700px) {
+    #mi-front-page,
+    .mi-front-page {
+        height: 100svh !important;
+        min-height: 100svh !important;
+        max-height: 100svh !important;
+    }
+}
+
+/* MI_FRONT_PAGE_FULL_SCROLL_END */
+

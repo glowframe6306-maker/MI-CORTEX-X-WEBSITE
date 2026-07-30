@@ -455,8 +455,236 @@
 })();
 </script>
 <!-- MI_WELCOME_SAFETY_CONTROLLER_END -->
+
+<!-- MI_FRONT_PAGE_FULL_SCROLL_CONTROLLER_START -->
+<script>
+(function () {
+    "use strict";
+
+    function initializeFrontPageFullScroll() {
+        const frontPage = document.querySelector(
+            "#mi-front-page, .mi-front-page"
+        );
+
+        if (!frontPage) {
+            return;
+        }
+
+        let isAnimating = false;
+        let touchStartY = 0;
+        let touchCurrentY = 0;
+        let releaseTimer = null;
+
+        function getFrontPageBottom() {
+            return frontPage.offsetTop + frontPage.offsetHeight;
+        }
+
+        function isFrontPagePartiallyVisible() {
+            const top = window.scrollY;
+            const bottom = getFrontPageBottom();
+
+            return top > frontPage.offsetTop + 2 && top < bottom - 2;
+        }
+
+        function lockAnimation() {
+            isAnimating = true;
+            document.documentElement.classList.add(
+                "mi-front-page-scrolling"
+            );
+
+            window.clearTimeout(releaseTimer);
+
+            releaseTimer = window.setTimeout(function () {
+                isAnimating = false;
+                document.documentElement.classList.remove(
+                    "mi-front-page-scrolling"
+                );
+            }, 950);
+        }
+
+        function scrollToMainWebsite() {
+            if (isAnimating) {
+                return;
+            }
+
+            lockAnimation();
+
+            window.scrollTo({
+                top: getFrontPageBottom(),
+                behavior: "smooth"
+            });
+        }
+
+        function scrollToFrontPage() {
+            if (isAnimating) {
+                return;
+            }
+
+            lockAnimation();
+
+            window.scrollTo({
+                top: frontPage.offsetTop,
+                behavior: "smooth"
+            });
+        }
+
+        function handleWheel(event) {
+            const frontTop = frontPage.offsetTop;
+            const frontBottom = getFrontPageBottom();
+            const currentScroll = window.scrollY;
+            const scrollingDown = event.deltaY > 0;
+            const scrollingUp = event.deltaY < 0;
+
+            /*
+            While the front page is visible, one downward wheel movement
+            moves the complete front page away.
+            */
+            if (
+                scrollingDown &&
+                currentScroll >= frontTop - 4 &&
+                currentScroll < frontBottom - 4
+            ) {
+                event.preventDefault();
+                scrollToMainWebsite();
+                return;
+            }
+
+            /*
+            When the main website is at its beginning, an upward wheel
+            movement returns to the complete front page.
+            */
+            if (
+                scrollingUp &&
+                currentScroll > frontTop + 4 &&
+                currentScroll <= frontBottom + 80
+            ) {
+                event.preventDefault();
+                scrollToFrontPage();
+            }
+        }
+
+        function handleTouchStart(event) {
+            if (!event.touches || event.touches.length !== 1) {
+                return;
+            }
+
+            touchStartY = event.touches[0].clientY;
+            touchCurrentY = touchStartY;
+        }
+
+        function handleTouchMove(event) {
+            if (!event.touches || event.touches.length !== 1) {
+                return;
+            }
+
+            touchCurrentY = event.touches[0].clientY;
+        }
+
+        function handleTouchEnd() {
+            const distance = touchStartY - touchCurrentY;
+            const currentScroll = window.scrollY;
+            const frontBottom = getFrontPageBottom();
+
+            if (
+                distance > 45 &&
+                currentScroll >= frontPage.offsetTop - 4 &&
+                currentScroll < frontBottom - 4
+            ) {
+                scrollToMainWebsite();
+                return;
+            }
+
+            if (
+                distance < -45 &&
+                currentScroll > frontPage.offsetTop + 4 &&
+                currentScroll <= frontBottom + 80
+            ) {
+                scrollToFrontPage();
+            }
+        }
+
+        function settlePartialFrontPage() {
+            if (isAnimating || !isFrontPagePartiallyVisible()) {
+                return;
+            }
+
+            const frontBottom = getFrontPageBottom();
+            const frontProgress =
+                (window.scrollY - frontPage.offsetTop) /
+                frontPage.offsetHeight;
+
+            if (frontProgress >= 0.18) {
+                lockAnimation();
+
+                window.scrollTo({
+                    top: frontBottom,
+                    behavior: "smooth"
+                });
+            } else {
+                lockAnimation();
+
+                window.scrollTo({
+                    top: frontPage.offsetTop,
+                    behavior: "smooth"
+                });
+            }
+        }
+
+        let scrollEndTimer = null;
+
+        function handleScroll() {
+            window.clearTimeout(scrollEndTimer);
+
+            scrollEndTimer = window.setTimeout(function () {
+                settlePartialFrontPage();
+            }, 140);
+        }
+
+        window.addEventListener("wheel", handleWheel, {
+            passive: false
+        });
+
+        window.addEventListener("touchstart", handleTouchStart, {
+            passive: true
+        });
+
+        window.addEventListener("touchmove", handleTouchMove, {
+            passive: true
+        });
+
+        window.addEventListener("touchend", handleTouchEnd, {
+            passive: true
+        });
+
+        window.addEventListener("scroll", handleScroll, {
+            passive: true
+        });
+
+        window.addEventListener("resize", function () {
+            if (isFrontPagePartiallyVisible()) {
+                window.scrollTo({
+                    top: getFrontPageBottom(),
+                    behavior: "auto"
+                });
+            }
+        });
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener(
+            "DOMContentLoaded",
+            initializeFrontPageFullScroll,
+            { once: true }
+        );
+    } else {
+        initializeFrontPageFullScroll();
+    }
+})();
+</script>
+<!-- MI_FRONT_PAGE_FULL_SCROLL_CONTROLLER_END -->
 </body>
 </html>
+
 
 
 
