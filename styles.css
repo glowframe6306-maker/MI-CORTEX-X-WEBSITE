@@ -3403,3 +3403,36 @@ Remove visual effects that can make the navigation look artificial.
 
 /* MI_PROFESSIONAL_NAV_REFINEMENT_END */
 
+/* MI_ACTIVE_NAV_GOLD_START */
+
+/*
+Make the currently open navigation category gold.
+Supports common active-link patterns.
+*/
+.mi-fixed-glass-nav a.active,
+.mi-fixed-glass-nav a[aria-current="page"],
+.mi-fixed-glass-nav li.active > a,
+.mi-fixed-glass-nav .active > a,
+.mi-fixed-glass-nav a.is-active,
+.mi-fixed-glass-nav a.current {
+    color: #f4cf72 !important;
+
+    text-shadow:
+        0 0 8px rgba(244, 207, 114, 0.34),
+        0 0 18px rgba(244, 207, 114, 0.16) !important;
+}
+
+/*
+Keep hover clean without overriding the active gold color.
+*/
+.mi-fixed-glass-nav a.active:hover,
+.mi-fixed-glass-nav a[aria-current="page"]:hover,
+.mi-fixed-glass-nav li.active > a:hover,
+.mi-fixed-glass-nav .active > a:hover,
+.mi-fixed-glass-nav a.is-active:hover,
+.mi-fixed-glass-nav a.current:hover {
+    color: #ffe39a !important;
+}
+
+/* MI_ACTIVE_NAV_GOLD_END */
+
