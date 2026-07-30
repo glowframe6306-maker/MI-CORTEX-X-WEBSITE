@@ -312,7 +312,7 @@
       <section id="contact" class="section container reveal">
         <div class="section-heading">
           <p class="eyebrow">Contact</p>
-          <h2>LetÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢s build something extraordinary.</h2>
+          <h2>LetÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¾ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢s build something extraordinary.</h2>
         </div>
         <div class="contact-card glass-panel">
           <p>hello@micortexx.com</p>
@@ -1025,5 +1025,206 @@
 })();
 </script>
 <!-- MI_PORTRAIT_WELCOME_PHONE_END -->
+
+<!-- MI_FRONT_PAGE_INSTANT_REVEAL_START -->
+<script>
+(function () {
+    "use strict";
+
+    if (window.__miFrontPageInstantRevealInstalled) {
+        return;
+    }
+
+    window.__miFrontPageInstantRevealInstalled = true;
+
+    var root = document.documentElement;
+    var released = false;
+
+    var welcomeSelectors = [
+        "#welcome-screen",
+        "#welcomeScreen",
+        "#welcome",
+        "#intro-screen",
+        "#introScreen",
+        "#intro",
+        "#splash-screen",
+        "#splashScreen",
+        ".welcome-screen",
+        ".intro-screen",
+        ".splash-screen",
+        ".neural-intro",
+        "[data-welcome]",
+        "[data-intro]"
+    ];
+
+    function findVisibleWelcome() {
+        for (var index = 0; index < welcomeSelectors.length; index += 1) {
+            var elements;
+
+            try {
+                elements = document.querySelectorAll(
+                    welcomeSelectors[index]
+                );
+            } catch (error) {
+                continue;
+            }
+
+            for (var item = 0; item < elements.length; item += 1) {
+                var element = elements[item];
+
+                if (!element || !element.isConnected) {
+                    continue;
+                }
+
+                var style = window.getComputedStyle(element);
+                var rectangle = element.getBoundingClientRect();
+
+                if (
+                    !element.hidden &&
+                    style.display !== "none" &&
+                    style.visibility !== "hidden" &&
+                    Number(style.opacity) > 0.01 &&
+                    rectangle.width > 1 &&
+                    rectangle.height > 1
+                ) {
+                    return element;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    function revealFrontPage() {
+        if (released) {
+            return;
+        }
+
+        released = true;
+
+        var body = document.body;
+        var frontPage =
+            document.getElementById("mi-front-page") ||
+            document.querySelector(".mi-front-page");
+
+        root.classList.remove("mi-welcome-running");
+        root.classList.add(
+            "mi-front-page-ready",
+            "welcome-complete",
+            "intro-complete",
+            "mi-page-ready"
+        );
+
+        if (body) {
+            body.classList.remove("mi-welcome-running");
+            body.classList.add(
+                "mi-front-page-ready",
+                "welcome-complete",
+                "intro-complete",
+                "mi-page-ready"
+            );
+        }
+
+        if (frontPage) {
+            frontPage.style.removeProperty("display");
+            frontPage.style.setProperty(
+                "visibility",
+                "visible",
+                "important"
+            );
+            frontPage.style.setProperty(
+                "opacity",
+                "1",
+                "important"
+            );
+            frontPage.style.setProperty(
+                "pointer-events",
+                "auto",
+                "important"
+            );
+            frontPage.style.setProperty(
+                "transform",
+                "none",
+                "important"
+            );
+            frontPage.style.setProperty(
+                "filter",
+                "none",
+                "important"
+            );
+            frontPage.style.setProperty(
+                "transition",
+                "none",
+                "important"
+            );
+        }
+
+        window.requestAnimationFrame(function () {
+            window.scrollTo(0, 0);
+            window.dispatchEvent(new Event("resize"));
+        });
+    }
+
+    function checkWelcomeState() {
+        if (released) {
+            return;
+        }
+
+        if (!findVisibleWelcome()) {
+            revealFrontPage();
+        }
+    }
+
+    function initialize() {
+        if (findVisibleWelcome()) {
+            root.classList.add("mi-welcome-running");
+
+            if (document.body) {
+                document.body.classList.add("mi-welcome-running");
+            }
+        } else {
+            revealFrontPage();
+            return;
+        }
+
+        [
+            "mi:intro-complete",
+            "mi:letters-complete",
+            "welcome-complete",
+            "intro-complete"
+        ].forEach(function (eventName) {
+            window.addEventListener(
+                eventName,
+                revealFrontPage,
+                { once: true }
+            );
+        });
+
+        window.setTimeout(checkWelcomeState, 100);
+        window.setTimeout(checkWelcomeState, 500);
+        window.setTimeout(checkWelcomeState, 1200);
+        window.setTimeout(checkWelcomeState, 2500);
+        window.setTimeout(checkWelcomeState, 4500);
+        window.setTimeout(checkWelcomeState, 7000);
+        window.setTimeout(checkWelcomeState, 10000);
+        window.setTimeout(checkWelcomeState, 14000);
+
+        window.setTimeout(function () {
+            revealFrontPage();
+        }, 20000);
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener(
+            "DOMContentLoaded",
+            initialize,
+            { once: true }
+        );
+    } else {
+        initialize();
+    }
+})();
+</script>
+<!-- MI_FRONT_PAGE_INSTANT_REVEAL_END -->
 </body>
 </html>

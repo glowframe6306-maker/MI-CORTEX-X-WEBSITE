@@ -3143,40 +3143,7 @@ body.intro-complete {
 /* MI_LOADING_LIFECYCLE_REPAIR_CSS_END */
 
 
-/* MI_HIDE_FRONT_PAGE_DURING_WELCOME_START */
 
-/*
-The front-page image remains unchanged.
-It is hidden only while the welcome intro is active.
-*/
-
-html:not(.welcome-complete):not(.intro-complete):not(.mi-page-ready) #mi-front-page,
-html:not(.welcome-complete):not(.intro-complete):not(.mi-page-ready) .mi-front-page,
-body:not(.welcome-complete):not(.intro-complete):not(.mi-page-ready) #mi-front-page,
-body:not(.welcome-complete):not(.intro-complete):not(.mi-page-ready) .mi-front-page {
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-}
-
-html.welcome-complete #mi-front-page,
-html.welcome-complete .mi-front-page,
-html.intro-complete #mi-front-page,
-html.intro-complete .mi-front-page,
-html.mi-page-ready #mi-front-page,
-html.mi-page-ready .mi-front-page,
-body.welcome-complete #mi-front-page,
-body.welcome-complete .mi-front-page,
-body.intro-complete #mi-front-page,
-body.intro-complete .mi-front-page,
-body.mi-page-ready #mi-front-page,
-body.mi-page-ready .mi-front-page {
-    visibility: visible !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-}
-
-/* MI_HIDE_FRONT_PAGE_DURING_WELCOME_END */
 
 
 /* MI_PORTRAIT_WELCOME_PHONE_CSS_START */
@@ -3338,3 +3305,55 @@ The navigation structure, logo, colors and website content remain unchanged.
 }
 
 /* MI_PROFESSIONAL_NAV_TEXT_END */
+
+
+/* MI_FRONT_PAGE_INSTANT_REVEAL_START */
+
+/*
+The front page is hidden only while the welcome overlay is visible.
+The moment the welcome finishes, the front page appears immediately.
+No fade delay or blank intermediate screen is allowed.
+*/
+
+#mi-front-page,
+.mi-front-page {
+    transition: none !important;
+    animation-delay: 0s !important;
+}
+
+html.mi-welcome-running #mi-front-page,
+html.mi-welcome-running .mi-front-page,
+body.mi-welcome-running #mi-front-page,
+body.mi-welcome-running .mi-front-page {
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+html.mi-front-page-ready #mi-front-page,
+html.mi-front-page-ready .mi-front-page,
+body.mi-front-page-ready #mi-front-page,
+body.mi-front-page-ready .mi-front-page,
+html.welcome-complete #mi-front-page,
+html.welcome-complete .mi-front-page,
+body.welcome-complete #mi-front-page,
+body.welcome-complete .mi-front-page,
+html.intro-complete #mi-front-page,
+html.intro-complete .mi-front-page,
+body.intro-complete #mi-front-page,
+body.intro-complete .mi-front-page,
+html.mi-page-ready #mi-front-page,
+html.mi-page-ready .mi-front-page,
+body.mi-page-ready #mi-front-page,
+body.mi-page-ready .mi-front-page {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+    animation-delay: 0s !important;
+}
+
+/* MI_FRONT_PAGE_INSTANT_REVEAL_END */
