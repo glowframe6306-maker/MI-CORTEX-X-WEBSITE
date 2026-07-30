@@ -119,18 +119,59 @@ document.addEventListener('DOMContentLoaded', function () {
       title.classList.add('title-transforming');
 
       window.setTimeout(function () {
-        if (welcomeScreen && welcomeScreen.isConnected) {
-          welcomeScreen.setAttribute('aria-hidden', 'true');
+        if (
+          welcomeScreen &&
+          welcomeScreen.isConnected
+        ) {
+          welcomeScreen.setAttribute(
+            'aria-hidden',
+            'true'
+          );
+
           welcomeScreen.remove();
         }
 
-        window.dispatchEvent(new CustomEvent('mi:letters-complete'));
+        window.__miLettersSequenceComplete = true;
+
+        window.dispatchEvent(
+          new CustomEvent(
+            'mi:letters-complete'
+          )
+        );
       }, reducedMotion ? 500 : 1400);
     }, 5200);
 
     fallbackTimer = window.setTimeout(function () {
-      removeIntro();
-    }, reducedMotion ? 7000 : 11000);
+      if (
+        !window.__miLettersSequenceComplete
+      ) {
+        title.classList.add(
+          'title-transforming'
+        );
+
+        window.setTimeout(function () {
+          if (
+            welcomeScreen &&
+            welcomeScreen.isConnected
+          ) {
+            welcomeScreen.setAttribute(
+              'aria-hidden',
+              'true'
+            );
+
+            welcomeScreen.remove();
+          }
+
+          window.__miLettersSequenceComplete = true;
+
+          window.dispatchEvent(
+            new CustomEvent(
+              'mi:letters-complete'
+            )
+          );
+        }, reducedMotion ? 300 : 1000);
+      }
+    }, reducedMotion ? 5000 : 7600);
   };
 
   if (welcomeScreen) {
@@ -197,14 +238,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     "use strict";
 
-    const INTRO_START_DELAY = 6600;
+    const INTRO_START_DELAY = 0;
     const NETWORK_REVEAL_TIME = 2100;
     const LOGO_ZOOM_IN_TIME = 1900;
     const LOGO_ZOOM_OUT_TIME = 1500;
     const LOGO_HOLD_TIME = 900;
     const LOGO_FADE_TIME = 1200;
     const SCREEN_LIFT_TIME = 2200;
-    const FALLBACK_TIME = 20000;
+    const FALLBACK_TIME = 22000;
 
     const sleep = (milliseconds) =>
         new Promise((resolve) => window.setTimeout(resolve, milliseconds));
@@ -374,6 +415,54 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
+    /* MI_ORIGINAL_INTRO_ORDER_START */
+
+    const waitForLettersSequence = () => {
+        const welcomeScreen =
+            document.getElementById(
+                "welcome-screen"
+            );
+
+        if (
+            window.__miLettersSequenceComplete ||
+            !welcomeScreen
+        ) {
+            return Promise.resolve();
+        }
+
+        return new Promise((resolve) => {
+            let completed = false;
+
+            const finish = () => {
+                if (completed) {
+                    return;
+                }
+
+                completed = true;
+
+                window.removeEventListener(
+                    "mi:letters-complete",
+                    finish
+                );
+
+                resolve();
+            };
+
+            window.addEventListener(
+                "mi:letters-complete",
+                finish,
+                { once: true }
+            );
+
+            window.setTimeout(
+                finish,
+                8500
+            );
+        });
+    };
+
+    /* MI_ORIGINAL_INTRO_ORDER_END */
+
     const runNeuralLogoSequence = async () => {
         const neuralIntro = document.getElementById("mi-neural-intro");
         const networkSvg = document.getElementById("mi-neural-network");
@@ -392,7 +481,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.documentElement.style.overflow = "hidden";
         document.body.style.overflow = "hidden";
 
-        await sleep(INTRO_START_DELAY);
+        await waitForLettersSequence();
 
         neuralIntro.classList.add("mi-neural-visible");
 
@@ -431,9 +520,6 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     const initialize = () => {
-        removeOldRobotElements();
-        removeOldRobotStates();
-
         runNeuralLogoSequence().catch((error) => {
             console.error("Neural logo intro failed:", error);
 
