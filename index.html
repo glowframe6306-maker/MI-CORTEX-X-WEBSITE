@@ -321,8 +321,143 @@
     </footer>
 
     <script src="script.js"></script>
-  </body>
+  
+<!-- MI_WELCOME_SAFETY_CONTROLLER_START -->
+<script>
+(function () {
+    "use strict";
+
+    function initializeWelcomeSafetyController() {
+        const intro = document.querySelector(".mi-neural-intro");
+        const frontPage = document.querySelector("#mi-front-page, .mi-front-page");
+
+        if (frontPage) {
+            frontPage.style.position = "relative";
+            frontPage.style.transform = "none";
+        }
+
+        if (!intro) {
+            document.documentElement.style.overflowY = "auto";
+            document.body.style.overflowY = "visible";
+            return;
+        }
+
+        const logoReveal = intro.querySelector(".mi-logo-reveal");
+        const logoImage = intro.querySelector(
+            ".mi-intro-logo, .mi-logo-reveal img"
+        );
+        const tagline = intro.querySelector(".mi-logo-tagline");
+
+        if (logoReveal) {
+            logoReveal.style.display = "flex";
+            logoReveal.style.visibility = "visible";
+        }
+
+        if (logoImage) {
+            logoImage.style.display = "block";
+            logoImage.style.visibility = "visible";
+        }
+
+        if (tagline) {
+            tagline.style.display = "block";
+        }
+
+        const completedClasses = [
+            "mi-intro-complete",
+            "mi-intro-finished",
+            "mi-intro-hidden",
+            "is-complete",
+            "is-finished",
+            "is-hidden"
+        ];
+
+        function introHasFinished() {
+            return completedClasses.some(function (className) {
+                return intro.classList.contains(className);
+            });
+        }
+
+        function restorePageScrolling() {
+            document.documentElement.style.overflowY = "auto";
+            document.body.style.overflowY = "visible";
+        }
+
+        const observer = new MutationObserver(function () {
+            if (introHasFinished()) {
+                restorePageScrolling();
+                observer.disconnect();
+            }
+        });
+
+        observer.observe(intro, {
+            attributes: true,
+            attributeFilter: ["class", "style"]
+        });
+
+        intro.addEventListener("animationend", function (event) {
+            const animationName = String(event.animationName || "").toLowerCase();
+
+            if (
+                animationName.includes("lift") ||
+                animationName.includes("leave") ||
+                animationName.includes("exit") ||
+                animationName.includes("finish")
+            ) {
+                restorePageScrolling();
+            }
+        });
+
+        /*
+        Emergency protection:
+        never leave visitors trapped on a permanent black screen.
+        This does not interrupt the normal animation when it completes correctly.
+        */
+        window.setTimeout(function () {
+            const computedStyle = window.getComputedStyle(intro);
+            const logoVisible =
+                logoImage &&
+                window.getComputedStyle(logoImage).display !== "none";
+
+            const introIsInvisible =
+                computedStyle.display === "none" ||
+                computedStyle.visibility === "hidden" ||
+                Number(computedStyle.opacity) === 0;
+
+            if (introIsInvisible || !document.body.contains(intro)) {
+                restorePageScrolling();
+                return;
+            }
+
+            if (!logoVisible && !introHasFinished()) {
+                intro.style.transition =
+                    "opacity 900ms ease, transform 1200ms cubic-bezier(.22,1,.36,1)";
+                intro.style.opacity = "0";
+                intro.style.transform = "translateY(-100%)";
+                intro.style.pointerEvents = "none";
+
+                window.setTimeout(function () {
+                    intro.style.display = "none";
+                    restorePageScrolling();
+                }, 1250);
+            }
+        }, 18000);
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener(
+            "DOMContentLoaded",
+            initializeWelcomeSafetyController,
+            { once: true }
+        );
+    } else {
+        initializeWelcomeSafetyController();
+    }
+})();
+</script>
+<!-- MI_WELCOME_SAFETY_CONTROLLER_END -->
+</body>
 </html>
+
 
 
 

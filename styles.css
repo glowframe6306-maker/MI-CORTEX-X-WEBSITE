@@ -1815,43 +1815,105 @@ It is not fixed, so the complete front page scrolls away normally.
 
 /* MI_FRONT_PAGE_END */
 
-/* MI_FRONT_PAGE_SCROLL_FIX_START */
+/* MI_WELCOME_FRONT_PAGE_REPAIR_START */
 
 /*
-The front page is a normal document section.
-When the user scrolls, the complete banner moves upward with the page.
+Normal document scrolling.
+Do not use scroll snapping because it can trap the welcome overlay
+on a blank black screen.
 */
 html {
-    height: auto !important;
+    width: 100% !important;
     min-height: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
     overflow-x: hidden !important;
     overflow-y: auto !important;
+    scroll-snap-type: none !important;
     scroll-behavior: smooth;
 }
 
 body {
     position: relative !important;
     width: 100% !important;
-    height: auto !important;
     min-height: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
     overflow-x: hidden !important;
     overflow-y: visible !important;
+    scroll-snap-type: none !important;
 }
 
+/*
+Keep the welcome animation above everything while it is active.
+*/
+.mi-neural-intro {
+    position: fixed !important;
+    z-index: 2147483000 !important;
+    inset: 0 !important;
+    display: block;
+    width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    overflow: hidden !important;
+    background: #000000;
+    pointer-events: auto;
+}
+
+/*
+Do not permanently hide the logo.
+Its existing animation classes remain responsible for opacity
+and transform changes.
+*/
+.mi-neural-intro .mi-logo-reveal {
+    display: flex !important;
+    visibility: visible !important;
+}
+
+.mi-neural-intro .mi-intro-logo,
+.mi-neural-intro .mi-logo-reveal img {
+    display: block !important;
+    visibility: visible !important;
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+/*
+The tagline must remain available during the logo animation.
+*/
+.mi-neural-intro .mi-logo-tagline {
+    display: block !important;
+}
+
+/*
+When the intro JavaScript finishes, the overlay may use one of
+these common completion classes.
+*/
+.mi-neural-intro.mi-intro-complete,
+.mi-neural-intro.mi-intro-finished,
+.mi-neural-intro.mi-intro-hidden,
+.mi-neural-intro.is-complete,
+.mi-neural-intro.is-finished,
+.mi-neural-intro.is-hidden {
+    pointer-events: none !important;
+}
+
+/*
+The front banner is a real standalone first section.
+It occupies exactly one complete visible browser viewport.
+*/
+#mi-front-page,
 .mi-front-page {
     position: relative !important;
-    top: auto !important;
-    right: auto !important;
-    bottom: auto !important;
-    left: auto !important;
+    z-index: 1 !important;
     inset: auto !important;
-    z-index: auto !important;
-
     display: block !important;
+
     width: 100% !important;
     height: 100vh !important;
-    height: 100svh !important;
-    min-height: 620px !important;
+    height: 100dvh !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
 
     margin: 0 !important;
     padding: 0 !important;
@@ -1859,185 +1921,45 @@ body {
 
     transform: none !important;
     translate: none !important;
-    contain: none !important;
+    scroll-snap-align: none !important;
+    scroll-snap-stop: normal !important;
+
+    background: #02040a;
 }
 
-.mi-front-page-banner {
+/*
+The banner scrolls upward together with its section.
+It is not fixed or sticky.
+*/
+.mi-front-page-banner,
+.mi-front-page-image {
     position: absolute !important;
+    z-index: -3 !important;
     inset: 0 !important;
+
+    display: block !important;
     width: 100% !important;
     height: 100% !important;
 
     object-fit: cover !important;
     object-position: center center !important;
 
-    transform: none !important;
+    background-position: center center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
     background-attachment: scroll !important;
-}
-
-.mi-front-page-shade {
-    position: absolute !important;
-    inset: 0 !important;
-}
-
-/* Remove the old mouse and SCROLL interface completely. */
-.mi-front-page-scroll-button,
-.mi-front-page-scroll-text,
-.mi-front-page-scroll-mouse,
-.mi-front-page-scroll-line,
-.mi-front-page-scroll-label {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-}
-
-/*
-Prevent any old fixed or sticky front-page rule from keeping
-the banner attached to the browser window.
-*/
-#mi-front-page,
-#front-page {
-    position: relative !important;
-    inset: auto !important;
-    transform: none !important;
-}
-
-/*
-The content after the banner remains in the normal page flow.
-*/
-.mi-main-content-start,
-#mi-main-content-start {
-    position: relative !important;
-    display: block !important;
-    width: 100% !important;
-    height: 0 !important;
-}
-
-/* Keep the actual website sections in normal scrolling flow. */
-body > header,
-body > main,
-body > section,
-body > footer {
-    transform-style: flat;
-}
-
-@media (max-width: 700px) {
-    .mi-front-page {
-        height: 100svh !important;
-        min-height: 520px !important;
-    }
-}
-
-/* MI_FRONT_PAGE_SCROLL_FIX_END */
-
-/* MI_FULL_PAGE_SCROLL_SNAP_START */
-
-/*
-The front banner occupies one complete browser viewport.
-The main website appears only after the banner has fully scrolled away.
-*/
-html {
-    width: 100% !important;
-    height: 100% !important;
-    overflow-x: hidden !important;
-    overflow-y: auto !important;
-    scroll-snap-type: y mandatory !important;
-    scroll-behavior: smooth !important;
-    overscroll-behavior-y: none;
-}
-
-body {
-    width: 100% !important;
-    min-height: 100% !important;
-    margin: 0 !important;
-    overflow: visible !important;
-}
-
-#mi-front-page,
-.mi-front-page {
-    position: relative !important;
-    display: block !important;
-    width: 100% !important;
-
-    height: 100vh !important;
-    height: 100dvh !important;
-    min-height: 100vh !important;
-    min-height: 100dvh !important;
-    max-height: 100dvh !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow: hidden !important;
-
-    scroll-snap-align: start !important;
-    scroll-snap-stop: always !important;
 
     transform: none !important;
-    inset: auto !important;
-}
-
-.mi-front-page-banner {
-    position: absolute !important;
-    inset: 0 !important;
-
-    display: block !important;
-    width: 100% !important;
-    height: 100% !important;
-
-    object-fit: cover !important;
-    object-position: center center !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    transform: none !important;
+    translate: none !important;
     pointer-events: none !important;
     user-select: none !important;
 }
 
 /*
-The empty anchor does not consume space.
-The first real website element becomes the second snap page.
-*/
-#mi-main-content-start,
-.mi-main-content-start {
-    display: block !important;
-    width: 100% !important;
-    height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-/*
-Select the first real website element after the front-page anchor.
-It starts only after one complete viewport.
-*/
-#mi-main-content-start + *,
-.mi-main-content-start + * {
-    position: relative !important;
-    scroll-snap-align: start !important;
-    scroll-snap-stop: always !important;
-}
-
-/*
-Fallback for common website containers.
-*/
-body > header,
-body > main,
-body > .site-header,
-body > .navbar,
-body > .navigation,
-body > .main-content,
-body > #main-content {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-}
-
-/*
-Remove the old SCROLL label and mouse completely.
+Remove all previous SCROLL text and mouse indicators.
 */
 .mi-front-page-scroll-button,
+.mi-front-page-scroll,
 .mi-front-page-scroll-text,
 .mi-front-page-scroll-mouse,
 .mi-front-page-scroll-line,
@@ -2049,8 +1971,26 @@ Remove the old SCROLL label and mouse completely.
 }
 
 /*
-Prevent old negative margins or transforms from pulling
-the navigation upward over the banner.
+The anchor takes no space.
+The real website begins immediately after the complete banner section.
+*/
+#mi-main-content-start,
+.mi-main-content-start,
+#main-website-content,
+.mi-main-website-anchor {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+}
+
+/*
+Prevent existing navigation or hero sections from overlapping
+the front banner with negative margins or vertical transforms.
 */
 #mi-main-content-start ~ header,
 #mi-main-content-start ~ main,
@@ -2060,24 +2000,49 @@ the navigation upward over the banner.
 .mi-main-content-start ~ main,
 .mi-main-content-start ~ section,
 .mi-main-content-start ~ footer {
+    position: relative;
     margin-top: 0 !important;
     translate: none !important;
+}
+
+/*
+Do not force any main website section to snap into view.
+The banner must scroll away naturally before the next content appears.
+*/
+body > header,
+body > main,
+body > section,
+body > footer {
+    scroll-snap-align: none !important;
+    scroll-snap-stop: normal !important;
+}
+
+/*
+Keep the front page behind the welcome intro until the intro finishes.
+*/
+body:has(.mi-neural-intro:not(.mi-intro-complete):not(.mi-intro-finished):not(.mi-intro-hidden):not(.is-complete):not(.is-finished):not(.is-hidden)) {
+    overflow: hidden;
 }
 
 @media (max-width: 700px) {
     #mi-front-page,
     .mi-front-page {
-        height: 100dvh !important;
-        min-height: 100dvh !important;
-        max-height: 100dvh !important;
+        height: 100svh !important;
+        min-height: 100svh !important;
+    }
+
+    .mi-front-page-banner,
+    .mi-front-page-image {
+        object-position: center center !important;
+        background-position: center center !important;
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
     html {
-        scroll-behavior: auto !important;
+        scroll-behavior: auto;
     }
 }
 
-/* MI_FULL_PAGE_SCROLL_SNAP_END */
+/* MI_WELCOME_FRONT_PAGE_REPAIR_END */
 
