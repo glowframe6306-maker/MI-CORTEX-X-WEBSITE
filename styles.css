@@ -2332,107 +2332,153 @@ html.mi-page-is-scrolling .mi-fixed-glass-nav {
 
 /* MI_FIXED_GLASS_NAV_END */
 
-/* MI_NAV_OUTLINE_REMOVAL_START */
+/* MI_INNER_ROUNDED_NAV_START */
 
 /*
-Remove the visible outer rounded outline.
-Keep only the soft floating blur/glass effect.
+The outer header must remain completely invisible.
+Only the original inner rounded navigation bar is displayed.
 */
 .mi-fixed-glass-nav {
+    position: fixed !important;
+    z-index: 999999 !important;
+
+    top: 16px !important;
+    left: clamp(20px, 6.3vw, 88px) !important;
+    right: clamp(20px, 6.3vw, 88px) !important;
+
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+
+    border: none !important;
+    outline: none !important;
+    border-radius: 999px !important;
+
+    background:
+        linear-gradient(
+            115deg,
+            rgba(4, 13, 27, 0.76),
+            rgba(8, 9, 31, 0.72)
+        ) !important;
+
+    -webkit-backdrop-filter:
+        blur(24px)
+        saturate(145%) !important;
+
+    backdrop-filter:
+        blur(24px)
+        saturate(145%) !important;
+
+    box-shadow:
+        0 12px 45px rgba(0, 0, 0, 0.30),
+        inset 0 1px 0 rgba(255, 255, 255, 0.055) !important;
+
+    transform: translateY(-135%) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+
+    transition:
+        transform 650ms cubic-bezier(.22, 1, .36, 1),
+        opacity 450ms ease !important;
+}
+
+html.mi-main-site-visible .mi-fixed-glass-nav {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+/*
+Remove the large outer rectangle created by the header.
+*/
+.mi-fixed-nav-outer-clean {
+    position: static !important;
+    inset: auto !important;
+
+    width: auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
     border: none !important;
     outline: none !important;
     border-radius: 0 !important;
 
-    background:
-        linear-gradient(
-            90deg,
-            rgba(6, 15, 28, 0.54),
-            rgba(7, 10, 27, 0.48),
-            rgba(11, 8, 30, 0.50)
-        ) !important;
+    background: transparent !important;
 
-    -webkit-backdrop-filter:
-        blur(26px)
-        saturate(145%) !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
 
-    backdrop-filter:
-        blur(26px)
-        saturate(145%) !important;
-
-    box-shadow:
-        0 14px 42px rgba(0, 0, 0, 0.20),
-        0 0 35px rgba(55, 148, 255, 0.05) !important;
+    box-shadow: none !important;
+    transform: none !important;
 }
 
 /*
-Remove outlines from possible inner navigation containers.
+Disable pseudo-elements that may create another outer panel.
 */
-.mi-fixed-glass-nav nav,
-.mi-fixed-glass-nav .navbar,
-.mi-fixed-glass-nav .nav-container,
-.mi-fixed-glass-nav .container,
-.mi-fixed-glass-nav > div {
+.mi-fixed-nav-outer-clean::before,
+.mi-fixed-nav-outer-clean::after {
+    content: none !important;
+    display: none !important;
+}
+
+/*
+Do not add a second background or outline inside the selected rounded bar.
+*/
+.mi-fixed-glass-nav::before,
+.mi-fixed-glass-nav::after {
+    content: none !important;
+    display: none !important;
+}
+
+/*
+Preserve the original spacing and layout inside the rounded bar.
+*/
+.mi-fixed-glass-nav > div,
+.mi-fixed-glass-nav > nav {
+    width: 100% !important;
+    margin: 0 !important;
+
     border: none !important;
     outline: none !important;
+
+    background: transparent !important;
     box-shadow: none !important;
 }
 
-/*
-Keep the bar softly faded at both sides instead of using a hard shape.
-*/
-.mi-fixed-glass-nav::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    inset: 0;
-    pointer-events: none;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent 0%,
-            rgba(6, 15, 28, 0.62) 8%,
-            rgba(7, 10, 27, 0.68) 50%,
-            rgba(11, 8, 30, 0.62) 92%,
-            transparent 100%
-        );
-
-    filter: blur(10px);
-}
-
-/*
-Slightly stronger blur while scrolling.
-*/
 html.mi-page-is-scrolling .mi-fixed-glass-nav {
-    border: none !important;
-    outline: none !important;
-
     background:
         linear-gradient(
-            90deg,
-            rgba(4, 12, 24, 0.66),
-            rgba(7, 9, 26, 0.62),
-            rgba(12, 8, 31, 0.64)
+            115deg,
+            rgba(3, 11, 24, 0.84),
+            rgba(10, 8, 34, 0.80)
         ) !important;
 
     -webkit-backdrop-filter:
-        blur(32px)
+        blur(30px)
         saturate(155%) !important;
 
     backdrop-filter:
-        blur(32px)
+        blur(30px)
         saturate(155%) !important;
 
     box-shadow:
-        0 16px 48px rgba(0, 0, 0, 0.26),
-        0 0 38px rgba(55, 148, 255, 0.07) !important;
+        0 15px 48px rgba(0, 0, 0, 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.065) !important;
 }
 
 @media (max-width: 850px) {
     .mi-fixed-glass-nav {
-        border-radius: 0 !important;
+        top: 10px !important;
+        left: 12px !important;
+        right: 12px !important;
+        border-radius: 28px !important;
     }
 }
 
-/* MI_NAV_OUTLINE_REMOVAL_END */
+/* MI_INNER_ROUNDED_NAV_END */
 

@@ -801,8 +801,169 @@
 })();
 </script>
 <!-- MI_FIXED_GLASS_NAV_CONTROLLER_END -->
+
+<!-- MI_INNER_ROUNDED_NAV_CONTROLLER_START -->
+<script>
+(function () {
+    "use strict";
+
+    function fixInnerRoundedNavigation() {
+        const existingFixedElements = Array.from(
+            document.querySelectorAll(".mi-fixed-glass-nav")
+        );
+
+        existingFixedElements.forEach(function (element) {
+            element.classList.remove("mi-fixed-glass-nav");
+        });
+
+        const candidates = Array.from(
+            document.querySelectorAll(
+                "header, nav, .navbar, .nav-container, .navigation, .site-header, header > div"
+            )
+        ).filter(function (element) {
+            const text = String(element.textContent || "")
+                .replace(/\s+/g, " ")
+                .trim()
+                .toUpperCase();
+
+            return (
+                text.includes("MI CORTEX X") &&
+                text.includes("AI PRODUCTS") &&
+                text.includes("CONTACT")
+            );
+        });
+
+        if (!candidates.length) {
+            console.warn("Inner rounded navigation was not found.");
+            return;
+        }
+
+        /*
+        Select the smallest matching element.
+        This avoids applying the fixed style to the large outer header.
+        */
+        candidates.sort(function (first, second) {
+            const firstArea =
+                first.getBoundingClientRect().width *
+                first.getBoundingClientRect().height;
+
+            const secondArea =
+                second.getBoundingClientRect().width *
+                second.getBoundingClientRect().height;
+
+            return firstArea - secondArea;
+        });
+
+        let roundedNavigation = candidates[0];
+
+        /*
+        Prefer a child element containing all navigation content
+        when it has the visible rounded bar shape.
+        */
+        const descendants = Array.from(
+            roundedNavigation.querySelectorAll(
+                "nav, .navbar, .nav-container, .navigation, div"
+            )
+        ).filter(function (element) {
+            const text = String(element.textContent || "")
+                .replace(/\s+/g, " ")
+                .trim()
+                .toUpperCase();
+
+            const rect = element.getBoundingClientRect();
+
+            return (
+                text.includes("MI CORTEX X") &&
+                text.includes("AI PRODUCTS") &&
+                text.includes("CONTACT") &&
+                rect.width > 500 &&
+                rect.height >= 60 &&
+                rect.height <= 160
+            );
+        });
+
+        if (descendants.length) {
+            descendants.sort(function (first, second) {
+                return (
+                    first.getBoundingClientRect().height -
+                    second.getBoundingClientRect().height
+                );
+            });
+
+            roundedNavigation = descendants[0];
+        }
+
+        const outerHeader = roundedNavigation.closest("header");
+
+        if (outerHeader && outerHeader !== roundedNavigation) {
+            outerHeader.classList.add("mi-fixed-nav-outer-clean");
+        }
+
+        roundedNavigation.classList.add("mi-fixed-glass-nav");
+
+        const frontPage = document.querySelector(
+            "#mi-front-page, .mi-front-page"
+        );
+
+        let scrollStopTimer = null;
+
+        function getMainSiteStart() {
+            if (!frontPage) {
+                return 1;
+            }
+
+            return frontPage.offsetTop + frontPage.offsetHeight - 4;
+        }
+
+        function updateNavigation() {
+            document.documentElement.classList.toggle(
+                "mi-main-site-visible",
+                window.scrollY >= getMainSiteStart()
+            );
+        }
+
+        function handleScroll() {
+            updateNavigation();
+
+            document.documentElement.classList.add(
+                "mi-page-is-scrolling"
+            );
+
+            window.clearTimeout(scrollStopTimer);
+
+            scrollStopTimer = window.setTimeout(function () {
+                document.documentElement.classList.remove(
+                    "mi-page-is-scrolling"
+                );
+            }, 180);
+        }
+
+        window.addEventListener("scroll", handleScroll, {
+            passive: true
+        });
+
+        window.addEventListener("resize", updateNavigation, {
+            passive: true
+        });
+
+        updateNavigation();
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener(
+            "DOMContentLoaded",
+            fixInnerRoundedNavigation,
+            { once: true }
+        );
+    } else {
+        fixInnerRoundedNavigation();
+    }
+})();
+</script>
+<!-- MI_INNER_ROUNDED_NAV_CONTROLLER_END -->
 </body>
 </html>
+
 
 
 
