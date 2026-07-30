@@ -2,26 +2,38 @@ document.addEventListener('DOMContentLoaded', function () {
   const welcomeScreen = document.getElementById('welcome-screen');
   const welcomeStage = welcomeScreen ? welcomeScreen.querySelector('.welcome-stage') : null;
   const title = welcomeScreen ? welcomeScreen.querySelector('.welcome-title') : null;
+  const robot = welcomeScreen ? welcomeScreen.querySelector('.intro-robot') : null;
   const body = document.body;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  let introTimer = null;
+  let titleFadeTimer = null;
+  let titleClearTimer = null;
+  let titleTransformTimer = null;
+  let robotAssemblyTimer = null;
   let fallbackTimer = null;
-  let transitionTimer = null;
+  let transitionHandler = null;
   let hasStarted = false;
 
   const clearTimers = () => {
-    if (introTimer) {
-      window.clearTimeout(introTimer);
-      introTimer = null;
+    if (titleFadeTimer) {
+      window.clearTimeout(titleFadeTimer);
+      titleFadeTimer = null;
+    }
+    if (titleClearTimer) {
+      window.clearTimeout(titleClearTimer);
+      titleClearTimer = null;
+    }
+    if (titleTransformTimer) {
+      window.clearTimeout(titleTransformTimer);
+      titleTransformTimer = null;
+    }
+    if (robotAssemblyTimer) {
+      window.clearTimeout(robotAssemblyTimer);
+      robotAssemblyTimer = null;
     }
     if (fallbackTimer) {
       window.clearTimeout(fallbackTimer);
       fallbackTimer = null;
-    }
-    if (transitionTimer) {
-      window.clearTimeout(transitionTimer);
-      transitionTimer = null;
     }
   };
 
@@ -34,12 +46,24 @@ document.addEventListener('DOMContentLoaded', function () {
     welcomeScreen.classList.add('intro-exiting');
     body.classList.remove('intro-active');
     body.classList.add('welcome-complete');
+    welcomeScreen.setAttribute('aria-hidden', 'true');
 
-    transitionTimer = window.setTimeout(function () {
+    if (transitionHandler) {
+      welcomeScreen.removeEventListener('transitionend', transitionHandler);
+    }
+
+    transitionHandler = function () {
       if (welcomeScreen.parentNode) {
         welcomeScreen.parentNode.removeChild(welcomeScreen);
       }
-    }, 2400);
+    };
+
+    welcomeScreen.addEventListener('transitionend', transitionHandler, { once: true });
+    fallbackTimer = window.setTimeout(function () {
+      if (welcomeScreen.parentNode) {
+        welcomeScreen.parentNode.removeChild(welcomeScreen);
+      }
+    }, 2800);
   };
 
   const startIntroSequence = () => {
@@ -56,17 +80,59 @@ document.addEventListener('DOMContentLoaded', function () {
       title.classList.add('is-visible');
     });
 
-    introTimer = window.setTimeout(function () {
+    titleFadeTimer = window.setTimeout(function () {
       title.classList.add('is-clear');
-    }, reducedMotion ? 900 : 1400);
+    }, 1400);
 
-    introTimer = window.setTimeout(function () {
-      removeIntro();
-    }, reducedMotion ? 3000 : 5200);
+    titleClearTimer = window.setTimeout(function () {
+      title.classList.add('title-transforming');
+
+      if (robot) {
+        robot.classList.add('intro-robot-assembling');
+      }
+
+      const assemblyDuration = reducedMotion ? 700 : 1400;
+      const walkDuration = reducedMotion ? 1200 : 2400;
+
+      robotAssemblyTimer = window.setTimeout(function () {
+        if (robot) {
+          robot.classList.remove('intro-robot-assembling');
+          robot.classList.add('intro-robot-ready');
+          if (reducedMotion) {
+            robot.classList.add('intro-robot-walking-left-reduced');
+          } else {
+            robot.classList.add('intro-robot-walking-left');
+          }
+        }
+
+        const handleWalkEnd = function () {
+          if (robot) {
+            robot.removeEventListener('animationend', handleWalkEnd);
+          }
+          removeIntro();
+        };
+
+        if (robot) {
+          robot.addEventListener('animationend', handleWalkEnd, { once: true });
+        }
+
+        window.setTimeout(function () {
+          if (!robot) {
+            removeIntro();
+            return;
+          }
+          if (robot.classList.contains('intro-robot-walking-left') || robot.classList.contains('intro-robot-walking-left-reduced')) {
+            if (robot.getAnimations().length === 0) {
+              handleWalkEnd();
+            }
+          }
+        }, walkDuration + 100);
+      }, assemblyDuration);
+    }, 5200);
 
     fallbackTimer = window.setTimeout(function () {
       removeIntro();
-    }, reducedMotion ? 5000 : 9000);
+    }, reducedMotion ? 7000 : 11000);
   };
 
   if (welcomeScreen) {

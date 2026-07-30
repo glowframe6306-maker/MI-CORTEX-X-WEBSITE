@@ -179,6 +179,193 @@ body.welcome-complete {
   letter-spacing: clamp(0.25em, 0.7vw, 0.55em);
 }
 
+.welcome-title.title-transforming {
+  opacity: 0;
+  transform: translateY(-8px) scale(0.9);
+  filter: blur(6px);
+  transition: opacity 1.4s cubic-bezier(.22, 1, .36, 1), transform 1.4s cubic-bezier(.22, 1, .36, 1), filter 1.4s cubic-bezier(.22, 1, .36, 1);
+}
+
+.intro-robot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: clamp(8rem, 18vw, 11.5rem);
+  height: clamp(12rem, 24vw, 15rem);
+  transform: translate(-50%, -40%) scale(0.55);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  filter: blur(18px);
+  will-change: transform, opacity;
+  z-index: 4;
+}
+
+.intro-robot.intro-robot-assembling {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%, -40%) scale(1);
+  filter: blur(0);
+  transition: opacity 1.4s cubic-bezier(.22, 1, .36, 1), transform 1.4s cubic-bezier(.22, 1, .36, 1), filter 1.4s cubic-bezier(.22, 1, .36, 1);
+}
+
+.intro-robot.intro-robot-ready {
+  transform: translate(-50%, -40%) scale(1);
+  filter: blur(0);
+}
+
+.intro-robot.intro-robot-walking-left {
+  animation: intro-robot-walk-left 2.4s cubic-bezier(.22, 1, .36, 1) forwards;
+}
+
+.intro-robot.intro-robot-walking-left-reduced {
+  animation: intro-robot-walk-left-reduced 1.2s ease-out forwards;
+}
+
+.intro-robot-shadow {
+  position: absolute;
+  left: 50%;
+  bottom: 0.2rem;
+  width: 76%;
+  height: 1.1rem;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.32);
+  filter: blur(10px);
+  opacity: 0.8;
+}
+
+.intro-robot-head {
+  position: absolute;
+  left: 50%;
+  top: 0.25rem;
+  width: 44%;
+  height: 22%;
+  transform: translateX(-50%);
+  border-radius: 1.1rem;
+  background: linear-gradient(135deg, #7a5310 0%, #b8872f 40%, #d6b14b 100%);
+  border: 1px solid rgba(255, 241, 168, 0.65);
+  box-shadow: inset 0 0 0 1px rgba(255, 241, 168, 0.2), 0 0 14px rgba(214, 177, 75, 0.22);
+}
+
+.intro-robot-eye {
+  position: absolute;
+  top: 50%;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: #fff1a8;
+  box-shadow: 0 0 8px rgba(255, 241, 168, 0.8);
+  transform: translateY(-50%);
+}
+
+.intro-robot-eye-left {
+  left: 28%;
+}
+
+.intro-robot-eye-right {
+  right: 28%;
+}
+
+.intro-robot-neck {
+  position: absolute;
+  left: 50%;
+  top: 22%;
+  width: 10%;
+  height: 10%;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: linear-gradient(180deg, #b8872f 0%, #7a5310 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 241, 168, 0.18);
+}
+
+.intro-robot-torso {
+  position: absolute;
+  left: 50%;
+  top: 32%;
+  width: 58%;
+  height: 34%;
+  transform: translateX(-50%);
+  border-radius: 1.2rem;
+  background: linear-gradient(135deg, #8b6115 0%, #b8872f 45%, #e1bf58 100%);
+  border: 1px solid rgba(255, 241, 168, 0.55);
+  box-shadow: inset 0 0 0 1px rgba(255, 241, 168, 0.16), 0 0 16px rgba(214, 177, 75, 0.16);
+}
+
+.intro-robot-core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1.4rem;
+  height: 1.4rem;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff8c2 0%, #f4d675 30%, #b8872f 80%, #7a5310 100%);
+  box-shadow: 0 0 14px rgba(244, 214, 117, 0.6);
+}
+
+.intro-robot-arm {
+  position: absolute;
+  top: 38%;
+  width: 14%;
+  height: 0.7rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #7a5310 0%, #b8872f 50%, #d6b14b 100%);
+  box-shadow: 0 0 8px rgba(214, 177, 75, 0.2);
+}
+
+.intro-robot-arm-left {
+  left: 18%;
+  transform: rotate(18deg);
+}
+
+.intro-robot-arm-right {
+  right: 18%;
+  transform: rotate(-18deg);
+}
+
+.intro-robot-leg {
+  position: absolute;
+  bottom: 0.6rem;
+  width: 16%;
+  height: 28%;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #b8872f 0%, #7a5310 100%);
+  box-shadow: 0 0 6px rgba(214, 177, 75, 0.16);
+}
+
+.intro-robot-leg-left {
+  left: 34%;
+}
+
+.intro-robot-leg-right {
+  right: 34%;
+}
+
+@keyframes intro-robot-walk-left {
+  0% {
+    transform: translate(-50%, -40%) scale(1);
+  }
+  20% {
+    transform: translate(calc(-50% - 4vw), -42%) scale(1);
+  }
+  50% {
+    transform: translate(calc(-50% - 20vw), -39%) scale(1);
+  }
+  100% {
+    transform: translate(calc(-60vw - 220px), -40%) scale(1);
+  }
+}
+
+@keyframes intro-robot-walk-left-reduced {
+  0% {
+    transform: translate(-50%, -40%) scale(1);
+  }
+  100% {
+    transform: translate(calc(-50vw - 120px), -40%) scale(1);
+  }
+}
+
 .welcome-screen.intro-exiting {
   transform: translateY(-100%);
   transition: transform 2.2s cubic-bezier(.22, 1, .36, 1);
