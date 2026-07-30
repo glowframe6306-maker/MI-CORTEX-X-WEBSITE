@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --bg: #040711;
   --bg-deep: #02040a;
   --surface: rgba(7, 12, 24, 0.76);
@@ -118,14 +118,11 @@ body::before {
 }
 
 .brand-logo {
-  width: 44px;
-  height: 44px;
-  display: block;
-  object-fit: contain;
-  flex-shrink: 0;
-  border-radius: 50%;
-  background: transparent;
-  padding: 2px;
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
 }
 
 .brand span {
@@ -517,3 +514,4 @@ main {
     align-items: flex-start;
   }
 }
+
