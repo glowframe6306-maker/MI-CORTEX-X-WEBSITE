@@ -1,524 +1,524 @@
-:root {
- --bg: #040711;
- --bg-deep: #02040a;
- --surface: rgba(7, 12, 24, 0.76);
- --surface-strong: rgba(10, 16, 31, 0.92);
- --text: #f6f8ff;
- --muted: #a1acc8;
- --accent: #61dafb;
- --accent-2: #8b5cf6;
- --accent-3: #22d3ee;
- --border: rgba(255, 255, 255, 0.12);
- --shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
- --radius-lg: 24px;
- --radius-md: 18px;
- --radius-sm: 14px;
- --container: 1180px;
+﻿:root {
+  --bg: #040711;
+  --bg-deep: #02040a;
+  --surface: rgba(7, 12, 24, 0.76);
+  --surface-strong: rgba(10, 16, 31, 0.92);
+  --text: #f6f8ff;
+  --muted: #a1acc8;
+  --accent: #61dafb;
+  --accent-2: #8b5cf6;
+  --accent-3: #22d3ee;
+  --border: rgba(255, 255, 255, 0.12);
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+  --radius-lg: 24px;
+  --radius-md: 18px;
+  --radius-sm: 14px;
+  --container: 1180px;
 }
 
 * {
- box-sizing: border-box;
- margin: 0;
- padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
- scroll-behavior: smooth;
- overflow-x: hidden;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
- font-family: 'Poppins', 'Inter', sans-serif;
- color: var(--text);
- background:
- radial-gradient(circle at 0% 0%, rgba(97, 218, 251, 0.16), transparent 24%),
- radial-gradient(circle at 100% 100%, rgba(139, 92, 246, 0.18), transparent 24%),
- linear-gradient(135deg, var(--bg-deep) 0%, var(--bg) 45%, #07111f 100%);
- min-height: 100vh;
- overflow-x: hidden;
- overflow-y: hidden;
- line-height: 1.65;
- position: relative;
+  font-family: 'Poppins', 'Inter', sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(97, 218, 251, 0.16), transparent 24%),
+    radial-gradient(circle at 100% 100%, rgba(139, 92, 246, 0.18), transparent 24%),
+    linear-gradient(135deg, var(--bg-deep) 0%, var(--bg) 45%, #07111f 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  line-height: 1.65;
+  position: relative;
 }
 
 body::before {
- content: '';
- position: fixed;
- inset: 0;
- background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
- linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
- background-size: 36px 36px;
- pointer-events: none;
- z-index: 0;
- opacity: 0.6;
- -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent);
- mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent);
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 36px 36px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent);
 }
 
 body {
- background-color: #000000;
+  background-color: #000000;
 }
 
-body.site-header,
+body .site-header,
 body main,
-body.site-footer,
-body.background-orb {
- opacity: 0;
- visibility: hidden;
- pointer-events: none;
- transition: opacity 0.4s ease, visibility 0.4s ease;
+body .site-footer,
+body .background-orb {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
-body.welcome-complete.site-header,
+body.welcome-complete .site-header,
 body.welcome-complete main,
-body.welcome-complete.site-footer,
-body.welcome-complete.background-orb {
- opacity: 1;
- visibility: visible;
- pointer-events: auto;
+body.welcome-complete .site-footer,
+body.welcome-complete .background-orb {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 body.welcome-complete {
- overflow-x: hidden;
- overflow-y: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .welcome-screen {
- position: fixed;
- inset: 0;
- z-index: 2000;
- display: grid;
- place-items: center;
- padding: 1.5rem;
- background: #000000;
- overflow: hidden;
- will-change: transform;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  background: #000000;
+  overflow: hidden;
+  will-change: transform;
 }
 
 .welcome-stage {
- position: relative;
- width: 100%;
- max-width: 100vw;
- min-height: 78vh;
- display: grid;
- place-items: center;
- isolation: isolate;
- overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  min-height: 78vh;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  overflow: hidden;
 }
 
 .welcome-title {
- position: relative;
- z-index: 3;
- display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: center;
- width: min(94vw, 1200px);
- max-width: 94vw;
- overflow: visible;
- margin: 0;
- text-align: center;
- font-family: 'Poppins', 'Inter', 'Segoe UI', sans-serif;
- font-weight: 900;
- line-height: 1.02;
- text-transform: uppercase;
- color: transparent;
- background: linear-gradient(90deg, #8c6519 0%, #c79d32 28%, #e7c760 54%, #fff1b0 100%);
- -webkit-background-clip: text;
- background-clip: text;
- -webkit-text-fill-color: transparent;
- opacity: 0;
- transform: translateY(18px) scale(0.98);
- filter: blur(22px);
- text-shadow: 0 0 12px rgba(214, 177, 75, 0.18), 0 0 28px rgba(214, 177, 75, 0.10);
- white-space: nowrap;
- transition: opacity 1.4s cubic-bezier(.22, 1,.36, 1), transform 1.4s cubic-bezier(.22, 1,.36, 1), filter 1.4s cubic-bezier(.22, 1,.36, 1);
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: min(94vw, 1200px);
+  max-width: 94vw;
+  overflow: visible;
+  margin: 0;
+  text-align: center;
+  font-family: 'Poppins', 'Inter', 'Segoe UI', sans-serif;
+  font-weight: 900;
+  line-height: 1.02;
+  text-transform: uppercase;
+  color: transparent;
+  background: linear-gradient(90deg, #8c6519 0%, #c79d32 28%, #e7c760 54%, #fff1b0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  transform: translateY(18px) scale(0.98);
+  filter: blur(22px);
+  text-shadow: 0 0 12px rgba(214, 177, 75, 0.18), 0 0 28px rgba(214, 177, 75, 0.10);
+  white-space: nowrap;
+  transition: opacity 1.4s cubic-bezier(.22, 1, .36, 1), transform 1.4s cubic-bezier(.22, 1, .36, 1), filter 1.4s cubic-bezier(.22, 1, .36, 1);
 }
 
 .welcome-title.is-visible {
- opacity: 1;
- transform: translateY(0) scale(1);
- filter: blur(22px);
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(22px);
 }
 
 .welcome-title.is-clear {
- filter: blur(0);
- transition: filter 2.2s cubic-bezier(.22, 1,.36, 1);
+  filter: blur(0);
+  transition: filter 2.2s cubic-bezier(.22, 1, .36, 1);
 }
 
 .welcome-main-line,
 .welcome-sub-line {
- display: flex;
- align-items: center;
- justify-content: center;
- width: 100%;
- max-width: 94vw;
- white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 94vw;
+  white-space: nowrap;
 }
 
 .welcome-main-line {
- gap: clamp(1.2rem, 4vw, 4.5rem);
- margin-bottom: 0.2em;
+  gap: clamp(1.2rem, 4vw, 4.5rem);
+  margin-bottom: 0.2em;
 }
 
 .welcome-sub-line {
- margin-top: 0.08em;
+  margin-top: 0.08em;
 }
 
 .title-word {
- display: inline-flex;
- align-items: center;
- justify-content: center;
- font-size: clamp(2.8rem, 8vw, 7.5rem);
- letter-spacing: clamp(0.08em, 0.3vw, 0.18em);
- line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(2.8rem, 8vw, 7.5rem);
+  letter-spacing: clamp(0.08em, 0.3vw, 0.18em);
+  line-height: 1;
 }
 
 .title-inc {
- font-size: clamp(1.1rem, 2.8vw, 2.4rem);
- letter-spacing: clamp(0.25em, 0.7vw, 0.55em);
+  font-size: clamp(1.1rem, 2.8vw, 2.4rem);
+  letter-spacing: clamp(0.25em, 0.7vw, 0.55em);
 }
 
 .welcome-title.title-transforming {
- opacity: 0;
- transform: translateY(-8px) scale(0.9);
- filter: blur(6px);
- transition: opacity 1.4s cubic-bezier(.22, 1,.36, 1), transform 1.4s cubic-bezier(.22, 1,.36, 1), filter 1.4s cubic-bezier(.22, 1,.36, 1);
+  opacity: 0;
+  transform: translateY(-8px) scale(0.9);
+  filter: blur(6px);
+  transition: opacity 1.4s cubic-bezier(.22, 1, .36, 1), transform 1.4s cubic-bezier(.22, 1, .36, 1), filter 1.4s cubic-bezier(.22, 1, .36, 1);
 }
 
 .intro-robot {
- position: absolute;
- left: 50%;
- top: 50%;
- width: clamp(8rem, 18vw, 11.5rem);
- height: clamp(12rem, 24vw, 15rem);
- transform: translate(-50%, -40%) scale(0.55);
- opacity: 0;
- visibility: hidden;
- pointer-events: none;
- filter: blur(18px);
- will-change: transform, opacity;
- z-index: 4;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: clamp(8rem, 18vw, 11.5rem);
+  height: clamp(12rem, 24vw, 15rem);
+  transform: translate(-50%, -40%) scale(0.55);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  filter: blur(18px);
+  will-change: transform, opacity;
+  z-index: 4;
 }
 
 .intro-robot.intro-robot-assembling {
- visibility: visible;
- opacity: 1;
- transform: translate(-50%, -40%) scale(1);
- filter: blur(0);
- transition: opacity 1.4s cubic-bezier(.22, 1,.36, 1), transform 1.4s cubic-bezier(.22, 1,.36, 1), filter 1.4s cubic-bezier(.22, 1,.36, 1);
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%, -40%) scale(1);
+  filter: blur(0);
+  transition: opacity 1.4s cubic-bezier(.22, 1, .36, 1), transform 1.4s cubic-bezier(.22, 1, .36, 1), filter 1.4s cubic-bezier(.22, 1, .36, 1);
 }
 
 .intro-robot.intro-robot-ready {
- transform: translate(-50%, -40%) scale(1);
- filter: blur(0);
+  transform: translate(-50%, -40%) scale(1);
+  filter: blur(0);
 }
 
 .intro-robot.intro-robot-walking-left {
- animation: intro-robot-walk-left 2.4s cubic-bezier(.22, 1,.36, 1) forwards;
+  animation: intro-robot-walk-left 2.4s cubic-bezier(.22, 1, .36, 1) forwards;
 }
 
 .intro-robot.intro-robot-walking-left-reduced {
- animation: intro-robot-walk-left-reduced 1.2s ease-out forwards;
+  animation: intro-robot-walk-left-reduced 1.2s ease-out forwards;
 }
 
 .intro-robot-shadow {
- position: absolute;
- left: 50%;
- bottom: 0.2rem;
- width: 76%;
- height: 1.1rem;
- transform: translateX(-50%);
- border-radius: 999px;
- background: rgba(0, 0, 0, 0.32);
- filter: blur(10px);
- opacity: 0.8;
+  position: absolute;
+  left: 50%;
+  bottom: 0.2rem;
+  width: 76%;
+  height: 1.1rem;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.32);
+  filter: blur(10px);
+  opacity: 0.8;
 }
 
 .intro-robot-head {
- position: absolute;
- left: 50%;
- top: 0.25rem;
- width: 44%;
- height: 22%;
- transform: translateX(-50%);
- border-radius: 1.1rem;
- background: linear-gradient(135deg, #7a5310 0%, #b8872f 40%, #d6b14b 100%);
- border: 1px solid rgba(255, 241, 168, 0.65);
- box-shadow: inset 0 0 0 1px rgba(255, 241, 168, 0.2), 0 0 14px rgba(214, 177, 75, 0.22);
+  position: absolute;
+  left: 50%;
+  top: 0.25rem;
+  width: 44%;
+  height: 22%;
+  transform: translateX(-50%);
+  border-radius: 1.1rem;
+  background: linear-gradient(135deg, #7a5310 0%, #b8872f 40%, #d6b14b 100%);
+  border: 1px solid rgba(255, 241, 168, 0.65);
+  box-shadow: inset 0 0 0 1px rgba(255, 241, 168, 0.2), 0 0 14px rgba(214, 177, 75, 0.22);
 }
 
 .intro-robot-eye {
- position: absolute;
- top: 50%;
- width: 0.6rem;
- height: 0.6rem;
- border-radius: 50%;
- background: #fff1a8;
- box-shadow: 0 0 8px rgba(255, 241, 168, 0.8);
- transform: translateY(-50%);
+  position: absolute;
+  top: 50%;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: #fff1a8;
+  box-shadow: 0 0 8px rgba(255, 241, 168, 0.8);
+  transform: translateY(-50%);
 }
 
 .intro-robot-eye-left {
- left: 28%;
+  left: 28%;
 }
 
 .intro-robot-eye-right {
- right: 28%;
+  right: 28%;
 }
 
 .intro-robot-neck {
- position: absolute;
- left: 50%;
- top: 22%;
- width: 10%;
- height: 10%;
- transform: translateX(-50%);
- border-radius: 999px;
- background: linear-gradient(180deg, #b8872f 0%, #7a5310 100%);
- box-shadow: inset 0 0 0 1px rgba(255, 241, 168, 0.18);
+  position: absolute;
+  left: 50%;
+  top: 22%;
+  width: 10%;
+  height: 10%;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: linear-gradient(180deg, #b8872f 0%, #7a5310 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 241, 168, 0.18);
 }
 
 .intro-robot-torso {
- position: absolute;
- left: 50%;
- top: 32%;
- width: 58%;
- height: 34%;
- transform: translateX(-50%);
- border-radius: 1.2rem;
- background: linear-gradient(135deg, #8b6115 0%, #b8872f 45%, #e1bf58 100%);
- border: 1px solid rgba(255, 241, 168, 0.55);
- box-shadow: inset 0 0 0 1px rgba(255, 241, 168, 0.16), 0 0 16px rgba(214, 177, 75, 0.16);
+  position: absolute;
+  left: 50%;
+  top: 32%;
+  width: 58%;
+  height: 34%;
+  transform: translateX(-50%);
+  border-radius: 1.2rem;
+  background: linear-gradient(135deg, #8b6115 0%, #b8872f 45%, #e1bf58 100%);
+  border: 1px solid rgba(255, 241, 168, 0.55);
+  box-shadow: inset 0 0 0 1px rgba(255, 241, 168, 0.16), 0 0 16px rgba(214, 177, 75, 0.16);
 }
 
 .intro-robot-core {
- position: absolute;
- left: 50%;
- top: 50%;
- width: 1.4rem;
- height: 1.4rem;
- transform: translate(-50%, -50%);
- border-radius: 50%;
- background: radial-gradient(circle at 30% 30%, #fff8c2 0%, #f4d675 30%, #b8872f 80%, #7a5310 100%);
- box-shadow: 0 0 14px rgba(244, 214, 117, 0.6);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1.4rem;
+  height: 1.4rem;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff8c2 0%, #f4d675 30%, #b8872f 80%, #7a5310 100%);
+  box-shadow: 0 0 14px rgba(244, 214, 117, 0.6);
 }
 
 .intro-robot-arm {
- position: absolute;
- top: 38%;
- width: 14%;
- height: 0.7rem;
- border-radius: 999px;
- background: linear-gradient(90deg, #7a5310 0%, #b8872f 50%, #d6b14b 100%);
- box-shadow: 0 0 8px rgba(214, 177, 75, 0.2);
+  position: absolute;
+  top: 38%;
+  width: 14%;
+  height: 0.7rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #7a5310 0%, #b8872f 50%, #d6b14b 100%);
+  box-shadow: 0 0 8px rgba(214, 177, 75, 0.2);
 }
 
 .intro-robot-arm-left {
- left: 18%;
- transform: rotate(18deg);
+  left: 18%;
+  transform: rotate(18deg);
 }
 
 .intro-robot-arm-right {
- right: 18%;
- transform: rotate(-18deg);
+  right: 18%;
+  transform: rotate(-18deg);
 }
 
 .intro-robot-leg {
- position: absolute;
- bottom: 0.6rem;
- width: 16%;
- height: 28%;
- border-radius: 999px;
- background: linear-gradient(180deg, #b8872f 0%, #7a5310 100%);
- box-shadow: 0 0 6px rgba(214, 177, 75, 0.16);
+  position: absolute;
+  bottom: 0.6rem;
+  width: 16%;
+  height: 28%;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #b8872f 0%, #7a5310 100%);
+  box-shadow: 0 0 6px rgba(214, 177, 75, 0.16);
 }
 
 .intro-robot-leg-left {
- left: 34%;
+  left: 34%;
 }
 
 .intro-robot-leg-right {
- right: 34%;
+  right: 34%;
 }
 
 @keyframes intro-robot-walk-left {
- 0% {
- transform: translate(-50%, -40%) scale(1);
- }
- 20% {
- transform: translate(calc(-50% - 4vw), -42%) scale(1);
- }
- 50% {
- transform: translate(calc(-50% - 20vw), -39%) scale(1);
- }
- 100% {
- transform: translate(calc(-60vw - 220px), -40%) scale(1);
- }
+  0% {
+    transform: translate(-50%, -40%) scale(1);
+  }
+  20% {
+    transform: translate(calc(-50% - 4vw), -42%) scale(1);
+  }
+  50% {
+    transform: translate(calc(-50% - 20vw), -39%) scale(1);
+  }
+  100% {
+    transform: translate(calc(-60vw - 220px), -40%) scale(1);
+  }
 }
 
 @keyframes intro-robot-walk-left-reduced {
- 0% {
- transform: translate(-50%, -40%) scale(1);
- }
- 100% {
- transform: translate(calc(-50vw - 120px), -40%) scale(1);
- }
+  0% {
+    transform: translate(-50%, -40%) scale(1);
+  }
+  100% {
+    transform: translate(calc(-50vw - 120px), -40%) scale(1);
+  }
 }
 
 .welcome-screen.intro-exiting {
- transform: translateY(-100%);
- transition: transform 2.2s cubic-bezier(.22, 1,.36, 1);
+  transform: translateY(-100%);
+  transition: transform 2.2s cubic-bezier(.22, 1, .36, 1);
 }
 
 .container {
- width: min(var(--container), calc(100% - 2rem));
- margin: 0 auto;
+  width: min(var(--container), calc(100% - 2rem));
+  margin: 0 auto;
 }
 
 .background-orb {
- position: fixed;
- border-radius: 999px;
- filter: blur(90px);
- opacity: 0.28;
- pointer-events: none;
- z-index: 0;
- animation: drift 14s ease-in-out infinite alternate;
+  position: fixed;
+  border-radius: 999px;
+  filter: blur(90px);
+  opacity: 0.28;
+  pointer-events: none;
+  z-index: 0;
+  animation: drift 14s ease-in-out infinite alternate;
 }
 
 .orb-one {
- width: 300px;
- height: 300px;
- top: 6%;
- left: -80px;
- background: var(--accent);
+  width: 300px;
+  height: 300px;
+  top: 6%;
+  left: -80px;
+  background: var(--accent);
 }
 
 .orb-two {
- width: 340px;
- height: 340px;
- bottom: 8%;
- right: -90px;
- background: var(--accent-2);
- animation-duration: 16s;
+  width: 340px;
+  height: 340px;
+  bottom: 8%;
+  right: -90px;
+  background: var(--accent-2);
+  animation-duration: 16s;
 }
 
 .site-header {
- position: sticky;
- top: 0;
- z-index: 40;
- padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  padding: 1rem 0;
 }
 
 .nav {
- display: flex;
- align-items: center;
- justify-content: space-between;
- gap: 1rem;
- padding: 0.9rem 1.1rem;
- border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1.1rem;
+  border-radius: 999px;
 }
 
 .glass-panel {
- background: var(--surface);
- border: 1px solid var(--border);
- box-shadow: var(--shadow);
- -webkit-backdrop-filter: blur(18px);
- backdrop-filter: blur(18px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
 }
 
 .brand{
- display:flex;
- align-items:center;
- gap:14px;
- text-decoration:none;
- background:transparent!important;
- border:none!important;
- box-shadow:none!important;
- padding:0!important;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    text-decoration:none;
+    background:transparent !important;
+    border:none !important;
+    box-shadow:none !important;
+    padding:0 !important;
 }
 
 .brand-logo{
- width:64px;
- height:64px;
- object-fit:contain;
- display:block;
- flex-shrink:0;
- border-radius:50%;
- background:transparent!important;
- border:none!important;
- box-shadow:none!important;
- padding:0!important;
- margin:0!important;
+    width:64px;
+    height:64px;
+    object-fit:contain;
+    display:block;
+    flex-shrink:0;
+    border-radius:50%;
+    background:transparent !important;
+    border:none !important;
+    box-shadow:none !important;
+    padding:0 !important;
+    margin:0 !important;
 }
 
 .brand span {
- display: inline-block;
+  display: inline-block;
 }
 
 .nav-toggle {
- display: none;
- border: 0;
- background: transparent;
- cursor: pointer;
- padding: 0.25rem;
+  display: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0.25rem;
 }
 
 .nav-toggle span {
- display: block;
- width: 24px;
- height: 2px;
- background: var(--text);
- margin: 5px 0;
- border-radius: 999px;
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+  margin: 5px 0;
+  border-radius: 999px;
 }
 
 .nav-links {
- display: flex;
- gap: 1.1rem;
- align-items: center;
+  display: flex;
+  gap: 1.1rem;
+  align-items: center;
 }
 
 .nav-links a {
- color: var(--muted);
- text-decoration: none;
- font-size: 0.94rem;
- transition: color 0.24s ease;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.94rem;
+  transition: color 0.24s ease;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
- color: var(--text);
+  color: var(--text);
 }
 
 main {
- position: relative;
- z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .hero {
- display: grid;
- grid-template-columns: 1.1fr 0.9fr;
- gap: 2.5rem;
- align-items: center;
- padding: 5.4rem 0 4.6rem;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2.5rem;
+  align-items: center;
+  padding: 5.4rem 0 4.6rem;
 }
 
 .hero-copy {
- max-width: 620px;
+  max-width: 620px;
 }
 
 .eyebrow {
- display: inline-block;
- margin-bottom: 1rem;
- padding: 0.45rem 0.8rem;
- border-radius: 999px;
- border: 1px solid rgba(97, 218, 251, 0.2);
- color: var(--accent);
- font-size: 0.78rem;
- letter-spacing: 0.24em;
- text-transform: uppercase;
- font-weight: 600;
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(97, 218, 251, 0.2);
+  color: var(--accent);
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
 .hero h1,
@@ -527,14 +527,14 @@ main {
 .price-card h3,
 .feature-list h3,
 .contact-card h2 {
- font-family: 'Space Grotesk', 'Poppins', sans-serif;
+  font-family: 'Space Grotesk', 'Poppins', sans-serif;
 }
 
 .hero h1 {
- font-size: clamp(2.8rem, 5vw, 4.7rem);
- line-height: 1.05;
- margin-bottom: 1rem;
- letter-spacing: -0.03em;
+  font-size: clamp(2.8rem, 5vw, 4.7rem);
+  line-height: 1.05;
+  margin-bottom: 1rem;
+  letter-spacing: -0.03em;
 }
 
 .hero-subtitle,
@@ -543,608 +543,608 @@ main {
 .price-card p,
 .feature-list p,
 .contact-card p {
- color: var(--muted);
- line-height: 1.8;
- font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 1rem;
 }
 
 .hero-actions {
- display: flex;
- gap: 1rem;
- flex-wrap: wrap;
- margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
 }
 
 .btn {
- display: inline-flex;
- align-items: center;
- justify-content: center;
- padding: 0.95rem 1.25rem;
- border-radius: 999px;
- text-decoration: none;
- font-weight: 600;
- transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.95rem 1.25rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .btn:hover {
- transform: translateY(-2px);
+  transform: translateY(-2px);
 }
 
 .btn-primary {
- background: linear-gradient(135deg, var(--accent), var(--accent-2));
- color: #03111d;
- box-shadow: 0 14px 32px rgba(97, 218, 251, 0.22);
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #03111d;
+  box-shadow: 0 14px 32px rgba(97, 218, 251, 0.22);
 }
 
 .btn-secondary {
- color: var(--text);
- background: rgba(255, 255, 255, 0.05);
- border: 1px solid var(--border);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
 }
 
 .hero-stats {
- display: flex;
- flex-wrap: wrap;
- gap: 1rem;
- margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
 .hero-stats div {
- min-width: 130px;
- padding: 0.9rem 1rem;
- border-radius: var(--radius-md);
- background: rgba(255, 255, 255, 0.04);
- border: 1px solid rgba(255, 255, 255, 0.08);
+  min-width: 130px;
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .hero-stats strong {
- display: block;
- color: var(--text);
- font-size: 1rem;
+  display: block;
+  color: var(--text);
+  font-size: 1rem;
 }
 
 .hero-stats span {
- color: var(--muted);
- font-size: 0.85rem;
+  color: var(--muted);
+  font-size: 0.85rem;
 }
 
 .hero-panel {
- border-radius: 30px;
- padding: 1.4rem;
- min-height: 400px;
+  border-radius: 30px;
+  padding: 1.4rem;
+  min-height: 400px;
 }
 
 .panel-chip {
- display: inline-block;
- margin-bottom: 1rem;
- padding: 0.45rem 0.8rem;
- border-radius: 999px;
- background: rgba(97, 218, 251, 0.12);
- color: var(--accent);
- font-size: 0.8rem;
- font-weight: 600;
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(97, 218, 251, 0.12);
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
 .panel-visual {
- position: relative;
- height: 250px;
- margin-bottom: 1rem;
- border-radius: 24px;
- background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
- overflow: hidden;
+  position: relative;
+  height: 250px;
+  margin-bottom: 1rem;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+  overflow: hidden;
 }
 
 .grid-ring {
- position: absolute;
- inset: 30px;
- border: 1px solid rgba(97, 218, 251, 0.22);
- border-radius: 50%;
- animation: spin 12s linear infinite;
+  position: absolute;
+  inset: 30px;
+  border: 1px solid rgba(97, 218, 251, 0.22);
+  border-radius: 50%;
+  animation: spin 12s linear infinite;
 }
 
 .ring-two {
- inset: 55px;
- border-color: rgba(139, 92, 246, 0.28);
- animation-direction: reverse;
+  inset: 55px;
+  border-color: rgba(139, 92, 246, 0.28);
+  animation-direction: reverse;
 }
 
 .center-core {
- position: absolute;
- inset: 0;
- margin: auto;
- width: 88px;
- height: 88px;
- border-radius: 50%;
- background: radial-gradient(circle, rgba(97, 218, 251, 0.92), rgba(139, 92, 246, 0.22));
- box-shadow: 0 0 44px rgba(97, 218, 251, 0.28);
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(97, 218, 251, 0.92), rgba(139, 92, 246, 0.22));
+  box-shadow: 0 0 44px rgba(97, 218, 251, 0.28);
 }
 
 .panel-list {
- padding-left: 1rem;
- color: var(--muted);
- line-height: 1.8;
+  padding-left: 1rem;
+  color: var(--muted);
+  line-height: 1.8;
 }
 
 .section {
- padding: 3.2rem 0 1rem;
+  padding: 3.2rem 0 1rem;
 }
 
 .section-heading {
- margin-bottom: 1.4rem;
+  margin-bottom: 1.4rem;
 }
 
 .section-heading h2 {
- font-size: clamp(1.75rem, 3vw, 2.3rem);
- margin-bottom: 0.6rem;
+  font-size: clamp(1.75rem, 3vw, 2.3rem);
+  margin-bottom: 0.6rem;
 }
 
 .card-grid,
 .pricing-grid {
- display: grid;
- grid-template-columns: repeat(3, minmax(0, 1fr));
- gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
 }
 
 .card,
 .price-card,
 .feature-list,
 .contact-card {
- border-radius: var(--radius-lg);
- padding: 1.4rem;
- transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  border-radius: var(--radius-lg);
+  padding: 1.4rem;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
 }
 
 .card:hover,
 .price-card:hover,
 .contact-card:hover {
- transform: translateY(-4px);
- border-color: rgba(97, 218, 251, 0.3);
+  transform: translateY(-4px);
+  border-color: rgba(97, 218, 251, 0.3);
 }
 
 .card h3,
 .price-card h3,
 .feature-list h3 {
- margin-bottom: 0.55rem;
+  margin-bottom: 0.55rem;
 }
 
 .feature-list {
- display: grid;
- grid-template-columns: repeat(3, minmax(0, 1fr));
- gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
 }
 
 .price {
- font-size: 2rem;
- font-weight: 700;
- color: var(--text);
- margin: 0.35rem 0 0.7rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0.35rem 0 0.7rem;
 }
 
 .price-card ul {
- padding-left: 1rem;
- color: var(--muted);
- line-height: 1.8;
+  padding-left: 1rem;
+  color: var(--muted);
+  line-height: 1.8;
 }
 
 .price-card.featured {
- border-color: rgba(97, 218, 251, 0.32);
- transform: translateY(-4px);
+  border-color: rgba(97, 218, 251, 0.32);
+  transform: translateY(-4px);
 }
 
 .contact-card {
- display: flex;
- justify-content: space-between;
- gap: 1rem;
- align-items: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
 }
 
 .site-footer {
- padding: 2rem 0 2.5rem;
- position: relative;
- z-index: 1;
+  padding: 2rem 0 2.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .footer-inner {
- display: flex;
- justify-content: space-between;
- align-items: center;
- gap: 1rem;
- padding-top: 1.15rem;
- border-top: 1px solid rgba(255, 255, 255, 0.08);
- color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--muted);
 }
 
 .reveal {
- opacity: 0;
- transform: translateY(24px);
- transition: opacity 0.7s ease, transform 0.7s ease;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
 .reveal.is-visible {
- opacity: 1;
- transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @keyframes drift {
- from {
- transform: translate3d(0, 0, 0) scale(1);
- }
- to {
- transform: translate3d(18px, 24px, 0) scale(1.08);
- }
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(18px, 24px, 0) scale(1.08);
+  }
 }
 
 @keyframes spin {
- from {
- transform: rotate(0deg);
- }
- to {
- transform: rotate(360deg);
- }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes title-zoom {
- 0% {
- transform: scale(0.96);
- text-shadow: 0 0 8px rgba(214, 177, 75, 0.2);
- }
- 100% {
- transform: scale(1.04);
- text-shadow: 0 0 28px rgba(214, 177, 75, 0.34);
- }
+  0% {
+    transform: scale(0.96);
+    text-shadow: 0 0 8px rgba(214, 177, 75, 0.2);
+  }
+  100% {
+    transform: scale(1.04);
+    text-shadow: 0 0 28px rgba(214, 177, 75, 0.34);
+  }
 }
 
 @keyframes title-shine {
- 0% {
- transform: translateX(-140%);
- }
- 100% {
- transform: translateX(140%);
- }
+  0% {
+    transform: translateX(-140%);
+  }
+  100% {
+    transform: translateX(140%);
+  }
 }
 
 @keyframes welcome-lift {
- 0% {
- opacity: 1;
- transform: translateY(0) scale(1);
- }
- 100% {
- opacity: 0;
- transform: translateY(-120%) scale(1.02);
- }
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-120%) scale(1.02);
+  }
 }
 
 @media (max-width: 950px) {
-.hero,
-.card-grid,
-.pricing-grid,
-.feature-list {
- grid-template-columns: 1fr;
- }
+  .hero,
+  .card-grid,
+  .pricing-grid,
+  .feature-list {
+    grid-template-columns: 1fr;
+  }
 
-.hero {
- padding-top: 4rem;
- }
+  .hero {
+    padding-top: 4rem;
+  }
 
-.hero-panel {
- min-height: initial;
- }
+  .hero-panel {
+    min-height: initial;
+  }
 }
 
 @media (max-width: 760px) {
-.site-header {
- padding: 0.7rem 0;
- }
+  .site-header {
+    padding: 0.7rem 0;
+  }
 
-.nav {
- border-radius: 22px;
- align-items: flex-start;
- }
+  .nav {
+    border-radius: 22px;
+    align-items: flex-start;
+  }
 
-.nav-toggle {
- display: block;
- }
+  .nav-toggle {
+    display: block;
+  }
 
-.nav-links {
- display: none;
- flex-direction: column;
- width: 100%;
- align-items: flex-start;
- padding-top: 0.85rem;
- }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    padding-top: 0.85rem;
+  }
 
-.nav-links.open {
- display: flex;
- }
+  .nav-links.open {
+    display: flex;
+  }
 
-.hero {
- padding-top: 3.5rem;
- }
+  .hero {
+    padding-top: 3.5rem;
+  }
 
-.hero-actions {
- flex-direction: column;
- align-items: flex-start;
- }
+  .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-.contact-card,
-.footer-inner {
- flex-direction: column;
- align-items: flex-start;
- }
+  .contact-card,
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 @media (max-width: 840px) {
-.welcome-screen {
- padding: 1.25rem;
- }
+  .welcome-screen {
+    padding: 1.25rem;
+  }
 
-.welcome-stage {
- min-height: 82vh;
- }
+  .welcome-stage {
+    min-height: 82vh;
+  }
 
-.welcome-title {
- letter-spacing: 0.16em;
- font-size: clamp(1.7rem, 8vw, 3rem);
- }
+  .welcome-title {
+    letter-spacing: 0.16em;
+    font-size: clamp(1.7rem, 8vw, 3rem);
+  }
 
-.title-line {
- gap: 0.8em;
- }
+  .title-line {
+    gap: 0.8em;
+  }
 }
 
 @media (max-width: 520px) {
-.welcome-screen {
- padding: 1rem;
- }
+  .welcome-screen {
+    padding: 1rem;
+  }
 
-.welcome-title {
- letter-spacing: 0.1em;
- font-size: clamp(1.35rem, 8vw, 2.2rem);
- gap: 0.14em;
- white-space: nowrap;
- }
+  .welcome-title {
+    letter-spacing: 0.1em;
+    font-size: clamp(1.35rem, 8vw, 2.2rem);
+    gap: 0.14em;
+    white-space: nowrap;
+  }
 
-.title-line {
- gap: 0.55em;
- }
+  .title-line {
+    gap: 0.55em;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-.welcome-title,
-.title-part {
- transition: none!important;
- animation: none!important;
- }
+  .welcome-title,
+  .title-part {
+    transition: none !important;
+    animation: none !important;
+  }
 
-.welcome-stage.sequence-started.welcome-title {
- opacity: 1;
- transform: none;
- filter: none;
- }
+  .welcome-stage.sequence-started .welcome-title {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
 
-.title-part {
- opacity: 1;
- transform: none;
- filter: none;
- }
+  .title-part {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
 }
 
 .brand::before,
 .brand::after,
 .brand-logo::before,
 .brand-logo::after{
- display:none!important;
- content:none!important;
+    display:none !important;
+    content:none !important;
 }
 
 /* MI_LARGE_LEFT_WALKING_ROBOT_START */
 
 /* Make the complete robot noticeably larger. */
 .intro-robot {
- transform-origin: center bottom!important;
- scale: 1.65;
- will-change: transform, opacity!important;
+    transform-origin: center bottom !important;
+    scale: 1.65;
+    will-change: transform, opacity !important;
 }
 
 /* Support either location of the walking state class. */
-.robot-walking-left.intro-robot,
+.robot-walking-left .intro-robot,
 .intro-robot.robot-walking-left,
-.welcome-screen.robot-walking-left.intro-robot {
- visibility: visible!important;
- opacity: 1!important;
- scale: unset!important;
- animation:
- miRobotWalkLeft 3.2s cubic-bezier(.45,.05,.25, 1) forwards!important;
+.welcome-screen.robot-walking-left .intro-robot {
+    visibility: visible !important;
+    opacity: 1 !important;
+    scale: unset !important;
+    animation:
+        miRobotWalkLeft 3.2s cubic-bezier(.45, .05, .25, 1) forwards !important;
 }
 
 /* Move the robot completely through the left side of the viewport. */
 @keyframes miRobotWalkLeft {
- 0% {
- transform:
- translate3d(-50%, 0, 0)
- scale(1.65);
- }
+    0% {
+        transform:
+            translate3d(-50%, 0, 0)
+            scale(1.65);
+    }
 
- 12% {
- transform:
- translate3d(calc(-50% - 5vw), -5px, 0)
- scale(1.65);
- }
+    12% {
+        transform:
+            translate3d(calc(-50% - 5vw), -5px, 0)
+            scale(1.65);
+    }
 
- 25% {
- transform:
- translate3d(calc(-50% - 14vw), 0, 0)
- scale(1.65);
- }
+    25% {
+        transform:
+            translate3d(calc(-50% - 14vw), 0, 0)
+            scale(1.65);
+    }
 
- 38% {
- transform:
- translate3d(calc(-50% - 23vw), -5px, 0)
- scale(1.65);
- }
+    38% {
+        transform:
+            translate3d(calc(-50% - 23vw), -5px, 0)
+            scale(1.65);
+    }
 
- 52% {
- transform:
- translate3d(calc(-50% - 33vw), 0, 0)
- scale(1.65);
- }
+    52% {
+        transform:
+            translate3d(calc(-50% - 33vw), 0, 0)
+            scale(1.65);
+    }
 
- 66% {
- transform:
- translate3d(calc(-50% - 43vw), -5px, 0)
- scale(1.65);
- }
+    66% {
+        transform:
+            translate3d(calc(-50% - 43vw), -5px, 0)
+            scale(1.65);
+    }
 
- 80% {
- transform:
- translate3d(calc(-50% - 54vw), 0, 0)
- scale(1.65);
- }
+    80% {
+        transform:
+            translate3d(calc(-50% - 54vw), 0, 0)
+            scale(1.65);
+    }
 
- 100% {
- transform:
- translate3d(calc(-50% - 75vw - 350px), -3px, 0)
- scale(1.65);
- }
+    100% {
+        transform:
+            translate3d(calc(-50% - 75vw - 350px), -3px, 0)
+            scale(1.65);
+    }
 }
 
 /* Alternate the arms while walking. */
-.robot-walking-left.intro-robot-arm-left,
-.intro-robot.robot-walking-left.intro-robot-arm-left,
-.welcome-screen.robot-walking-left.intro-robot-arm-left {
- transform-origin: 50% 10%!important;
- animation: miRobotLeftArmWalk 0.56s ease-in-out infinite alternate!important;
+.robot-walking-left .intro-robot-arm-left,
+.intro-robot.robot-walking-left .intro-robot-arm-left,
+.welcome-screen.robot-walking-left .intro-robot-arm-left {
+    transform-origin: 50% 10% !important;
+    animation: miRobotLeftArmWalk 0.56s ease-in-out infinite alternate !important;
 }
 
-.robot-walking-left.intro-robot-arm-right,
-.intro-robot.robot-walking-left.intro-robot-arm-right,
-.welcome-screen.robot-walking-left.intro-robot-arm-right {
- transform-origin: 50% 10%!important;
- animation: miRobotRightArmWalk 0.56s ease-in-out infinite alternate!important;
+.robot-walking-left .intro-robot-arm-right,
+.intro-robot.robot-walking-left .intro-robot-arm-right,
+.welcome-screen.robot-walking-left .intro-robot-arm-right {
+    transform-origin: 50% 10% !important;
+    animation: miRobotRightArmWalk 0.56s ease-in-out infinite alternate !important;
 }
 
 @keyframes miRobotLeftArmWalk {
- from {
- transform: rotate(17deg);
- }
+    from {
+        transform: rotate(17deg);
+    }
 
- to {
- transform: rotate(-19deg);
- }
+    to {
+        transform: rotate(-19deg);
+    }
 }
 
 @keyframes miRobotRightArmWalk {
- from {
- transform: rotate(-19deg);
- }
+    from {
+        transform: rotate(-19deg);
+    }
 
- to {
- transform: rotate(17deg);
- }
+    to {
+        transform: rotate(17deg);
+    }
 }
 
 /* Alternate the legs while walking. */
-.robot-walking-left.intro-robot-leg-left,
-.intro-robot.robot-walking-left.intro-robot-leg-left,
-.welcome-screen.robot-walking-left.intro-robot-leg-left {
- transform-origin: 50% 5%!important;
- animation: miRobotLeftLegWalk 0.56s ease-in-out infinite alternate!important;
+.robot-walking-left .intro-robot-leg-left,
+.intro-robot.robot-walking-left .intro-robot-leg-left,
+.welcome-screen.robot-walking-left .intro-robot-leg-left {
+    transform-origin: 50% 5% !important;
+    animation: miRobotLeftLegWalk 0.56s ease-in-out infinite alternate !important;
 }
 
-.robot-walking-left.intro-robot-leg-right,
-.intro-robot.robot-walking-left.intro-robot-leg-right,
-.welcome-screen.robot-walking-left.intro-robot-leg-right {
- transform-origin: 50% 5%!important;
- animation: miRobotRightLegWalk 0.56s ease-in-out infinite alternate!important;
+.robot-walking-left .intro-robot-leg-right,
+.intro-robot.robot-walking-left .intro-robot-leg-right,
+.welcome-screen.robot-walking-left .intro-robot-leg-right {
+    transform-origin: 50% 5% !important;
+    animation: miRobotRightLegWalk 0.56s ease-in-out infinite alternate !important;
 }
 
 @keyframes miRobotLeftLegWalk {
- from {
- transform: rotate(-15deg) translateY(0);
- }
+    from {
+        transform: rotate(-15deg) translateY(0);
+    }
 
- to {
- transform: rotate(17deg) translateY(-3px);
- }
+    to {
+        transform: rotate(17deg) translateY(-3px);
+    }
 }
 
 @keyframes miRobotRightLegWalk {
- from {
- transform: rotate(17deg) translateY(-3px);
- }
+    from {
+        transform: rotate(17deg) translateY(-3px);
+    }
 
- to {
- transform: rotate(-15deg) translateY(0);
- }
+    to {
+        transform: rotate(-15deg) translateY(0);
+    }
 }
 
 /* Move and resize the robot shadow with the robot. */
-.robot-walking-left.intro-robot-shadow,
-.intro-robot.robot-walking-left.intro-robot-shadow,
-.welcome-screen.robot-walking-left.intro-robot-shadow {
- animation: miRobotShadowWalk 0.56s ease-in-out infinite alternate!important;
+.robot-walking-left .intro-robot-shadow,
+.intro-robot.robot-walking-left .intro-robot-shadow,
+.welcome-screen.robot-walking-left .intro-robot-shadow {
+    animation: miRobotShadowWalk 0.56s ease-in-out infinite alternate !important;
 }
 
 @keyframes miRobotShadowWalk {
- from {
- transform: translateX(-50%) scaleX(1);
- opacity:.36;
- }
+    from {
+        transform: translateX(-50%) scaleX(1);
+        opacity: .36;
+    }
 
- to {
- transform: translateX(-50%) scaleX(.76);
- opacity:.20;
- }
+    to {
+        transform: translateX(-50%) scaleX(.76);
+        opacity: .20;
+    }
 }
 
 /* Keep the robot large but responsive on smaller screens. */
 @media (max-width: 700px) {
-.intro-robot {
- scale: 1.3;
- }
+    .intro-robot {
+        scale: 1.3;
+    }
 
-.robot-walking-left.intro-robot,
-.intro-robot.robot-walking-left,
-.welcome-screen.robot-walking-left.intro-robot {
- animation-name: miRobotWalkLeftMobile!important;
- }
+    .robot-walking-left .intro-robot,
+    .intro-robot.robot-walking-left,
+    .welcome-screen.robot-walking-left .intro-robot {
+        animation-name: miRobotWalkLeftMobile !important;
+    }
 
- @keyframes miRobotWalkLeftMobile {
- 0% {
- transform:
- translate3d(-50%, 0, 0)
- scale(1.3);
- }
+    @keyframes miRobotWalkLeftMobile {
+        0% {
+            transform:
+                translate3d(-50%, 0, 0)
+                scale(1.3);
+        }
 
- 25% {
- transform:
- translate3d(calc(-50% - 20vw), -4px, 0)
- scale(1.3);
- }
+        25% {
+            transform:
+                translate3d(calc(-50% - 20vw), -4px, 0)
+                scale(1.3);
+        }
 
- 50% {
- transform:
- translate3d(calc(-50% - 40vw), 0, 0)
- scale(1.3);
- }
+        50% {
+            transform:
+                translate3d(calc(-50% - 40vw), 0, 0)
+                scale(1.3);
+        }
 
- 75% {
- transform:
- translate3d(calc(-50% - 62vw), -4px, 0)
- scale(1.3);
- }
+        75% {
+            transform:
+                translate3d(calc(-50% - 62vw), -4px, 0)
+                scale(1.3);
+        }
 
- 100% {
- transform:
- translate3d(calc(-50% - 95vw - 240px), 0, 0)
- scale(1.3);
- }
- }
+        100% {
+            transform:
+                translate3d(calc(-50% - 95vw - 240px), 0, 0)
+                scale(1.3);
+        }
+    }
 }
 
 .welcome-screen,
 .welcome-stage {
- overflow: hidden!important;
+    overflow: hidden !important;
 }
 
 /* MI_LARGE_LEFT_WALKING_ROBOT_END */
@@ -1174,18 +1174,18 @@ main {
 .robot-leg,
 .robot-shadow,
 .letter-particles {
- display: none!important;
- visibility: hidden!important;
- opacity: 0!important;
- animation: none!important;
- transition: none!important;
- pointer-events: none!important;
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    animation: none !important;
+    transition: none !important;
+    pointer-events: none !important;
 }
 
 /* Preserve the existing slow upward welcome-screen exit. */
 .welcome-screen.intro-exiting,
 .intro-exiting.welcome-screen {
- transform: translate3d(0, -100%, 0)!important;
+    transform: translate3d(0, -100%, 0) !important;
 }
 
 /* MI_REMOVE_INTRO_ROBOT_END */
@@ -1194,342 +1194,342 @@ main {
 
 html,
 body {
- overflow-x: hidden;
+    overflow-x: hidden;
 }
 
 .mi-neural-intro {
- position: fixed;
- inset: 0;
- z-index: 2147483600;
- display: grid;
- place-items: center;
- overflow: hidden;
- pointer-events: none;
- visibility: hidden;
- opacity: 0;
- background:
- radial-gradient(
- circle at 50% 48%,
- rgba(11, 16, 32, 0.96) 0%,
- rgba(5, 8, 22, 0.99) 48%,
- #02040c 100%
- );
- transform: translate3d(0, 0, 0);
- will-change: transform, opacity;
+    position: fixed;
+    inset: 0;
+    z-index: 2147483600;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    background:
+        radial-gradient(
+            circle at 50% 48%,
+            rgba(11, 16, 32, 0.96) 0%,
+            rgba(5, 8, 22, 0.99) 48%,
+            #02040c 100%
+        );
+    transform: translate3d(0, 0, 0);
+    will-change: transform, opacity;
 }
 
 .mi-neural-intro.mi-neural-visible {
- visibility: visible;
- opacity: 1;
- transition: opacity 1.2s cubic-bezier(.22, 1,.36, 1);
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 1.2s cubic-bezier(.22, 1, .36, 1);
 }
 
 .mi-neural-background {
- position: absolute;
- inset: 0;
- overflow: hidden;
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
 }
 
 .mi-neural-network {
- position: absolute;
- inset: -2%;
- width: 104%;
- height: 104%;
- opacity: 0;
- transform: scale(1.035);
- filter: blur(9px);
- will-change: opacity, filter, transform;
+    position: absolute;
+    inset: -2%;
+    width: 104%;
+    height: 104%;
+    opacity: 0;
+    transform: scale(1.035);
+    filter: blur(9px);
+    will-change: opacity, filter, transform;
 }
 
-.mi-neural-visible.mi-neural-network {
- opacity: 1;
- filter: blur(0);
- transform: scale(1);
- transition:
- opacity 1.8s cubic-bezier(.22, 1,.36, 1),
- filter 2.2s cubic-bezier(.22, 1,.36, 1),
- transform 8s ease-out;
+.mi-neural-visible .mi-neural-network {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+    transition:
+        opacity 1.8s cubic-bezier(.22, 1, .36, 1),
+        filter 2.2s cubic-bezier(.22, 1, .36, 1),
+        transform 8s ease-out;
 }
 
 .mi-neural-line {
- fill: none;
- stroke: rgba(79, 140, 255, 0.20);
- stroke-width: 1;
- vector-effect: non-scaling-stroke;
+    fill: none;
+    stroke: rgba(79, 140, 255, 0.20);
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
 }
 
 .mi-neural-line.mi-line-secondary {
- stroke: rgba(110, 231, 255, 0.12);
- stroke-width: 0.75;
+    stroke: rgba(110, 231, 255, 0.12);
+    stroke-width: 0.75;
 }
 
 .mi-neural-pulse {
- fill: none;
- stroke: rgba(110, 231, 255, 0.88);
- stroke-width: 1.6;
- stroke-linecap: round;
- stroke-dasharray: 4 120;
- vector-effect: non-scaling-stroke;
- filter: drop-shadow(0 0 5px rgba(110, 231, 255, 0.72));
- animation: miNeuralPulse 4.8s linear infinite;
+    fill: none;
+    stroke: rgba(110, 231, 255, 0.88);
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-dasharray: 4 120;
+    vector-effect: non-scaling-stroke;
+    filter: drop-shadow(0 0 5px rgba(110, 231, 255, 0.72));
+    animation: miNeuralPulse 4.8s linear infinite;
 }
 
 .mi-neural-node-halo {
- fill: rgba(79, 140, 255, 0.08);
- stroke: rgba(79, 140, 255, 0.12);
- stroke-width: 1;
- transform-box: fill-box;
- transform-origin: center;
- animation: miNodeHalo 3.8s ease-in-out infinite alternate;
+    fill: rgba(79, 140, 255, 0.08);
+    stroke: rgba(79, 140, 255, 0.12);
+    stroke-width: 1;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: miNodeHalo 3.8s ease-in-out infinite alternate;
 }
 
 .mi-neural-node {
- fill: #6ee7ff;
- stroke: rgba(255, 255, 255, 0.55);
- stroke-width: 0.7;
- filter:
- drop-shadow(0 0 5px rgba(110, 231, 255, 0.95))
- drop-shadow(0 0 15px rgba(79, 140, 255, 0.48));
- transform-box: fill-box;
- transform-origin: center;
- animation: miNodePulse 2.9s ease-in-out infinite alternate;
+    fill: #6ee7ff;
+    stroke: rgba(255, 255, 255, 0.55);
+    stroke-width: 0.7;
+    filter:
+        drop-shadow(0 0 5px rgba(110, 231, 255, 0.95))
+        drop-shadow(0 0 15px rgba(79, 140, 255, 0.48));
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: miNodePulse 2.9s ease-in-out infinite alternate;
 }
 
 .mi-neural-vignette {
- position: absolute;
- inset: 0;
- background:
- radial-gradient(
- ellipse at center,
- transparent 0%,
- rgba(5, 8, 22, 0.18) 42%,
- rgba(2, 4, 12, 0.72) 100%
- );
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 0%,
+            rgba(5, 8, 22, 0.18) 42%,
+            rgba(2, 4, 12, 0.72) 100%
+        );
 }
 
 .mi-neural-light {
- position: absolute;
- inset: 0;
- background:
- radial-gradient(
- circle at 50% 50%,
- rgba(79, 140, 255, 0.035),
- transparent 38%
- );
- animation: miAmbientLight 5s ease-in-out infinite alternate;
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(79, 140, 255, 0.035),
+            transparent 38%
+        );
+    animation: miAmbientLight 5s ease-in-out infinite alternate;
 }
 
 .mi-logo-reveal {
- position: relative;
- z-index: 3;
- display: grid;
- place-items: center;
- width: clamp(150px, 18vw, 280px);
- aspect-ratio: 1;
- visibility: hidden;
- opacity: 0;
- transform: scale(0.68);
- filter: blur(18px);
- will-change: opacity, transform, filter;
+    position: relative;
+    z-index: 3;
+    display: grid;
+    place-items: center;
+    width: clamp(150px, 18vw, 280px);
+    aspect-ratio: 1;
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.68);
+    filter: blur(18px);
+    will-change: opacity, transform, filter;
 }
 
-.mi-neural-intro.mi-logo-entering.mi-logo-reveal {
- visibility: visible;
- opacity: 1;
- transform: scale(1.16);
- filter: blur(0);
- transition:
- opacity 1.15s cubic-bezier(.22, 1,.36, 1),
- transform 1.8s cubic-bezier(.16, 1,.3, 1),
- filter 1.3s cubic-bezier(.22, 1,.36, 1);
+.mi-neural-intro.mi-logo-entering .mi-logo-reveal {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1.16);
+    filter: blur(0);
+    transition:
+        opacity 1.15s cubic-bezier(.22, 1, .36, 1),
+        transform 1.8s cubic-bezier(.16, 1, .3, 1),
+        filter 1.3s cubic-bezier(.22, 1, .36, 1);
 }
 
-.mi-neural-intro.mi-logo-settled.mi-logo-reveal {
- transform: scale(1);
- transition: transform 1.5s cubic-bezier(.22, 1,.36, 1);
+.mi-neural-intro.mi-logo-settled .mi-logo-reveal {
+    transform: scale(1);
+    transition: transform 1.5s cubic-bezier(.22, 1, .36, 1);
 }
 
-.mi-neural-intro.mi-logo-leaving.mi-logo-reveal {
- opacity: 0;
- transform: scale(0.88);
- filter: blur(14px);
- transition:
- opacity 1.15s cubic-bezier(.22, 1,.36, 1),
- transform 1.15s cubic-bezier(.22, 1,.36, 1),
- filter 1.15s cubic-bezier(.22, 1,.36, 1);
+.mi-neural-intro.mi-logo-leaving .mi-logo-reveal {
+    opacity: 0;
+    transform: scale(0.88);
+    filter: blur(14px);
+    transition:
+        opacity 1.15s cubic-bezier(.22, 1, .36, 1),
+        transform 1.15s cubic-bezier(.22, 1, .36, 1),
+        filter 1.15s cubic-bezier(.22, 1, .36, 1);
 }
 
 .mi-intro-logo {
- position: relative;
- z-index: 2;
- display: block;
- width: 100%;
- height: 100%;
- object-fit: contain;
- border-radius: 50%;
- user-select: none;
- filter:
- drop-shadow(0 0 15px rgba(79, 140, 255, 0.36))
- drop-shadow(0 0 42px rgba(110, 231, 255, 0.20));
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+    user-select: none;
+    filter:
+        drop-shadow(0 0 15px rgba(79, 140, 255, 0.36))
+        drop-shadow(0 0 42px rgba(110, 231, 255, 0.20));
 }
 
 .mi-logo-glow {
- position: absolute;
- inset: 5%;
- border-radius: 50%;
- background:
- radial-gradient(
- circle,
- rgba(110, 231, 255, 0.20),
- rgba(79, 140, 255, 0.08) 45%,
- transparent 72%
- );
- filter: blur(20px);
- transform: scale(1.22);
- animation: miLogoGlow 2.8s ease-in-out infinite alternate;
+    position: absolute;
+    inset: 5%;
+    border-radius: 50%;
+    background:
+        radial-gradient(
+            circle,
+            rgba(110, 231, 255, 0.20),
+            rgba(79, 140, 255, 0.08) 45%,
+            transparent 72%
+        );
+    filter: blur(20px);
+    transform: scale(1.22);
+    animation: miLogoGlow 2.8s ease-in-out infinite alternate;
 }
 
 .mi-logo-shine {
- position: absolute;
- z-index: 4;
- inset: -10%;
- overflow: hidden;
- border-radius: 50%;
- opacity: 0;
- pointer-events: none;
+    position: absolute;
+    z-index: 4;
+    inset: -10%;
+    overflow: hidden;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .mi-logo-shine::before {
- content: "";
- position: absolute;
- top: -25%;
- bottom: -25%;
- left: -55%;
- width: 24%;
- transform: rotate(18deg);
- background:
- linear-gradient(
- 90deg,
- transparent,
- rgba(255, 255, 255, 0.78),
- rgba(110, 231, 255, 0.42),
- transparent
- );
- filter: blur(5px);
+    content: "";
+    position: absolute;
+    top: -25%;
+    bottom: -25%;
+    left: -55%;
+    width: 24%;
+    transform: rotate(18deg);
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.78),
+            rgba(110, 231, 255, 0.42),
+            transparent
+        );
+    filter: blur(5px);
 }
 
-.mi-logo-settled.mi-logo-shine {
- opacity: 1;
+.mi-logo-settled .mi-logo-shine {
+    opacity: 1;
 }
 
-.mi-logo-settled.mi-logo-shine::before {
- animation: miLogoShine 1.6s cubic-bezier(.22, 1,.36, 1) forwards;
+.mi-logo-settled .mi-logo-shine::before {
+    animation: miLogoShine 1.6s cubic-bezier(.22, 1, .36, 1) forwards;
 }
 
 .mi-neural-intro.mi-neural-exiting {
- transform: translate3d(0, -100%, 0);
- transition: transform 2.2s cubic-bezier(.76, 0,.24, 1);
+    transform: translate3d(0, -100%, 0);
+    transition: transform 2.2s cubic-bezier(.76, 0, .24, 1);
 }
 
 @keyframes miNeuralPulse {
- from {
- stroke-dashoffset: 0;
- }
+    from {
+        stroke-dashoffset: 0;
+    }
 
- to {
- stroke-dashoffset: -248;
- }
+    to {
+        stroke-dashoffset: -248;
+    }
 }
 
 @keyframes miNodePulse {
- from {
- opacity: 0.62;
- transform: scale(0.82);
- }
+    from {
+        opacity: 0.62;
+        transform: scale(0.82);
+    }
 
- to {
- opacity: 1;
- transform: scale(1.16);
- }
+    to {
+        opacity: 1;
+        transform: scale(1.16);
+    }
 }
 
 @keyframes miNodeHalo {
- from {
- opacity: 0.24;
- transform: scale(0.78);
- }
+    from {
+        opacity: 0.24;
+        transform: scale(0.78);
+    }
 
- to {
- opacity: 0.72;
- transform: scale(1.22);
- }
+    to {
+        opacity: 0.72;
+        transform: scale(1.22);
+    }
 }
 
 @keyframes miAmbientLight {
- from {
- opacity: 0.38;
- transform: scale(0.95);
- }
+    from {
+        opacity: 0.38;
+        transform: scale(0.95);
+    }
 
- to {
- opacity: 0.78;
- transform: scale(1.05);
- }
+    to {
+        opacity: 0.78;
+        transform: scale(1.05);
+    }
 }
 
 @keyframes miLogoGlow {
- from {
- opacity: 0.42;
- transform: scale(1.08);
- }
+    from {
+        opacity: 0.42;
+        transform: scale(1.08);
+    }
 
- to {
- opacity: 0.9;
- transform: scale(1.3);
- }
+    to {
+        opacity: 0.9;
+        transform: scale(1.3);
+    }
 }
 
 @keyframes miLogoShine {
- from {
- left: -55%;
- }
+    from {
+        left: -55%;
+    }
 
- to {
- left: 135%;
- }
+    to {
+        left: 135%;
+    }
 }
 
 @media (max-width: 700px) {
-.mi-logo-reveal {
- width: clamp(130px, 42vw, 210px);
- }
+    .mi-logo-reveal {
+        width: clamp(130px, 42vw, 210px);
+    }
 
-.mi-neural-network {
- inset: -8%;
- width: 116%;
- height: 116%;
- }
+    .mi-neural-network {
+        inset: -8%;
+        width: 116%;
+        height: 116%;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
-.mi-neural-node,
-.mi-neural-node-halo,
-.mi-neural-pulse,
-.mi-neural-light,
-.mi-logo-glow,
-.mi-logo-shine::before {
- animation: none!important;
- }
+    .mi-neural-node,
+    .mi-neural-node-halo,
+    .mi-neural-pulse,
+    .mi-neural-light,
+    .mi-logo-glow,
+    .mi-logo-shine::before {
+        animation: none !important;
+    }
 
-.mi-neural-intro,
-.mi-neural-network,
-.mi-logo-reveal {
- transition-duration: 0.4s!important;
- }
+    .mi-neural-intro,
+    .mi-neural-network,
+    .mi-logo-reveal {
+        transition-duration: 0.4s !important;
+    }
 
-.mi-neural-intro.mi-neural-exiting {
- transition-duration: 0.7s!important;
- }
+    .mi-neural-intro.mi-neural-exiting {
+        transition-duration: 0.7s !important;
+    }
 }
 
 /* MI_NEURAL_LOGO_SEQUENCE_END */
@@ -1537,116 +1537,116 @@ body {
 /* MI_LARGE_LOGO_TAGLINE_START */
 
 .mi-logo-reveal {
- width: clamp(190px, 22vw, 340px)!important;
- overflow: visible!important;
+    width: clamp(190px, 22vw, 340px) !important;
+    overflow: visible !important;
 }
 
 .mi-logo-tagline {
- position: absolute;
- top: calc(100% + 30px);
- left: 50%;
- width: max-content;
- max-width: 92vw;
- transform: translateX(-50%) translateY(18px);
- opacity: 0;
- visibility: hidden;
- filter: blur(14px);
- white-space: nowrap;
- text-align: center;
- font-size: clamp(0.72rem, 1.25vw, 1.08rem);
- font-weight: 700;
- line-height: 1.4;
- letter-spacing: clamp(0.18em, 0.5vw, 0.48em);
- color: #6ee7ff;
- background: linear-gradient(
- 90deg,
- #4f8cff 0%,
- #6ee7ff 28%,
- #ffffff 50%,
- #6ee7ff 72%,
- #4f8cff 100%
- );
- background-size: 220% 100%;
- background-position: 0% 50%;
- -webkit-background-clip: text;
- background-clip: text;
- -webkit-text-fill-color: transparent;
- text-shadow:
- 0 0 10px rgba(110, 231, 255, 0.42),
- 0 0 24px rgba(79, 140, 255, 0.25);
- pointer-events: none;
- will-change: opacity, transform, filter;
+    position: absolute;
+    top: calc(100% + 30px);
+    left: 50%;
+    width: max-content;
+    max-width: 92vw;
+    transform: translateX(-50%) translateY(18px);
+    opacity: 0;
+    visibility: hidden;
+    filter: blur(14px);
+    white-space: nowrap;
+    text-align: center;
+    font-size: clamp(0.72rem, 1.25vw, 1.08rem);
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: clamp(0.18em, 0.5vw, 0.48em);
+    color: #6ee7ff;
+    background: linear-gradient(
+        90deg,
+        #4f8cff 0%,
+        #6ee7ff 28%,
+        #ffffff 50%,
+        #6ee7ff 72%,
+        #4f8cff 100%
+    );
+    background-size: 220% 100%;
+    background-position: 0% 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow:
+        0 0 10px rgba(110, 231, 255, 0.42),
+        0 0 24px rgba(79, 140, 255, 0.25);
+    pointer-events: none;
+    will-change: opacity, transform, filter;
 }
 
 .mi-logo-tagline span {
- display: inline-block;
- margin: 0 0.35em;
- color: #ffffff;
- -webkit-text-fill-color: #ffffff;
- text-shadow:
- 0 0 8px rgba(255, 255, 255, 0.55),
- 0 0 18px rgba(110, 231, 255, 0.4);
+    display: inline-block;
+    margin: 0 0.35em;
+    color: #ffffff;
+    -webkit-text-fill-color: #ffffff;
+    text-shadow:
+        0 0 8px rgba(255, 255, 255, 0.55),
+        0 0 18px rgba(110, 231, 255, 0.4);
 }
 
-.mi-neural-intro.mi-logo-entering.mi-logo-tagline,
-.mi-neural-intro.mi-logo-settled.mi-logo-tagline {
- visibility: visible;
- opacity: 1;
- filter: blur(0);
- transform: translateX(-50%) translateY(0);
- transition:
- opacity 1.2s cubic-bezier(.22, 1,.36, 1) 0.35s,
- filter 1.5s cubic-bezier(.22, 1,.36, 1) 0.35s,
- transform 1.5s cubic-bezier(.22, 1,.36, 1) 0.35s;
- animation: miTaglineLightSweep 4s ease-in-out infinite;
+.mi-neural-intro.mi-logo-entering .mi-logo-tagline,
+.mi-neural-intro.mi-logo-settled .mi-logo-tagline {
+    visibility: visible;
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(-50%) translateY(0);
+    transition:
+        opacity 1.2s cubic-bezier(.22, 1, .36, 1) 0.35s,
+        filter 1.5s cubic-bezier(.22, 1, .36, 1) 0.35s,
+        transform 1.5s cubic-bezier(.22, 1, .36, 1) 0.35s;
+    animation: miTaglineLightSweep 4s ease-in-out infinite;
 }
 
-.mi-neural-intro.mi-logo-leaving.mi-logo-tagline {
- opacity: 0;
- filter: blur(12px);
- transform: translateX(-50%) translateY(12px);
- transition:
- opacity 0.9s cubic-bezier(.22, 1,.36, 1),
- filter 0.9s cubic-bezier(.22, 1,.36, 1),
- transform 0.9s cubic-bezier(.22, 1,.36, 1);
+.mi-neural-intro.mi-logo-leaving .mi-logo-tagline {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateX(-50%) translateY(12px);
+    transition:
+        opacity 0.9s cubic-bezier(.22, 1, .36, 1),
+        filter 0.9s cubic-bezier(.22, 1, .36, 1),
+        transform 0.9s cubic-bezier(.22, 1, .36, 1);
 }
 
 @keyframes miTaglineLightSweep {
- 0% {
- background-position: 0% 50%;
- }
+    0% {
+        background-position: 0% 50%;
+    }
 
- 50% {
- background-position: 100% 50%;
- }
+    50% {
+        background-position: 100% 50%;
+    }
 
- 100% {
- background-position: 0% 50%;
- }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 @media (max-width: 700px) {
-.mi-logo-reveal {
- width: clamp(155px, 48vw, 230px)!important;
- }
+    .mi-logo-reveal {
+        width: clamp(155px, 48vw, 230px) !important;
+    }
 
-.mi-logo-tagline {
- top: calc(100% + 22px);
- max-width: 94vw;
- font-size: clamp(0.56rem, 2.8vw, 0.76rem);
- letter-spacing: clamp(0.08em, 0.6vw, 0.2em);
- }
+    .mi-logo-tagline {
+        top: calc(100% + 22px);
+        max-width: 94vw;
+        font-size: clamp(0.56rem, 2.8vw, 0.76rem);
+        letter-spacing: clamp(0.08em, 0.6vw, 0.2em);
+    }
 
-.mi-logo-tagline span {
- margin: 0 0.16em;
- }
+    .mi-logo-tagline span {
+        margin: 0 0.16em;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
-.mi-logo-tagline {
- animation: none!important;
- transition-duration: 0.3s!important;
- }
+    .mi-logo-tagline {
+        animation: none !important;
+        transition-duration: 0.3s !important;
+    }
 }
 
 /* MI_LARGE_LOGO_TAGLINE_END */
@@ -1654,25 +1654,25 @@ body {
 /* MI_FRONT_PAGE_START */
 
 html {
- scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 html,
 body {
- width: 100%;
- max-width: 100%;
- overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .mi-front-page {
- position: relative;
- isolation: isolate;
- width: 100%;
- height: 100vh;
- height: 100svh;
- min-height: 620px;
- overflow: hidden;
- background: #02040a;
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+    min-height: 620px;
+    overflow: hidden;
+    background: #02040a;
 }
 
 /*
@@ -1680,137 +1680,137 @@ The banner belongs to this section.
 It is not fixed, so the complete front page scrolls away normally.
 */
 .mi-front-page-banner {
- position: absolute;
- z-index: -3;
- inset: 0;
- display: block;
- width: 100%;
- height: 100%;
- object-fit: cover;
- object-position: center center;
- user-select: none;
- pointer-events: none;
+    position: absolute;
+    z-index: -3;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    user-select: none;
+    pointer-events: none;
 }
 
 .mi-front-page-shade {
- position: absolute;
- z-index: -2;
- inset: 0;
- pointer-events: none;
- background:
- linear-gradient(
- 180deg,
- rgba(0, 0, 0, 0.05) 0%,
- rgba(0, 0, 0, 0.01) 48%,
- rgba(0, 0, 0, 0.42) 100%
- );
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.05) 0%,
+            rgba(0, 0, 0, 0.01) 48%,
+            rgba(0, 0, 0, 0.42) 100%
+        );
 }
 
 .mi-front-page-scroll-button {
- position: absolute;
- z-index: 5;
- bottom: clamp(24px, 4vh, 48px);
- left: 50%;
- display: flex;
- flex-direction: column;
- align-items: center;
- gap: 11px;
- color: rgba(255, 255, 255, 0.92);
- text-decoration: none;
- transform: translateX(-50%);
- transition:
- opacity 250ms ease,
- transform 250ms ease;
+    position: absolute;
+    z-index: 5;
+    bottom: clamp(24px, 4vh, 48px);
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 11px;
+    color: rgba(255, 255, 255, 0.92);
+    text-decoration: none;
+    transform: translateX(-50%);
+    transition:
+        opacity 250ms ease,
+        transform 250ms ease;
 }
 
 .mi-front-page-scroll-button:hover {
- transform: translateX(-50%) translateY(-5px);
+    transform: translateX(-50%) translateY(-5px);
 }
 
 .mi-front-page-scroll-text {
- font-size: 0.6rem;
- font-weight: 700;
- line-height: 1;
- letter-spacing: 0.36em;
- text-indent: 0.36em;
- text-shadow:
- 0 0 10px rgba(255, 255, 255, 0.35),
- 0 0 20px rgba(71, 178, 255, 0.38);
+    font-size: 0.6rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.36em;
+    text-indent: 0.36em;
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.35),
+        0 0 20px rgba(71, 178, 255, 0.38);
 }
 
 .mi-front-page-scroll-mouse {
- position: relative;
- display: block;
- width: 24px;
- height: 38px;
- border: 1px solid rgba(255, 255, 255, 0.65);
- border-radius: 18px;
- box-shadow:
- 0 0 12px rgba(255, 255, 255, 0.12),
- 0 0 22px rgba(71, 178, 255, 0.18);
+    position: relative;
+    display: block;
+    width: 24px;
+    height: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 18px;
+    box-shadow:
+        0 0 12px rgba(255, 255, 255, 0.12),
+        0 0 22px rgba(71, 178, 255, 0.18);
 }
 
 .mi-front-page-scroll-mouse span {
- position: absolute;
- top: 7px;
- left: 50%;
- width: 3px;
- height: 7px;
- border-radius: 99px;
- background: #ffffff;
- box-shadow: 0 0 9px rgba(100, 210, 255, 0.9);
- transform: translateX(-50%);
- animation: miFrontPageScrollIndicator 1.8s ease-in-out infinite;
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    width: 3px;
+    height: 7px;
+    border-radius: 99px;
+    background: #ffffff;
+    box-shadow: 0 0 9px rgba(100, 210, 255, 0.9);
+    transform: translateX(-50%);
+    animation: miFrontPageScrollIndicator 1.8s ease-in-out infinite;
 }
 
 .mi-main-content-start {
- width: 100%;
- height: 0;
- scroll-margin-top: 0;
+    width: 100%;
+    height: 0;
+    scroll-margin-top: 0;
 }
 
 @keyframes miFrontPageScrollIndicator {
- 0% {
- opacity: 0;
- transform: translateX(-50%) translateY(0);
- }
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(0);
+    }
 
- 25% {
- opacity: 1;
- }
+    25% {
+        opacity: 1;
+    }
 
- 75% {
- opacity: 1;
- }
+    75% {
+        opacity: 1;
+    }
 
- 100% {
- opacity: 0;
- transform: translateX(-50%) translateY(15px);
- }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(15px);
+    }
 }
 
 @media (max-width: 700px) {
-.mi-front-page {
- min-height: 520px;
- }
+    .mi-front-page {
+        min-height: 520px;
+    }
 
-.mi-front-page-banner {
- object-position: center center;
- }
+    .mi-front-page-banner {
+        object-position: center center;
+    }
 
-.mi-front-page-scroll-button {
- bottom: 20px;
- }
+    .mi-front-page-scroll-button {
+        bottom: 20px;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
- html {
- scroll-behavior: auto;
- }
+    html {
+        scroll-behavior: auto;
+    }
 
-.mi-front-page-scroll-mouse span {
- animation: none;
- }
+    .mi-front-page-scroll-mouse span {
+        animation: none;
+    }
 }
 
 /* MI_FRONT_PAGE_END */
@@ -1823,41 +1823,41 @@ Do not use scroll snapping because it can trap the welcome overlay
 on a blank black screen.
 */
 html {
- width: 100%!important;
- min-height: 100%!important;
- height: auto!important;
- margin: 0!important;
- overflow-x: hidden!important;
- overflow-y: auto!important;
- scroll-snap-type: none!important;
- scroll-behavior: smooth;
+    width: 100% !important;
+    min-height: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    scroll-snap-type: none !important;
+    scroll-behavior: smooth;
 }
 
 body {
- position: relative!important;
- width: 100%!important;
- min-height: 100%!important;
- height: auto!important;
- margin: 0!important;
- overflow-x: hidden!important;
- overflow-y: visible!important;
- scroll-snap-type: none!important;
+    position: relative !important;
+    width: 100% !important;
+    min-height: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+    scroll-snap-type: none !important;
 }
 
 /*
 Keep the welcome animation above everything while it is active.
 */
 .mi-neural-intro {
- position: fixed!important;
- z-index: 2147483000!important;
- inset: 0!important;
- display: block;
- width: 100vw!important;
- height: 100vh!important;
- height: 100dvh!important;
- overflow: hidden!important;
- background: #000000;
- pointer-events: auto;
+    position: fixed !important;
+    z-index: 2147483000 !important;
+    inset: 0 !important;
+    display: block;
+    width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    overflow: hidden !important;
+    background: #000000;
+    pointer-events: auto;
 }
 
 /*
@@ -1865,24 +1865,24 @@ Do not permanently hide the logo.
 Its existing animation classes remain responsible for opacity
 and transform changes.
 */
-.mi-neural-intro.mi-logo-reveal {
- display: flex!important;
- visibility: visible!important;
+.mi-neural-intro .mi-logo-reveal {
+    display: flex !important;
+    visibility: visible !important;
 }
 
-.mi-neural-intro.mi-intro-logo,
-.mi-neural-intro.mi-logo-reveal img {
- display: block!important;
- visibility: visible!important;
- max-width: 100%!important;
- height: auto!important;
+.mi-neural-intro .mi-intro-logo,
+.mi-neural-intro .mi-logo-reveal img {
+    display: block !important;
+    visibility: visible !important;
+    max-width: 100% !important;
+    height: auto !important;
 }
 
 /*
 The tagline must remain available during the logo animation.
 */
-.mi-neural-intro.mi-logo-tagline {
- display: block!important;
+.mi-neural-intro .mi-logo-tagline {
+    display: block !important;
 }
 
 /*
@@ -1895,7 +1895,7 @@ these common completion classes.
 .mi-neural-intro.is-complete,
 .mi-neural-intro.is-finished,
 .mi-neural-intro.is-hidden {
- pointer-events: none!important;
+    pointer-events: none !important;
 }
 
 /*
@@ -1904,27 +1904,27 @@ It occupies exactly one complete visible browser viewport.
 */
 #mi-front-page,
 .mi-front-page {
- position: relative!important;
- z-index: 1!important;
- inset: auto!important;
- display: block!important;
+    position: relative !important;
+    z-index: 1 !important;
+    inset: auto !important;
+    display: block !important;
 
- width: 100%!important;
- height: 100vh!important;
- height: 100dvh!important;
- min-height: 100vh!important;
- min-height: 100dvh!important;
+    width: 100% !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
 
- margin: 0!important;
- padding: 0!important;
- overflow: hidden!important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
 
- transform: none!important;
- translate: none!important;
- scroll-snap-align: none!important;
- scroll-snap-stop: normal!important;
+    transform: none !important;
+    translate: none !important;
+    scroll-snap-align: none !important;
+    scroll-snap-stop: normal !important;
 
- background: #02040a;
+    background: #02040a;
 }
 
 /*
@@ -1933,26 +1933,26 @@ It is not fixed or sticky.
 */
 .mi-front-page-banner,
 .mi-front-page-image {
- position: absolute!important;
- z-index: -3!important;
- inset: 0!important;
+    position: absolute !important;
+    z-index: -3 !important;
+    inset: 0 !important;
 
- display: block!important;
- width: 100%!important;
- height: 100%!important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
 
- object-fit: cover!important;
- object-position: center center!important;
+    object-fit: cover !important;
+    object-position: center center !important;
 
- background-position: center center!important;
- background-size: cover!important;
- background-repeat: no-repeat!important;
- background-attachment: scroll!important;
+    background-position: center center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-attachment: scroll !important;
 
- transform: none!important;
- translate: none!important;
- pointer-events: none!important;
- user-select: none!important;
+    transform: none !important;
+    translate: none !important;
+    pointer-events: none !important;
+    user-select: none !important;
 }
 
 /*
@@ -1964,10 +1964,10 @@ Remove all previous SCROLL text and mouse indicators.
 .mi-front-page-scroll-mouse,
 .mi-front-page-scroll-line,
 .mi-front-page-scroll-label {
- display: none!important;
- visibility: hidden!important;
- opacity: 0!important;
- pointer-events: none!important;
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
 }
 
 /*
@@ -1978,14 +1978,14 @@ The real website begins immediately after the complete banner section.
 .mi-main-content-start,
 #main-website-content,
 .mi-main-website-anchor {
- position: relative!important;
- display: block!important;
- width: 100%!important;
- height: 0!important;
- min-height: 0!important;
- margin: 0!important;
- padding: 0!important;
- overflow: visible!important;
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
 }
 
 /*
@@ -2000,9 +2000,9 @@ the front banner with negative margins or vertical transforms.
 .mi-main-content-start ~ main,
 .mi-main-content-start ~ section,
 .mi-main-content-start ~ footer {
- position: relative;
- margin-top: 0!important;
- translate: none!important;
+    position: relative;
+    margin-top: 0 !important;
+    translate: none !important;
 }
 
 /*
@@ -2013,35 +2013,35 @@ body > header,
 body > main,
 body > section,
 body > footer {
- scroll-snap-align: none!important;
- scroll-snap-stop: normal!important;
+    scroll-snap-align: none !important;
+    scroll-snap-stop: normal !important;
 }
 
 /*
 Keep the front page behind the welcome intro until the intro finishes.
 */
 body:has(.mi-neural-intro:not(.mi-intro-complete):not(.mi-intro-finished):not(.mi-intro-hidden):not(.is-complete):not(.is-finished):not(.is-hidden)) {
- overflow: hidden;
+    overflow: hidden;
 }
 
 @media (max-width: 700px) {
- #mi-front-page,
-.mi-front-page {
- height: 100svh!important;
- min-height: 100svh!important;
- }
+    #mi-front-page,
+    .mi-front-page {
+        height: 100svh !important;
+        min-height: 100svh !important;
+    }
 
-.mi-front-page-banner,
-.mi-front-page-image {
- object-position: center center!important;
- background-position: center center!important;
- }
+    .mi-front-page-banner,
+    .mi-front-page-image {
+        object-position: center center !important;
+        background-position: center center !important;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
- html {
- scroll-behavior: auto;
- }
+    html {
+        scroll-behavior: auto;
+    }
 }
 
 /* MI_WELCOME_FRONT_PAGE_REPAIR_END */
@@ -2052,75 +2052,75 @@ body:has(.mi-neural-intro:not(.mi-intro-complete):not(.mi-intro-finished):not(.m
 Center the complete logo and tagline group in the visible screen.
 */
 .mi-neural-intro {
- display: flex!important;
- align-items: center!important;
- justify-content: center!important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
-.mi-neural-intro.mi-logo-reveal {
- position: absolute!important;
- top: 50%!important;
- left: 50%!important;
+.mi-neural-intro .mi-logo-reveal {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
 
- display: flex!important;
- flex-direction: column!important;
- align-items: center!important;
- justify-content: center!important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
 
- width: clamp(210px, 24vw, 360px)!important;
- height: auto!important;
+    width: clamp(210px, 24vw, 360px) !important;
+    height: auto !important;
 
- margin: 0!important;
- transform: translate(-50%, -50%)!important;
- transform-origin: center center!important;
+    margin: 0 !important;
+    transform: translate(-50%, -50%) !important;
+    transform-origin: center center !important;
 }
 
-.mi-neural-intro.mi-intro-logo,
-.mi-neural-intro.mi-logo-reveal img {
- position: relative!important;
- top: auto!important;
- left: auto!important;
+.mi-neural-intro .mi-intro-logo,
+.mi-neural-intro .mi-logo-reveal img {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
 
- display: block!important;
- width: 100%!important;
- max-width: 100%!important;
- height: auto!important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
 
- margin: 0 auto!important;
- transform-origin: center center!important;
+    margin: 0 auto !important;
+    transform-origin: center center !important;
 }
 
-.mi-neural-intro.mi-logo-tagline {
- position: relative!important;
- top: auto!important;
- left: auto!important;
+.mi-neural-intro .mi-logo-tagline {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
 
- width: max-content!important;
- max-width: 94vw!important;
+    width: max-content !important;
+    max-width: 94vw !important;
 
- margin-top: 28px!important;
+    margin-top: 28px !important;
 
- transform: none!important;
- text-align: center!important;
+    transform: none !important;
+    text-align: center !important;
 }
 
 /*
 Preserve the existing zoom animation while keeping it centered.
 */
-.mi-neural-intro.mi-logo-entering.mi-logo-reveal,
-.mi-neural-intro.mi-logo-settled.mi-logo-reveal {
- left: 50%!important;
- top: 50%!important;
+.mi-neural-intro.mi-logo-entering .mi-logo-reveal,
+.mi-neural-intro.mi-logo-settled .mi-logo-reveal {
+    left: 50% !important;
+    top: 50% !important;
 }
 
 @media (max-width: 700px) {
-.mi-neural-intro.mi-logo-reveal {
- width: clamp(180px, 58vw, 280px)!important;
- }
+    .mi-neural-intro .mi-logo-reveal {
+        width: clamp(180px, 58vw, 280px) !important;
+    }
 
-.mi-neural-intro.mi-logo-tagline {
- margin-top: 22px!important;
- }
+    .mi-neural-intro .mi-logo-tagline {
+        margin-top: 22px !important;
+    }
 }
 
 /* MI_INTRO_LOGO_CENTER_END */
@@ -2133,45 +2133,45 @@ It scrolls as one full page and cannot remain partially visible.
 */
 html,
 body {
- scroll-snap-type: none!important;
- scroll-behavior: smooth!important;
+    scroll-snap-type: none !important;
+    scroll-behavior: smooth !important;
 }
 
 #mi-front-page,
 .mi-front-page {
- position: relative!important;
- width: 100%!important;
+    position: relative !important;
+    width: 100% !important;
 
- height: 100vh!important;
- height: 100dvh!important;
- min-height: 100vh!important;
- min-height: 100dvh!important;
- max-height: 100dvh!important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    max-height: 100dvh !important;
 
- margin: 0!important;
- padding: 0!important;
- overflow: hidden!important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
 
- transform: none!important;
- translate: none!important;
+    transform: none !important;
+    translate: none !important;
 }
 
 .mi-front-page-banner,
 .mi-front-page-image {
- position: absolute!important;
- inset: 0!important;
+    position: absolute !important;
+    inset: 0 !important;
 
- width: 100%!important;
- height: 100%!important;
+    width: 100% !important;
+    height: 100% !important;
 
- object-fit: cover!important;
- object-position: center center!important;
+    object-fit: cover !important;
+    object-position: center center !important;
 
- background-size: cover!important;
- background-position: center center!important;
- background-attachment: scroll!important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-attachment: scroll !important;
 
- transform: none!important;
+    transform: none !important;
 }
 
 /*
@@ -2183,19 +2183,19 @@ Remove every old scroll icon, mouse and label.
 .mi-front-page-scroll-mouse,
 .mi-front-page-scroll-line,
 .mi-front-page-scroll-label {
- display: none!important;
- visibility: hidden!important;
- opacity: 0!important;
- pointer-events: none!important;
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
 }
 
 #mi-main-content-start,
 .mi-main-content-start {
- display: block!important;
- width: 100%!important;
- height: 0!important;
- margin: 0!important;
- padding: 0!important;
+    display: block !important;
+    width: 100% !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 /*
@@ -2204,21 +2204,21 @@ the front-page banner.
 */
 #mi-main-content-start ~ *,
 .mi-main-content-start ~ * {
- margin-top: 0!important;
+    margin-top: 0 !important;
 }
 
 html.mi-front-page-scrolling,
 html.mi-front-page-scrolling body {
- overscroll-behavior-y: none!important;
+    overscroll-behavior-y: none !important;
 }
 
 @media (max-width: 700px) {
- #mi-front-page,
-.mi-front-page {
- height: 100svh!important;
- min-height: 100svh!important;
- max-height: 100svh!important;
- }
+    #mi-front-page,
+    .mi-front-page {
+        height: 100svh !important;
+        min-height: 100svh !important;
+        max-height: 100svh !important;
+    }
 }
 
 /* MI_FRONT_PAGE_FULL_SCROLL_END */
@@ -2230,104 +2230,104 @@ The MI CORTEX X navigation becomes fixed only after
 the full front-page banner has scrolled away.
 */
 .mi-fixed-glass-nav {
- position: fixed!important;
- z-index: 999999!important;
+    position: fixed !important;
+    z-index: 999999 !important;
 
- top: 16px!important;
- left: clamp(20px, 6.3vw, 88px)!important;
- right: clamp(20px, 6.3vw, 88px)!important;
+    top: 16px !important;
+    left: clamp(20px, 6.3vw, 88px) !important;
+    right: clamp(20px, 6.3vw, 88px) !important;
 
- width: auto!important;
- max-width: none!important;
+    width: auto !important;
+    max-width: none !important;
 
- margin: 0!important;
+    margin: 0 !important;
 
- background:
- linear-gradient(
- 115deg,
- rgba(4, 13, 27, 0.78),
- rgba(8, 9, 31, 0.72)
- )!important;
+    background:
+        linear-gradient(
+            115deg,
+            rgba(4, 13, 27, 0.78),
+            rgba(8, 9, 31, 0.72)
+        ) !important;
 
- border: 1px solid rgba(170, 205, 255, 0.18)!important;
- border-radius: 999px!important;
+    border: 1px solid rgba(170, 205, 255, 0.18) !important;
+    border-radius: 999px !important;
 
- -webkit-backdrop-filter:
- blur(24px)
- saturate(145%)!important;
+    -webkit-backdrop-filter:
+        blur(24px)
+        saturate(145%) !important;
 
- backdrop-filter:
- blur(24px)
- saturate(145%)!important;
+    backdrop-filter:
+        blur(24px)
+        saturate(145%) !important;
 
- box-shadow:
- 0 12px 45px rgba(0, 0, 0, 0.34),
- inset 0 1px 0 rgba(255, 255, 255, 0.055),
- 0 0 28px rgba(48, 145, 255, 0.06)!important;
+    box-shadow:
+        0 12px 45px rgba(0, 0, 0, 0.34),
+        inset 0 1px 0 rgba(255, 255, 255, 0.055),
+        0 0 28px rgba(48, 145, 255, 0.06) !important;
 
- transform: translateY(-135%)!important;
- opacity: 0!important;
- visibility: hidden!important;
- pointer-events: none!important;
+    transform: translateY(-135%) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
 
- transition:
- transform 650ms cubic-bezier(.22, 1,.36, 1),
- opacity 450ms ease,
- background-color 350ms ease,
- box-shadow 350ms ease!important;
+    transition:
+        transform 650ms cubic-bezier(.22, 1, .36, 1),
+        opacity 450ms ease,
+        background-color 350ms ease,
+        box-shadow 350ms ease !important;
 
- will-change: transform, opacity;
+    will-change: transform, opacity;
 }
 
 /*
 Show the blurred navigation after the front page
 has completely left the screen.
 */
-html.mi-main-site-visible.mi-fixed-glass-nav {
- transform: translateY(0)!important;
- opacity: 1!important;
- visibility: visible!important;
- pointer-events: auto!important;
+html.mi-main-site-visible .mi-fixed-glass-nav {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
 }
 
 /*
 Increase the blur slightly while scrolling.
 */
-html.mi-page-is-scrolling.mi-fixed-glass-nav {
- background:
- linear-gradient(
- 115deg,
- rgba(3, 11, 24, 0.86),
- rgba(10, 8, 34, 0.82)
- )!important;
+html.mi-page-is-scrolling .mi-fixed-glass-nav {
+    background:
+        linear-gradient(
+            115deg,
+            rgba(3, 11, 24, 0.86),
+            rgba(10, 8, 34, 0.82)
+        ) !important;
 
- -webkit-backdrop-filter:
- blur(30px)
- saturate(155%)!important;
+    -webkit-backdrop-filter:
+        blur(30px)
+        saturate(155%) !important;
 
- backdrop-filter:
- blur(30px)
- saturate(155%)!important;
+    backdrop-filter:
+        blur(30px)
+        saturate(155%) !important;
 
- box-shadow:
- 0 16px 52px rgba(0, 0, 0, 0.42),
- inset 0 1px 0 rgba(255, 255, 255, 0.07),
- 0 0 35px rgba(48, 145, 255, 0.09)!important;
+    box-shadow:
+        0 16px 52px rgba(0, 0, 0, 0.42),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07),
+        0 0 35px rgba(48, 145, 255, 0.09) !important;
 }
 
 @media (max-width: 850px) {
-.mi-fixed-glass-nav {
- top: 10px!important;
- left: 12px!important;
- right: 12px!important;
- border-radius: 28px!important;
- }
+    .mi-fixed-glass-nav {
+        top: 10px !important;
+        left: 12px !important;
+        right: 12px !important;
+        border-radius: 28px !important;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
-.mi-fixed-glass-nav {
- transition-duration: 0.2s!important;
- }
+    .mi-fixed-glass-nav {
+        transition-duration: 0.2s !important;
+    }
 }
 
 /* MI_FIXED_GLASS_NAV_END */
@@ -2339,82 +2339,82 @@ The outer header must remain completely invisible.
 Only the original inner rounded navigation bar is displayed.
 */
 .mi-fixed-glass-nav {
- position: fixed!important;
- z-index: 999999!important;
+    position: fixed !important;
+    z-index: 999999 !important;
 
- top: 16px!important;
- left: clamp(20px, 6.3vw, 88px)!important;
- right: clamp(20px, 6.3vw, 88px)!important;
+    top: 16px !important;
+    left: clamp(20px, 6.3vw, 88px) !important;
+    right: clamp(20px, 6.3vw, 88px) !important;
 
- width: auto!important;
- max-width: none!important;
- margin: 0!important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
 
- border: none!important;
- outline: none!important;
- border-radius: 999px!important;
+    border: none !important;
+    outline: none !important;
+    border-radius: 999px !important;
 
- background:
- linear-gradient(
- 115deg,
- rgba(4, 13, 27, 0.76),
- rgba(8, 9, 31, 0.72)
- )!important;
+    background:
+        linear-gradient(
+            115deg,
+            rgba(4, 13, 27, 0.76),
+            rgba(8, 9, 31, 0.72)
+        ) !important;
 
- -webkit-backdrop-filter:
- blur(24px)
- saturate(145%)!important;
+    -webkit-backdrop-filter:
+        blur(24px)
+        saturate(145%) !important;
 
- backdrop-filter:
- blur(24px)
- saturate(145%)!important;
+    backdrop-filter:
+        blur(24px)
+        saturate(145%) !important;
 
- box-shadow:
- 0 12px 45px rgba(0, 0, 0, 0.30),
- inset 0 1px 0 rgba(255, 255, 255, 0.055)!important;
+    box-shadow:
+        0 12px 45px rgba(0, 0, 0, 0.30),
+        inset 0 1px 0 rgba(255, 255, 255, 0.055) !important;
 
- transform: translateY(-135%)!important;
- opacity: 0!important;
- visibility: hidden!important;
- pointer-events: none!important;
+    transform: translateY(-135%) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
 
- transition:
- transform 650ms cubic-bezier(.22, 1,.36, 1),
- opacity 450ms ease!important;
+    transition:
+        transform 650ms cubic-bezier(.22, 1, .36, 1),
+        opacity 450ms ease !important;
 }
 
-html.mi-main-site-visible.mi-fixed-glass-nav {
- transform: translateY(0)!important;
- opacity: 1!important;
- visibility: visible!important;
- pointer-events: auto!important;
+html.mi-main-site-visible .mi-fixed-glass-nav {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
 }
 
 /*
 Remove the large outer rectangle created by the header.
 */
 .mi-fixed-nav-outer-clean {
- position: static!important;
- inset: auto!important;
+    position: static !important;
+    inset: auto !important;
 
- width: auto!important;
- height: auto!important;
- min-height: 0!important;
+    width: auto !important;
+    height: auto !important;
+    min-height: 0 !important;
 
- margin: 0!important;
- padding: 0!important;
+    margin: 0 !important;
+    padding: 0 !important;
 
- border: none!important;
- outline: none!important;
- border-radius: 0!important;
+    border: none !important;
+    outline: none !important;
+    border-radius: 0 !important;
 
- background: transparent!important;
+    background: transparent !important;
 
- -webkit-backdrop-filter: none!important;
- backdrop-filter: none!important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
 
- box-shadow: none!important;
- transform: none!important;
+    box-shadow: none !important;
+    transform: none !important;
 }
 
 /*
@@ -2422,8 +2422,8 @@ Disable pseudo-elements that may create another outer panel.
 */
 .mi-fixed-nav-outer-clean::before,
 .mi-fixed-nav-outer-clean::after {
- content: none!important;
- display: none!important;
+    content: none !important;
+    display: none !important;
 }
 
 /*
@@ -2431,8 +2431,8 @@ Do not add a second background or outline inside the selected rounded bar.
 */
 .mi-fixed-glass-nav::before,
 .mi-fixed-glass-nav::after {
- content: none!important;
- display: none!important;
+    content: none !important;
+    display: none !important;
 }
 
 /*
@@ -2440,44 +2440,44 @@ Preserve the original spacing and layout inside the rounded bar.
 */
 .mi-fixed-glass-nav > div,
 .mi-fixed-glass-nav > nav {
- width: 100%!important;
- margin: 0!important;
+    width: 100% !important;
+    margin: 0 !important;
 
- border: none!important;
- outline: none!important;
+    border: none !important;
+    outline: none !important;
 
- background: transparent!important;
- box-shadow: none!important;
+    background: transparent !important;
+    box-shadow: none !important;
 }
 
-html.mi-page-is-scrolling.mi-fixed-glass-nav {
- background:
- linear-gradient(
- 115deg,
- rgba(3, 11, 24, 0.84),
- rgba(10, 8, 34, 0.80)
- )!important;
+html.mi-page-is-scrolling .mi-fixed-glass-nav {
+    background:
+        linear-gradient(
+            115deg,
+            rgba(3, 11, 24, 0.84),
+            rgba(10, 8, 34, 0.80)
+        ) !important;
 
- -webkit-backdrop-filter:
- blur(30px)
- saturate(155%)!important;
+    -webkit-backdrop-filter:
+        blur(30px)
+        saturate(155%) !important;
 
- backdrop-filter:
- blur(30px)
- saturate(155%)!important;
+    backdrop-filter:
+        blur(30px)
+        saturate(155%) !important;
 
- box-shadow:
- 0 15px 48px rgba(0, 0, 0, 0.38),
- inset 0 1px 0 rgba(255, 255, 255, 0.065)!important;
+    box-shadow:
+        0 15px 48px rgba(0, 0, 0, 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.065) !important;
 }
 
 @media (max-width: 850px) {
-.mi-fixed-glass-nav {
- top: 10px!important;
- left: 12px!important;
- right: 12px!important;
- border-radius: 28px!important;
- }
+    .mi-fixed-glass-nav {
+        top: 10px !important;
+        left: 12px !important;
+        right: 12px !important;
+        border-radius: 28px !important;
+    }
 }
 
 /* MI_INNER_ROUNDED_NAV_END */
@@ -2488,40 +2488,40 @@ html.mi-page-is-scrolling.mi-fixed-glass-nav {
 Keep the entire navigation bar on one horizontal line.
 */
 .mi-fixed-glass-nav {
- display: flex!important;
- align-items: center!important;
- justify-content: space-between!important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
 
- min-height: 92px!important;
- height: auto!important;
+    min-height: 92px !important;
+    height: auto !important;
 
- padding: 14px 24px!important;
+    padding: 14px 24px !important;
 
- overflow: hidden!important;
- white-space: nowrap!important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
 
- background:
- linear-gradient(
- 110deg,
- rgba(18, 35, 54, 0.82) 0%,
- rgba(11, 19, 40, 0.78) 48%,
- rgba(25, 17, 58, 0.80) 100%
- )!important;
+    background:
+        linear-gradient(
+            110deg,
+            rgba(18, 35, 54, 0.82) 0%,
+            rgba(11, 19, 40, 0.78) 48%,
+            rgba(25, 17, 58, 0.80) 100%
+        ) !important;
 
- -webkit-backdrop-filter:
- blur(28px)
- saturate(165%)
- brightness(1.12)!important;
+    -webkit-backdrop-filter:
+        blur(28px)
+        saturate(165%)
+        brightness(1.12) !important;
 
- backdrop-filter:
- blur(28px)
- saturate(165%)
- brightness(1.12)!important;
+    backdrop-filter:
+        blur(28px)
+        saturate(165%)
+        brightness(1.12) !important;
 
- box-shadow:
- 0 14px 46px rgba(0, 0, 0, 0.30),
- 0 0 32px rgba(65, 178, 255, 0.11),
- inset 0 1px 0 rgba(255, 255, 255, 0.09)!important;
+    box-shadow:
+        0 14px 46px rgba(0, 0, 0, 0.30),
+        0 0 32px rgba(65, 178, 255, 0.11),
+        inset 0 1px 0 rgba(255, 255, 255, 0.09) !important;
 }
 
 /*
@@ -2529,101 +2529,101 @@ Ensure the direct navigation container also stays on one line.
 */
 .mi-fixed-glass-nav > div,
 .mi-fixed-glass-nav > nav,
-.mi-fixed-glass-nav.navbar,
-.mi-fixed-glass-nav.nav-container,
-.mi-fixed-glass-nav.navigation {
- display: flex!important;
- flex-direction: row!important;
- align-items: center!important;
- justify-content: space-between!important;
+.mi-fixed-glass-nav .navbar,
+.mi-fixed-glass-nav .nav-container,
+.mi-fixed-glass-nav .navigation {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
 
- width: 100%!important;
- min-width: 0!important;
+    width: 100% !important;
+    min-width: 0 !important;
 
- gap: 24px!important;
- flex-wrap: nowrap!important;
+    gap: 24px !important;
+    flex-wrap: nowrap !important;
 
- white-space: nowrap!important;
+    white-space: nowrap !important;
 }
 
 /*
 Keep the logo and MI CORTEX X title on the same line.
 */
 .mi-fixed-glass-nav a:has(img),
-.mi-fixed-glass-nav.logo,
-.mi-fixed-glass-nav.brand,
-.mi-fixed-glass-nav.navbar-brand,
-.mi-fixed-glass-nav.site-logo,
-.mi-fixed-glass-nav.nav-logo {
- display: flex!important;
- flex-direction: row!important;
- align-items: center!important;
+.mi-fixed-glass-nav .logo,
+.mi-fixed-glass-nav .brand,
+.mi-fixed-glass-nav .navbar-brand,
+.mi-fixed-glass-nav .site-logo,
+.mi-fixed-glass-nav .nav-logo {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
 
- flex: 0 0 auto!important;
- gap: 14px!important;
+    flex: 0 0 auto !important;
+    gap: 14px !important;
 
- width: auto!important;
- min-width: max-content!important;
+    width: auto !important;
+    min-width: max-content !important;
 
- white-space: nowrap!important;
+    white-space: nowrap !important;
 }
 
 /*
 Prevent MI CORTEX X from breaking into three lines.
 */
-.mi-fixed-glass-nav.logo span,
-.mi-fixed-glass-nav.brand span,
-.mi-fixed-glass-nav.navbar-brand span,
-.mi-fixed-glass-nav.site-logo span,
-.mi-fixed-glass-nav.nav-logo span,
+.mi-fixed-glass-nav .logo span,
+.mi-fixed-glass-nav .brand span,
+.mi-fixed-glass-nav .navbar-brand span,
+.mi-fixed-glass-nav .site-logo span,
+.mi-fixed-glass-nav .nav-logo span,
 .mi-fixed-glass-nav a:has(img) span {
- display: inline-block!important;
+    display: inline-block !important;
 
- width: auto!important;
- max-width: none!important;
+    width: auto !important;
+    max-width: none !important;
 
- white-space: nowrap!important;
- word-break: keep-all!important;
- overflow-wrap: normal!important;
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
 
- line-height: 1!important;
+    line-height: 1 !important;
 }
 
 /*
 Keep the menu links on one horizontal line.
 */
 .mi-fixed-glass-nav ul {
- display: flex!important;
- flex-direction: row!important;
- align-items: center!important;
- justify-content: flex-end!important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
 
- flex: 1 1 auto!important;
- flex-wrap: nowrap!important;
+    flex: 1 1 auto !important;
+    flex-wrap: nowrap !important;
 
- gap: clamp(16px, 2vw, 30px)!important;
+    gap: clamp(16px, 2vw, 30px) !important;
 
- margin: 0!important;
- padding: 0!important;
+    margin: 0 !important;
+    padding: 0 !important;
 
- white-space: nowrap!important;
- list-style: none!important;
+    white-space: nowrap !important;
+    list-style: none !important;
 }
 
 .mi-fixed-glass-nav li {
- display: block!important;
- flex: 0 0 auto!important;
+    display: block !important;
+    flex: 0 0 auto !important;
 
- margin: 0!important;
- padding: 0!important;
+    margin: 0 !important;
+    padding: 0 !important;
 
- white-space: nowrap!important;
+    white-space: nowrap !important;
 }
 
 .mi-fixed-glass-nav a {
- white-space: nowrap!important;
- word-break: keep-all!important;
- overflow-wrap: normal!important;
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
 }
 
 /*
@@ -2631,105 +2631,105 @@ Make the navigation text slightly brighter.
 */
 .mi-fixed-glass-nav a,
 .mi-fixed-glass-nav button {
- color: rgba(225, 235, 255, 0.82)!important;
- text-shadow:
- 0 0 12px rgba(110, 210, 255, 0.08)!important;
+    color: rgba(225, 235, 255, 0.82) !important;
+    text-shadow:
+        0 0 12px rgba(110, 210, 255, 0.08) !important;
 }
 
 .mi-fixed-glass-nav a:hover,
 .mi-fixed-glass-nav a[aria-current="page"],
-.mi-fixed-glass-nav.active {
- color: #ffffff!important;
- text-shadow:
- 0 0 10px rgba(255, 255, 255, 0.20),
- 0 0 18px rgba(100, 205, 255, 0.18)!important;
+.mi-fixed-glass-nav .active {
+    color: #ffffff !important;
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.20),
+        0 0 18px rgba(100, 205, 255, 0.18) !important;
 }
 
 /*
 Keep the logo at a stable size.
 */
 .mi-fixed-glass-nav img {
- flex: 0 0 auto!important;
+    flex: 0 0 auto !important;
 
- width: 62px!important;
- height: 62px!important;
+    width: 62px !important;
+    height: 62px !important;
 
- max-width: 62px!important;
- max-height: 62px!important;
+    max-width: 62px !important;
+    max-height: 62px !important;
 
- object-fit: contain!important;
+    object-fit: contain !important;
 }
 
 /*
 Slightly brighter appearance while scrolling.
 */
-html.mi-page-is-scrolling.mi-fixed-glass-nav {
- background:
- linear-gradient(
- 110deg,
- rgba(20, 39, 59, 0.88) 0%,
- rgba(12, 21, 43, 0.86) 48%,
- rgba(28, 19, 65, 0.87) 100%
- )!important;
+html.mi-page-is-scrolling .mi-fixed-glass-nav {
+    background:
+        linear-gradient(
+            110deg,
+            rgba(20, 39, 59, 0.88) 0%,
+            rgba(12, 21, 43, 0.86) 48%,
+            rgba(28, 19, 65, 0.87) 100%
+        ) !important;
 
- -webkit-backdrop-filter:
- blur(32px)
- saturate(175%)
- brightness(1.15)!important;
+    -webkit-backdrop-filter:
+        blur(32px)
+        saturate(175%)
+        brightness(1.15) !important;
 
- backdrop-filter:
- blur(32px)
- saturate(175%)
- brightness(1.15)!important;
+    backdrop-filter:
+        blur(32px)
+        saturate(175%)
+        brightness(1.15) !important;
 }
 
 @media (max-width: 1050px) {
-.mi-fixed-glass-nav {
- padding: 12px 18px!important;
- }
+    .mi-fixed-glass-nav {
+        padding: 12px 18px !important;
+    }
 
-.mi-fixed-glass-nav > div,
-.mi-fixed-glass-nav > nav,
-.mi-fixed-glass-nav.navbar,
-.mi-fixed-glass-nav.nav-container,
-.mi-fixed-glass-nav.navigation {
- gap: 15px!important;
- }
+    .mi-fixed-glass-nav > div,
+    .mi-fixed-glass-nav > nav,
+    .mi-fixed-glass-nav .navbar,
+    .mi-fixed-glass-nav .nav-container,
+    .mi-fixed-glass-nav .navigation {
+        gap: 15px !important;
+    }
 
-.mi-fixed-glass-nav ul {
- gap: 15px!important;
- }
+    .mi-fixed-glass-nav ul {
+        gap: 15px !important;
+    }
 
-.mi-fixed-glass-nav a {
- font-size: 0.9rem!important;
- }
+    .mi-fixed-glass-nav a {
+        font-size: 0.9rem !important;
+    }
 
-.mi-fixed-glass-nav img {
- width: 56px!important;
- height: 56px!important;
- max-width: 56px!important;
- max-height: 56px!important;
- }
+    .mi-fixed-glass-nav img {
+        width: 56px !important;
+        height: 56px !important;
+        max-width: 56px !important;
+        max-height: 56px !important;
+    }
 }
 
 @media (max-width: 850px) {
-.mi-fixed-glass-nav {
- overflow-x: auto!important;
- overflow-y: hidden!important;
- scrollbar-width: none!important;
- }
+    .mi-fixed-glass-nav {
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        scrollbar-width: none !important;
+    }
 
-.mi-fixed-glass-nav::-webkit-scrollbar {
- display: none!important;
- }
+    .mi-fixed-glass-nav::-webkit-scrollbar {
+        display: none !important;
+    }
 
-.mi-fixed-glass-nav > div,
-.mi-fixed-glass-nav > nav,
-.mi-fixed-glass-nav.navbar,
-.mi-fixed-glass-nav.nav-container,
-.mi-fixed-glass-nav.navigation {
- min-width: max-content!important;
- }
+    .mi-fixed-glass-nav > div,
+    .mi-fixed-glass-nav > nav,
+    .mi-fixed-glass-nav .navbar,
+    .mi-fixed-glass-nav .nav-container,
+    .mi-fixed-glass-nav .navigation {
+        min-width: max-content !important;
+    }
 }
 
 /* MI_NAV_SINGLE_LINE_LIGHT_END */
@@ -2746,113 +2746,113 @@ html.mi-page-is-scrolling.mi-fixed-glass-nav {
 
 .mi-fixed-glass-nav{
 
- background:
- linear-gradient(
- 120deg,
- rgba(20,35,60,.88),
- rgba(10,15,38,.84),
- rgba(28,18,62,.88)
- )!important;
+    background:
+    linear-gradient(
+        120deg,
+        rgba(20,35,60,.88),
+        rgba(10,15,38,.84),
+        rgba(28,18,62,.88)
+    ) !important;
 
- -webkit-backdrop-filter:
- blur(42px)
- saturate(190%)
- brightness(1.25)!important;
+    -webkit-backdrop-filter:
+        blur(42px)
+        saturate(190%)
+        brightness(1.25) !important;
 
- backdrop-filter:
- blur(42px)
- saturate(190%)
- brightness(1.25)!important;
+    backdrop-filter:
+        blur(42px)
+        saturate(190%)
+        brightness(1.25) !important;
 
- box-shadow:
- 0 22px 70px rgba(0,0,0,.45),
- 0 0 60px rgba(72,170,255,.18),
- inset 0 1px 0 rgba(255,255,255,.10)!important;
+    box-shadow:
+        0 22px 70px rgba(0,0,0,.45),
+        0 0 60px rgba(72,170,255,.18),
+        inset 0 1px 0 rgba(255,255,255,.10) !important;
 }
 
 /* ===== LOGO AREA ===== */
 
-.mi-fixed-glass-nav.logo,
-.mi-fixed-glass-nav.brand,
-.mi-fixed-glass-nav.navbar-brand,
-.mi-fixed-glass-nav.site-logo,
-.mi-fixed-glass-nav.nav-logo{
+.mi-fixed-glass-nav .logo,
+.mi-fixed-glass-nav .brand,
+.mi-fixed-glass-nav .navbar-brand,
+.mi-fixed-glass-nav .site-logo,
+.mi-fixed-glass-nav .nav-logo{
 
- display:flex!important;
- align-items:center!important;
- gap:18px!important;
+    display:flex !important;
+    align-items:center !important;
+    gap:18px !important;
 
- margin-right:120px!important;
+    margin-right:120px !important;
 
- flex-shrink:0!important;
+    flex-shrink:0 !important;
 }
 
 /* ===== COMPANY NAME ===== */
 
-.mi-fixed-glass-nav.logo span,
-.mi-fixed-glass-nav.brand span,
-.mi-fixed-glass-nav.navbar-brand span,
-.mi-fixed-glass-nav.site-logo span,
-.mi-fixed-glass-nav.nav-logo span{
+.mi-fixed-glass-nav .logo span,
+.mi-fixed-glass-nav .brand span,
+.mi-fixed-glass-nav .navbar-brand span,
+.mi-fixed-glass-nav .site-logo span,
+.mi-fixed-glass-nav .nav-logo span{
 
- font-size:26px!important;
- font-weight:800!important;
- letter-spacing:1px!important;
+    font-size:26px !important;
+    font-weight:800 !important;
+    letter-spacing:1px !important;
 
- color:#FFD86A!important;
+    color:#FFD86A !important;
 
- white-space:nowrap!important;
+    white-space:nowrap !important;
 
- text-shadow:
- 0 0 8px rgba(255,216,106,.55),
- 0 0 18px rgba(255,216,106,.28),
- 0 0 35px rgba(255,180,0,.15)!important;
+    text-shadow:
+        0 0 8px rgba(255,216,106,.55),
+        0 0 18px rgba(255,216,106,.28),
+        0 0 35px rgba(255,180,0,.15) !important;
 }
 
 /* ===== MENU ===== */
 
 .mi-fixed-glass-nav ul{
 
- display:flex!important;
- align-items:center!important;
+    display:flex !important;
+    align-items:center !important;
 
- gap:42px!important;
+    gap:42px !important;
 
- margin-left:auto!important;
+    margin-left:auto !important;
 }
 
 /* ===== MENU LINKS ===== */
 
 .mi-fixed-glass-nav li{
 
- margin:0!important;
+    margin:0 !important;
 }
 
 .mi-fixed-glass-nav a{
 
- color:rgba(240,245,255,.90)!important;
+    color:rgba(240,245,255,.90) !important;
 
- font-size:18px!important;
- font-weight:600!important;
+    font-size:18px !important;
+    font-weight:600 !important;
 
- transition:.25s!important;
+    transition:.25s !important;
 }
 
 .mi-fixed-glass-nav a:hover{
 
- color:white!important;
+    color:white !important;
 
- text-shadow:
- 0 0 12px rgba(120,220,255,.40),
- 0 0 24px rgba(120,220,255,.20);
+    text-shadow:
+        0 0 12px rgba(120,220,255,.40),
+        0 0 24px rgba(120,220,255,.20);
 }
 
 /* ===== LOGO ===== */
 
 .mi-fixed-glass-nav img{
 
- width:68px!important;
- height:68px!important;
+    width:68px !important;
+    height:68px !important;
 }
 
 /* MI_PREMIUM_NAV_UPGRADE_END */
@@ -2865,39 +2865,39 @@ The content moving behind the bar remains visible,
 but appears strongly blurred, brighter and optically softened.
 */
 .mi-fixed-glass-nav {
- isolation: isolate!important;
+    isolation: isolate !important;
 
- overflow: hidden!important;
+    overflow: hidden !important;
 
- border: 1px solid rgba(190, 220, 255, 0.10)!important;
- outline: none!important;
- border-radius: 999px!important;
+    border: 1px solid rgba(190, 220, 255, 0.10) !important;
+    outline: none !important;
+    border-radius: 999px !important;
 
- background:
- linear-gradient(
- 115deg,
- rgba(34, 70, 98, 0.18) 0%,
- rgba(14, 25, 54, 0.16) 46%,
- rgba(54, 28, 98, 0.18) 100%
- )!important;
+    background:
+        linear-gradient(
+            115deg,
+            rgba(34, 70, 98, 0.18) 0%,
+            rgba(14, 25, 54, 0.16) 46%,
+            rgba(54, 28, 98, 0.18) 100%
+        ) !important;
 
- -webkit-backdrop-filter:
- blur(30px)
- saturate(185%)
- brightness(1.18)
- contrast(1.04)!important;
+    -webkit-backdrop-filter:
+        blur(30px)
+        saturate(185%)
+        brightness(1.18)
+        contrast(1.04) !important;
 
- backdrop-filter:
- blur(30px)
- saturate(185%)
- brightness(1.18)
- contrast(1.04)!important;
+    backdrop-filter:
+        blur(30px)
+        saturate(185%)
+        brightness(1.18)
+        contrast(1.04) !important;
 
- box-shadow:
- 0 18px 55px rgba(0, 0, 0, 0.28),
- 0 0 42px rgba(66, 190, 255, 0.10),
- inset 0 1px 0 rgba(255, 255, 255, 0.16),
- inset 0 -1px 0 rgba(104, 125, 255, 0.08)!important;
+    box-shadow:
+        0 18px 55px rgba(0, 0, 0, 0.28),
+        0 0 42px rgba(66, 190, 255, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.16),
+        inset 0 -1px 0 rgba(104, 125, 255, 0.08) !important;
 }
 
 /*
@@ -2905,87 +2905,87 @@ Liquid refraction layer.
 This creates the soft magnified-lens appearance.
 */
 .mi-fixed-glass-nav::before {
- content: ""!important;
+    content: "" !important;
 
- position: absolute!important;
- z-index: -2!important;
+    position: absolute !important;
+    z-index: -2 !important;
 
- inset: -18px!important;
+    inset: -18px !important;
 
- display: block!important;
- pointer-events: none!important;
+    display: block !important;
+    pointer-events: none !important;
 
- border-radius: inherit!important;
+    border-radius: inherit !important;
 
- background:
- radial-gradient(
- circle at 18% 20%,
- rgba(140, 230, 255, 0.16),
- transparent 31%
- ),
- radial-gradient(
- circle at 82% 75%,
- rgba(147, 91, 255, 0.15),
- transparent 36%
- ),
- linear-gradient(
- 105deg,
- rgba(255, 255, 255, 0.055),
- transparent 34%,
- rgba(255, 255, 255, 0.025) 65%,
- rgba(148, 105, 255, 0.07)
- )!important;
+    background:
+        radial-gradient(
+            circle at 18% 20%,
+            rgba(140, 230, 255, 0.16),
+            transparent 31%
+        ),
+        radial-gradient(
+            circle at 82% 75%,
+            rgba(147, 91, 255, 0.15),
+            transparent 36%
+        ),
+        linear-gradient(
+            105deg,
+            rgba(255, 255, 255, 0.055),
+            transparent 34%,
+            rgba(255, 255, 255, 0.025) 65%,
+            rgba(148, 105, 255, 0.07)
+        ) !important;
 
- -webkit-backdrop-filter:
- blur(23px)
- saturate(205%)
- brightness(1.22)!important;
+    -webkit-backdrop-filter:
+        blur(23px)
+        saturate(205%)
+        brightness(1.22) !important;
 
- backdrop-filter:
- blur(23px)
- saturate(205%)
- brightness(1.22)!important;
+    backdrop-filter:
+        blur(23px)
+        saturate(205%)
+        brightness(1.22) !important;
 
- transform: scale(1.035)!important;
- transform-origin: center center!important;
+    transform: scale(1.035) !important;
+    transform-origin: center center !important;
 
- opacity: 0.96!important;
+    opacity: 0.96 !important;
 }
 
 /*
 Gloss and curved liquid reflections.
 */
 .mi-fixed-glass-nav::after {
- content: ""!important;
+    content: "" !important;
 
- position: absolute!important;
- z-index: -1!important;
+    position: absolute !important;
+    z-index: -1 !important;
 
- top: 2px!important;
- right: 18px!important;
- bottom: 2px!important;
- left: 18px!important;
+    top: 2px !important;
+    right: 18px !important;
+    bottom: 2px !important;
+    left: 18px !important;
 
- display: block!important;
- pointer-events: none!important;
+    display: block !important;
+    pointer-events: none !important;
 
- border-radius: inherit!important;
+    border-radius: inherit !important;
 
- background:
- linear-gradient(
- 180deg,
- rgba(255, 255, 255, 0.13) 0%,
- rgba(255, 255, 255, 0.025) 24%,
- transparent 48%,
- rgba(80, 150, 255, 0.025) 75%,
- rgba(125, 83, 255, 0.07) 100%
- )!important;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.13) 0%,
+            rgba(255, 255, 255, 0.025) 24%,
+            transparent 48%,
+            rgba(80, 150, 255, 0.025) 75%,
+            rgba(125, 83, 255, 0.07) 100%
+        ) !important;
 
- box-shadow:
- inset 0 1px 1px rgba(255, 255, 255, 0.12),
- inset 0 -1px 1px rgba(110, 95, 255, 0.06)!important;
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.12),
+        inset 0 -1px 1px rgba(110, 95, 255, 0.06) !important;
 
- opacity: 0.85!important;
+    opacity: 0.85 !important;
 }
 
 /*
@@ -2994,61 +2994,61 @@ They must remain transparent so the background can be seen.
 */
 .mi-fixed-glass-nav > div,
 .mi-fixed-glass-nav > nav,
-.mi-fixed-glass-nav.navbar,
-.mi-fixed-glass-nav.nav-container,
-.mi-fixed-glass-nav.navigation {
- position: relative!important;
- z-index: 2!important;
+.mi-fixed-glass-nav .navbar,
+.mi-fixed-glass-nav .nav-container,
+.mi-fixed-glass-nav .navigation {
+    position: relative !important;
+    z-index: 2 !important;
 
- background: transparent!important;
- border: none!important;
- outline: none!important;
- box-shadow: none!important;
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 /*
 Increase the liquid effect while the page is moving.
 */
-html.mi-page-is-scrolling.mi-fixed-glass-nav {
- background:
- linear-gradient(
- 115deg,
- rgba(35, 78, 108, 0.15) 0%,
- rgba(14, 24, 52, 0.13) 46%,
- rgba(58, 28, 105, 0.15) 100%
- )!important;
+html.mi-page-is-scrolling .mi-fixed-glass-nav {
+    background:
+        linear-gradient(
+            115deg,
+            rgba(35, 78, 108, 0.15) 0%,
+            rgba(14, 24, 52, 0.13) 46%,
+            rgba(58, 28, 105, 0.15) 100%
+        ) !important;
 
- -webkit-backdrop-filter:
- blur(38px)
- saturate(215%)
- brightness(1.22)
- contrast(1.06)!important;
+    -webkit-backdrop-filter:
+        blur(38px)
+        saturate(215%)
+        brightness(1.22)
+        contrast(1.06) !important;
 
- backdrop-filter:
- blur(38px)
- saturate(215%)
- brightness(1.22)
- contrast(1.06)!important;
+    backdrop-filter:
+        blur(38px)
+        saturate(215%)
+        brightness(1.22)
+        contrast(1.06) !important;
 
- box-shadow:
- 0 22px 68px rgba(0, 0, 0, 0.34),
- 0 0 52px rgba(65, 190, 255, 0.14),
- inset 0 1px 0 rgba(255, 255, 255, 0.19),
- inset 0 -1px 0 rgba(135, 95, 255, 0.11)!important;
+    box-shadow:
+        0 22px 68px rgba(0, 0, 0, 0.34),
+        0 0 52px rgba(65, 190, 255, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.19),
+        inset 0 -1px 0 rgba(135, 95, 255, 0.11) !important;
 }
 
-html.mi-page-is-scrolling.mi-fixed-glass-nav::before {
- transform: scale(1.055)!important;
+html.mi-page-is-scrolling .mi-fixed-glass-nav::before {
+    transform: scale(1.055) !important;
 
- -webkit-backdrop-filter:
- blur(29px)
- saturate(225%)
- brightness(1.25)!important;
+    -webkit-backdrop-filter:
+        blur(29px)
+        saturate(225%)
+        brightness(1.25) !important;
 
- backdrop-filter:
- blur(29px)
- saturate(225%)
- brightness(1.25)!important;
+    backdrop-filter:
+        blur(29px)
+        saturate(225%)
+        brightness(1.25) !important;
 }
 
 /*
@@ -3060,47 +3060,47 @@ Keep all text and the logo clear above the liquid background.
 .mi-fixed-glass-nav span,
 .mi-fixed-glass-nav ul,
 .mi-fixed-glass-nav li {
- position: relative!important;
- z-index: 3!important;
+    position: relative !important;
+    z-index: 3 !important;
 }
 
 /*
 Preserve the premium gold company name.
 */
-.mi-fixed-glass-nav.logo span,
-.mi-fixed-glass-nav.brand span,
-.mi-fixed-glass-nav.navbar-brand span,
-.mi-fixed-glass-nav.site-logo span,
-.mi-fixed-glass-nav.nav-logo span,
+.mi-fixed-glass-nav .logo span,
+.mi-fixed-glass-nav .brand span,
+.mi-fixed-glass-nav .navbar-brand span,
+.mi-fixed-glass-nav .site-logo span,
+.mi-fixed-glass-nav .nav-logo span,
 .mi-fixed-glass-nav a:has(img) span {
- color: #ffd86a!important;
+    color: #ffd86a !important;
 
- text-shadow:
- 0 0 8px rgba(255, 216, 106, 0.58),
- 0 0 20px rgba(255, 194, 65, 0.30),
- 0 0 38px rgba(255, 170, 0, 0.16)!important;
+    text-shadow:
+        0 0 8px rgba(255, 216, 106, 0.58),
+        0 0 20px rgba(255, 194, 65, 0.30),
+        0 0 38px rgba(255, 170, 0, 0.16) !important;
 }
 
 @media (max-width: 850px) {
-.mi-fixed-glass-nav {
- border-radius: 30px!important;
+    .mi-fixed-glass-nav {
+        border-radius: 30px !important;
 
- -webkit-backdrop-filter:
- blur(26px)
- saturate(185%)
- brightness(1.17)!important;
+        -webkit-backdrop-filter:
+            blur(26px)
+            saturate(185%)
+            brightness(1.17) !important;
 
- backdrop-filter:
- blur(26px)
- saturate(185%)
- brightness(1.17)!important;
- }
+        backdrop-filter:
+            blur(26px)
+            saturate(185%)
+            brightness(1.17) !important;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
-.mi-fixed-glass-nav::before {
- transform: scale(1.035)!important;
- }
+    .mi-fixed-glass-nav::before {
+        transform: scale(1.035) !important;
+    }
 }
 
 /* MI_IPHONE_LIQUID_GLASS_END */
@@ -3110,26 +3110,26 @@ Preserve the premium gold company name.
 /*
 Add a clean black outline to the gold MI CORTEX X title.
 */
-.mi-fixed-glass-nav.logo span,
-.mi-fixed-glass-nav.brand span,
-.mi-fixed-glass-nav.navbar-brand span,
-.mi-fixed-glass-nav.site-logo span,
-.mi-fixed-glass-nav.nav-logo span,
+.mi-fixed-glass-nav .logo span,
+.mi-fixed-glass-nav .brand span,
+.mi-fixed-glass-nav .navbar-brand span,
+.mi-fixed-glass-nav .site-logo span,
+.mi-fixed-glass-nav .nav-logo span,
 .mi-fixed-glass-nav a:has(img) span {
- color: #ffd86a!important;
+    color: #ffd86a !important;
 
- -webkit-text-stroke: 1.4px rgba(0, 0, 0, 0.95)!important;
+    -webkit-text-stroke: 1.4px rgba(0, 0, 0, 0.95) !important;
 
- paint-order: stroke fill!important;
+    paint-order: stroke fill !important;
 
- text-shadow:
- -1px -1px 0 #000000,
- 1px -1px 0 #000000,
- -1px 1px 0 #000000,
- 1px 1px 0 #000000,
- 0 0 8px rgba(255, 216, 106, 0.70),
- 0 0 20px rgba(255, 194, 65, 0.35),
- 0 0 36px rgba(255, 170, 0, 0.18)!important;
+    text-shadow:
+        -1px -1px 0 #000000,
+         1px -1px 0 #000000,
+        -1px  1px 0 #000000,
+         1px  1px 0 #000000,
+         0 0 8px rgba(255, 216, 106, 0.70),
+         0 0 20px rgba(255, 194, 65, 0.35),
+         0 0 36px rgba(255, 170, 0, 0.18) !important;
 }
 
 /* MI_COMPANY_BLACK_OUTLINE_END */
