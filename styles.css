@@ -1653,163 +1653,346 @@ body {
 
 /* MI_FRONT_PAGE_START */
 
-html {
-    scroll-behavior: smooth;
-}
-
-html,
-body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
 .mi-front-page {
     position: relative;
     isolation: isolate;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    height: 100vh;
-    height: 100svh;
-    min-height: 620px;
+    min-height: 100svh;
     overflow: hidden;
-    background: #02040a;
-}
-
-/*
-The banner belongs to this section.
-It is not fixed, so the complete front page scrolls away normally.
-*/
-.mi-front-page-banner {
-    position: absolute;
-    z-index: -3;
-    inset: 0;
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-    user-select: none;
-    pointer-events: none;
-}
-
-.mi-front-page-shade {
-    position: absolute;
-    z-index: -2;
-    inset: 0;
-    pointer-events: none;
     background:
+        radial-gradient(
+            circle at 50% 44%,
+            rgba(18, 142, 220, 0.14),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(0, 179, 255, 0.08),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(25, 82, 180, 0.09),
+            transparent 28%
+        ),
         linear-gradient(
-            180deg,
-            rgba(0, 0, 0, 0.05) 0%,
-            rgba(0, 0, 0, 0.01) 48%,
-            rgba(0, 0, 0, 0.42) 100%
+            145deg,
+            #010307 0%,
+            #020711 45%,
+            #010307 100%
         );
 }
 
-.mi-front-page-scroll-button {
+.mi-front-page-grid {
     position: absolute;
-    z-index: 5;
-    bottom: clamp(24px, 4vh, 48px);
-    left: 50%;
+    inset: 0;
+    z-index: -3;
+    pointer-events: none;
+    opacity: 0.3;
+    background-image:
+        linear-gradient(
+            rgba(43, 153, 221, 0.07) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(43, 153, 221, 0.07) 1px,
+            transparent 1px
+        );
+    background-size: 72px 72px;
+    mask-image:
+        radial-gradient(
+            circle at center,
+            black 10%,
+            transparent 78%
+        );
+}
+
+.mi-front-page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(34, 174, 255, 0.1),
+            transparent
+        );
+    width: 42%;
+    transform: skewX(-18deg) translateX(-190%);
+    animation: miFrontPageScan 8s ease-in-out infinite;
+}
+
+.mi-front-page::after {
+    content: "";
+    position: absolute;
+    inset: 24px;
+    z-index: -1;
+    pointer-events: none;
+    border: 1px solid rgba(75, 177, 238, 0.08);
+    border-radius: 30px;
+    box-shadow:
+        inset 0 0 80px rgba(5, 82, 141, 0.04),
+        0 0 80px rgba(0, 0, 0, 0.55);
+}
+
+.mi-front-page-glow {
+    position: absolute;
+    z-index: -2;
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(110px);
+    opacity: 0.18;
+}
+
+.mi-front-page-glow-one {
+    top: -140px;
+    left: -90px;
+    background: #008fd5;
+}
+
+.mi-front-page-glow-two {
+    right: -110px;
+    bottom: -160px;
+    background: #175cc4;
+}
+
+.mi-front-page-content {
+    position: relative;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 11px;
-    color: rgba(255, 255, 255, 0.92);
-    text-decoration: none;
-    transform: translateX(-50%);
-    transition:
-        opacity 250ms ease,
-        transform 250ms ease;
+    width: min(920px, calc(100% - 44px));
+    padding: 72px 32px 64px;
+    text-align: center;
 }
 
-.mi-front-page-scroll-button:hover {
-    transform: translateX(-50%) translateY(-5px);
-}
-
-.mi-front-page-scroll-text {
-    font-size: 0.6rem;
-    font-weight: 700;
-    line-height: 1;
-    letter-spacing: 0.36em;
-    text-indent: 0.36em;
-    text-shadow:
-        0 0 10px rgba(255, 255, 255, 0.35),
-        0 0 20px rgba(71, 178, 255, 0.38);
-}
-
-.mi-front-page-scroll-mouse {
+.mi-front-page-logo-shell {
     position: relative;
-    display: block;
-    width: 24px;
-    height: 38px;
-    border: 1px solid rgba(255, 255, 255, 0.65);
-    border-radius: 18px;
+    display: grid;
+    place-items: center;
+    width: clamp(118px, 12vw, 164px);
+    aspect-ratio: 1;
+    margin-bottom: 30px;
+    border: 1px solid rgba(82, 196, 255, 0.22);
+    border-radius: 50%;
+    background:
+        radial-gradient(
+            circle,
+            rgba(12, 108, 172, 0.14),
+            rgba(0, 0, 0, 0.88) 70%
+        );
     box-shadow:
-        0 0 12px rgba(255, 255, 255, 0.12),
-        0 0 22px rgba(71, 178, 255, 0.18);
+        0 0 0 9px rgba(18, 125, 190, 0.025),
+        0 0 55px rgba(18, 164, 243, 0.2),
+        inset 0 0 32px rgba(18, 164, 243, 0.09);
 }
 
-.mi-front-page-scroll-mouse span {
+.mi-front-page-logo-shell::before,
+.mi-front-page-logo-shell::after {
+    content: "";
     position: absolute;
-    top: 7px;
-    left: 50%;
+    border-radius: inherit;
+    border: 1px solid rgba(71, 188, 255, 0.12);
+}
+
+.mi-front-page-logo-shell::before {
+    inset: -13px;
+}
+
+.mi-front-page-logo-shell::after {
+    inset: -26px;
+    border-color: rgba(71, 188, 255, 0.055);
+}
+
+.mi-front-page-logo {
+    display: block;
+    width: 82%;
+    height: 82%;
+    object-fit: contain;
+    border-radius: 50%;
+    filter:
+        drop-shadow(0 0 12px rgba(20, 188, 255, 0.55))
+        drop-shadow(0 0 28px rgba(20, 123, 255, 0.23));
+}
+
+.mi-front-page-eyebrow {
+    margin: 0 0 16px;
+    color: rgba(145, 218, 255, 0.76);
+    font-size: clamp(0.65rem, 1vw, 0.78rem);
+    font-weight: 700;
+    letter-spacing: 0.38em;
+}
+
+.mi-front-page-title {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.15em;
+    margin: 0;
+    color: #f4f8fb;
+    font-size: clamp(2.7rem, 7vw, 6.6rem);
+    font-weight: 760;
+    line-height: 0.95;
+    letter-spacing: -0.055em;
+    text-shadow:
+        0 2px 24px rgba(0, 0, 0, 0.7),
+        0 0 38px rgba(43, 169, 239, 0.08);
+}
+
+.mi-front-page-title strong {
+    color: #39bfff;
+    font-weight: 780;
+    text-shadow:
+        0 0 14px rgba(40, 189, 255, 0.6),
+        0 0 40px rgba(40, 132, 255, 0.32);
+}
+
+.mi-front-page-title small {
+    color: rgba(228, 237, 244, 0.56);
+    font-size: 0.42em;
+    font-weight: 650;
+    letter-spacing: 0.01em;
+}
+
+.mi-front-page-description {
+    max-width: 690px;
+    margin: 26px auto 0;
+    color: rgba(204, 218, 228, 0.7);
+    font-size: clamp(0.96rem, 1.6vw, 1.14rem);
+    line-height: 1.8;
+    letter-spacing: 0.018em;
+}
+
+.mi-front-page-points {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 32px;
+    color: rgba(166, 212, 238, 0.7);
+    font-size: clamp(0.62rem, 1vw, 0.72rem);
+    font-weight: 700;
+    letter-spacing: 0.24em;
+}
+
+.mi-front-page-points i {
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #2cc1ff;
+    box-shadow: 0 0 9px rgba(44, 193, 255, 0.9);
+}
+
+.mi-front-page-scroll-cue {
+    display: grid;
+    place-items: start center;
+    width: 28px;
+    height: 52px;
+    margin-top: 48px;
+    padding-top: 9px;
+    border: 1px solid rgba(132, 205, 244, 0.28);
+    border-radius: 999px;
+}
+
+.mi-front-page-scroll-cue span {
+    display: block;
     width: 3px;
-    height: 7px;
-    border-radius: 99px;
-    background: #ffffff;
-    box-shadow: 0 0 9px rgba(100, 210, 255, 0.9);
-    transform: translateX(-50%);
-    animation: miFrontPageScrollIndicator 1.8s ease-in-out infinite;
+    height: 10px;
+    border-radius: 999px;
+    background: #48c7ff;
+    box-shadow: 0 0 9px rgba(72, 199, 255, 0.75);
+    animation: miFrontPageScrollCue 1.8s ease-in-out infinite;
 }
 
-.mi-main-content-start {
-    width: 100%;
-    height: 0;
-    scroll-margin-top: 0;
+@keyframes miFrontPageScan {
+    0%,
+    26% {
+        transform: skewX(-18deg) translateX(-190%);
+        opacity: 0;
+    }
+
+    42% {
+        opacity: 0.7;
+    }
+
+    68%,
+    100% {
+        transform: skewX(-18deg) translateX(410%);
+        opacity: 0;
+    }
 }
 
-@keyframes miFrontPageScrollIndicator {
+@keyframes miFrontPageScrollCue {
     0% {
         opacity: 0;
-        transform: translateX(-50%) translateY(0);
+        transform: translateY(0);
     }
 
-    25% {
+    35% {
         opacity: 1;
     }
 
-    75% {
-        opacity: 1;
-    }
-
+    75%,
     100% {
         opacity: 0;
-        transform: translateX(-50%) translateY(15px);
+        transform: translateY(20px);
     }
 }
 
 @media (max-width: 700px) {
-    .mi-front-page {
-        min-height: 520px;
+    .mi-front-page::after {
+        inset: 12px;
+        border-radius: 22px;
     }
 
-    .mi-front-page-banner {
-        object-position: center center;
+    .mi-front-page-content {
+        width: min(100%, calc(100% - 24px));
+        padding: 56px 18px 46px;
     }
 
-    .mi-front-page-scroll-button {
-        bottom: 20px;
+    .mi-front-page-logo-shell {
+        margin-bottom: 28px;
+    }
+
+    .mi-front-page-title {
+        gap: 0.12em;
+    }
+
+    .mi-front-page-description {
+        max-width: 540px;
+        margin-top: 22px;
+        line-height: 1.7;
+    }
+
+    .mi-front-page-points {
+        max-width: 340px;
+        gap: 10px;
+        margin-top: 27px;
+        letter-spacing: 0.16em;
+    }
+
+    .mi-front-page-scroll-cue {
+        margin-top: 36px;
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-
-    .mi-front-page-scroll-mouse span {
-        animation: none;
+    .mi-front-page::before,
+    .mi-front-page-scroll-cue span {
+        animation: none !important;
     }
 }
 
