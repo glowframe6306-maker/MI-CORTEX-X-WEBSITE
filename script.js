@@ -1,18 +1,58 @@
 document.addEventListener('DOMContentLoaded', function () {
+  if (window.__miWelcomeIntroInitialized) {
+    return;
+  }
+
+  window.__miWelcomeIntroInitialized = true;
+
   const welcomeScreen = document.getElementById('welcome-screen');
   const welcomeStage = welcomeScreen ? welcomeScreen.querySelector('.welcome-stage') : null;
   const title = welcomeScreen ? welcomeScreen.querySelector('.welcome-title') : null;
   const robot = welcomeScreen ? welcomeScreen.querySelector('.intro-robot') : null;
   const body = document.body;
+  const documentElement = document.documentElement;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   let titleFadeTimer = null;
   let titleClearTimer = null;
-  let titleTransformTimer = null;
   let robotAssemblyTimer = null;
   let fallbackTimer = null;
   let transitionHandler = null;
   let hasStarted = false;
+
+  const finalizeIntro = (options = {}) => {
+    if (window.__miIntroFinalized) {
+      return;
+    }
+
+    window.__miIntroFinalized = true;
+
+    clearTimers();
+    body.classList.remove('intro-active');
+    body.classList.add('welcome-complete');
+    documentElement.classList.add('welcome-complete');
+    documentElement.style.overflow = '';
+    body.style.overflow = '';
+
+    if (transitionHandler) {
+      welcomeScreen?.removeEventListener('transitionend', transitionHandler);
+    }
+
+    if (options.removeWelcomeScreen !== false) {
+      if (welcomeScreen?.parentNode) {
+        welcomeScreen.parentNode.removeChild(welcomeScreen);
+      }
+    }
+
+    const neuralIntro = document.getElementById('mi-neural-intro');
+    if (neuralIntro?.parentNode) {
+      neuralIntro.parentNode.removeChild(neuralIntro);
+    }
+
+    window.dispatchEvent(new Event('resize'));
+  };
+
+  window.__miFinalizeIntro = finalizeIntro;
 
   const clearTimers = () => {
     if (titleFadeTimer) {
@@ -22,10 +62,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (titleClearTimer) {
       window.clearTimeout(titleClearTimer);
       titleClearTimer = null;
-    }
-    if (titleTransformTimer) {
-      window.clearTimeout(titleTransformTimer);
-      titleTransformTimer = null;
     }
     if (robotAssemblyTimer) {
       window.clearTimeout(robotAssemblyTimer);
@@ -42,10 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
-    clearTimers();
     welcomeScreen.classList.add('intro-exiting');
-    body.classList.remove('intro-active');
-    body.classList.add('welcome-complete');
     welcomeScreen.setAttribute('aria-hidden', 'true');
 
     if (transitionHandler) {
@@ -53,16 +86,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     transitionHandler = function () {
-      if (welcomeScreen.parentNode) {
-        welcomeScreen.parentNode.removeChild(welcomeScreen);
-      }
+      finalizeIntro();
     };
 
     welcomeScreen.addEventListener('transitionend', transitionHandler, { once: true });
     fallbackTimer = window.setTimeout(function () {
-      if (welcomeScreen.parentNode) {
-        welcomeScreen.parentNode.removeChild(welcomeScreen);
-      }
+      finalizeIntro();
     }, 2800);
   };
 
@@ -73,6 +102,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     hasStarted = true;
     body.classList.add('intro-active');
+    documentElement.classList.remove('welcome-complete');
+    body.classList.remove('welcome-complete');
     welcomeScreen.setAttribute('aria-hidden', 'false');
     welcomeScreen.classList.add('intro-visible');
 
@@ -189,136 +220,14 @@ document.addEventListener('DOMContentLoaded', function () {
   setActiveLink();
 });
 
-/* MI_REMOVE_INTRO_ROBOT_START */
-(() => {
-    "use strict";
-
-    const ROBOT_CLASSES = [
-        "title-transforming",
-        "robot-assembling",
-        "robot-ready",
-        "robot-walking",
-        "robot-walking-left"
-    ];
-
-    const removeRobotElements = () => {
-        document.querySelectorAll(
-            ".intro-robot, .ai-robot, .letter-particles"
-        ).forEach((element) => element.remove());
-    };
-
-    const finishWelcomeIntro = (welcomeScreen) => {
-        if (!welcomeScreen || welcomeScreen.dataset.robotRemovalExit === "true") {
-            return;
-        }
-
-        welcomeScreen.dataset.robotRemovalExit = "true";
-
-        ROBOT_CLASSES.forEach((className) => {
-            welcomeScreen.classList.remove(className);
-            document.body.classList.remove(className);
-        });
-
-        requestAnimationFrame(() => {
-            welcomeScreen.classList.add("intro-exiting");
-        });
-
-        const cleanup = () => {
-            document.body.classList.remove("intro-active");
-            document.documentElement.style.overflow = "";
-            document.body.style.overflow = "";
-
-            if (welcomeScreen.isConnected) {
-                welcomeScreen.remove();
-            }
-        };
-
-        welcomeScreen.addEventListener(
-            "transitionend",
-            (event) => {
-                if (
-                    event.target === welcomeScreen &&
-                    event.propertyName === "transform"
-                ) {
-                    cleanup();
-                }
-            },
-            { once: true }
-        );
-
-        window.setTimeout(cleanup, 3000);
-    };
-
-    const initializeRobotRemoval = () => {
-        const welcomeScreen = document.getElementById("welcome-screen");
-
-        removeRobotElements();
-
-        if (!welcomeScreen) {
-            return;
-        }
-
-        const startExitWhenRobotPhaseBegins = () => {
-            const robotPhaseStarted = ROBOT_CLASSES.some((className) => {
-                return (
-                    welcomeScreen.classList.contains(className) ||
-                    document.body.classList.contains(className)
-                );
-            });
-
-            if (robotPhaseStarted) {
-                removeRobotElements();
-                window.setTimeout(() => {
-                    finishWelcomeIntro(welcomeScreen);
-                }, 250);
-            }
-        };
-
-        const observer = new MutationObserver(() => {
-            removeRobotElements();
-            startExitWhenRobotPhaseBegins();
-        });
-
-        observer.observe(welcomeScreen, {
-            attributes: true,
-            attributeFilter: ["class"],
-            childList: true,
-            subtree: true
-        });
-
-        observer.observe(document.body, {
-            attributes: true,
-            attributeFilter: ["class"]
-        });
-
-        startExitWhenRobotPhaseBegins();
-
-        window.setTimeout(() => {
-            removeRobotElements();
-
-            if (
-                welcomeScreen.isConnected &&
-                !welcomeScreen.classList.contains("intro-exiting")
-            ) {
-                finishWelcomeIntro(welcomeScreen);
-            }
-        }, 11000);
-    };
-
-    if (document.readyState === "loading") {
-        document.addEventListener(
-            "DOMContentLoaded",
-            initializeRobotRemoval,
-            { once: true }
-        );
-    } else {
-        initializeRobotRemoval();
-    }
-})();
-/* MI_REMOVE_INTRO_ROBOT_END */
-
 /* MI_NEURAL_LOGO_SEQUENCE_START */
 (() => {
+    if (window.__miNeuralIntroInitialized) {
+        return;
+    }
+
+    window.__miNeuralIntroInitialized = true;
+
     "use strict";
 
     const INTRO_START_DELAY = 0;
@@ -328,7 +237,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const LOGO_HOLD_TIME = 900;
     const LOGO_FADE_TIME = 1200;
     const SCREEN_LIFT_TIME = 2200;
-    const FALLBACK_TIME = 17000;
+    const FALLBACK_TIME = 12000;
 
     const sleep = (milliseconds) =>
         new Promise((resolve) => window.setTimeout(resolve, milliseconds));
@@ -476,8 +385,14 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     const cleanup = (neuralIntro) => {
+        if (window.__miFinalizeIntro) {
+            window.__miFinalizeIntro({ removeWelcomeScreen: false });
+            return;
+        }
+
         document.body.classList.remove("intro-active");
         document.body.classList.add("welcome-complete");
+        document.documentElement.classList.add("welcome-complete");
         document.documentElement.style.overflow = "";
         document.body.style.overflow = "";
 

@@ -3127,3 +3127,17 @@ Add a clean black outline to the gold MI CORTEX X title.
 }
 
 /* MI_COMPANY_BLACK_OUTLINE_END */
+
+
+/* MI_LOADING_LIFECYCLE_REPAIR_CSS_START */
+
+html.mi-page-ready,
+body.mi-page-ready,
+html.welcome-complete,
+body.welcome-complete,
+html.intro-complete,
+body.intro-complete {
+    overflow-x: hidden;
+}
+
+/* MI_LOADING_LIFECYCLE_REPAIR_CSS_END */
