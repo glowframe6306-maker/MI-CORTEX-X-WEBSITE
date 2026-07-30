@@ -936,3 +936,216 @@ main {
     display:none !important;
     content:none !important;
 }
+
+/* MI_LARGE_LEFT_WALKING_ROBOT_START */
+
+/* Make the complete robot noticeably larger. */
+.intro-robot {
+    transform-origin: center bottom !important;
+    scale: 1.65;
+    will-change: transform, opacity !important;
+}
+
+/* Support either location of the walking state class. */
+.robot-walking-left .intro-robot,
+.intro-robot.robot-walking-left,
+.welcome-screen.robot-walking-left .intro-robot {
+    visibility: visible !important;
+    opacity: 1 !important;
+    scale: unset !important;
+    animation:
+        miRobotWalkLeft 3.2s cubic-bezier(.45, .05, .25, 1) forwards !important;
+}
+
+/* Move the robot completely through the left side of the viewport. */
+@keyframes miRobotWalkLeft {
+    0% {
+        transform:
+            translate3d(-50%, 0, 0)
+            scale(1.65);
+    }
+
+    12% {
+        transform:
+            translate3d(calc(-50% - 5vw), -5px, 0)
+            scale(1.65);
+    }
+
+    25% {
+        transform:
+            translate3d(calc(-50% - 14vw), 0, 0)
+            scale(1.65);
+    }
+
+    38% {
+        transform:
+            translate3d(calc(-50% - 23vw), -5px, 0)
+            scale(1.65);
+    }
+
+    52% {
+        transform:
+            translate3d(calc(-50% - 33vw), 0, 0)
+            scale(1.65);
+    }
+
+    66% {
+        transform:
+            translate3d(calc(-50% - 43vw), -5px, 0)
+            scale(1.65);
+    }
+
+    80% {
+        transform:
+            translate3d(calc(-50% - 54vw), 0, 0)
+            scale(1.65);
+    }
+
+    100% {
+        transform:
+            translate3d(calc(-50% - 75vw - 350px), -3px, 0)
+            scale(1.65);
+    }
+}
+
+/* Alternate the arms while walking. */
+.robot-walking-left .intro-robot-arm-left,
+.intro-robot.robot-walking-left .intro-robot-arm-left,
+.welcome-screen.robot-walking-left .intro-robot-arm-left {
+    transform-origin: 50% 10% !important;
+    animation: miRobotLeftArmWalk 0.56s ease-in-out infinite alternate !important;
+}
+
+.robot-walking-left .intro-robot-arm-right,
+.intro-robot.robot-walking-left .intro-robot-arm-right,
+.welcome-screen.robot-walking-left .intro-robot-arm-right {
+    transform-origin: 50% 10% !important;
+    animation: miRobotRightArmWalk 0.56s ease-in-out infinite alternate !important;
+}
+
+@keyframes miRobotLeftArmWalk {
+    from {
+        transform: rotate(17deg);
+    }
+
+    to {
+        transform: rotate(-19deg);
+    }
+}
+
+@keyframes miRobotRightArmWalk {
+    from {
+        transform: rotate(-19deg);
+    }
+
+    to {
+        transform: rotate(17deg);
+    }
+}
+
+/* Alternate the legs while walking. */
+.robot-walking-left .intro-robot-leg-left,
+.intro-robot.robot-walking-left .intro-robot-leg-left,
+.welcome-screen.robot-walking-left .intro-robot-leg-left {
+    transform-origin: 50% 5% !important;
+    animation: miRobotLeftLegWalk 0.56s ease-in-out infinite alternate !important;
+}
+
+.robot-walking-left .intro-robot-leg-right,
+.intro-robot.robot-walking-left .intro-robot-leg-right,
+.welcome-screen.robot-walking-left .intro-robot-leg-right {
+    transform-origin: 50% 5% !important;
+    animation: miRobotRightLegWalk 0.56s ease-in-out infinite alternate !important;
+}
+
+@keyframes miRobotLeftLegWalk {
+    from {
+        transform: rotate(-15deg) translateY(0);
+    }
+
+    to {
+        transform: rotate(17deg) translateY(-3px);
+    }
+}
+
+@keyframes miRobotRightLegWalk {
+    from {
+        transform: rotate(17deg) translateY(-3px);
+    }
+
+    to {
+        transform: rotate(-15deg) translateY(0);
+    }
+}
+
+/* Move and resize the robot shadow with the robot. */
+.robot-walking-left .intro-robot-shadow,
+.intro-robot.robot-walking-left .intro-robot-shadow,
+.welcome-screen.robot-walking-left .intro-robot-shadow {
+    animation: miRobotShadowWalk 0.56s ease-in-out infinite alternate !important;
+}
+
+@keyframes miRobotShadowWalk {
+    from {
+        transform: translateX(-50%) scaleX(1);
+        opacity: .36;
+    }
+
+    to {
+        transform: translateX(-50%) scaleX(.76);
+        opacity: .20;
+    }
+}
+
+/* Keep the robot large but responsive on smaller screens. */
+@media (max-width: 700px) {
+    .intro-robot {
+        scale: 1.3;
+    }
+
+    .robot-walking-left .intro-robot,
+    .intro-robot.robot-walking-left,
+    .welcome-screen.robot-walking-left .intro-robot {
+        animation-name: miRobotWalkLeftMobile !important;
+    }
+
+    @keyframes miRobotWalkLeftMobile {
+        0% {
+            transform:
+                translate3d(-50%, 0, 0)
+                scale(1.3);
+        }
+
+        25% {
+            transform:
+                translate3d(calc(-50% - 20vw), -4px, 0)
+                scale(1.3);
+        }
+
+        50% {
+            transform:
+                translate3d(calc(-50% - 40vw), 0, 0)
+                scale(1.3);
+        }
+
+        75% {
+            transform:
+                translate3d(calc(-50% - 62vw), -4px, 0)
+                scale(1.3);
+        }
+
+        100% {
+            transform:
+                translate3d(calc(-50% - 95vw - 240px), 0, 0)
+                scale(1.3);
+        }
+    }
+}
+
+.welcome-screen,
+.welcome-stage {
+    overflow: hidden !important;
+}
+
+/* MI_LARGE_LEFT_WALKING_ROBOT_END */
+
