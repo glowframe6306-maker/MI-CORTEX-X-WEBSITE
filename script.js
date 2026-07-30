@@ -1,4 +1,4 @@
-﻿document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
   const welcomeScreen = document.getElementById('welcome-screen');
   const welcomeStage = welcomeScreen ? welcomeScreen.querySelector('.welcome-stage') : null;
   const title = welcomeScreen ? welcomeScreen.querySelector('.welcome-title') : null;
@@ -321,7 +321,7 @@
 (() => {
     "use strict";
 
-    const INTRO_START_DELAY = 5900;
+    const INTRO_START_DELAY = 0;
     const NETWORK_REVEAL_TIME = 2100;
     const LOGO_ZOOM_IN_TIME = 1900;
     const LOGO_ZOOM_OUT_TIME = 1500;
@@ -477,6 +477,7 @@
 
     const cleanup = (neuralIntro) => {
         document.body.classList.remove("intro-active");
+        document.body.classList.add("welcome-complete");
         document.documentElement.style.overflow = "";
         document.body.style.overflow = "";
 
