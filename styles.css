@@ -3708,3 +3708,22 @@ Keep every original welcome element above the new background.
 }
 
 /* MI_QUANTUM_AI_CORE_CSS_END */
+
+
+/* MI_ACTIVE_CATEGORY_GOLD_CSS_START */
+
+.mi-fixed-glass-nav a.mi-active-category,
+.mi-fixed-glass-nav a[aria-current="page"] {
+    color: #f4cf72 !important;
+
+    text-shadow:
+        0 0 8px rgba(244, 207, 114, 0.34),
+        0 0 18px rgba(244, 207, 114, 0.16) !important;
+}
+
+.mi-fixed-glass-nav a.mi-active-category:hover,
+.mi-fixed-glass-nav a[aria-current="page"]:hover {
+    color: #ffe39a !important;
+}
+
+/* MI_ACTIVE_CATEGORY_GOLD_CSS_END */
