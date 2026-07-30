@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+﻿document.addEventListener('DOMContentLoaded', function () {
   const welcomeScreen = document.getElementById('welcome-screen');
   const welcomeStage = welcomeScreen ? welcomeScreen.querySelector('.welcome-stage') : null;
   const title = welcomeScreen ? welcomeScreen.querySelector('.welcome-title') : null;
@@ -188,3 +188,132 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('scroll', setActiveLink);
   setActiveLink();
 });
+
+/* MI_REMOVE_INTRO_ROBOT_START */
+(() => {
+    "use strict";
+
+    const ROBOT_CLASSES = [
+        "title-transforming",
+        "robot-assembling",
+        "robot-ready",
+        "robot-walking",
+        "robot-walking-left"
+    ];
+
+    const removeRobotElements = () => {
+        document.querySelectorAll(
+            ".intro-robot, .ai-robot, .letter-particles"
+        ).forEach((element) => element.remove());
+    };
+
+    const finishWelcomeIntro = (welcomeScreen) => {
+        if (!welcomeScreen || welcomeScreen.dataset.robotRemovalExit === "true") {
+            return;
+        }
+
+        welcomeScreen.dataset.robotRemovalExit = "true";
+
+        ROBOT_CLASSES.forEach((className) => {
+            welcomeScreen.classList.remove(className);
+            document.body.classList.remove(className);
+        });
+
+        requestAnimationFrame(() => {
+            welcomeScreen.classList.add("intro-exiting");
+        });
+
+        const cleanup = () => {
+            document.body.classList.remove("intro-active");
+            document.documentElement.style.overflow = "";
+            document.body.style.overflow = "";
+
+            if (welcomeScreen.isConnected) {
+                welcomeScreen.remove();
+            }
+        };
+
+        welcomeScreen.addEventListener(
+            "transitionend",
+            (event) => {
+                if (
+                    event.target === welcomeScreen &&
+                    event.propertyName === "transform"
+                ) {
+                    cleanup();
+                }
+            },
+            { once: true }
+        );
+
+        window.setTimeout(cleanup, 3000);
+    };
+
+    const initializeRobotRemoval = () => {
+        const welcomeScreen = document.getElementById("welcome-screen");
+
+        removeRobotElements();
+
+        if (!welcomeScreen) {
+            return;
+        }
+
+        const startExitWhenRobotPhaseBegins = () => {
+            const robotPhaseStarted = ROBOT_CLASSES.some((className) => {
+                return (
+                    welcomeScreen.classList.contains(className) ||
+                    document.body.classList.contains(className)
+                );
+            });
+
+            if (robotPhaseStarted) {
+                removeRobotElements();
+                window.setTimeout(() => {
+                    finishWelcomeIntro(welcomeScreen);
+                }, 250);
+            }
+        };
+
+        const observer = new MutationObserver(() => {
+            removeRobotElements();
+            startExitWhenRobotPhaseBegins();
+        });
+
+        observer.observe(welcomeScreen, {
+            attributes: true,
+            attributeFilter: ["class"],
+            childList: true,
+            subtree: true
+        });
+
+        observer.observe(document.body, {
+            attributes: true,
+            attributeFilter: ["class"]
+        });
+
+        startExitWhenRobotPhaseBegins();
+
+        window.setTimeout(() => {
+            removeRobotElements();
+
+            if (
+                welcomeScreen.isConnected &&
+                !welcomeScreen.classList.contains("intro-exiting")
+            ) {
+                finishWelcomeIntro(welcomeScreen);
+            }
+        }, 11000);
+    };
+
+    if (document.readyState === "loading") {
+        document.addEventListener(
+            "DOMContentLoaded",
+            initializeRobotRemoval,
+            { once: true }
+        );
+    } else {
+        initializeRobotRemoval();
+    }
+})();
+/* MI_REMOVE_INTRO_ROBOT_END */
+

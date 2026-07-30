@@ -1149,3 +1149,44 @@ main {
 
 /* MI_LARGE_LEFT_WALKING_ROBOT_END */
 
+/* MI_REMOVE_INTRO_ROBOT_START */
+
+/* Permanently hide every old robot element and robot artifact. */
+.intro-robot,
+.intro-robot-shadow,
+.intro-robot-head,
+.intro-robot-eye,
+.intro-robot-eye-left,
+.intro-robot-eye-right,
+.intro-robot-neck,
+.intro-robot-torso,
+.intro-robot-core,
+.intro-robot-arm,
+.intro-robot-arm-left,
+.intro-robot-arm-right,
+.intro-robot-leg,
+.intro-robot-leg-left,
+.intro-robot-leg-right,
+.ai-robot,
+.robot-head,
+.robot-body,
+.robot-arm,
+.robot-leg,
+.robot-shadow,
+.letter-particles {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    animation: none !important;
+    transition: none !important;
+    pointer-events: none !important;
+}
+
+/* Preserve the existing slow upward welcome-screen exit. */
+.welcome-screen.intro-exiting,
+.intro-exiting.welcome-screen {
+    transform: translate3d(0, -100%, 0) !important;
+}
+
+/* MI_REMOVE_INTRO_ROBOT_END */
+
