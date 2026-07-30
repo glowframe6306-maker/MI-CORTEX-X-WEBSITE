@@ -3436,3 +3436,35 @@ Keep hover clean without overriding the active gold color.
 
 /* MI_ACTIVE_NAV_GOLD_END */
 
+/* MI_COMPANY_TITLE_BLACK_OUTLINE_START */
+
+/*
+Professional black outline for MI CORTEX X.
+*/
+.mi-fixed-glass-nav .logo span,
+.mi-fixed-glass-nav .brand span,
+.mi-fixed-glass-nav .navbar-brand span,
+.mi-fixed-glass-nav .site-logo span,
+.mi-fixed-glass-nav .nav-logo span,
+.mi-fixed-glass-nav a:has(img) span {
+
+    color:#F4CF72 !important;
+
+    -webkit-text-stroke:1px rgba(0,0,0,.95) !important;
+    paint-order:stroke fill !important;
+
+    text-shadow:
+        -1px 0 #000,
+         1px 0 #000,
+         0 -1px #000,
+         0  1px #000,
+        -1px -1px #000,
+         1px -1px #000,
+        -1px  1px #000,
+         1px  1px #000,
+         0 0 8px rgba(244,207,114,.28),
+         0 0 18px rgba(244,207,114,.12) !important;
+}
+
+/* MI_COMPANY_TITLE_BLACK_OUTLINE_END */
+
