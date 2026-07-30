@@ -66,7 +66,7 @@
             draggable="false"
         />
         <div class="mi-logo-tagline">
-            INNOVATE <span>Ã¢â‚¬Â¢</span> CREATE <span>Ã¢â‚¬Â¢</span> INSPIRE
+            INNOVATE <span>ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢</span> CREATE <span>ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢</span> INSPIRE
         </div>
 
         <div class="mi-logo-shine"></div>
@@ -312,8 +312,8 @@
       <section id="contact" class="section container reveal">
         <div class="section-heading">
           <p class="eyebrow">Contact</p>
-          <h2>LetÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢s build your next breakthrough.</h2>
-          <p>Tell us about your vision and weÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ll help shape the experience.</p>
+          <h2>LetÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢s build your next breakthrough.</h2>
+          <p>Tell us about your vision and weÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ll help shape the experience.</p>
         </div>
         <div class="contact-card glass-panel">
           <p>hello@micortexx.com</p>
@@ -324,7 +324,7 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â© <span id="year"></span> MI CORTEX X. All rights reserved.</p>
+        <p>ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â© <span id="year"></span> MI CORTEX X. All rights reserved.</p>
         <p>Shaping intelligent digital experiences.</p>
       </div>
     </footer>
@@ -1070,6 +1070,122 @@
 })();
 </script>
 <!-- MI_EXACT_WELCOME_SLOGAN_FIX_END -->
+
+<!-- MI_CONTACT_TEXT_REPAIR_START -->
+<script>
+(function () {
+    "use strict";
+
+    const correctHeading =
+        "Let\u2019s build your next breakthrough.";
+
+    const correctDescription =
+        "Tell us about your vision and we\u2019ll help shape the experience.";
+
+    const correctCopyright =
+        "\u00A9 2026 MI CORTEX X. All rights reserved.";
+
+    function normalizedText(element) {
+        return String(element.textContent || "")
+            .replace(/\s+/g, " ")
+            .trim()
+            .toLowerCase();
+    }
+
+    function findSmallestElement(predicate) {
+        const elements = Array.from(
+            document.querySelectorAll(
+                "body *:not(script):not(style):not(code):not(pre)"
+            )
+        ).filter(predicate);
+
+        for (const element of elements) {
+            const matchingChild = Array.from(element.children).some(predicate);
+
+            if (!matchingChild) {
+                return element;
+            }
+        }
+
+        return elements[0] || null;
+    }
+
+    function repairContactText() {
+        const heading = findSmallestElement(function (element) {
+            const text = normalizedText(element);
+
+            return (
+                text.includes("build your next") &&
+                text.includes("breakthrough")
+            );
+        });
+
+        if (heading) {
+            heading.textContent = correctHeading;
+            heading.setAttribute("data-mi-text-fixed", "contact-heading");
+        }
+
+        const description = findSmallestElement(function (element) {
+            const text = normalizedText(element);
+
+            return (
+                text.includes("tell us about your vision") &&
+                text.includes("help shape the experience")
+            );
+        });
+
+        if (description) {
+            description.textContent = correctDescription;
+            description.setAttribute(
+                "data-mi-text-fixed",
+                "contact-description"
+            );
+        }
+
+        const copyright = findSmallestElement(function (element) {
+            const text = normalizedText(element);
+
+            return (
+                text.includes("2026 mi cortex x") &&
+                text.includes("all rights reserved")
+            );
+        });
+
+        if (copyright) {
+            copyright.textContent = correctCopyright;
+            copyright.setAttribute("data-mi-text-fixed", "copyright");
+        }
+
+        return Boolean(heading || description || copyright);
+    }
+
+    function initializeContactTextRepair() {
+        repairContactText();
+
+        let attempts = 0;
+
+        const retryTimer = window.setInterval(function () {
+            attempts += 1;
+            repairContactText();
+
+            if (attempts >= 20) {
+                window.clearInterval(retryTimer);
+            }
+        }, 250);
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener(
+            "DOMContentLoaded",
+            initializeContactTextRepair,
+            { once: true }
+        );
+    } else {
+        initializeContactTextRepair();
+    }
+})();
+</script>
+<!-- MI_CONTACT_TEXT_REPAIR_END -->
 </body>
 </html>
 
