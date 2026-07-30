@@ -682,8 +682,128 @@
 })();
 </script>
 <!-- MI_FRONT_PAGE_FULL_SCROLL_CONTROLLER_END -->
+
+<!-- MI_FIXED_GLASS_NAV_CONTROLLER_START -->
+<script>
+(function () {
+    "use strict";
+
+    function initializeFixedGlassNavigation() {
+        const frontPage = document.querySelector(
+            "#mi-front-page, .mi-front-page"
+        );
+
+        const candidates = Array.from(
+            document.querySelectorAll(
+                "header, nav, .navbar, .site-header, .navigation, .nav-container"
+            )
+        );
+
+        let navigation = candidates.find(function (element) {
+            const text = String(element.textContent || "")
+                .replace(/\s+/g, " ")
+                .trim()
+                .toUpperCase();
+
+            return (
+                text.includes("MI CORTEX X") &&
+                (
+                    text.includes("AI PRODUCTS") ||
+                    text.includes("WEB APPS") ||
+                    text.includes("CONTACT")
+                )
+            );
+        });
+
+        if (!navigation) {
+            navigation = document.querySelector(
+                "header nav, nav, .navbar, .site-header"
+            );
+        }
+
+        if (!navigation) {
+            console.warn("MI fixed glass navigation: navigation bar was not found.");
+            return;
+        }
+
+        /*
+        Use the outer header when the detected nav is inside a dedicated header.
+        */
+        const parentHeader = navigation.closest("header");
+
+        if (
+            parentHeader &&
+            parentHeader.textContent
+                .toUpperCase()
+                .includes("MI CORTEX X")
+        ) {
+            navigation = parentHeader;
+        }
+
+        navigation.classList.add("mi-fixed-glass-nav");
+
+        let scrollStopTimer = null;
+
+        function getMainSiteStart() {
+            if (!frontPage) {
+                return 1;
+            }
+
+            return frontPage.offsetTop + frontPage.offsetHeight - 4;
+        }
+
+        function updateNavigationVisibility() {
+            const mainSiteIsVisible =
+                window.scrollY >= getMainSiteStart();
+
+            document.documentElement.classList.toggle(
+                "mi-main-site-visible",
+                mainSiteIsVisible
+            );
+        }
+
+        function handleScroll() {
+            updateNavigationVisibility();
+
+            document.documentElement.classList.add(
+                "mi-page-is-scrolling"
+            );
+
+            window.clearTimeout(scrollStopTimer);
+
+            scrollStopTimer = window.setTimeout(function () {
+                document.documentElement.classList.remove(
+                    "mi-page-is-scrolling"
+                );
+            }, 180);
+        }
+
+        window.addEventListener("scroll", handleScroll, {
+            passive: true
+        });
+
+        window.addEventListener("resize", updateNavigationVisibility, {
+            passive: true
+        });
+
+        updateNavigationVisibility();
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener(
+            "DOMContentLoaded",
+            initializeFixedGlassNavigation,
+            { once: true }
+        );
+    } else {
+        initializeFixedGlassNavigation();
+    }
+})();
+</script>
+<!-- MI_FIXED_GLASS_NAV_CONTROLLER_END -->
 </body>
 </html>
+
 
 
 

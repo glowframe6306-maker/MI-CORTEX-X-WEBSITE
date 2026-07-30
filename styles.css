@@ -2223,3 +2223,112 @@ html.mi-front-page-scrolling body {
 
 /* MI_FRONT_PAGE_FULL_SCROLL_END */
 
+/* MI_FIXED_GLASS_NAV_START */
+
+/*
+The MI CORTEX X navigation becomes fixed only after
+the full front-page banner has scrolled away.
+*/
+.mi-fixed-glass-nav {
+    position: fixed !important;
+    z-index: 999999 !important;
+
+    top: 16px !important;
+    left: clamp(20px, 6.3vw, 88px) !important;
+    right: clamp(20px, 6.3vw, 88px) !important;
+
+    width: auto !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+
+    background:
+        linear-gradient(
+            115deg,
+            rgba(4, 13, 27, 0.78),
+            rgba(8, 9, 31, 0.72)
+        ) !important;
+
+    border: 1px solid rgba(170, 205, 255, 0.18) !important;
+    border-radius: 999px !important;
+
+    -webkit-backdrop-filter:
+        blur(24px)
+        saturate(145%) !important;
+
+    backdrop-filter:
+        blur(24px)
+        saturate(145%) !important;
+
+    box-shadow:
+        0 12px 45px rgba(0, 0, 0, 0.34),
+        inset 0 1px 0 rgba(255, 255, 255, 0.055),
+        0 0 28px rgba(48, 145, 255, 0.06) !important;
+
+    transform: translateY(-135%) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+
+    transition:
+        transform 650ms cubic-bezier(.22, 1, .36, 1),
+        opacity 450ms ease,
+        background-color 350ms ease,
+        box-shadow 350ms ease !important;
+
+    will-change: transform, opacity;
+}
+
+/*
+Show the blurred navigation after the front page
+has completely left the screen.
+*/
+html.mi-main-site-visible .mi-fixed-glass-nav {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+/*
+Increase the blur slightly while scrolling.
+*/
+html.mi-page-is-scrolling .mi-fixed-glass-nav {
+    background:
+        linear-gradient(
+            115deg,
+            rgba(3, 11, 24, 0.86),
+            rgba(10, 8, 34, 0.82)
+        ) !important;
+
+    -webkit-backdrop-filter:
+        blur(30px)
+        saturate(155%) !important;
+
+    backdrop-filter:
+        blur(30px)
+        saturate(155%) !important;
+
+    box-shadow:
+        0 16px 52px rgba(0, 0, 0, 0.42),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07),
+        0 0 35px rgba(48, 145, 255, 0.09) !important;
+}
+
+@media (max-width: 850px) {
+    .mi-fixed-glass-nav {
+        top: 10px !important;
+        left: 12px !important;
+        right: 12px !important;
+        border-radius: 28px !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mi-fixed-glass-nav {
+        transition-duration: 0.2s !important;
+    }
+}
+
+/* MI_FIXED_GLASS_NAV_END */
+
