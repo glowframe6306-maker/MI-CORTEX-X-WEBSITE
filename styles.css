@@ -3105,3 +3105,32 @@ Preserve the premium gold company name.
 
 /* MI_IPHONE_LIQUID_GLASS_END */
 
+/* MI_COMPANY_BLACK_OUTLINE_START */
+
+/*
+Add a clean black outline to the gold MI CORTEX X title.
+*/
+.mi-fixed-glass-nav .logo span,
+.mi-fixed-glass-nav .brand span,
+.mi-fixed-glass-nav .navbar-brand span,
+.mi-fixed-glass-nav .site-logo span,
+.mi-fixed-glass-nav .nav-logo span,
+.mi-fixed-glass-nav a:has(img) span {
+    color: #ffd86a !important;
+
+    -webkit-text-stroke: 1.4px rgba(0, 0, 0, 0.95) !important;
+
+    paint-order: stroke fill !important;
+
+    text-shadow:
+        -1px -1px 0 #000000,
+         1px -1px 0 #000000,
+        -1px  1px 0 #000000,
+         1px  1px 0 #000000,
+         0 0 8px rgba(255, 216, 106, 0.70),
+         0 0 20px rgba(255, 194, 65, 0.35),
+         0 0 36px rgba(255, 170, 0, 0.18) !important;
+}
+
+/* MI_COMPANY_BLACK_OUTLINE_END */
+
