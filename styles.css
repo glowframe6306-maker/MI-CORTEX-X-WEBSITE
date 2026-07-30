@@ -3141,3 +3141,87 @@ body.intro-complete {
 }
 
 /* MI_LOADING_LIFECYCLE_REPAIR_CSS_END */
+
+
+/* MI_THREE_DOTS_RELEASE_CSS_START */
+
+.mi-intro-three-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    width: 100%;
+    margin-top: 18px;
+    opacity: 0;
+    transform: translateY(8px);
+    animation: miThreeDotsContainerIn 0.55s ease forwards;
+}
+
+.mi-intro-three-dots span {
+    display: block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #24bfff;
+    box-shadow:
+        0 0 7px rgba(36, 191, 255, 0.9),
+        0 0 15px rgba(36, 191, 255, 0.55);
+    opacity: 0.28;
+    transform: scale(0.72);
+    animation: miThreeDotsPulse 1.15s ease-in-out infinite;
+}
+
+.mi-intro-three-dots span:nth-child(2) {
+    animation-delay: 0.18s;
+}
+
+.mi-intro-three-dots span:nth-child(3) {
+    animation-delay: 0.36s;
+}
+
+.mi-intro-three-dots.mi-three-dots-exit {
+    animation: miThreeDotsContainerOut 0.48s ease forwards;
+}
+
+@keyframes miThreeDotsContainerIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+        filter: blur(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes miThreeDotsPulse {
+    0%,
+    100% {
+        opacity: 0.25;
+        transform: scale(0.72);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes miThreeDotsContainerOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-8px);
+        filter: blur(4px);
+    }
+}
+
+/* MI_THREE_DOTS_RELEASE_CSS_END */
