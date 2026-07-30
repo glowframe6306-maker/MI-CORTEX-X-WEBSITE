@@ -2046,3 +2046,82 @@ body:has(.mi-neural-intro:not(.mi-intro-complete):not(.mi-intro-finished):not(.m
 
 /* MI_WELCOME_FRONT_PAGE_REPAIR_END */
 
+/* MI_INTRO_LOGO_CENTER_START */
+
+/*
+Center the complete logo and tagline group in the visible screen.
+*/
+.mi-neural-intro {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.mi-neural-intro .mi-logo-reveal {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: clamp(210px, 24vw, 360px) !important;
+    height: auto !important;
+
+    margin: 0 !important;
+    transform: translate(-50%, -50%) !important;
+    transform-origin: center center !important;
+}
+
+.mi-neural-intro .mi-intro-logo,
+.mi-neural-intro .mi-logo-reveal img {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+
+    margin: 0 auto !important;
+    transform-origin: center center !important;
+}
+
+.mi-neural-intro .mi-logo-tagline {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+
+    width: max-content !important;
+    max-width: 94vw !important;
+
+    margin-top: 28px !important;
+
+    transform: none !important;
+    text-align: center !important;
+}
+
+/*
+Preserve the existing zoom animation while keeping it centered.
+*/
+.mi-neural-intro.mi-logo-entering .mi-logo-reveal,
+.mi-neural-intro.mi-logo-settled .mi-logo-reveal {
+    left: 50% !important;
+    top: 50% !important;
+}
+
+@media (max-width: 700px) {
+    .mi-neural-intro .mi-logo-reveal {
+        width: clamp(180px, 58vw, 280px) !important;
+    }
+
+    .mi-neural-intro .mi-logo-tagline {
+        margin-top: 22px !important;
+    }
+}
+
+/* MI_INTRO_LOGO_CENTER_END */
+
