@@ -3756,7 +3756,7 @@ The logo, menu labels, colors and all other website sections remain unchanged.
 }
 
 .mcx-text-link::after {
-    content: " ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢";
+    content: " ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢";
 }
 
 .mcx-card-button {
@@ -3967,7 +3967,7 @@ The logo, menu labels, colors and all other website sections remain unchanged.
 }
 
 .mcx-faq-list details[open] summary::after {
-    content: "ÃƒÂ¢Ã‹â€ Ã¢â‚¬â„¢";
+    content: "ÃƒÆ’Ã‚Â¢Ãƒâ€¹Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢";
 }
 
 .mcx-faq-list details p {
@@ -4804,3 +4804,51 @@ header .brand span {
 }
 
 /* MI_GOLD_BRAND_LARGE_NAV_END */
+
+
+/* MI_LARGER_BRAND_TEXT_START */
+
+/*
+Only the MI CORTEX X brand text size is increased.
+Logo, menu text, navigation spacing, blur and all other parts remain unchanged.
+*/
+
+.nav .brand,
+.nav .brand span,
+.nav .brand-name,
+.nav .logo-text,
+.navbar .brand,
+.navbar .brand span,
+header .brand,
+header .brand span {
+    font-size: clamp(1.28rem, 1.9vw, 1.7rem) !important;
+    line-height: 1 !important;
+}
+
+@media (max-width: 1000px) {
+    .nav .brand,
+    .nav .brand span,
+    .nav .brand-name,
+    .nav .logo-text,
+    .navbar .brand,
+    .navbar .brand span,
+    header .brand,
+    header .brand span {
+        font-size: clamp(1.12rem, 1.6vw, 1.42rem) !important;
+    }
+}
+
+@media (max-width: 820px) {
+    .nav .brand,
+    .nav .brand span,
+    .nav .brand-name,
+    .nav .logo-text,
+    .navbar .brand,
+    .navbar .brand span,
+    header .brand,
+    header .brand span {
+        font-size: 1.18rem !important;
+    }
+}
+
+/* MI_LARGER_BRAND_TEXT_END */
