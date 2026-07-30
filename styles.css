@@ -1931,3 +1931,153 @@ body > footer {
 
 /* MI_FRONT_PAGE_SCROLL_FIX_END */
 
+/* MI_FULL_PAGE_SCROLL_SNAP_START */
+
+/*
+The front banner occupies one complete browser viewport.
+The main website appears only after the banner has fully scrolled away.
+*/
+html {
+    width: 100% !important;
+    height: 100% !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    scroll-snap-type: y mandatory !important;
+    scroll-behavior: smooth !important;
+    overscroll-behavior-y: none;
+}
+
+body {
+    width: 100% !important;
+    min-height: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+}
+
+#mi-front-page,
+.mi-front-page {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+
+    height: 100vh !important;
+    height: 100dvh !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    max-height: 100dvh !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
+
+    transform: none !important;
+    inset: auto !important;
+}
+
+.mi-front-page-banner {
+    position: absolute !important;
+    inset: 0 !important;
+
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: cover !important;
+    object-position: center center !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    transform: none !important;
+    pointer-events: none !important;
+    user-select: none !important;
+}
+
+/*
+The empty anchor does not consume space.
+The first real website element becomes the second snap page.
+*/
+#mi-main-content-start,
+.mi-main-content-start {
+    display: block !important;
+    width: 100% !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/*
+Select the first real website element after the front-page anchor.
+It starts only after one complete viewport.
+*/
+#mi-main-content-start + *,
+.mi-main-content-start + * {
+    position: relative !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
+}
+
+/*
+Fallback for common website containers.
+*/
+body > header,
+body > main,
+body > .site-header,
+body > .navbar,
+body > .navigation,
+body > .main-content,
+body > #main-content {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+/*
+Remove the old SCROLL label and mouse completely.
+*/
+.mi-front-page-scroll-button,
+.mi-front-page-scroll-text,
+.mi-front-page-scroll-mouse,
+.mi-front-page-scroll-line,
+.mi-front-page-scroll-label {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/*
+Prevent old negative margins or transforms from pulling
+the navigation upward over the banner.
+*/
+#mi-main-content-start ~ header,
+#mi-main-content-start ~ main,
+#mi-main-content-start ~ section,
+#mi-main-content-start ~ footer,
+.mi-main-content-start ~ header,
+.mi-main-content-start ~ main,
+.mi-main-content-start ~ section,
+.mi-main-content-start ~ footer {
+    margin-top: 0 !important;
+    translate: none !important;
+}
+
+@media (max-width: 700px) {
+    #mi-front-page,
+    .mi-front-page {
+        height: 100dvh !important;
+        min-height: 100dvh !important;
+        max-height: 100dvh !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto !important;
+    }
+}
+
+/* MI_FULL_PAGE_SCROLL_SNAP_END */
+
