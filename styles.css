@@ -1534,3 +1534,120 @@ body {
 
 /* MI_NEURAL_LOGO_SEQUENCE_END */
 
+/* MI_LARGE_LOGO_TAGLINE_START */
+
+.mi-logo-reveal {
+    width: clamp(190px, 22vw, 340px) !important;
+    overflow: visible !important;
+}
+
+.mi-logo-tagline {
+    position: absolute;
+    top: calc(100% + 30px);
+    left: 50%;
+    width: max-content;
+    max-width: 92vw;
+    transform: translateX(-50%) translateY(18px);
+    opacity: 0;
+    visibility: hidden;
+    filter: blur(14px);
+    white-space: nowrap;
+    text-align: center;
+    font-size: clamp(0.72rem, 1.25vw, 1.08rem);
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: clamp(0.18em, 0.5vw, 0.48em);
+    color: #6ee7ff;
+    background: linear-gradient(
+        90deg,
+        #4f8cff 0%,
+        #6ee7ff 28%,
+        #ffffff 50%,
+        #6ee7ff 72%,
+        #4f8cff 100%
+    );
+    background-size: 220% 100%;
+    background-position: 0% 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow:
+        0 0 10px rgba(110, 231, 255, 0.42),
+        0 0 24px rgba(79, 140, 255, 0.25);
+    pointer-events: none;
+    will-change: opacity, transform, filter;
+}
+
+.mi-logo-tagline span {
+    display: inline-block;
+    margin: 0 0.35em;
+    color: #ffffff;
+    -webkit-text-fill-color: #ffffff;
+    text-shadow:
+        0 0 8px rgba(255, 255, 255, 0.55),
+        0 0 18px rgba(110, 231, 255, 0.4);
+}
+
+.mi-neural-intro.mi-logo-entering .mi-logo-tagline,
+.mi-neural-intro.mi-logo-settled .mi-logo-tagline {
+    visibility: visible;
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(-50%) translateY(0);
+    transition:
+        opacity 1.2s cubic-bezier(.22, 1, .36, 1) 0.35s,
+        filter 1.5s cubic-bezier(.22, 1, .36, 1) 0.35s,
+        transform 1.5s cubic-bezier(.22, 1, .36, 1) 0.35s;
+    animation: miTaglineLightSweep 4s ease-in-out infinite;
+}
+
+.mi-neural-intro.mi-logo-leaving .mi-logo-tagline {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateX(-50%) translateY(12px);
+    transition:
+        opacity 0.9s cubic-bezier(.22, 1, .36, 1),
+        filter 0.9s cubic-bezier(.22, 1, .36, 1),
+        transform 0.9s cubic-bezier(.22, 1, .36, 1);
+}
+
+@keyframes miTaglineLightSweep {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@media (max-width: 700px) {
+    .mi-logo-reveal {
+        width: clamp(155px, 48vw, 230px) !important;
+    }
+
+    .mi-logo-tagline {
+        top: calc(100% + 22px);
+        max-width: 94vw;
+        font-size: clamp(0.56rem, 2.8vw, 0.76rem);
+        letter-spacing: clamp(0.08em, 0.6vw, 0.2em);
+    }
+
+    .mi-logo-tagline span {
+        margin: 0 0.16em;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mi-logo-tagline {
+        animation: none !important;
+        transition-duration: 0.3s !important;
+    }
+}
+
+/* MI_LARGE_LOGO_TAGLINE_END */
+
