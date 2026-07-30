@@ -3127,3 +3127,417 @@ Add a clean black outline to the gold MI CORTEX X title.
 }
 
 /* MI_COMPANY_BLACK_OUTLINE_END */
+
+
+/* MI_AI_AURORA_CSS_START */
+
+/*
+Premium AI Aurora welcome animation.
+Only the detected full-screen network canvas is hidden.
+Existing logo, slogan and welcome content remain untouched.
+*/
+
+.mi-ai-aurora-stage {
+    position: relative !important;
+    isolation: isolate !important;
+    overflow: hidden !important;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(16, 105, 170, 0.10),
+            transparent 34%
+        ),
+        linear-gradient(
+            180deg,
+            #010308 0%,
+            #02040b 52%,
+            #04020d 100%
+        ) !important;
+}
+
+.mi-ai-aurora-stage > *:not(.mi-ai-aurora-background) {
+    position: relative;
+    z-index: 3;
+}
+
+.mi-ai-old-network-hidden {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+.mi-ai-aurora-background {
+    position: absolute;
+    z-index: 0;
+
+    inset: 0;
+
+    display: block;
+    overflow: hidden;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 50% 48%,
+            rgba(39, 183, 255, 0.10),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 75% 65%,
+            rgba(127, 70, 255, 0.09),
+            transparent 42%
+        ),
+        #010308;
+}
+
+.mi-ai-aurora-wave {
+    position: absolute;
+
+    left: -25%;
+
+    width: 150%;
+    height: 38%;
+
+    border-radius: 50%;
+
+    filter: blur(42px);
+    mix-blend-mode: screen;
+
+    opacity: 0.50;
+
+    will-change: transform, opacity;
+}
+
+.mi-ai-aurora-wave-one {
+    top: 18%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(0, 180, 255, 0.10) 20%,
+            rgba(53, 221, 255, 0.48) 46%,
+            rgba(70, 111, 255, 0.36) 68%,
+            transparent 100%
+        );
+
+    animation:
+        miAiAuroraWaveOne 15s ease-in-out infinite alternate;
+}
+
+.mi-ai-aurora-wave-two {
+    top: 38%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(84, 55, 255, 0.12) 22%,
+            rgba(145, 78, 255, 0.42) 51%,
+            rgba(41, 205, 255, 0.28) 74%,
+            transparent 100%
+        );
+
+    animation:
+        miAiAuroraWaveTwo 19s ease-in-out infinite alternate;
+}
+
+.mi-ai-aurora-wave-three {
+    top: 58%;
+
+    height: 32%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(0, 207, 255, 0.08) 24%,
+            rgba(44, 137, 255, 0.30) 50%,
+            rgba(125, 66, 255, 0.32) 73%,
+            transparent 100%
+        );
+
+    opacity: 0.36;
+
+    animation:
+        miAiAuroraWaveThree 23s ease-in-out infinite alternate;
+}
+
+.mi-ai-aurora-core {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: min(58vw, 680px);
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(178, 239, 255, 0.15) 0%,
+            rgba(36, 181, 255, 0.10) 18%,
+            rgba(73, 83, 255, 0.055) 38%,
+            transparent 67%
+        );
+
+    filter: blur(10px);
+
+    animation:
+        miAiAuroraCorePulse 7s ease-in-out infinite;
+}
+
+.mi-ai-aurora-orbit {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: min(48vw, 560px);
+    aspect-ratio: 1;
+
+    border:
+        1px solid rgba(87, 190, 255, 0.08);
+
+    border-radius: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        rotateX(68deg)
+        rotateZ(0deg);
+
+    box-shadow:
+        0 0 28px rgba(31, 170, 255, 0.07),
+        inset 0 0 22px rgba(120, 83, 255, 0.045);
+
+    animation:
+        miAiAuroraOrbit 24s linear infinite;
+}
+
+.mi-ai-aurora-orbit::before,
+.mi-ai-aurora-orbit::after {
+    content: "";
+
+    position: absolute;
+    inset: 11%;
+
+    border:
+        1px solid rgba(123, 89, 255, 0.065);
+
+    border-radius: inherit;
+}
+
+.mi-ai-aurora-orbit::after {
+    inset: 25%;
+
+    border-color:
+        rgba(49, 211, 255, 0.08);
+}
+
+.mi-ai-aurora-particle {
+    position: absolute;
+
+    width: var(--particle-size);
+    height: var(--particle-size);
+
+    border-radius: 50%;
+
+    background:
+        rgba(186, 239, 255, 0.92);
+
+    box-shadow:
+        0 0 7px rgba(46, 205, 255, 0.84),
+        0 0 16px rgba(85, 102, 255, 0.40);
+
+    opacity: var(--particle-opacity);
+
+    animation:
+        miAiAuroraParticleFloat
+        var(--particle-duration)
+        ease-in-out
+        var(--particle-delay)
+        infinite alternate;
+}
+
+.mi-ai-aurora-vignette {
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 0%,
+            transparent 42%,
+            rgba(0, 0, 0, 0.18) 70%,
+            rgba(0, 0, 0, 0.64) 100%
+        );
+
+    pointer-events: none;
+}
+
+@keyframes miAiAuroraWaveOne {
+    0% {
+        transform:
+            translate3d(-10%, 8%, 0)
+            rotate(-7deg)
+            scale(1);
+        opacity: 0.34;
+    }
+
+    50% {
+        transform:
+            translate3d(6%, -9%, 0)
+            rotate(4deg)
+            scale(1.08);
+        opacity: 0.58;
+    }
+
+    100% {
+        transform:
+            translate3d(13%, 6%, 0)
+            rotate(-2deg)
+            scale(1.03);
+        opacity: 0.42;
+    }
+}
+
+@keyframes miAiAuroraWaveTwo {
+    0% {
+        transform:
+            translate3d(11%, -4%, 0)
+            rotate(8deg)
+            scale(1.05);
+        opacity: 0.30;
+    }
+
+    50% {
+        transform:
+            translate3d(-7%, 7%, 0)
+            rotate(-5deg)
+            scale(1.13);
+        opacity: 0.54;
+    }
+
+    100% {
+        transform:
+            translate3d(-14%, -5%, 0)
+            rotate(2deg)
+            scale(1.02);
+        opacity: 0.38;
+    }
+}
+
+@keyframes miAiAuroraWaveThree {
+    0% {
+        transform:
+            translate3d(-4%, 6%, 0)
+            rotate(-3deg)
+            scale(1.03);
+    }
+
+    50% {
+        transform:
+            translate3d(9%, -8%, 0)
+            rotate(5deg)
+            scale(1.10);
+    }
+
+    100% {
+        transform:
+            translate3d(-10%, 3%, 0)
+            rotate(-6deg)
+            scale(1);
+    }
+}
+
+@keyframes miAiAuroraCorePulse {
+    0%,
+    100% {
+        opacity: 0.48;
+        transform:
+            translate(-50%, -50%)
+            scale(0.94);
+    }
+
+    50% {
+        opacity: 0.85;
+        transform:
+            translate(-50%, -50%)
+            scale(1.08);
+    }
+}
+
+@keyframes miAiAuroraOrbit {
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotateX(68deg)
+            rotateZ(0deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotateX(68deg)
+            rotateZ(360deg);
+    }
+}
+
+@keyframes miAiAuroraParticleFloat {
+    0% {
+        transform:
+            translate3d(0, 10px, 0)
+            scale(0.70);
+        opacity: calc(var(--particle-opacity) * 0.45);
+    }
+
+    50% {
+        transform:
+            translate3d(7px, -18px, 0)
+            scale(1.12);
+        opacity: var(--particle-opacity);
+    }
+
+    100% {
+        transform:
+            translate3d(-8px, -34px, 0)
+            scale(0.82);
+        opacity: calc(var(--particle-opacity) * 0.55);
+    }
+}
+
+@media (max-width: 700px) {
+    .mi-ai-aurora-wave {
+        left: -50%;
+        width: 200%;
+        filter: blur(34px);
+    }
+
+    .mi-ai-aurora-core {
+        width: 95vw;
+    }
+
+    .mi-ai-aurora-orbit {
+        width: 82vw;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mi-ai-aurora-wave,
+    .mi-ai-aurora-core,
+    .mi-ai-aurora-orbit,
+    .mi-ai-aurora-particle {
+        animation-play-state: paused !important;
+    }
+}
+
+/* MI_AI_AURORA_CSS_END */
