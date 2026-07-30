@@ -1815,3 +1815,119 @@ It is not fixed, so the complete front page scrolls away normally.
 
 /* MI_FRONT_PAGE_END */
 
+/* MI_FRONT_PAGE_SCROLL_FIX_START */
+
+/*
+The front page is a normal document section.
+When the user scrolls, the complete banner moves upward with the page.
+*/
+html {
+    height: auto !important;
+    min-height: 100% !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    scroll-behavior: smooth;
+}
+
+body {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 100% !important;
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+}
+
+.mi-front-page {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    inset: auto !important;
+    z-index: auto !important;
+
+    display: block !important;
+    width: 100% !important;
+    height: 100vh !important;
+    height: 100svh !important;
+    min-height: 620px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+
+    transform: none !important;
+    translate: none !important;
+    contain: none !important;
+}
+
+.mi-front-page-banner {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: cover !important;
+    object-position: center center !important;
+
+    transform: none !important;
+    background-attachment: scroll !important;
+}
+
+.mi-front-page-shade {
+    position: absolute !important;
+    inset: 0 !important;
+}
+
+/* Remove the old mouse and SCROLL interface completely. */
+.mi-front-page-scroll-button,
+.mi-front-page-scroll-text,
+.mi-front-page-scroll-mouse,
+.mi-front-page-scroll-line,
+.mi-front-page-scroll-label {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/*
+Prevent any old fixed or sticky front-page rule from keeping
+the banner attached to the browser window.
+*/
+#mi-front-page,
+#front-page {
+    position: relative !important;
+    inset: auto !important;
+    transform: none !important;
+}
+
+/*
+The content after the banner remains in the normal page flow.
+*/
+.mi-main-content-start,
+#mi-main-content-start {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    height: 0 !important;
+}
+
+/* Keep the actual website sections in normal scrolling flow. */
+body > header,
+body > main,
+body > section,
+body > footer {
+    transform-style: flat;
+}
+
+@media (max-width: 700px) {
+    .mi-front-page {
+        height: 100svh !important;
+        min-height: 520px !important;
+    }
+}
+
+/* MI_FRONT_PAGE_SCROLL_FIX_END */
+
