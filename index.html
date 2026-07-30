@@ -312,7 +312,7 @@
       <section id="contact" class="section container reveal">
         <div class="section-heading">
           <p class="eyebrow">Contact</p>
-          <h2>LetÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢s build something extraordinary.</h2>
+          <h2>LetÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢s build something extraordinary.</h2>
         </div>
         <div class="contact-card glass-panel">
           <p>hello@micortexx.com</p>
@@ -915,5 +915,115 @@
 <!-- MI_LOADING_LIFECYCLE_REPAIR_END -->
 
 
+
+<!-- MI_PORTRAIT_WELCOME_PHONE_START -->
+<script>
+(function () {
+    "use strict";
+
+    if (window.__miPortraitWelcomePhoneInstalled) {
+        return;
+    }
+
+    window.__miPortraitWelcomePhoneInstalled = true;
+
+    var welcomeSelectors = [
+        "#welcome-screen",
+        "#welcomeScreen",
+        "#welcome",
+        "#intro-screen",
+        "#introScreen",
+        "#intro",
+        "#splash-screen",
+        "#splashScreen",
+        ".welcome-screen",
+        ".welcome",
+        ".intro-screen",
+        ".intro",
+        ".splash-screen",
+        ".neural-intro",
+        "[data-welcome]",
+        "[data-intro]"
+    ];
+
+    function findWelcomePage() {
+        for (var index = 0; index < welcomeSelectors.length; index += 1) {
+            var element = document.querySelector(
+                welcomeSelectors[index]
+            );
+
+            if (element) {
+                return element;
+            }
+        }
+
+        return null;
+    }
+
+    function installPortraitImage() {
+        var welcomePage = findWelcomePage();
+
+        if (!welcomePage) {
+            return false;
+        }
+
+        welcomePage.classList.add(
+            "mi-portrait-welcome-target"
+        );
+
+        var existingImage = welcomePage.querySelector(
+            ".mi-portrait-welcome-phone"
+        );
+
+        if (!existingImage) {
+            var image = document.createElement("img");
+
+            image.className = "mi-portrait-welcome-phone";
+            image.src = "./banners/phone.png";
+            image.alt = "MI CORTEX X";
+            image.decoding = "async";
+            image.draggable = false;
+
+            welcomePage.appendChild(image);
+        }
+
+        return true;
+    }
+
+    function initialize() {
+        if (installPortraitImage()) {
+            return;
+        }
+
+        var attempts = 0;
+        var maximumAttempts = 100;
+
+        function retry() {
+            attempts += 1;
+
+            if (installPortraitImage()) {
+                return;
+            }
+
+            if (attempts < maximumAttempts) {
+                window.setTimeout(retry, 100);
+            }
+        }
+
+        retry();
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener(
+            "DOMContentLoaded",
+            initialize,
+            { once: true }
+        );
+    } else {
+        initialize();
+    }
+})();
+</script>
+<!-- MI_PORTRAIT_WELCOME_PHONE_END -->
 </body>
 </html>

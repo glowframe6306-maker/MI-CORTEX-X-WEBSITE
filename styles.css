@@ -3177,3 +3177,61 @@ body.mi-page-ready .mi-front-page {
 }
 
 /* MI_HIDE_FRONT_PAGE_DURING_WELCOME_END */
+
+
+/* MI_PORTRAIT_WELCOME_PHONE_CSS_START */
+
+/*
+Landscape keeps the existing welcome page unchanged.
+Portrait displays only banners/phone.png inside the welcome page.
+*/
+
+.mi-portrait-welcome-phone {
+    display: none;
+}
+
+@media (orientation: portrait) {
+    .mi-portrait-welcome-target {
+        position: fixed !important;
+        inset: 0 !important;
+        width: 100vw !important;
+        height: 100svh !important;
+        min-height: 100svh !important;
+        overflow: hidden !important;
+        background: #000 !important;
+    }
+
+    .mi-portrait-welcome-target > :not(.mi-portrait-welcome-phone) {
+        display: none !important;
+    }
+
+    .mi-portrait-welcome-target .mi-portrait-welcome-phone {
+        position: absolute !important;
+        inset: 0 !important;
+        z-index: 999999 !important;
+        display: block !important;
+        width: 100% !important;
+        height: 100% !important;
+        max-width: none !important;
+        max-height: none !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: none !important;
+        transform: none !important;
+        filter: none !important;
+    }
+}
+
+@media (orientation: landscape) {
+    .mi-portrait-welcome-phone {
+        display: none !important;
+    }
+}
+
+/* MI_PORTRAIT_WELCOME_PHONE_CSS_END */
