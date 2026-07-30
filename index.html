@@ -66,7 +66,7 @@
             draggable="false"
         />
         <div class="mi-logo-tagline">
-            INNOVATE <span>â€¢</span> CREATE <span>â€¢</span> INSPIRE
+            INNOVATE <span>Ã¢â‚¬Â¢</span> CREATE <span>Ã¢â‚¬Â¢</span> INSPIRE
         </div>
 
         <div class="mi-logo-shine"></div>
@@ -312,8 +312,8 @@
       <section id="contact" class="section container reveal">
         <div class="section-heading">
           <p class="eyebrow">Contact</p>
-          <h2>LetÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢s build your next breakthrough.</h2>
-          <p>Tell us about your vision and weÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ll help shape the experience.</p>
+          <h2>LetÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢s build your next breakthrough.</h2>
+          <p>Tell us about your vision and weÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ll help shape the experience.</p>
         </div>
         <div class="contact-card glass-panel">
           <p>hello@micortexx.com</p>
@@ -324,7 +324,7 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>Ãƒâ€šÃ‚Â© <span id="year"></span> MI CORTEX X. All rights reserved.</p>
+        <p>ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â© <span id="year"></span> MI CORTEX X. All rights reserved.</p>
         <p>Shaping intelligent digital experiences.</p>
       </div>
     </footer>
@@ -970,6 +970,106 @@
 })();
 </script>
 <!-- MI_INNER_ROUNDED_NAV_CONTROLLER_END -->
+
+<!-- MI_EXACT_WELCOME_SLOGAN_FIX_START -->
+<script>
+(function () {
+    "use strict";
+
+    const correctSlogan =
+        "INNOVATE \u2022 CREATE \u2022 INSPIRE";
+
+    function normalizeText(value) {
+        return String(value || "")
+            .replace(/\s+/g, " ")
+            .trim()
+            .toUpperCase();
+    }
+
+    function containsAllWords(element) {
+        const text = normalizeText(element.textContent);
+
+        return (
+            text.includes("INNOVATE") &&
+            text.includes("CREATE") &&
+            text.includes("INSPIRE")
+        );
+    }
+
+    function findSmallestSloganElement() {
+        const candidates = Array.from(
+            document.querySelectorAll(
+                "body *:not(script):not(style):not(code):not(pre)"
+            )
+        ).filter(containsAllWords);
+
+        candidates.sort(function (first, second) {
+            return first.children.length - second.children.length;
+        });
+
+        for (const candidate of candidates) {
+            const childAlsoContainsWords = Array.from(
+                candidate.children
+            ).some(containsAllWords);
+
+            if (!childAlsoContainsWords) {
+                return candidate;
+            }
+        }
+
+        return candidates[0] || null;
+    }
+
+    function repairSlogan() {
+        const sloganElement = findSmallestSloganElement();
+
+        if (!sloganElement) {
+            console.warn(
+                "MI CORTEX X slogan repair: slogan element was not found."
+            );
+            return false;
+        }
+
+        if (sloganElement.textContent !== correctSlogan) {
+            sloganElement.textContent = correctSlogan;
+        }
+
+        sloganElement.setAttribute(
+            "data-mi-slogan-corrected",
+            "true"
+        );
+
+        return true;
+    }
+
+    function initializeRepair() {
+        repairSlogan();
+
+        let attempts = 0;
+
+        const timer = window.setInterval(function () {
+            attempts += 1;
+
+            const repaired = repairSlogan();
+
+            if (repaired || attempts >= 20) {
+                window.clearInterval(timer);
+            }
+        }, 250);
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener(
+            "DOMContentLoaded",
+            initializeRepair,
+            { once: true }
+        );
+    } else {
+        initializeRepair();
+    }
+})();
+</script>
+<!-- MI_EXACT_WELCOME_SLOGAN_FIX_END -->
 </body>
 </html>
 
