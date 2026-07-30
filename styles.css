@@ -35,6 +35,7 @@ body {
     linear-gradient(135deg, var(--bg-deep) 0%, var(--bg) 45%, #07111f 100%);
   min-height: 100vh;
   overflow-x: hidden;
+  overflow-y: hidden;
   line-height: 1.65;
   position: relative;
 }
@@ -51,6 +52,110 @@ body::before {
   opacity: 0.6;
   -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent);
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent);
+}
+
+body {
+  background-color: #000000;
+}
+
+body .site-header,
+body main,
+body .site-footer,
+body .background-orb {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+body.welcome-complete .site-header,
+body.welcome-complete main,
+body.welcome-complete .site-footer,
+body.welcome-complete .background-orb {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+body.welcome-complete {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.welcome-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 241, 168, 0.08), transparent 24%),
+    radial-gradient(circle at 80% 80%, rgba(184, 135, 47, 0.18), transparent 26%),
+    linear-gradient(135deg, #020202 0%, #000000 100%);
+  color: #fff;
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0.92);
+  filter: blur(16px);
+}
+
+.welcome-screen.is-visible {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+  animation: welcome-enter 2.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.welcome-screen.is-exiting {
+  animation: welcome-exit 0.8s ease forwards;
+}
+
+.welcome-content {
+  text-align: center;
+  max-width: min(92vw, 760px);
+  position: relative;
+  z-index: 1;
+}
+
+.welcome-title {
+  margin: 0;
+  font-family: 'Space Grotesk', 'Poppins', sans-serif;
+  font-size: clamp(2.2rem, 7vw, 5.4rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #8f6b20 0%, #d6b14b 24%, #fff1a8 50%, #b8872f 76%, #8f6b20 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 20px rgba(214, 177, 75, 0.24);
+  animation: welcome-title 2.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-title::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 0%, rgba(255, 241, 168, 0.26) 45%, transparent 100%);
+  transform: translateX(-140%);
+  animation: gold-shine 2.8s linear infinite;
+  pointer-events: none;
+}
+
+.welcome-line {
+  width: 100%;
+  max-width: 320px;
+  height: 1px;
+  margin: 1rem auto 0;
+  background: linear-gradient(90deg, transparent 0%, #d6b14b 50%, transparent 100%);
+  transform: scaleX(0);
+  transform-origin: center;
+  box-shadow: 0 0 12px rgba(214, 177, 75, 0.4);
+  animation: welcome-line 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
 }
 
 .container {
@@ -524,6 +629,36 @@ main {
   }
 }
 
+@media (max-width: 840px) {
+  .welcome-screen {
+    padding: 1.5rem;
+  }
+
+  .welcome-title {
+    letter-spacing: 0.24em;
+    font-size: clamp(1.8rem, 8vw, 3.1rem);
+  }
+
+  .welcome-line {
+    max-width: 220px;
+  }
+
+  .welcome-content {
+    max-width: 90vw;
+  }
+}
+
+@media (max-width: 520px) {
+  .welcome-title {
+    letter-spacing: 0.16em;
+    font-size: clamp(1.5rem, 9vw, 2.4rem);
+  }
+
+  .welcome-line {
+    max-width: 180px;
+    margin-top: 0.8rem;
+  }
+}
 
 .brand::before,
 .brand::after,

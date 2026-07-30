@@ -1,4 +1,28 @@
 document.addEventListener('DOMContentLoaded', function () {
+  const welcomeScreen = document.getElementById('welcome-screen');
+  const body = document.body;
+
+  if (welcomeScreen) {
+    body.classList.add('welcome-active');
+    welcomeScreen.setAttribute('aria-hidden', 'false');
+    welcomeScreen.classList.add('is-visible');
+
+    const introDuration = 3000;
+    const exitDuration = 800;
+
+    window.setTimeout(function () {
+      welcomeScreen.classList.add('is-exiting');
+    }, introDuration);
+
+    window.setTimeout(function () {
+      welcomeScreen.remove();
+      body.classList.remove('welcome-active');
+      body.classList.add('welcome-complete');
+    }, introDuration + exitDuration);
+  } else {
+    body.classList.remove('welcome-active');
+  }
+
   const year = document.getElementById('year');
   if (year) {
     year.textContent = new Date().getFullYear();
