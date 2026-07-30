@@ -18,13 +18,9 @@
   </head>
   <body>
     <div id="welcome-screen" class="welcome-screen" aria-hidden="true">
-      <div class="welcome-stage">
-        <h1 class="welcome-title" aria-label="MI CORTEX X INC.">
-          <span class="title-part title-mi">MI</span>
-          <span class="title-part title-cortex">CORTEX</span>
-          <span class="title-part title-x">X</span>
-          <span class="title-part title-inc">INC.</span>
-        </h1>
+      <div class="welcome-content">
+        <h1 class="welcome-title">MI CORTEX X INC.</h1>
+        <div class="welcome-line"></div>
       </div>
     </div>
 
