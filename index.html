@@ -312,7 +312,7 @@
       <section id="contact" class="section container reveal">
         <div class="section-heading">
           <p class="eyebrow">Contact</p>
-          <h2>LetÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¾ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢s build something extraordinary.</h2>
+          <h2>LetÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¾ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢s build something extraordinary.</h2>
         </div>
         <div class="contact-card glass-panel">
           <p>hello@micortexx.com</p>
@@ -553,24 +553,24 @@
       <div class="mcx-testimonial-grid">
         <blockquote class="mcx-glass-card">
           <p>
-            “A clear development process, practical communication and a strong
-            focus on the final user experience.”
+            â€œA clear development process, practical communication and a strong
+            focus on the final user experience.â€
           </p>
           <footer>Expected MI CORTEX X project experience</footer>
         </blockquote>
 
         <blockquote class="mcx-glass-card">
           <p>
-            “Technology decisions are explained clearly and connected to the
-            actual business objective.”
+            â€œTechnology decisions are explained clearly and connected to the
+            actual business objective.â€
           </p>
           <footer>Our customer-focused delivery standard</footer>
         </blockquote>
 
         <blockquote class="mcx-glass-card">
           <p>
-            “Every solution is planned to remain useful, responsive and ready
-            for future development.”
+            â€œEvery solution is planned to remain useful, responsive and ready
+            for future development.â€
           </p>
           <footer>Our long-term product commitment</footer>
         </blockquote>
@@ -594,7 +594,7 @@
         <details>
           <summary>Can you build a completely custom solution?</summary>
           <p>
-            Yes. Custom projects are planned around the organisation’s goals,
+            Yes. Custom projects are planned around the organisationâ€™s goals,
             users, workflow and technical requirements.
           </p>
         </details>
@@ -1427,7 +1427,7 @@
             <span class="mcx-icon" aria-hidden="true">HR</span>
             <div>
               <h3>Business Hours</h3>
-              <p>Monday to Saturday — Online enquiries accepted</p>
+              <p>Monday to Saturday â€” Online enquiries accepted</p>
             </div>
           </article>
         </div>
@@ -2459,5 +2459,120 @@
 })();
 </script>
 <!-- MI_FRONT_PAGE_INSTANT_REVEAL_END -->
+
+<!-- MI_HIDE_NAV_ON_FRONT_PAGE_START -->
+<script>
+(function () {
+    "use strict";
+
+    if (window.__miHideNavOnFrontPageInstalled) {
+        return;
+    }
+
+    window.__miHideNavOnFrontPageInstalled = true;
+
+    function findNavigation() {
+        return (
+            document.querySelector(".nav") ||
+            document.querySelector("header nav") ||
+            document.querySelector("nav")
+        );
+    }
+
+    function findFrontPage() {
+        var selectors = [
+            "#mi-front-page",
+            ".mi-front-page",
+            "#front-page",
+            ".front-page",
+            "[data-front-page]"
+        ];
+
+        for (var index = 0; index < selectors.length; index += 1) {
+            var element = document.querySelector(selectors[index]);
+
+            if (element) {
+                return element;
+            }
+        }
+
+        return null;
+    }
+
+    function updateNavigationVisibility() {
+        var navigation = findNavigation();
+        var frontPage = findFrontPage();
+
+        if (!navigation || !frontPage) {
+            return;
+        }
+
+        var rectangle = frontPage.getBoundingClientRect();
+        var visibleHeight = Math.min(
+            rectangle.bottom,
+            window.innerHeight
+        ) - Math.max(rectangle.top, 0);
+
+        var frontPageIsVisible =
+            visibleHeight > Math.min(
+                window.innerHeight * 0.18,
+                150
+            );
+
+        navigation.classList.toggle(
+            "mi-nav-hidden-on-front-page",
+            frontPageIsVisible
+        );
+
+        navigation.classList.toggle(
+            "mi-nav-visible-after-front-page",
+            !frontPageIsVisible
+        );
+    }
+
+    function initialize() {
+        var navigation = findNavigation();
+        var frontPage = findFrontPage();
+
+        if (!navigation || !frontPage) {
+            return;
+        }
+
+        updateNavigationVisibility();
+
+        window.addEventListener(
+            "scroll",
+            updateNavigationVisibility,
+            { passive: true }
+        );
+
+        window.addEventListener(
+            "resize",
+            updateNavigationVisibility,
+            { passive: true }
+        );
+
+        window.addEventListener(
+            "orientationchange",
+            updateNavigationVisibility
+        );
+
+        window.setTimeout(updateNavigationVisibility, 100);
+        window.setTimeout(updateNavigationVisibility, 500);
+        window.setTimeout(updateNavigationVisibility, 1200);
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener(
+            "DOMContentLoaded",
+            initialize,
+            { once: true }
+        );
+    } else {
+        initialize();
+    }
+})();
+</script>
+<!-- MI_HIDE_NAV_ON_FRONT_PAGE_END -->
 </body>
 </html>

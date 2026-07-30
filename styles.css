@@ -3756,7 +3756,7 @@ The logo, menu labels, colors and all other website sections remain unchanged.
 }
 
 .mcx-text-link::after {
-    content: " â†’";
+    content: " Ã¢â€ â€™";
 }
 
 .mcx-card-button {
@@ -3967,7 +3967,7 @@ The logo, menu labels, colors and all other website sections remain unchanged.
 }
 
 .mcx-faq-list details[open] summary::after {
-    content: "âˆ’";
+    content: "Ã¢Ë†â€™";
 }
 
 .mcx-faq-list details p {
@@ -4669,3 +4669,47 @@ The navigation stays clear and readable after scrolling.
 }
 
 /* MI_FIXED_BLURRED_NAVIGATION_END */
+
+
+/* MI_HIDE_NAV_ON_FRONT_PAGE_CSS_START */
+
+/*
+The navigation is hidden while the front-page banner is visible.
+After scrolling beyond the front page, the existing fixed blurred
+navigation appears and remains visible.
+*/
+
+.nav.mi-nav-hidden-on-front-page,
+header nav.mi-nav-hidden-on-front-page,
+nav.mi-nav-hidden-on-front-page {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform:
+        translateX(-50%)
+        translateY(-24px) !important;
+}
+
+.nav.mi-nav-visible-after-front-page,
+header nav.mi-nav-visible-after-front-page,
+nav.mi-nav-visible-after-front-page {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform:
+        translateX(-50%)
+        translateY(0) !important;
+}
+
+.nav {
+    transition:
+        opacity 320ms ease,
+        visibility 320ms ease,
+        transform 320ms ease,
+        background-color 220ms ease,
+        border-color 220ms ease,
+        box-shadow 220ms ease,
+        backdrop-filter 220ms ease !important;
+}
+
+/* MI_HIDE_NAV_ON_FRONT_PAGE_CSS_END */
