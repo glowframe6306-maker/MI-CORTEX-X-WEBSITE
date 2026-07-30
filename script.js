@@ -1,33 +1,49 @@
 document.addEventListener('DOMContentLoaded', function () {
   const welcomeScreen = document.getElementById('welcome-screen');
   const welcomeStage = welcomeScreen ? welcomeScreen.querySelector('.welcome-stage') : null;
+  const title = welcomeScreen ? welcomeScreen.querySelector('.welcome-title') : null;
   const body = document.body;
-  const titleParts = welcomeStage ? Array.from(welcomeStage.querySelectorAll('.title-part')) : [];
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   let introTimer = null;
   let fallbackTimer = null;
+  let transitionTimer = null;
   let hasStarted = false;
 
-  const finishIntro = () => {
-    if (!welcomeScreen || !welcomeStage || welcomeScreen.classList.contains('intro-exiting')) {
+  const clearTimers = () => {
+    if (introTimer) {
+      window.clearTimeout(introTimer);
+      introTimer = null;
+    }
+    if (fallbackTimer) {
+      window.clearTimeout(fallbackTimer);
+      fallbackTimer = null;
+    }
+    if (transitionTimer) {
+      window.clearTimeout(transitionTimer);
+      transitionTimer = null;
+    }
+  };
+
+  const removeIntro = () => {
+    if (!welcomeScreen || welcomeScreen.classList.contains('intro-exiting')) {
       return;
     }
 
+    clearTimers();
     welcomeScreen.classList.add('intro-exiting');
-    welcomeStage.classList.add('intro-exiting');
     body.classList.remove('intro-active');
     body.classList.add('welcome-complete');
 
-    window.setTimeout(function () {
+    transitionTimer = window.setTimeout(function () {
       if (welcomeScreen.parentNode) {
         welcomeScreen.parentNode.removeChild(welcomeScreen);
       }
-    }, 900);
+    }, 2400);
   };
 
   const startIntroSequence = () => {
-    if (!welcomeScreen || !welcomeStage || hasStarted) {
+    if (!welcomeScreen || !welcomeStage || !title || hasStarted) {
       return;
     }
 
@@ -35,29 +51,22 @@ document.addEventListener('DOMContentLoaded', function () {
     body.classList.add('intro-active');
     welcomeScreen.setAttribute('aria-hidden', 'false');
     welcomeScreen.classList.add('intro-visible');
-    welcomeStage.classList.add('sequence-started');
 
-    const partDelay = reducedMotion ? 120 : 900;
-    titleParts.forEach(function (part, index) {
-      window.setTimeout(function () {
-        part.classList.add('is-visible');
-      }, partDelay * (index + 1));
+    window.requestAnimationFrame(function () {
+      title.classList.add('is-visible');
     });
 
-    const fullTitleStart = reducedMotion ? 400 : 3600;
-    const exitStart = reducedMotion ? 800 : 7200;
-
-    window.setTimeout(function () {
-      welcomeStage.classList.add('title-complete', 'title-zooming');
-    }, fullTitleStart);
+    introTimer = window.setTimeout(function () {
+      title.classList.add('is-clear');
+    }, reducedMotion ? 900 : 1400);
 
     introTimer = window.setTimeout(function () {
-      finishIntro();
-    }, exitStart);
+      removeIntro();
+    }, reducedMotion ? 3000 : 5200);
 
     fallbackTimer = window.setTimeout(function () {
-      finishIntro();
-    }, reducedMotion ? 1800 : 10500);
+      removeIntro();
+    }, reducedMotion ? 5000 : 9000);
   };
 
   if (welcomeScreen) {
