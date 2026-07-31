@@ -1428,5 +1428,504 @@ The front-page banner cannot appear behind the welcome animations.
 </script>
 <!-- MI_HIDE_FRONT_IMAGE_DURING_WELCOME_END -->
 
+
+
+<!-- MI_EXACT_TITLE_LOGO_FRONT_SEQUENCE_START -->
+<script>
+(function () {
+    "use strict";
+
+    if (window.__miExactTitleLogoFrontSequence) {
+        return;
+    }
+
+    window.__miExactTitleLogoFrontSequence = true;
+
+    var timers = [];
+    var finished = false;
+
+    function later(callback, delay) {
+        timers.push(window.setTimeout(callback, delay));
+    }
+
+    function findFirst(selectors, root) {
+        root = root || document;
+
+        for (var index = 0; index < selectors.length; index += 1) {
+            var element = root.querySelector(selectors[index]);
+
+            if (element) {
+                return element;
+            }
+        }
+
+        return null;
+    }
+
+    function findWelcome() {
+        return findFirst([
+            "#welcome-screen",
+            "#welcomeScreen",
+            ".welcome-screen",
+            "[data-welcome-screen]",
+            "#intro-screen",
+            "#introScreen",
+            ".intro-screen",
+            "[data-intro-screen]",
+            "#neural-intro",
+            ".neural-intro"
+        ]);
+    }
+
+    function findTitle(welcome) {
+        return findFirst([
+            "#welcome-title",
+            "#welcomeTitle",
+            ".welcome-title",
+            ".intro-title",
+            ".neural-title",
+            ".mi-welcome-title",
+            "[data-welcome-title]"
+        ], welcome) || welcome.querySelector(
+            "h1, h2, [class*='title']"
+        );
+    }
+
+    function isWideImage(image) {
+        if (!image) {
+            return false;
+        }
+
+        var source = (
+            image.getAttribute("src") ||
+            image.getAttribute("data-src") ||
+            ""
+        ).toLowerCase();
+
+        if (
+            source.includes("front page") ||
+            source.includes("front-page") ||
+            source.includes("front_page") ||
+            source.includes("banner") ||
+            source.includes("landscape")
+        ) {
+            return true;
+        }
+
+        var width =
+            image.naturalWidth ||
+            image.getBoundingClientRect().width ||
+            0;
+
+        var height =
+            image.naturalHeight ||
+            image.getBoundingClientRect().height ||
+            0;
+
+        return (
+            width >= 700 &&
+            height > 0 &&
+            width / height > 1.35
+        );
+    }
+
+    function findRealLogo(welcome) {
+        var preferred = welcome.querySelectorAll(
+            "#welcome-logo, " +
+            "#welcomeLogo, " +
+            ".welcome-logo, " +
+            ".intro-logo, " +
+            ".neural-logo, " +
+            ".mi-welcome-logo, " +
+            ".logo-stage, " +
+            ".mi-logo-stage, " +
+            "[data-welcome-logo], " +
+            "[data-logo-animation], " +
+            "img.logo, " +
+            "img[class*='logo']"
+        );
+
+        for (var index = 0; index < preferred.length; index += 1) {
+            if (!isWideImage(preferred[index])) {
+                return preferred[index];
+            }
+        }
+
+        var images = welcome.querySelectorAll("img");
+
+        for (var imageIndex = 0; imageIndex < images.length; imageIndex += 1) {
+            var image = images[imageIndex];
+
+            if (isWideImage(image)) {
+                continue;
+            }
+
+            var width =
+                image.naturalWidth ||
+                image.getBoundingClientRect().width ||
+                0;
+
+            var height =
+                image.naturalHeight ||
+                image.getBoundingClientRect().height ||
+                0;
+
+            var ratio = width / Math.max(height, 1);
+
+            if (
+                width > 0 &&
+                height > 0 &&
+                ratio >= 0.65 &&
+                ratio <= 1.35
+            ) {
+                return image;
+            }
+        }
+
+        var siteLogo = document.querySelector(
+            ".nav img, header img, .brand img, img[src*='logo' i], img[src*='Cortex' i]"
+        );
+
+        if (siteLogo && !isWideImage(siteLogo)) {
+            var clone = siteLogo.cloneNode(true);
+            clone.removeAttribute("id");
+            clone.className = "mi-generated-welcome-logo";
+            return clone;
+        }
+
+        return null;
+    }
+
+    function hideWrongImages(welcome) {
+        welcome.querySelectorAll("img").forEach(function (image) {
+            if (isWideImage(image)) {
+                image.classList.add("mi-welcome-photo-blocked");
+
+                var parent = image.closest(
+                    ".banner, " +
+                    ".hero-banner, " +
+                    ".front-page-banner, " +
+                    "[data-front-page], " +
+                    "[class*='banner']"
+                );
+
+                if (parent && welcome.contains(parent)) {
+                    parent.classList.add("mi-welcome-photo-blocked");
+                }
+            }
+        });
+    }
+
+    function createLogoStage(welcome, logo) {
+        var oldStage = welcome.querySelector(
+            ".mi-exact-logo-animation-stage"
+        );
+
+        if (oldStage) {
+            oldStage.remove();
+        }
+
+        if (!logo) {
+            return null;
+        }
+
+        var stage = document.createElement("div");
+        stage.className = "mi-exact-logo-animation-stage";
+
+        if (welcome.contains(logo)) {
+            stage.appendChild(logo);
+        } else {
+            stage.appendChild(logo.cloneNode(true));
+        }
+
+        welcome.appendChild(stage);
+
+        return stage;
+    }
+
+    function findFrontPage() {
+        var direct = findFirst([
+            "#mi-front-page",
+            ".mi-front-page",
+            "#front-page",
+            ".front-page",
+            "#frontPage",
+            ".frontPage",
+            "[data-front-page]",
+            ".front-page-banner",
+            "#front-page-banner"
+        ]);
+
+        if (direct) {
+            return direct;
+        }
+
+        var images = document.querySelectorAll("img");
+
+        for (var index = 0; index < images.length; index += 1) {
+            var source = (
+                images[index].getAttribute("src") || ""
+            ).toLowerCase();
+
+            if (
+                source.includes("front page") ||
+                source.includes("front-page") ||
+                source.includes("front_page")
+            ) {
+                return (
+                    images[index].closest("section") ||
+                    images[index].parentElement
+                );
+            }
+        }
+
+        return null;
+    }
+
+    function finishSequence(welcome, frontPage) {
+        if (finished) {
+            return;
+        }
+
+        finished = true;
+
+        welcome.classList.add("mi-exact-welcome-lifting");
+
+        later(function () {
+            if (frontPage) {
+                frontPage.classList.remove("mi-exact-front-waiting");
+                frontPage.classList.add("mi-exact-front-visible");
+
+                frontPage.style.removeProperty("visibility");
+                frontPage.style.removeProperty("opacity");
+                frontPage.style.removeProperty("pointer-events");
+                frontPage.style.removeProperty("display");
+                frontPage.style.removeProperty("filter");
+                frontPage.style.removeProperty("transform");
+            }
+
+            window.scrollTo(0, 0);
+        }, 820);
+
+        later(function () {
+            welcome.classList.add("mi-exact-welcome-finished");
+
+            welcome.style.setProperty(
+                "display",
+                "none",
+                "important"
+            );
+
+            welcome.style.setProperty(
+                "visibility",
+                "hidden",
+                "important"
+            );
+
+            welcome.style.setProperty(
+                "pointer-events",
+                "none",
+                "important"
+            );
+
+            document.documentElement.classList.remove(
+                "mi-exact-welcome-running"
+            );
+
+            if (document.body) {
+                document.body.classList.remove(
+                    "mi-exact-welcome-running"
+                );
+
+                document.body.style.overflow = "";
+            }
+        }, 1100);
+    }
+
+    function initialize() {
+        var welcome = findWelcome();
+        var frontPage = findFrontPage();
+
+        if (!welcome) {
+            if (frontPage) {
+                frontPage.style.removeProperty("visibility");
+                frontPage.style.removeProperty("opacity");
+                frontPage.style.removeProperty("pointer-events");
+            }
+
+            return;
+        }
+
+        hideWrongImages(welcome);
+
+        var title = findTitle(welcome);
+        var logo = findRealLogo(welcome);
+        var logoStage = createLogoStage(welcome, logo);
+
+        document.documentElement.classList.add(
+            "mi-exact-welcome-running"
+        );
+
+        if (document.body) {
+            document.body.classList.add(
+                "mi-exact-welcome-running"
+            );
+
+            document.body.style.overflow = "hidden";
+        }
+
+        welcome.classList.add("mi-exact-welcome-layer");
+        welcome.classList.remove(
+            "mi-exact-welcome-lifting",
+            "mi-exact-welcome-finished"
+        );
+
+        welcome.style.setProperty(
+            "display",
+            "flex",
+            "important"
+        );
+
+        welcome.style.setProperty(
+            "visibility",
+            "visible",
+            "important"
+        );
+
+        welcome.style.setProperty(
+            "opacity",
+            "1",
+            "important"
+        );
+
+        welcome.style.setProperty(
+            "background",
+            "#000",
+            "important"
+        );
+
+        welcome.style.setProperty(
+            "transform",
+            "translateY(0)",
+            "important"
+        );
+
+        if (title) {
+            title.classList.add("mi-exact-title");
+
+            title.classList.remove(
+                "mi-exact-title-show",
+                "mi-exact-title-clear",
+                "mi-exact-title-hide"
+            );
+        }
+
+        if (logoStage) {
+            logoStage.classList.remove(
+                "mi-exact-logo-show",
+                "mi-exact-logo-clear",
+                "mi-exact-logo-hide"
+            );
+        }
+
+        if (frontPage) {
+            frontPage.classList.add(
+                "mi-exact-front-waiting"
+            );
+
+            frontPage.classList.remove(
+                "mi-exact-front-visible"
+            );
+
+            frontPage.style.setProperty(
+                "visibility",
+                "hidden",
+                "important"
+            );
+
+            frontPage.style.setProperty(
+                "opacity",
+                "0",
+                "important"
+            );
+
+            frontPage.style.setProperty(
+                "pointer-events",
+                "none",
+                "important"
+            );
+        }
+
+        window.scrollTo(0, 0);
+
+        /*
+        Exact required order:
+
+        1. Title appears blurred.
+        2. Title becomes clear.
+        3. Title disappears.
+        4. Only the real round logo appears.
+        5. Logo becomes clear and completes its animation.
+        6. Logo disappears.
+        7. The complete welcome layer lifts upward.
+        8. Front page appears.
+
+        The large MI CORTEX X INC. image is never shown in welcome.
+        */
+
+        later(function () {
+            if (title) {
+                title.classList.add("mi-exact-title-show");
+            }
+        }, 250);
+
+        later(function () {
+            if (title) {
+                title.classList.add("mi-exact-title-clear");
+            }
+        }, 1450);
+
+        later(function () {
+            if (title) {
+                title.classList.add("mi-exact-title-hide");
+            }
+        }, 3000);
+
+        later(function () {
+            if (logoStage) {
+                logoStage.classList.add("mi-exact-logo-show");
+            }
+        }, 3500);
+
+        later(function () {
+            if (logoStage) {
+                logoStage.classList.add("mi-exact-logo-clear");
+            }
+        }, 4650);
+
+        later(function () {
+            if (logoStage) {
+                logoStage.classList.add("mi-exact-logo-hide");
+            }
+        }, 6500);
+
+        later(function () {
+            finishSequence(welcome, frontPage);
+        }, 7200);
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener(
+            "DOMContentLoaded",
+            initialize,
+            { once: true }
+        );
+    } else {
+        initialize();
+    }
+})();
+</script>
+<!-- MI_EXACT_TITLE_LOGO_FRONT_SEQUENCE_END -->
+
 </body>
 </html>
