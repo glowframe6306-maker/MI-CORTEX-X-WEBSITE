@@ -1,532 +1,1190 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>MI CORTEX X | AI Products and Software Solutions</title>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
-        name="description"
-        content="MI CORTEX X develops AI products, websites, web applications, mobile applications, enterprise software and custom technology solutions."
-    >
+      name="description"
+      content="MI CORTEX X creates premium AI products, web applications, and mobile experiences for ambitious brands."
+    />
+    <title>MI CORTEX X | Premium AI Technology</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
 
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <!-- MI_REAL_FAVICON_START -->
+    <!-- MI_REAL_FAVICON_END -->
 
-<body>
-    <div class="site-background" aria-hidden="true">
-        <div class="background-orb background-orb-one"></div>
-        <div class="background-orb background-orb-two"></div>
-        <div class="background-grid"></div>
+    <!-- MI_CORTEX_FAVICON_START -->
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png?v=20260730-121454">
+    <link rel="shortcut icon" type="image/png" href="/favicon.png?v=20260730-121454">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png?v=20260730-121454">
+    <!-- MI_CORTEX_FAVICON_END -->
+  </head>
+  <body>
+    <!-- MI_FRONT_PAGE_START -->
+    <section id="mi-front-page" class="mi-front-page" aria-label="MI CORTEX X front page">
+      <img
+        class="mi-front-page-banner"
+        src="assets/images/banners/Front-page.png"
+        alt="MI CORTEX X"
+        draggable="false"
+      >
+
+      <div class="mi-front-page-shade" aria-hidden="true"></div>
+    </section>
+
+    <div id="mi-main-content-start" class="mi-main-content-start" aria-hidden="true"></div>
+    <!-- MI_FRONT_PAGE_END -->
+
+    <!-- MI_NEURAL_LOGO_SEQUENCE_START -->
+    <div id="mi-neural-intro" class="mi-neural-intro" aria-hidden="true">
+      <div class="mi-neural-background">
+        <svg
+          id="mi-neural-network"
+          class="mi-neural-network"
+          viewBox="0 0 1600 900"
+          preserveAspectRatio="xMidYMid slice"
+          aria-hidden="true"
+        ></svg>
+
+        <div class="mi-neural-vignette"></div>
+        <div class="mi-neural-light"></div>
+      </div>
+
+      <div class="mi-logo-reveal">
+        <div class="mi-logo-glow"></div>
+
+        <img
+          src="./assets/images/logo/Cortex.png"
+          alt=""
+          class="mi-intro-logo"
+          draggable="false"
+        />
+        <div class="mi-logo-tagline">
+          INNOVATE <span>INTELLIGENCE</span>
+        </div>
+
+        <div class="mi-logo-shine"></div>
+      </div>
+    </div>
+    <!-- MI_NEURAL_LOGO_SEQUENCE_END -->
+
+    <div id="welcome-screen" class="welcome-screen" aria-hidden="true">
+      <div class="welcome-stage">
+        <div class="welcome-title" aria-label="MI CORTEX X INC.">
+          <div class="welcome-main-line">
+            <span class="title-word title-mi">MI</span>
+            <span class="title-word title-cortex">CORTEX</span>
+            <span class="title-word title-x">X</span>
+          </div>
+          <div class="welcome-sub-line">
+            <span class="title-word title-inc">INC.</span>
+          </div>
+        </div>
+
+        <div class="intro-robot" aria-hidden="true">
+          <div class="intro-robot-shadow"></div>
+          <div class="intro-robot-head">
+            <div class="intro-robot-eye intro-robot-eye-left"></div>
+            <div class="intro-robot-eye intro-robot-eye-right"></div>
+          </div>
+          <div class="intro-robot-neck"></div>
+          <div class="intro-robot-torso">
+            <div class="intro-robot-core"></div>
+          </div>
+          <div class="intro-robot-arm intro-robot-arm-left"></div>
+          <div class="intro-robot-arm intro-robot-arm-right"></div>
+          <div class="intro-robot-leg intro-robot-leg-left"></div>
+          <div class="intro-robot-leg intro-robot-leg-right"></div>
+        </div>
+      </div>
     </div>
 
+    <div class="background-orb orb-one"></div>
+    <div class="background-orb orb-two"></div>
+
     <header class="site-header">
-        <a class="brand" href="#home" data-page-link="home" aria-label="Open home page">
-            <span class="brand-symbol">MX</span>
-
-            <span class="brand-text">
-                <strong>MI CORTEX X</strong>
-                <small>ARTIFICIAL INTELLIGENCE</small>
-            </span>
+      <nav class="nav glass-panel container" aria-label="Primary navigation">
+        <a class="brand" href="#home">
+          <img
+            src="./assets/images/logo/Cortex.png?v=500"
+            alt="MI CORTEX X Logo"
+            class="brand-logo"
+          />
+          <span>MI CORTEX X</span>
         </a>
-
-        <button
-            class="mobile-menu-button"
-            id="mobileMenuButton"
-            type="button"
-            aria-expanded="false"
-            aria-controls="mainNavigation"
-        >
-            <span></span>
-            <span></span>
-            <span></span>
-            <span class="sr-only">Open navigation</span>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
-
-        <nav class="main-navigation" id="mainNavigation" aria-label="Main navigation">
-            <button class="nav-button active" type="button" data-page="home">
-                HOME
-            </button>
-
-            <button class="nav-button" type="button" data-page="about">
-                ABOUT US
-            </button>
-
-            <button class="nav-button" type="button" data-page="products">
-                PRODUCTS
-            </button>
-
-            <button class="nav-button" type="button" data-page="services">
-                SERVICES
-            </button>
-
-            <button class="nav-button" type="button" data-page="pricing">
-                PRICING
-            </button>
-
-            <button class="nav-button" type="button" data-page="contact">
-                CONTACT
-            </button>
-        </nav>
-
-        <button class="header-cta" type="button" data-page="contact">
-            START A PROJECT
-        </button>
+        <div class="nav-links">
+          <a href="#products">AI Products</a>
+          <a href="#web-apps">Web Apps</a>
+          <a href="#mobile-apps">Mobile Apps</a>
+          <a href="#why-us">Why Choose Us</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
     </header>
 
-    <main>
-        <section class="page-section active" id="page-home" data-page-section="home">
-            <div class="hero-section">
-                <div class="hero-content reveal">
-                    <span class="eyebrow">PREMIUM AI ENGINEERING STUDIO</span>
-
-                    <h1>
-                        BUILD THE FUTURE
-                        <span>WITH INTELLIGENCE</span>
-                    </h1>
-
-                    <p>
-                        MI CORTEX X creates intelligent AI products, powerful
-                        software, websites, web applications, mobile applications
-                        and enterprise technology solutions for modern businesses.
-                    </p>
-
-                    <div class="hero-actions">
-                        <button class="primary-button" type="button" data-page="products">
-                            EXPLORE PRODUCTS
-                        </button>
-
-                        <button class="secondary-button" type="button" data-page="contact">
-                            CONTACT US
-                        </button>
-                    </div>
-
-                    <div class="hero-highlights">
-                        <div>
-                            <strong>AI POWERED</strong>
-                            <span>Modern intelligent systems</span>
-                        </div>
-
-                        <div>
-                            <strong>WORLDWIDE</strong>
-                            <span>Online digital services</span>
-                        </div>
-
-                        <div>
-                            <strong>24/7</strong>
-                            <span>Product availability</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="hero-visual reveal">
-                    <div class="core-orbit">
-                        <div class="orbit orbit-one"></div>
-                        <div class="orbit orbit-two"></div>
-                        <div class="orbit orbit-three"></div>
-
-                        <div class="core-center">
-                            <span>CX</span>
-                            <small>INTELLIGENCE CORE</small>
-                        </div>
-
-                        <span class="orbit-node node-one"></span>
-                        <span class="orbit-node node-two"></span>
-                        <span class="orbit-node node-three"></span>
-                        <span class="orbit-node node-four"></span>
-                    </div>
-                </div>
+    <main id="home">
+      <section class="hero container reveal">
+        <div class="hero-copy">
+          <p class="eyebrow">Premium AI Engineering Studio</p>
+          <h1>Build the Future with AI</h1>
+          <p class="hero-subtitle">
+            Powerful AI Products, Web Apps, and Mobile Applications by MI CORTEX X.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#products">Explore Products</a>
+            <a class="btn btn-secondary" href="#contact">Contact Us</a>
+          </div>
+          <div class="hero-stats">
+            <div>
+              <strong>24/7</strong>
+              <span>Product Support</span>
             </div>
-
-            <section class="content-section reveal">
-                <div class="section-heading">
-                    <span class="eyebrow">DISCOVER MI CORTEX X</span>
-                    <h2>Everything you need in one intelligent technology company.</h2>
-
-                    <p>
-                        Select any main category below to explore its complete
-                        information, solutions and available options.
-                    </p>
-                </div>
-
-                <div class="main-category-grid">
-                    <button class="main-category-card" type="button" data-page="about">
-                        <span class="category-number">01</span>
-                        <h3>ABOUT US</h3>
-                        <p>
-                            Discover our company, mission, vision, leadership,
-                            technology and future goals.
-                        </p>
-                        <span class="card-link">EXPLORE ABOUT US →</span>
-                    </button>
-
-                    <button class="main-category-card" type="button" data-page="products">
-                        <span class="category-number">02</span>
-                        <h3>PRODUCTS</h3>
-                        <p>
-                            Explore AI products, applications, platforms,
-                            automation tools and upcoming technology.
-                        </p>
-                        <span class="card-link">EXPLORE PRODUCTS →</span>
-                    </button>
-
-                    <button class="main-category-card" type="button" data-page="services">
-                        <span class="category-number">03</span>
-                        <h3>SERVICES</h3>
-                        <p>
-                            View our AI development, software engineering,
-                            cloud and consulting services.
-                        </p>
-                        <span class="card-link">EXPLORE SERVICES →</span>
-                    </button>
-
-                    <button class="main-category-card" type="button" data-page="pricing">
-                        <span class="category-number">04</span>
-                        <h3>PRICING</h3>
-                        <p>
-                            Review available packages, custom quotations,
-                            consultations and maintenance plans.
-                        </p>
-                        <span class="card-link">EXPLORE PRICING →</span>
-                    </button>
-
-                    <button class="main-category-card" type="button" data-page="contact">
-                        <span class="category-number">05</span>
-                        <h3>CONTACT</h3>
-                        <p>
-                            Contact MI CORTEX X for projects, quotations,
-                            partnerships and customer support.
-                        </p>
-                        <span class="card-link">CONTACT US →</span>
-                    </button>
-                </div>
-            </section>
-
-            <section class="content-section reveal">
-                <div class="section-heading">
-                    <span class="eyebrow">FEATURED TECHNOLOGY</span>
-                    <h2>Intelligent products designed for real-world growth.</h2>
-                </div>
-
-                <div class="feature-grid">
-                    <article class="feature-card">
-                        <span class="feature-tag">FLAGSHIP AI</span>
-                        <h3>CORTEX CORE AI</h3>
-                        <p>
-                            The official artificial intelligence assistant of
-                            MI CORTEX X for company information, customer guidance
-                            and intelligent digital assistance.
-                        </p>
-                        <button type="button" data-page="products">
-                            VIEW PRODUCT
-                        </button>
-                    </article>
-
-                    <article class="feature-card">
-                        <span class="feature-tag">BUSINESS</span>
-                        <h3>AI AUTOMATION</h3>
-                        <p>
-                            Intelligent automation systems designed to reduce
-                            repetitive work and improve business productivity.
-                        </p>
-                        <button type="button" data-page="services">
-                            VIEW SERVICE
-                        </button>
-                    </article>
-
-                    <article class="feature-card">
-                        <span class="feature-tag">SOFTWARE</span>
-                        <h3>CUSTOM SOLUTIONS</h3>
-                        <p>
-                            Custom websites, applications, platforms and
-                            enterprise software built around specific requirements.
-                        </p>
-                        <button type="button" data-page="services">
-                            VIEW SERVICE
-                        </button>
-                    </article>
-                </div>
-            </section>
-
-            <section class="content-section reveal">
-                <div class="section-heading">
-                    <span class="eyebrow">WHY MI CORTEX X</span>
-                    <h2>Technology designed with purpose, quality and intelligence.</h2>
-                </div>
-
-                <div class="value-grid">
-                    <article>
-                        <span>01</span>
-                        <h3>INNOVATION</h3>
-                        <p>Modern ideas transformed into practical digital products.</p>
-                    </article>
-
-                    <article>
-                        <span>02</span>
-                        <h3>SECURITY</h3>
-                        <p>Responsible development with privacy and protection in mind.</p>
-                    </article>
-
-                    <article>
-                        <span>03</span>
-                        <h3>QUALITY</h3>
-                        <p>Professional interfaces, reliable systems and clean engineering.</p>
-                    </article>
-
-                    <article>
-                        <span>04</span>
-                        <h3>SUPPORT</h3>
-                        <p>Helpful communication throughout planning and development.</p>
-                    </article>
-                </div>
-            </section>
-
-            <section class="home-cta reveal">
-                <div>
-                    <span class="eyebrow">START YOUR NEXT PROJECT</span>
-                    <h2>Turn your technology idea into a professional product.</h2>
-                </div>
-
-                <button class="primary-button" type="button" data-page="contact">
-                    CONTACT MI CORTEX X
-                </button>
-            </section>
-        </section>
-
-        <section class="page-section" id="page-about" data-page-section="about">
-            <div class="page-hero">
-                <span class="eyebrow">ABOUT MI CORTEX X</span>
-                <h1>Building intelligent technology for the future.</h1>
-
-                <p>
-                    Explore our company profile, purpose, principles,
-                    technology and long-term direction.
-                </p>
+            <div>
+              <strong>100+</strong>
+              <span>Launches Delivered</span>
             </div>
-
-            <div class="topic-layout">
-                <aside class="topic-sidebar">
-                    <h2>ABOUT US</h2>
-                    <p>Select a topic to view its full information.</p>
-                    <div class="topic-navigation" data-topic-navigation="about"></div>
-                </aside>
-
-                <section class="topic-display" data-topic-display="about"></section>
+            <div>
+              <strong>AI-first</strong>
+              <span>Product Strategy</span>
             </div>
-        </section>
+          </div>
+        </div>
 
-        <section class="page-section" id="page-products" data-page-section="products">
-            <div class="page-hero">
-                <span class="eyebrow">MI CORTEX X PRODUCTS</span>
-                <h1>Intelligent products created for modern users and businesses.</h1>
+        <div class="hero-panel glass-panel">
+          <div class="panel-chip">Next-Generation Intelligence</div>
+          <div class="panel-visual">
+            <div class="grid-ring"></div>
+            <div class="grid-ring ring-two"></div>
+            <div class="center-core"></div>
+          </div>
+          <ul class="panel-list">
+            <li>Agentic AI experiences</li>
+            <li>Scalable SaaS ecosystems</li>
+            <li>Immersive mobile platforms</li>
+          </ul>
+        </div>
+      </section>
 
-                <p>
-                    Explore our AI systems, digital applications, software
-                    platforms and future product categories.
-                </p>
-            </div>
+      <section id="products" class="section container reveal">
+        <div class="section-heading">
+          <p class="eyebrow">AI Products</p>
+          <h2>Intelligent tools that feel effortless.</h2>
+          <p>
+            From predictive copilots to autonomous analytics, we design AI products that transform how teams work.
+          </p>
+        </div>
+        <div class="card-grid">
+          <article class="card glass-panel">
+            <h3>AI Assistant Platform</h3>
+            <p>Deploy highly personalized assistants with secure workflow automation.</p>
+          </article>
+          <article class="card glass-panel">
+            <h3>Computer Vision Suite</h3>
+            <p>Unlock visual intelligence for operations, retail, and smart infrastructure.</p>
+          </article>
+          <article class="card glass-panel">
+            <h3>Analytics Copilot</h3>
+            <p>Turn complex datasets into confidence-driven business decisions.</p>
+          </article>
+        </div>
+      </section>
 
-            <div class="topic-layout">
-                <aside class="topic-sidebar">
-                    <h2>PRODUCTS</h2>
-                    <p>Select a product category to view more details.</p>
-                    <div class="topic-navigation" data-topic-navigation="products"></div>
-                </aside>
+      <section id="web-apps" class="section container reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Web Apps</p>
+          <h2>Elegant digital experiences, built for momentum.</h2>
+          <p>
+            We craft intuitive web applications that combine performance, storytelling, and measurable growth.
+          </p>
+        </div>
+        <div class="card-grid">
+          <article class="card glass-panel">
+            <h3>High-Performance SaaS</h3>
+            <p>Modern dashboards and workflows designed to scale with your business.</p>
+          </article>
+          <article class="card glass-panel">
+            <h3>Immersive Marketing Sites</h3>
+            <p>Launch brands with cinematic interfaces that convert at every touchpoint.</p>
+          </article>
+          <article class="card glass-panel">
+            <h3>Enterprise Portals</h3>
+            <p>Secure platform experiences built for internal teams and external clients.</p>
+          </article>
+        </div>
+      </section>
 
-                <section class="topic-display" data-topic-display="products"></section>
-            </div>
-        </section>
+      <section id="mobile-apps" class="section container reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Mobile Apps</p>
+          <h2>Premium mobile products with standout utility.</h2>
+          <p>
+            Tailored mobile applications that deliver speed, trust, and standout customer delight.
+          </p>
+        </div>
+        <div class="card-grid">
+          <article class="card glass-panel">
+            <h3>Consumer Apps</h3>
+            <p>Create delightful mobile experiences that users return to daily.</p>
+          </article>
+          <article class="card glass-panel">
+            <h3>Field Operations</h3>
+            <p>Equip teams with reliable tools for real-time decisions on the move.</p>
+          </article>
+          <article class="card glass-panel">
+            <h3>AI Mobile Experiences</h3>
+            <p>Blend intelligent assistance with sleek native interfaces for modern audiences.</p>
+          </article>
+        </div>
+      </section>
 
-        <section class="page-section" id="page-services" data-page-section="services">
-            <div class="page-hero">
-                <span class="eyebrow">PROFESSIONAL SERVICES</span>
-                <h1>Technology services designed around your requirements.</h1>
+      <section id="why-us" class="section container reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Why Choose MI CORTEX X</p>
+          <h2>Built for ambitious brands that want to lead.</h2>
+        </div>
+        <div class="feature-list glass-panel">
+          <div>
+            <h3>Strategic Vision</h3>
+            <p>We connect product design, AI engineering, and business growth into one clear roadmap.</p>
+          </div>
+          <div>
+            <h3>Premium Craftsmanship</h3>
+            <p>Every experience is refined with performance, clarity, and attention to detail.</p>
+          </div>
+          <div>
+            <h3>Future-Ready Delivery</h3>
+            <p>We build systems that adapt quickly, scale confidently, and stay ahead of change.</p>
+          </div>
+        </div>
+      </section>
 
-                <p>
-                    Select a service to explore what MI CORTEX X can create,
-                    develop, integrate or maintain.
-                </p>
-            </div>
+      <section id="pricing" class="section container reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Pricing</p>
+          <h2>Choose a partnership model that fits your ambition.</h2>
+        </div>
+        <div class="pricing-grid">
+          <article class="price-card glass-panel">
+            <h3>Launch</h3>
+            <p class="price">$3K</p>
+            <p>Ideal for early-stage concepts and polished MVPs.</p>
+            <ul>
+              <li>One flagship experience</li>
+              <li>Fast implementation</li>
+              <li>Strategy support</li>
+            </ul>
+          </article>
+          <article class="price-card featured glass-panel">
+            <h3>Scale</h3>
+            <p class="price">$8K</p>
+            <p>Perfect for growth-focused teams ready to expand.</p>
+            <ul>
+              <li>Multi-platform delivery</li>
+              <li>AI integration</li>
+              <li>Priority collaboration</li>
+            </ul>
+          </article>
+          <article class="price-card glass-panel">
+            <h3>Enterprise</h3>
+            <p class="price">Custom</p>
+            <p>For large organizations needing end-to-end innovation.</p>
+            <ul>
+              <li>Custom architecture</li>
+              <li>Security & compliance</li>
+              <li>Dedicated product team</li>
+            </ul>
+          </article>
+        </div>
+      </section>
 
-            <div class="topic-layout">
-                <aside class="topic-sidebar">
-                    <h2>SERVICES</h2>
-                    <p>Select a service to view its complete information.</p>
-                    <div class="topic-navigation" data-topic-navigation="services"></div>
-                </aside>
-
-                <section class="topic-display" data-topic-display="services"></section>
-            </div>
-        </section>
-
-        <section class="page-section" id="page-pricing" data-page-section="pricing">
-            <div class="page-hero">
-                <span class="eyebrow">FLEXIBLE PRICING</span>
-                <h1>Professional solutions based on real project requirements.</h1>
-
-                <p>
-                    Explore available pricing categories, consultation options,
-                    quotations and maintenance plans.
-                </p>
-            </div>
-
-            <div class="topic-layout">
-                <aside class="topic-sidebar">
-                    <h2>PRICING</h2>
-                    <p>Select an option to view pricing information.</p>
-                    <div class="topic-navigation" data-topic-navigation="pricing"></div>
-                </aside>
-
-                <section class="topic-display" data-topic-display="pricing"></section>
-            </div>
-        </section>
-
-        <section class="page-section" id="page-contact" data-page-section="contact">
-            <div class="page-hero">
-                <span class="eyebrow">CONTACT MI CORTEX X</span>
-                <h1>Let us discuss your next intelligent technology project.</h1>
-
-                <p>
-                    Contact us for custom software, AI products, quotations,
-                    partnerships, support and business inquiries.
-                </p>
-            </div>
-
-            <div class="contact-layout">
-                <section class="contact-information">
-                    <span class="eyebrow">DIRECT CONTACT</span>
-                    <h2>Connect with MI CORTEX X</h2>
-
-                    <div class="contact-card-grid">
-                        <a class="contact-card" href="mailto:micortexx@gmail.com">
-                            <span>EMAIL</span>
-                            <strong>micortexx@gmail.com</strong>
-                        </a>
-
-                        <a class="contact-card" href="tel:+94756390621">
-                            <span>PHONE</span>
-                            <strong>+94 75 639 0621</strong>
-                        </a>
-
-                        <a
-                            class="contact-card"
-                            href="https://wa.me/94756390621"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <span>WHATSAPP</span>
-                            <strong>START A CHAT</strong>
-                        </a>
-
-                        <a
-                            class="contact-card"
-                            href="https://t.me/+94756390621"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <span>TELEGRAM</span>
-                            <strong>OPEN TELEGRAM</strong>
-                        </a>
-                    </div>
-
-                    <div class="contact-detail-list">
-                        <div>
-                            <span>HEADQUARTERS</span>
-                            <strong>Colombo, Sri Lanka — Online</strong>
-                        </div>
-
-                        <div>
-                            <span>BUSINESS HOURS</span>
-                            <strong>Monday–Sunday, 9:00 AM–9:00 PM</strong>
-                        </div>
-
-                        <div>
-                            <span>WEBSITE</span>
-                            <strong>mi-cortex-x.vercel.app</strong>
-                        </div>
-                    </div>
-                </section>
-
-                <form class="contact-form" id="contactForm">
-                    <span class="eyebrow">PROJECT INQUIRY</span>
-                    <h2>Tell us about your project</h2>
-
-                    <label>
-                        FULL NAME
-                        <input type="text" name="name" required>
-                    </label>
-
-                    <label>
-                        EMAIL ADDRESS
-                        <input type="email" name="email" required>
-                    </label>
-
-                    <label>
-                        PROJECT TYPE
-                        <select name="projectType" required>
-                            <option value="">Select a project type</option>
-                            <option>AI Product</option>
-                            <option>AI Chatbot</option>
-                            <option>Website</option>
-                            <option>Web Application</option>
-                            <option>Mobile Application</option>
-                            <option>Desktop Software</option>
-                            <option>Enterprise Software</option>
-                            <option>Custom Software</option>
-                            <option>Other</option>
-                        </select>
-                    </label>
-
-                    <label>
-                        PROJECT DESCRIPTION
-                        <textarea name="message" rows="6" required></textarea>
-                    </label>
-
-                    <button class="primary-button" type="submit">
-                        SEND THROUGH EMAIL
-                    </button>
-
-                    <p class="form-status" id="formStatus" aria-live="polite"></p>
-                </form>
-            </div>
-
-            <section class="contact-topics-section">
-                <div class="section-heading">
-                    <span class="eyebrow">MORE CONTACT OPTIONS</span>
-                    <h2>Select an option for more information.</h2>
-                </div>
-
-                <div class="contact-topic-grid" data-topic-navigation="contact"></div>
-                <div class="contact-topic-display" data-topic-display="contact"></div>
-            </section>
-        </section>
+      <section id="contact" class="section container reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Contact</p>
+          <h2>LetÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢s build something extraordinary.</h2>
+        </div>
+        <div class="contact-card glass-panel">
+          <p>hello@micortexx.com</p>
+          <a class="btn btn-primary" href="mailto:hello@micortexx.com">Start a Conversation</a>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
-        <div class="footer-brand">
-            <strong>MI CORTEX X</strong>
-            <p>
-                Building the future with artificial intelligence,
-                intelligent software and modern digital products.
-            </p>
-        </div>
-
-        <div class="footer-links">
-            <button type="button" data-page="home">HOME</button>
-            <button type="button" data-page="about">ABOUT US</button>
-            <button type="button" data-page="products">PRODUCTS</button>
-            <button type="button" data-page="services">SERVICES</button>
-            <button type="button" data-page="pricing">PRICING</button>
-            <button type="button" data-page="contact">CONTACT</button>
-        </div>
-
-        <div class="footer-bottom">
-            <span>© 2026 MI CORTEX X. ALL RIGHTS RESERVED.</span>
-            <span>CREATED BY MI CORTEX X</span>
-        </div>
+      <div class="container footer-inner">
+        <p>Shaping intelligent digital experiences.</p>
+      </div>
     </footer>
 
     <script src="script.js"></script>
+
+    <!-- MI_WELCOME_SAFETY_CONTROLLER_START -->
+    <!-- Duplicate intro safety controller removed to prevent conflicting lifecycle handling. -->
+    <!-- MI_WELCOME_SAFETY_CONTROLLER_END -->
+
+    <!-- MI_FRONT_PAGE_FULL_SCROLL_CONTROLLER_START -->
+    <script>
+      (function () {
+        "use strict";
+
+        function initializeFrontPageFullScroll() {
+          const frontPage = document.querySelector("#mi-front-page, .mi-front-page");
+
+          if (!frontPage) {
+            return;
+          }
+
+          let isAnimating = false;
+          let touchStartY = 0;
+          let touchCurrentY = 0;
+          let releaseTimer = null;
+
+          function getFrontPageBottom() {
+            return frontPage.offsetTop + frontPage.offsetHeight;
+          }
+
+          function isFrontPagePartiallyVisible() {
+            const top = window.scrollY;
+            const bottom = getFrontPageBottom();
+
+            return top > frontPage.offsetTop + 2 && top < bottom - 2;
+          }
+
+          function lockAnimation() {
+            isAnimating = true;
+            document.documentElement.classList.add("mi-front-page-scrolling");
+
+            window.clearTimeout(releaseTimer);
+
+            releaseTimer = window.setTimeout(function () {
+              isAnimating = false;
+              document.documentElement.classList.remove("mi-front-page-scrolling");
+            }, 950);
+          }
+
+          function scrollToMainWebsite() {
+            if (isAnimating) {
+              return;
+            }
+
+            lockAnimation();
+
+            window.scrollTo({
+              top: getFrontPageBottom(),
+              behavior: "smooth"
+            });
+          }
+
+          function scrollToFrontPage() {
+            if (isAnimating) {
+              return;
+            }
+
+            lockAnimation();
+
+            window.scrollTo({
+              top: frontPage.offsetTop,
+              behavior: "smooth"
+            });
+          }
+
+          function handleWheel(event) {
+            const frontTop = frontPage.offsetTop;
+            const frontBottom = getFrontPageBottom();
+            const currentScroll = window.scrollY;
+            const scrollingDown = event.deltaY > 0;
+            const scrollingUp = event.deltaY < 0;
+
+            if (
+              scrollingDown &&
+              currentScroll >= frontTop - 4 &&
+              currentScroll < frontBottom - 4
+            ) {
+              event.preventDefault();
+              scrollToMainWebsite();
+              return;
+            }
+
+            if (
+              scrollingUp &&
+              currentScroll > frontTop + 4 &&
+              currentScroll <= frontBottom + 80
+            ) {
+              event.preventDefault();
+              scrollToFrontPage();
+            }
+          }
+
+          function handleTouchStart(event) {
+            if (!event.touches || event.touches.length !== 1) {
+              return;
+            }
+
+            touchStartY = event.touches[0].clientY;
+            touchCurrentY = touchStartY;
+          }
+
+          function handleTouchMove(event) {
+            if (!event.touches || event.touches.length !== 1) {
+              return;
+            }
+
+            touchCurrentY = event.touches[0].clientY;
+          }
+
+          function handleTouchEnd() {
+            const distance = touchStartY - touchCurrentY;
+            const currentScroll = window.scrollY;
+            const frontBottom = getFrontPageBottom();
+
+            if (
+              distance > 45 &&
+              currentScroll >= frontPage.offsetTop - 4 &&
+              currentScroll < frontBottom - 4
+            ) {
+              scrollToMainWebsite();
+              return;
+            }
+
+            if (
+              distance < -45 &&
+              currentScroll > frontPage.offsetTop + 4 &&
+              currentScroll <= frontBottom + 80
+            ) {
+              scrollToFrontPage();
+            }
+          }
+
+          function settlePartialFrontPage() {
+            if (isAnimating || !isFrontPagePartiallyVisible()) {
+              return;
+            }
+
+            const frontBottom = getFrontPageBottom();
+            const frontProgress = (window.scrollY - frontPage.offsetTop) / frontPage.offsetHeight;
+
+            if (frontProgress >= 0.18) {
+              lockAnimation();
+              window.scrollTo({
+                top: frontBottom,
+                behavior: "smooth"
+              });
+            } else {
+              lockAnimation();
+              window.scrollTo({
+                top: frontPage.offsetTop,
+                behavior: "smooth"
+              });
+            }
+          }
+
+          let scrollEndTimer = null;
+
+          function handleScroll() {
+            window.clearTimeout(scrollEndTimer);
+
+            scrollEndTimer = window.setTimeout(function () {
+              settlePartialFrontPage();
+            }, 140);
+          }
+
+          window.addEventListener("wheel", handleWheel, { passive: false });
+          window.addEventListener("touchstart", handleTouchStart, { passive: true });
+          window.addEventListener("touchmove", handleTouchMove, { passive: true });
+          window.addEventListener("touchend", handleTouchEnd, { passive: true });
+          window.addEventListener("scroll", handleScroll, { passive: true });
+
+          window.addEventListener("resize", function () {
+            if (isFrontPagePartiallyVisible()) {
+              window.scrollTo({
+                top: getFrontPageBottom(),
+                behavior: "auto"
+              });
+            }
+          });
+        }
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", initializeFrontPageFullScroll, { once: true });
+        } else {
+          initializeFrontPageFullScroll();
+        }
+      })();
+    </script>
+    <!-- MI_FRONT_PAGE_FULL_SCROLL_CONTROLLER_END -->
+
+    <!-- MI_FIXED_GLASS_NAV_CONTROLLER_START -->
+    <script>
+      (function () {
+        "use strict";
+
+        function initializeFixedGlassNavigation() {
+          const frontPage = document.querySelector("#mi-front-page, .mi-front-page");
+          const candidates = Array.from(document.querySelectorAll("header, nav, .navbar, .site-header, .navigation, .nav-container"));
+
+          let navigation = candidates.find(function (element) {
+            const text = String(element.textContent || "")
+              .replace(/\s+/g, " ")
+              .trim()
+              .toUpperCase();
+
+            return text.includes("MI CORTEX X") && (text.includes("AI PRODUCTS") || text.includes("WEB APPS") || text.includes("CONTACT"));
+          });
+
+          if (!navigation) {
+            navigation = document.querySelector("header nav, nav, .navbar, .site-header");
+          }
+
+          if (!navigation) {
+            console.warn("MI fixed glass navigation: navigation bar was not found.");
+            return;
+          }
+
+          const parentHeader = navigation.closest("header");
+
+          if (parentHeader && parentHeader.textContent.toUpperCase().includes("MI CORTEX X")) {
+            navigation = parentHeader;
+          }
+
+          navigation.classList.add("mi-fixed-glass-nav");
+
+          let scrollStopTimer = null;
+
+          function getMainSiteStart() {
+            if (!frontPage) {
+              return 1;
+            }
+
+            return frontPage.offsetTop + frontPage.offsetHeight - 4;
+          }
+
+          function updateNavigationVisibility() {
+            const mainSiteIsVisible = window.scrollY >= getMainSiteStart();
+            document.documentElement.classList.toggle("mi-main-site-visible", mainSiteIsVisible);
+          }
+
+          function handleScroll() {
+            updateNavigationVisibility();
+            document.documentElement.classList.add("mi-page-is-scrolling");
+
+            window.clearTimeout(scrollStopTimer);
+
+            scrollStopTimer = window.setTimeout(function () {
+              document.documentElement.classList.remove("mi-page-is-scrolling");
+            }, 180);
+          }
+
+          window.addEventListener("scroll", handleScroll, { passive: true });
+          window.addEventListener("resize", updateNavigationVisibility, { passive: true });
+
+          updateNavigationVisibility();
+        }
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", initializeFixedGlassNavigation, { once: true });
+        } else {
+          initializeFixedGlassNavigation();
+        }
+      })();
+    </script>
+    <!-- MI_FIXED_GLASS_NAV_CONTROLLER_END -->
+
+    <!-- MI_INNER_ROUNDED_NAV_CONTROLLER_START -->
+    <script>
+      (function () {
+        "use strict";
+
+        function fixInnerRoundedNavigation() {
+          const existingFixedElements = Array.from(document.querySelectorAll(".mi-fixed-glass-nav"));
+
+          existingFixedElements.forEach(function (element) {
+            element.classList.remove("mi-fixed-glass-nav");
+          });
+
+          const candidates = Array.from(document.querySelectorAll("header, nav, .navbar, .nav-container, .navigation, .site-header, header > div")).filter(function (element) {
+            const text = String(element.textContent || "")
+              .replace(/\s+/g, " ")
+              .trim()
+              .toUpperCase();
+
+            return text.includes("MI CORTEX X") && text.includes("AI PRODUCTS") && text.includes("CONTACT");
+          });
+
+          if (!candidates.length) {
+            console.warn("Inner rounded navigation was not found.");
+            return;
+          }
+
+          candidates.sort(function (first, second) {
+            const firstArea = first.getBoundingClientRect().width * first.getBoundingClientRect().height;
+            const secondArea = second.getBoundingClientRect().width * second.getBoundingClientRect().height;
+            return firstArea - secondArea;
+          });
+
+          let roundedNavigation = candidates[0];
+
+          const descendants = Array.from(roundedNavigation.querySelectorAll("nav, .navbar, .nav-container, .navigation, div")).filter(function (element) {
+            const text = String(element.textContent || "")
+              .replace(/\s+/g, " ")
+              .trim()
+              .toUpperCase();
+
+            const rect = element.getBoundingClientRect();
+
+            return text.includes("MI CORTEX X") && text.includes("AI PRODUCTS") && text.includes("CONTACT") && rect.width > 500 && rect.height >= 60 && rect.height <= 160;
+          });
+
+          if (descendants.length) {
+            descendants.sort(function (first, second) {
+              return first.getBoundingClientRect().height - second.getBoundingClientRect().height;
+            });
+
+            roundedNavigation = descendants[0];
+          }
+
+          const outerHeader = roundedNavigation.closest("header");
+
+          if (outerHeader && outerHeader !== roundedNavigation) {
+            outerHeader.classList.add("mi-fixed-nav-outer-clean");
+          }
+
+          roundedNavigation.classList.add("mi-fixed-glass-nav");
+
+          const frontPage = document.querySelector("#mi-front-page, .mi-front-page");
+          let scrollStopTimer = null;
+
+          function getMainSiteStart() {
+            if (!frontPage) {
+              return 1;
+            }
+
+            return frontPage.offsetTop + frontPage.offsetHeight - 4;
+          }
+
+          function updateNavigation() {
+            document.documentElement.classList.toggle("mi-main-site-visible", window.scrollY >= getMainSiteStart());
+          }
+
+          function handleScroll() {
+            updateNavigation();
+            document.documentElement.classList.add("mi-page-is-scrolling");
+
+            window.clearTimeout(scrollStopTimer);
+
+            scrollStopTimer = window.setTimeout(function () {
+              document.documentElement.classList.remove("mi-page-is-scrolling");
+            }, 180);
+          }
+
+          window.addEventListener("scroll", handleScroll, { passive: true });
+          window.addEventListener("resize", updateNavigation, { passive: true });
+
+          updateNavigation();
+        }
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", fixInnerRoundedNavigation, { once: true });
+        } else {
+          fixInnerRoundedNavigation();
+        }
+      })();
+    </script>
+    <!-- MI_INNER_ROUNDED_NAV_CONTROLLER_END -->
+
+    
+  
+<!-- MI_LOADING_LIFECYCLE_REPAIR_START -->
+<script>
+(function () {
+    "use strict";
+
+    if (window.__miLoadingRepairInstalled) {
+        return;
+    }
+
+    window.__miLoadingRepairInstalled = true;
+
+    var released = false;
+    var fallbackTimer = 0;
+    var MAXIMUM_INTRO_TIME = 22000;
+
+    var introSelectors = [
+        "#welcome",
+        "#welcome-screen",
+        "#welcomeScreen",
+        "#intro",
+        "#intro-screen",
+        "#introScreen",
+        "#splash",
+        "#splash-screen",
+        ".welcome-screen",
+        ".intro-screen",
+        ".splash-screen",
+        ".neural-intro",
+        "[data-welcome]",
+        "[data-intro]"
+    ];
+
+    function getIntroElements() {
+        var results = [];
+        var seen = new Set();
+
+        introSelectors.forEach(function (selector) {
+            var elements;
+
+            try {
+                elements = document.querySelectorAll(selector);
+            } catch (error) {
+                return;
+            }
+
+            elements.forEach(function (element) {
+                if (!seen.has(element)) {
+                    seen.add(element);
+                    results.push(element);
+                }
+            });
+        });
+
+        return results;
+    }
+
+    function removeLoadingClasses(target) {
+        if (!target || !target.classList) {
+            return;
+        }
+
+        [
+            "loading",
+            "is-loading",
+            "page-loading",
+            "site-loading",
+            "intro-loading",
+            "welcome-loading",
+            "intro-active",
+            "welcome-active",
+            "splash-active"
+        ].forEach(function (className) {
+            target.classList.remove(className);
+        });
+    }
+
+    function releaseWebsite(reason) {
+        if (released) {
+            return;
+        }
+
+        released = true;
+
+        if (fallbackTimer) {
+            window.clearTimeout(fallbackTimer);
+            fallbackTimer = 0;
+        }
+
+        var root = document.documentElement;
+        var body = document.body;
+
+        removeLoadingClasses(root);
+        removeLoadingClasses(body);
+
+        root.classList.add(
+            "welcome-complete",
+            "intro-complete",
+            "mi-page-ready"
+        );
+
+        if (body) {
+            body.classList.add(
+                "welcome-complete",
+                "intro-complete",
+                "mi-page-ready"
+            );
+
+            body.removeAttribute("aria-busy");
+        }
+
+        root.removeAttribute("aria-busy");
+
+        getIntroElements().forEach(function (intro) {
+            intro.style.pointerEvents = "none";
+        });
+
+        window.dispatchEvent(
+            new CustomEvent("mi:intro-complete", {
+                detail: {
+                    reason: reason
+                }
+            })
+        );
+
+        window.requestAnimationFrame(function () {
+            window.dispatchEvent(new Event("resize"));
+        });
+    }
+
+    function introHasFinished(element) {
+        if (!element || !element.isConnected) {
+            return true;
+        }
+
+        var style = window.getComputedStyle(element);
+        var rect = element.getBoundingClientRect();
+
+        return (
+            element.hidden ||
+            style.display === "none" ||
+            style.visibility === "hidden" ||
+            Number(style.opacity) <= 0.01 ||
+            rect.width <= 1 ||
+            rect.height <= 1 ||
+            element.classList.contains("complete") ||
+            element.classList.contains("completed") ||
+            element.classList.contains("finished") ||
+            element.classList.contains("exiting") ||
+            element.classList.contains("mi-neural-exiting")
+        );
+    }
+
+    function checkNaturalCompletion() {
+        if (released) {
+            return;
+        }
+
+        var introElements = getIntroElements();
+
+        if (
+            introElements.length > 0 &&
+            introElements.every(introHasFinished)
+        ) {
+            releaseWebsite("natural-completion");
+        }
+    }
+
+    function initialize() {
+        document.documentElement.classList.add("mi-dom-ready");
+
+        if (document.body) {
+            document.body.classList.add("mi-dom-ready");
+        }
+
+        getIntroElements().forEach(function (intro) {
+            intro.addEventListener(
+                "animationend",
+                checkNaturalCompletion
+            );
+
+            intro.addEventListener(
+                "transitionend",
+                checkNaturalCompletion
+            );
+        });
+
+        fallbackTimer = window.setTimeout(function () {
+            releaseWebsite("safe-fallback");
+        }, MAXIMUM_INTRO_TIME);
+
+        window.setTimeout(checkNaturalCompletion, 100);
+        window.setTimeout(checkNaturalCompletion, 800);
+        window.setTimeout(checkNaturalCompletion, 2500);
+        window.setTimeout(checkNaturalCompletion, 6000);
+        window.setTimeout(checkNaturalCompletion, 9500);
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener(
+            "DOMContentLoaded",
+            initialize,
+            { once: true }
+        );
+    } else {
+        initialize();
+    }
+})();
+</script>
+<!-- MI_LOADING_LIFECYCLE_REPAIR_END -->
+
+<!-- MI_THREE_DOTS_RELEASE_START -->
+<script>
+(function () {
+    "use strict";
+
+    if (window.__miThreeDotsReleaseInstalled) {
+        return;
+    }
+
+    window.__miThreeDotsReleaseInstalled = true;
+
+    var DOTS_VISIBLE_TIME = 2100;
+    var EXIT_TIME = 650;
+    var SAFETY_RELEASE_TIME = 12500;
+    var released = false;
+    var dotsInstalled = false;
+
+    function normalizeText(value) {
+        return String(value || "")
+            .replace(/\s+/g, " ")
+            .trim()
+            .toUpperCase();
+    }
+
+    function findSlogan() {
+        var selectors = [
+            ".neural-intro-tagline",
+            ".intro-tagline",
+            ".welcome-tagline",
+            ".logo-tagline",
+            ".brand-tagline",
+            ".intro-slogan",
+            ".welcome-slogan",
+            "[data-intro-tagline]",
+            "[data-welcome-tagline]"
+        ];
+
+        for (var index = 0; index < selectors.length; index += 1) {
+            var selected = document.querySelector(selectors[index]);
+
+            if (selected) {
+                return selected;
+            }
+        }
+
+        var elements = document.querySelectorAll(
+            "p, span, div, h1, h2, h3"
+        );
+
+        for (var item = 0; item < elements.length; item += 1) {
+            var element = elements[item];
+            var text = normalizeText(element.textContent);
+
+            if (
+                text === "INNOVATE INTELLIGENCE" ||
+                text.indexOf("INNOVATE INTELLIGENCE") !== -1
+            ) {
+                return element;
+            }
+        }
+
+        return null;
+    }
+
+    function findIntroOverlay(element) {
+        var selectors = [
+            "#neural-intro",
+            "#welcome-screen",
+            "#welcomeScreen",
+            "#intro-screen",
+            "#introScreen",
+            ".neural-intro",
+            ".welcome-screen",
+            ".intro-screen",
+            ".splash-screen",
+            "[data-welcome]",
+            "[data-intro]"
+        ];
+
+        if (element && typeof element.closest === "function") {
+            for (var index = 0; index < selectors.length; index += 1) {
+                var closest = element.closest(selectors[index]);
+
+                if (closest) {
+                    return closest;
+                }
+            }
+        }
+
+        for (var item = 0; item < selectors.length; item += 1) {
+            var overlay = document.querySelector(selectors[item]);
+
+            if (overlay) {
+                return overlay;
+            }
+        }
+
+        return null;
+    }
+
+    function releaseWebsite(reason, slogan) {
+        if (released) {
+            return;
+        }
+
+        released = true;
+
+        var root = document.documentElement;
+        var body = document.body;
+        var overlay = findIntroOverlay(slogan);
+
+        [
+            "loading",
+            "is-loading",
+            "page-loading",
+            "site-loading",
+            "intro-loading",
+            "welcome-loading",
+            "intro-active",
+            "welcome-active",
+            "splash-active"
+        ].forEach(function (className) {
+            root.classList.remove(className);
+
+            if (body) {
+                body.classList.remove(className);
+            }
+        });
+
+        [
+            "welcome-complete",
+            "intro-complete",
+            "mi-welcome-complete",
+            "mi-page-ready"
+        ].forEach(function (className) {
+            root.classList.add(className);
+
+            if (body) {
+                body.classList.add(className);
+            }
+        });
+
+        root.removeAttribute("aria-busy");
+
+        if (body) {
+            body.removeAttribute("aria-busy");
+        }
+
+        if (overlay && overlay !== body && overlay !== root) {
+            overlay.setAttribute("aria-hidden", "true");
+            overlay.style.pointerEvents = "none";
+            overlay.style.opacity = "0";
+
+            window.setTimeout(function () {
+                if (overlay && overlay.isConnected) {
+                    overlay.style.display = "none";
+                }
+            }, EXIT_TIME);
+        }
+
+        window.dispatchEvent(
+            new CustomEvent("mi:intro-complete", {
+                detail: {
+                    reason: reason
+                }
+            })
+        );
+
+        window.requestAnimationFrame(function () {
+            window.scrollTo(0, 0);
+            window.dispatchEvent(new Event("resize"));
+        });
+    }
+
+    function installDots() {
+        if (dotsInstalled || released) {
+            return false;
+        }
+
+        var slogan = findSlogan();
+
+        if (!slogan) {
+            return false;
+        }
+
+        var existingDots = slogan.parentElement
+            ? slogan.parentElement.querySelector(".mi-intro-three-dots")
+            : null;
+
+        if (existingDots) {
+            dotsInstalled = true;
+            return true;
+        }
+
+        var dots = document.createElement("div");
+        dots.className = "mi-intro-three-dots";
+        dots.setAttribute("aria-hidden", "true");
+        dots.innerHTML = "<span></span><span></span><span></span>";
+
+        slogan.insertAdjacentElement("afterend", dots);
+        dotsInstalled = true;
+
+        window.setTimeout(function () {
+            dots.classList.add("mi-three-dots-exit");
+
+            var overlay = findIntroOverlay(slogan);
+
+            if (overlay && overlay !== document.body) {
+                overlay.classList.add(
+                    "mi-neural-exiting",
+                    "intro-exiting"
+                );
+            }
+
+            window.setTimeout(function () {
+                releaseWebsite(
+                    "three-dots-complete",
+                    slogan
+                );
+            }, EXIT_TIME);
+        }, DOTS_VISIBLE_TIME);
+
+        return true;
+    }
+
+    function begin() {
+        var attempts = 0;
+        var maximumAttempts = 100;
+
+        function searchForSlogan() {
+            if (installDots()) {
+                return;
+            }
+
+            attempts += 1;
+
+            if (attempts < maximumAttempts && !released) {
+                window.setTimeout(searchForSlogan, 100);
+            }
+        }
+
+        searchForSlogan();
+
+        window.setTimeout(function () {
+            if (!released) {
+                var slogan = findSlogan();
+
+                if (slogan && !dotsInstalled) {
+                    installDots();
+                    return;
+                }
+
+                releaseWebsite(
+                    "three-dots-safety-release",
+                    slogan
+                );
+            }
+        }, SAFETY_RELEASE_TIME);
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener(
+            "DOMContentLoaded",
+            begin,
+            { once: true }
+        );
+    } else {
+        begin();
+    }
+})();
+</script>
+<!-- MI_THREE_DOTS_RELEASE_END -->
 </body>
 </html>

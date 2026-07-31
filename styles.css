@@ -1,1248 +1,3227 @@
 :root {
-    --background: #05060a;
-    --background-soft: #0a0d15;
-    --surface: rgba(15, 20, 32, 0.72);
-    --surface-strong: rgba(18, 25, 40, 0.92);
-    --surface-light: rgba(255, 255, 255, 0.055);
-    --border: rgba(255, 255, 255, 0.1);
-    --border-bright: rgba(100, 168, 255, 0.35);
-    --text: #f6f8ff;
-    --text-soft: #abb4c7;
-    --text-muted: #7d879b;
-    --accent: #6aa8ff;
-    --accent-bright: #99c5ff;
-    --purple: #9276ff;
-    --gold: #d9b46f;
-    --danger: #ff6f82;
-    --success: #7be5af;
-    --radius-small: 14px;
-    --radius-medium: 22px;
-    --radius-large: 32px;
-    --header-height: 84px;
-    --content-width: 1440px;
-    --shadow: 0 30px 80px rgba(0, 0, 0, 0.42);
+  --bg: #040711;
+  --bg-deep: #02040a;
+  --surface: rgba(7, 12, 24, 0.76);
+  --surface-strong: rgba(10, 16, 31, 0.92);
+  --text: #f6f8ff;
+  --muted: #a1acc8;
+  --accent: #61dafb;
+  --accent-2: #8b5cf6;
+  --accent-3: #22d3ee;
+  --border: rgba(255, 255, 255, 0.12);
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+  --radius-lg: 24px;
+  --radius-md: 18px;
+  --radius-sm: 14px;
+  --container: 1180px;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Poppins', 'Inter', sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(97, 218, 251, 0.16), transparent 24%),
+    radial-gradient(circle at 100% 100%, rgba(139, 92, 246, 0.18), transparent 24%),
+    linear-gradient(135deg, var(--bg-deep) 0%, var(--bg) 45%, #07111f 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  line-height: 1.65;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 36px 36px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent);
+}
+
+body {
+  background-color: #000000;
+}
+
+body .site-header,
+body main,
+body .site-footer,
+body .background-orb {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+body.welcome-complete .site-header,
+body.welcome-complete main,
+body.welcome-complete .site-footer,
+body.welcome-complete .background-orb {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+body.welcome-complete {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.welcome-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  background: #000000;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.welcome-stage {
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  min-height: 78vh;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.welcome-title {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: min(94vw, 1200px);
+  max-width: 94vw;
+  overflow: visible;
+  margin: 0;
+  text-align: center;
+  font-family: 'Poppins', 'Inter', 'Segoe UI', sans-serif;
+  font-weight: 900;
+  line-height: 1.02;
+  text-transform: uppercase;
+  color: transparent;
+  background: linear-gradient(90deg, #8c6519 0%, #c79d32 28%, #e7c760 54%, #fff1b0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  transform: translateY(18px) scale(0.98);
+  filter: blur(22px);
+  text-shadow: 0 0 12px rgba(214, 177, 75, 0.18), 0 0 28px rgba(214, 177, 75, 0.10);
+  white-space: nowrap;
+  transition: opacity 1.4s cubic-bezier(.22, 1, .36, 1), transform 1.4s cubic-bezier(.22, 1, .36, 1), filter 1.4s cubic-bezier(.22, 1, .36, 1);
+}
+
+.welcome-title.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(22px);
+}
+
+.welcome-title.is-clear {
+  filter: blur(0);
+  transition: filter 2.2s cubic-bezier(.22, 1, .36, 1);
+}
+
+.welcome-main-line,
+.welcome-sub-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 94vw;
+  white-space: nowrap;
+}
+
+.welcome-main-line {
+  gap: clamp(1.2rem, 4vw, 4.5rem);
+  margin-bottom: 0.2em;
+}
+
+.welcome-sub-line {
+  margin-top: 0.08em;
+}
+
+.title-word {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(2.8rem, 8vw, 7.5rem);
+  letter-spacing: clamp(0.08em, 0.3vw, 0.18em);
+  line-height: 1;
+}
+
+.title-inc {
+  font-size: clamp(1.1rem, 2.8vw, 2.4rem);
+  letter-spacing: clamp(0.25em, 0.7vw, 0.55em);
+}
+
+.welcome-title.title-transforming {
+  opacity: 0;
+  transform: translateY(-8px) scale(0.9);
+  filter: blur(6px);
+  transition: opacity 1.4s cubic-bezier(.22, 1, .36, 1), transform 1.4s cubic-bezier(.22, 1, .36, 1), filter 1.4s cubic-bezier(.22, 1, .36, 1);
+}
+
+.intro-robot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: clamp(8rem, 18vw, 11.5rem);
+  height: clamp(12rem, 24vw, 15rem);
+  transform: translate(-50%, -40%) scale(0.55);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  filter: blur(18px);
+  will-change: transform, opacity;
+  z-index: 4;
+}
+
+.intro-robot.intro-robot-assembling {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%, -40%) scale(1);
+  filter: blur(0);
+  transition: opacity 1.4s cubic-bezier(.22, 1, .36, 1), transform 1.4s cubic-bezier(.22, 1, .36, 1), filter 1.4s cubic-bezier(.22, 1, .36, 1);
+}
+
+.intro-robot.intro-robot-ready {
+  transform: translate(-50%, -40%) scale(1);
+  filter: blur(0);
+}
+
+.intro-robot.intro-robot-walking-left {
+  animation: intro-robot-walk-left 2.4s cubic-bezier(.22, 1, .36, 1) forwards;
+}
+
+.intro-robot.intro-robot-walking-left-reduced {
+  animation: intro-robot-walk-left-reduced 1.2s ease-out forwards;
+}
+
+.intro-robot-shadow {
+  position: absolute;
+  left: 50%;
+  bottom: 0.2rem;
+  width: 76%;
+  height: 1.1rem;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.32);
+  filter: blur(10px);
+  opacity: 0.8;
+}
+
+.intro-robot-head {
+  position: absolute;
+  left: 50%;
+  top: 0.25rem;
+  width: 44%;
+  height: 22%;
+  transform: translateX(-50%);
+  border-radius: 1.1rem;
+  background: linear-gradient(135deg, #7a5310 0%, #b8872f 40%, #d6b14b 100%);
+  border: 1px solid rgba(255, 241, 168, 0.65);
+  box-shadow: inset 0 0 0 1px rgba(255, 241, 168, 0.2), 0 0 14px rgba(214, 177, 75, 0.22);
+}
+
+.intro-robot-eye {
+  position: absolute;
+  top: 50%;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: #fff1a8;
+  box-shadow: 0 0 8px rgba(255, 241, 168, 0.8);
+  transform: translateY(-50%);
+}
+
+.intro-robot-eye-left {
+  left: 28%;
+}
+
+.intro-robot-eye-right {
+  right: 28%;
+}
+
+.intro-robot-neck {
+  position: absolute;
+  left: 50%;
+  top: 22%;
+  width: 10%;
+  height: 10%;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: linear-gradient(180deg, #b8872f 0%, #7a5310 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 241, 168, 0.18);
+}
+
+.intro-robot-torso {
+  position: absolute;
+  left: 50%;
+  top: 32%;
+  width: 58%;
+  height: 34%;
+  transform: translateX(-50%);
+  border-radius: 1.2rem;
+  background: linear-gradient(135deg, #8b6115 0%, #b8872f 45%, #e1bf58 100%);
+  border: 1px solid rgba(255, 241, 168, 0.55);
+  box-shadow: inset 0 0 0 1px rgba(255, 241, 168, 0.16), 0 0 16px rgba(214, 177, 75, 0.16);
+}
+
+.intro-robot-core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1.4rem;
+  height: 1.4rem;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff8c2 0%, #f4d675 30%, #b8872f 80%, #7a5310 100%);
+  box-shadow: 0 0 14px rgba(244, 214, 117, 0.6);
+}
+
+.intro-robot-arm {
+  position: absolute;
+  top: 38%;
+  width: 14%;
+  height: 0.7rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #7a5310 0%, #b8872f 50%, #d6b14b 100%);
+  box-shadow: 0 0 8px rgba(214, 177, 75, 0.2);
+}
+
+.intro-robot-arm-left {
+  left: 18%;
+  transform: rotate(18deg);
+}
+
+.intro-robot-arm-right {
+  right: 18%;
+  transform: rotate(-18deg);
+}
+
+.intro-robot-leg {
+  position: absolute;
+  bottom: 0.6rem;
+  width: 16%;
+  height: 28%;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #b8872f 0%, #7a5310 100%);
+  box-shadow: 0 0 6px rgba(214, 177, 75, 0.16);
+}
+
+.intro-robot-leg-left {
+  left: 34%;
+}
+
+.intro-robot-leg-right {
+  right: 34%;
+}
+
+@keyframes intro-robot-walk-left {
+  0% {
+    transform: translate(-50%, -40%) scale(1);
+  }
+  20% {
+    transform: translate(calc(-50% - 4vw), -42%) scale(1);
+  }
+  50% {
+    transform: translate(calc(-50% - 20vw), -39%) scale(1);
+  }
+  100% {
+    transform: translate(calc(-60vw - 220px), -40%) scale(1);
+  }
+}
+
+@keyframes intro-robot-walk-left-reduced {
+  0% {
+    transform: translate(-50%, -40%) scale(1);
+  }
+  100% {
+    transform: translate(calc(-50vw - 120px), -40%) scale(1);
+  }
+}
+
+.welcome-screen.intro-exiting {
+  transform: translateY(-100%);
+  transition: transform 2.2s cubic-bezier(.22, 1, .36, 1);
+}
+
+.container {
+  width: min(var(--container), calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.background-orb {
+  position: fixed;
+  border-radius: 999px;
+  filter: blur(90px);
+  opacity: 0.28;
+  pointer-events: none;
+  z-index: 0;
+  animation: drift 14s ease-in-out infinite alternate;
+}
+
+.orb-one {
+  width: 300px;
+  height: 300px;
+  top: 6%;
+  left: -80px;
+  background: var(--accent);
+}
+
+.orb-two {
+  width: 340px;
+  height: 340px;
+  bottom: 8%;
+  right: -90px;
+  background: var(--accent-2);
+  animation-duration: 16s;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  padding: 1rem 0;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1.1rem;
+  border-radius: 999px;
+}
+
+.glass-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    text-decoration:none;
+    background:transparent !important;
+    border:none !important;
+    box-shadow:none !important;
+    padding:0 !important;
+}
+
+.brand-logo{
+    width:64px;
+    height:64px;
+    object-fit:contain;
+    display:block;
+    flex-shrink:0;
+    border-radius:50%;
+    background:transparent !important;
+    border:none !important;
+    box-shadow:none !important;
+    padding:0 !important;
+    margin:0 !important;
+}
+
+.brand span {
+  display: inline-block;
+}
+
+.nav-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+  margin: 5px 0;
+  border-radius: 999px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.1rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.94rem;
+  transition: color 0.24s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--text);
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2.5rem;
+  align-items: center;
+  padding: 5.4rem 0 4.6rem;
+}
+
+.hero-copy {
+  max-width: 620px;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(97, 218, 251, 0.2);
+  color: var(--accent);
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.hero h1,
+.section-heading h2,
+.card h3,
+.price-card h3,
+.feature-list h3,
+.contact-card h2 {
+  font-family: 'Space Grotesk', 'Poppins', sans-serif;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 5vw, 4.7rem);
+  line-height: 1.05;
+  margin-bottom: 1rem;
+  letter-spacing: -0.03em;
+}
+
+.hero-subtitle,
+.section-heading p,
+.card p,
+.price-card p,
+.feature-list p,
+.contact-card p {
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.95rem 1.25rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #03111d;
+  box-shadow: 0 14px 32px rgba(97, 218, 251, 0.22);
+}
+
+.btn-secondary {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+}
+
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.hero-stats div {
+  min-width: 130px;
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hero-stats strong {
+  display: block;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.hero-stats span {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.hero-panel {
+  border-radius: 30px;
+  padding: 1.4rem;
+  min-height: 400px;
+}
+
+.panel-chip {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(97, 218, 251, 0.12);
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.panel-visual {
+  position: relative;
+  height: 250px;
+  margin-bottom: 1rem;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+  overflow: hidden;
+}
+
+.grid-ring {
+  position: absolute;
+  inset: 30px;
+  border: 1px solid rgba(97, 218, 251, 0.22);
+  border-radius: 50%;
+  animation: spin 12s linear infinite;
+}
+
+.ring-two {
+  inset: 55px;
+  border-color: rgba(139, 92, 246, 0.28);
+  animation-direction: reverse;
+}
+
+.center-core {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(97, 218, 251, 0.92), rgba(139, 92, 246, 0.22));
+  box-shadow: 0 0 44px rgba(97, 218, 251, 0.28);
+}
+
+.panel-list {
+  padding-left: 1rem;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.section {
+  padding: 3.2rem 0 1rem;
+}
+
+.section-heading {
+  margin-bottom: 1.4rem;
+}
+
+.section-heading h2 {
+  font-size: clamp(1.75rem, 3vw, 2.3rem);
+  margin-bottom: 0.6rem;
+}
+
+.card-grid,
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.card,
+.price-card,
+.feature-list,
+.contact-card {
+  border-radius: var(--radius-lg);
+  padding: 1.4rem;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.card:hover,
+.price-card:hover,
+.contact-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(97, 218, 251, 0.3);
+}
+
+.card h3,
+.price-card h3,
+.feature-list h3 {
+  margin-bottom: 0.55rem;
+}
+
+.feature-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0.35rem 0 0.7rem;
+}
+
+.price-card ul {
+  padding-left: 1rem;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.price-card.featured {
+  border-color: rgba(97, 218, 251, 0.32);
+  transform: translateY(-4px);
+}
+
+.contact-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+}
+
+.site-footer {
+  padding: 2rem 0 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--muted);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(18px, 24px, 0) scale(1.08);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes title-zoom {
+  0% {
+    transform: scale(0.96);
+    text-shadow: 0 0 8px rgba(214, 177, 75, 0.2);
+  }
+  100% {
+    transform: scale(1.04);
+    text-shadow: 0 0 28px rgba(214, 177, 75, 0.34);
+  }
+}
+
+@keyframes title-shine {
+  0% {
+    transform: translateX(-140%);
+  }
+  100% {
+    transform: translateX(140%);
+  }
+}
+
+@keyframes welcome-lift {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-120%) scale(1.02);
+  }
+}
+
+@media (max-width: 950px) {
+  .hero,
+  .card-grid,
+  .pricing-grid,
+  .feature-list {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 4rem;
+  }
+
+  .hero-panel {
+    min-height: initial;
+  }
+}
+
+@media (max-width: 760px) {
+  .site-header {
+    padding: 0.7rem 0;
+  }
+
+  .nav {
+    border-radius: 22px;
+    align-items: flex-start;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    padding-top: 0.85rem;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .hero {
+    padding-top: 3.5rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contact-card,
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 840px) {
+  .welcome-screen {
+    padding: 1.25rem;
+  }
+
+  .welcome-stage {
+    min-height: 82vh;
+  }
+
+  .welcome-title {
+    letter-spacing: 0.16em;
+    font-size: clamp(1.7rem, 8vw, 3rem);
+  }
+
+  .title-line {
+    gap: 0.8em;
+  }
+}
+
+@media (max-width: 520px) {
+  .welcome-screen {
+    padding: 1rem;
+  }
+
+  .welcome-title {
+    letter-spacing: 0.1em;
+    font-size: clamp(1.35rem, 8vw, 2.2rem);
+    gap: 0.14em;
+    white-space: nowrap;
+  }
+
+  .title-line {
+    gap: 0.55em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .welcome-title,
+  .title-part {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .welcome-stage.sequence-started .welcome-title {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  .title-part {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+.brand::before,
+.brand::after,
+.brand-logo::before,
+.brand-logo::after{
+    display:none !important;
+    content:none !important;
+}
+
+/* MI_LARGE_LEFT_WALKING_ROBOT_START */
+
+/* Make the complete robot noticeably larger. */
+.intro-robot {
+    transform-origin: center bottom !important;
+    scale: 1.65;
+    will-change: transform, opacity !important;
+}
+
+/* Support either location of the walking state class. */
+.robot-walking-left .intro-robot,
+.intro-robot.robot-walking-left,
+.welcome-screen.robot-walking-left .intro-robot {
+    visibility: visible !important;
+    opacity: 1 !important;
+    scale: unset !important;
+    animation:
+        miRobotWalkLeft 3.2s cubic-bezier(.45, .05, .25, 1) forwards !important;
+}
+
+/* Move the robot completely through the left side of the viewport. */
+@keyframes miRobotWalkLeft {
+    0% {
+        transform:
+            translate3d(-50%, 0, 0)
+            scale(1.65);
+    }
+
+    12% {
+        transform:
+            translate3d(calc(-50% - 5vw), -5px, 0)
+            scale(1.65);
+    }
+
+    25% {
+        transform:
+            translate3d(calc(-50% - 14vw), 0, 0)
+            scale(1.65);
+    }
+
+    38% {
+        transform:
+            translate3d(calc(-50% - 23vw), -5px, 0)
+            scale(1.65);
+    }
+
+    52% {
+        transform:
+            translate3d(calc(-50% - 33vw), 0, 0)
+            scale(1.65);
+    }
+
+    66% {
+        transform:
+            translate3d(calc(-50% - 43vw), -5px, 0)
+            scale(1.65);
+    }
+
+    80% {
+        transform:
+            translate3d(calc(-50% - 54vw), 0, 0)
+            scale(1.65);
+    }
+
+    100% {
+        transform:
+            translate3d(calc(-50% - 75vw - 350px), -3px, 0)
+            scale(1.65);
+    }
+}
+
+/* Alternate the arms while walking. */
+.robot-walking-left .intro-robot-arm-left,
+.intro-robot.robot-walking-left .intro-robot-arm-left,
+.welcome-screen.robot-walking-left .intro-robot-arm-left {
+    transform-origin: 50% 10% !important;
+    animation: miRobotLeftArmWalk 0.56s ease-in-out infinite alternate !important;
+}
+
+.robot-walking-left .intro-robot-arm-right,
+.intro-robot.robot-walking-left .intro-robot-arm-right,
+.welcome-screen.robot-walking-left .intro-robot-arm-right {
+    transform-origin: 50% 10% !important;
+    animation: miRobotRightArmWalk 0.56s ease-in-out infinite alternate !important;
+}
+
+@keyframes miRobotLeftArmWalk {
+    from {
+        transform: rotate(17deg);
+    }
+
+    to {
+        transform: rotate(-19deg);
+    }
+}
+
+@keyframes miRobotRightArmWalk {
+    from {
+        transform: rotate(-19deg);
+    }
+
+    to {
+        transform: rotate(17deg);
+    }
+}
+
+/* Alternate the legs while walking. */
+.robot-walking-left .intro-robot-leg-left,
+.intro-robot.robot-walking-left .intro-robot-leg-left,
+.welcome-screen.robot-walking-left .intro-robot-leg-left {
+    transform-origin: 50% 5% !important;
+    animation: miRobotLeftLegWalk 0.56s ease-in-out infinite alternate !important;
+}
+
+.robot-walking-left .intro-robot-leg-right,
+.intro-robot.robot-walking-left .intro-robot-leg-right,
+.welcome-screen.robot-walking-left .intro-robot-leg-right {
+    transform-origin: 50% 5% !important;
+    animation: miRobotRightLegWalk 0.56s ease-in-out infinite alternate !important;
+}
+
+@keyframes miRobotLeftLegWalk {
+    from {
+        transform: rotate(-15deg) translateY(0);
+    }
+
+    to {
+        transform: rotate(17deg) translateY(-3px);
+    }
+}
+
+@keyframes miRobotRightLegWalk {
+    from {
+        transform: rotate(17deg) translateY(-3px);
+    }
+
+    to {
+        transform: rotate(-15deg) translateY(0);
+    }
+}
+
+/* Move and resize the robot shadow with the robot. */
+.robot-walking-left .intro-robot-shadow,
+.intro-robot.robot-walking-left .intro-robot-shadow,
+.welcome-screen.robot-walking-left .intro-robot-shadow {
+    animation: miRobotShadowWalk 0.56s ease-in-out infinite alternate !important;
+}
+
+@keyframes miRobotShadowWalk {
+    from {
+        transform: translateX(-50%) scaleX(1);
+        opacity: .36;
+    }
+
+    to {
+        transform: translateX(-50%) scaleX(.76);
+        opacity: .20;
+    }
+}
+
+/* Keep the robot large but responsive on smaller screens. */
+@media (max-width: 700px) {
+    .intro-robot {
+        scale: 1.3;
+    }
+
+    .robot-walking-left .intro-robot,
+    .intro-robot.robot-walking-left,
+    .welcome-screen.robot-walking-left .intro-robot {
+        animation-name: miRobotWalkLeftMobile !important;
+    }
+
+    @keyframes miRobotWalkLeftMobile {
+        0% {
+            transform:
+                translate3d(-50%, 0, 0)
+                scale(1.3);
+        }
+
+        25% {
+            transform:
+                translate3d(calc(-50% - 20vw), -4px, 0)
+                scale(1.3);
+        }
+
+        50% {
+            transform:
+                translate3d(calc(-50% - 40vw), 0, 0)
+                scale(1.3);
+        }
+
+        75% {
+            transform:
+                translate3d(calc(-50% - 62vw), -4px, 0)
+                scale(1.3);
+        }
+
+        100% {
+            transform:
+                translate3d(calc(-50% - 95vw - 240px), 0, 0)
+                scale(1.3);
+        }
+    }
+}
+
+.welcome-screen,
+.welcome-stage {
+    overflow: hidden !important;
+}
+
+/* MI_LARGE_LEFT_WALKING_ROBOT_END */
+
+/* MI_REMOVE_INTRO_ROBOT_START */
+
+/* Permanently hide every old robot element and robot artifact. */
+.intro-robot,
+.intro-robot-shadow,
+.intro-robot-head,
+.intro-robot-eye,
+.intro-robot-eye-left,
+.intro-robot-eye-right,
+.intro-robot-neck,
+.intro-robot-torso,
+.intro-robot-core,
+.intro-robot-arm,
+.intro-robot-arm-left,
+.intro-robot-arm-right,
+.intro-robot-leg,
+.intro-robot-leg-left,
+.intro-robot-leg-right,
+.ai-robot,
+.robot-head,
+.robot-body,
+.robot-arm,
+.robot-leg,
+.robot-shadow,
+.letter-particles {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    animation: none !important;
+    transition: none !important;
+    pointer-events: none !important;
+}
+
+/* Preserve the existing slow upward welcome-screen exit. */
+.welcome-screen.intro-exiting,
+.intro-exiting.welcome-screen {
+    transform: translate3d(0, -100%, 0) !important;
+}
+
+/* MI_REMOVE_INTRO_ROBOT_END */
+
+/* MI_NEURAL_LOGO_SEQUENCE_START */
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+.mi-neural-intro {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483600;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    background:
+        radial-gradient(
+            circle at 50% 48%,
+            rgba(11, 16, 32, 0.96) 0%,
+            rgba(5, 8, 22, 0.99) 48%,
+            #02040c 100%
+        );
+    transform: translate3d(0, 0, 0);
+    will-change: transform, opacity;
+}
+
+.mi-neural-intro.mi-neural-visible {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 1.2s cubic-bezier(.22, 1, .36, 1);
+}
+
+.mi-neural-background {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.mi-neural-network {
+    position: absolute;
+    inset: -2%;
+    width: 104%;
+    height: 104%;
+    opacity: 0;
+    transform: scale(1.035);
+    filter: blur(9px);
+    will-change: opacity, filter, transform;
+}
+
+.mi-neural-visible .mi-neural-network {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+    transition:
+        opacity 1.8s cubic-bezier(.22, 1, .36, 1),
+        filter 2.2s cubic-bezier(.22, 1, .36, 1),
+        transform 8s ease-out;
+}
+
+.mi-neural-line {
+    fill: none;
+    stroke: rgba(79, 140, 255, 0.20);
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
+}
+
+.mi-neural-line.mi-line-secondary {
+    stroke: rgba(110, 231, 255, 0.12);
+    stroke-width: 0.75;
+}
+
+.mi-neural-pulse {
+    fill: none;
+    stroke: rgba(110, 231, 255, 0.88);
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-dasharray: 4 120;
+    vector-effect: non-scaling-stroke;
+    filter: drop-shadow(0 0 5px rgba(110, 231, 255, 0.72));
+    animation: miNeuralPulse 4.8s linear infinite;
+}
+
+.mi-neural-node-halo {
+    fill: rgba(79, 140, 255, 0.08);
+    stroke: rgba(79, 140, 255, 0.12);
+    stroke-width: 1;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: miNodeHalo 3.8s ease-in-out infinite alternate;
+}
+
+.mi-neural-node {
+    fill: #6ee7ff;
+    stroke: rgba(255, 255, 255, 0.55);
+    stroke-width: 0.7;
+    filter:
+        drop-shadow(0 0 5px rgba(110, 231, 255, 0.95))
+        drop-shadow(0 0 15px rgba(79, 140, 255, 0.48));
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: miNodePulse 2.9s ease-in-out infinite alternate;
+}
+
+.mi-neural-vignette {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 0%,
+            rgba(5, 8, 22, 0.18) 42%,
+            rgba(2, 4, 12, 0.72) 100%
+        );
+}
+
+.mi-neural-light {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(79, 140, 255, 0.035),
+            transparent 38%
+        );
+    animation: miAmbientLight 5s ease-in-out infinite alternate;
+}
+
+.mi-logo-reveal {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    place-items: center;
+    width: clamp(150px, 18vw, 280px);
+    aspect-ratio: 1;
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.68);
+    filter: blur(18px);
+    will-change: opacity, transform, filter;
+}
+
+.mi-neural-intro.mi-logo-entering .mi-logo-reveal {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1.16);
+    filter: blur(0);
+    transition:
+        opacity 1.15s cubic-bezier(.22, 1, .36, 1),
+        transform 1.8s cubic-bezier(.16, 1, .3, 1),
+        filter 1.3s cubic-bezier(.22, 1, .36, 1);
+}
+
+.mi-neural-intro.mi-logo-settled .mi-logo-reveal {
+    transform: scale(1);
+    transition: transform 1.5s cubic-bezier(.22, 1, .36, 1);
+}
+
+.mi-neural-intro.mi-logo-leaving .mi-logo-reveal {
+    opacity: 0;
+    transform: scale(0.88);
+    filter: blur(14px);
+    transition:
+        opacity 1.15s cubic-bezier(.22, 1, .36, 1),
+        transform 1.15s cubic-bezier(.22, 1, .36, 1),
+        filter 1.15s cubic-bezier(.22, 1, .36, 1);
+}
+
+.mi-intro-logo {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+    user-select: none;
+    filter:
+        drop-shadow(0 0 15px rgba(79, 140, 255, 0.36))
+        drop-shadow(0 0 42px rgba(110, 231, 255, 0.20));
+}
+
+.mi-logo-glow {
+    position: absolute;
+    inset: 5%;
+    border-radius: 50%;
+    background:
+        radial-gradient(
+            circle,
+            rgba(110, 231, 255, 0.20),
+            rgba(79, 140, 255, 0.08) 45%,
+            transparent 72%
+        );
+    filter: blur(20px);
+    transform: scale(1.22);
+    animation: miLogoGlow 2.8s ease-in-out infinite alternate;
+}
+
+.mi-logo-shine {
+    position: absolute;
+    z-index: 4;
+    inset: -10%;
+    overflow: hidden;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.mi-logo-shine::before {
+    content: "";
+    position: absolute;
+    top: -25%;
+    bottom: -25%;
+    left: -55%;
+    width: 24%;
+    transform: rotate(18deg);
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.78),
+            rgba(110, 231, 255, 0.42),
+            transparent
+        );
+    filter: blur(5px);
+}
+
+.mi-logo-settled .mi-logo-shine {
+    opacity: 1;
+}
+
+.mi-logo-settled .mi-logo-shine::before {
+    animation: miLogoShine 1.6s cubic-bezier(.22, 1, .36, 1) forwards;
+}
+
+.mi-neural-intro.mi-neural-exiting {
+    transform: translate3d(0, -100%, 0);
+    transition: transform 2.2s cubic-bezier(.76, 0, .24, 1);
+}
+
+@keyframes miNeuralPulse {
+    from {
+        stroke-dashoffset: 0;
+    }
+
+    to {
+        stroke-dashoffset: -248;
+    }
+}
+
+@keyframes miNodePulse {
+    from {
+        opacity: 0.62;
+        transform: scale(0.82);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.16);
+    }
+}
+
+@keyframes miNodeHalo {
+    from {
+        opacity: 0.24;
+        transform: scale(0.78);
+    }
+
+    to {
+        opacity: 0.72;
+        transform: scale(1.22);
+    }
+}
+
+@keyframes miAmbientLight {
+    from {
+        opacity: 0.38;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 0.78;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes miLogoGlow {
+    from {
+        opacity: 0.42;
+        transform: scale(1.08);
+    }
+
+    to {
+        opacity: 0.9;
+        transform: scale(1.3);
+    }
+}
+
+@keyframes miLogoShine {
+    from {
+        left: -55%;
+    }
+
+    to {
+        left: 135%;
+    }
+}
+
+@media (max-width: 700px) {
+    .mi-logo-reveal {
+        width: clamp(130px, 42vw, 210px);
+    }
+
+    .mi-neural-network {
+        inset: -8%;
+        width: 116%;
+        height: 116%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mi-neural-node,
+    .mi-neural-node-halo,
+    .mi-neural-pulse,
+    .mi-neural-light,
+    .mi-logo-glow,
+    .mi-logo-shine::before {
+        animation: none !important;
+    }
+
+    .mi-neural-intro,
+    .mi-neural-network,
+    .mi-logo-reveal {
+        transition-duration: 0.4s !important;
+    }
+
+    .mi-neural-intro.mi-neural-exiting {
+        transition-duration: 0.7s !important;
+    }
+}
+
+/* MI_NEURAL_LOGO_SEQUENCE_END */
+
+/* MI_LARGE_LOGO_TAGLINE_START */
+
+.mi-logo-reveal {
+    width: clamp(190px, 22vw, 340px) !important;
+    overflow: visible !important;
+}
+
+.mi-logo-tagline {
+    position: absolute;
+    top: calc(100% + 30px);
+    left: 50%;
+    width: max-content;
+    max-width: 92vw;
+    transform: translateX(-50%) translateY(18px);
+    opacity: 0;
+    visibility: hidden;
+    filter: blur(14px);
+    white-space: nowrap;
+    text-align: center;
+    font-size: clamp(0.72rem, 1.25vw, 1.08rem);
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: clamp(0.18em, 0.5vw, 0.48em);
+    color: #6ee7ff;
+    background: linear-gradient(
+        90deg,
+        #4f8cff 0%,
+        #6ee7ff 28%,
+        #ffffff 50%,
+        #6ee7ff 72%,
+        #4f8cff 100%
+    );
+    background-size: 220% 100%;
+    background-position: 0% 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow:
+        0 0 10px rgba(110, 231, 255, 0.42),
+        0 0 24px rgba(79, 140, 255, 0.25);
+    pointer-events: none;
+    will-change: opacity, transform, filter;
+}
+
+.mi-logo-tagline span {
+    display: inline-block;
+    margin: 0 0.35em;
+    color: #ffffff;
+    -webkit-text-fill-color: #ffffff;
+    text-shadow:
+        0 0 8px rgba(255, 255, 255, 0.55),
+        0 0 18px rgba(110, 231, 255, 0.4);
+}
+
+.mi-neural-intro.mi-logo-entering .mi-logo-tagline,
+.mi-neural-intro.mi-logo-settled .mi-logo-tagline {
+    visibility: visible;
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(-50%) translateY(0);
+    transition:
+        opacity 1.2s cubic-bezier(.22, 1, .36, 1) 0.35s,
+        filter 1.5s cubic-bezier(.22, 1, .36, 1) 0.35s,
+        transform 1.5s cubic-bezier(.22, 1, .36, 1) 0.35s;
+    animation: miTaglineLightSweep 4s ease-in-out infinite;
+}
+
+.mi-neural-intro.mi-logo-leaving .mi-logo-tagline {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateX(-50%) translateY(12px);
+    transition:
+        opacity 0.9s cubic-bezier(.22, 1, .36, 1),
+        filter 0.9s cubic-bezier(.22, 1, .36, 1),
+        transform 0.9s cubic-bezier(.22, 1, .36, 1);
+}
+
+@keyframes miTaglineLightSweep {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@media (max-width: 700px) {
+    .mi-logo-reveal {
+        width: clamp(155px, 48vw, 230px) !important;
+    }
+
+    .mi-logo-tagline {
+        top: calc(100% + 22px);
+        max-width: 94vw;
+        font-size: clamp(0.56rem, 2.8vw, 0.76rem);
+        letter-spacing: clamp(0.08em, 0.6vw, 0.2em);
+    }
+
+    .mi-logo-tagline span {
+        margin: 0 0.16em;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mi-logo-tagline {
+        animation: none !important;
+        transition-duration: 0.3s !important;
+    }
+}
+
+/* MI_LARGE_LOGO_TAGLINE_END */
+
+/* MI_FRONT_PAGE_START */
 
 html {
     scroll-behavior: smooth;
 }
 
+html,
 body {
-    margin: 0;
-    min-height: 100vh;
+    width: 100%;
+    max-width: 100%;
     overflow-x: hidden;
-    background:
-        radial-gradient(circle at 20% 0%, rgba(48, 91, 173, 0.14), transparent 34%),
-        radial-gradient(circle at 80% 10%, rgba(102, 76, 190, 0.11), transparent 32%),
-        var(--background);
-    color: var(--text);
-    font-family:
-        Inter,
-        ui-sans-serif,
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
 }
 
-button,
-input,
-textarea,
-select {
-    font: inherit;
+.mi-front-page {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+    min-height: 620px;
+    overflow: hidden;
+    background: #02040a;
 }
 
-button,
-a {
-    -webkit-tap-highlight-color: transparent;
-}
-
-button {
-    color: inherit;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-.sr-only {
+/*
+The banner belongs to this section.
+It is not fixed, so the complete front page scrolls away normally.
+*/
+.mi-front-page-banner {
     position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
-
-.site-background {
-    position: fixed;
+    z-index: -3;
     inset: 0;
-    z-index: -2;
-    overflow: hidden;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    user-select: none;
     pointer-events: none;
 }
 
-.background-grid {
+.mi-front-page-shade {
     position: absolute;
+    z-index: -2;
     inset: 0;
-    opacity: 0.18;
-    background-image:
-        linear-gradient(rgba(255, 255, 255, 0.024) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.024) 1px, transparent 1px);
-    background-size: 64px 64px;
-    mask-image: linear-gradient(to bottom, black, transparent 92%);
-}
-
-.background-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(90px);
-    opacity: 0.16;
-}
-
-.background-orb-one {
-    width: 520px;
-    height: 520px;
-    top: -200px;
-    left: -180px;
-    background: var(--accent);
-}
-
-.background-orb-two {
-    width: 520px;
-    height: 520px;
-    top: 240px;
-    right: -260px;
-    background: var(--purple);
-}
-
-.site-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    min-height: var(--header-height);
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    gap: 30px;
-    padding: 14px clamp(20px, 4vw, 64px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.075);
-    background: rgba(5, 6, 10, 0.82);
-    backdrop-filter: blur(24px);
-}
-
-.brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 13px;
-    min-width: max-content;
-}
-
-.brand-symbol {
-    width: 48px;
-    height: 48px;
-    display: grid;
-    place-items: center;
-    border: 1px solid rgba(106, 168, 255, 0.42);
-    border-radius: 50%;
+    pointer-events: none;
     background:
-        radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.2), transparent 22%),
-        linear-gradient(145deg, rgba(106, 168, 255, 0.25), rgba(146, 118, 255, 0.1));
-    box-shadow:
-        inset 0 0 20px rgba(106, 168, 255, 0.16),
-        0 0 28px rgba(106, 168, 255, 0.16);
-    color: var(--accent-bright);
-    font-size: 13px;
-    font-weight: 900;
-    letter-spacing: 1px;
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.05) 0%,
+            rgba(0, 0, 0, 0.01) 48%,
+            rgba(0, 0, 0, 0.42) 100%
+        );
 }
 
-.brand-text {
+.mi-front-page-scroll-button {
+    position: absolute;
+    z-index: 5;
+    bottom: clamp(24px, 4vh, 48px);
+    left: 50%;
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    align-items: center;
+    gap: 11px;
+    color: rgba(255, 255, 255, 0.92);
+    text-decoration: none;
+    transform: translateX(-50%);
+    transition:
+        opacity 250ms ease,
+        transform 250ms ease;
 }
 
-.brand-text strong {
-    font-size: 15px;
-    letter-spacing: 2px;
+.mi-front-page-scroll-button:hover {
+    transform: translateX(-50%) translateY(-5px);
 }
 
-.brand-text small {
-    color: var(--text-muted);
-    font-size: 8px;
-    letter-spacing: 2.4px;
+.mi-front-page-scroll-text {
+    font-size: 0.6rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.36em;
+    text-indent: 0.36em;
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.35),
+        0 0 20px rgba(71, 178, 255, 0.38);
 }
 
-.main-navigation {
+.mi-front-page-scroll-mouse {
+    position: relative;
+    display: block;
+    width: 24px;
+    height: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 18px;
+    box-shadow:
+        0 0 12px rgba(255, 255, 255, 0.12),
+        0 0 22px rgba(71, 178, 255, 0.18);
+}
+
+.mi-front-page-scroll-mouse span {
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    width: 3px;
+    height: 7px;
+    border-radius: 99px;
+    background: #ffffff;
+    box-shadow: 0 0 9px rgba(100, 210, 255, 0.9);
+    transform: translateX(-50%);
+    animation: miFrontPageScrollIndicator 1.8s ease-in-out infinite;
+}
+
+.mi-main-content-start {
+    width: 100%;
+    height: 0;
+    scroll-margin-top: 0;
+}
+
+@keyframes miFrontPageScrollIndicator {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(15px);
+    }
+}
+
+@media (max-width: 700px) {
+    .mi-front-page {
+        min-height: 520px;
+    }
+
+    .mi-front-page-banner {
+        object-position: center center;
+    }
+
+    .mi-front-page-scroll-button {
+        bottom: 20px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .mi-front-page-scroll-mouse span {
+        animation: none;
+    }
+}
+
+/* MI_FRONT_PAGE_END */
+
+/* MI_WELCOME_FRONT_PAGE_REPAIR_START */
+
+/*
+Normal document scrolling.
+Do not use scroll snapping because it can trap the welcome overlay
+on a blank black screen.
+*/
+html {
+    width: 100% !important;
+    min-height: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    scroll-snap-type: none !important;
+    scroll-behavior: smooth;
+}
+
+body {
+    position: relative !important;
+    width: 100% !important;
+    min-height: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+    scroll-snap-type: none !important;
+}
+
+/*
+Keep the welcome animation above everything while it is active.
+*/
+.mi-neural-intro {
+    position: fixed !important;
+    z-index: 2147483000 !important;
+    inset: 0 !important;
+    display: block;
+    width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    overflow: hidden !important;
+    background: #000000;
+    pointer-events: auto;
+}
+
+/*
+Do not permanently hide the logo.
+Its existing animation classes remain responsible for opacity
+and transform changes.
+*/
+.mi-neural-intro .mi-logo-reveal {
+    display: flex !important;
+    visibility: visible !important;
+}
+
+.mi-neural-intro .mi-intro-logo,
+.mi-neural-intro .mi-logo-reveal img {
+    display: block !important;
+    visibility: visible !important;
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+/*
+The tagline must remain available during the logo animation.
+*/
+.mi-neural-intro .mi-logo-tagline {
+    display: block !important;
+}
+
+/*
+When the intro JavaScript finishes, the overlay may use one of
+these common completion classes.
+*/
+.mi-neural-intro.mi-intro-complete,
+.mi-neural-intro.mi-intro-finished,
+.mi-neural-intro.mi-intro-hidden,
+.mi-neural-intro.is-complete,
+.mi-neural-intro.is-finished,
+.mi-neural-intro.is-hidden {
+    pointer-events: none !important;
+}
+
+/*
+The front banner is a real standalone first section.
+It occupies exactly one complete visible browser viewport.
+*/
+#mi-front-page,
+.mi-front-page {
+    position: relative !important;
+    z-index: 1 !important;
+    inset: auto !important;
+    display: block !important;
+
+    width: 100% !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+
+    transform: none !important;
+    translate: none !important;
+    scroll-snap-align: none !important;
+    scroll-snap-stop: normal !important;
+
+    background: #02040a;
+}
+
+/*
+The banner scrolls upward together with its section.
+It is not fixed or sticky.
+*/
+.mi-front-page-banner,
+.mi-front-page-image {
+    position: absolute !important;
+    z-index: -3 !important;
+    inset: 0 !important;
+
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: cover !important;
+    object-position: center center !important;
+
+    background-position: center center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-attachment: scroll !important;
+
+    transform: none !important;
+    translate: none !important;
+    pointer-events: none !important;
+    user-select: none !important;
+}
+
+/*
+Remove all previous SCROLL text and mouse indicators.
+*/
+.mi-front-page-scroll-button,
+.mi-front-page-scroll,
+.mi-front-page-scroll-text,
+.mi-front-page-scroll-mouse,
+.mi-front-page-scroll-line,
+.mi-front-page-scroll-label {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/*
+The anchor takes no space.
+The real website begins immediately after the complete banner section.
+*/
+#mi-main-content-start,
+.mi-main-content-start,
+#main-website-content,
+.mi-main-website-anchor {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+}
+
+/*
+Prevent existing navigation or hero sections from overlapping
+the front banner with negative margins or vertical transforms.
+*/
+#mi-main-content-start ~ header,
+#mi-main-content-start ~ main,
+#mi-main-content-start ~ section,
+#mi-main-content-start ~ footer,
+.mi-main-content-start ~ header,
+.mi-main-content-start ~ main,
+.mi-main-content-start ~ section,
+.mi-main-content-start ~ footer {
+    position: relative;
+    margin-top: 0 !important;
+    translate: none !important;
+}
+
+/*
+Do not force any main website section to snap into view.
+The banner must scroll away naturally before the next content appears.
+*/
+body > header,
+body > main,
+body > section,
+body > footer {
+    scroll-snap-align: none !important;
+    scroll-snap-stop: normal !important;
+}
+
+/*
+Keep the front page behind the welcome intro until the intro finishes.
+*/
+body:has(.mi-neural-intro:not(.mi-intro-complete):not(.mi-intro-finished):not(.mi-intro-hidden):not(.is-complete):not(.is-finished):not(.is-hidden)) {
+    overflow: hidden;
+}
+
+@media (max-width: 700px) {
+    #mi-front-page,
+    .mi-front-page {
+        height: 100svh !important;
+        min-height: 100svh !important;
+    }
+
+    .mi-front-page-banner,
+    .mi-front-page-image {
+        object-position: center center !important;
+        background-position: center center !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* MI_WELCOME_FRONT_PAGE_REPAIR_END */
+
+/* MI_INTRO_LOGO_CENTER_START */
+
+/*
+Center the complete logo and tagline group in the visible screen.
+*/
+.mi-neural-intro {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.mi-neural-intro .mi-logo-reveal {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: clamp(210px, 24vw, 360px) !important;
+    height: auto !important;
+
+    margin: 0 !important;
+    transform: translate(-50%, -50%) !important;
+    transform-origin: center center !important;
+}
+
+.mi-neural-intro .mi-intro-logo,
+.mi-neural-intro .mi-logo-reveal img {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+
+    margin: 0 auto !important;
+    transform-origin: center center !important;
+}
+
+.mi-neural-intro .mi-logo-tagline {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+
+    width: max-content !important;
+    max-width: 94vw !important;
+
+    margin-top: 28px !important;
+
+    transform: none !important;
+    text-align: center !important;
+}
+
+/*
+Preserve the existing zoom animation while keeping it centered.
+*/
+.mi-neural-intro.mi-logo-entering .mi-logo-reveal,
+.mi-neural-intro.mi-logo-settled .mi-logo-reveal {
+    left: 50% !important;
+    top: 50% !important;
+}
+
+@media (max-width: 700px) {
+    .mi-neural-intro .mi-logo-reveal {
+        width: clamp(180px, 58vw, 280px) !important;
+    }
+
+    .mi-neural-intro .mi-logo-tagline {
+        margin-top: 22px !important;
+    }
+}
+
+/* MI_INTRO_LOGO_CENTER_END */
+
+/* MI_FRONT_PAGE_FULL_SCROLL_START */
+
+/*
+The front page always occupies one complete browser viewport.
+It scrolls as one full page and cannot remain partially visible.
+*/
+html,
+body {
+    scroll-snap-type: none !important;
+    scroll-behavior: smooth !important;
+}
+
+#mi-front-page,
+.mi-front-page {
+    position: relative !important;
+    width: 100% !important;
+
+    height: 100vh !important;
+    height: 100dvh !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    max-height: 100dvh !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+
+    transform: none !important;
+    translate: none !important;
+}
+
+.mi-front-page-banner,
+.mi-front-page-image {
+    position: absolute !important;
+    inset: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: cover !important;
+    object-position: center center !important;
+
+    background-size: cover !important;
+    background-position: center center !important;
+    background-attachment: scroll !important;
+
+    transform: none !important;
+}
+
+/*
+Remove every old scroll icon, mouse and label.
+*/
+.mi-front-page-scroll-button,
+.mi-front-page-scroll,
+.mi-front-page-scroll-text,
+.mi-front-page-scroll-mouse,
+.mi-front-page-scroll-line,
+.mi-front-page-scroll-label {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+#mi-main-content-start,
+.mi-main-content-start {
+    display: block !important;
+    width: 100% !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/*
+Prevent the navigation and main website from moving over
+the front-page banner.
+*/
+#mi-main-content-start ~ *,
+.mi-main-content-start ~ * {
+    margin-top: 0 !important;
+}
+
+html.mi-front-page-scrolling,
+html.mi-front-page-scrolling body {
+    overscroll-behavior-y: none !important;
+}
+
+@media (max-width: 700px) {
+    #mi-front-page,
+    .mi-front-page {
+        height: 100svh !important;
+        min-height: 100svh !important;
+        max-height: 100svh !important;
+    }
+}
+
+/* MI_FRONT_PAGE_FULL_SCROLL_END */
+
+/* MI_FIXED_GLASS_NAV_START */
+
+/*
+The MI CORTEX X navigation becomes fixed only after
+the full front-page banner has scrolled away.
+*/
+.mi-fixed-glass-nav {
+    position: fixed !important;
+    z-index: 999999 !important;
+
+    top: 16px !important;
+    left: clamp(20px, 6.3vw, 88px) !important;
+    right: clamp(20px, 6.3vw, 88px) !important;
+
+    width: auto !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+
+    background:
+        linear-gradient(
+            115deg,
+            rgba(4, 13, 27, 0.78),
+            rgba(8, 9, 31, 0.72)
+        ) !important;
+
+    border: 1px solid rgba(170, 205, 255, 0.18) !important;
+    border-radius: 999px !important;
+
+    -webkit-backdrop-filter:
+        blur(24px)
+        saturate(145%) !important;
+
+    backdrop-filter:
+        blur(24px)
+        saturate(145%) !important;
+
+    box-shadow:
+        0 12px 45px rgba(0, 0, 0, 0.34),
+        inset 0 1px 0 rgba(255, 255, 255, 0.055),
+        0 0 28px rgba(48, 145, 255, 0.06) !important;
+
+    transform: translateY(-135%) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+
+    transition:
+        transform 650ms cubic-bezier(.22, 1, .36, 1),
+        opacity 450ms ease,
+        background-color 350ms ease,
+        box-shadow 350ms ease !important;
+
+    will-change: transform, opacity;
+}
+
+/*
+Show the blurred navigation after the front page
+has completely left the screen.
+*/
+html.mi-main-site-visible .mi-fixed-glass-nav {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+/*
+Increase the blur slightly while scrolling.
+*/
+html.mi-page-is-scrolling .mi-fixed-glass-nav {
+    background:
+        linear-gradient(
+            115deg,
+            rgba(3, 11, 24, 0.86),
+            rgba(10, 8, 34, 0.82)
+        ) !important;
+
+    -webkit-backdrop-filter:
+        blur(30px)
+        saturate(155%) !important;
+
+    backdrop-filter:
+        blur(30px)
+        saturate(155%) !important;
+
+    box-shadow:
+        0 16px 52px rgba(0, 0, 0, 0.42),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07),
+        0 0 35px rgba(48, 145, 255, 0.09) !important;
+}
+
+@media (max-width: 850px) {
+    .mi-fixed-glass-nav {
+        top: 10px !important;
+        left: 12px !important;
+        right: 12px !important;
+        border-radius: 28px !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mi-fixed-glass-nav {
+        transition-duration: 0.2s !important;
+    }
+}
+
+/* MI_FIXED_GLASS_NAV_END */
+
+/* MI_INNER_ROUNDED_NAV_START */
+
+/*
+The outer header must remain completely invisible.
+Only the original inner rounded navigation bar is displayed.
+*/
+.mi-fixed-glass-nav {
+    position: fixed !important;
+    z-index: 999999 !important;
+
+    top: 16px !important;
+    left: clamp(20px, 6.3vw, 88px) !important;
+    right: clamp(20px, 6.3vw, 88px) !important;
+
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+
+    border: none !important;
+    outline: none !important;
+    border-radius: 999px !important;
+
+    background:
+        linear-gradient(
+            115deg,
+            rgba(4, 13, 27, 0.76),
+            rgba(8, 9, 31, 0.72)
+        ) !important;
+
+    -webkit-backdrop-filter:
+        blur(24px)
+        saturate(145%) !important;
+
+    backdrop-filter:
+        blur(24px)
+        saturate(145%) !important;
+
+    box-shadow:
+        0 12px 45px rgba(0, 0, 0, 0.30),
+        inset 0 1px 0 rgba(255, 255, 255, 0.055) !important;
+
+    transform: translateY(-135%) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+
+    transition:
+        transform 650ms cubic-bezier(.22, 1, .36, 1),
+        opacity 450ms ease !important;
+}
+
+html.mi-main-site-visible .mi-fixed-glass-nav {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+/*
+Remove the large outer rectangle created by the header.
+*/
+.mi-fixed-nav-outer-clean {
+    position: static !important;
+    inset: auto !important;
+
+    width: auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    border: none !important;
+    outline: none !important;
+    border-radius: 0 !important;
+
+    background: transparent !important;
+
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+/*
+Disable pseudo-elements that may create another outer panel.
+*/
+.mi-fixed-nav-outer-clean::before,
+.mi-fixed-nav-outer-clean::after {
+    content: none !important;
+    display: none !important;
+}
+
+/*
+Do not add a second background or outline inside the selected rounded bar.
+*/
+.mi-fixed-glass-nav::before,
+.mi-fixed-glass-nav::after {
+    content: none !important;
+    display: none !important;
+}
+
+/*
+Preserve the original spacing and layout inside the rounded bar.
+*/
+.mi-fixed-glass-nav > div,
+.mi-fixed-glass-nav > nav {
+    width: 100% !important;
+    margin: 0 !important;
+
+    border: none !important;
+    outline: none !important;
+
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+html.mi-page-is-scrolling .mi-fixed-glass-nav {
+    background:
+        linear-gradient(
+            115deg,
+            rgba(3, 11, 24, 0.84),
+            rgba(10, 8, 34, 0.80)
+        ) !important;
+
+    -webkit-backdrop-filter:
+        blur(30px)
+        saturate(155%) !important;
+
+    backdrop-filter:
+        blur(30px)
+        saturate(155%) !important;
+
+    box-shadow:
+        0 15px 48px rgba(0, 0, 0, 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.065) !important;
+}
+
+@media (max-width: 850px) {
+    .mi-fixed-glass-nav {
+        top: 10px !important;
+        left: 12px !important;
+        right: 12px !important;
+        border-radius: 28px !important;
+    }
+}
+
+/* MI_INNER_ROUNDED_NAV_END */
+
+/* MI_NAV_SINGLE_LINE_LIGHT_START */
+
+/*
+Keep the entire navigation bar on one horizontal line.
+*/
+.mi-fixed-glass-nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    min-height: 92px !important;
+    height: auto !important;
+
+    padding: 14px 24px !important;
+
+    overflow: hidden !important;
+    white-space: nowrap !important;
+
+    background:
+        linear-gradient(
+            110deg,
+            rgba(18, 35, 54, 0.82) 0%,
+            rgba(11, 19, 40, 0.78) 48%,
+            rgba(25, 17, 58, 0.80) 100%
+        ) !important;
+
+    -webkit-backdrop-filter:
+        blur(28px)
+        saturate(165%)
+        brightness(1.12) !important;
+
+    backdrop-filter:
+        blur(28px)
+        saturate(165%)
+        brightness(1.12) !important;
+
+    box-shadow:
+        0 14px 46px rgba(0, 0, 0, 0.30),
+        0 0 32px rgba(65, 178, 255, 0.11),
+        inset 0 1px 0 rgba(255, 255, 255, 0.09) !important;
+}
+
+/*
+Ensure the direct navigation container also stays on one line.
+*/
+.mi-fixed-glass-nav > div,
+.mi-fixed-glass-nav > nav,
+.mi-fixed-glass-nav .navbar,
+.mi-fixed-glass-nav .nav-container,
+.mi-fixed-glass-nav .navigation {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    width: 100% !important;
+    min-width: 0 !important;
+
+    gap: 24px !important;
+    flex-wrap: nowrap !important;
+
+    white-space: nowrap !important;
+}
+
+/*
+Keep the logo and MI CORTEX X title on the same line.
+*/
+.mi-fixed-glass-nav a:has(img),
+.mi-fixed-glass-nav .logo,
+.mi-fixed-glass-nav .brand,
+.mi-fixed-glass-nav .navbar-brand,
+.mi-fixed-glass-nav .site-logo,
+.mi-fixed-glass-nav .nav-logo {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+
+    flex: 0 0 auto !important;
+    gap: 14px !important;
+
+    width: auto !important;
+    min-width: max-content !important;
+
+    white-space: nowrap !important;
+}
+
+/*
+Prevent MI CORTEX X from breaking into three lines.
+*/
+.mi-fixed-glass-nav .logo span,
+.mi-fixed-glass-nav .brand span,
+.mi-fixed-glass-nav .navbar-brand span,
+.mi-fixed-glass-nav .site-logo span,
+.mi-fixed-glass-nav .nav-logo span,
+.mi-fixed-glass-nav a:has(img) span {
+    display: inline-block !important;
+
+    width: auto !important;
+    max-width: none !important;
+
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+
+    line-height: 1 !important;
+}
+
+/*
+Keep the menu links on one horizontal line.
+*/
+.mi-fixed-glass-nav ul {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+
+    flex: 1 1 auto !important;
+    flex-wrap: nowrap !important;
+
+    gap: clamp(16px, 2vw, 30px) !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    white-space: nowrap !important;
+    list-style: none !important;
+}
+
+.mi-fixed-glass-nav li {
+    display: block !important;
+    flex: 0 0 auto !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    white-space: nowrap !important;
+}
+
+.mi-fixed-glass-nav a {
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+}
+
+/*
+Make the navigation text slightly brighter.
+*/
+.mi-fixed-glass-nav a,
+.mi-fixed-glass-nav button {
+    color: rgba(225, 235, 255, 0.82) !important;
+    text-shadow:
+        0 0 12px rgba(110, 210, 255, 0.08) !important;
+}
+
+.mi-fixed-glass-nav a:hover,
+.mi-fixed-glass-nav a[aria-current="page"],
+.mi-fixed-glass-nav .active {
+    color: #ffffff !important;
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.20),
+        0 0 18px rgba(100, 205, 255, 0.18) !important;
+}
+
+/*
+Keep the logo at a stable size.
+*/
+.mi-fixed-glass-nav img {
+    flex: 0 0 auto !important;
+
+    width: 62px !important;
+    height: 62px !important;
+
+    max-width: 62px !important;
+    max-height: 62px !important;
+
+    object-fit: contain !important;
+}
+
+/*
+Slightly brighter appearance while scrolling.
+*/
+html.mi-page-is-scrolling .mi-fixed-glass-nav {
+    background:
+        linear-gradient(
+            110deg,
+            rgba(20, 39, 59, 0.88) 0%,
+            rgba(12, 21, 43, 0.86) 48%,
+            rgba(28, 19, 65, 0.87) 100%
+        ) !important;
+
+    -webkit-backdrop-filter:
+        blur(32px)
+        saturate(175%)
+        brightness(1.15) !important;
+
+    backdrop-filter:
+        blur(32px)
+        saturate(175%)
+        brightness(1.15) !important;
+}
+
+@media (max-width: 1050px) {
+    .mi-fixed-glass-nav {
+        padding: 12px 18px !important;
+    }
+
+    .mi-fixed-glass-nav > div,
+    .mi-fixed-glass-nav > nav,
+    .mi-fixed-glass-nav .navbar,
+    .mi-fixed-glass-nav .nav-container,
+    .mi-fixed-glass-nav .navigation {
+        gap: 15px !important;
+    }
+
+    .mi-fixed-glass-nav ul {
+        gap: 15px !important;
+    }
+
+    .mi-fixed-glass-nav a {
+        font-size: 0.9rem !important;
+    }
+
+    .mi-fixed-glass-nav img {
+        width: 56px !important;
+        height: 56px !important;
+        max-width: 56px !important;
+        max-height: 56px !important;
+    }
+}
+
+@media (max-width: 850px) {
+    .mi-fixed-glass-nav {
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        scrollbar-width: none !important;
+    }
+
+    .mi-fixed-glass-nav::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .mi-fixed-glass-nav > div,
+    .mi-fixed-glass-nav > nav,
+    .mi-fixed-glass-nav .navbar,
+    .mi-fixed-glass-nav .nav-container,
+    .mi-fixed-glass-nav .navigation {
+        min-width: max-content !important;
+    }
+}
+
+/* MI_NAV_SINGLE_LINE_LIGHT_END */
+
+/* MI_PREMIUM_NAV_UPGRADE_START */
+
+/* ===== PREMIUM GLASS ===== */
+
+.mi-fixed-glass-nav{
+
+    background:
+    linear-gradient(
+        120deg,
+        rgba(20,35,60,.88),
+        rgba(10,15,38,.84),
+        rgba(28,18,62,.88)
+    ) !important;
+
+    -webkit-backdrop-filter:
+        blur(42px)
+        saturate(190%)
+        brightness(1.25) !important;
+
+    backdrop-filter:
+        blur(42px)
+        saturate(190%)
+        brightness(1.25) !important;
+
+    box-shadow:
+        0 22px 70px rgba(0,0,0,.45),
+        0 0 60px rgba(72,170,255,.18),
+        inset 0 1px 0 rgba(255,255,255,.10) !important;
+}
+
+/* ===== LOGO AREA ===== */
+
+.mi-fixed-glass-nav .logo,
+.mi-fixed-glass-nav .brand,
+.mi-fixed-glass-nav .navbar-brand,
+.mi-fixed-glass-nav .site-logo,
+.mi-fixed-glass-nav .nav-logo{
+
+    display:flex !important;
+    align-items:center !important;
+    gap:18px !important;
+
+    margin-right:120px !important;
+
+    flex-shrink:0 !important;
+}
+
+/* ===== COMPANY NAME ===== */
+
+.mi-fixed-glass-nav .logo span,
+.mi-fixed-glass-nav .brand span,
+.mi-fixed-glass-nav .navbar-brand span,
+.mi-fixed-glass-nav .site-logo span,
+.mi-fixed-glass-nav .nav-logo span{
+
+    font-size:26px !important;
+    font-weight:800 !important;
+    letter-spacing:1px !important;
+
+    color:#FFD86A !important;
+
+    white-space:nowrap !important;
+
+    text-shadow:
+        0 0 8px rgba(255,216,106,.55),
+        0 0 18px rgba(255,216,106,.28),
+        0 0 35px rgba(255,180,0,.15) !important;
+}
+
+/* ===== MENU ===== */
+
+.mi-fixed-glass-nav ul{
+
+    display:flex !important;
+    align-items:center !important;
+
+    gap:42px !important;
+
+    margin-left:auto !important;
+}
+
+/* ===== MENU LINKS ===== */
+
+.mi-fixed-glass-nav li{
+
+    margin:0 !important;
+}
+
+.mi-fixed-glass-nav a{
+
+    color:rgba(240,245,255,.90) !important;
+
+    font-size:18px !important;
+    font-weight:600 !important;
+
+    transition:.25s !important;
+}
+
+.mi-fixed-glass-nav a:hover{
+
+    color:white !important;
+
+    text-shadow:
+        0 0 12px rgba(120,220,255,.40),
+        0 0 24px rgba(120,220,255,.20);
+}
+
+/* ===== LOGO ===== */
+
+.mi-fixed-glass-nav img{
+
+    width:68px !important;
+    height:68px !important;
+}
+
+/* MI_PREMIUM_NAV_UPGRADE_END */
+
+/* MI_IPHONE_LIQUID_GLASS_START */
+
+/*
+Transparent liquid-glass navigation.
+The content moving behind the bar remains visible,
+but appears strongly blurred, brighter and optically softened.
+*/
+.mi-fixed-glass-nav {
+    isolation: isolate !important;
+
+    overflow: hidden !important;
+
+    border: 1px solid rgba(190, 220, 255, 0.10) !important;
+    outline: none !important;
+    border-radius: 999px !important;
+
+    background:
+        linear-gradient(
+            115deg,
+            rgba(34, 70, 98, 0.18) 0%,
+            rgba(14, 25, 54, 0.16) 46%,
+            rgba(54, 28, 98, 0.18) 100%
+        ) !important;
+
+    -webkit-backdrop-filter:
+        blur(30px)
+        saturate(185%)
+        brightness(1.18)
+        contrast(1.04) !important;
+
+    backdrop-filter:
+        blur(30px)
+        saturate(185%)
+        brightness(1.18)
+        contrast(1.04) !important;
+
+    box-shadow:
+        0 18px 55px rgba(0, 0, 0, 0.28),
+        0 0 42px rgba(66, 190, 255, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.16),
+        inset 0 -1px 0 rgba(104, 125, 255, 0.08) !important;
+}
+
+/*
+Liquid refraction layer.
+This creates the soft magnified-lens appearance.
+*/
+.mi-fixed-glass-nav::before {
+    content: "" !important;
+
+    position: absolute !important;
+    z-index: -2 !important;
+
+    inset: -18px !important;
+
+    display: block !important;
+    pointer-events: none !important;
+
+    border-radius: inherit !important;
+
+    background:
+        radial-gradient(
+            circle at 18% 20%,
+            rgba(140, 230, 255, 0.16),
+            transparent 31%
+        ),
+        radial-gradient(
+            circle at 82% 75%,
+            rgba(147, 91, 255, 0.15),
+            transparent 36%
+        ),
+        linear-gradient(
+            105deg,
+            rgba(255, 255, 255, 0.055),
+            transparent 34%,
+            rgba(255, 255, 255, 0.025) 65%,
+            rgba(148, 105, 255, 0.07)
+        ) !important;
+
+    -webkit-backdrop-filter:
+        blur(23px)
+        saturate(205%)
+        brightness(1.22) !important;
+
+    backdrop-filter:
+        blur(23px)
+        saturate(205%)
+        brightness(1.22) !important;
+
+    transform: scale(1.035) !important;
+    transform-origin: center center !important;
+
+    opacity: 0.96 !important;
+}
+
+/*
+Gloss and curved liquid reflections.
+*/
+.mi-fixed-glass-nav::after {
+    content: "" !important;
+
+    position: absolute !important;
+    z-index: -1 !important;
+
+    top: 2px !important;
+    right: 18px !important;
+    bottom: 2px !important;
+    left: 18px !important;
+
+    display: block !important;
+    pointer-events: none !important;
+
+    border-radius: inherit !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.13) 0%,
+            rgba(255, 255, 255, 0.025) 24%,
+            transparent 48%,
+            rgba(80, 150, 255, 0.025) 75%,
+            rgba(125, 83, 255, 0.07) 100%
+        ) !important;
+
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.12),
+        inset 0 -1px 1px rgba(110, 95, 255, 0.06) !important;
+
+    opacity: 0.85 !important;
+}
+
+/*
+Remove opaque backgrounds from internal navigation containers.
+They must remain transparent so the background can be seen.
+*/
+.mi-fixed-glass-nav > div,
+.mi-fixed-glass-nav > nav,
+.mi-fixed-glass-nav .navbar,
+.mi-fixed-glass-nav .nav-container,
+.mi-fixed-glass-nav .navigation {
+    position: relative !important;
+    z-index: 2 !important;
+
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/*
+Increase the liquid effect while the page is moving.
+*/
+html.mi-page-is-scrolling .mi-fixed-glass-nav {
+    background:
+        linear-gradient(
+            115deg,
+            rgba(35, 78, 108, 0.15) 0%,
+            rgba(14, 24, 52, 0.13) 46%,
+            rgba(58, 28, 105, 0.15) 100%
+        ) !important;
+
+    -webkit-backdrop-filter:
+        blur(38px)
+        saturate(215%)
+        brightness(1.22)
+        contrast(1.06) !important;
+
+    backdrop-filter:
+        blur(38px)
+        saturate(215%)
+        brightness(1.22)
+        contrast(1.06) !important;
+
+    box-shadow:
+        0 22px 68px rgba(0, 0, 0, 0.34),
+        0 0 52px rgba(65, 190, 255, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.19),
+        inset 0 -1px 0 rgba(135, 95, 255, 0.11) !important;
+}
+
+html.mi-page-is-scrolling .mi-fixed-glass-nav::before {
+    transform: scale(1.055) !important;
+
+    -webkit-backdrop-filter:
+        blur(29px)
+        saturate(225%)
+        brightness(1.25) !important;
+
+    backdrop-filter:
+        blur(29px)
+        saturate(225%)
+        brightness(1.25) !important;
+}
+
+/*
+Keep all text and the logo clear above the liquid background.
+*/
+.mi-fixed-glass-nav img,
+.mi-fixed-glass-nav a,
+.mi-fixed-glass-nav button,
+.mi-fixed-glass-nav span,
+.mi-fixed-glass-nav ul,
+.mi-fixed-glass-nav li {
+    position: relative !important;
+    z-index: 3 !important;
+}
+
+/*
+Preserve the premium gold company name.
+*/
+.mi-fixed-glass-nav .logo span,
+.mi-fixed-glass-nav .brand span,
+.mi-fixed-glass-nav .navbar-brand span,
+.mi-fixed-glass-nav .site-logo span,
+.mi-fixed-glass-nav .nav-logo span,
+.mi-fixed-glass-nav a:has(img) span {
+    color: #ffd86a !important;
+
+    text-shadow:
+        0 0 8px rgba(255, 216, 106, 0.58),
+        0 0 20px rgba(255, 194, 65, 0.30),
+        0 0 38px rgba(255, 170, 0, 0.16) !important;
+}
+
+@media (max-width: 850px) {
+    .mi-fixed-glass-nav {
+        border-radius: 30px !important;
+
+        -webkit-backdrop-filter:
+            blur(26px)
+            saturate(185%)
+            brightness(1.17) !important;
+
+        backdrop-filter:
+            blur(26px)
+            saturate(185%)
+            brightness(1.17) !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mi-fixed-glass-nav::before {
+        transform: scale(1.035) !important;
+    }
+}
+
+/* MI_IPHONE_LIQUID_GLASS_END */
+
+/* MI_COMPANY_BLACK_OUTLINE_START */
+
+/*
+Add a clean black outline to the gold MI CORTEX X title.
+*/
+.mi-fixed-glass-nav .logo span,
+.mi-fixed-glass-nav .brand span,
+.mi-fixed-glass-nav .navbar-brand span,
+.mi-fixed-glass-nav .site-logo span,
+.mi-fixed-glass-nav .nav-logo span,
+.mi-fixed-glass-nav a:has(img) span {
+    color: #ffd86a !important;
+
+    -webkit-text-stroke: 1.4px rgba(0, 0, 0, 0.95) !important;
+
+    paint-order: stroke fill !important;
+
+    text-shadow:
+        -1px -1px 0 #000000,
+         1px -1px 0 #000000,
+        -1px  1px 0 #000000,
+         1px  1px 0 #000000,
+         0 0 8px rgba(255, 216, 106, 0.70),
+         0 0 20px rgba(255, 194, 65, 0.35),
+         0 0 36px rgba(255, 170, 0, 0.18) !important;
+}
+
+/* MI_COMPANY_BLACK_OUTLINE_END */
+
+
+/* MI_LOADING_LIFECYCLE_REPAIR_CSS_START */
+
+html.mi-page-ready,
+body.mi-page-ready,
+html.welcome-complete,
+body.welcome-complete,
+html.intro-complete,
+body.intro-complete {
+    overflow-x: hidden;
+}
+
+/* MI_LOADING_LIFECYCLE_REPAIR_CSS_END */
+
+
+/* MI_THREE_DOTS_RELEASE_CSS_START */
+
+.mi-intro-three-dots {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
-}
-
-.nav-button,
-.footer-links button {
-    position: relative;
-    border: 0;
-    background: transparent;
-    cursor: pointer;
-}
-
-.nav-button {
-    padding: 13px 14px;
-    color: var(--text-soft);
-    font-size: 11px;
-    font-weight: 750;
-    letter-spacing: 1.2px;
-    border-radius: 12px;
-    transition:
-        color 180ms ease,
-        background 180ms ease,
-        transform 180ms ease;
-}
-
-.nav-button:hover,
-.nav-button:focus-visible,
-.nav-button.active {
-    color: white;
-    background: rgba(255, 255, 255, 0.065);
-}
-
-.nav-button.active::after {
-    content: "";
-    position: absolute;
-    left: 18px;
-    right: 18px;
-    bottom: 5px;
-    height: 2px;
-    border-radius: 999px;
-    background: linear-gradient(90deg, var(--accent), var(--purple));
-}
-
-.header-cta,
-.primary-button,
-.secondary-button {
-    min-height: 48px;
-    padding: 0 22px;
-    border-radius: 14px;
-    font-size: 11px;
-    font-weight: 850;
-    letter-spacing: 1.1px;
-    cursor: pointer;
-    transition:
-        transform 180ms ease,
-        box-shadow 180ms ease,
-        background 180ms ease,
-        border-color 180ms ease;
-}
-
-.header-cta,
-.primary-button {
-    border: 1px solid rgba(119, 181, 255, 0.5);
-    background:
-        linear-gradient(135deg, rgba(88, 151, 255, 0.95), rgba(112, 86, 224, 0.95));
-    color: white;
-    box-shadow: 0 14px 36px rgba(58, 103, 199, 0.24);
-}
-
-.secondary-button {
-    border: 1px solid var(--border);
-    background: rgba(255, 255, 255, 0.045);
-    color: var(--text);
-}
-
-.header-cta:hover,
-.primary-button:hover,
-.secondary-button:hover {
-    transform: translateY(-2px);
-}
-
-.header-cta:hover,
-.primary-button:hover {
-    box-shadow: 0 20px 44px rgba(58, 103, 199, 0.33);
-}
-
-.mobile-menu-button {
-    display: none;
-    width: 46px;
-    height: 46px;
-    padding: 11px;
-    border: 1px solid var(--border);
-    border-radius: 13px;
-    background: rgba(255, 255, 255, 0.05);
-    cursor: pointer;
-}
-
-.mobile-menu-button > span:not(.sr-only) {
-    display: block;
+    gap: 9px;
     width: 100%;
-    height: 2px;
-    margin: 4px 0;
-    border-radius: 99px;
-    background: var(--text);
+    margin-top: 18px;
+    opacity: 0;
+    transform: translateY(8px);
+    animation: miThreeDotsContainerIn 0.55s ease forwards;
 }
 
-.page-section {
-    display: none;
-    width: min(100%, var(--content-width));
-    margin: 0 auto;
-    padding: 0 clamp(20px, 4vw, 64px) 100px;
-    animation: pageIn 420ms ease both;
-}
-
-.page-section.active {
+.mi-intro-three-dots span {
     display: block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #24bfff;
+    box-shadow:
+        0 0 7px rgba(36, 191, 255, 0.9),
+        0 0 15px rgba(36, 191, 255, 0.55);
+    opacity: 0.28;
+    transform: scale(0.72);
+    animation: miThreeDotsPulse 1.15s ease-in-out infinite;
 }
 
-@keyframes pageIn {
+.mi-intro-three-dots span:nth-child(2) {
+    animation-delay: 0.18s;
+}
+
+.mi-intro-three-dots span:nth-child(3) {
+    animation-delay: 0.36s;
+}
+
+.mi-intro-three-dots.mi-three-dots-exit {
+    animation: miThreeDotsContainerOut 0.48s ease forwards;
+}
+
+@keyframes miThreeDotsContainerIn {
     from {
         opacity: 0;
-        transform: translateY(14px);
+        transform: translateY(8px);
+        filter: blur(4px);
     }
 
     to {
         opacity: 1;
         transform: translateY(0);
+        filter: blur(0);
     }
 }
 
-.hero-section {
-    min-height: calc(100vh - var(--header-height));
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
-    align-items: center;
-    gap: 70px;
-    padding: 90px 0;
-}
-
-.eyebrow {
-    display: inline-block;
-    color: var(--accent-bright);
-    font-size: 10px;
-    font-weight: 850;
-    letter-spacing: 2.5px;
-}
-
-.hero-content h1,
-.page-hero h1 {
-    margin: 20px 0;
-    max-width: 920px;
-    font-size: clamp(48px, 7vw, 104px);
-    line-height: 0.94;
-    letter-spacing: -4px;
-}
-
-.hero-content h1 span {
-    display: block;
-    color: transparent;
-    background: linear-gradient(90deg, #f8fbff, #89b9ff 52%, #b29cff);
-    -webkit-background-clip: text;
-    background-clip: text;
-}
-
-.hero-content > p,
-.page-hero > p {
-    max-width: 760px;
-    margin: 0;
-    color: var(--text-soft);
-    font-size: clamp(16px, 1.4vw, 20px);
-    line-height: 1.8;
-}
-
-.hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 34px;
-}
-
-.hero-highlights {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
-    margin-top: 52px;
-}
-
-.hero-highlights div {
-    padding: 18px;
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.032);
-}
-
-.hero-highlights strong,
-.hero-highlights span {
-    display: block;
-}
-
-.hero-highlights strong {
-    font-size: 11px;
-    letter-spacing: 1.3px;
-}
-
-.hero-highlights span {
-    margin-top: 7px;
-    color: var(--text-muted);
-    font-size: 11px;
-    line-height: 1.5;
-}
-
-.hero-visual {
-    display: grid;
-    place-items: center;
-    min-height: 560px;
-}
-
-.core-orbit {
-    position: relative;
-    width: min(500px, 78vw);
-    aspect-ratio: 1;
-    display: grid;
-    place-items: center;
-}
-
-.core-orbit::before {
-    content: "";
-    position: absolute;
-    inset: 13%;
-    border-radius: 50%;
-    background:
-        radial-gradient(circle, rgba(82, 147, 255, 0.21), transparent 63%);
-    filter: blur(16px);
-}
-
-.orbit {
-    position: absolute;
-    border: 1px solid rgba(122, 174, 255, 0.24);
-    border-radius: 50%;
-}
-
-.orbit-one {
-    inset: 5%;
-    animation: rotateOrbit 20s linear infinite;
-}
-
-.orbit-two {
-    inset: 18%;
-    border-color: rgba(157, 127, 255, 0.29);
-    animation: rotateOrbitReverse 14s linear infinite;
-}
-
-.orbit-three {
-    inset: 31%;
-    border-color: rgba(255, 255, 255, 0.17);
-    animation: pulseOrbit 4s ease-in-out infinite;
-}
-
-.core-center {
-    position: relative;
-    z-index: 2;
-    width: 190px;
-    height: 190px;
-    display: grid;
-    place-content: center;
-    text-align: center;
-    border: 1px solid rgba(126, 181, 255, 0.45);
-    border-radius: 50%;
-    background:
-        radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.16), transparent 23%),
-        linear-gradient(145deg, rgba(29, 56, 97, 0.92), rgba(25, 18, 59, 0.92));
-    box-shadow:
-        inset 0 0 60px rgba(91, 152, 255, 0.18),
-        0 0 90px rgba(63, 117, 217, 0.26);
-}
-
-.core-center span {
-    font-size: 54px;
-    font-weight: 900;
-    letter-spacing: -3px;
-}
-
-.core-center small {
-    margin-top: 8px;
-    color: var(--accent-bright);
-    font-size: 8px;
-    font-weight: 800;
-    letter-spacing: 2px;
-}
-
-.orbit-node {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: white;
-    box-shadow:
-        0 0 12px var(--accent),
-        0 0 28px var(--accent);
-}
-
-.node-one {
-    top: 13%;
-    left: 25%;
-}
-
-.node-two {
-    top: 31%;
-    right: 8%;
-}
-
-.node-three {
-    bottom: 9%;
-    left: 43%;
-}
-
-.node-four {
-    top: 51%;
-    left: 6%;
-}
-
-@keyframes rotateOrbit {
-    to {
-        transform: rotate(360deg);
+@keyframes miThreeDotsPulse {
+    0%,
+    100% {
+        opacity: 0.25;
+        transform: scale(0.72);
     }
-}
 
-@keyframes rotateOrbitReverse {
-    to {
-        transform: rotate(-360deg);
-    }
-}
-
-@keyframes pulseOrbit {
     50% {
-        transform: scale(1.08);
-        opacity: 0.55;
-    }
-}
-
-.content-section {
-    padding: 90px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.075);
-}
-
-.section-heading {
-    max-width: 820px;
-    margin-bottom: 40px;
-}
-
-.section-heading h2,
-.home-cta h2,
-.contact-information h2,
-.contact-form h2 {
-    margin: 14px 0;
-    font-size: clamp(34px, 4.5vw, 64px);
-    line-height: 1.04;
-    letter-spacing: -2.4px;
-}
-
-.section-heading p {
-    color: var(--text-soft);
-    line-height: 1.8;
-}
-
-.main-category-grid,
-.feature-grid,
-.value-grid {
-    display: grid;
-    gap: 16px;
-}
-
-.main-category-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.main-category-card,
-.feature-card,
-.value-grid article {
-    position: relative;
-    overflow: hidden;
-    min-height: 260px;
-    padding: 28px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-medium);
-    background:
-        linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018));
-    box-shadow: var(--shadow);
-}
-
-.main-category-card {
-    text-align: left;
-    cursor: pointer;
-    transition:
-        transform 220ms ease,
-        border-color 220ms ease,
-        background 220ms ease;
-}
-
-.main-category-card:hover,
-.main-category-card:focus-visible {
-    transform: translateY(-8px);
-    border-color: var(--border-bright);
-    background:
-        linear-gradient(145deg, rgba(71, 125, 222, 0.14), rgba(132, 90, 223, 0.06));
-}
-
-.category-number {
-    color: var(--accent-bright);
-    font-size: 10px;
-    font-weight: 900;
-    letter-spacing: 2px;
-}
-
-.main-category-card h3,
-.feature-card h3,
-.value-grid h3 {
-    margin: 36px 0 14px;
-    font-size: 22px;
-    letter-spacing: -0.8px;
-}
-
-.main-category-card p,
-.feature-card p,
-.value-grid p {
-    color: var(--text-soft);
-    line-height: 1.75;
-}
-
-.card-link {
-    position: absolute;
-    left: 28px;
-    bottom: 28px;
-    color: var(--accent-bright);
-    font-size: 10px;
-    font-weight: 850;
-    letter-spacing: 1.3px;
-}
-
-.feature-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.feature-tag {
-    color: var(--gold);
-    font-size: 9px;
-    font-weight: 850;
-    letter-spacing: 1.8px;
-}
-
-.feature-card button {
-    margin-top: 20px;
-    padding: 0;
-    border: 0;
-    background: none;
-    color: var(--accent-bright);
-    font-size: 10px;
-    font-weight: 850;
-    letter-spacing: 1.2px;
-    cursor: pointer;
-}
-
-.value-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-.value-grid article {
-    min-height: 230px;
-}
-
-.value-grid article > span {
-    color: var(--accent-bright);
-    font-size: 11px;
-    font-weight: 850;
-}
-
-.home-cta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 30px;
-    margin: 50px 0 20px;
-    padding: clamp(34px, 5vw, 70px);
-    border: 1px solid var(--border-bright);
-    border-radius: var(--radius-large);
-    background:
-        radial-gradient(circle at 15% 15%, rgba(86, 149, 255, 0.18), transparent 34%),
-        linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(27, 19, 50, 0.95));
-    box-shadow: var(--shadow);
-}
-
-.home-cta h2 {
-    max-width: 820px;
-}
-
-.page-hero {
-    padding: 100px 0 65px;
-    border-bottom: 1px solid var(--border);
-}
-
-.page-hero h1 {
-    max-width: 1100px;
-    font-size: clamp(46px, 6vw, 86px);
-}
-
-.topic-layout {
-    display: grid;
-    grid-template-columns: 340px minmax(0, 1fr);
-    gap: 28px;
-    padding: 50px 0;
-}
-
-.topic-sidebar {
-    position: sticky;
-    top: calc(var(--header-height) + 24px);
-    align-self: start;
-    max-height: calc(100vh - var(--header-height) - 48px);
-    overflow: auto;
-    padding: 24px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-medium);
-    background: rgba(10, 13, 21, 0.83);
-    backdrop-filter: blur(18px);
-}
-
-.topic-sidebar h2 {
-    margin: 0;
-    font-size: 15px;
-    letter-spacing: 1.5px;
-}
-
-.topic-sidebar > p {
-    margin: 12px 0 22px;
-    color: var(--text-muted);
-    font-size: 12px;
-    line-height: 1.6;
-}
-
-.topic-navigation {
-    display: grid;
-    gap: 8px;
-}
-
-.topic-button {
-    width: 100%;
-    padding: 15px 16px;
-    border: 1px solid transparent;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.03);
-    color: var(--text-soft);
-    text-align: left;
-    font-size: 11px;
-    font-weight: 780;
-    letter-spacing: 0.7px;
-    cursor: pointer;
-    transition:
-        background 180ms ease,
-        border-color 180ms ease,
-        color 180ms ease,
-        transform 180ms ease;
-}
-
-.topic-button:hover,
-.topic-button:focus-visible,
-.topic-button.active {
-    color: white;
-    border-color: rgba(106, 168, 255, 0.26);
-    background: rgba(86, 145, 240, 0.12);
-    transform: translateX(3px);
-}
-
-.topic-display {
-    min-height: 600px;
-}
-
-.topic-article,
-.contact-topic-display {
-    padding: clamp(28px, 5vw, 58px);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-large);
-    background:
-        radial-gradient(circle at 90% 5%, rgba(94, 75, 183, 0.12), transparent 28%),
-        linear-gradient(145deg, rgba(18, 24, 38, 0.92), rgba(9, 12, 20, 0.94));
-    box-shadow: var(--shadow);
-}
-
-.topic-article-number {
-    color: var(--accent-bright);
-    font-size: 10px;
-    font-weight: 850;
-    letter-spacing: 2px;
-}
-
-.topic-article h2 {
-    margin: 18px 0;
-    font-size: clamp(38px, 5vw, 72px);
-    line-height: 1;
-    letter-spacing: -3px;
-}
-
-.topic-summary {
-    max-width: 850px;
-    color: var(--text-soft);
-    font-size: 17px;
-    line-height: 1.8;
-}
-
-.topic-detail-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-    margin-top: 38px;
-}
-
-.topic-detail-card {
-    padding: 22px;
-    border: 1px solid var(--border);
-    border-radius: 17px;
-    background: rgba(255, 255, 255, 0.035);
-}
-
-.topic-detail-card h3 {
-    margin: 0 0 10px;
-    font-size: 13px;
-    letter-spacing: 0.7px;
-}
-
-.topic-detail-card p {
-    margin: 0;
-    color: var(--text-muted);
-    line-height: 1.7;
-}
-
-.topic-action {
-    display: inline-flex;
-    align-items: center;
-    min-height: 48px;
-    margin-top: 34px;
-    padding: 0 20px;
-    border: 1px solid var(--border-bright);
-    border-radius: 13px;
-    background: rgba(78, 139, 239, 0.12);
-    color: var(--accent-bright);
-    font-size: 10px;
-    font-weight: 850;
-    letter-spacing: 1.2px;
-    cursor: pointer;
-}
-
-.contact-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
-    gap: 28px;
-    padding: 50px 0;
-}
-
-.contact-information,
-.contact-form {
-    padding: clamp(28px, 4vw, 48px);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-large);
-    background: rgba(12, 16, 26, 0.84);
-    box-shadow: var(--shadow);
-}
-
-.contact-information h2,
-.contact-form h2 {
-    font-size: clamp(34px, 4vw, 54px);
-}
-
-.contact-card-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-    margin-top: 30px;
-}
-
-.contact-card {
-    min-height: 120px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 20px;
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.035);
-    transition:
-        transform 180ms ease,
-        border-color 180ms ease;
-}
-
-.contact-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--border-bright);
-}
-
-.contact-card span,
-.contact-detail-list span {
-    color: var(--text-muted);
-    font-size: 9px;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-}
-
-.contact-card strong {
-    font-size: 13px;
-    word-break: break-word;
-}
-
-.contact-detail-list {
-    display: grid;
-    gap: 10px;
-    margin-top: 16px;
-}
-
-.contact-detail-list div {
-    padding: 18px 0;
-    border-bottom: 1px solid var(--border);
-}
-
-.contact-detail-list strong {
-    display: block;
-    margin-top: 7px;
-    font-size: 13px;
-}
-
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-.contact-form label {
-    display: grid;
-    gap: 9px;
-    color: var(--text-soft);
-    font-size: 9px;
-    font-weight: 850;
-    letter-spacing: 1.4px;
-}
-
-.contact-form input,
-.contact-form select,
-.contact-form textarea {
-    width: 100%;
-    border: 1px solid var(--border);
-    border-radius: 13px;
-    outline: none;
-    background: rgba(255, 255, 255, 0.045);
-    color: white;
-    transition:
-        border-color 180ms ease,
-        box-shadow 180ms ease;
-}
-
-.contact-form input,
-.contact-form select {
-    min-height: 52px;
-    padding: 0 15px;
-}
-
-.contact-form textarea {
-    padding: 15px;
-    resize: vertical;
-}
-
-.contact-form input:focus,
-.contact-form select:focus,
-.contact-form textarea:focus {
-    border-color: rgba(106, 168, 255, 0.56);
-    box-shadow: 0 0 0 4px rgba(106, 168, 255, 0.09);
-}
-
-.contact-form option {
-    color: black;
-}
-
-.form-status {
-    min-height: 20px;
-    margin: 0;
-    color: var(--success);
-    font-size: 12px;
-}
-
-.contact-topics-section {
-    padding: 70px 0 20px;
-}
-
-.contact-topic-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 12px;
-    margin-bottom: 20px;
-}
-
-.contact-topic-grid .topic-button {
-    min-height: 74px;
-    text-align: center;
-}
-
-.contact-topic-display {
-    min-height: 280px;
-}
-
-.site-footer {
-    width: min(100%, var(--content-width));
-    margin: 0 auto;
-    padding: 60px clamp(20px, 4vw, 64px) 30px;
-    border-top: 1px solid var(--border);
-}
-
-.footer-brand {
-    max-width: 620px;
-}
-
-.footer-brand strong {
-    font-size: 18px;
-    letter-spacing: 2px;
-}
-
-.footer-brand p {
-    color: var(--text-muted);
-    line-height: 1.8;
-}
-
-.footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px 20px;
-    margin: 40px 0;
-}
-
-.footer-links button {
-    padding: 0;
-    color: var(--text-soft);
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 1.2px;
-    cursor: pointer;
-}
-
-.footer-links button:hover {
-    color: var(--accent-bright);
-}
-
-.footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding-top: 24px;
-    border-top: 1px solid var(--border);
-    color: var(--text-muted);
-    font-size: 9px;
-    letter-spacing: 1.1px;
-}
-
-.reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition:
-        opacity 700ms ease,
-        transform 700ms ease;
-}
-
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-@media (max-width: 1180px) {
-    .site-header {
-        grid-template-columns: auto auto;
-        justify-content: space-between;
-    }
-
-    .main-navigation {
-        position: absolute;
-        top: calc(100% + 1px);
-        left: 18px;
-        right: 18px;
-        display: none;
-        padding: 14px;
-        border: 1px solid var(--border);
-        border-radius: 18px;
-        background: rgba(8, 10, 16, 0.97);
-        box-shadow: var(--shadow);
-    }
-
-    .main-navigation.open {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .mobile-menu-button {
-        display: block;
-        justify-self: end;
-    }
-
-    .header-cta {
-        display: none;
-    }
-
-    .hero-section {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .hero-content {
-        padding-top: 40px;
-    }
-
-    .hero-visual {
-        min-height: 440px;
-    }
-
-    .main-category-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .value-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .contact-topic-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 850px) {
-    .hero-content h1,
-    .page-hero h1 {
-        letter-spacing: -2.5px;
-    }
-
-    .topic-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .topic-sidebar {
-        position: static;
-        max-height: none;
-    }
-
-    .topic-navigation {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .topic-button {
-        min-height: 58px;
-    }
-
-    .contact-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .feature-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .home-cta {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-}
-
-@media (max-width: 620px) {
-    :root {
-        --header-height: 74px;
-    }
-
-    .site-header {
-        padding: 12px 16px;
-    }
-
-    .brand-text small {
-        display: none;
-    }
-
-    .brand-symbol {
-        width: 42px;
-        height: 42px;
-    }
-
-    .main-navigation.open {
-        grid-template-columns: 1fr;
-    }
-
-    .page-section {
-        padding-inline: 16px;
-    }
-
-    .hero-section {
-        padding: 55px 0 70px;
-    }
-
-    .hero-content h1 {
-        font-size: clamp(44px, 15vw, 66px);
-    }
-
-    .hero-highlights {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-visual {
-        min-height: 370px;
-    }
-
-    .core-center {
-        width: 140px;
-        height: 140px;
-    }
-
-    .core-center span {
-        font-size: 40px;
-    }
-
-    .main-category-grid,
-    .value-grid,
-    .contact-card-grid,
-    .topic-detail-grid,
-    .contact-topic-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .topic-navigation {
-        grid-template-columns: 1fr;
-    }
-
-    .main-category-card {
-        min-height: 245px;
-    }
-
-    .page-hero {
-        padding: 70px 0 45px;
-    }
-
-    .topic-article h2 {
-        letter-spacing: -2px;
-    }
-
-    .footer-bottom {
-        flex-direction: column;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-
-    .reveal {
         opacity: 1;
-        transform: none;
+        transform: scale(1);
     }
 }
+
+@keyframes miThreeDotsContainerOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-8px);
+        filter: blur(4px);
+    }
+}
+
+/* MI_THREE_DOTS_RELEASE_CSS_END */
