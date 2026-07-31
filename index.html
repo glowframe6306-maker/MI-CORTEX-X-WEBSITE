@@ -1237,5 +1237,196 @@ img.remove();
 });
 </script>
 
+
+
+<!-- MI_HIDE_FRONT_IMAGE_DURING_WELCOME_START -->
+<style>
+/*
+Keep the welcome screen fully black and opaque.
+The front-page banner cannot appear behind the welcome animations.
+*/
+
+#welcome-screen,
+#welcomeScreen,
+.welcome-screen,
+[data-welcome-screen],
+#intro-screen,
+#introScreen,
+.intro-screen,
+[data-intro-screen],
+#neural-intro,
+.neural-intro {
+    background: #000 !important;
+    background-color: #000 !important;
+    opacity: 1;
+    isolation: isolate !important;
+    z-index: 2147483000 !important;
+}
+
+.mi-front-image-waiting {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+.mi-front-image-released {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+</style>
+
+<script>
+(function () {
+    "use strict";
+
+    if (window.__miFrontImageWelcomeGuardInstalled) {
+        return;
+    }
+
+    window.__miFrontImageWelcomeGuardInstalled = true;
+
+    var finished = false;
+    var intervalId = null;
+
+    function findWelcome() {
+        return (
+            document.querySelector("#welcome-screen") ||
+            document.querySelector("#welcomeScreen") ||
+            document.querySelector(".welcome-screen") ||
+            document.querySelector("[data-welcome-screen]") ||
+            document.querySelector("#intro-screen") ||
+            document.querySelector("#introScreen") ||
+            document.querySelector(".intro-screen") ||
+            document.querySelector("[data-intro-screen]") ||
+            document.querySelector("#neural-intro") ||
+            document.querySelector(".neural-intro")
+        );
+    }
+
+    function getFrontImages() {
+        return Array.from(document.querySelectorAll("img")).filter(function (image) {
+            var src = (
+                image.getAttribute("src") ||
+                image.getAttribute("data-src") ||
+                ""
+            ).toLowerCase();
+
+            var welcome = findWelcome();
+
+            if (welcome && welcome.contains(image)) {
+                return false;
+            }
+
+            return (
+                src.includes("front page.png") ||
+                src.includes("front-page.png") ||
+                src.includes("front_page.png") ||
+                src.includes("/banners/front") ||
+                src.endsWith("/phone.png")
+            );
+        });
+    }
+
+    function hideFrontImage() {
+        getFrontImages().forEach(function (image) {
+            image.classList.remove("mi-front-image-released");
+            image.classList.add("mi-front-image-waiting");
+        });
+    }
+
+    function releaseFrontImage() {
+        if (finished) {
+            return;
+        }
+
+        finished = true;
+
+        getFrontImages().forEach(function (image) {
+            image.classList.remove("mi-front-image-waiting");
+            image.classList.add("mi-front-image-released");
+        });
+
+        if (intervalId !== null) {
+            window.clearInterval(intervalId);
+            intervalId = null;
+        }
+
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "auto"
+        });
+    }
+
+    function welcomeHasFinished() {
+        var welcome = findWelcome();
+
+        if (!welcome) {
+            return true;
+        }
+
+        var style = window.getComputedStyle(welcome);
+        var rect = welcome.getBoundingClientRect();
+        var opacity = Number.parseFloat(style.opacity || "1");
+
+        return (
+            style.display === "none" ||
+            style.visibility === "hidden" ||
+            opacity <= 0.01 ||
+            rect.bottom <= 1 ||
+            welcome.classList.contains("mi-welcome-complete") ||
+            welcome.classList.contains("welcome-complete") ||
+            welcome.classList.contains("intro-complete") ||
+            welcome.classList.contains("is-complete")
+        );
+    }
+
+    function checkSequence() {
+        if (welcomeHasFinished()) {
+            releaseFrontImage();
+        } else {
+            hideFrontImage();
+        }
+    }
+
+    function initialize() {
+        hideFrontImage();
+        checkSequence();
+
+        intervalId = window.setInterval(checkSequence, 100);
+
+        window.setTimeout(function () {
+            if (!finished) {
+                releaseFrontImage();
+            }
+        }, 15000);
+
+        var welcome = findWelcome();
+
+        if (welcome) {
+            new MutationObserver(checkSequence).observe(welcome, {
+                attributes: true,
+                attributeFilter: ["class", "style", "hidden"],
+                childList: true,
+                subtree: false
+            });
+        }
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initialize, {
+            once: true
+        });
+    } else {
+        initialize();
+    }
+
+    window.addEventListener("load", checkSequence);
+    window.addEventListener("mi:exact-welcome-complete", releaseFrontImage);
+})();
+</script>
+<!-- MI_HIDE_FRONT_IMAGE_DURING_WELCOME_END -->
+
 </body>
 </html>
