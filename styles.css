@@ -3227,19 +3227,19 @@ body.intro-complete {
 /* MI_THREE_DOTS_RELEASE_CSS_END */
 
 
-/* MI_EXACT_TITLE_LOGO_FRONT_SEQUENCE_START */
+/* MI_NO_LOGO_SLOW_WELCOME_START */
 
-html.mi-exact-welcome-running,
-body.mi-exact-welcome-running {
+html.mi-no-logo-welcome-running,
+body.mi-no-logo-welcome-running {
     overflow: hidden !important;
 }
 
 /*
-The welcome layer remains solid black until the logo animation
-is completely finished.
+Keep the existing blue neural-network welcome background.
+Do not replace it with a solid black background.
 */
 
-.mi-exact-welcome-layer {
+.mi-no-logo-welcome-layer {
     position: fixed !important;
     inset: 0 !important;
     z-index: 2147483000 !important;
@@ -3254,44 +3254,23 @@ is completely finished.
     visibility: visible !important;
     opacity: 1 !important;
 
-    background: #000 !important;
-    background-color: #000 !important;
-    background-image: none !important;
-
-    isolation: isolate !important;
-    overflow: hidden !important;
-
     transform: translateY(0) !important;
 
     transition:
-        transform 1000ms cubic-bezier(0.77, 0, 0.175, 1) !important;
+        transform 1250ms cubic-bezier(0.77, 0, 0.175, 1) !important;
+
+    overflow: hidden !important;
 }
 
-.mi-exact-welcome-layer::before {
-    content: "" !important;
-    position: absolute !important;
-    inset: 0 !important;
-    z-index: -1 !important;
-    background: #000 !important;
-    opacity: 1 !important;
-}
-
-.mi-exact-welcome-layer.mi-exact-welcome-lifting {
+.mi-no-logo-welcome-layer.mi-no-logo-welcome-lifting {
     transform: translateY(-100vh) !important;
 }
 
-.mi-exact-welcome-layer.mi-exact-welcome-finished {
-    display: none !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-}
+/* Completely remove the round logo animation stage. */
 
-/*
-The incorrect wide MI CORTEX X INC. photo is completely blocked
-inside the welcome page.
-*/
-
-.mi-exact-welcome-layer .mi-welcome-photo-blocked {
+.mi-no-logo-welcome-layer .mi-logo-stage-disabled,
+.mi-no-logo-welcome-layer .mi-exact-logo-animation-stage,
+.mi-no-logo-welcome-layer .mi-generated-welcome-logo {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
@@ -3300,36 +3279,48 @@ inside the welcome page.
     transition: none !important;
 }
 
-/* Title blur to clear animation */
+/* Do not show wide banner images inside the welcome layer. */
 
-.mi-exact-title {
+.mi-no-logo-welcome-layer img[src*="Front page" i],
+.mi-no-logo-welcome-layer img[src*="front-page" i],
+.mi-no-logo-welcome-layer img[src*="front_page" i],
+.mi-no-logo-welcome-layer img[src*="banner" i] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Slightly slower blur-to-clear title effect. */
+
+.mi-no-logo-title {
     opacity: 0 !important;
     visibility: hidden !important;
 
-    filter: blur(32px) !important;
+    filter: blur(34px) !important;
 
     transform:
-        translateY(14px)
+        translateY(16px)
         scale(0.92) !important;
 
     transition:
-        opacity 850ms ease,
-        filter 1300ms cubic-bezier(0.22, 1, 0.36, 1),
-        transform 1300ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+        opacity 1100ms ease,
+        filter 1750ms cubic-bezier(0.22, 1, 0.36, 1),
+        transform 1750ms cubic-bezier(0.22, 1, 0.36, 1) !important;
 }
 
-.mi-exact-title.mi-exact-title-show {
+.mi-no-logo-title.mi-no-logo-title-show {
     opacity: 1 !important;
     visibility: visible !important;
 
-    filter: blur(24px) !important;
+    filter: blur(26px) !important;
 
     transform:
         translateY(0)
         scale(0.97) !important;
 }
 
-.mi-exact-title.mi-exact-title-clear {
+.mi-no-logo-title.mi-no-logo-title-clear {
     filter: blur(0) !important;
 
     transform:
@@ -3337,131 +3328,28 @@ inside the welcome page.
         scale(1) !important;
 }
 
-.mi-exact-title.mi-exact-title-hide {
+.mi-no-logo-title.mi-no-logo-title-hide {
     opacity: 0 !important;
 
-    filter: blur(16px) !important;
+    filter: blur(17px) !important;
 
     transform:
-        translateY(-14px)
-        scale(1.05) !important;
+        translateY(-15px)
+        scale(1.04) !important;
 
     pointer-events: none !important;
 }
 
-/* Real round logo animation */
+/* Front page remains hidden until the welcome page lifts. */
 
-.mi-exact-logo-animation-stage {
-    position: absolute !important;
-    inset: 0 !important;
-    z-index: 10 !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    opacity: 0 !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-
-    filter:
-        blur(26px)
-        brightness(0.7) !important;
-
-    transform:
-        translateY(22px)
-        scale(0.68)
-        rotate(-5deg) !important;
-
-    transition:
-        opacity 800ms ease,
-        filter 1250ms cubic-bezier(0.22, 1, 0.36, 1),
-        transform 1250ms cubic-bezier(0.22, 1, 0.36, 1) !important;
-}
-
-.mi-exact-logo-animation-stage > * {
-    display: block !important;
-
-    width: min(330px, 45vw) !important;
-    height: min(330px, 45vw) !important;
-
-    max-width: 330px !important;
-    max-height: 330px !important;
-
-    object-fit: contain !important;
-
-    border-radius: 50% !important;
-}
-
-.mi-exact-logo-animation-stage.mi-exact-logo-show {
-    opacity: 1 !important;
-    visibility: visible !important;
-
-    filter:
-        blur(7px)
-        brightness(1.2)
-        drop-shadow(0 0 28px rgba(45, 198, 255, 0.45)) !important;
-
-    transform:
-        translateY(0)
-        scale(1.09)
-        rotate(2deg) !important;
-}
-
-.mi-exact-logo-animation-stage.mi-exact-logo-clear {
-    filter:
-        blur(0)
-        brightness(1.1)
-        drop-shadow(0 0 30px rgba(45, 198, 255, 0.55))
-        drop-shadow(0 0 60px rgba(85, 88, 255, 0.22)) !important;
-
-    transform:
-        translateY(0)
-        scale(1)
-        rotate(0) !important;
-}
-
-.mi-exact-logo-animation-stage.mi-exact-logo-clear > * {
-    animation:
-        miExactLogoPulse 1800ms ease-in-out infinite alternate !important;
-}
-
-.mi-exact-logo-animation-stage.mi-exact-logo-hide {
-    opacity: 0 !important;
-
-    filter:
-        blur(17px)
-        brightness(1.45)
-        drop-shadow(0 0 48px rgba(45, 198, 255, 0.65)) !important;
-
-    transform:
-        translateY(-18px)
-        scale(1.14) !important;
-}
-
-@keyframes miExactLogoPulse {
-    from {
-        transform: scale(0.985);
-    }
-
-    to {
-        transform: scale(1.025);
-    }
-}
-
-/*
-The front page stays hidden until the welcome layer and logo animation
-are completely finished.
-*/
-
-.mi-exact-front-waiting {
+.mi-no-logo-front-waiting {
     visibility: hidden !important;
     opacity: 0 !important;
     pointer-events: none !important;
     transition: none !important;
 }
 
-.mi-exact-front-visible {
+.mi-no-logo-front-visible {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -3472,5 +3360,5 @@ are completely finished.
     transition: none !important;
 }
 
-/* MI_EXACT_TITLE_LOGO_FRONT_SEQUENCE_END */
+/* MI_NO_LOGO_SLOW_WELCOME_END */
 
