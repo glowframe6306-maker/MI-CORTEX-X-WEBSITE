@@ -4158,3 +4158,50 @@ html.mcx-content-navigation-scrolled .site-header .nav {
         0 0 20px rgba(255,190,0,.40);
 }
 
+
+/* =======================================================
+   FINAL MI CORTEX X BRAND OVERRIDE
+   ======================================================= */
+
+.site-header .brand > span,
+.mi-fixed-glass-nav .brand > span,
+.mi-fixed-glass-nav .brand span{
+
+    color:#FFD44D !important;
+    -webkit-text-fill-color:#FFD44D !important;
+
+    font-size:1.22rem !important;
+    font-weight:900 !important;
+    letter-spacing:.05em !important;
+
+    -webkit-text-stroke:1.1px #000 !important;
+
+    text-shadow:
+        0 0 2px #000,
+        0 0 4px #000,
+        0 0 8px rgba(255,210,60,.35) !important;
+}
+
+/* HIGH LIQUID GLASS */
+
+.mi-fixed-glass-nav,
+.site-header{
+
+    backdrop-filter:blur(34px) saturate(230%) !important;
+    -webkit-backdrop-filter:blur(34px) saturate(230%) !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(28,96,175,.58),
+            rgba(38,30,110,.62),
+            rgba(79,20,176,.66)
+        ) !important;
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.22),
+        inset 0 -1px rgba(255,255,255,.08),
+        0 10px 45px rgba(0,140,255,.28),
+        0 0 35px rgba(122,0,255,.22) !important;
+}
+
