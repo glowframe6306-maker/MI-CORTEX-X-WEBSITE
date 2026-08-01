@@ -3627,15 +3627,17 @@ Do not replace it with a solid black background.
 
 /* MI_REAL_ARROW_ICONS_END */
 
-/* MI_PREMIUM_LIQUID_NAV_START */
+
+/* MI_OLD_STYLE_LIQUID_BLUR_START */
 
 /*
-Required behavior:
+OLD-STYLE LIQUID GLASS NAVIGATION
 
-- Hidden on the welcome page.
-- Hidden while the front-page banner is visible.
-- Visible on HOME, ABOUT US, PRODUCTS, SERVICES, PRICING and CONTACT content.
-- Remains fixed while scrolling through website content.
+- Hidden on welcome page
+- Hidden on front-page banner
+- Visible on all other website pages
+- Fixed while scrolling
+- Background content appears blurred, enlarged and flowing behind the glass
 */
 
 html.mcx-hide-content-navigation .site-header,
@@ -3646,10 +3648,10 @@ html.mcx-hide-content-navigation .mi-fixed-glass-nav {
 
     transform:
         translateX(-50%)
-        translateY(-32px)
-        scale(0.965) !important;
+        translateY(-24px)
+        scale(0.96) !important;
 
-    filter: blur(18px) !important;
+    filter: blur(14px) !important;
 }
 
 .site-header {
@@ -3670,19 +3672,18 @@ html.mcx-hide-content-navigation .mi-fixed-glass-nav {
 
     transform:
         translateX(-50%)
-        translateY(0)
-        scale(1) !important;
+        translateZ(0) !important;
 
-    filter: blur(0) !important;
+    filter: none !important;
 
     transition:
         opacity 420ms ease,
         visibility 420ms ease,
-        transform 650ms cubic-bezier(0.22, 1, 0.36, 1),
-        filter 500ms ease !important;
+        filter 520ms ease,
+        transform 620ms cubic-bezier(0.22, 1, 0.36, 1) !important;
 }
 
-/* Premium high-liquid glass surface. */
+/* Main liquid glass body */
 
 .site-header .nav,
 .site-header > nav,
@@ -3691,50 +3692,57 @@ html.mcx-hide-content-navigation .mi-fixed-glass-nav {
 .site-header .navigation,
 .mi-fixed-glass-nav {
     position: relative !important;
+
     overflow: hidden !important;
     isolation: isolate !important;
 
-    border:
-        1px solid rgba(100, 208, 255, 0.45) !important;
-
     border-radius: 999px !important;
+
+    border:
+        1px solid rgba(113, 215, 255, 0.42) !important;
 
     background:
         linear-gradient(
-            112deg,
-            rgba(3, 38, 68, 0.74) 0%,
-            rgba(7, 25, 57, 0.68) 43%,
-            rgba(42, 27, 104, 0.7) 100%
+            105deg,
+            rgba(5, 43, 72, 0.42) 0%,
+            rgba(7, 26, 57, 0.38) 47%,
+            rgba(54, 30, 117, 0.42) 100%
         ) !important;
 
     -webkit-backdrop-filter:
-        blur(38px)
-        saturate(190%)
-        contrast(112%)
+        blur(34px)
+        saturate(185%)
+        contrast(116%)
         brightness(108%) !important;
 
     backdrop-filter:
-        blur(38px)
-        saturate(190%)
-        contrast(112%)
+        blur(34px)
+        saturate(185%)
+        contrast(116%)
         brightness(108%) !important;
 
     box-shadow:
-        0 24px 70px rgba(0, 0, 0, 0.4),
-        0 0 55px rgba(32, 177, 255, 0.2),
-        0 0 95px rgba(90, 66, 255, 0.12),
-        inset 0 1px 0 rgba(220, 247, 255, 0.23),
-        inset 0 -1px 0 rgba(97, 97, 255, 0.16),
-        inset 18px 0 38px rgba(41, 191, 255, 0.08),
-        inset -18px 0 38px rgba(122, 75, 255, 0.09) !important;
+        0 24px 68px rgba(0, 0, 0, 0.38),
+        0 0 42px rgba(35, 184, 255, 0.2),
+        0 0 75px rgba(100, 69, 255, 0.12),
+        inset 0 1px 0 rgba(226, 250, 255, 0.3),
+        inset 0 -1px 0 rgba(109, 88, 255, 0.24),
+        inset 16px 0 38px rgba(53, 205, 255, 0.09),
+        inset -16px 0 38px rgba(126, 77, 255, 0.12) !important;
+
+    transform: translateZ(0) !important;
 
     transition:
-        border-color 260ms ease,
-        box-shadow 260ms ease,
-        background 260ms ease !important;
+        border-color 240ms ease,
+        background 240ms ease,
+        box-shadow 240ms ease,
+        transform 240ms ease !important;
 }
 
-/* Moving liquid highlight. */
+/*
+This enlarged blurred layer creates the old magnified-glass feeling
+while page content moves behind the navigation.
+*/
 
 .site-header .nav::before,
 .site-header > nav::before,
@@ -3745,7 +3753,7 @@ html.mcx-hide-content-navigation .mi-fixed-glass-nav {
     content: "" !important;
 
     position: absolute !important;
-    inset: -50% -16% !important;
+    inset: -18% -4% !important;
 
     z-index: 0 !important;
     pointer-events: none !important;
@@ -3754,29 +3762,43 @@ html.mcx-hide-content-navigation .mi-fixed-glass-nav {
 
     background:
         radial-gradient(
-            circle at 18% 45%,
-            rgba(111, 229, 255, 0.24),
-            transparent 30%
+            circle at 14% 42%,
+            rgba(87, 220, 255, 0.22),
+            transparent 31%
         ),
         radial-gradient(
-            circle at 82% 50%,
-            rgba(139, 93, 255, 0.24),
-            transparent 32%
+            circle at 82% 52%,
+            rgba(146, 92, 255, 0.24),
+            transparent 34%
         ),
         linear-gradient(
-            105deg,
-            transparent 25%,
-            rgba(226, 251, 255, 0.12) 45%,
-            transparent 67%
+            108deg,
+            transparent 18%,
+            rgba(220, 249, 255, 0.13) 43%,
+            transparent 66%
         ) !important;
 
-    filter: blur(14px) !important;
+    -webkit-backdrop-filter:
+        blur(15px)
+        saturate(195%)
+        contrast(120%) !important;
+
+    backdrop-filter:
+        blur(15px)
+        saturate(195%)
+        contrast(120%) !important;
+
+    filter: blur(7px) !important;
+
+    transform:
+        scale(1.12)
+        translate3d(-1%, 0, 0) !important;
 
     animation:
-        mcxLiquidNavigationFlow 9s ease-in-out infinite alternate !important;
+        mcxOldLiquidGlassFlow 8s ease-in-out infinite alternate !important;
 }
 
-/* Thin premium glass reflection. */
+/* Top reflection */
 
 .site-header .nav::after,
 .site-header > nav::after,
@@ -3801,11 +3823,11 @@ html.mcx-hide-content-navigation .mi-fixed-glass-nav {
         linear-gradient(
             90deg,
             transparent,
-            rgba(218, 248, 255, 0.68),
+            rgba(220, 250, 255, 0.86),
             transparent
         ) !important;
 
-    opacity: 0.68 !important;
+    opacity: 0.74 !important;
 }
 
 .site-header .nav > *,
@@ -3815,20 +3837,19 @@ html.mcx-hide-content-navigation .mi-fixed-glass-nav {
 .site-header .navigation > *,
 .mi-fixed-glass-nav > * {
     position: relative !important;
-    z-index: 2 !important;
+    z-index: 3 !important;
 }
 
-/* Navigation option effects. */
+/* Navigation text */
 
 .site-header a,
 .site-header button,
 .mi-fixed-glass-nav a,
 .mi-fixed-glass-nav button {
     transition:
-        color 190ms ease,
-        text-shadow 190ms ease,
-        transform 190ms ease,
-        opacity 190ms ease !important;
+        color 180ms ease,
+        text-shadow 180ms ease,
+        transform 180ms ease !important;
 }
 
 .site-header a:hover,
@@ -3843,14 +3864,16 @@ html.mcx-hide-content-navigation .mi-fixed-glass-nav {
     color: #ffffff !important;
 
     text-shadow:
-        0 0 8px rgba(214, 249, 255, 0.9),
-        0 0 20px rgba(75, 207, 255, 0.72),
-        0 0 38px rgba(92, 105, 255, 0.4) !important;
+        0 0 8px rgba(225, 252, 255, 0.95),
+        0 0 20px rgba(77, 210, 255, 0.76),
+        0 0 38px rgba(99, 106, 255, 0.44) !important;
 
-    transform: translateY(-1px) scale(1.025) !important;
+    transform:
+        translateY(-1px)
+        scale(1.025) !important;
 }
 
-/* Stronger liquid depth after scrolling. */
+/* Slightly stronger glass after scrolling */
 
 html.mcx-content-navigation-scrolled .site-header .nav,
 html.mcx-content-navigation-scrolled .site-header > nav,
@@ -3858,24 +3881,38 @@ html.mcx-content-navigation-scrolled .site-header .glass-panel,
 html.mcx-content-navigation-scrolled .site-header .navbar,
 html.mcx-content-navigation-scrolled .site-header .navigation,
 html.mcx-content-navigation-scrolled .mi-fixed-glass-nav {
-    border-color: rgba(105, 222, 255, 0.58) !important;
+    border-color:
+        rgba(115, 226, 255, 0.62) !important;
 
     background:
         linear-gradient(
-            112deg,
-            rgba(2, 32, 58, 0.82),
-            rgba(7, 21, 51, 0.8) 44%,
-            rgba(38, 24, 92, 0.8)
+            105deg,
+            rgba(3, 37, 65, 0.5),
+            rgba(6, 22, 52, 0.46) 46%,
+            rgba(48, 27, 108, 0.5)
         ) !important;
 
+    -webkit-backdrop-filter:
+        blur(42px)
+        saturate(205%)
+        contrast(120%)
+        brightness(109%) !important;
+
+    backdrop-filter:
+        blur(42px)
+        saturate(205%)
+        contrast(120%)
+        brightness(109%) !important;
+
     box-shadow:
-        0 28px 82px rgba(0, 0, 0, 0.5),
-        0 0 65px rgba(26, 181, 255, 0.25),
-        inset 0 1px 0 rgba(225, 250, 255, 0.28),
-        inset 0 -1px 0 rgba(113, 92, 255, 0.2) !important;
+        0 28px 82px rgba(0, 0, 0, 0.48),
+        0 0 58px rgba(36, 191, 255, 0.26),
+        0 0 100px rgba(106, 73, 255, 0.15),
+        inset 0 1px 0 rgba(231, 252, 255, 0.34),
+        inset 0 -1px 0 rgba(119, 95, 255, 0.26) !important;
 }
 
-/* Avoid content being hidden behind the fixed navigation. */
+/* Keep opened sections below the fixed navigation */
 
 .page-section,
 [data-page-section],
@@ -3886,26 +3923,26 @@ section[id] {
     scroll-margin-top: 140px !important;
 }
 
-@keyframes mcxLiquidNavigationFlow {
+@keyframes mcxOldLiquidGlassFlow {
     0% {
         transform:
-            translate3d(-3%, -1%, 0)
-            rotate(-1deg)
-            scale(1);
+            scale(1.1)
+            translate3d(-2.5%, -1%, 0)
+            rotate(-0.5deg);
     }
 
     50% {
         transform:
-            translate3d(3%, 1%, 0)
-            rotate(1deg)
-            scale(1.04);
+            scale(1.16)
+            translate3d(2.5%, 1%, 0)
+            rotate(0.5deg);
     }
 
     100% {
         transform:
+            scale(1.12)
             translate3d(-1%, 2%, 0)
-            rotate(0deg)
-            scale(1.02);
+            rotate(0deg);
     }
 }
 
@@ -3949,13 +3986,15 @@ section[id] {
     .site-header .navigation,
     .mi-fixed-glass-nav {
         -webkit-backdrop-filter:
-            blur(28px)
-            saturate(175%) !important;
+            blur(30px)
+            saturate(180%)
+            contrast(114%) !important;
 
         backdrop-filter:
-            blur(28px)
-            saturate(175%) !important;
+            blur(30px)
+            saturate(180%)
+            contrast(114%) !important;
     }
 }
 
-/* MI_PREMIUM_LIQUID_NAV_END */
+/* MI_OLD_STYLE_LIQUID_BLUR_END */
