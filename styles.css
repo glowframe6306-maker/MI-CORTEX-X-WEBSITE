@@ -3603,3 +3603,26 @@ Do not replace it with a solid black background.
 }
 
 /* MI_CATEGORY_VERTICAL_SPACING_END */
+
+/* MI_REAL_ARROW_ICONS_START */
+
+/* Keep the current design and replace only broken arrow characters. */
+
+.mcx-main-directory-arrow,
+.mcx-category-arrow,
+[class*="directory-arrow"],
+[class*="category-arrow"],
+[class*="next-icon"],
+[class*="open-icon"],
+[class*="chevron"] {
+    font-family:
+        Arial,
+        "Segoe UI Symbol",
+        sans-serif !important;
+    font-style: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+}
+
+/* MI_REAL_ARROW_ICONS_END */
