@@ -3530,3 +3530,76 @@ Do not replace it with a solid black background.
     }
 }
 /* MI_MAIN_DIRECTORY_SINGLE_COLUMN_END */
+
+/* MI_CATEGORY_VERTICAL_SPACING_START */
+
+/* Add clear vertical space between HOME, ABOUT, PRODUCTS, SERVICES, PRICING and CONTACT. */
+
+.mcx-main-directory {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+
+    overflow: visible !important;
+
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.mcx-main-directory-card {
+    min-height: 210px !important;
+
+    padding: 34px 38px !important;
+
+    border: 1px solid rgba(141, 183, 226, 0.18) !important;
+    border-radius: 27px !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(3, 14, 29, 0.82),
+            rgba(24, 20, 55, 0.74)
+        ) !important;
+
+    box-shadow:
+        0 18px 46px rgba(0, 0, 0, 0.18) !important;
+}
+
+/* Remove the old separator line because the categories now have real spacing. */
+
+.mcx-main-directory-card:not(:last-child)::after {
+    display: none !important;
+}
+
+.mcx-main-directory-card:hover,
+.mcx-main-directory-card:focus-visible {
+    transform: translateY(-3px) !important;
+
+    border-color: rgba(106, 216, 255, 0.48) !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(5, 25, 43, 0.9),
+            rgba(45, 27, 88, 0.82)
+        ) !important;
+
+    box-shadow:
+        0 23px 54px rgba(0, 0, 0, 0.26),
+        inset 4px 0 0 rgba(101, 213, 255, 0.7) !important;
+}
+
+@media (max-width: 700px) {
+    .mcx-main-directory {
+        gap: 18px !important;
+    }
+
+    .mcx-main-directory-card {
+        padding: 25px 20px !important;
+        border-radius: 21px !important;
+    }
+}
+
+/* MI_CATEGORY_VERTICAL_SPACING_END */
