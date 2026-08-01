@@ -3628,66 +3628,59 @@ Do not replace it with a solid black background.
 /* MI_REAL_ARROW_ICONS_END */
 
 
-/* MI_CONTENT_ONLY_BLUE_NAV_START */
+/* MI_ALWAYS_VISIBLE_NAV_START */
 
 /*
-Navigation remains hidden during:
-1. Welcome animation
-2. Neural/logo intro
-3. Front-page banner
-
-It becomes visible only after the front page has been passed.
+Keep the navigation visible at the top on every website content page.
+It does not disappear while scrolling.
 */
 
-html:not(.mi-main-site-visible) .site-header,
-html:not(.mi-main-site-visible) .mi-fixed-glass-nav {
-    opacity: 0 !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-    transform: translateY(-22px) scale(0.985) !important;
-}
+.site-header {
+    position: fixed !important;
+    top: 18px !important;
+    left: 50% !important;
+    right: auto !important;
 
-/*
-Premium blue glass navigation for all content pages.
-*/
+    width: min(1180px, calc(100% - 32px)) !important;
+    margin: 0 !important;
 
-html.mi-main-site-visible .site-header {
+    z-index: 2147482000 !important;
+
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
-    transform: translateY(0) !important;
 
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 1500 !important;
+    transform: translateX(-50%) !important;
 
     transition:
-        opacity 320ms ease,
-        visibility 320ms ease,
-        transform 420ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+        background-color 220ms ease,
+        border-color 220ms ease,
+        box-shadow 220ms ease !important;
 }
 
-html.mi-main-site-visible .site-header .nav,
-html.mi-main-site-visible .site-header .glass-panel,
-html.mi-main-site-visible .mi-fixed-glass-nav {
+/* Preserve the premium blue glass appearance. */
+
+.site-header .nav,
+.site-header .glass-panel,
+.site-header > nav,
+.site-header > div {
     position: relative !important;
 
     background:
         linear-gradient(
             110deg,
-            rgba(4, 31, 55, 0.88) 0%,
-            rgba(8, 25, 54, 0.9) 42%,
-            rgba(28, 23, 78, 0.88) 100%
+            rgba(4, 39, 68, 0.94) 0%,
+            rgba(8, 28, 62, 0.95) 45%,
+            rgba(44, 28, 104, 0.93) 100%
         ) !important;
 
     border:
-        1px solid rgba(73, 190, 255, 0.34) !important;
+        1px solid rgba(72, 194, 255, 0.42) !important;
 
     box-shadow:
-        0 18px 55px rgba(0, 0, 0, 0.34),
-        0 0 35px rgba(25, 161, 255, 0.13),
-        inset 0 1px 0 rgba(182, 231, 255, 0.11),
-        inset 0 -1px 0 rgba(98, 81, 255, 0.1) !important;
+        0 18px 55px rgba(0, 0, 0, 0.38),
+        0 0 38px rgba(32, 171, 255, 0.18),
+        inset 0 1px 0 rgba(205, 241, 255, 0.13) !important;
 
     -webkit-backdrop-filter:
         blur(24px)
@@ -3698,89 +3691,80 @@ html.mi-main-site-visible .mi-fixed-glass-nav {
         saturate(155%) !important;
 }
 
-/* Subtle blue light across the navigation. */
+/* Keep the navigation above every section while scrolling. */
 
-html.mi-main-site-visible .site-header .nav::before,
-html.mi-main-site-visible .site-header .glass-panel::before,
-html.mi-main-site-visible .mi-fixed-glass-nav::before {
-    content: "" !important;
-
-    position: absolute !important;
-    inset: 0 !important;
-
-    border-radius: inherit !important;
-
-    background:
-        linear-gradient(
-            100deg,
-            rgba(58, 200, 255, 0.13),
-            transparent 34%,
-            transparent 65%,
-            rgba(112, 74, 255, 0.13)
-        ) !important;
-
-    pointer-events: none !important;
-    z-index: 0 !important;
+.site-header,
+.site-header *,
+.site-header .nav,
+.site-header .glass-panel {
+    backface-visibility: hidden !important;
 }
 
-/* Keep navigation content above the light effect. */
+/* Maintain clean navigation interaction. */
 
-html.mi-main-site-visible .site-header .nav > *,
-html.mi-main-site-visible .site-header .glass-panel > *,
-html.mi-main-site-visible .mi-fixed-glass-nav > * {
+.site-header a,
+.site-header button {
     position: relative !important;
-    z-index: 1 !important;
-}
+    z-index: 2 !important;
 
-/* Blue hover effect for navigation options. */
-
-html.mi-main-site-visible .site-header a,
-html.mi-main-site-visible .site-header button,
-html.mi-main-site-visible .mi-fixed-glass-nav a,
-html.mi-main-site-visible .mi-fixed-glass-nav button {
     transition:
         color 180ms ease,
         text-shadow 180ms ease,
         transform 180ms ease !important;
 }
 
-html.mi-main-site-visible .site-header a:hover,
-html.mi-main-site-visible .site-header a.active,
-html.mi-main-site-visible .site-header a[aria-current="page"],
-html.mi-main-site-visible .mi-fixed-glass-nav a:hover,
-html.mi-main-site-visible .mi-fixed-glass-nav a.active,
-html.mi-main-site-visible .mi-fixed-glass-nav a[aria-current="page"] {
-    color: #dff7ff !important;
+.site-header a:hover,
+.site-header a.active,
+.site-header a[aria-current="page"],
+.site-header button:hover,
+.site-header button.active {
+    color: #ffffff !important;
 
     text-shadow:
-        0 0 10px rgba(89, 212, 255, 0.7),
-        0 0 24px rgba(77, 136, 255, 0.32) !important;
+        0 0 10px rgba(92, 218, 255, 0.8),
+        0 0 25px rgba(71, 145, 255, 0.4) !important;
 
     transform: translateY(-1px) !important;
 }
 
-/* Slightly stronger blue glow while scrolling. */
+/*
+Prevent content from being hidden behind the fixed navigation.
+Do not change the welcome animation or front-page media.
+*/
 
-html.mi-main-site-visible.mi-page-is-scrolling .site-header .nav,
-html.mi-main-site-visible.mi-page-is-scrolling .site-header .glass-panel,
-html.mi-main-site-visible.mi-page-is-scrolling .mi-fixed-glass-nav {
-    border-color: rgba(91, 210, 255, 0.48) !important;
+main,
+.page-section,
+[data-page-section],
+.mcx-main-portal,
+.mcx-dynamic-page {
+    scroll-margin-top: 135px !important;
+}
 
-    box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.4),
-        0 0 42px rgba(41, 177, 255, 0.2),
-        inset 0 1px 0 rgba(202, 239, 255, 0.13) !important;
+@media (max-width: 900px) {
+    .site-header {
+        top: 10px !important;
+        width: calc(100% - 20px) !important;
+    }
+
+    main,
+    .page-section,
+    [data-page-section],
+    .mcx-main-portal,
+    .mcx-dynamic-page {
+        scroll-margin-top: 115px !important;
+    }
 }
 
 @media (max-width: 700px) {
-    html.mi-main-site-visible .site-header {
-        padding-left: 10px !important;
-        padding-right: 10px !important;
+    .site-header {
+        top: 8px !important;
+        width: calc(100% - 16px) !important;
     }
 
-    html.mi-main-site-visible .site-header .nav,
-    html.mi-main-site-visible .site-header .glass-panel,
-    html.mi-main-site-visible .mi-fixed-glass-nav {
+    .site-header .nav,
+    .site-header .glass-panel,
+    .site-header > nav,
+    .site-header > div {
         -webkit-backdrop-filter:
             blur(18px)
             saturate(145%) !important;
@@ -3791,4 +3775,4 @@ html.mi-main-site-visible.mi-page-is-scrolling .mi-fixed-glass-nav {
     }
 }
 
-/* MI_CONTENT_ONLY_BLUE_NAV_END */
+/* MI_ALWAYS_VISIBLE_NAV_END */
