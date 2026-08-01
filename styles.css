@@ -3998,3 +3998,127 @@ section[id] {
 }
 
 /* MI_OLD_STYLE_LIQUID_BLUR_END */
+
+/* MI_NAVIGATION_GOLD_LIQUID_RESTORE_START */
+
+/* Navigation-only visual restoration. */
+.site-header {
+  perspective: 1200px !important;
+  transform-style: preserve-3d !important;
+}
+
+.site-header .nav {
+  min-height: 88px !important;
+  padding: 12px clamp(20px, 2.8vw, 34px) !important;
+  border: 1px solid rgba(91, 210, 255, 0.52) !important;
+  border-radius: 999px !important;
+  background: linear-gradient(108deg, rgba(3, 42, 72, 0.50), rgba(6, 24, 57, 0.45) 46%, rgba(48, 28, 112, 0.50)) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(205%) contrast(118%) brightness(108%) !important;
+  backdrop-filter: blur(40px) saturate(205%) contrast(118%) brightness(108%) !important;
+  box-shadow:
+    0 25px 76px rgba(0, 0, 0, 0.46),
+    0 0 48px rgba(29, 184, 255, 0.23),
+    0 0 88px rgba(106, 71, 255, 0.15),
+    inset 0 1px 0 rgba(228, 251, 255, 0.32),
+    inset 0 -1px 0 rgba(121, 95, 255, 0.22),
+    inset 18px 0 42px rgba(48, 205, 255, 0.09),
+    inset -18px 0 42px rgba(144, 82, 255, 0.11) !important;
+}
+
+.site-header .nav::before {
+  inset: -28% -7% !important;
+  background:
+    radial-gradient(ellipse at 12% 48%, rgba(91, 222, 255, 0.27), transparent 31%),
+    radial-gradient(ellipse at 87% 50%, rgba(150, 91, 255, 0.29), transparent 34%),
+    linear-gradient(108deg, transparent 19%, rgba(228, 251, 255, 0.08) 36%, rgba(255, 255, 255, 0.17) 49%, rgba(180, 222, 255, 0.07) 62%, transparent 78%) !important;
+  filter: blur(9px) saturate(135%) !important;
+  opacity: 0.88 !important;
+  transform: scale(1.13) translate3d(-1%, 0, 0) !important;
+}
+
+.site-header .nav::after {
+  left: 6% !important;
+  right: 6% !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, rgba(135, 228, 255, 0.38) 20%, rgba(238, 254, 255, 0.86) 50%, rgba(181, 145, 255, 0.40) 82%, transparent) !important;
+  opacity: 0.78 !important;
+}
+
+/* Gold MI CORTEX X brand with black outline. */
+.site-header .brand > span {
+  color: #f6c744 !important;
+  background: linear-gradient(180deg, #fff2a8 0%, #ffd65a 32%, #e8a91f 68%, #fff0a0 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  -webkit-text-stroke: 1.35px #050505 !important;
+  paint-order: stroke fill !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.055em !important;
+  text-shadow: 0 2px 0 #000, 0 0 8px rgba(255, 214, 77, 0.52), 0 0 20px rgba(232, 169, 31, 0.28) !important;
+}
+
+.site-header .brand-logo {
+  filter: drop-shadow(0 0 8px rgba(72, 207, 255, 0.55)) drop-shadow(0 0 20px rgba(89, 102, 255, 0.26)) !important;
+}
+
+/* Navigation categories only. */
+.site-header .nav-links {
+  gap: clamp(6px, 0.8vw, 13px) !important;
+}
+
+.site-header .nav-links > a {
+  padding: 10px clamp(8px, 1vw, 14px) !important;
+  border: 1px solid transparent !important;
+  border-radius: 999px !important;
+  color: rgba(237, 243, 255, 0.80) !important;
+  background: transparent !important;
+  font-weight: 750 !important;
+  letter-spacing: 0.035em !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.60) !important;
+  transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease, text-shadow 180ms ease, transform 180ms ease !important;
+}
+
+.site-header .nav-links > a:hover,
+.site-header .nav-links > a:focus-visible,
+.site-header .nav-links > a.active,
+.site-header .nav-links > a[aria-current="page"] {
+  color: #ffe78a !important;
+  border-color: rgba(255, 215, 83, 0.28) !important;
+  background: linear-gradient(120deg, rgba(255, 213, 76, 0.11), rgba(114, 87, 255, 0.10)) !important;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.19), inset 0 1px 0 rgba(255, 248, 202, 0.12), 0 0 20px rgba(255, 202, 56, 0.10) !important;
+  text-shadow: 0 1px 0 #000, 0 0 9px rgba(255, 222, 102, 0.66), 0 0 22px rgba(255, 184, 39, 0.30) !important;
+  transform: translateY(-1px) scale(1.018) !important;
+}
+
+html.mcx-content-navigation-scrolled .site-header .nav {
+  -webkit-backdrop-filter: blur(46px) saturate(220%) contrast(121%) brightness(108%) !important;
+  backdrop-filter: blur(46px) saturate(220%) contrast(121%) brightness(108%) !important;
+  box-shadow: 0 30px 88px rgba(0, 0, 0, 0.52), 0 0 58px rgba(32, 191, 255, 0.28), 0 0 105px rgba(108, 69, 255, 0.17), inset 0 1px 0 rgba(238, 253, 255, 0.37), inset 0 -1px 0 rgba(129, 101, 255, 0.27) !important;
+}
+
+@media (max-width: 900px) {
+  .site-header .nav {
+    min-height: 76px !important;
+    padding: 10px 17px !important;
+  }
+
+  .site-header .brand > span {
+    font-size: clamp(0.86rem, 2.6vw, 1.08rem) !important;
+    -webkit-text-stroke-width: 1px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .site-header .nav {
+    min-height: 68px !important;
+    -webkit-backdrop-filter: blur(31px) saturate(190%) contrast(115%) !important;
+    backdrop-filter: blur(31px) saturate(190%) contrast(115%) !important;
+  }
+
+  .site-header .nav-links > a {
+    padding: 9px 11px !important;
+  }
+}
+
+/* MI_NAVIGATION_GOLD_LIQUID_RESTORE_END */
