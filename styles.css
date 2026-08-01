@@ -3998,3 +3998,387 @@ section[id] {
 }
 
 /* MI_OLD_STYLE_LIQUID_BLUR_END */
+
+
+/* MI_NAV_QUALITY_UPGRADE_START */
+
+/*
+Navigation quality upgrade only.
+Existing visibility, welcome-page hiding, front-page hiding,
+fixed position and navigation functionality remain unchanged.
+*/
+
+.site-header {
+    perspective: 1200px !important;
+    transform-style: preserve-3d !important;
+    will-change: transform, opacity !important;
+}
+
+.site-header .nav,
+.site-header > nav,
+.site-header .glass-panel,
+.site-header .navbar,
+.site-header .navigation,
+.mi-fixed-glass-nav {
+    min-height: 92px !important;
+
+    padding:
+        13px
+        clamp(20px, 3vw, 36px) !important;
+
+    border:
+        1px solid rgba(111, 218, 255, 0.58) !important;
+
+    background:
+        linear-gradient(
+            112deg,
+            rgba(5, 48, 82, 0.55) 0%,
+            rgba(7, 29, 65, 0.5) 38%,
+            rgba(30, 24, 91, 0.54) 70%,
+            rgba(65, 32, 145, 0.58) 100%
+        ) !important;
+
+    -webkit-backdrop-filter:
+        blur(48px)
+        saturate(220%)
+        contrast(122%)
+        brightness(110%) !important;
+
+    backdrop-filter:
+        blur(48px)
+        saturate(220%)
+        contrast(122%)
+        brightness(110%) !important;
+
+    box-shadow:
+        0 30px 90px rgba(0, 0, 0, 0.48),
+        0 12px 32px rgba(0, 0, 0, 0.28),
+        0 0 38px rgba(38, 191, 255, 0.25),
+        0 0 90px rgba(101, 70, 255, 0.19),
+        inset 0 1px 0 rgba(234, 253, 255, 0.38),
+        inset 0 -1px 0 rgba(117, 101, 255, 0.28),
+        inset 22px 0 50px rgba(47, 209, 255, 0.1),
+        inset -22px 0 50px rgba(151, 83, 255, 0.13) !important;
+
+    transform:
+        translateZ(0)
+        scale(1) !important;
+
+    will-change:
+        backdrop-filter,
+        box-shadow,
+        transform !important;
+}
+
+/* Premium outer glow */
+
+.site-header .nav {
+    outline:
+        1px solid rgba(103, 210, 255, 0.08) !important;
+
+    outline-offset: 5px !important;
+}
+
+/* More realistic moving liquid light */
+
+.site-header .nav::before,
+.site-header > nav::before,
+.site-header .glass-panel::before,
+.site-header .navbar::before,
+.site-header .navigation::before,
+.mi-fixed-glass-nav::before {
+    inset: -42% -10% !important;
+
+    background:
+        radial-gradient(
+            ellipse at 10% 45%,
+            rgba(81, 219, 255, 0.34),
+            transparent 31%
+        ),
+        radial-gradient(
+            ellipse at 50% 10%,
+            rgba(191, 240, 255, 0.13),
+            transparent 27%
+        ),
+        radial-gradient(
+            ellipse at 88% 50%,
+            rgba(151, 87, 255, 0.35),
+            transparent 34%
+        ),
+        linear-gradient(
+            106deg,
+            transparent 20%,
+            rgba(229, 251, 255, 0.08) 34%,
+            rgba(255, 255, 255, 0.19) 49%,
+            rgba(163, 216, 255, 0.08) 60%,
+            transparent 76%
+        ) !important;
+
+    filter:
+        blur(11px)
+        saturate(130%) !important;
+
+    opacity: 0.9 !important;
+
+    animation:
+        mcxPremiumNavLiquidFlow
+        10s
+        cubic-bezier(0.45, 0, 0.55, 1)
+        infinite
+        alternate !important;
+}
+
+/* Glass top and bottom reflections */
+
+.site-header .nav::after,
+.site-header > nav::after,
+.site-header .glass-panel::after,
+.site-header .navbar::after,
+.site-header .navigation::after,
+.mi-fixed-glass-nav::after {
+    top: 1px !important;
+    left: 5% !important;
+    right: 5% !important;
+    height: 2px !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(132, 227, 255, 0.32) 16%,
+            rgba(236, 253, 255, 0.9) 49%,
+            rgba(181, 151, 255, 0.38) 83%,
+            transparent
+        ) !important;
+
+    filter: blur(0.4px) !important;
+    opacity: 0.82 !important;
+}
+
+/* Logo area */
+
+.site-header img,
+.site-header .logo img,
+.site-header .brand-logo img {
+    filter:
+        drop-shadow(0 0 9px rgba(52, 202, 255, 0.55))
+        drop-shadow(0 0 20px rgba(51, 122, 255, 0.24)) !important;
+
+    transition:
+        filter 220ms ease,
+        transform 220ms ease !important;
+}
+
+.site-header img:hover,
+.site-header .logo:hover img,
+.site-header .brand-logo:hover img {
+    transform: scale(1.045) !important;
+
+    filter:
+        drop-shadow(0 0 12px rgba(82, 222, 255, 0.82))
+        drop-shadow(0 0 30px rgba(97, 93, 255, 0.4)) !important;
+}
+
+/* Company name */
+
+.site-header .brand,
+.site-header .logo-text,
+.site-header .brand-name,
+.site-header [class*="brand"] {
+    text-shadow:
+        0 0 9px rgba(91, 205, 255, 0.25),
+        0 0 22px rgba(119, 73, 255, 0.18) !important;
+}
+
+/* Navigation links */
+
+.site-header a,
+.site-header button,
+.mi-fixed-glass-nav a,
+.mi-fixed-glass-nav button {
+    padding:
+        10px
+        clamp(8px, 1vw, 14px) !important;
+
+    border-radius: 999px !important;
+
+    font-weight: 700 !important;
+    letter-spacing: 0.025em !important;
+
+    color:
+        rgba(226, 235, 252, 0.76) !important;
+
+    border:
+        1px solid transparent !important;
+
+    background:
+        transparent !important;
+
+    transition:
+        color 190ms ease,
+        background-color 190ms ease,
+        border-color 190ms ease,
+        box-shadow 190ms ease,
+        text-shadow 190ms ease,
+        transform 190ms ease !important;
+}
+
+.site-header a:hover,
+.site-header button:hover,
+.site-header a.active,
+.site-header button.active,
+.site-header a[aria-current="page"],
+.mi-fixed-glass-nav a:hover,
+.mi-fixed-glass-nav button:hover,
+.mi-fixed-glass-nav a.active,
+.mi-fixed-glass-nav a[aria-current="page"] {
+    color: #ffffff !important;
+
+    border-color:
+        rgba(117, 220, 255, 0.25) !important;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(69, 195, 255, 0.12),
+            rgba(120, 78, 255, 0.13)
+        ) !important;
+
+    box-shadow:
+        0 7px 20px rgba(0, 0, 0, 0.16),
+        inset 0 1px 0 rgba(229, 251, 255, 0.14),
+        0 0 20px rgba(76, 195, 255, 0.12) !important;
+
+    text-shadow:
+        0 0 7px rgba(227, 252, 255, 0.92),
+        0 0 18px rgba(76, 210, 255, 0.67),
+        0 0 35px rgba(112, 91, 255, 0.43) !important;
+
+    transform:
+        translateY(-2px)
+        scale(1.025) !important;
+}
+
+/* Extra depth when content passes behind the glass */
+
+html.mcx-content-navigation-scrolled .site-header .nav,
+html.mcx-content-navigation-scrolled .site-header > nav,
+html.mcx-content-navigation-scrolled .site-header .glass-panel,
+html.mcx-content-navigation-scrolled .site-header .navbar,
+html.mcx-content-navigation-scrolled .site-header .navigation,
+html.mcx-content-navigation-scrolled .mi-fixed-glass-nav {
+    background:
+        linear-gradient(
+            112deg,
+            rgba(3, 39, 69, 0.63),
+            rgba(6, 24, 60, 0.59) 44%,
+            rgba(51, 27, 122, 0.63)
+        ) !important;
+
+    -webkit-backdrop-filter:
+        blur(56px)
+        saturate(235%)
+        contrast(125%)
+        brightness(109%) !important;
+
+    backdrop-filter:
+        blur(56px)
+        saturate(235%)
+        contrast(125%)
+        brightness(109%) !important;
+
+    box-shadow:
+        0 34px 100px rgba(0, 0, 0, 0.54),
+        0 0 56px rgba(37, 198, 255, 0.31),
+        0 0 110px rgba(107, 68, 255, 0.2),
+        inset 0 1px 0 rgba(239, 254, 255, 0.42),
+        inset 0 -1px 0 rgba(127, 105, 255, 0.32),
+        inset 25px 0 58px rgba(45, 210, 255, 0.12),
+        inset -25px 0 58px rgba(157, 83, 255, 0.16) !important;
+
+    transform:
+        translateZ(0)
+        scale(1.004) !important;
+}
+
+@keyframes mcxPremiumNavLiquidFlow {
+    0% {
+        transform:
+            translate3d(-3%, -1%, 0)
+            scale(1.08)
+            rotate(-0.45deg);
+    }
+
+    35% {
+        transform:
+            translate3d(1%, 2%, 0)
+            scale(1.14)
+            rotate(0.25deg);
+    }
+
+    70% {
+        transform:
+            translate3d(3%, -1%, 0)
+            scale(1.11)
+            rotate(0.45deg);
+    }
+
+    100% {
+        transform:
+            translate3d(-1%, 2%, 0)
+            scale(1.15)
+            rotate(-0.15deg);
+    }
+}
+
+@media (max-width: 900px) {
+    .site-header .nav,
+    .site-header > nav,
+    .site-header .glass-panel,
+    .site-header .navbar,
+    .site-header .navigation,
+    .mi-fixed-glass-nav {
+        min-height: 78px !important;
+        padding: 10px 18px !important;
+    }
+}
+
+@media (max-width: 700px) {
+    .site-header .nav,
+    .site-header > nav,
+    .site-header .glass-panel,
+    .site-header .navbar,
+    .site-header .navigation,
+    .mi-fixed-glass-nav {
+        min-height: 70px !important;
+
+        -webkit-backdrop-filter:
+            blur(38px)
+            saturate(205%)
+            contrast(118%) !important;
+
+        backdrop-filter:
+            blur(38px)
+            saturate(205%)
+            contrast(118%) !important;
+    }
+
+    .site-header a,
+    .site-header button {
+        padding: 8px 9px !important;
+        font-size: 0.78rem !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .site-header .nav::before,
+    .site-header > nav::before,
+    .site-header .glass-panel::before,
+    .site-header .navbar::before,
+    .site-header .navigation::before,
+    .mi-fixed-glass-nav::before {
+        animation: none !important;
+    }
+}
+
+/* MI_NAV_QUALITY_UPGRADE_END */
