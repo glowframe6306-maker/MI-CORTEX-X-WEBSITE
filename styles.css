@@ -3627,17 +3627,35 @@ Do not replace it with a solid black background.
 
 /* MI_REAL_ARROW_ICONS_END */
 
-
-/* MI_ALWAYS_VISIBLE_NAV_START */
+/* MI_PREMIUM_LIQUID_NAV_START */
 
 /*
-Keep the navigation visible at the top on every website content page.
-It does not disappear while scrolling.
+Required behavior:
+
+- Hidden on the welcome page.
+- Hidden while the front-page banner is visible.
+- Visible on HOME, ABOUT US, PRODUCTS, SERVICES, PRICING and CONTACT content.
+- Remains fixed while scrolling through website content.
 */
+
+html.mcx-hide-content-navigation .site-header,
+html.mcx-hide-content-navigation .mi-fixed-glass-nav {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+
+    transform:
+        translateX(-50%)
+        translateY(-32px)
+        scale(0.965) !important;
+
+    filter: blur(18px) !important;
+}
 
 .site-header {
     position: fixed !important;
-    top: 18px !important;
+
+    top: 16px !important;
     left: 50% !important;
     right: auto !important;
 
@@ -3650,94 +3668,256 @@ It does not disappear while scrolling.
     visibility: visible !important;
     pointer-events: auto !important;
 
-    transform: translateX(-50%) !important;
+    transform:
+        translateX(-50%)
+        translateY(0)
+        scale(1) !important;
+
+    filter: blur(0) !important;
 
     transition:
-        background-color 220ms ease,
-        border-color 220ms ease,
-        box-shadow 220ms ease !important;
+        opacity 420ms ease,
+        visibility 420ms ease,
+        transform 650ms cubic-bezier(0.22, 1, 0.36, 1),
+        filter 500ms ease !important;
 }
 
-/* Preserve the premium blue glass appearance. */
+/* Premium high-liquid glass surface. */
 
 .site-header .nav,
-.site-header .glass-panel,
 .site-header > nav,
-.site-header > div {
+.site-header .glass-panel,
+.site-header .navbar,
+.site-header .navigation,
+.mi-fixed-glass-nav {
     position: relative !important;
+    overflow: hidden !important;
+    isolation: isolate !important;
+
+    border:
+        1px solid rgba(100, 208, 255, 0.45) !important;
+
+    border-radius: 999px !important;
 
     background:
         linear-gradient(
-            110deg,
-            rgba(4, 39, 68, 0.94) 0%,
-            rgba(8, 28, 62, 0.95) 45%,
-            rgba(44, 28, 104, 0.93) 100%
+            112deg,
+            rgba(3, 38, 68, 0.74) 0%,
+            rgba(7, 25, 57, 0.68) 43%,
+            rgba(42, 27, 104, 0.7) 100%
         ) !important;
 
-    border:
-        1px solid rgba(72, 194, 255, 0.42) !important;
-
-    box-shadow:
-        0 18px 55px rgba(0, 0, 0, 0.38),
-        0 0 38px rgba(32, 171, 255, 0.18),
-        inset 0 1px 0 rgba(205, 241, 255, 0.13) !important;
-
     -webkit-backdrop-filter:
-        blur(24px)
-        saturate(155%) !important;
+        blur(38px)
+        saturate(190%)
+        contrast(112%)
+        brightness(108%) !important;
 
     backdrop-filter:
-        blur(24px)
-        saturate(155%) !important;
-}
+        blur(38px)
+        saturate(190%)
+        contrast(112%)
+        brightness(108%) !important;
 
-/* Keep the navigation above every section while scrolling. */
-
-.site-header,
-.site-header *,
-.site-header .nav,
-.site-header .glass-panel {
-    backface-visibility: hidden !important;
-}
-
-/* Maintain clean navigation interaction. */
-
-.site-header a,
-.site-header button {
-    position: relative !important;
-    z-index: 2 !important;
+    box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.4),
+        0 0 55px rgba(32, 177, 255, 0.2),
+        0 0 95px rgba(90, 66, 255, 0.12),
+        inset 0 1px 0 rgba(220, 247, 255, 0.23),
+        inset 0 -1px 0 rgba(97, 97, 255, 0.16),
+        inset 18px 0 38px rgba(41, 191, 255, 0.08),
+        inset -18px 0 38px rgba(122, 75, 255, 0.09) !important;
 
     transition:
-        color 180ms ease,
-        text-shadow 180ms ease,
-        transform 180ms ease !important;
+        border-color 260ms ease,
+        box-shadow 260ms ease,
+        background 260ms ease !important;
+}
+
+/* Moving liquid highlight. */
+
+.site-header .nav::before,
+.site-header > nav::before,
+.site-header .glass-panel::before,
+.site-header .navbar::before,
+.site-header .navigation::before,
+.mi-fixed-glass-nav::before {
+    content: "" !important;
+
+    position: absolute !important;
+    inset: -50% -16% !important;
+
+    z-index: 0 !important;
+    pointer-events: none !important;
+
+    border-radius: inherit !important;
+
+    background:
+        radial-gradient(
+            circle at 18% 45%,
+            rgba(111, 229, 255, 0.24),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 82% 50%,
+            rgba(139, 93, 255, 0.24),
+            transparent 32%
+        ),
+        linear-gradient(
+            105deg,
+            transparent 25%,
+            rgba(226, 251, 255, 0.12) 45%,
+            transparent 67%
+        ) !important;
+
+    filter: blur(14px) !important;
+
+    animation:
+        mcxLiquidNavigationFlow 9s ease-in-out infinite alternate !important;
+}
+
+/* Thin premium glass reflection. */
+
+.site-header .nav::after,
+.site-header > nav::after,
+.site-header .glass-panel::after,
+.site-header .navbar::after,
+.site-header .navigation::after,
+.mi-fixed-glass-nav::after {
+    content: "" !important;
+
+    position: absolute !important;
+
+    top: 1px !important;
+    left: 7% !important;
+    right: 7% !important;
+
+    height: 1px !important;
+
+    z-index: 1 !important;
+    pointer-events: none !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(218, 248, 255, 0.68),
+            transparent
+        ) !important;
+
+    opacity: 0.68 !important;
+}
+
+.site-header .nav > *,
+.site-header > nav > *,
+.site-header .glass-panel > *,
+.site-header .navbar > *,
+.site-header .navigation > *,
+.mi-fixed-glass-nav > * {
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+/* Navigation option effects. */
+
+.site-header a,
+.site-header button,
+.mi-fixed-glass-nav a,
+.mi-fixed-glass-nav button {
+    transition:
+        color 190ms ease,
+        text-shadow 190ms ease,
+        transform 190ms ease,
+        opacity 190ms ease !important;
 }
 
 .site-header a:hover,
-.site-header a.active,
-.site-header a[aria-current="page"],
 .site-header button:hover,
-.site-header button.active {
+.site-header a.active,
+.site-header button.active,
+.site-header a[aria-current="page"],
+.mi-fixed-glass-nav a:hover,
+.mi-fixed-glass-nav button:hover,
+.mi-fixed-glass-nav a.active,
+.mi-fixed-glass-nav a[aria-current="page"] {
     color: #ffffff !important;
 
     text-shadow:
-        0 0 10px rgba(92, 218, 255, 0.8),
-        0 0 25px rgba(71, 145, 255, 0.4) !important;
+        0 0 8px rgba(214, 249, 255, 0.9),
+        0 0 20px rgba(75, 207, 255, 0.72),
+        0 0 38px rgba(92, 105, 255, 0.4) !important;
 
-    transform: translateY(-1px) !important;
+    transform: translateY(-1px) scale(1.025) !important;
 }
 
-/*
-Prevent content from being hidden behind the fixed navigation.
-Do not change the welcome animation or front-page media.
-*/
+/* Stronger liquid depth after scrolling. */
 
-main,
+html.mcx-content-navigation-scrolled .site-header .nav,
+html.mcx-content-navigation-scrolled .site-header > nav,
+html.mcx-content-navigation-scrolled .site-header .glass-panel,
+html.mcx-content-navigation-scrolled .site-header .navbar,
+html.mcx-content-navigation-scrolled .site-header .navigation,
+html.mcx-content-navigation-scrolled .mi-fixed-glass-nav {
+    border-color: rgba(105, 222, 255, 0.58) !important;
+
+    background:
+        linear-gradient(
+            112deg,
+            rgba(2, 32, 58, 0.82),
+            rgba(7, 21, 51, 0.8) 44%,
+            rgba(38, 24, 92, 0.8)
+        ) !important;
+
+    box-shadow:
+        0 28px 82px rgba(0, 0, 0, 0.5),
+        0 0 65px rgba(26, 181, 255, 0.25),
+        inset 0 1px 0 rgba(225, 250, 255, 0.28),
+        inset 0 -1px 0 rgba(113, 92, 255, 0.2) !important;
+}
+
+/* Avoid content being hidden behind the fixed navigation. */
+
 .page-section,
 [data-page-section],
 .mcx-main-portal,
-.mcx-dynamic-page {
-    scroll-margin-top: 135px !important;
+.mcx-dynamic-page,
+.mcx-page-shell,
+section[id] {
+    scroll-margin-top: 140px !important;
+}
+
+@keyframes mcxLiquidNavigationFlow {
+    0% {
+        transform:
+            translate3d(-3%, -1%, 0)
+            rotate(-1deg)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate3d(3%, 1%, 0)
+            rotate(1deg)
+            scale(1.04);
+    }
+
+    100% {
+        transform:
+            translate3d(-1%, 2%, 0)
+            rotate(0deg)
+            scale(1.02);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .site-header .nav::before,
+    .site-header > nav::before,
+    .site-header .glass-panel::before,
+    .site-header .navbar::before,
+    .site-header .navigation::before,
+    .mi-fixed-glass-nav::before {
+        animation: none !important;
+    }
 }
 
 @media (max-width: 900px) {
@@ -3746,12 +3926,13 @@ main,
         width: calc(100% - 20px) !important;
     }
 
-    main,
     .page-section,
     [data-page-section],
     .mcx-main-portal,
-    .mcx-dynamic-page {
-        scroll-margin-top: 115px !important;
+    .mcx-dynamic-page,
+    .mcx-page-shell,
+    section[id] {
+        scroll-margin-top: 120px !important;
     }
 }
 
@@ -3762,17 +3943,19 @@ main,
     }
 
     .site-header .nav,
-    .site-header .glass-panel,
     .site-header > nav,
-    .site-header > div {
+    .site-header .glass-panel,
+    .site-header .navbar,
+    .site-header .navigation,
+    .mi-fixed-glass-nav {
         -webkit-backdrop-filter:
-            blur(18px)
-            saturate(145%) !important;
+            blur(28px)
+            saturate(175%) !important;
 
         backdrop-filter:
-            blur(18px)
-            saturate(145%) !important;
+            blur(28px)
+            saturate(175%) !important;
     }
 }
 
-/* MI_ALWAYS_VISIBLE_NAV_END */
+/* MI_PREMIUM_LIQUID_NAV_END */

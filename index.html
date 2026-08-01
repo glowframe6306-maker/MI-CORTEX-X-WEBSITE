@@ -1400,5 +1400,192 @@
 </script>
 <!-- MI_NO_LOGO_SLOW_WELCOME_END -->
 
+
+<!-- MI_PREMIUM_LIQUID_NAV_SCRIPT_START -->
+<script>
+(function () {
+    "use strict";
+
+    if (window.__mcxPremiumLiquidNavigationInstalled) {
+        return;
+    }
+
+    window.__mcxPremiumLiquidNavigationInstalled = true;
+
+    var framePending = false;
+
+    function findWelcomePage() {
+        return (
+            document.querySelector("#welcome-screen") ||
+            document.querySelector("#welcomeScreen") ||
+            document.querySelector(".welcome-screen") ||
+            document.querySelector("[data-welcome-screen]") ||
+            document.querySelector("#intro-screen") ||
+            document.querySelector("#introScreen") ||
+            document.querySelector(".intro-screen") ||
+            document.querySelector("[data-intro-screen]") ||
+            document.querySelector("#neural-intro") ||
+            document.querySelector(".neural-intro")
+        );
+    }
+
+    function findFrontPage() {
+        return (
+            document.querySelector("#mi-front-page") ||
+            document.querySelector(".mi-front-page") ||
+            document.querySelector("#front-page") ||
+            document.querySelector(".front-page") ||
+            document.querySelector("[data-front-page]")
+        );
+    }
+
+    function elementIsVisible(element) {
+        if (!element) {
+            return false;
+        }
+
+        var style = window.getComputedStyle(element);
+        var rectangle = element.getBoundingClientRect();
+
+        return (
+            style.display !== "none" &&
+            style.visibility !== "hidden" &&
+            Number.parseFloat(style.opacity || "1") > 0.02 &&
+            rectangle.width > 0 &&
+            rectangle.height > 0
+        );
+    }
+
+    function welcomeIsActive() {
+        var welcome = findWelcomePage();
+
+        if (!elementIsVisible(welcome)) {
+            return false;
+        }
+
+        var rectangle = welcome.getBoundingClientRect();
+
+        return (
+            rectangle.bottom > 1 &&
+            rectangle.top < window.innerHeight
+        );
+    }
+
+    function frontPageIsActive() {
+        var frontPage = findFrontPage();
+
+        if (!elementIsVisible(frontPage)) {
+            return false;
+        }
+
+        var rectangle = frontPage.getBoundingClientRect();
+
+        /*
+        Hide the navigation while any meaningful part of the
+        front-page banner remains visible.
+        */
+
+        return (
+            rectangle.bottom > 90 &&
+            rectangle.top < window.innerHeight - 40
+        );
+    }
+
+    function updateNavigationVisibility() {
+        framePending = false;
+
+        var hideNavigation =
+            welcomeIsActive() ||
+            frontPageIsActive();
+
+        document.documentElement.classList.toggle(
+            "mcx-hide-content-navigation",
+            hideNavigation
+        );
+
+        document.documentElement.classList.toggle(
+            "mcx-content-navigation-scrolled",
+            !hideNavigation && window.scrollY > 60
+        );
+    }
+
+    function requestUpdate() {
+        if (framePending) {
+            return;
+        }
+
+        framePending = true;
+        window.requestAnimationFrame(
+            updateNavigationVisibility
+        );
+    }
+
+    function initialize() {
+        updateNavigationVisibility();
+
+        window.addEventListener(
+            "scroll",
+            requestUpdate,
+            { passive: true }
+        );
+
+        window.addEventListener(
+            "resize",
+            requestUpdate,
+            { passive: true }
+        );
+
+        window.addEventListener(
+            "hashchange",
+            function () {
+                window.setTimeout(requestUpdate, 30);
+                window.setTimeout(requestUpdate, 260);
+            }
+        );
+
+        window.addEventListener(
+            "popstate",
+            function () {
+                window.setTimeout(requestUpdate, 30);
+                window.setTimeout(requestUpdate, 260);
+            }
+        );
+
+        window.addEventListener(
+            "load",
+            function () {
+                updateNavigationVisibility();
+                window.setTimeout(updateNavigationVisibility, 300);
+                window.setTimeout(updateNavigationVisibility, 1200);
+            }
+        );
+
+        document.addEventListener(
+            "click",
+            function (event) {
+                if (
+                    event.target.closest(
+                        "nav a, nav button, [data-page], [data-main-category]"
+                    )
+                ) {
+                    window.setTimeout(requestUpdate, 30);
+                    window.setTimeout(requestUpdate, 350);
+                }
+            }
+        );
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener(
+            "DOMContentLoaded",
+            initialize,
+            { once: true }
+        );
+    } else {
+        initialize();
+    }
+})();
+</script>
+<!-- MI_PREMIUM_LIQUID_NAV_SCRIPT_END -->
 </body>
 </html>
