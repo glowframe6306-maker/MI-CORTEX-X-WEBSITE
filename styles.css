@@ -4378,3 +4378,99 @@ html.mcx-content-navigation-scrolled .mi-fixed-glass-nav {
 }
 
 /* MI_REMOVE_NAV_OUTER_BOX_END */
+
+/* ===== FINAL PREMIUM NAV UPGRADE ===== */
+
+.site-header .brand > span,
+.mi-fixed-glass-nav .brand > span{
+
+    font-size:1.55rem !important;
+    font-weight:1000 !important;
+    letter-spacing:.03em !important;
+
+    color:#FFD84A !important;
+    -webkit-text-fill-color:#FFD84A !important;
+
+    -webkit-text-stroke:.8px #000 !important;
+
+    text-shadow:
+        0 0 2px #000,
+        0 0 4px #000,
+        0 0 12px rgba(255,210,40,.45);
+}
+
+
+/* MUCH STRONGER LIQUID */
+
+.mi-fixed-glass-nav{
+
+    backdrop-filter:
+        blur(70px)
+        saturate(280%)
+        contrast(135%)
+        brightness(118%) !important;
+
+    -webkit-backdrop-filter:
+        blur(70px)
+        saturate(280%)
+        contrast(135%)
+        brightness(118%) !important;
+
+    background:
+        linear-gradient(
+            115deg,
+            rgba(15,105,210,.48),
+            rgba(40,48,185,.42),
+            rgba(118,0,255,.46)
+        ) !important;
+
+    box-shadow:
+        0 20px 90px rgba(0,140,255,.30),
+        0 0 110px rgba(116,45,255,.28),
+        inset 0 1px rgba(255,255,255,.35),
+        inset 0 -1px rgba(255,255,255,.08) !important;
+
+    overflow:hidden;
+}
+
+.mi-fixed-glass-nav::before{
+
+    content:"";
+    position:absolute;
+    inset:-90%;
+
+    background:
+        radial-gradient(circle at 18% 45%,rgba(0,220,255,.42),transparent 28%),
+        radial-gradient(circle at 84% 55%,rgba(138,43,255,.40),transparent 32%),
+        linear-gradient(
+            110deg,
+            transparent 28%,
+            rgba(255,255,255,.22) 50%,
+            transparent 72%
+        );
+
+    filter:blur(18px);
+
+    transform:scale(1.55);
+
+    animation:mcxLiquid 6s ease-in-out infinite alternate;
+
+    pointer-events:none;
+}
+
+@keyframes mcxLiquid{
+
+0%{
+transform:translateX(-7%) scale(1.45) rotate(-1deg);
+}
+
+50%{
+transform:translateX(6%) scale(1.62) rotate(.8deg);
+}
+
+100%{
+transform:translateX(-3%) scale(1.50) rotate(0deg);
+}
+
+}
+
