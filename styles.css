@@ -4045,17 +4045,23 @@ section[id] {
 }
 
 /* Gold MI CORTEX X brand with black outline. */
-.site-header .brand > span {
-  color: #f6c744 !important;
-  background: linear-gradient(180deg, #fff2a8 0%, #ffd65a 32%, #e8a91f 68%, #fff0a0 100%) !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  -webkit-text-stroke: 1.35px #050505 !important;
-  paint-order: stroke fill !important;
-  font-weight: 900 !important;
-  letter-spacing: 0.055em !important;
-  text-shadow: 0 2px 0 #000, 0 0 8px rgba(255, 214, 77, 0.52), 0 0 20px rgba(232, 169, 31, 0.28) !important;
+.site-header .brand > span{
+    color:#FFD54A !important;
+    -webkit-text-fill-color:#FFD54A !important;
+    -webkit-text-stroke:1.8px #000 !important;
+
+    font-weight:900;
+    letter-spacing:.06em;
+
+    text-shadow:
+        1px 1px 0 #000,
+        -1px 1px 0 #000,
+        1px -1px 0 #000,
+        -1px -1px 0 #000,
+        0 0 10px rgba(255,215,0,.45),
+        0 0 18px rgba(255,195,40,.30);
+
+    transition:.35s;
 }
 
 .site-header .brand-logo {
@@ -4151,3 +4157,4 @@ html.mcx-content-navigation-scrolled .site-header .nav {
         0 0 12px rgba(255,215,0,.55),
         0 0 20px rgba(255,190,0,.40);
 }
+
