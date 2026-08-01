@@ -4474,3 +4474,236 @@ transform:translateX(-3%) scale(1.50) rotate(0deg);
 
 }
 
+
+/* MI_EXTREME_LIQUID_ZOOM_START */
+
+/*
+Strong magnified liquid-glass effect.
+Only the navigation glass effect is changed.
+*/
+
+.site-header .nav,
+.site-header > nav,
+.site-header .glass-panel,
+.site-header .navbar,
+.site-header .navigation,
+.mi-fixed-glass-nav {
+    position: relative !important;
+    overflow: hidden !important;
+    isolation: isolate !important;
+
+    -webkit-backdrop-filter:
+        blur(85px)
+        saturate(310%)
+        contrast(142%)
+        brightness(122%) !important;
+
+    backdrop-filter:
+        blur(85px)
+        saturate(310%)
+        contrast(142%)
+        brightness(122%) !important;
+
+    background:
+        linear-gradient(
+            110deg,
+            rgba(9, 100, 190, 0.42) 0%,
+            rgba(25, 58, 170, 0.39) 48%,
+            rgba(105, 25, 245, 0.46) 100%
+        ) !important;
+
+    box-shadow:
+        0 26px 100px rgba(0, 0, 0, 0.52),
+        0 0 75px rgba(0, 190, 255, 0.34),
+        0 0 130px rgba(115, 40, 255, 0.34),
+        inset 0 1px 0 rgba(242, 255, 255, 0.42),
+        inset 0 -1px 0 rgba(142, 112, 255, 0.32),
+        inset 28px 0 70px rgba(0, 210, 255, 0.16),
+        inset -28px 0 70px rgba(160, 60, 255, 0.18) !important;
+}
+
+/*
+Large moving magnification layer.
+Even small dots and text moving behind the bar appear enlarged.
+*/
+
+.site-header .nav::before,
+.site-header > nav::before,
+.site-header .glass-panel::before,
+.site-header .navbar::before,
+.site-header .navigation::before,
+.mi-fixed-glass-nav::before {
+    content: "" !important;
+
+    position: absolute !important;
+    inset: -130% -40% !important;
+
+    z-index: 0 !important;
+    pointer-events: none !important;
+
+    border-radius: inherit !important;
+
+    background:
+        radial-gradient(
+            ellipse at 8% 45%,
+            rgba(0, 235, 255, 0.58),
+            transparent 24%
+        ),
+        radial-gradient(
+            ellipse at 35% 55%,
+            rgba(70, 145, 255, 0.35),
+            transparent 28%
+        ),
+        radial-gradient(
+            ellipse at 72% 42%,
+            rgba(125, 65, 255, 0.42),
+            transparent 30%
+        ),
+        radial-gradient(
+            ellipse at 94% 52%,
+            rgba(190, 45, 255, 0.48),
+            transparent 24%
+        ),
+        linear-gradient(
+            108deg,
+            transparent 15%,
+            rgba(220, 250, 255, 0.16) 36%,
+            rgba(255, 255, 255, 0.34) 49%,
+            rgba(165, 205, 255, 0.18) 62%,
+            transparent 82%
+        ) !important;
+
+    -webkit-backdrop-filter:
+        blur(32px)
+        saturate(340%)
+        contrast(150%) !important;
+
+    backdrop-filter:
+        blur(32px)
+        saturate(340%)
+        contrast(150%) !important;
+
+    filter:
+        blur(20px)
+        saturate(190%) !important;
+
+    transform:
+        scale(2.25)
+        translate3d(-4%, 0, 0) !important;
+
+    animation:
+        mcxExtremeLiquidMagnification
+        5.5s
+        cubic-bezier(0.45, 0, 0.55, 1)
+        infinite
+        alternate !important;
+}
+
+/* Stronger magnification while scrolling. */
+
+html.mcx-content-navigation-scrolled .site-header .nav,
+html.mcx-content-navigation-scrolled .site-header > nav,
+html.mcx-content-navigation-scrolled .site-header .glass-panel,
+html.mcx-content-navigation-scrolled .site-header .navbar,
+html.mcx-content-navigation-scrolled .site-header .navigation,
+html.mcx-content-navigation-scrolled .mi-fixed-glass-nav {
+    -webkit-backdrop-filter:
+        blur(105px)
+        saturate(360%)
+        contrast(150%)
+        brightness(125%) !important;
+
+    backdrop-filter:
+        blur(105px)
+        saturate(360%)
+        contrast(150%)
+        brightness(125%) !important;
+
+    box-shadow:
+        0 32px 120px rgba(0, 0, 0, 0.6),
+        0 0 95px rgba(0, 205, 255, 0.42),
+        0 0 160px rgba(125, 45, 255, 0.4),
+        inset 0 1px 0 rgba(248, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(150, 120, 255, 0.38) !important;
+}
+
+@keyframes mcxExtremeLiquidMagnification {
+    0% {
+        transform:
+            scale(2.05)
+            translate3d(-8%, -3%, 0)
+            rotate(-1deg);
+    }
+
+    35% {
+        transform:
+            scale(2.42)
+            translate3d(5%, 3%, 0)
+            rotate(0.8deg);
+    }
+
+    70% {
+        transform:
+            scale(2.18)
+            translate3d(8%, -2%, 0)
+            rotate(1deg);
+    }
+
+    100% {
+        transform:
+            scale(2.5)
+            translate3d(-4%, 4%, 0)
+            rotate(-0.4deg);
+    }
+}
+
+.site-header .nav > *,
+.site-header > nav > *,
+.site-header .glass-panel > *,
+.site-header .navbar > *,
+.site-header .navigation > *,
+.mi-fixed-glass-nav > * {
+    position: relative !important;
+    z-index: 3 !important;
+}
+
+@media (max-width: 700px) {
+    .site-header .nav,
+    .site-header > nav,
+    .site-header .glass-panel,
+    .site-header .navbar,
+    .site-header .navigation,
+    .mi-fixed-glass-nav {
+        -webkit-backdrop-filter:
+            blur(62px)
+            saturate(280%)
+            contrast(135%) !important;
+
+        backdrop-filter:
+            blur(62px)
+            saturate(280%)
+            contrast(135%) !important;
+    }
+
+    .site-header .nav::before,
+    .site-header > nav::before,
+    .site-header .glass-panel::before,
+    .site-header .navbar::before,
+    .site-header .navigation::before,
+    .mi-fixed-glass-nav::before {
+        transform: scale(1.85) !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .site-header .nav::before,
+    .site-header > nav::before,
+    .site-header .glass-panel::before,
+    .site-header .navbar::before,
+    .site-header .navigation::before,
+    .mi-fixed-glass-nav::before {
+        animation: none !important;
+    }
+}
+
+/* MI_EXTREME_LIQUID_ZOOM_END */
