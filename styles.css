@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   --bg: #040711;
   --bg-deep: #02040a;
   --surface: rgba(7, 12, 24, 0.76);
@@ -4205,3 +4205,176 @@ html.mcx-content-navigation-scrolled .site-header .nav {
         0 0 35px rgba(122,0,255,.22) !important;
 }
 
+
+/* MI_REMOVE_NAV_OUTER_BOX_START */
+
+/*
+Remove only the large rectangular layer behind the navigation.
+Keep the rounded liquid-glass navigation pill.
+*/
+
+.site-header {
+    background: transparent !important;
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+
+    padding: 0 !important;
+    overflow: visible !important;
+}
+
+/* Keep only the rounded navigation pill visible. */
+
+.site-header .nav,
+.site-header > nav,
+.site-header .glass-panel,
+.site-header .navbar,
+.site-header .navigation,
+.mi-fixed-glass-nav {
+    overflow: hidden !important;
+    border-radius: 999px !important;
+
+    background:
+        linear-gradient(
+            108deg,
+            rgba(5, 58, 101, 0.50) 0%,
+            rgba(13, 40, 94, 0.46) 43%,
+            rgba(66, 25, 170, 0.54) 100%
+        ) !important;
+
+    border: 1px solid rgba(82, 211, 255, 0.65) !important;
+
+    -webkit-backdrop-filter:
+        blur(52px)
+        saturate(235%)
+        contrast(124%)
+        brightness(112%) !important;
+
+    backdrop-filter:
+        blur(52px)
+        saturate(235%)
+        contrast(124%)
+        brightness(112%) !important;
+
+    box-shadow:
+        0 20px 62px rgba(0, 0, 0, 0.42),
+        0 0 42px rgba(31, 191, 255, 0.25),
+        0 0 80px rgba(102, 54, 255, 0.20),
+        inset 0 1px 0 rgba(230, 252, 255, 0.34),
+        inset 0 -1px 0 rgba(112, 90, 255, 0.26) !important;
+}
+
+/*
+Increase the magnified liquid movement while content passes behind.
+*/
+
+.site-header .nav::before,
+.site-header > nav::before,
+.site-header .glass-panel::before,
+.site-header .navbar::before,
+.site-header .navigation::before,
+.mi-fixed-glass-nav::before {
+    inset: -70% -18% !important;
+
+    background:
+        radial-gradient(
+            ellipse at 12% 48%,
+            rgba(72, 220, 255, 0.42),
+            transparent 31%
+        ),
+        radial-gradient(
+            ellipse at 88% 52%,
+            rgba(148, 74, 255, 0.42),
+            transparent 35%
+        ),
+        linear-gradient(
+            106deg,
+            transparent 16%,
+            rgba(232, 252, 255, 0.15) 39%,
+            rgba(255, 255, 255, 0.23) 50%,
+            rgba(153, 206, 255, 0.13) 63%,
+            transparent 81%
+        ) !important;
+
+    filter:
+        blur(14px)
+        saturate(155%) !important;
+
+    transform:
+        scale(1.34)
+        translate3d(-2%, 0, 0) !important;
+
+    animation:
+        mcxStrongerLiquidZoom
+        7s
+        ease-in-out
+        infinite
+        alternate !important;
+}
+
+/* Stronger effect while scrolling. */
+
+html.mcx-content-navigation-scrolled .site-header .nav,
+html.mcx-content-navigation-scrolled .site-header > nav,
+html.mcx-content-navigation-scrolled .site-header .glass-panel,
+html.mcx-content-navigation-scrolled .site-header .navbar,
+html.mcx-content-navigation-scrolled .site-header .navigation,
+html.mcx-content-navigation-scrolled .mi-fixed-glass-nav {
+    -webkit-backdrop-filter:
+        blur(64px)
+        saturate(255%)
+        contrast(128%)
+        brightness(113%) !important;
+
+    backdrop-filter:
+        blur(64px)
+        saturate(255%)
+        contrast(128%)
+        brightness(113%) !important;
+
+    box-shadow:
+        0 24px 78px rgba(0, 0, 0, 0.50),
+        0 0 55px rgba(35, 199, 255, 0.32),
+        0 0 100px rgba(112, 57, 255, 0.25),
+        inset 0 1px 0 rgba(239, 254, 255, 0.42),
+        inset 0 -1px 0 rgba(125, 101, 255, 0.32) !important;
+}
+
+@keyframes mcxStrongerLiquidZoom {
+    0% {
+        transform:
+            scale(1.28)
+            translate3d(-5%, -2%, 0)
+            rotate(-0.7deg);
+    }
+
+    50% {
+        transform:
+            scale(1.42)
+            translate3d(4%, 2%, 0)
+            rotate(0.7deg);
+    }
+
+    100% {
+        transform:
+            scale(1.34)
+            translate3d(-1%, 3%, 0)
+            rotate(0deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .site-header .nav::before,
+    .site-header > nav::before,
+    .site-header .glass-panel::before,
+    .site-header .navbar::before,
+    .site-header .navigation::before,
+    .mi-fixed-glass-nav::before {
+        animation: none !important;
+    }
+}
+
+/* MI_REMOVE_NAV_OUTER_BOX_END */
