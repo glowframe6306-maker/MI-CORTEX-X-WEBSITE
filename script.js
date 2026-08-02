@@ -759,40 +759,56 @@ document.addEventListener('DOMContentLoaded', function () {
       return Promise.resolve(null);
     }
 
-    const CACHE_HOURS = 12;
-    const timestampKey = "mcx-rate-timestamp";
     const rateKey = "mcx-rate-value";
+    const timestampKey = "mcx-rate-timestamp";
+    const cacheLifetime = 12 * 60 * 60 * 1000;
+
+    function redrawCatalogue() {
+      const currentPage = hashState().page;
+
+      if (
+        state.currency === "USD" &&
+        ["products", "services", "pricing"].includes(currentPage)
+      ) {
+        window.requestAnimationFrame(() => {
+          renderCatalogueIndex(currentPage);
+        });
+      }
+    }
 
     if (!force) {
       try {
-        const cachedRate = Number(localStorage.getItem(rateKey) || "0");
-        const cachedTimestamp = Number(
-          localStorage.getItem(timestampKey) || "0"
+        const cachedRate = Number(
+          localStorage.getItem(rateKey) || "0"
         );
 
-        const ageHours =
-          cachedTimestamp > 0
-            ? (Date.now() - cachedTimestamp) / 3600000
-            : Infinity;
+        const cachedTime = Number(
+          localStorage.getItem(timestampKey) || "0"
+        );
 
         if (
           Number.isFinite(cachedRate) &&
           cachedRate > 0 &&
-          ageHours <= CACHE_HOURS
+          cachedRate < 1 &&
+          cachedTime > 0 &&
+          Date.now() - cachedTime <= cacheLifetime
         ) {
           state.exchangeRate = cachedRate;
+
           state.exchangeRateUpdatedAt = new Date(
-            cachedTimestamp
+            cachedTime
           ).toLocaleString("en-LK", {
             dateStyle: "medium",
             timeStyle: "short"
           });
 
           state.rateError = "";
+          redrawCatalogue();
+
           return Promise.resolve(cachedRate);
         }
       } catch (error) {
-        console.warn("Exchange-rate cache unavailable.", error);
+        console.warn("USD cache could not be read.", error);
       }
     }
 
@@ -803,50 +819,77 @@ document.addEventListener('DOMContentLoaded', function () {
     state.rateLoading = true;
     state.rateError = "";
 
-    const rateStatus = document.querySelector(
+    const statusElement = document.querySelector(
       "[data-mcx-rate-status]"
     );
 
-    if (rateStatus) {
-      rateStatus.textContent = "Loading current USD exchange rate...";
-      rateStatus.setAttribute("aria-busy", "true");
+    if (statusElement) {
+      statusElement.textContent =
+        "Loading current LKR to USD reference rate...";
+
+      statusElement.setAttribute("aria-busy", "true");
     }
 
-    state.ratePromise = fetch(
-      "https://api.frankfurter.dev/v1/latest?base=LKR&symbols=USD",
-      {
+    const sources = [
+      "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/lkr.json",
+      "https://latest.currency-api.pages.dev/v1/currencies/lkr.json"
+    ];
+
+    function fetchSource(url) {
+      const controller = new AbortController();
+
+      const timeoutId = window.setTimeout(() => {
+        controller.abort();
+      }, 1800);
+
+      return fetch(url, {
         method: "GET",
+        cache: "no-store",
         headers: {
-          "Accept": "application/json"
+          Accept: "application/json"
         },
-        cache: "no-store"
-      }
-    )
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(
-            "Exchange-rate request failed: " + response.status
-          );
-        }
-
-        return response.json();
+        signal: controller.signal
       })
-      .then((payload) => {
-        const rate = Number(
-          payload &&
-          payload.rates &&
-          payload.rates.USD
-        );
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(
+              "Exchange-rate HTTP error: " + response.status
+            );
+          }
 
-        if (!Number.isFinite(rate) || rate <= 0) {
-          throw new Error("Invalid USD exchange rate.");
-        }
+          return response.json();
+        })
+        .then((payload) => {
+          const rate = Number(
+            payload &&
+            payload.lkr &&
+            payload.lkr.usd
+          );
 
-        const updatedTimestamp = Date.now();
+          if (
+            !Number.isFinite(rate) ||
+            rate <= 0 ||
+            rate >= 1
+          ) {
+            throw new Error("Invalid LKR to USD rate.");
+          }
+
+          return rate;
+        })
+        .finally(() => {
+          window.clearTimeout(timeoutId);
+        });
+    }
+
+    state.ratePromise = Promise.any(
+      sources.map(fetchSource)
+    )
+      .then((rate) => {
+        const updatedTime = Date.now();
 
         state.exchangeRate = rate;
         state.exchangeRateUpdatedAt = new Date(
-          updatedTimestamp
+          updatedTime
         ).toLocaleString("en-LK", {
           dateStyle: "medium",
           timeStyle: "short"
@@ -858,39 +901,28 @@ document.addEventListener('DOMContentLoaded', function () {
           localStorage.setItem(rateKey, String(rate));
           localStorage.setItem(
             timestampKey,
-            String(updatedTimestamp)
+            String(updatedTime)
           );
         } catch (error) {
-          console.warn("Exchange-rate cache could not be saved.", error);
-        }
-
-        if (rateStatus) {
-          rateStatus.textContent =
-            "Reference exchange rate updated: " +
-            state.exchangeRateUpdatedAt;
-
-          rateStatus.setAttribute("aria-busy", "false");
+          console.warn("USD cache could not be saved.", error);
         }
 
         return rate;
       })
       .catch((error) => {
-        console.error("USD conversion failed:", error);
+        console.error("USD conversion failed.", error);
 
         state.exchangeRate = null;
         state.rateError =
           "USD conversion temporarily unavailable.";
-
-        if (rateStatus) {
-          rateStatus.textContent = state.rateError;
-          rateStatus.setAttribute("aria-busy", "false");
-        }
 
         return null;
       })
       .finally(() => {
         state.rateLoading = false;
         state.ratePromise = null;
+
+        redrawCatalogue();
       });
 
     return state.ratePromise;
