@@ -4928,3 +4928,75 @@ html.mcx-content-navigation-scrolled .mi-fixed-glass-nav {
 }
 
 /* MI_REAL_TEXT_BACKDROP_BLUR_END */
+
+/* MI_CATEGORY_ICON_STYLE_START */
+
+.mcx-category-number.mcx-category-icon {
+    font-family:
+        "Segoe UI Emoji",
+        "Apple Color Emoji",
+        "Noto Color Emoji",
+        "Segoe UI Symbol",
+        sans-serif !important;
+
+    font-size: 1.55rem !important;
+    font-weight: 400 !important;
+    line-height: 1 !important;
+
+    color: #ecfbff !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(22, 133, 185, 0.23),
+            rgba(93, 65, 193, 0.25)
+        ) !important;
+
+    border:
+        1px solid rgba(93, 220, 255, 0.46) !important;
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(233, 253, 255, 0.12),
+        0 0 18px rgba(59, 204, 255, 0.09) !important;
+
+    text-shadow:
+        0 0 10px rgba(76, 220, 255, 0.36) !important;
+
+    transition:
+        transform 240ms ease,
+        border-color 240ms ease,
+        background 240ms ease,
+        box-shadow 240ms ease !important;
+}
+
+.mcx-category-row:hover .mcx-category-icon,
+.mcx-category-row:focus-visible .mcx-category-icon {
+    transform:
+        translateY(-2px)
+        scale(1.13)
+        rotate(-4deg) !important;
+
+    border-color:
+        rgba(123, 235, 255, 0.82) !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(32, 166, 218, 0.38),
+            rgba(113, 76, 224, 0.4)
+        ) !important;
+
+    box-shadow:
+        0 0 25px rgba(61, 216, 255, 0.29),
+        0 12px 28px rgba(0, 0, 0, 0.23),
+        inset 0 1px 0 rgba(244, 255, 255, 0.2) !important;
+}
+
+@media (max-width: 700px) {
+    .mcx-category-number.mcx-category-icon {
+        font-size: 1.3rem !important;
+    }
+}
+
+/* MI_CATEGORY_ICON_STYLE_END */

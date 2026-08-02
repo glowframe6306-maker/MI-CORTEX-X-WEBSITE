@@ -1,3 +1,151 @@
+
+/* MI_CATEGORY_ICON_SYSTEM_START */
+
+var mcxCategoryIconMap = {
+  home: {
+    "hero": "&#128640;",
+    "introduction": "&#127970;",
+    "company-introduction": "&#127970;",
+    "featured-products": "&#129302;",
+    "featured-services": "&#128736;",
+    "industries": "&#127981;",
+    "development-process": "&#9881;",
+    "testimonials": "&#11088;",
+    "faq": "&#10067;",
+    "contact-cta": "&#128232;"
+  },
+
+  about: {
+    "company-overview": "&#127970;",
+    "our-story": "&#128214;",
+    "mission": "&#127919;",
+    "vision": "&#128065;",
+    "leadership": "&#128101;",
+    "core-values": "&#128142;",
+    "technologies": "&#128187;",
+    "research": "&#128300;",
+    "timeline": "&#128197;",
+    "future-goals": "&#128640;",
+    "global-vision": "&#127758;",
+    "why-choose-us": "&#127942;"
+  },
+
+  products: {
+    "cortex-core-ai": "&#129504;",
+    "ai-products": "&#129302;",
+    "ai-assistants": "&#129302;",
+    "ai-chatbots": "&#128172;",
+    "ai-agents": "&#129504;",
+    "web-applications": "&#127760;",
+    "web-apps": "&#127760;",
+    "mobile-applications": "&#128241;",
+    "mobile-apps": "&#128241;",
+    "desktop-software": "&#128421;",
+    "enterprise-software": "&#127970;",
+    "saas-platforms": "&#9729;",
+    "saas": "&#9729;",
+    "apis": "&#128279;",
+    "automation": "&#9881;",
+    "automation-tools": "&#9881;",
+    "business-solutions": "&#128188;",
+    "upcoming-products": "&#128640;"
+  },
+
+  services: {
+    "ai-development": "&#129504;",
+    "ai-chatbot-development": "&#128172;",
+    "chatbot-development": "&#128172;",
+    "chatbots": "&#128172;",
+    "ai-automation": "&#9881;",
+    "automation": "&#9881;",
+    "website-development": "&#127760;",
+    "websites": "&#127760;",
+    "web-application-development": "&#128187;",
+    "web-apps": "&#128187;",
+    "mobile-app-development": "&#128241;",
+    "mobile-apps": "&#128241;",
+    "desktop-software-development": "&#128421;",
+    "desktop-software": "&#128421;",
+    "enterprise-solutions": "&#127970;",
+    "enterprise-software-development": "&#127970;",
+    "api-development": "&#128279;",
+    "api-integration": "&#128279;",
+    "apis": "&#128279;",
+    "cloud-solutions": "&#9729;",
+    "cloud": "&#9729;",
+    "ui-ux-design": "&#127912;",
+    "ui-ux": "&#127912;",
+    "software-maintenance": "&#128295;",
+    "maintenance": "&#128295;",
+    "technical-consulting": "&#128161;",
+    "consulting": "&#128161;",
+    "custom-software-development": "&#128736;"
+  },
+
+  pricing: {
+    "website-packages": "&#127760;",
+    "ai-packages": "&#129302;",
+    "business-packages": "&#128188;",
+    "enterprise-packages": "&#127970;",
+    "enterprise": "&#127970;",
+    "custom-solutions": "&#128736;",
+    "maintenance-plans": "&#128295;",
+    "maintenance": "&#128295;",
+    "free-consultation": "&#128172;",
+    "consultation": "&#128172;",
+    "request-a-quote": "&#128221;",
+    "payment-methods": "&#128179;",
+    "pricing-faq": "&#10067;",
+    "faq": "&#10067;"
+  },
+
+  contact: {
+    "contact-info": "&#8505;",
+    "contact-information": "&#8505;",
+    "inquiry-form": "&#128221;",
+    "email": "&#9993;",
+    "phone": "&#128222;",
+    "whatsapp": "&#128172;",
+    "telegram": "&#9992;",
+    "office": "&#127970;",
+    "business-hours": "&#128338;",
+    "google-map": "&#128205;",
+    "social-media": "&#127760;",
+    "support": "&#128737;",
+    "customer-support": "&#128737;",
+    "send-inquiry": "&#128232;"
+  }
+};
+
+function mcxGetCategoryIcon(page, categoryId) {
+  var pageIcons = mcxCategoryIconMap[String(page || "").toLowerCase()] || {};
+  var id = String(categoryId || "").toLowerCase();
+
+  if (pageIcons[id]) {
+    return pageIcons[id];
+  }
+
+  if (id.includes("chat")) return "&#128172;";
+  if (id.includes("mobile")) return "&#128241;";
+  if (id.includes("desktop")) return "&#128421;";
+  if (id.includes("web")) return "&#127760;";
+  if (id.includes("cloud")) return "&#9729;";
+  if (id.includes("api")) return "&#128279;";
+  if (id.includes("automation")) return "&#9881;";
+  if (id.includes("research")) return "&#128300;";
+  if (id.includes("payment")) return "&#128179;";
+  if (id.includes("contact")) return "&#128232;";
+  if (id.includes("support")) return "&#128737;";
+  if (id.includes("service")) return "&#128736;";
+  if (id.includes("product")) return "&#128230;";
+  if (id.includes("ai")) return "&#129302;";
+
+  return "&#10022;";
+}
+
+/* MI_CATEGORY_ICON_SYSTEM_END */
+
+
 document.addEventListener('DOMContentLoaded', function () {
  if (window.__miWelcomeIntroInitialized) {
  return;
@@ -512,7 +660,7 @@ document.addEventListener('DOMContentLoaded', function () {
  function renderIndex(page) {
  const host = document.querySelector(`[data-mcx-category-index="${page}"]`);
  if (!host) return;
- host.innerHTML = `<div class="mcx-index-heading"><span class="mcx-index-kicker">CATEGORY DIRECTORY</span><h2>${esc(data[page].title)} CATEGORIES</h2><p>Select a category to open its subtopics and complete information.</p></div><div class="mcx-category-stack">${data[page].categories.map((category,index)=>`<button type="button" class="mcx-category-row" data-mcx-category="${page}/${category.id}"><span class="mcx-category-number">${String(index+1).padStart(2,"0")}</span><span class="mcx-category-copy">${category.status?`<small>${esc(category.status)}</small>`:""}<strong>${esc(category.title)}</strong><em>${esc(category.summary)}</em></span><span class="mcx-category-arrow" aria-hidden="true">&#8594;</span></button>`).join("")}</div>`;
+ host.innerHTML = `<div class="mcx-index-heading"><span class="mcx-index-kicker">CATEGORY DIRECTORY</span><h2>${esc(data[page].title)} CATEGORIES</h2><p>Select a category to open its subtopics and complete information.</p></div><div class="mcx-category-stack">${data[page].categories.map((category,index)=>`<button type="button" class="mcx-category-row" data-mcx-category="${page}/${category.id}"><span class="mcx-category-number mcx-category-icon" aria-hidden="true">${mcxGetCategoryIcon(page, category.id)}</span><span class="mcx-category-copy">${category.status?`<small>${esc(category.status)}</small>`:""}<strong>${esc(category.title)}</strong><em>${esc(category.summary)}</em></span><span class="mcx-category-arrow" aria-hidden="true">&#8594;</span></button>`).join("")}</div>`;
  }
 
  function renderCategory(page, categoryId, activeSubtopic = "") {
