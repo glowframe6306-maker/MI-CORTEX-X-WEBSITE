@@ -5059,3 +5059,34 @@ html.mcx-content-navigation-scrolled .mi-fixed-glass-nav {
   font-weight: 600;
 }
 /* MCX_FIXED_USD_PRICE_STYLE_END */
+
+/* MCX_LIVE_DUAL_PRICE_STYLE_START */
+.mcx-card-price,
+.mcx-detail-price {
+    display: inline-flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    white-space: pre-line !important;
+    text-align: left !important;
+    line-height: 1.48 !important;
+}
+
+.mcx-card-price::first-line,
+.mcx-detail-price::first-line {
+    font-size: 0.78em;
+    font-weight: 700;
+    color: rgba(205, 226, 244, 0.78);
+}
+
+.mcx-rate-status {
+    min-height: 1.4em;
+}
+
+@media (max-width: 680px) {
+    .mcx-card-price,
+    .mcx-detail-price {
+        width: 100% !important;
+    }
+}
+/* MCX_LIVE_DUAL_PRICE_STYLE_END */

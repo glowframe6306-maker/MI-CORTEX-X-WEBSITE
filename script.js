@@ -751,43 +751,79 @@ document.addEventListener('DOMContentLoaded', function () {
   function getCatalogueItem(page, slug) { return getCatalogueItems(page).find((item) => item.id === slug) || null; }
   function groupOptions(page) { const groups = Array.from(new Set(getCatalogueItems(page).map((item) => item.category))).sort((a, b) => a.localeCompare(b)); return groups; }
   const usdPriceFormatter = new Intl.NumberFormat("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  function formatLkrPrice(value) { return `LKR ${priceFormatter.format(value)}`; }
-  function formatCurrencyPrice(value) {
-    if (Number.isFinite(state.exchangeRate) && state.exchangeRate > 0) {
-      return `USD ${usdPriceFormatter.format(value * state.exchangeRate)}`;
-    }
-    if (state.rateError) return "USD price temporarily unavailable";
-    return "USD price loading...";
+  function formatLkrPrice(value) {
+    return `LKR ${priceFormatter.format(value)}`;
   }
-  function getPriceLabel(item) {
-    const priceText = formatCurrencyPrice(item.priceLkr);
-    return `${item.prefix || "Starting from"} ${priceText}${item.billingPeriod ? ` / ${item.billingPeriod}` : ""}`;
-  }
-  function formatPriceForModal(item) { return formatCurrencyPrice(item.priceLkr); }
-  function getRateStatusText() {
-    if (state.rateLoading) return "Updating USD reference prices...";
-    if (state.rateError) return "USD prices are temporarily unavailable. Please try again later.";
-    if (state.exchangeRateUpdatedAt) return `USD reference prices updated: ${state.exchangeRateUpdatedAt}`;
-    return "Prices are displayed in United States Dollars (USD).";
-  }
-  function loadExchangeRate(force = false) {
-    if (state.currency !== "USD") {
-      return Promise.resolve(null);
+
+  function formatUsdPrice(value) {
+    if (
+      !Number.isFinite(state.exchangeRate) ||
+      state.exchangeRate <= 0
+    ) {
+      return state.rateError
+        ? "USD temporarily unavailable"
+        : "Calculating USD...";
     }
 
-    const rateKey = "mcx-rate-value";
-    const timestampKey = "mcx-rate-timestamp";
+    const usdValue = Number(value) * state.exchangeRate;
+
+    return `USD $${usdValue.toFixed(2)}`;
+  }
+
+  function getPriceLabel(item) {
+    const prefix = item.prefix || "Starting from";
+    const usdPrice = formatUsdPrice(item.priceLkr);
+    const lkrPrice = formatLkrPrice(item.priceLkr);
+    const billing = item.billingPeriod
+      ? ` / ${item.billingPeriod}`
+      : "";
+
+    return `${prefix}\n${usdPrice} (\u2248 ${lkrPrice})${billing}`;
+  }
+
+  function formatPriceForModal(item) {
+    const usdPrice = formatUsdPrice(item.priceLkr);
+    const lkrPrice = formatLkrPrice(item.priceLkr);
+    const billing = item.billingPeriod
+      ? ` / ${item.billingPeriod}`
+      : "";
+
+    return `${usdPrice} (\u2248 ${lkrPrice})${billing}`;
+  }
+
+  function loadExchangeRate(force = false) {
+    const rateKey = "mcx-live-lkr-usd-rate";
+    const timestampKey = "mcx-live-lkr-usd-timestamp";
     const cacheLifetime = 12 * 60 * 60 * 1000;
 
-    function redrawOnce() {
+    function updateStatus(message, busy) {
+      document
+        .querySelectorAll(
+          "[data-mcx-rate-status], .mcx-rate-status"
+        )
+        .forEach((element) => {
+          element.textContent = message;
+          element.setAttribute(
+            "aria-busy",
+            busy ? "true" : "false"
+          );
+        });
+    }
+
+    function refreshCurrentCatalogue() {
       const currentPage = hashState().page;
 
       if (
-        state.currency === "USD" &&
-        ["products", "services", "pricing"].includes(currentPage)
+        ["products", "services", "pricing"].includes(
+          currentPage
+        )
       ) {
-        renderCatalogueIndex(currentPage);
+        route(false);
       }
+    }
+
+    if (state.ratePromise) {
+      return state.ratePromise;
     }
 
     if (!force) {
@@ -808,7 +844,6 @@ document.addEventListener('DOMContentLoaded', function () {
           Date.now() - cachedTime <= cacheLifetime
         ) {
           state.exchangeRate = cachedRate;
-
           state.exchangeRateUpdatedAt = new Date(
             cachedTime
           ).toLocaleString("en-LK", {
@@ -818,33 +853,86 @@ document.addEventListener('DOMContentLoaded', function () {
 
           state.rateError = "";
 
+          updateStatus(
+            "USD reference rate updated: " +
+              state.exchangeRateUpdatedAt,
+            false
+          );
+
           return Promise.resolve(cachedRate);
         }
       } catch (error) {
-        console.warn("USD cache read failed.", error);
+        console.warn(
+          "Cached exchange rate could not be read.",
+          error
+        );
       }
     }
 
-    if (state.ratePromise) {
-      return state.ratePromise;
+    if (state.rateAttempted && !force) {
+      return Promise.resolve(state.exchangeRate);
     }
 
+    state.rateAttempted = true;
     state.rateLoading = true;
     state.rateError = "";
 
+    updateStatus(
+      "Updating live LKR to USD reference rate...",
+      true
+    );
+
     const sources = [
-      "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/lkr.json",
-      "https://latest.currency-api.pages.dev/v1/currencies/lkr.json"
+      {
+        url:
+          "https://api.frankfurter.dev/v1/latest" +
+          "?base=LKR&symbols=USD",
+
+        read(payload) {
+          return Number(
+            payload &&
+            payload.rates &&
+            payload.rates.USD
+          );
+        }
+      },
+      {
+        url:
+          "https://cdn.jsdelivr.net/npm/" +
+          "@fawazahmed0/currency-api@latest/" +
+          "v1/currencies/lkr.json",
+
+        read(payload) {
+          return Number(
+            payload &&
+            payload.lkr &&
+            payload.lkr.usd
+          );
+        }
+      },
+      {
+        url:
+          "https://latest.currency-api.pages.dev/" +
+          "v1/currencies/lkr.json",
+
+        read(payload) {
+          return Number(
+            payload &&
+            payload.lkr &&
+            payload.lkr.usd
+          );
+        }
+      }
     ];
 
-    const controllers = sources.map(() => new AbortController());
+    function fetchRate(sourceItem) {
+      const controller = new AbortController();
 
-    const timeoutId = window.setTimeout(() => {
-      controllers.forEach((controller) => controller.abort());
-    }, 2000);
+      const timeoutId = window.setTimeout(() => {
+        controller.abort();
+      }, 2200);
 
-    function requestRate(url, controller) {
-      return fetch(url, {
+      return fetch(sourceItem.url, {
         method: "GET",
         cache: "no-store",
         headers: {
@@ -855,35 +943,35 @@ document.addEventListener('DOMContentLoaded', function () {
         .then((response) => {
           if (!response.ok) {
             throw new Error(
-              "Currency request failed: " + response.status
+              "Exchange-rate request failed: " +
+                response.status
             );
           }
 
           return response.json();
         })
         .then((payload) => {
-          const rate = Number(
-            payload &&
-            payload.lkr &&
-            payload.lkr.usd
-          );
+          const rate = sourceItem.read(payload);
 
           if (
             !Number.isFinite(rate) ||
             rate <= 0 ||
             rate >= 1
           ) {
-            throw new Error("Invalid LKR to USD rate.");
+            throw new Error(
+              "Invalid LKR to USD exchange rate."
+            );
           }
 
           return rate;
+        })
+        .finally(() => {
+          window.clearTimeout(timeoutId);
         });
     }
 
     state.ratePromise = Promise.any(
-      sources.map((url, index) =>
-        requestRate(url, controllers[index])
-      )
+      sources.map(fetchRate)
     )
       .then((rate) => {
         const updatedTime = Date.now();
@@ -899,39 +987,52 @@ document.addEventListener('DOMContentLoaded', function () {
         state.rateError = "";
 
         try {
-          localStorage.setItem(rateKey, String(rate));
+          localStorage.setItem(
+            rateKey,
+            String(rate)
+          );
+
           localStorage.setItem(
             timestampKey,
             String(updatedTime)
           );
         } catch (error) {
-          console.warn("USD cache save failed.", error);
+          console.warn(
+            "Exchange-rate cache could not be saved.",
+            error
+          );
         }
+
+        updateStatus(
+          "USD reference rate updated: " +
+            state.exchangeRateUpdatedAt,
+          false
+        );
 
         return rate;
       })
       .catch((error) => {
-        console.error("USD conversion failed.", error);
+        console.error(
+          "Live USD conversion failed.",
+          error
+        );
 
-        state.exchangeRate = null;
         state.rateError =
-          "USD conversion temporarily unavailable. Please try again.";
+          "Live USD estimate is temporarily unavailable.";
+
+        updateStatus(
+          state.rateError +
+            " Original LKR prices remain unchanged.",
+          false
+        );
 
         return null;
       })
       .finally(() => {
-        window.clearTimeout(timeoutId);
-
         state.rateLoading = false;
         state.ratePromise = null;
 
-        /*
-         Redraw exactly once.
-
-         renderCatalogueIndex will NOT request again while rateError
-         contains an error, preventing the infinite loading loop.
-        */
-        redrawOnce();
+        refreshCurrentCatalogue();
       });
 
     return state.ratePromise;
@@ -946,11 +1047,15 @@ document.addEventListener('DOMContentLoaded', function () {
   function getFilteredItems(items) { let filtered = items.slice(); const search = state.search.trim().toLowerCase(); if (search) filtered = filtered.filter((item) => [item.name, item.description, item.category, ...(item.features || [])].join(" ").toLowerCase().includes(search)); if (state.selectedGroup !== "all") filtered = filtered.filter((item) => item.category === state.selectedGroup); if (state.filteredType === "product") filtered = filtered.filter((item) => item.type !== "service"); if (state.filteredType === "service") filtered = filtered.filter((item) => item.type === "service"); if (state.sort === "price-low") filtered.sort((a, b) => a.priceLkr - b.priceLkr); else if (state.sort === "price-high") filtered.sort((a, b) => b.priceLkr - a.priceLkr); else filtered.sort((a, b) => a.name.localeCompare(b.name)); return filtered; }
   function renderCatalogueDetail(page, item) { const index = document.querySelector(`[data-mcx-category-index="${page}"]`); const detail = document.querySelector(`[data-mcx-category-detail="${page}"]`); if (!index || !detail) return false; index.hidden = true; detail.hidden = false; detail.innerHTML = `<div class="mcx-detail-panel"><button type="button" class="mcx-back-button" data-mcx-route="${page}">&#8592; BACK TO CATALOGUE</button><div class="mcx-detail-grid"><section class="mcx-detail-main"><span class="mcx-index-kicker">${item.type === "service" ? "SERVICE DETAIL" : "PRODUCT DETAIL"}</span><h2>${esc(item.name)}</h2><p class="mcx-card-category">${esc(item.category)}</p><p>${esc(item.description)}</p><div class="mcx-detail-price">${esc(getPriceLabel(item))}</div><p class="mcx-detail-note">Prices are starting estimates and may change according to project scope, features, integrations, delivery requirements, hosting, third-party charges and ongoing support. Tax and third-party provider fees are not included.</p><div class="mcx-detail-meta">${item.status ? `<div><strong>Status:</strong> ${esc(item.status)}</div>` : ""}${item.deliveryTime ? `<div><strong>Delivery:</strong> ${esc(item.deliveryTime)}</div>` : ""}${item.supportPeriod ? `<div><strong>Support:</strong> ${esc(item.supportPeriod)}</div>` : ""}</div><ul class="mcx-card-features">${item.features.map((feature) => `<li>${esc(feature)}</li>`).join("")}</ul><div class="mcx-card-actions"><button type="button" class="mcx-action" data-mcx-order-item="${page}/${item.id}">Order / Request Quote</button></div></section><aside class="mcx-detail-side"><div class="mcx-detail-card"><h3>Business process</h3><ul><li>Free consultation</li><li>Requirement analysis and quotation</li><li>30% advance payment before development</li><li>Testing, remaining payment and final delivery</li></ul></div><div class="mcx-detail-card"><h3>Payment notice</h3><p>Online payments are being configured. Submit an order request and our team will contact you with an approved payment method.</p><p>Refunds: Full refund before project commencement. No refund after project commencement.</p></div></aside></div></div>`; detail.focus({ preventScroll: true }); return true; }
   function getReferenceNumber() { const date = new Date(); const stamp = `${date.getFullYear()}${String(date.getMonth() + 1).padStart(2, "0")}${String(date.getDate()).padStart(2, "0")}`; const suffix = Math.random().toString(36).slice(2, 8).toUpperCase(); return `MCX-${stamp}-${suffix}`; }
-  function openOrderModal(page, item) { state.modalItem = item; state.modalReference = getReferenceNumber(); const overlay = document.createElement("div"); overlay.className = "mcx-modal-overlay"; overlay.innerHTML = `<div class="mcx-modal" role="dialog" aria-modal="true" aria-labelledby="mcx-modal-title"><button type="button" class="mcx-modal-close" data-mcx-close-modal aria-label="Close order request">&#10005;</button><h2 id="mcx-modal-title">Order request for ${esc(item.name)}</h2><p class="mcx-modal-intro">${esc(item.type === "service" ? "Service request" : "Product request")}</p><div class="mcx-modal-grid"><div class="mcx-modal-column"><p><strong>Selected item:</strong> ${esc(item.name)}</p><p><strong>Type:</strong> ${esc(item.type === "service" ? "Service" : "Product")}</p><p><strong>Currency:</strong> ${esc(state.currency)}</p><p><strong>Estimated price:</strong> ${esc(formatPriceForModal(item))}</p><p><strong>Reference:</strong> ${esc(state.modalReference)}</p></div><div class="mcx-modal-column"><label class="mcx-modal-field"><span>Customer name</span><input name="customerName" required></label><label class="mcx-modal-field"><span>Email address</span><input name="customerEmail" type="email" required></label><label class="mcx-modal-field"><span>WhatsApp number</span><input name="customerWhatsapp" required></label><label class="mcx-modal-field"><span>Country</span><input name="customerCountry" required></label><label class="mcx-modal-field"><span>Business / company</span><input name="customerCompany"></label></div></div><label class="mcx-modal-field full"><span>Required features</span><textarea name="requiredFeatures" rows="3"></textarea></label><label class="mcx-modal-field full"><span>Project description</span><textarea name="projectDescription" rows="4" required></textarea></label><label class="mcx-modal-field full"><span>Preferred delivery date</span><input name="deliveryDate" type="date"></label><label class="mcx-checkbox"><input type="checkbox" name="agreement" required> I agree to share these details for quotation and support follow-up.</label><div class="mcx-payment-box"><h3>Payment options</h3><ul><li>PayPal — Coming Soon</li><li>PayHere — Coming Soon</li><li>Stripe / Card — Coming Soon</li></ul><p>Online payments are being configured. Submit an order request and our team will contact you with an approved payment method.</p></div><div class="mcx-card-actions"><button type="button" class="mcx-action" data-mcx-send-whatsapp>Send via WhatsApp</button><button type="button" class="mcx-secondary-button" data-mcx-send-email>Send via Email</button></div></div>`; document.body.appendChild(overlay); document.body.classList.add("mcx-modal-open"); setTimeout(() => overlay.querySelector("input, textarea, button").focus(), 40); }
+  function openOrderModal(page, item) { state.modalItem = item; state.modalReference = getReferenceNumber(); const overlay = document.createElement("div"); overlay.className = "mcx-modal-overlay"; overlay.innerHTML = `<div class="mcx-modal" role="dialog" aria-modal="true" aria-labelledby="mcx-modal-title"><button type="button" class="mcx-modal-close" data-mcx-close-modal aria-label="Close order request">&#10005;</button><h2 id="mcx-modal-title">Order request for ${esc(item.name)}</h2><p class="mcx-modal-intro">${esc(item.type === "service" ? "Service request" : "Product request")}</p><div class="mcx-modal-grid"><div class="mcx-modal-column"><p><strong>Selected item:</strong> ${esc(item.name)}</p><p><strong>Type:</strong> ${esc(item.type === "service" ? "Service" : "Product")}</p><p><strong>Currency:</strong> USD estimate with fixed LKR reference</p><p><strong>Estimated price:</strong> ${esc(formatPriceForModal(item))}</p><p><strong>Reference:</strong> ${esc(state.modalReference)}</p></div><div class="mcx-modal-column"><label class="mcx-modal-field"><span>Customer name</span><input name="customerName" required></label><label class="mcx-modal-field"><span>Email address</span><input name="customerEmail" type="email" required></label><label class="mcx-modal-field"><span>WhatsApp number</span><input name="customerWhatsapp" required></label><label class="mcx-modal-field"><span>Country</span><input name="customerCountry" required></label><label class="mcx-modal-field"><span>Business / company</span><input name="customerCompany"></label></div></div><label class="mcx-modal-field full"><span>Required features</span><textarea name="requiredFeatures" rows="3"></textarea></label><label class="mcx-modal-field full"><span>Project description</span><textarea name="projectDescription" rows="4" required></textarea></label><label class="mcx-modal-field full"><span>Preferred delivery date</span><input name="deliveryDate" type="date"></label><label class="mcx-checkbox"><input type="checkbox" name="agreement" required> I agree to share these details for quotation and support follow-up.</label><div class="mcx-payment-box"><h3>Payment options</h3><ul><li>PayPal — Coming Soon</li><li>PayHere — Coming Soon</li><li>Stripe / Card — Coming Soon</li></ul><p>Online payments are being configured. Submit an order request and our team will contact you with an approved payment method.</p></div><div class="mcx-card-actions"><button type="button" class="mcx-action" data-mcx-send-whatsapp>Send via WhatsApp</button><button type="button" class="mcx-secondary-button" data-mcx-send-email>Send via Email</button></div></div>`; document.body.appendChild(overlay); document.body.classList.add("mcx-modal-open"); setTimeout(() => overlay.querySelector("input, textarea, button").focus(), 40); }
   function closeOrderModal() { document.querySelector(".mcx-modal-overlay")?.remove(); document.body.classList.remove("mcx-modal-open"); }
-  function sendOrderRequest(mode) { if (!state.modalItem) return; const overlay = document.querySelector(".mcx-modal-overlay"); if (!overlay) return; const fields = overlay.querySelectorAll("input, textarea"); const data = {}; fields.forEach((field) => { if (field.name) data[field.name] = field.value; }); const reference = state.modalReference || getReferenceNumber(); const item = state.modalItem; const body = [`Reference: ${reference}`, `Customer Name: ${data.customerName || "Not provided"}`, `Selected Item: ${item.name}`, `Type: ${item.type === "service" ? "Service" : "Product"}`, `Display Currency: ${state.currency}`, `Estimated Price: ${formatPriceForModal(item)}`, `Requirements: ${data.requiredFeatures || "Not specified"}`, `Project Description: ${data.projectDescription || "No project description provided."}`, `Preferred Delivery Date: ${data.deliveryDate || "Not provided"}`].join("\n"); if (mode === "whatsapp") { window.open(`https://wa.me/${company.whatsapp}?text=${encodeURIComponent(body)}`, "_blank", "noopener,noreferrer"); } else { window.location.href = `mailto:${company.salesEmail}?subject=${encodeURIComponent(`Quotation Request - ${item.name}`)}&body=${encodeURIComponent(body)}`; } const note = document.createElement("p"); note.className = "mcx-request-status"; note.textContent = mode === "whatsapp" ? "Quotation request prepared for WhatsApp follow-up." : "Quotation request prepared for email follow-up."; overlay.querySelector(".mcx-card-actions").insertAdjacentElement("afterend", note); }
+  function sendOrderRequest(mode) { if (!state.modalItem) return; const overlay = document.querySelector(".mcx-modal-overlay"); if (!overlay) return; const fields = overlay.querySelectorAll("input, textarea"); const data = {}; fields.forEach((field) => { if (field.name) data[field.name] = field.value; }); const reference = state.modalReference || getReferenceNumber(); const item = state.modalItem; const body = [`Reference: ${reference}`, `Customer Name: ${data.customerName || "Not provided"}`, `Selected Item: ${item.name}`, `Type: ${item.type === "service" ? "Service" : "Product"}`, "Display Currency: USD estimate with fixed LKR reference", `Estimated Price: ${formatPriceForModal(item)}`, `Requirements: ${data.requiredFeatures || "Not specified"}`, `Project Description: ${data.projectDescription || "No project description provided."}`, `Preferred Delivery Date: ${data.deliveryDate || "Not provided"}`].join("\n"); if (mode === "whatsapp") { window.open(`https://wa.me/${company.whatsapp}?text=${encodeURIComponent(body)}`, "_blank", "noopener,noreferrer"); } else { window.location.href = `mailto:${company.salesEmail}?subject=${encodeURIComponent(`Quotation Request - ${item.name}`)}&body=${encodeURIComponent(body)}`; } const note = document.createElement("p"); note.className = "mcx-request-status"; note.textContent = mode === "whatsapp" ? "Quotation request prepared for WhatsApp follow-up." : "Quotation request prepared for email follow-up."; overlay.querySelector(".mcx-card-actions").insertAdjacentElement("afterend", note); }
   function route(scroll = true) { const { page, category, subtopic } = hashState(); document.querySelectorAll("[data-mcx-page]").forEach((section) => { const active = section.dataset.mcxPage === page; section.classList.toggle("active", active); section.hidden = !active; }); document.querySelectorAll("[data-mcx-page-link]").forEach((link) => link.classList.toggle("active", link.dataset.mcxPageLink === page)); const index = document.querySelector(`[data-mcx-category-index="${page}"]`); const detail = document.querySelector(`[data-mcx-category-detail="${page}"]`); if (["products", "services", "pricing"].includes(page)) { if (category) { const item = getCatalogueItem(page, category); if (item) { renderCatalogueDetail(page, item); } else { if (index) index.hidden = false; if (detail) { detail.hidden = false; detail.innerHTML = `<div class="mcx-not-found"><h2>Not Found</h2><p>The requested catalogue item is not available yet. Please return to the main catalogue and choose another item.</p><button type="button" class="mcx-action" data-mcx-route="${page}">BACK TO CATALOGUE</button></div>`; } } } else { renderCatalogueIndex(page); } } else if (category && renderCategory(page, category, subtopic)) { } else { if (index) index.hidden = false; if (detail) { detail.hidden = true; detail.innerHTML = ""; } renderIndex(page); } if (scroll) { const activePage = document.querySelector(`[data-mcx-page="${page}"]`); const scrollTarget = detail && !detail.hidden ? detail : activePage; if (scrollTarget) { const fixedNavigation = document.querySelector(".site-header") || document.querySelector("header") || document.querySelector("nav"); let navigationOffset = 22; if (fixedNavigation) { const navigationStyle = window.getComputedStyle(fixedNavigation); if (navigationStyle.position === "fixed" || navigationStyle.position === "sticky") navigationOffset = fixedNavigation.getBoundingClientRect().height + 22; } const targetTop = scrollTarget.getBoundingClientRect().top + window.scrollY - navigationOffset; window.scrollTo({ top: Math.max(0, targetTop), left: 0, behavior: "smooth" }); } } }
-  function init() { restoreCachedExchangeRate(); validPages.forEach(renderIndex); document.addEventListener("click", (event) => { const nav = event.target.closest("[data-mcx-page-link]"); if (nav) { event.preventDefault(); setHash(nav.dataset.mcxPageLink); return; } const category = event.target.closest("[data-mcx-category]"); if (category) { const [page, id] = category.dataset.mcxCategory.split("/"); setHash(page, id); return; } const sub = event.target.closest("[data-mcx-subtopic]"); if (sub) { const [page, cat, id] = sub.dataset.mcxSubtopic.split("/"); const current = hashState(); setHash(page, cat, current.subtopic === id ? "" : id); return; } const routeButton = event.target.closest("[data-mcx-route]"); if (routeButton) { const [page, cat = "", subtopicValue = ""] = routeButton.dataset.mcxRoute.split("/"); setHash(page, cat, subtopicValue); return; } const detailButton = event.target.closest("[data-mcx-catalogue-detail]"); if (detailButton) { const [page, slug] = detailButton.dataset.mcxCatalogueDetail.split("/"); setHash(page, slug); return; } const orderButton = event.target.closest("[data-mcx-order-item]"); if (orderButton) { const [page, slug] = orderButton.dataset.mcxOrderItem.split("/"); const item = getCatalogueItem(page, slug); if (item) openOrderModal(page, { ...item, type: page === "services" ? "service" : "product" }); return; } const loadMore = event.target.closest("[data-mcx-load-more]"); if (loadMore) { state.visibleCount += 8; renderCatalogueIndex(hashState().page); return; } const clearFilters = event.target.closest("[data-mcx-clear-filters]"); if (clearFilters) { state.search = ""; state.selectedGroup = "all"; state.filteredType = "all"; state.sort = "name"; state.visibleCount = 8; renderCatalogueIndex(hashState().page); return; } const closeButton = event.target.closest("[data-mcx-close-modal]"); if (closeButton) { closeOrderModal(); } const sendWhatsApp = event.target.closest("[data-mcx-send-whatsapp]"); if (sendWhatsApp) { sendOrderRequest("whatsapp"); return; } const sendEmail = event.target.closest("[data-mcx-send-email]"); if (sendEmail) { sendOrderRequest("email"); return; } }); document.addEventListener("input", (event) => { const searchInput = event.target.closest("[data-mcx-catalogue-search]"); if (searchInput) { state.search = searchInput.value; if (["products", "services", "pricing"].includes(hashState().page)) { state.visibleCount = 8; renderCatalogueIndex(hashState().page); } } }); document.addEventListener("change", (event) => {
+  function init() {
+    /* MCX_LIVE_DUAL_PRICE_INIT */
+    state.currency = "USD";
+    loadExchangeRate(false).catch(() => {});
+ restoreCachedExchangeRate(); validPages.forEach(renderIndex); document.addEventListener("click", (event) => { const nav = event.target.closest("[data-mcx-page-link]"); if (nav) { event.preventDefault(); setHash(nav.dataset.mcxPageLink); return; } const category = event.target.closest("[data-mcx-category]"); if (category) { const [page, id] = category.dataset.mcxCategory.split("/"); setHash(page, id); return; } const sub = event.target.closest("[data-mcx-subtopic]"); if (sub) { const [page, cat, id] = sub.dataset.mcxSubtopic.split("/"); const current = hashState(); setHash(page, cat, current.subtopic === id ? "" : id); return; } const routeButton = event.target.closest("[data-mcx-route]"); if (routeButton) { const [page, cat = "", subtopicValue = ""] = routeButton.dataset.mcxRoute.split("/"); setHash(page, cat, subtopicValue); return; } const detailButton = event.target.closest("[data-mcx-catalogue-detail]"); if (detailButton) { const [page, slug] = detailButton.dataset.mcxCatalogueDetail.split("/"); setHash(page, slug); return; } const orderButton = event.target.closest("[data-mcx-order-item]"); if (orderButton) { const [page, slug] = orderButton.dataset.mcxOrderItem.split("/"); const item = getCatalogueItem(page, slug); if (item) openOrderModal(page, { ...item, type: page === "services" ? "service" : "product" }); return; } const loadMore = event.target.closest("[data-mcx-load-more]"); if (loadMore) { state.visibleCount += 8; renderCatalogueIndex(hashState().page); return; } const clearFilters = event.target.closest("[data-mcx-clear-filters]"); if (clearFilters) { state.search = ""; state.selectedGroup = "all"; state.filteredType = "all"; state.sort = "name"; state.visibleCount = 8; renderCatalogueIndex(hashState().page); return; } const closeButton = event.target.closest("[data-mcx-close-modal]"); if (closeButton) { closeOrderModal(); } const sendWhatsApp = event.target.closest("[data-mcx-send-whatsapp]"); if (sendWhatsApp) { sendOrderRequest("whatsapp"); return; } const sendEmail = event.target.closest("[data-mcx-send-email]"); if (sendEmail) { sendOrderRequest("email"); return; } }); document.addEventListener("input", (event) => { const searchInput = event.target.closest("[data-mcx-catalogue-search]"); if (searchInput) { state.search = searchInput.value; if (["products", "services", "pricing"].includes(hashState().page)) { state.visibleCount = 8; renderCatalogueIndex(hashState().page); } } }); document.addEventListener("change", (event) => {
     const groupSelect = event.target.closest(
       "[data-mcx-catalogue-group]"
     );
@@ -1208,3 +1313,5 @@ document.addEventListener('DOMContentLoaded', function () {
 })();
 
 /* MI_SEMICOLON_TO_MINUS_ICON_END */
+
+
