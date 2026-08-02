@@ -670,7 +670,7 @@ document.addEventListener('DOMContentLoaded', function () {
  if (!category || !index || !detail) return false;
  index.hidden = true;
  detail.hidden = false;
- detail.innerHTML = `<button type="button" class="mcx-back-button" data-mcx-route="${page}">  ALL ${esc(data[page].title)} CATEGORIES</button><header class="mcx-category-header">${category.status?`<span class="mcx-status">${esc(category.status)}</span>`:""}<h2>${esc(category.title)}</h2><p>${esc(category.summary)}</p></header><div class="mcx-subtopic-stack">${category.subtopics.map((topic,index)=>{const id=subtopicId(topic.title,index),open=activeSubtopic===id;return `<article class="mcx-subtopic-item${open?" open":""}"><button type="button" class="mcx-subtopic-button" data-mcx-subtopic="${page}/${category.id}/${id}" aria-expanded="${open}"><span><strong>${esc(topic.title)}</strong><em>${esc(topic.summary)}</em></span><b aria-hidden="true">${open?";":"+"}</b></button><div class="mcx-subtopic-content"${open?"":" hidden"}>${topic.note?`<p class="mcx-topic-note">${esc(topic.note)}</p>`:""}<ul>${topic.points.map(point=>`<li>${esc(point)}</li>`).join("")}</ul></div></article>`}).join("")}</div>${category.id==="inquiry-form"?formMarkup():""}${actionMarkup(page,category)}`;
+ detail.innerHTML = `<button type="button" class="mcx-back-button" data-mcx-route="${page}">Â  ALL ${esc(data[page].title)} CATEGORIES</button><header class="mcx-category-header">${category.status?`<span class="mcx-status">${esc(category.status)}</span>`:""}<h2>${esc(category.title)}</h2><p>${esc(category.summary)}</p></header><div class="mcx-subtopic-stack">${category.subtopics.map((topic,index)=>{const id=subtopicId(topic.title,index),open=activeSubtopic===id;return `<article class="mcx-subtopic-item${open?" open":""}"><button type="button" class="mcx-subtopic-button" data-mcx-subtopic="${page}/${category.id}/${id}" aria-expanded="${open}"><span><strong>${esc(topic.title)}</strong><em>${esc(topic.summary)}</em></span><b aria-hidden="true">${open?";":"+"}</b></button><div class="mcx-subtopic-content"${open?"":" hidden"}>${topic.note?`<p class="mcx-topic-note">${esc(topic.note)}</p>`:""}<ul>${topic.points.map(point=>`<li>${esc(point)}</li>`).join("")}</ul></div></article>`}).join("")}</div>${category.id==="inquiry-form"?formMarkup():""}${actionMarkup(page,category)}`;
  detail.focus({preventScroll:true});
  const form = detail.querySelector("[data-mcx-contact-form]");
  if (form) form.addEventListener("submit", submitForm);
@@ -780,4 +780,57 @@ document.addEventListener('DOMContentLoaded', function () {
 /* MI_CORTEX_PRO_CATEGORY_SYSTEM_END */
 
 
+/* MI_SEMICOLON_TO_MINUS_ICON_START */
 
+(function () {
+    "use strict";
+
+    if (window.__mcxSemicolonMinusIconInstalled) {
+        return;
+    }
+
+    window.__mcxSemicolonMinusIconInstalled = true;
+
+    function replaceSemicolonIcons() {
+        document.querySelectorAll(
+            "button, span, i, b, [role='button']"
+        ).forEach(function (element) {
+            if (element.children.length !== 0) {
+                return;
+            }
+
+            if (element.textContent.trim() !== ";") {
+                return;
+            }
+
+            element.textContent = "−";
+            element.setAttribute("aria-label", "Collapse");
+            element.classList.add("mcx-real-minus-icon");
+        });
+    }
+
+    function refreshIcons() {
+        window.setTimeout(replaceSemicolonIcons, 0);
+        window.setTimeout(replaceSemicolonIcons, 120);
+        window.setTimeout(replaceSemicolonIcons, 400);
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener(
+            "DOMContentLoaded",
+            refreshIcons,
+            { once: true }
+        );
+    } else {
+        refreshIcons();
+    }
+
+    window.addEventListener("load", refreshIcons);
+    window.addEventListener("hashchange", refreshIcons);
+
+    document.addEventListener("click", function () {
+        refreshIcons();
+    });
+})();
+
+/* MI_SEMICOLON_TO_MINUS_ICON_END */
