@@ -4707,3 +4707,224 @@ html.mcx-content-navigation-scrolled .mi-fixed-glass-nav {
 }
 
 /* MI_EXTREME_LIQUID_ZOOM_END */
+
+
+/* MI_REAL_TEXT_BACKDROP_BLUR_START */
+
+/*
+Make letters, headings, lines and small details visibly blur
+while they physically pass behind the navigation.
+
+The previous background was too opaque, so the page behind it
+could not be seen through the backdrop filter.
+*/
+
+.site-header {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    overflow: visible !important;
+}
+
+/* The actual rounded navigation glass. */
+
+.site-header .nav,
+.site-header > nav,
+.site-header .glass-panel,
+.site-header .navbar,
+.site-header .navigation,
+.mi-fixed-glass-nav {
+    position: relative !important;
+    isolation: isolate !important;
+    overflow: hidden !important;
+
+    border-radius: 999px !important;
+
+    /*
+    Low-opacity background is essential.
+    It allows letters behind the bar to remain visible and blurred.
+    */
+    background:
+        linear-gradient(
+            110deg,
+            rgba(9, 92, 169, 0.25) 0%,
+            rgba(28, 54, 151, 0.22) 48%,
+            rgba(97, 23, 224, 0.27) 100%
+        ) !important;
+
+    border:
+        1px solid rgba(91, 213, 255, 0.72) !important;
+
+    -webkit-backdrop-filter:
+        blur(24px)
+        saturate(210%)
+        contrast(120%)
+        brightness(108%) !important;
+
+    backdrop-filter:
+        blur(24px)
+        saturate(210%)
+        contrast(120%)
+        brightness(108%) !important;
+
+    box-shadow:
+        0 18px 60px rgba(0, 0, 0, 0.38),
+        0 0 32px rgba(25, 187, 255, 0.26),
+        0 0 65px rgba(103, 48, 255, 0.20),
+        inset 0 1px 0 rgba(235, 253, 255, 0.34),
+        inset 0 -1px 0 rgba(135, 107, 255, 0.26) !important;
+}
+
+/*
+Do not cover the real backdrop with a solid animated layer.
+Keep only a faint liquid reflection.
+*/
+
+.site-header .nav::before,
+.site-header > nav::before,
+.site-header .glass-panel::before,
+.site-header .navbar::before,
+.site-header .navigation::before,
+.mi-fixed-glass-nav::before {
+    content: "" !important;
+
+    position: absolute !important;
+    inset: -45% -14% !important;
+
+    z-index: 0 !important;
+    pointer-events: none !important;
+
+    background:
+        radial-gradient(
+            ellipse at 12% 50%,
+            rgba(48, 214, 255, 0.19),
+            transparent 30%
+        ),
+        radial-gradient(
+            ellipse at 88% 50%,
+            rgba(158, 77, 255, 0.20),
+            transparent 34%
+        ),
+        linear-gradient(
+            105deg,
+            transparent 24%,
+            rgba(255, 255, 255, 0.10) 49%,
+            transparent 73%
+        ) !important;
+
+    filter: blur(9px) !important;
+    opacity: 0.62 !important;
+
+    animation:
+        mcxRealBackdropLiquidFlow
+        7s
+        ease-in-out
+        infinite
+        alternate !important;
+}
+
+/* Keep all navigation content sharp above the blurred backdrop. */
+
+.site-header .nav > *,
+.site-header > nav > *,
+.site-header .glass-panel > *,
+.site-header .navbar > *,
+.site-header .navigation > *,
+.mi-fixed-glass-nav > * {
+    position: relative !important;
+    z-index: 3 !important;
+    filter: none !important;
+}
+
+/*
+When scrolling, make each passing letter and small detail
+blur more strongly behind the glass.
+*/
+
+html.mcx-content-navigation-scrolled .site-header .nav,
+html.mcx-content-navigation-scrolled .site-header > nav,
+html.mcx-content-navigation-scrolled .site-header .glass-panel,
+html.mcx-content-navigation-scrolled .site-header .navbar,
+html.mcx-content-navigation-scrolled .site-header .navigation,
+html.mcx-content-navigation-scrolled .mi-fixed-glass-nav {
+    background:
+        linear-gradient(
+            110deg,
+            rgba(6, 73, 137, 0.20),
+            rgba(21, 42, 126, 0.18) 48%,
+            rgba(82, 19, 201, 0.22)
+        ) !important;
+
+    -webkit-backdrop-filter:
+        blur(36px)
+        saturate(235%)
+        contrast(128%)
+        brightness(110%) !important;
+
+    backdrop-filter:
+        blur(36px)
+        saturate(235%)
+        contrast(128%)
+        brightness(110%) !important;
+
+    box-shadow:
+        0 22px 78px rgba(0, 0, 0, 0.48),
+        0 0 46px rgba(29, 198, 255, 0.34),
+        0 0 88px rgba(116, 52, 255, 0.27),
+        inset 0 1px 0 rgba(242, 255, 255, 0.41),
+        inset 0 -1px 0 rgba(146, 117, 255, 0.31) !important;
+}
+
+@keyframes mcxRealBackdropLiquidFlow {
+    0% {
+        transform:
+            translate3d(-5%, -1%, 0)
+            scale(1.08);
+    }
+
+    50% {
+        transform:
+            translate3d(4%, 2%, 0)
+            scale(1.18);
+    }
+
+    100% {
+        transform:
+            translate3d(-2%, 1%, 0)
+            scale(1.12);
+    }
+}
+
+@media (max-width: 700px) {
+    .site-header .nav,
+    .site-header > nav,
+    .site-header .glass-panel,
+    .site-header .navbar,
+    .site-header .navigation,
+    .mi-fixed-glass-nav {
+        -webkit-backdrop-filter:
+            blur(20px)
+            saturate(195%)
+            contrast(116%) !important;
+
+        backdrop-filter:
+            blur(20px)
+            saturate(195%)
+            contrast(116%) !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .site-header .nav::before,
+    .site-header > nav::before,
+    .site-header .glass-panel::before,
+    .site-header .navbar::before,
+    .site-header .navigation::before,
+    .mi-fixed-glass-nav::before {
+        animation: none !important;
+    }
+}
+
+/* MI_REAL_TEXT_BACKDROP_BLUR_END */
