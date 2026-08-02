@@ -714,7 +714,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const validPages = ["overview", ...Object.keys(pageData)];
   const esc = (value) => String(value ?? "").replace(/[&<>\"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[char]));
   const priceFormatter = new Intl.NumberFormat("en-LK", { maximumFractionDigits: 0 });
-  const state = { currency: "LKR", exchangeRate: null, exchangeRateUpdatedAt: null, rateLoading: false, rateError: "", filteredType: "all", selectedGroup: "all", search: "", sort: "name", pageSize: 8, visibleCount: 8, modalItem: null, modalReference: null };
+  const state = { currency: (() => { try { return localStorage.getItem("mcx-selected-currency") === "USD" ? "USD" : "LKR"; } catch (error) { return "LKR"; } })(), exchangeRate: null, exchangeRateUpdatedAt: null, rateLoading: false, rateError: "", filteredType: "all", selectedGroup: "all", search: "", sort: "name", pageSize: 8, visibleCount: 8, modalItem: null, modalReference: null };
 
   function restoreCachedExchangeRate() {
     try {
@@ -754,7 +754,148 @@ document.addEventListener('DOMContentLoaded', function () {
   function formatCurrencyPrice(value) { if (state.currency === "USD") { if (!state.exchangeRate) return "USD conversion temporarily unavailable."; return `USD ${(value * state.exchangeRate).toFixed(2)}`; } return formatLkrPrice(value); }
   function getPriceLabel(item) { const priceText = state.currency === "USD" ? formatCurrencyPrice(item.priceLkr) : formatLkrPrice(item.priceLkr); return `${item.prefix || "Starting from"} ${priceText}${item.billingPeriod ? ` / ${item.billingPeriod}` : ""}`; }
   function formatPriceForModal(item) { return state.currency === "USD" ? (state.exchangeRate ? `USD ${(item.priceLkr * state.exchangeRate).toFixed(2)}` : "USD conversion temporarily unavailable.") : formatLkrPrice(item.priceLkr); }
-  function loadExchangeRate(force = false) { if (state.currency !== "USD") return Promise.resolve(); if (!force && state.exchangeRate && Number(localStorage.getItem("mcx-rate-timestamp") || "0")) { const ageHours = (Date.now() - Number(localStorage.getItem("mcx-rate-timestamp") || "0")) / 3600000; if (ageHours <= 12) return Promise.resolve(); } if (state.rateLoading) return Promise.resolve(); state.rateLoading = true; state.rateError = ""; const rateStatus = document.querySelector("[data-mcx-rate-status]"); if (rateStatus) { rateStatus.textContent = "Loading exchange rate..."; rateStatus.setAttribute("aria-busy", "true"); } return fetch("https://api.frankfurter.dev/v1/latest?base=LKR&symbols=USD").then((response) => { if (!response.ok) throw new Error("Rate unavailable"); return response.json(); }).then((payload) => { const rate = Number(payload?.rates?.USD); if (!rate) throw new Error("Rate unavailable"); state.exchangeRate = rate; state.exchangeRateUpdatedAt = new Date().toLocaleString("en-LK", { dateStyle: "medium", timeStyle: "short" }); localStorage.setItem("mcx-rate-timestamp", String(Date.now())); localStorage.setItem("mcx-rate-value", String(rate)); if (rateStatus) { rateStatus.textContent = `Reference exchange rate updated: ${state.exchangeRateUpdatedAt}`; rateStatus.setAttribute("aria-busy", "false"); } }).catch(() => { state.rateError = "USD conversion temporarily unavailable."; if (rateStatus) { rateStatus.textContent = state.rateError; rateStatus.setAttribute("aria-busy", "false"); } }).finally(() => { state.rateLoading = false; if (state.currency === "USD") { renderCatalogueIndex(hashState().page); } }); }
+  function loadExchangeRate(force = false) {
+    if (state.currency !== "USD") {
+      return Promise.resolve(null);
+    }
+
+    const CACHE_HOURS = 12;
+    const timestampKey = "mcx-rate-timestamp";
+    const rateKey = "mcx-rate-value";
+
+    if (!force) {
+      try {
+        const cachedRate = Number(localStorage.getItem(rateKey) || "0");
+        const cachedTimestamp = Number(
+          localStorage.getItem(timestampKey) || "0"
+        );
+
+        const ageHours =
+          cachedTimestamp > 0
+            ? (Date.now() - cachedTimestamp) / 3600000
+            : Infinity;
+
+        if (
+          Number.isFinite(cachedRate) &&
+          cachedRate > 0 &&
+          ageHours <= CACHE_HOURS
+        ) {
+          state.exchangeRate = cachedRate;
+          state.exchangeRateUpdatedAt = new Date(
+            cachedTimestamp
+          ).toLocaleString("en-LK", {
+            dateStyle: "medium",
+            timeStyle: "short"
+          });
+
+          state.rateError = "";
+          return Promise.resolve(cachedRate);
+        }
+      } catch (error) {
+        console.warn("Exchange-rate cache unavailable.", error);
+      }
+    }
+
+    if (state.ratePromise) {
+      return state.ratePromise;
+    }
+
+    state.rateLoading = true;
+    state.rateError = "";
+
+    const rateStatus = document.querySelector(
+      "[data-mcx-rate-status]"
+    );
+
+    if (rateStatus) {
+      rateStatus.textContent = "Loading current USD exchange rate...";
+      rateStatus.setAttribute("aria-busy", "true");
+    }
+
+    state.ratePromise = fetch(
+      "https://api.frankfurter.dev/v1/latest?base=LKR&symbols=USD",
+      {
+        method: "GET",
+        headers: {
+          "Accept": "application/json"
+        },
+        cache: "no-store"
+      }
+    )
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(
+            "Exchange-rate request failed: " + response.status
+          );
+        }
+
+        return response.json();
+      })
+      .then((payload) => {
+        const rate = Number(
+          payload &&
+          payload.rates &&
+          payload.rates.USD
+        );
+
+        if (!Number.isFinite(rate) || rate <= 0) {
+          throw new Error("Invalid USD exchange rate.");
+        }
+
+        const updatedTimestamp = Date.now();
+
+        state.exchangeRate = rate;
+        state.exchangeRateUpdatedAt = new Date(
+          updatedTimestamp
+        ).toLocaleString("en-LK", {
+          dateStyle: "medium",
+          timeStyle: "short"
+        });
+
+        state.rateError = "";
+
+        try {
+          localStorage.setItem(rateKey, String(rate));
+          localStorage.setItem(
+            timestampKey,
+            String(updatedTimestamp)
+          );
+        } catch (error) {
+          console.warn("Exchange-rate cache could not be saved.", error);
+        }
+
+        if (rateStatus) {
+          rateStatus.textContent =
+            "Reference exchange rate updated: " +
+            state.exchangeRateUpdatedAt;
+
+          rateStatus.setAttribute("aria-busy", "false");
+        }
+
+        return rate;
+      })
+      .catch((error) => {
+        console.error("USD conversion failed:", error);
+
+        state.exchangeRate = null;
+        state.rateError =
+          "USD conversion temporarily unavailable.";
+
+        if (rateStatus) {
+          rateStatus.textContent = state.rateError;
+          rateStatus.setAttribute("aria-busy", "false");
+        }
+
+        return null;
+      })
+      .finally(() => {
+        state.rateLoading = false;
+        state.ratePromise = null;
+      });
+
+    return state.ratePromise;
+  }
+
   function actionMarkup(page, category) { if (page === "contact") { if (category.id === "email") return `<div class="mcx-action-row"><a class="mcx-action" href="mailto:${company.email}">SEND EMAIL</a></div>`; if (category.id === "whatsapp") return `<div class="mcx-action-row"><a class="mcx-action" href="https://wa.me/${company.whatsapp}" target="_blank" rel="noopener noreferrer">OPEN WHATSAPP</a></div>`; if (["contact-info", "support", "send-inquiry", "inquiry-form"].includes(category.id)) return `<div class="mcx-action-row"><a class="mcx-action" href="mailto:${company.email}">SEND EMAIL</a><a class="mcx-action secondary" href="https://wa.me/${company.whatsapp}" target="_blank" rel="noopener noreferrer">OPEN WHATSAPP</a></div>`; } if (["products", "services", "pricing"].includes(page)) return `<div class="mcx-action-row"><button type="button" class="mcx-action" data-mcx-route="contact/send-inquiry">REQUEST INFORMATION</button></div>`; return ""; }
   function formMarkup() { return `<form class="mcx-form" data-mcx-contact-form><div class="mcx-field"><label>Full Name<input name="fullName" required autocomplete="name"></label></div><div class="mcx-field"><label>Email Address<input name="email" type="email" required autocomplete="email"></label></div><div class="mcx-field"><label>Phone Number (Optional)<input name="phone" type="tel" autocomplete="tel"></label></div><div class="mcx-field"><label>Country<input name="country" required></label></div><div class="mcx-field"><label>Company Name (Optional)<input name="company"></label></div><div class="mcx-field"><label>Project Type<select name="projectType" required><option value="">Select</option><option>AI Development</option><option>AI Chatbot</option><option>Website</option><option>Web Application</option><option>Mobile Application</option><option>Desktop Software</option><option>Business Software</option><option>API or Integration</option><option>Other Custom Project</option></select></label></div><div class="mcx-field"><label>Estimated Budget (Optional)<input name="budget"></label></div><div class="mcx-field"><label>Preferred Deadline<input name="deadline"></label></div><div class="mcx-field full"><label>Project Description<textarea name="description" required></textarea></label></div><label class="mcx-consent"><input type="checkbox" required> I agree to provide these details for receiving a response.</label><p class="mcx-form-note">Submitting opens your email application because a dedicated form backend is not currently connected.</p><button class="mcx-action" type="submit">PREPARE EMAIL INQUIRY</button></form>`; }
   function renderIndex(page) { const host = document.querySelector(`[data-mcx-category-index="${page}"]`); if (!host) return; if (["products", "services", "pricing"].includes(page)) { renderCatalogueIndex(page); return; } host.innerHTML = `<div class="mcx-index-heading"><span class="mcx-index-kicker">CATEGORY DIRECTORY</span><h2>${esc(getPageTitle(page))} CATEGORIES</h2><p>${esc(pageData[page]?.intro || "Select a category to open its subtopics and complete information.")}</p></div><div class="mcx-category-stack">${pageData[page].categories.map((category) => `<button type="button" class="mcx-category-row" data-mcx-category="${page}/${category.id}"><span class="mcx-category-number mcx-category-icon" aria-hidden="true">${mcxGetCategoryIcon(page, category.id)}</span><span class="mcx-category-copy">${category.status ? `<small>${esc(category.status)}</small>` : ""}<strong>${esc(category.title)}</strong><em>${esc(category.summary)}</em></span><span class="mcx-category-arrow" aria-hidden="true">&#8594;</span></button>`).join("")}</div>`; }
@@ -768,7 +909,80 @@ document.addEventListener('DOMContentLoaded', function () {
   function closeOrderModal() { document.querySelector(".mcx-modal-overlay")?.remove(); document.body.classList.remove("mcx-modal-open"); }
   function sendOrderRequest(mode) { if (!state.modalItem) return; const overlay = document.querySelector(".mcx-modal-overlay"); if (!overlay) return; const fields = overlay.querySelectorAll("input, textarea"); const data = {}; fields.forEach((field) => { if (field.name) data[field.name] = field.value; }); const reference = state.modalReference || getReferenceNumber(); const item = state.modalItem; const body = [`Reference: ${reference}`, `Customer Name: ${data.customerName || "Not provided"}`, `Selected Item: ${item.name}`, `Type: ${item.type === "service" ? "Service" : "Product"}`, `Display Currency: ${state.currency}`, `Estimated Price: ${formatPriceForModal(item)}`, `Requirements: ${data.requiredFeatures || "Not specified"}`, `Project Description: ${data.projectDescription || "No project description provided."}`, `Preferred Delivery Date: ${data.deliveryDate || "Not provided"}`].join("\n"); if (mode === "whatsapp") { window.open(`https://wa.me/${company.whatsapp}?text=${encodeURIComponent(body)}`, "_blank", "noopener,noreferrer"); } else { window.location.href = `mailto:${company.salesEmail}?subject=${encodeURIComponent(`Quotation Request - ${item.name}`)}&body=${encodeURIComponent(body)}`; } const note = document.createElement("p"); note.className = "mcx-request-status"; note.textContent = mode === "whatsapp" ? "Quotation request prepared for WhatsApp follow-up." : "Quotation request prepared for email follow-up."; overlay.querySelector(".mcx-card-actions").insertAdjacentElement("afterend", note); }
   function route(scroll = true) { const { page, category, subtopic } = hashState(); document.querySelectorAll("[data-mcx-page]").forEach((section) => { const active = section.dataset.mcxPage === page; section.classList.toggle("active", active); section.hidden = !active; }); document.querySelectorAll("[data-mcx-page-link]").forEach((link) => link.classList.toggle("active", link.dataset.mcxPageLink === page)); const index = document.querySelector(`[data-mcx-category-index="${page}"]`); const detail = document.querySelector(`[data-mcx-category-detail="${page}"]`); if (["products", "services", "pricing"].includes(page)) { if (category) { const item = getCatalogueItem(page, category); if (item) { renderCatalogueDetail(page, item); } else { if (index) index.hidden = false; if (detail) { detail.hidden = false; detail.innerHTML = `<div class="mcx-not-found"><h2>Not Found</h2><p>The requested catalogue item is not available yet. Please return to the main catalogue and choose another item.</p><button type="button" class="mcx-action" data-mcx-route="${page}">BACK TO CATALOGUE</button></div>`; } } } else { renderCatalogueIndex(page); } } else if (category && renderCategory(page, category, subtopic)) { } else { if (index) index.hidden = false; if (detail) { detail.hidden = true; detail.innerHTML = ""; } renderIndex(page); } if (scroll) { const activePage = document.querySelector(`[data-mcx-page="${page}"]`); const scrollTarget = detail && !detail.hidden ? detail : activePage; if (scrollTarget) { const fixedNavigation = document.querySelector(".site-header") || document.querySelector("header") || document.querySelector("nav"); let navigationOffset = 22; if (fixedNavigation) { const navigationStyle = window.getComputedStyle(fixedNavigation); if (navigationStyle.position === "fixed" || navigationStyle.position === "sticky") navigationOffset = fixedNavigation.getBoundingClientRect().height + 22; } const targetTop = scrollTarget.getBoundingClientRect().top + window.scrollY - navigationOffset; window.scrollTo({ top: Math.max(0, targetTop), left: 0, behavior: "smooth" }); } } }
-  function init() { restoreCachedExchangeRate(); validPages.forEach(renderIndex); document.addEventListener("click", (event) => { const nav = event.target.closest("[data-mcx-page-link]"); if (nav) { event.preventDefault(); setHash(nav.dataset.mcxPageLink); return; } const category = event.target.closest("[data-mcx-category]"); if (category) { const [page, id] = category.dataset.mcxCategory.split("/"); setHash(page, id); return; } const sub = event.target.closest("[data-mcx-subtopic]"); if (sub) { const [page, cat, id] = sub.dataset.mcxSubtopic.split("/"); const current = hashState(); setHash(page, cat, current.subtopic === id ? "" : id); return; } const routeButton = event.target.closest("[data-mcx-route]"); if (routeButton) { const [page, cat = "", subtopicValue = ""] = routeButton.dataset.mcxRoute.split("/"); setHash(page, cat, subtopicValue); return; } const detailButton = event.target.closest("[data-mcx-catalogue-detail]"); if (detailButton) { const [page, slug] = detailButton.dataset.mcxCatalogueDetail.split("/"); setHash(page, slug); return; } const orderButton = event.target.closest("[data-mcx-order-item]"); if (orderButton) { const [page, slug] = orderButton.dataset.mcxOrderItem.split("/"); const item = getCatalogueItem(page, slug); if (item) openOrderModal(page, { ...item, type: page === "services" ? "service" : "product" }); return; } const loadMore = event.target.closest("[data-mcx-load-more]"); if (loadMore) { state.visibleCount += 8; renderCatalogueIndex(hashState().page); return; } const clearFilters = event.target.closest("[data-mcx-clear-filters]"); if (clearFilters) { state.search = ""; state.selectedGroup = "all"; state.filteredType = "all"; state.sort = "name"; state.visibleCount = 8; renderCatalogueIndex(hashState().page); return; } const closeButton = event.target.closest("[data-mcx-close-modal]"); if (closeButton) { closeOrderModal(); } const sendWhatsApp = event.target.closest("[data-mcx-send-whatsapp]"); if (sendWhatsApp) { sendOrderRequest("whatsapp"); return; } const sendEmail = event.target.closest("[data-mcx-send-email]"); if (sendEmail) { sendOrderRequest("email"); return; } }); document.addEventListener("input", (event) => { const searchInput = event.target.closest("[data-mcx-catalogue-search]"); if (searchInput) { state.search = searchInput.value; if (["products", "services", "pricing"].includes(hashState().page)) { state.visibleCount = 8; renderCatalogueIndex(hashState().page); } } }); document.addEventListener("change", (event) => { const groupSelect = event.target.closest("[data-mcx-catalogue-group]"); const typeSelect = event.target.closest("[data-mcx-catalogue-type]"); const sortSelect = event.target.closest("[data-mcx-catalogue-sort]"); const currencySelect = event.target.closest("[data-mcx-currency-selector]"); if (groupSelect || typeSelect || sortSelect || currencySelect) { if (groupSelect) state.selectedGroup = groupSelect.value; if (typeSelect) state.filteredType = typeSelect.value; if (sortSelect) state.sort = sortSelect.value; if (currencySelect) { state.currency = currencySelect.value; if (state.currency === "USD") loadExchangeRate().catch(() => {}); } state.visibleCount = 8; renderCatalogueIndex(hashState().page); } }); document.addEventListener("keydown", (event) => { if (event.key === "Escape") closeOrderModal(); }); window.addEventListener("hashchange", () => route()); route(false); }
+  function init() { restoreCachedExchangeRate(); validPages.forEach(renderIndex); document.addEventListener("click", (event) => { const nav = event.target.closest("[data-mcx-page-link]"); if (nav) { event.preventDefault(); setHash(nav.dataset.mcxPageLink); return; } const category = event.target.closest("[data-mcx-category]"); if (category) { const [page, id] = category.dataset.mcxCategory.split("/"); setHash(page, id); return; } const sub = event.target.closest("[data-mcx-subtopic]"); if (sub) { const [page, cat, id] = sub.dataset.mcxSubtopic.split("/"); const current = hashState(); setHash(page, cat, current.subtopic === id ? "" : id); return; } const routeButton = event.target.closest("[data-mcx-route]"); if (routeButton) { const [page, cat = "", subtopicValue = ""] = routeButton.dataset.mcxRoute.split("/"); setHash(page, cat, subtopicValue); return; } const detailButton = event.target.closest("[data-mcx-catalogue-detail]"); if (detailButton) { const [page, slug] = detailButton.dataset.mcxCatalogueDetail.split("/"); setHash(page, slug); return; } const orderButton = event.target.closest("[data-mcx-order-item]"); if (orderButton) { const [page, slug] = orderButton.dataset.mcxOrderItem.split("/"); const item = getCatalogueItem(page, slug); if (item) openOrderModal(page, { ...item, type: page === "services" ? "service" : "product" }); return; } const loadMore = event.target.closest("[data-mcx-load-more]"); if (loadMore) { state.visibleCount += 8; renderCatalogueIndex(hashState().page); return; } const clearFilters = event.target.closest("[data-mcx-clear-filters]"); if (clearFilters) { state.search = ""; state.selectedGroup = "all"; state.filteredType = "all"; state.sort = "name"; state.visibleCount = 8; renderCatalogueIndex(hashState().page); return; } const closeButton = event.target.closest("[data-mcx-close-modal]"); if (closeButton) { closeOrderModal(); } const sendWhatsApp = event.target.closest("[data-mcx-send-whatsapp]"); if (sendWhatsApp) { sendOrderRequest("whatsapp"); return; } const sendEmail = event.target.closest("[data-mcx-send-email]"); if (sendEmail) { sendOrderRequest("email"); return; } }); document.addEventListener("input", (event) => { const searchInput = event.target.closest("[data-mcx-catalogue-search]"); if (searchInput) { state.search = searchInput.value; if (["products", "services", "pricing"].includes(hashState().page)) { state.visibleCount = 8; renderCatalogueIndex(hashState().page); } } }); document.addEventListener("change", (event) => {
+    const groupSelect = event.target.closest(
+      "[data-mcx-catalogue-group]"
+    );
+
+    const typeSelect = event.target.closest(
+      "[data-mcx-catalogue-type]"
+    );
+
+    const sortSelect = event.target.closest(
+      "[data-mcx-catalogue-sort]"
+    );
+
+    const currencySelect = event.target.closest(
+      "[data-mcx-currency-selector]"
+    );
+
+    if (currencySelect) {
+      const selectedCurrency =
+        currencySelect.value === "USD" ? "USD" : "LKR";
+
+      state.currency = selectedCurrency;
+      state.visibleCount = 8;
+
+      try {
+        localStorage.setItem(
+          "mcx-selected-currency",
+          selectedCurrency
+        );
+      } catch (error) {
+        console.warn("Currency preference could not be saved.", error);
+      }
+
+      const currentPage = hashState().page;
+
+      if (selectedCurrency === "USD") {
+        renderCatalogueIndex(currentPage);
+
+        loadExchangeRate(false).then(() => {
+          if (
+            state.currency === "USD" &&
+            hashState().page === currentPage
+          ) {
+            renderCatalogueIndex(currentPage);
+          }
+        });
+
+        return;
+      }
+
+      state.rateError = "";
+      renderCatalogueIndex(currentPage);
+      return;
+    }
+
+    if (groupSelect || typeSelect || sortSelect) {
+      if (groupSelect) {
+        state.selectedGroup = groupSelect.value;
+      }
+
+      if (typeSelect) {
+        state.filteredType = typeSelect.value;
+      }
+
+      if (sortSelect) {
+        state.sort = sortSelect.value;
+      }
+
+      state.visibleCount = 8;
+      renderCatalogueIndex(hashState().page);
+    }
+  });
+
+  document.addEventListener("keydown", (event) => { if (event.key === "Escape") closeOrderModal(); }); window.addEventListener("hashchange", () => route()); route(false); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init, { once: true }); else init();
 })();
 
