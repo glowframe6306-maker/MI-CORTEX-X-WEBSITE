@@ -5090,3 +5090,37 @@ html.mcx-content-navigation-scrolled .mi-fixed-glass-nav {
     }
 }
 /* MCX_LIVE_DUAL_PRICE_STYLE_END */
+
+/* MCX_ORDER_MODAL_ABOVE_NAV_START */
+
+/* Order popup must cover the fixed navigation. */
+.mcx-modal-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 2147483646 !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain !important;
+    isolation: isolate !important;
+}
+
+/* The popup itself stays above its dark overlay. */
+.mcx-modal {
+    position: relative !important;
+    z-index: 2147483647 !important;
+}
+
+/* Only while an order popup is open, keep navigation behind it. */
+body.mcx-modal-open .site-header,
+body.mcx-modal-open .mi-fixed-glass-nav,
+body.mcx-modal-open header,
+body.mcx-modal-open nav {
+    z-index: 1 !important;
+    pointer-events: none !important;
+}
+
+/* Prevent the page behind the popup from scrolling. */
+body.mcx-modal-open {
+    overflow: hidden !important;
+}
+
+/* MCX_ORDER_MODAL_ABOVE_NAV_END */
