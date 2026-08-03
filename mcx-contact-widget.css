@@ -256,3 +256,56 @@ textarea.mcx-hub-input { min-height: 104px; resize: vertical; }
 }
 
 /* MCX_EXACT_FLOATING_BUTTON_FIX_END */
+
+/* MCX_EXACT_ICON_RENDERER_START */
+
+/* The floating contact button is hidden only on the actual front banner. */
+.mcx-exact-hidden-on-front {
+    display: none !important;
+}
+
+/* Preserve the existing button, but display the exact icon inside it. */
+.mcx-exact-icon-launcher {
+    display: grid !important;
+    place-items: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+}
+
+.mcx-exact-launcher-svg,
+.mcx-exact-company-logo {
+    display: block !important;
+    width: calc(100% - 14px) !important;
+    height: calc(100% - 14px) !important;
+    margin: 7px !important;
+    flex: none !important;
+    pointer-events: none !important;
+    animation: mcxExactIconChange 0.38s ease both !important;
+}
+
+.mcx-exact-company-logo {
+    object-fit: cover !important;
+    object-position: center !important;
+    border-radius: 50% !important;
+    background: #020817 !important;
+    border: 1px solid rgba(84, 217, 255, 0.72) !important;
+    box-shadow:
+        inset 0 0 12px rgba(0, 153, 255, 0.28),
+        0 0 10px rgba(0, 153, 255, 0.24) !important;
+}
+
+@keyframes mcxExactIconChange {
+    from {
+        opacity: 0;
+        transform: scale(0.72) rotate(-8deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+/* MCX_EXACT_ICON_RENDERER_END */

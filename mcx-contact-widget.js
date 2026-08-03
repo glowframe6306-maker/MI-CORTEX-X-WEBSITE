@@ -504,3 +504,212 @@
   }
 })();
 /* MCX_EXACT_FLOATING_BUTTON_FIX_END */
+
+/* MCX_EXACT_ICON_RENDERER_START */
+(function () {
+  "use strict";
+
+  const COMPANY_LOGO = "./logo.png";
+
+  const whatsappIcon = `
+    <svg class="mcx-exact-launcher-svg"
+         viewBox="0 0 448 512"
+         aria-hidden="true"
+         focusable="false">
+      <path fill="#25D366"
+        d="M380.9 97.1C339 55.1 283.2 32 223.9 32
+        101.5 32 2.2 131.6 2.2 254c0 39.1 10.2 77.3
+        29.6 111L.3 480l117.7-30.9c32.4 17.7 68.9
+        27 106 27 122.3 0 224.1-99.6 224.1-222
+        0-59.3-25.2-115-67.2-157zM224 438.7c-33.2
+        0-65.7-8.9-94-25.8l-6.7-4-69.8 18.3
+        18.6-68-4.4-7c-18.5-29.4-28.2-63.4-28.2-98.2
+        0-101.7 82.8-184.5 184.6-184.5 49.3 0
+        95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2
+        56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm
+        101.2-138.1c-5.5-2.8-32.8-16.1-37.9-18
+        -5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3
+        18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4
+        -32.6-16.3-54-29.1-75.5-66-5.7-9.8
+        5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7
+        -1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8
+        -9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2
+        -3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4
+        19-19.4 46.3 0 27.3 19.9 53.7 22.6
+        57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2
+        15.2 49 16.5 66.6 13.9 10.7-1.6 32.8
+        -13.4 37.4-26.4 4.6-13 4.6-24.1 3.2
+        -26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+    </svg>
+  `;
+
+  const telegramIcon = `
+    <svg class="mcx-exact-launcher-svg"
+         viewBox="0 0 512 512"
+         aria-hidden="true"
+         focusable="false">
+      <circle cx="256" cy="256" r="256" fill="#26A5E4"/>
+      <path fill="#ffffff"
+        d="M371.8 135.7 327.6 370c-3.3 16.5-12
+        20.6-24.3 12.8l-67.4-49.7-32.5 31.3c-3.6
+        3.6-6.6 6.6-13.5 6.6l4.8-68.6 124.9
+        -112.8c5.4-4.8-1.2-7.5-8.4-2.7L156.8
+        284.1l-66.5-20.8c-14.5-4.5-14.7-14.5
+        3-21.4l260-100.2c12-4.4 22.5 2.9 18.5
+        14z"/>
+    </svg>
+  `;
+
+  const aiIcon = `
+    <svg class="mcx-exact-launcher-svg"
+         viewBox="0 0 64 64"
+         aria-hidden="true"
+         focusable="false">
+      <circle cx="32" cy="32" r="29"
+              fill="#040b24"
+              stroke="#54d9ff"
+              stroke-width="2"/>
+      <path d="M20 25c0-7 5-12 12-12s12 5 12 12v14
+               c0 7-5 12-12 12s-12-5-12-12V25z"
+            fill="none"
+            stroke="#54d9ff"
+            stroke-width="3"/>
+      <circle cx="27" cy="31" r="2.5" fill="#54d9ff"/>
+      <circle cx="37" cy="31" r="2.5" fill="#54d9ff"/>
+      <path d="M26 40c4 3 8 3 12 0"
+            fill="none"
+            stroke="#54d9ff"
+            stroke-width="2.5"
+            stroke-linecap="round"/>
+    </svg>
+  `;
+
+  const companyIcon = `
+    <img class="mcx-exact-company-logo"
+         src="${COMPANY_LOGO}"
+         alt=""
+         aria-hidden="true">
+  `;
+
+  const icons = [
+    whatsappIcon,
+    telegramIcon,
+    companyIcon,
+    aiIcon
+  ];
+
+  let iconIndex = 0;
+  let iconTimer = null;
+  let attempts = 0;
+
+  function findLauncher() {
+    return document.querySelector(
+      "[data-mcx-contact-toggle]," +
+      ".mcx-contact-launcher," +
+      ".mcx-contact-fab," +
+      ".mcx-contact-button," +
+      ".mcx-widget-launcher"
+    );
+  }
+
+  function findWidgetRoot(launcher) {
+    if (!launcher) return null;
+
+    return launcher.closest(
+      "[data-mcx-contact-widget]," +
+      ".mcx-contact-widget," +
+      ".mcx-contact-hub," +
+      ".mcx-widget"
+    ) || launcher;
+  }
+
+  function isActualFrontPage() {
+    return (
+      window.location.hash === "" ||
+      window.location.hash === "#"
+    );
+  }
+
+  function updateVisibility() {
+    const launcher = findLauncher();
+    const widget = findWidgetRoot(launcher);
+
+    if (!widget) return;
+
+    widget.classList.toggle(
+      "mcx-exact-hidden-on-front",
+      isActualFrontPage()
+    );
+  }
+
+  function removeTypedLabel() {
+    document.querySelectorAll("body *").forEach((element) => {
+      if (element.children.length !== 0) return;
+
+      const text = (element.textContent || "")
+        .replace(/\s+/g, " ")
+        .trim()
+        .toLowerCase();
+
+      if (text === "connect with mi cortex x") {
+        element.remove();
+      }
+    });
+  }
+
+  function renderIcon(launcher) {
+    launcher.classList.add("mcx-exact-icon-launcher");
+    launcher.innerHTML = icons[iconIndex];
+    launcher.setAttribute(
+      "aria-label",
+      "Open MI CORTEX X contact center"
+    );
+  }
+
+  function startRotation(launcher) {
+    if (iconTimer) {
+      window.clearInterval(iconTimer);
+    }
+
+    iconIndex = 0;
+    renderIcon(launcher);
+
+    iconTimer = window.setInterval(() => {
+      iconIndex = (iconIndex + 1) % icons.length;
+      renderIcon(launcher);
+    }, 3000);
+  }
+
+  function initialize() {
+    const launcher = findLauncher();
+
+    if (!launcher) {
+      attempts += 1;
+
+      if (attempts <= 20) {
+        window.setTimeout(initialize, 250);
+      }
+
+      return;
+    }
+
+    removeTypedLabel();
+    updateVisibility();
+    startRotation(launcher);
+
+    window.setTimeout(removeTypedLabel, 500);
+    window.setTimeout(removeTypedLabel, 1200);
+  }
+
+  window.addEventListener("hashchange", updateVisibility);
+  window.addEventListener("popstate", updateVisibility);
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initialize, {
+      once: true
+    });
+  } else {
+    initialize();
+  }
+})();
+/* MCX_EXACT_ICON_RENDERER_END */
