@@ -22,6 +22,42 @@
 <script defer="" src="./navigation-click-fix.js?v=20260803"></script>
 <!-- MCX_NAV_CLICK_FIX_END -->
   <link rel="stylesheet" href="mcx-contact-widget.css">
+<!-- MCX_FRONT_FLOATING_REMOVE_START -->
+<script>
+(function () {
+  "use strict";
+
+  function isFrontBanner() {
+    var hash = window.location.hash || "";
+
+    return (
+      hash === "" ||
+      hash === "#" ||
+      hash === "#/"
+    );
+  }
+
+  function updateFrontBannerState() {
+    document.documentElement.classList.toggle(
+      "mcx-front-banner-screen",
+      isFrontBanner()
+    );
+  }
+
+  updateFrontBannerState();
+
+  window.addEventListener(
+    "hashchange",
+    updateFrontBannerState
+  );
+
+  window.addEventListener(
+    "popstate",
+    updateFrontBannerState
+  );
+})();
+</script>
+<!-- MCX_FRONT_FLOATING_REMOVE_END -->
 </head>
 <body>
 <!-- MI_FRONT_PAGE_START -->

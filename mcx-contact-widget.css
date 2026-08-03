@@ -384,3 +384,33 @@ textarea.mcx-hub-input { min-height: 104px; resize: vertical; }
     pointer-events: none !important;
 }
 /* MCX_HIDE_WIDGET_ON_BANNER_END */
+
+
+/* MCX_FRONT_FLOATING_REMOVE_START */
+
+/*
+ * Completely hide the floating contact button and its widget
+ * only on the first front-banner screen.
+ */
+html.mcx-front-banner-screen [data-mcx-contact-widget],
+html.mcx-front-banner-screen [data-mcx-contact-toggle],
+html.mcx-front-banner-screen [data-contact-widget],
+html.mcx-front-banner-screen [data-contact-toggle],
+html.mcx-front-banner-screen #mcx-contact-widget,
+html.mcx-front-banner-screen #mcx-contact-launcher,
+html.mcx-front-banner-screen #mcx-contact-fab,
+html.mcx-front-banner-screen .mcx-contact-widget,
+html.mcx-front-banner-screen .mcx-contact-hub,
+html.mcx-front-banner-screen .mcx-contact-launcher,
+html.mcx-front-banner-screen .mcx-contact-fab,
+html.mcx-front-banner-screen .mcx-contact-button,
+html.mcx-front-banner-screen .mcx-widget-launcher,
+html.mcx-front-banner-screen [class*="mcx-contact"],
+html.mcx-front-banner-screen [id*="mcx-contact"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* MCX_FRONT_FLOATING_REMOVE_END */
