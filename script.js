@@ -12534,3 +12534,53 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 })();
 /* MCX_PREMIUM_CLICK_ROUTE_FIX_END */
+
+
+/* MCX_PREMIUM_FORCE_OPEN_START */
+(function () {
+  "use strict";
+
+  function isPremiumTrigger(element) {
+    if (!element || typeof element.closest !== "function") {
+      return null;
+    }
+
+    return element.closest(
+      'a[href="#/premium"],' +
+      'a[href="#premium"],' +
+      '[data-mcx-route="premium"]'
+    );
+  }
+
+  function openPremiumCatalogue(event) {
+    const trigger = isPremiumTrigger(event.target);
+
+    if (!trigger) {
+      return;
+    }
+
+    event.preventDefault();
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+
+    const premiumHash = "#/premium";
+
+    if (window.location.hash !== premiumHash) {
+      window.location.hash = premiumHash;
+      return;
+    }
+
+    window.dispatchEvent(new HashChangeEvent("hashchange"));
+  }
+
+  /*
+   * Window capture runs before the website's older document click
+   * handlers, preventing them from redirecting PREMIUM to OVERVIEW.
+   */
+  window.addEventListener(
+    "click",
+    openPremiumCatalogue,
+    true
+  );
+})();
+/* MCX_PREMIUM_FORCE_OPEN_END */
