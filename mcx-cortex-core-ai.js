@@ -1,276 +1,211 @@
 (() => {
   "use strict";
 
-  if (window.__MCX_CORTEX_CORE_AI_V2__) return;
-  window.__MCX_CORTEX_CORE_AI_V2__ = true;
+  if (window.__MCX_CORTEX_CORE_AI_V3__) return;
+  window.__MCX_CORTEX_CORE_AI_V3__ = true;
 
-  const STORAGE_KEY = "mcx_cortex_core_ai_history_v2";
+  const STORAGE_KEY = "mcx_cortex_core_ai_v3_history";
   const MAX_HISTORY = 80;
 
-  const COMPANY = {
+  const company = {
     name: "MI CORTEX X",
+    founded: "2026",
+    location: "Online operations, Colombo, Sri Lanka",
     website: "https://mi-cortex-x.vercel.app",
+    email: "micortexx@gmail.com",
+    supportEmail: "support.micortexx@gmail.com",
+    salesEmail: "sales.cortexx@gmail.com",
     whatsappNumber: "94756390621",
     whatsappDisplay: "+94 75 639 0621",
     telegram: "MICORTEXX",
-    primaryEmail: "micortexx@gmail.com",
-    supportEmail: "support.micortexx@gmail.com",
-    salesEmail: "sales.cortexx@gmail.com",
-    office: "Online operations, Colombo, Sri Lanka",
-    hours: "Monday to Saturday — 24 hours. Sunday — Closed.",
     owner: "M.I. MUHAMMADH",
     chairman: "M.I. MUHAMMADH",
     ceo: "M.I. MUHAMMADH",
     founder: "M.I. MUHAMMADH"
   };
 
-  const SERVICE_DATA = [
-    { name: "AI Development", price: "LKR 60,000", delivery: "7–30 days", route: "#/services/ai-development" },
-    { name: "AI Chatbot Development", price: "LKR 45,000", delivery: "5–14 days", route: "#/services/ai-chatbot-development" },
-    { name: "AI Automation", price: "LKR 65,000", delivery: "7–21 days", route: "#/services/ai-automation" },
-    { name: "Website Development", price: "LKR 15,000", delivery: "3–14 days", route: "#/services/website-development" },
-    { name: "Web Application Development", price: "LKR 50,000", delivery: "7–30 days", route: "#/services/web-application-development" },
-    { name: "Mobile App Development", price: "LKR 85,000", delivery: "14–45 days", route: "#/services/mobile-app-development" },
-    { name: "Desktop Software Development", price: "LKR 70,000", delivery: "10–30 days", route: "#/services/desktop-software-development" },
-    { name: "Enterprise Software", price: "LKR 250,000", delivery: "30–90 days", route: "#/services/enterprise-software" },
-    { name: "API Development", price: "LKR 30,000", delivery: "3–10 days", route: "#/services/api-development" },
-    { name: "API Integration", price: "LKR 20,000", delivery: "2–7 days", route: "#/services/api-integration" },
-    { name: "Cloud Solutions", price: "LKR 30,000", delivery: "2–10 days", route: "#/services/cloud-solutions" },
-    { name: "UI/UX Design", price: "LKR 15,000", delivery: "3–10 days", route: "#/services/ui-ux-design" },
-    { name: "Software Maintenance", price: "LKR 7,500 per month", delivery: "Ongoing", route: "#/services/software-maintenance" },
-    { name: "Technical Consulting", price: "LKR 5,000", delivery: "Same day when available", route: "#/services/technical-consulting" },
-    { name: "Custom Software Development", price: "LKR 100,000", delivery: "14–90 days", route: "#/services/custom-software-development" }
+  const serviceData = [
+    {name:"AI Development", price:"LKR 60,000", route:"#/services/ai-development", delivery:"7–30 days"},
+    {name:"AI Chatbot Development", price:"LKR 45,000", route:"#/services/ai-chatbot-development", delivery:"5–14 days"},
+    {name:"AI Automation", price:"LKR 65,000", route:"#/services/ai-automation", delivery:"7–21 days"},
+    {name:"Website Development", price:"LKR 15,000", route:"#/services/website-development", delivery:"3–14 days"},
+    {name:"Web Application Development", price:"LKR 50,000", route:"#/services/web-application-development", delivery:"7–30 days"},
+    {name:"Mobile App Development", price:"LKR 85,000", route:"#/services/mobile-app-development", delivery:"14–45 days"},
+    {name:"Desktop Software Development", price:"LKR 70,000", route:"#/services/desktop-software-development", delivery:"10–30 days"},
+    {name:"Enterprise Software", price:"LKR 250,000", route:"#/services/enterprise-software", delivery:"30–90 days"},
+    {name:"API Development", price:"LKR 30,000", route:"#/services/api-development", delivery:"3–10 days"},
+    {name:"API Integration", price:"LKR 20,000", route:"#/services/api-integration", delivery:"2–7 days"},
+    {name:"Cloud Solutions", price:"LKR 30,000", route:"#/services/cloud-solutions", delivery:"2–10 days"},
+    {name:"UI/UX Design", price:"LKR 15,000", route:"#/services/ui-ux-design", delivery:"3–10 days"},
+    {name:"Software Maintenance", price:"LKR 7,500 per month", route:"#/services/software-maintenance", delivery:"Ongoing"},
+    {name:"Technical Consulting", price:"LKR 5,000", route:"#/services/technical-consulting", delivery:"Same day when available"},
+    {name:"Custom Software Development", price:"LKR 100,000", route:"#/services/custom-software-development", delivery:"14–90 days"}
   ];
 
-  const PRODUCT_DATA = [
-    { name: "CORTEX CORE AI", status: "Development", price: "Starting from LKR 45,000 for business integration", route: "#/products/cortex-core-ai" },
-    { name: "MI Business Management Suite", status: "Upcoming", price: "Starting from LKR 80,000", route: "#/products/business-suite" }
+  const productData = [
+    {name:"CORTEX CORE AI", status:"Development", price:"Starting from LKR 45,000 for business integration", route:"#/products/cortex-core-ai"},
+    {name:"MI Business Management Suite", status:"Upcoming", price:"Starting from LKR 80,000", route:"#/products/business-suite"}
   ];
 
-  const QUICK_ACTIONS = [
-    { label: "Products", route: "#/products" },
-    { label: "Services", route: "#/services" },
-    { label: "Pricing", route: "#/pricing" },
-    { label: "Premium", route: "#/premium" },
-    { label: "Contact", route: "#/contact" }
-  ];
-
-  const state = {
-    history: [],
-    lastQuestion: "",
-    lastResponse: null,
-    lastFocus: null,
-    opened: false
-  };
-
-  const normalize = (value) => String(value || "")
+  const normalize = value => String(value || "")
     .toLowerCase()
     .normalize("NFKD")
     .replace(/[^\p{L}\p{N}\s]/gu, " ")
     .replace(/\s+/g, " ")
     .trim();
 
-  const hasSinhala = (text) => /[\u0D80-\u0DFF]/.test(text);
-  const hasTamil = (text) => /[\u0B80-\u0BFF]/.test(text);
+  const esc = value => String(value || "").replace(/[&<>"']/g, char => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+  })[char]);
 
-  function routeAction(label, route) {
-    return { type: "route", label, value: route };
+  const actions = {
+    route(label, href, icon = "&#8594;") { return {type:"route", label, href, icon}; },
+    external(label, href, icon = "&#8599;") { return {type:"external", label, href, icon}; },
+    command(label, command, icon = "+") { return {type:"command", label, command, icon}; }
+  };
+
+  function detectLanguage(text) {
+    if (/[\u0D80-\u0DFF]/.test(text)) return "si";
+    if (/[\u0B80-\u0BFF]/.test(text)) return "ta";
+    return "en";
   }
 
-  function externalAction(label, url) {
-    return { type: "external", label, value: url };
-  }
-
-  function mailAction(label, email, subject = "MI CORTEX X Inquiry") {
-    const url = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
-    return externalAction(label, url);
-  }
-
-  function getGreeting(text) {
-    if (hasSinhala(text)) {
-      return {
-        text: "ආයුබෝවන් 👋 මම CORTEX CORE AI. MI CORTEX X සමාගම, products, services, pricing, support සහ contact details ගැන මගෙන් අහන්න පුළුවන්.",
-        actions: QUICK_ACTIONS.map(item => routeAction(item.label, item.route))
-      };
-    }
-
-    if (hasTamil(text)) {
-      return {
-        text: "வணக்கம் 👋 நான் CORTEX CORE AI. MI CORTEX X நிறுவனம், தயாரிப்புகள், சேவைகள், விலைகள் மற்றும் தொடர்பு விவரங்கள் பற்றி கேட்கலாம்.",
-        actions: QUICK_ACTIONS.map(item => routeAction(item.label, item.route))
-      };
-    }
-
-    return {
-      text: "Hello 👋 I’m CORTEX CORE AI, the automated company assistant of MI CORTEX X. Ask me about the company, products, services, pricing, support, appointments, or contact details.",
-      actions: QUICK_ACTIONS.map(item => routeAction(item.label, item.route))
-    };
-  }
-
-  function findService(question) {
-    const q = normalize(question);
-    return SERVICE_DATA.find(service => {
-      const words = normalize(service.name).split(" ").filter(word => word.length > 2);
-      const matches = words.filter(word => q.includes(word));
-      return matches.length >= Math.min(2, words.length);
+  function findService(q) {
+    const nq = normalize(q);
+    return serviceData.find(item => {
+      const words = normalize(item.name).split(" ").filter(w => w.length > 2);
+      return words.filter(w => nq.includes(w)).length >= Math.min(2, words.length);
     });
   }
 
-  function findProduct(question) {
-    const q = normalize(question);
-    return PRODUCT_DATA.find(product => {
-      const words = normalize(product.name).split(" ").filter(word => word.length > 2);
-      return words.some(word => q.includes(word));
-    });
+  function findProduct(q) {
+    const nq = normalize(q);
+    return productData.find(item => normalize(item.name).split(" ").filter(w => w.length > 2).some(w => nq.includes(w)));
   }
 
-  function answer(question) {
-    const q = normalize(question);
-    if (!q) return { text: "Please type your question.", actions: [] };
+  function response(text) {
+    const q = normalize(text);
+    const lang = detectLanguage(text);
+    const service = findService(text);
+    const product = findProduct(text);
+    const appointmentWords = ["appointment", "meeting", "book", "executive", "හමුව", "වෙන්කර", "පත්වීම", "சந்திப்பு"];
 
-    if (/^(hi|hello|hey|hii|hiii|ayubowan|vanakkam)\b/.test(q) || hasSinhala(question) && q.length < 12) {
-      return getGreeting(question);
-    }
+    if (!q) return {text:"Please type your question.", actions:[]};
 
-    if (q.includes("who are you") || q.includes("your name") || q.includes("oya kawda") || q.includes("ඔයා කවුද")) {
-      return { text: "I’m CORTEX CORE AI, the automated company assistant of MI CORTEX X.", actions: [] };
-    }
-
-    if (q.includes("owner")) {
-      return { text: `The Owner of MI CORTEX X INC. is ${COMPANY.owner}.`, actions: [routeAction("View Executive Board", "#/about/executive-board")] };
-    }
-
-    if (q.includes("chairman") || q.includes("chairmen")) {
-      return { text: `The Chairman of MI CORTEX X INC. is ${COMPANY.chairman}.`, actions: [routeAction("View Executive Board", "#/about/executive-board")] };
-    }
-
-    if (q.includes("chief executive") || q.includes("ceo")) {
-      return { text: `The Chief Executive Officer (CEO) of MI CORTEX X INC. is ${COMPANY.ceo}.`, actions: [routeAction("View Executive Board", "#/about/executive-board")] };
-    }
-
-    if (q.includes("founder")) {
-      return { text: `The Founder of MI CORTEX X INC. is ${COMPANY.founder}.`, actions: [routeAction("View Executive Board", "#/about/executive-board")] };
-    }
-
-    if (q.includes("company") || q.includes("about") || q.includes("what is mi cortex")) {
+    if (/^(hi|hello|hey|hii|hiii|ayubowan|ආයුබෝවන්|vanakkam)\b/.test(q)) {
       return {
-        text: "MI CORTEX X is a Sri Lankan artificial intelligence and software technology company founded in 2026. It develops intelligent digital products and custom technology solutions for businesses, organizations, and individuals worldwide.",
-        actions: [routeAction("About MI CORTEX X", "#/about"), externalAction("Official Website", COMPANY.website)]
+        text: lang === "si"
+          ? "ආයුබෝවන් 👋 මම CORTEX CORE AI. MI CORTEX X සමාගම, products, services, prices, support සහ appointments ගැන අහන්න පුළුවන්."
+          : "Hello 👋 I’m CORTEX CORE AI. Ask me about MI CORTEX X, products, services, pricing, support, contact details, or appointments.",
+        actions:[
+          actions.route("View Products", "#/products"),
+          actions.route("View Services", "#/services"),
+          actions.command("Book Appointment", "appointment", "&#128197;")
+        ]
+      };
+    }
+
+    if (appointmentWords.some(word => q.includes(normalize(word)))) {
+      return {
+        text: lang === "si"
+          ? "Executive Board සාමාජිකයෙකු සමඟ appointment request එකක් සකස් කරන්න පුළුවන්. පහත button එක press කර Owner, Chairman, CEO හෝ Founder තෝරන්න."
+          : "You can prepare an appointment request with a member of the Executive Board. Select Owner, Chairman, CEO, or Founder on the next screen.",
+        actions:[actions.command("SELECT EXECUTIVE & BOOK APPOINTMENT", "appointment", "&#128197;")]
+      };
+    }
+
+    if (q.includes("owner")) return {text:`The Owner of MI CORTEX X INC. is ${company.owner}.`, actions:[actions.route("Executive Board", "#/about/executive-board")]};
+    if (q.includes("chairman") || q.includes("chairmen")) return {text:`The Chairman of MI CORTEX X INC. is ${company.chairman}.`, actions:[actions.command("Book Appointment", "appointment", "&#128197;")]};
+    if (q.includes("chief executive") || q.includes("ceo")) return {text:`The Chief Executive Officer (CEO) of MI CORTEX X INC. is ${company.ceo}.`, actions:[actions.command("Book CEO Appointment", "appointment", "&#128197;")]};
+    if (q.includes("founder")) return {text:`The Founder of MI CORTEX X INC. is ${company.founder}.`, actions:[actions.command("Book Appointment", "appointment", "&#128197;")]};
+
+    if (q.includes("company") || q.includes("about") || q.includes("who is mi cortex")) {
+      return {
+        text:"MI CORTEX X is a Sri Lankan artificial intelligence and software technology company founded in 2026. It develops intelligent digital products and custom technology solutions for businesses, organizations, and individuals worldwide.",
+        actions:[actions.route("About MI CORTEX X", "#/about"), actions.route("Executive Board", "#/about/executive-board")]
       };
     }
 
     if (q.includes("contact") || q.includes("email") || q.includes("whatsapp") || q.includes("telegram")) {
       return {
-        text: `Primary email: ${COMPANY.primaryEmail}\nSupport: ${COMPANY.supportEmail}\nSales: ${COMPANY.salesEmail}\nWhatsApp: ${COMPANY.whatsappDisplay}\nTelegram: @${COMPANY.telegram}`,
-        actions: [
-          externalAction("WhatsApp", `https://wa.me/${COMPANY.whatsappNumber}?text=${encodeURIComponent("Hello 👋")}`),
-          externalAction("Telegram", `https://t.me/${COMPANY.telegram}?text=${encodeURIComponent("Hello 👋")}`),
-          mailAction("Email Support", COMPANY.supportEmail, "MI CORTEX X Support Request"),
-          routeAction("Contact Page", "#/contact")
+        text:`Primary email: ${company.email}\nSupport: ${company.supportEmail}\nSales: ${company.salesEmail}\nWhatsApp: ${company.whatsappDisplay}\nTelegram: @${company.telegram}`,
+        actions:[
+          actions.external("WhatsApp", `https://wa.me/${company.whatsappNumber}?text=${encodeURIComponent("Hello 👋")}`, "&#128172;"),
+          actions.external("Telegram", `https://t.me/${company.telegram}?text=${encodeURIComponent("Hello 👋")}`, "&#9992;"),
+          actions.external("Email Support", `mailto:${company.supportEmail}?subject=${encodeURIComponent("MI CORTEX X Support Request")}`, "&#9993;"),
+          actions.route("Contact Page", "#/contact")
         ]
       };
     }
 
     if (q.includes("hour") || q.includes("open") || q.includes("sunday")) {
-      return { text: `Business hours: ${COMPANY.hours}`, actions: [routeAction("Contact Page", "#/contact")] };
+      return {text:"Business hours: Monday to Saturday — 24 hours. Sunday — Closed.", actions:[actions.route("Contact Details", "#/contact")]};
     }
 
     if (q.includes("location") || q.includes("office") || q.includes("address")) {
-      return { text: `MI CORTEX X operates online from Colombo, Sri Lanka. There is currently no public walk-in office.`, actions: [routeAction("Contact Page", "#/contact")] };
+      return {text:`MI CORTEX X operates online from Colombo, Sri Lanka. There is currently no public walk-in office.`, actions:[actions.route("Contact Page", "#/contact")]};
     }
 
     if (q.includes("payment") || q.includes("advance") || q.includes("refund")) {
       return {
-        text: "Online payments are not activated yet. A 30% advance is normally required after project approval, and the remaining payment is due before final delivery. A full refund is available before project commencement; completed work and delivered milestones are non-refundable after development begins.",
-        actions: [routeAction("View Pricing", "#/pricing"), mailAction("Request Quotation", COMPANY.salesEmail, "Quotation Request")]
+        text:"Online payments are not activated yet. A 30% advance is normally required after project approval, and the remaining payment is due before final delivery. Full refund is available before project commencement; completed work and delivered milestones are non-refundable after development begins.",
+        actions:[actions.route("View Pricing", "#/pricing"), actions.external("Ask Sales", `mailto:${company.salesEmail}?subject=${encodeURIComponent("Payment and Quotation Inquiry")}`, "&#9993;")]
       };
     }
 
-    if (q.includes("process") || q.includes("project step") || q.includes("how does project")) {
+    if (q.includes("process") || q.includes("project step") || q.includes("how start")) {
       return {
-        text: "Project process:\n1. Free consultation\n2. Requirement analysis and quotation\n3. Project approval and 30% advance\n4. Development and progress updates\n5. Testing, remaining payment, final delivery, and support.",
-        actions: [routeAction("Contact Team", "#/contact")]
+        text:"Project process:\n1. Free consultation\n2. Requirement analysis and quotation\n3. Project approval and 30% advance\n4. Development and progress updates\n5. Testing, remaining payment, final delivery, and support.",
+        actions:[actions.command("Book Consultation", "appointment", "&#128197;"), actions.route("Contact", "#/contact")]
       };
     }
 
-    if (q.includes("appointment") || q.includes("executive")) {
-      return {
-        text: "You can request an appointment with the Owner, Chairman, CEO, or Founder through the Executive Board option in the MI CORTEX X contact hub.",
-        actions: [routeAction("Executive Board", "#/about/executive-board")]
-      };
-    }
-
-    const product = findProduct(question);
-    if (product) {
-      return {
-        text: `${product.name}\nStatus: ${product.status}\nPrice: ${product.price}`,
-        actions: [routeAction("View Product", product.route), mailAction("Request Information", COMPANY.salesEmail, `${product.name} Information Request`)]
-      };
-    }
-
-    const service = findService(question);
     if (service) {
       return {
-        text: `${service.name}\nStarting price: ${service.price}\nEstimated delivery: ${service.delivery}\nFinal pricing depends on scope, features, integrations, hosting, and support requirements.`,
-        actions: [routeAction("View Service", service.route), mailAction("Request Quotation", COMPANY.salesEmail, `${service.name} Quotation Request`)]
+        text:`${service.name}\nStarting price: ${service.price}\nEstimated delivery: ${service.delivery}\nFinal pricing depends on project scope, features, integrations, hosting, and support requirements.`,
+        actions:[actions.route(`View ${service.name}`, service.route), actions.command("Request Consultation", "appointment", "&#128197;"), actions.external("Ask on WhatsApp", `https://wa.me/${company.whatsappNumber}?text=${encodeURIComponent(`Hello 👋 I need information about ${service.name}.`)}`, "&#128172;")]
+      };
+    }
+
+    if (product) {
+      return {
+        text:`${product.name}\nStatus: ${product.status}\nPrice: ${product.price}`,
+        actions:[actions.route(`View ${product.name}`, product.route), actions.external("Request Information", `mailto:${company.salesEmail}?subject=${encodeURIComponent(`Information Request - ${product.name}`)}`, "&#9993;")]
       };
     }
 
     if (q.includes("product")) {
       return {
-        text: PRODUCT_DATA.map(product => `• ${product.name} — ${product.status} — ${product.price}`).join("\n"),
-        actions: [routeAction("View All Products", "#/products")]
+        text:"Current products:\n• CORTEX CORE AI — Development — Starting from LKR 45,000 for business integration\n• MI Business Management Suite — Upcoming — Starting from LKR 80,000",
+        actions:[actions.route("Browse Products", "#/products"), actions.route("Browse Premium", "#/premium")]
       };
     }
 
     if (q.includes("service")) {
       return {
-        text: SERVICE_DATA.map(service => `• ${service.name} — Starting from ${service.price}`).join("\n"),
-        actions: [routeAction("View All Services", "#/services")]
+        text:"MI CORTEX X provides AI development, chatbot development, automation, websites, web applications, mobile applications, desktop software, enterprise systems, API development, cloud solutions, UI/UX design, maintenance, consulting, and custom software development.",
+        actions:[actions.route("Browse Services", "#/services"), actions.route("View Pricing", "#/pricing"), actions.command("Book Consultation", "appointment", "&#128197;")]
       };
     }
 
     if (q.includes("price") || q.includes("cost") || q.includes("quotation")) {
       return {
-        text: "Prices are starting estimates and may change according to project scope, features, integrations, delivery requirements, hosting, third-party charges, and ongoing support. A custom quotation and free consultation are available.",
-        actions: [routeAction("Pricing", "#/pricing"), mailAction("Request Quotation", COMPANY.salesEmail, "MI CORTEX X Quotation Request")]
-      };
-    }
-
-    if (hasSinhala(question)) {
-      return {
-        text: `මේ ප්‍රශ්නයට verified answer එකක් දැනට knowledge base එකේ නැහැ. ${COMPANY.supportEmail} හෝ WhatsApp ${COMPANY.whatsappDisplay} මගින් support team එක අමතන්න.`,
-        actions: [externalAction("WhatsApp", `https://wa.me/${COMPANY.whatsappNumber}`), mailAction("Email Support", COMPANY.supportEmail)]
+        text:"All displayed prices are starting estimates. Final prices depend on scope, features, integrations, delivery requirements, hosting, third-party charges, and ongoing support. A custom quotation and a free consultation of up to 30 minutes are available.",
+        actions:[actions.route("View Pricing", "#/pricing"), actions.command("Book Free Consultation", "appointment", "&#128197;"), actions.external("Request Quote", `mailto:${company.salesEmail}?subject=${encodeURIComponent("Quotation Request")}`, "&#9993;")]
       };
     }
 
     return {
-      text: `I don’t have a verified answer for that question yet. Please contact ${COMPANY.supportEmail} or WhatsApp ${COMPANY.whatsappDisplay}.`,
-      actions: [externalAction("WhatsApp", `https://wa.me/${COMPANY.whatsappNumber}`), mailAction("Email Support", COMPANY.supportEmail)]
+      text: lang === "si"
+        ? "ඒ ප්‍රශ්නයට තහවුරු කළ පිළිතුරක් දැනට මගේ knowledge base එකේ නැහැ. Support team එක සම්බන්ධ කරගන්න හෝ company catalogue එක බලන්න."
+        : "I do not have a verified answer for that question yet. You can contact the support team or browse the company catalogue.",
+      actions:[
+        actions.route("Products", "#/products"),
+        actions.route("Services", "#/services"),
+        actions.external("WhatsApp Support", `https://wa.me/${company.whatsappNumber}?text=${encodeURIComponent("Hello 👋 I need assistance.")}`, "&#128172;"),
+        actions.command("Book Appointment", "appointment", "&#128197;")
+      ]
     };
-  }
-
-  function loadHistory() {
-    try {
-      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-      state.history = Array.isArray(saved) ? saved.slice(-MAX_HISTORY) : [];
-    } catch {
-      state.history = [];
-    }
-  }
-
-  function saveHistory() {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(state.history.slice(-MAX_HISTORY)));
-    } catch {
-      // Storage is optional.
-    }
-  }
-
-  function pushHistory(message) {
-    state.history.push(message);
-    state.history = state.history.slice(-MAX_HISTORY);
-    saveHistory();
   }
 
   const root = document.createElement("div");
@@ -279,24 +214,24 @@
     <div class="mcx-ai-overlay" hidden>
       <section class="mcx-ai-dialog" role="dialog" aria-modal="true" aria-labelledby="mcx-ai-title">
         <header class="mcx-ai-header">
-          <div class="mcx-ai-brand">
-            <strong id="mcx-ai-title">CORTEX CORE AI</strong>
-            <span>Automated company assistant</span>
-          </div>
+          <div class="mcx-ai-brand"><strong id="mcx-ai-title">CORTEX CORE AI</strong><span>MI CORTEX X company assistant</span></div>
           <div class="mcx-ai-header-actions">
-            <button type="button" class="mcx-ai-icon-button" data-mcx-ai-new title="New chat" aria-label="New chat">+</button>
-            <button type="button" class="mcx-ai-icon-button" data-mcx-ai-clear title="Clear history" aria-label="Clear history">&#128465;</button>
-            <button type="button" class="mcx-ai-icon-button mcx-ai-close" aria-label="Close">&#10005;</button>
+            <button type="button" data-ai-new title="New chat">+</button>
+            <button type="button" data-ai-clear title="Clear history">&#128465;</button>
+            <button class="mcx-ai-close" type="button" aria-label="Close">&#10005;</button>
           </div>
         </header>
-
-        <div class="mcx-ai-quick-actions" aria-label="Quick actions"></div>
+        <div class="mcx-ai-quick" aria-label="Quick actions">
+          <button type="button" data-ai-prompt="Tell me about your products">Products</button>
+          <button type="button" data-ai-prompt="Tell me about your services">Services</button>
+          <button type="button" data-ai-prompt="Show me pricing information">Pricing</button>
+          <button type="button" data-ai-command="appointment">Appointment</button>
+          <button type="button" data-ai-prompt="How can I contact MI CORTEX X?">Contact</button>
+        </div>
         <div class="mcx-ai-messages" aria-live="polite"></div>
-
         <form class="mcx-ai-composer">
-          <label class="mcx-ai-sr-only" for="mcx-ai-input">Message CORTEX CORE AI</label>
-          <textarea id="mcx-ai-input" rows="1" maxlength="1600" placeholder="Ask about MI CORTEX X..." required></textarea>
-          <button type="submit" aria-label="Send message">&#10148;</button>
+          <textarea rows="1" maxlength="1500" placeholder="Ask about MI CORTEX X..." required></textarea>
+          <button type="submit" aria-label="Send">&#10148;</button>
         </form>
       </section>
     </div>`;
@@ -305,252 +240,220 @@
   const overlay = root.querySelector(".mcx-ai-overlay");
   const dialog = root.querySelector(".mcx-ai-dialog");
   const messages = root.querySelector(".mcx-ai-messages");
-  const form = root.querySelector(".mcx-ai-composer");
-  const input = root.querySelector("#mcx-ai-input");
+  const form = root.querySelector("form");
+  const input = root.querySelector("textarea");
   const closeButton = root.querySelector(".mcx-ai-close");
-  const newButton = root.querySelector("[data-mcx-ai-new]");
-  const clearButton = root.querySelector("[data-mcx-ai-clear]");
-  const quickActionsHost = root.querySelector(".mcx-ai-quick-actions");
+  let opened = false;
+  let lastFocus = null;
+  let history = [];
 
-  function formatTime(timestamp) {
-    return new Intl.DateTimeFormat(undefined, { hour: "2-digit", minute: "2-digit" }).format(new Date(timestamp));
+  function saveHistory() {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(history.slice(-MAX_HISTORY))); } catch (_) {}
   }
 
-  function createAction(action) {
-    const button = document.createElement(action.type === "external" ? "a" : "button");
-    button.className = "mcx-ai-action";
-    button.textContent = action.label;
+  function loadHistory() {
+    try {
+      const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+      history = Array.isArray(parsed) ? parsed.slice(-MAX_HISTORY) : [];
+    } catch (_) { history = []; }
+  }
 
-    if (action.type === "external") {
-      button.href = action.value;
-      if (!action.value.startsWith("mailto:")) {
-        button.target = "_blank";
-        button.rel = "noopener noreferrer";
-      }
-    } else {
+  function timeLabel(timestamp = Date.now()) {
+    return new Intl.DateTimeFormat(undefined, {hour:"2-digit", minute:"2-digit"}).format(new Date(timestamp));
+  }
+
+  function renderActions(container, list) {
+    if (!Array.isArray(list) || !list.length) return;
+    const row = document.createElement("div");
+    row.className = "mcx-ai-actions";
+    list.forEach(action => {
+      const button = document.createElement("button");
       button.type = "button";
-      button.dataset.mcxAiRoute = action.value;
-    }
-
-    return button;
+      button.className = "mcx-ai-action";
+      button.innerHTML = `<span aria-hidden="true">${action.icon || "&#8594;"}</span>${esc(action.label)}`;
+      if (action.type === "route") button.dataset.aiRoute = action.href;
+      if (action.type === "external") button.dataset.aiExternal = action.href;
+      if (action.type === "command") button.dataset.aiCommand = action.command;
+      row.appendChild(button);
+    });
+    container.appendChild(row);
   }
 
-  function renderMessage(message, persist = false) {
+  function addMessage(type, text, actionList = [], options = {}) {
+    const timestamp = options.timestamp || Date.now();
     const row = document.createElement("article");
-    row.className = `mcx-ai-message mcx-ai-${message.role}`;
-
+    row.className = `mcx-ai-message mcx-ai-${type}`;
+    const content = document.createElement("div");
+    content.className = "mcx-ai-message-content";
     const bubble = document.createElement("div");
     bubble.className = "mcx-ai-bubble";
-
-    const text = document.createElement("div");
-    text.className = "mcx-ai-text";
-    text.textContent = message.text;
-    bubble.appendChild(text);
-
-    if (Array.isArray(message.actions) && message.actions.length) {
-      const actionRow = document.createElement("div");
-      actionRow.className = "mcx-ai-message-actions";
-      message.actions.forEach(action => actionRow.appendChild(createAction(action)));
-      bubble.appendChild(actionRow);
-    }
-
-    const meta = document.createElement("footer");
-    meta.className = "mcx-ai-message-meta";
-
-    const time = document.createElement("time");
-    time.dateTime = new Date(message.timestamp).toISOString();
-    time.textContent = formatTime(message.timestamp);
-    meta.appendChild(time);
-
-    if (message.role === "assistant") {
-      const copy = document.createElement("button");
-      copy.type = "button";
-      copy.className = "mcx-ai-copy";
-      copy.textContent = "Copy";
-      copy.dataset.copyText = message.text;
-      meta.appendChild(copy);
-    }
-
-    bubble.appendChild(meta);
-    row.appendChild(bubble);
+    bubble.textContent = text;
+    content.appendChild(bubble);
+    renderActions(content, actionList);
+    const meta = document.createElement("div");
+    meta.className = "mcx-ai-meta";
+    meta.innerHTML = `<time>${esc(timeLabel(timestamp))}</time>${type === "assistant" ? '<button type="button" data-ai-copy title="Copy answer">Copy</button>' : ""}`;
+    content.appendChild(meta);
+    row.appendChild(content);
     messages.appendChild(row);
     messages.scrollTop = messages.scrollHeight;
 
-    if (persist) pushHistory(message);
+    if (!options.skipHistory) {
+      history.push({type, text, actions:actionList, timestamp});
+      history = history.slice(-MAX_HISTORY);
+      saveHistory();
+    }
     return row;
   }
 
-  function addMessage(role, text, actions = [], persist = true) {
-    return renderMessage({ role, text, actions, timestamp: Date.now() }, persist);
-  }
-
-  function showTyping() {
-    const row = document.createElement("div");
-    row.className = "mcx-ai-message mcx-ai-assistant mcx-ai-typing";
-    row.innerHTML = `<div class="mcx-ai-bubble"><span></span><span></span><span></span></div>`;
-    messages.appendChild(row);
-    messages.scrollTop = messages.scrollHeight;
-    return row;
-  }
-
-  function renderHistory() {
+  function restoreMessages() {
     messages.innerHTML = "";
-    state.history.forEach(message => renderMessage(message, false));
+    history.forEach(item => addMessage(item.type, item.text, item.actions || [], {timestamp:item.timestamp, skipHistory:true}));
   }
 
-  function startNewChat() {
-    state.history = [];
-    saveHistory();
-    messages.innerHTML = "";
-    state.lastQuestion = "";
-    state.lastResponse = null;
-    const greeting = getGreeting("");
-    addMessage("assistant", "Hi 👋", [], true);
-    setTimeout(() => addMessage("assistant", greeting.text, greeting.actions, true), 280);
+  function greeting() {
+    addMessage("assistant", "Hi 👋", [], {skipHistory:false});
+    window.setTimeout(() => addMessage("assistant", "I’m CORTEX CORE AI. Ask me about MI CORTEX X, products, services, pricing, support, contact details, or appointments.", [
+      actions.route("Products", "#/products"),
+      actions.route("Services", "#/services"),
+      actions.command("Book Appointment", "appointment", "&#128197;")
+    ]), 300);
   }
 
   function openChat() {
-    state.lastFocus = document.activeElement;
+    lastFocus = document.activeElement;
     overlay.hidden = false;
     document.body.classList.add("mcx-ai-open");
-
-    if (!state.opened) {
-      state.opened = true;
+    if (!opened) {
+      opened = true;
       loadHistory();
-      if (state.history.length) {
-        renderHistory();
-      } else {
-        startNewChat();
-      }
+      if (history.length) restoreMessages(); else greeting();
     }
-
-    setTimeout(() => input.focus(), 50);
+    window.setTimeout(() => input.focus(), 50);
   }
 
   function closeChat() {
     overlay.hidden = true;
     document.body.classList.remove("mcx-ai-open");
-    if (state.lastFocus && typeof state.lastFocus.focus === "function") state.lastFocus.focus();
+    if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
   }
 
-  function renderQuickActions() {
-    quickActionsHost.innerHTML = "";
-    QUICK_ACTIONS.forEach(item => quickActionsHost.appendChild(createAction(routeAction(item.label, item.route))));
+  function showTyping() {
+    const row = document.createElement("div");
+    row.className = "mcx-ai-message mcx-ai-assistant mcx-ai-typing";
+    row.innerHTML = '<div class="mcx-ai-message-content"><div class="mcx-ai-bubble"><i></i><i></i><i></i></div></div>';
+    messages.appendChild(row);
+    messages.scrollTop = messages.scrollHeight;
+    return row;
   }
 
-  function openRoute(route) {
+  function ask(question) {
+    const q = String(question || "").trim();
+    if (!q) return;
+    addMessage("user", q);
+    input.value = "";
+    input.style.height = "auto";
+    const typing = showTyping();
+    const result = response(q);
+    window.setTimeout(() => {
+      typing.remove();
+      addMessage("assistant", result.text, result.actions || []);
+    }, Math.min(1050, 350 + q.length * 7));
+  }
+
+  function openAppointmentSelector() {
     closeChat();
-    if (window.location.hash === route) {
-      window.dispatchEvent(new HashChangeEvent("hashchange"));
-    } else {
-      window.location.hash = route;
+    const hub = document.getElementById("mcx-contact-hub-root");
+    if (!hub) {
+      window.location.hash = "#/contact";
+      return;
     }
+    const fab = hub.querySelector(".mcx-hub-fab");
+    const overlayElement = hub.querySelector(".mcx-hub-overlay");
+    if (overlayElement && overlayElement.hidden && fab) fab.click();
+    window.setTimeout(() => {
+      const executiveButton = hub.querySelector('[data-open="executives"]');
+      if (executiveButton) executiveButton.click();
+    }, 120);
   }
 
-  async function copyText(text, button) {
-    try {
-      await navigator.clipboard.writeText(text);
-      const original = button.textContent;
-      button.textContent = "Copied";
-      setTimeout(() => { button.textContent = original; }, 1300);
-    } catch {
-      const area = document.createElement("textarea");
-      area.value = text;
-      area.style.position = "fixed";
-      area.style.opacity = "0";
-      document.body.appendChild(area);
-      area.select();
-      document.execCommand("copy");
-      area.remove();
-    }
+  function runCommand(command) {
+    if (command === "appointment") openAppointmentSelector();
   }
 
   document.addEventListener("click", event => {
-    const trigger = event.target.closest("button,a,[role='button']");
-    if (!trigger) return;
-    const text = normalize(trigger.innerText || trigger.textContent);
-    if (!text.includes("chat with cortex core ai")) return;
-    event.preventDefault();
-    event.stopPropagation();
-    openChat();
+    const target = event.target.closest("button,a,[role='button']");
+    if (!target) return;
+    const label = normalize(target.innerText || target.textContent);
+    if (label.includes("chat with cortex core ai")) {
+      event.preventDefault();
+      event.stopPropagation();
+      openChat();
+    }
   }, true);
 
   root.addEventListener("click", event => {
-    const routeButton = event.target.closest("[data-mcx-ai-route]");
-    if (routeButton) {
-      event.preventDefault();
-      openRoute(routeButton.dataset.mcxAiRoute);
-      return;
+    const prompt = event.target.closest("[data-ai-prompt]");
+    if (prompt) ask(prompt.dataset.aiPrompt);
+
+    const route = event.target.closest("[data-ai-route]");
+    if (route) {
+      closeChat();
+      window.location.hash = route.dataset.aiRoute.replace(/^#/, "");
+      if (!window.location.hash.startsWith("#")) window.location.hash = route.dataset.aiRoute;
     }
 
-    const copyButton = event.target.closest("[data-copy-text]");
-    if (copyButton) {
-      copyText(copyButton.dataset.copyText || "", copyButton);
+    const external = event.target.closest("[data-ai-external]");
+    if (external) window.open(external.dataset.aiExternal, "_blank", "noopener,noreferrer");
+
+    const command = event.target.closest("[data-ai-command]");
+    if (command) runCommand(command.dataset.aiCommand);
+
+    const copy = event.target.closest("[data-ai-copy]");
+    if (copy) {
+      const text = copy.closest(".mcx-ai-message-content")?.querySelector(".mcx-ai-bubble")?.textContent || "";
+      navigator.clipboard?.writeText(text).then(() => { copy.textContent = "Copied"; setTimeout(() => { copy.textContent = "Copy"; }, 1200); }).catch(() => {});
+    }
+
+    if (event.target.closest("[data-ai-new]")) {
+      messages.innerHTML = "";
+      history = [];
+      saveHistory();
+      greeting();
+    }
+
+    if (event.target.closest("[data-ai-clear]")) {
+      if (window.confirm("Clear the saved CORTEX CORE AI chat history?")) {
+        history = [];
+        saveHistory();
+        messages.innerHTML = "";
+        greeting();
+      }
     }
   });
 
   closeButton.addEventListener("click", closeChat);
-  newButton.addEventListener("click", startNewChat);
-  clearButton.addEventListener("click", () => {
-    if (window.confirm("Clear the saved CORTEX CORE AI chat history?")) startNewChat();
-  });
-
-  overlay.addEventListener("click", event => {
-    if (event.target === overlay) closeChat();
-  });
+  overlay.addEventListener("click", event => { if (event.target === overlay) closeChat(); });
 
   document.addEventListener("keydown", event => {
     if (overlay.hidden) return;
     if (event.key === "Escape") closeChat();
-    if (event.key !== "Tab") return;
-
-    const focusable = [...dialog.querySelectorAll("button, textarea, a[href], [tabindex]:not([tabindex='-1'])")]
-      .filter(element => !element.disabled && !element.hidden);
-    if (!focusable.length) return;
-
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
-    if (event.shiftKey && document.activeElement === first) {
-      event.preventDefault();
-      last.focus();
-    } else if (!event.shiftKey && document.activeElement === last) {
-      event.preventDefault();
-      first.focus();
+    if (event.key === "Tab") {
+      const focusable = [...dialog.querySelectorAll("button,textarea,a[href],[tabindex]:not([tabindex='-1'])")].filter(el => !el.disabled && !el.hidden);
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
     }
-  });
-
-  input.addEventListener("input", () => {
-    input.style.height = "auto";
-    input.style.height = `${Math.min(input.scrollHeight, 140)}px`;
   });
 
   input.addEventListener("keydown", event => {
-    if (event.key === "Enter" && !event.shiftKey) {
-      event.preventDefault();
-      form.requestSubmit();
-    }
+    if (event.key === "Enter" && !event.shiftKey) { event.preventDefault(); form.requestSubmit(); }
   });
-
-  form.addEventListener("submit", event => {
-    event.preventDefault();
-    const question = input.value.trim();
-    if (!question) return;
-
-    state.lastQuestion = question;
-    addMessage("user", question, [], true);
-    input.value = "";
+  input.addEventListener("input", () => {
     input.style.height = "auto";
-
-    const typing = showTyping();
-    const delay = Math.min(1250, 420 + question.length * 8);
-
-    setTimeout(() => {
-      typing.remove();
-      const response = answer(question);
-      state.lastResponse = response;
-      addMessage("assistant", response.text, response.actions, true);
-    }, delay);
+    input.style.height = `${Math.min(input.scrollHeight, 135)}px`;
   });
-
-  renderQuickActions();
+  form.addEventListener("submit", event => { event.preventDefault(); ask(input.value); });
 })();
