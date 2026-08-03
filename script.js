@@ -689,6 +689,2364 @@ document.addEventListener('DOMContentLoaded', function () {
   };
 
   const catalogueData = {
+  premium: [
+  {
+    "id": "premium-ai-agent-development",
+    "name": "AI Agent Development",
+    "category": "Premium AI Solutions",
+    "description": "Premium AI Agent Development solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 120000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/ai-agent-development",
+    "type": "service"
+  },
+  {
+    "id": "premium-autonomous-ai-systems",
+    "name": "Autonomous AI Systems",
+    "category": "Premium AI Solutions",
+    "description": "Premium Autonomous AI Systems solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 180000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/autonomous-ai-systems",
+    "type": "service"
+  },
+  {
+    "id": "premium-multi-agent-ai-systems",
+    "name": "Multi-Agent AI Systems",
+    "category": "Premium AI Solutions",
+    "description": "Premium Multi-Agent AI Systems solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 220000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/multi-agent-ai-systems",
+    "type": "service"
+  },
+  {
+    "id": "premium-voice-ai-receptionist",
+    "name": "Voice AI Receptionist",
+    "category": "Premium AI Solutions",
+    "description": "Premium Voice AI Receptionist solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 85000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/voice-ai-receptionist",
+    "type": "service"
+  },
+  {
+    "id": "premium-ai-call-center",
+    "name": "AI Call Center",
+    "category": "Premium AI Solutions",
+    "description": "Premium AI Call Center solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 180000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/ai-call-center",
+    "type": "service"
+  },
+  {
+    "id": "premium-ai-sales-agent",
+    "name": "AI Sales Agent",
+    "category": "Premium AI Solutions",
+    "description": "Premium AI Sales Agent solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 90000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/ai-sales-agent",
+    "type": "service"
+  },
+  {
+    "id": "premium-ai-coding-assistant",
+    "name": "AI Coding Assistant",
+    "category": "Premium AI Solutions",
+    "description": "Premium AI Coding Assistant solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 120000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/ai-coding-assistant",
+    "type": "service"
+  },
+  {
+    "id": "premium-ai-document-processing",
+    "name": "AI Document Processing",
+    "category": "Premium AI Solutions",
+    "description": "Premium AI Document Processing solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 80000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/ai-document-processing",
+    "type": "service"
+  },
+  {
+    "id": "premium-ai-workflow-automation",
+    "name": "AI Workflow Automation",
+    "category": "Premium AI Solutions",
+    "description": "Premium AI Workflow Automation solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 65000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/ai-workflow-automation",
+    "type": "service"
+  },
+  {
+    "id": "premium-ai-business-intelligence",
+    "name": "AI Business Intelligence",
+    "category": "Premium AI Solutions",
+    "description": "Premium AI Business Intelligence solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 95000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/ai-business-intelligence",
+    "type": "service"
+  },
+  {
+    "id": "premium-ai-analytics-platform",
+    "name": "AI Analytics Platform",
+    "category": "Premium AI Solutions",
+    "description": "Premium AI Analytics Platform solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 120000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/ai-analytics-platform",
+    "type": "service"
+  },
+  {
+    "id": "premium-ai-knowledge-base",
+    "name": "AI Knowledge Base",
+    "category": "Premium AI Solutions",
+    "description": "Premium AI Knowledge Base solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 60000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/ai-knowledge-base",
+    "type": "service"
+  },
+  {
+    "id": "premium-ai-search-engine",
+    "name": "AI Search Engine",
+    "category": "Premium AI Solutions",
+    "description": "Premium AI Search Engine solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 100000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/ai-search-engine",
+    "type": "service"
+  },
+  {
+    "id": "premium-ai-recommendation-system",
+    "name": "AI Recommendation System",
+    "category": "Premium AI Solutions",
+    "description": "Premium AI Recommendation System solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 90000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/ai-recommendation-system",
+    "type": "service"
+  },
+  {
+    "id": "premium-ai-medical-assistant",
+    "name": "AI Medical Assistant",
+    "category": "Premium AI Solutions",
+    "description": "Premium AI Medical Assistant solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 180000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/ai-medical-assistant",
+    "type": "service"
+  },
+  {
+    "id": "premium-ai-legal-assistant",
+    "name": "AI Legal Assistant",
+    "category": "Premium AI Solutions",
+    "description": "Premium AI Legal Assistant solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 180000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/ai-legal-assistant",
+    "type": "service"
+  },
+  {
+    "id": "premium-ai-finance-assistant",
+    "name": "AI Finance Assistant",
+    "category": "Premium AI Solutions",
+    "description": "Premium AI Finance Assistant solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 160000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/ai-finance-assistant",
+    "type": "service"
+  },
+  {
+    "id": "premium-ai-hr-assistant",
+    "name": "AI HR Assistant",
+    "category": "Premium AI Solutions",
+    "description": "Premium AI HR Assistant solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 100000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/ai-hr-assistant",
+    "type": "service"
+  },
+  {
+    "id": "premium-ai-recruitment-system",
+    "name": "AI Recruitment System",
+    "category": "Premium AI Solutions",
+    "description": "Premium AI Recruitment System solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 120000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/ai-recruitment-system",
+    "type": "service"
+  },
+  {
+    "id": "premium-ai-education-platform",
+    "name": "AI Education Platform",
+    "category": "Premium AI Solutions",
+    "description": "Premium AI Education Platform solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 140000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/ai-education-platform",
+    "type": "service"
+  },
+  {
+    "id": "premium-saas-development",
+    "name": "SaaS Development",
+    "category": "Enterprise Platforms",
+    "description": "Premium SaaS Development solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 180000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/saas-development",
+    "type": "service"
+  },
+  {
+    "id": "premium-crm-development",
+    "name": "CRM Development",
+    "category": "Enterprise Platforms",
+    "description": "Premium CRM Development solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 120000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/crm-development",
+    "type": "service"
+  },
+  {
+    "id": "premium-erp-development",
+    "name": "ERP Development",
+    "category": "Enterprise Platforms",
+    "description": "Premium ERP Development solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 300000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/erp-development",
+    "type": "service"
+  },
+  {
+    "id": "premium-hrm-development",
+    "name": "HRM Development",
+    "category": "Enterprise Platforms",
+    "description": "Premium HRM Development solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 100000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/hrm-development",
+    "type": "service"
+  },
+  {
+    "id": "premium-pos-development",
+    "name": "POS Development",
+    "category": "Enterprise Platforms",
+    "description": "Premium POS Development solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 80000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/pos-development",
+    "type": "service"
+  },
+  {
+    "id": "premium-inventory-software",
+    "name": "Inventory Software",
+    "category": "Enterprise Platforms",
+    "description": "Premium Inventory Software solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 75000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/inventory-software",
+    "type": "service"
+  },
+  {
+    "id": "premium-accounting-software",
+    "name": "Accounting Software",
+    "category": "Premium Solutions",
+    "description": "Premium Accounting Software solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 100000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/accounting-software",
+    "type": "service"
+  },
+  {
+    "id": "premium-hospital-erp",
+    "name": "Hospital ERP",
+    "category": "Enterprise Platforms",
+    "description": "Premium Hospital ERP solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 450000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/hospital-erp",
+    "type": "service"
+  },
+  {
+    "id": "premium-school-erp",
+    "name": "School ERP",
+    "category": "Enterprise Platforms",
+    "description": "Premium School ERP solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 180000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/school-erp",
+    "type": "service"
+  },
+  {
+    "id": "premium-hotel-erp",
+    "name": "Hotel ERP",
+    "category": "Enterprise Platforms",
+    "description": "Premium Hotel ERP solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 250000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/hotel-erp",
+    "type": "service"
+  },
+  {
+    "id": "premium-custom-web-portal",
+    "name": "Custom Web Portal",
+    "category": "Premium Portals and Dashboards",
+    "description": "Premium Custom Web Portal solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 80000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/custom-web-portal",
+    "type": "service"
+  },
+  {
+    "id": "premium-client-portal",
+    "name": "Client Portal",
+    "category": "Premium Portals and Dashboards",
+    "description": "Premium Client Portal solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 60000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/client-portal",
+    "type": "service"
+  },
+  {
+    "id": "premium-employee-portal",
+    "name": "Employee Portal",
+    "category": "Premium Portals and Dashboards",
+    "description": "Premium Employee Portal solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 70000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/employee-portal",
+    "type": "service"
+  },
+  {
+    "id": "premium-vendor-portal",
+    "name": "Vendor Portal",
+    "category": "Premium Portals and Dashboards",
+    "description": "Premium Vendor Portal solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 70000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/vendor-portal",
+    "type": "service"
+  },
+  {
+    "id": "premium-supplier-portal",
+    "name": "Supplier Portal",
+    "category": "Premium Portals and Dashboards",
+    "description": "Premium Supplier Portal solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 70000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/supplier-portal",
+    "type": "service"
+  },
+  {
+    "id": "premium-customer-dashboard",
+    "name": "Customer Dashboard",
+    "category": "Premium Portals and Dashboards",
+    "description": "Premium Customer Dashboard solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 45000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/customer-dashboard",
+    "type": "service"
+  },
+  {
+    "id": "premium-admin-dashboard",
+    "name": "Admin Dashboard",
+    "category": "Premium Portals and Dashboards",
+    "description": "Premium Admin Dashboard solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 35000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/admin-dashboard",
+    "type": "service"
+  },
+  {
+    "id": "premium-executive-dashboard",
+    "name": "Executive Dashboard",
+    "category": "Premium Portals and Dashboards",
+    "description": "Premium Executive Dashboard solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 60000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/executive-dashboard",
+    "type": "service"
+  },
+  {
+    "id": "premium-payment-gateway-integration",
+    "name": "Payment Gateway Integration",
+    "category": "Business Automation",
+    "description": "Premium Payment Gateway Integration solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 18000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/payment-gateway-integration",
+    "type": "service"
+  },
+  {
+    "id": "premium-subscription-billing-system",
+    "name": "Subscription Billing System",
+    "category": "Business Automation",
+    "description": "Premium Subscription Billing System solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 55000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/subscription-billing-system",
+    "type": "service"
+  },
+  {
+    "id": "premium-invoice-automation",
+    "name": "Invoice Automation",
+    "category": "Business Automation",
+    "description": "Premium Invoice Automation solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 40000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/invoice-automation",
+    "type": "service"
+  },
+  {
+    "id": "premium-digital-signature-system",
+    "name": "Digital Signature System",
+    "category": "Business Automation",
+    "description": "Premium Digital Signature System solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 50000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/digital-signature-system",
+    "type": "service"
+  },
+  {
+    "id": "premium-e-commerce-automation",
+    "name": "E-Commerce Automation",
+    "category": "Business Automation",
+    "description": "Premium E-Commerce Automation solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 60000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/e-commerce-automation",
+    "type": "service"
+  },
+  {
+    "id": "premium-warehouse-automation",
+    "name": "Warehouse Automation",
+    "category": "Business Automation",
+    "description": "Premium Warehouse Automation solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 80000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/warehouse-automation",
+    "type": "service"
+  },
+  {
+    "id": "premium-cloud-infrastructure",
+    "name": "Cloud Infrastructure",
+    "category": "Cloud and Deployment",
+    "description": "Premium Cloud Infrastructure solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 60000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/cloud-infrastructure",
+    "type": "service"
+  },
+  {
+    "id": "premium-aws-deployment",
+    "name": "AWS Deployment",
+    "category": "Cloud and Deployment",
+    "description": "Premium AWS Deployment solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 30000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/aws-deployment",
+    "type": "service"
+  },
+  {
+    "id": "premium-microsoft-azure-deployment",
+    "name": "Microsoft Azure Deployment",
+    "category": "Cloud and Deployment",
+    "description": "Premium Microsoft Azure Deployment solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 30000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/microsoft-azure-deployment",
+    "type": "service"
+  },
+  {
+    "id": "premium-google-cloud-deployment",
+    "name": "Google Cloud Deployment",
+    "category": "Cloud and Deployment",
+    "description": "Premium Google Cloud Deployment solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 30000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/google-cloud-deployment",
+    "type": "service"
+  },
+  {
+    "id": "premium-docker-deployment",
+    "name": "Docker Deployment",
+    "category": "Cloud and Deployment",
+    "description": "Premium Docker Deployment solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 20000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/docker-deployment",
+    "type": "service"
+  },
+  {
+    "id": "premium-kubernetes-deployment",
+    "name": "Kubernetes Deployment",
+    "category": "Cloud and Deployment",
+    "description": "Premium Kubernetes Deployment solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 45000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/kubernetes-deployment",
+    "type": "service"
+  },
+  {
+    "id": "premium-database-optimization",
+    "name": "Database Optimization",
+    "category": "Database and Infrastructure",
+    "description": "Premium Database Optimization solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 18000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/database-optimization",
+    "type": "service"
+  },
+  {
+    "id": "premium-database-clustering",
+    "name": "Database Clustering",
+    "category": "Database and Infrastructure",
+    "description": "Premium Database Clustering solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 60000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/database-clustering",
+    "type": "service"
+  },
+  {
+    "id": "premium-high-availability-setup",
+    "name": "High Availability Setup",
+    "category": "Database and Infrastructure",
+    "description": "Premium High Availability Setup solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 80000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/high-availability-setup",
+    "type": "service"
+  },
+  {
+    "id": "premium-load-balancer-setup",
+    "name": "Load Balancer Setup",
+    "category": "Database and Infrastructure",
+    "description": "Premium Load Balancer Setup solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 35000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/load-balancer-setup",
+    "type": "service"
+  },
+  {
+    "id": "premium-cdn-configuration",
+    "name": "CDN Configuration",
+    "category": "Database and Infrastructure",
+    "description": "Premium CDN Configuration solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 12000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/cdn-configuration",
+    "type": "service"
+  },
+  {
+    "id": "premium-cyber-security-audit",
+    "name": "Cyber Security Audit",
+    "category": "Cyber Security",
+    "description": "Premium Cyber Security Audit solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 25000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/cyber-security-audit",
+    "type": "service"
+  },
+  {
+    "id": "premium-iso-27001-consultation",
+    "name": "ISO 27001 Consultation",
+    "category": "Cyber Security",
+    "description": "Premium ISO 27001 Consultation solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 40000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/iso-27001-consultation",
+    "type": "service"
+  },
+  {
+    "id": "premium-penetration-testing",
+    "name": "Penetration Testing",
+    "category": "Cyber Security",
+    "description": "Premium Penetration Testing solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 35000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/penetration-testing",
+    "type": "service"
+  },
+  {
+    "id": "premium-soc-setup",
+    "name": "SOC Setup",
+    "category": "Cyber Security",
+    "description": "Premium SOC Setup solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 180000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/soc-setup",
+    "type": "service"
+  },
+  {
+    "id": "premium-security-monitoring",
+    "name": "Security Monitoring",
+    "category": "Cyber Security",
+    "description": "Premium Security Monitoring solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 12000,
+    "prefix": "Starting from",
+    "billingPeriod": "/ Month",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/security-monitoring",
+    "type": "service"
+  },
+  {
+    "id": "premium-disaster-recovery",
+    "name": "Disaster Recovery",
+    "category": "Cyber Security",
+    "description": "Premium Disaster Recovery solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 45000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/disaster-recovery",
+    "type": "service"
+  },
+  {
+    "id": "premium-iot-solutions",
+    "name": "IoT Solutions",
+    "category": "IoT Solutions",
+    "description": "Premium IoT Solutions solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 120000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/iot-solutions",
+    "type": "service"
+  },
+  {
+    "id": "premium-smart-home-systems",
+    "name": "Smart Home Systems",
+    "category": "IoT Solutions",
+    "description": "Premium Smart Home Systems solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 90000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/smart-home-systems",
+    "type": "service"
+  },
+  {
+    "id": "premium-smart-office-systems",
+    "name": "Smart Office Systems",
+    "category": "IoT Solutions",
+    "description": "Premium Smart Office Systems solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 120000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/smart-office-systems",
+    "type": "service"
+  },
+  {
+    "id": "premium-gps-tracking-system",
+    "name": "GPS Tracking System",
+    "category": "IoT Solutions",
+    "description": "Premium GPS Tracking System solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 85000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/gps-tracking-system",
+    "type": "service"
+  },
+  {
+    "id": "premium-fleet-tracking-system",
+    "name": "Fleet Tracking System",
+    "category": "IoT Solutions",
+    "description": "Premium Fleet Tracking System solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 140000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/fleet-tracking-system",
+    "type": "service"
+  },
+  {
+    "id": "premium-rfid-management",
+    "name": "RFID Management",
+    "category": "IoT Solutions",
+    "description": "Premium RFID Management solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 80000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/rfid-management",
+    "type": "service"
+  },
+  {
+    "id": "premium-blockchain-development",
+    "name": "Blockchain Development",
+    "category": "Blockchain Solutions",
+    "description": "Premium Blockchain Development solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 300000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/blockchain-development",
+    "type": "service"
+  },
+  {
+    "id": "premium-nft-marketplace",
+    "name": "NFT Marketplace",
+    "category": "Blockchain Solutions",
+    "description": "Premium NFT Marketplace solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 350000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/nft-marketplace",
+    "type": "service"
+  },
+  {
+    "id": "premium-crypto-wallet",
+    "name": "Crypto Wallet",
+    "category": "Blockchain Solutions",
+    "description": "Premium Crypto Wallet solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 280000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/crypto-wallet",
+    "type": "service"
+  },
+  {
+    "id": "premium-smart-contract-development",
+    "name": "Smart Contract Development",
+    "category": "Blockchain Solutions",
+    "description": "Premium Smart Contract Development solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 120000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/smart-contract-development",
+    "type": "service"
+  },
+  {
+    "id": "premium-desktop-software",
+    "name": "Desktop Software",
+    "category": "Desktop Software",
+    "description": "Premium Desktop Software solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 70000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/desktop-software",
+    "type": "service"
+  },
+  {
+    "id": "premium-windows-software",
+    "name": "Windows Software",
+    "category": "Desktop Software",
+    "description": "Premium Windows Software solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 70000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/windows-software",
+    "type": "service"
+  },
+  {
+    "id": "premium-mac-software",
+    "name": "Mac Software",
+    "category": "Desktop Software",
+    "description": "Premium Mac Software solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 90000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/mac-software",
+    "type": "service"
+  },
+  {
+    "id": "premium-linux-software",
+    "name": "Linux Software",
+    "category": "Desktop Software",
+    "description": "Premium Linux Software solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 80000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/linux-software",
+    "type": "service"
+  },
+  {
+    "id": "premium-browser-extension-development",
+    "name": "Browser Extension Development",
+    "category": "Browser Extensions",
+    "description": "Premium Browser Extension Development solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 30000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/browser-extension-development",
+    "type": "service"
+  },
+  {
+    "id": "premium-chrome-extension",
+    "name": "Chrome Extension",
+    "category": "Browser Extensions",
+    "description": "Premium Chrome Extension solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 30000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/chrome-extension",
+    "type": "service"
+  },
+  {
+    "id": "premium-edge-extension",
+    "name": "Edge Extension",
+    "category": "Browser Extensions",
+    "description": "Premium Edge Extension solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 30000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/edge-extension",
+    "type": "service"
+  },
+  {
+    "id": "premium-firefox-extension",
+    "name": "Firefox Extension",
+    "category": "Browser Extensions",
+    "description": "Premium Firefox Extension solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 30000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/firefox-extension",
+    "type": "service"
+  },
+  {
+    "id": "premium-api-development",
+    "name": "API Development",
+    "category": "API and Integrations",
+    "description": "Premium API Development solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 30000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/api-development",
+    "type": "service"
+  },
+  {
+    "id": "premium-rest-api",
+    "name": "REST API",
+    "category": "API and Integrations",
+    "description": "Premium REST API solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 25000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/rest-api",
+    "type": "service"
+  },
+  {
+    "id": "premium-graphql-api",
+    "name": "GraphQL API",
+    "category": "API and Integrations",
+    "description": "Premium GraphQL API solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 35000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/graphql-api",
+    "type": "service"
+  },
+  {
+    "id": "premium-webhook-integration",
+    "name": "Webhook Integration",
+    "category": "API and Integrations",
+    "description": "Premium Webhook Integration solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 15000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/webhook-integration",
+    "type": "service"
+  },
+  {
+    "id": "premium-third-party-integration",
+    "name": "Third Party Integration",
+    "category": "API and Integrations",
+    "description": "Premium Third Party Integration solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 20000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/third-party-integration",
+    "type": "service"
+  },
+  {
+    "id": "premium-automation-systems",
+    "name": "Automation Systems",
+    "category": "Automation Solutions",
+    "description": "Premium Automation Systems solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 45000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/automation-systems",
+    "type": "service"
+  },
+  {
+    "id": "premium-whatsapp-automation",
+    "name": "WhatsApp Automation",
+    "category": "Automation Solutions",
+    "description": "Premium WhatsApp Automation solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 35000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/whatsapp-automation",
+    "type": "service"
+  },
+  {
+    "id": "premium-telegram-automation",
+    "name": "Telegram Automation",
+    "category": "Automation Solutions",
+    "description": "Premium Telegram Automation solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 25000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/telegram-automation",
+    "type": "service"
+  },
+  {
+    "id": "premium-discord-automation",
+    "name": "Discord Automation",
+    "category": "Automation Solutions",
+    "description": "Premium Discord Automation solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 25000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/discord-automation",
+    "type": "service"
+  },
+  {
+    "id": "premium-email-automation",
+    "name": "Email Automation",
+    "category": "Automation Solutions",
+    "description": "Premium Email Automation solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 18000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/email-automation",
+    "type": "service"
+  },
+  {
+    "id": "premium-sms-automation",
+    "name": "SMS Automation",
+    "category": "Automation Solutions",
+    "description": "Premium SMS Automation solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 20000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/sms-automation",
+    "type": "service"
+  },
+  {
+    "id": "premium-digital-marketing",
+    "name": "Digital Marketing",
+    "category": "Digital Growth",
+    "description": "Premium Digital Marketing solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 15000,
+    "prefix": "Starting from",
+    "billingPeriod": "/ Month",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/digital-marketing",
+    "type": "service"
+  },
+  {
+    "id": "premium-seo",
+    "name": "SEO",
+    "category": "Digital Growth",
+    "description": "Premium SEO solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 15000,
+    "prefix": "Starting from",
+    "billingPeriod": "/ Month",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/seo",
+    "type": "service"
+  },
+  {
+    "id": "premium-google-ads",
+    "name": "Google Ads",
+    "category": "Digital Growth",
+    "description": "Premium Google Ads solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 15000,
+    "prefix": "Starting from",
+    "billingPeriod": "/ Month",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/google-ads",
+    "type": "service"
+  },
+  {
+    "id": "premium-meta-ads",
+    "name": "Meta Ads",
+    "category": "Digital Growth",
+    "description": "Premium Meta Ads solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 15000,
+    "prefix": "Starting from",
+    "billingPeriod": "/ Month",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/meta-ads",
+    "type": "service"
+  },
+  {
+    "id": "premium-social-media-management",
+    "name": "Social Media Management",
+    "category": "Cyber Security",
+    "description": "Premium Social Media Management solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 18000,
+    "prefix": "Starting from",
+    "billingPeriod": "/ Month",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/social-media-management",
+    "type": "service"
+  },
+  {
+    "id": "premium-content-writing",
+    "name": "Content Writing",
+    "category": "Digital Growth",
+    "description": "Premium Content Writing solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 2000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/content-writing",
+    "type": "service"
+  },
+  {
+    "id": "premium-copywriting",
+    "name": "Copywriting",
+    "category": "Digital Growth",
+    "description": "Premium Copywriting solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 3000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/copywriting",
+    "type": "service"
+  },
+  {
+    "id": "premium-ui-ux-design",
+    "name": "UI/UX Design",
+    "category": "Design and Creative",
+    "description": "Premium UI/UX Design solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 15000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/ui-ux-design",
+    "type": "service"
+  },
+  {
+    "id": "premium-brand-identity",
+    "name": "Brand Identity",
+    "category": "Design and Creative",
+    "description": "Premium Brand Identity solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 20000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/brand-identity",
+    "type": "service"
+  },
+  {
+    "id": "premium-logo-design",
+    "name": "Logo Design",
+    "category": "Design and Creative",
+    "description": "Premium Logo Design solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 6000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/logo-design",
+    "type": "service"
+  },
+  {
+    "id": "premium-motion-graphics",
+    "name": "Motion Graphics",
+    "category": "Design and Creative",
+    "description": "Premium Motion Graphics solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 8000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/motion-graphics",
+    "type": "service"
+  },
+  {
+    "id": "premium-video-editing",
+    "name": "Video Editing",
+    "category": "Design and Creative",
+    "description": "Premium Video Editing solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 3500,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/video-editing",
+    "type": "service"
+  },
+  {
+    "id": "premium-3d-product-design",
+    "name": "3D Product Design",
+    "category": "Design and Creative",
+    "description": "Premium 3D Product Design solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 20000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/3d-product-design",
+    "type": "service"
+  },
+  {
+    "id": "premium-domain-registration",
+    "name": "Domain Registration",
+    "category": "Hosting and Maintenance",
+    "description": "Premium Domain Registration solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 4000,
+    "prefix": "Starting from",
+    "billingPeriod": "/ Year",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/domain-registration",
+    "type": "service"
+  },
+  {
+    "id": "premium-web-hosting",
+    "name": "Web Hosting",
+    "category": "Hosting and Maintenance",
+    "description": "Premium Web Hosting solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 8000,
+    "prefix": "Starting from",
+    "billingPeriod": "/ Year",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/web-hosting",
+    "type": "service"
+  },
+  {
+    "id": "premium-cloud-hosting",
+    "name": "Cloud Hosting",
+    "category": "Cloud and Deployment",
+    "description": "Premium Cloud Hosting solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 15000,
+    "prefix": "Starting from",
+    "billingPeriod": "/ Year",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/cloud-hosting",
+    "type": "service"
+  },
+  {
+    "id": "premium-business-email",
+    "name": "Business Email",
+    "category": "Hosting and Maintenance",
+    "description": "Premium Business Email solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 5000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/business-email",
+    "type": "service"
+  },
+  {
+    "id": "premium-ssl-certificate",
+    "name": "SSL Certificate",
+    "category": "Hosting and Maintenance",
+    "description": "Premium SSL Certificate solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 3000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/ssl-certificate",
+    "type": "service"
+  },
+  {
+    "id": "premium-website-migration",
+    "name": "Website Migration",
+    "category": "Hosting and Maintenance",
+    "description": "Premium Website Migration solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 8000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/website-migration",
+    "type": "service"
+  },
+  {
+    "id": "premium-website-maintenance",
+    "name": "Website Maintenance",
+    "category": "Hosting and Maintenance",
+    "description": "Premium Website Maintenance solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 7500,
+    "prefix": "Starting from",
+    "billingPeriod": "/ Month",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/website-maintenance",
+    "type": "service"
+  },
+  {
+    "id": "premium-app-maintenance",
+    "name": "App Maintenance",
+    "category": "Hosting and Maintenance",
+    "description": "Premium App Maintenance solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 10000,
+    "prefix": "Starting from",
+    "billingPeriod": "/ Month",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/app-maintenance",
+    "type": "service"
+  },
+  {
+    "id": "premium-remote-it-support",
+    "name": "Remote IT Support",
+    "category": "IT and DevOps",
+    "description": "Premium Remote IT Support solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 2500,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/remote-it-support",
+    "type": "service"
+  },
+  {
+    "id": "premium-server-administration",
+    "name": "Server Administration",
+    "category": "IT and DevOps",
+    "description": "Premium Server Administration solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 15000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/server-administration",
+    "type": "service"
+  },
+  {
+    "id": "premium-linux-administration",
+    "name": "Linux Administration",
+    "category": "IT and DevOps",
+    "description": "Premium Linux Administration solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 12000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/linux-administration",
+    "type": "service"
+  },
+  {
+    "id": "premium-windows-server-management",
+    "name": "Windows Server Management",
+    "category": "IT and DevOps",
+    "description": "Premium Windows Server Management solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 12000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/windows-server-management",
+    "type": "service"
+  },
+  {
+    "id": "premium-devops-services",
+    "name": "DevOps Services",
+    "category": "IT and DevOps",
+    "description": "Premium DevOps Services solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 40000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/devops-services",
+    "type": "service"
+  },
+  {
+    "id": "premium-ci-cd-pipeline-setup",
+    "name": "CI/CD Pipeline Setup",
+    "category": "IT and DevOps",
+    "description": "Premium CI/CD Pipeline Setup solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 25000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/ci-cd-pipeline-setup",
+    "type": "service"
+  },
+  {
+    "id": "premium-github-management",
+    "name": "GitHub Management",
+    "category": "IT and DevOps",
+    "description": "Premium GitHub Management solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 8000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/github-management",
+    "type": "service"
+  },
+  {
+    "id": "premium-consultation-services",
+    "name": "Consultation Services",
+    "category": "Consultation",
+    "description": "Premium Consultation Services solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 5000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/consultation-services",
+    "type": "service"
+  },
+  {
+    "id": "premium-ai-consultation",
+    "name": "AI Consultation",
+    "category": "Premium AI Solutions",
+    "description": "Premium AI Consultation solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 7500,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/ai-consultation",
+    "type": "service"
+  },
+  {
+    "id": "premium-software-consultation",
+    "name": "Software Consultation",
+    "category": "Consultation",
+    "description": "Premium Software Consultation solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 7500,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/software-consultation",
+    "type": "service"
+  },
+  {
+    "id": "premium-startup-consultation",
+    "name": "Startup Consultation",
+    "category": "Consultation",
+    "description": "Premium Startup Consultation solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 10000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/startup-consultation",
+    "type": "service"
+  },
+  {
+    "id": "premium-digital-transformation-consultation",
+    "name": "Digital Transformation Consultation",
+    "category": "Consultation",
+    "description": "Premium Digital Transformation Consultation solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 15000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/digital-transformation-consultation",
+    "type": "service"
+  },
+  {
+    "id": "premium-technology-roadmap-planning",
+    "name": "Technology Roadmap Planning",
+    "category": "Consultation",
+    "description": "Premium Technology Roadmap Planning solution from MI CORTEX X, configured according to business scope, integrations, delivery requirements and support needs.",
+    "priceLkr": 20000,
+    "prefix": "Starting from",
+    "billingPeriod": "",
+    "status": "Available",
+    "features": [
+      "Premium implementation",
+      "Custom configuration",
+      "Quotation-based delivery"
+    ],
+    "deliveryTime": "Based on scope",
+    "supportPeriod": "As quoted",
+    "route": "#/premium/technology-roadmap-planning",
+    "type": "service"
+  }
+],
   "products": [
       {
       "id": "cortex-core-ai",
