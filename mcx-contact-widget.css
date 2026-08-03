@@ -374,3 +374,13 @@ textarea.mcx-hub-input { min-height: 104px; resize: vertical; }
 }
 
 /* MCX_FRONT_PAGE_WIDGET_HIDE_END */
+
+
+/* MCX_HIDE_WIDGET_ON_BANNER_START */
+.mcx-force-hide-on-front-banner {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+/* MCX_HIDE_WIDGET_ON_BANNER_END */

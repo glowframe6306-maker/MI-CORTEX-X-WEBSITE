@@ -797,3 +797,73 @@
   }
 })();
 /* MCX_FRONT_PAGE_WIDGET_HIDE_END */
+
+
+/* MCX_HIDE_WIDGET_ON_BANNER_START */
+(function () {
+  "use strict";
+
+  const widgetSelectors = [
+    "[data-mcx-contact-widget]",
+    "[data-mcx-contact-toggle]",
+    ".mcx-contact-widget",
+    ".mcx-contact-hub",
+    ".mcx-contact-launcher",
+    ".mcx-contact-fab",
+    ".mcx-contact-button",
+    ".mcx-widget-launcher",
+    "#mcx-contact-widget",
+    "#mcx-contact-launcher"
+  ].join(",");
+
+  function isFrontBanner() {
+    const hash = window.location.hash.trim().toLowerCase();
+
+    return (
+      hash === "" ||
+      hash === "#" ||
+      hash === "#/" ||
+      hash === "#/front" ||
+      hash === "#front"
+    );
+  }
+
+  function updateFloatingWidget() {
+    const hide = isFrontBanner();
+
+    document.querySelectorAll(widgetSelectors).forEach((element) => {
+      element.classList.toggle(
+        "mcx-force-hide-on-front-banner",
+        hide
+      );
+
+      if (hide) {
+        element.setAttribute("aria-hidden", "true");
+      } else {
+        element.removeAttribute("aria-hidden");
+      }
+    });
+  }
+
+  function runInitialChecks() {
+    updateFloatingWidget();
+
+    [100, 300, 700, 1500, 2500].forEach((delay) => {
+      window.setTimeout(updateFloatingWidget, delay);
+    });
+  }
+
+  window.addEventListener("hashchange", updateFloatingWidget);
+  window.addEventListener("popstate", updateFloatingWidget);
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      runInitialChecks,
+      { once: true }
+    );
+  } else {
+    runInitialChecks();
+  }
+})();
+/* MCX_HIDE_WIDGET_ON_BANNER_END */
