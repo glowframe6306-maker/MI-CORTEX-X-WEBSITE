@@ -1,4 +1,4 @@
-/* MI CORTEX X Contact Hub Widget */
+﻿/* MI CORTEX X Contact Hub Widget */
 :root {
   --mcx-hub-bg: rgba(5, 12, 31, 0.96);
   --mcx-hub-panel: linear-gradient(145deg, rgba(8, 27, 55, 0.98), rgba(29, 20, 79, 0.98));
@@ -418,10 +418,11 @@ html.mcx-hide-floating-button-on-front-page .mcx-exact-icon-launcher {
 /* Keep the logo neatly inside the floating button. */
 .mcx-hub-fab-icon img,
 .mcx-exact-company-logo {
-    width: calc(100% - 10px) !important;
-    height: calc(100% - 10px) !important;
-    margin: 5px !important;
+    width: calc(100% - 4px) !important;
+    height: calc(100% - 4px) !important;
+    margin: 2px !important;
     display: block !important;
 }
 
 /* MCX_ROUND_COMPANY_LOGO_END */
+
