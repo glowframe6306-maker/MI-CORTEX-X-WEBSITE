@@ -12504,3 +12504,132 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 })();
 /* MCX_DEFINITIVE_PREMIUM_OPEN_END */
+
+
+/* MCX_CURRENT_NAVIGATION_ACTIVE_START */
+(function () {
+  "use strict";
+
+  const navigationPages = [
+    "home",
+    "overview",
+    "about",
+    "products",
+    "services",
+    "pricing",
+    "premium",
+    "contact"
+  ];
+
+  function getCurrentPage() {
+    const hash = window.location.hash
+      .replace(/^#\/?/, "")
+      .split("/")[0]
+      .trim()
+      .toLowerCase();
+
+    if (!hash) {
+      return "home";
+    }
+
+    if (hash === "overview") {
+      return "home";
+    }
+
+    return navigationPages.includes(hash) ? hash : "home";
+  }
+
+  function getNavigationPage(element) {
+    const route =
+      element.getAttribute("data-mcx-route") ||
+      element.getAttribute("data-route") ||
+      element.getAttribute("href") ||
+      "";
+
+    const normalized = route
+      .replace(/^#\/?/, "")
+      .split("/")[0]
+      .trim()
+      .toLowerCase();
+
+    if (normalized === "overview") {
+      return "home";
+    }
+
+    return normalized;
+  }
+
+  function updateActiveNavigation() {
+    const currentPage = getCurrentPage();
+
+    const navigationLinks = document.querySelectorAll(
+      'nav a,' +
+      'header nav a,' +
+      '.site-header a,' +
+      '.mi-fixed-glass-nav a,' +
+      '[data-mcx-navigation] a'
+    );
+
+    navigationLinks.forEach((link) => {
+      const linkPage = getNavigationPage(link);
+      const isCurrent = linkPage === currentPage;
+
+      link.classList.toggle("active", isCurrent);
+      link.classList.toggle("is-active", isCurrent);
+      link.classList.toggle("current", isCurrent);
+
+      if (isCurrent) {
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  }
+
+  window.addEventListener("hashchange", function () {
+    window.requestAnimationFrame(updateActiveNavigation);
+
+    window.setTimeout(updateActiveNavigation, 50);
+    window.setTimeout(updateActiveNavigation, 200);
+  });
+
+  window.addEventListener("popstate", updateActiveNavigation);
+
+  document.addEventListener(
+    "click",
+    function (event) {
+      const link = event.target.closest(
+        'nav a,' +
+        'header nav a,' +
+        '.site-header a,' +
+        '.mi-fixed-glass-nav a'
+      );
+
+      if (!link) {
+        return;
+      }
+
+      window.setTimeout(updateActiveNavigation, 0);
+      window.setTimeout(updateActiveNavigation, 100);
+    },
+    true
+  );
+
+  function startNavigationState() {
+    updateActiveNavigation();
+
+    window.setTimeout(updateActiveNavigation, 100);
+    window.setTimeout(updateActiveNavigation, 400);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      startNavigationState,
+      { once: true }
+    );
+  } else {
+    startNavigationState();
+  }
+})();
+/* MCX_CURRENT_NAVIGATION_ACTIVE_END */
