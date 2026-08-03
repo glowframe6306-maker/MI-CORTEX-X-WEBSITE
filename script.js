@@ -1,4 +1,4 @@
-
+﻿
 /* MI_CATEGORY_ICON_SYSTEM_START */
 
 var mcxCategoryIconMap = {
@@ -12633,3 +12633,4 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 })();
 /* MCX_CURRENT_NAVIGATION_ACTIVE_END */
+
