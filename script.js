@@ -12287,28 +12287,35 @@ document.addEventListener('DOMContentLoaded', function () {
 /* MI_SEMICOLON_TO_MINUS_ICON_END */
 
 
-/* MCX_PREMIUM_CLICK_ROUTE_FIX_START */
+/* MCX_DEFINITIVE_PREMIUM_OPEN_START */
 (function () {
   "use strict";
 
-  function getPremiumItems() {
-    if (
-      typeof catalogueData !== "undefined" &&
-      Array.isArray(catalogueData.premium)
-    ) {
-      return catalogueData.premium;
+  const PREMIUM_HASH = "#/premium";
+
+  function isPremiumHash() {
+    return /^#\/?premium(?:\/|$)/i.test(window.location.hash);
+  }
+
+  function findPremiumTrigger(target) {
+    if (!target || typeof target.closest !== "function") {
+      return null;
     }
 
-    return [];
+    return target.closest(
+      'a[href="#/premium"],' +
+      'a[href="#premium"],' +
+      '[data-mcx-route="premium"],' +
+      '[data-category="premium"],' +
+      '[data-page="premium"]'
+    );
   }
 
   function ensurePremiumPage() {
-    let premiumPage = document.querySelector(
-      '[data-mcx-page="premium"]'
-    );
+    let page = document.querySelector('[data-mcx-page="premium"]');
 
-    if (premiumPage) {
-      return premiumPage;
+    if (page) {
+      return page;
     }
 
     const servicesPage = document.querySelector(
@@ -12319,13 +12326,15 @@ document.addEventListener('DOMContentLoaded', function () {
       return null;
     }
 
-    premiumPage = servicesPage.cloneNode(true);
-    premiumPage.setAttribute("data-mcx-page", "premium");
-    premiumPage.hidden = true;
-    premiumPage.classList.remove("active", "is-active");
+    page = servicesPage.cloneNode(true);
+    page.setAttribute("data-mcx-page", "premium");
+    page.hidden = true;
+    page.classList.remove("active", "is-active");
 
-    premiumPage.querySelectorAll("*").forEach((element) => {
-      Array.from(element.attributes).forEach((attribute) => {
+    const elements = [page, ...page.querySelectorAll("*")];
+
+    elements.forEach((element) => {
+      Array.from(element.attributes || []).forEach((attribute) => {
         if (
           typeof attribute.value === "string" &&
           attribute.value.includes("services")
@@ -12338,42 +12347,39 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
 
-    const indexHost = premiumPage.querySelector(
+    const indexHost = page.querySelector(
       '[data-mcx-category-index="premium"]'
     );
 
-    const detailHost = premiumPage.querySelector(
+    const detailHost = page.querySelector(
       '[data-mcx-category-detail="premium"]'
     );
 
     if (indexHost) {
-      indexHost.innerHTML = "";
       indexHost.hidden = false;
     }
 
     if (detailHost) {
-      detailHost.innerHTML = "";
       detailHost.hidden = true;
     }
 
-    servicesPage.insertAdjacentElement(
-      "afterend",
-      premiumPage
-    );
+    servicesPage.insertAdjacentElement("afterend", page);
 
-    return premiumPage;
+    return page;
   }
 
-  function hideAllPages() {
+  function setPremiumActiveState() {
     document
       .querySelectorAll("[data-mcx-page]")
       .forEach((page) => {
-        page.hidden = true;
-        page.classList.remove("active", "is-active");
-      });
-  }
+        const premium =
+          page.getAttribute("data-mcx-page") === "premium";
 
-  function updatePremiumNavigation() {
+        page.hidden = !premium;
+        page.classList.toggle("active", premium);
+        page.classList.toggle("is-active", premium);
+      });
+
     document
       .querySelectorAll(
         'a[href="#/premium"],' +
@@ -12395,192 +12401,106 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   }
 
-  function showPremiumPage() {
+  function renderPremium() {
+    if (!isPremiumHash()) {
+      return;
+    }
+
     const premiumPage = ensurePremiumPage();
 
     if (!premiumPage) {
-      console.error("PREMIUM page host could not be created.");
+      console.error("PREMIUM page container was not found.");
       return;
     }
 
-    hideAllPages();
-
-    premiumPage.hidden = false;
-    premiumPage.classList.add("active", "is-active");
-
-    const items = getPremiumItems();
-
-    if (typeof renderIndex === "function") {
-      try {
-        renderIndex("premium");
-      } catch (error) {
-        console.error("PREMIUM renderIndex failed.", error);
+    try {
+      if (typeof window.renderIndex === "function") {
+        window.renderIndex("premium");
       }
+    } catch (error) {
+      console.error("PREMIUM renderIndex failed:", error);
     }
 
-    if (typeof renderCatalogueIndex === "function") {
-      try {
-        renderCatalogueIndex("premium");
-      } catch (error) {
-        console.error(
-          "PREMIUM renderCatalogueIndex failed.",
-          error
-        );
+    try {
+      if (typeof window.renderCatalogueIndex === "function") {
+        window.renderCatalogueIndex("premium");
       }
+    } catch (error) {
+      console.error(
+        "PREMIUM renderCatalogueIndex failed:",
+        error
+      );
     }
 
-    const host = premiumPage.querySelector(
-      '[data-mcx-category-index="premium"]'
-    );
+    setPremiumActiveState();
 
-    if (
-      host &&
-      !host.innerHTML.trim() &&
-      items.length
-    ) {
-      host.innerHTML = `
-        <section class="mcx-catalogue-shell">
-          <p class="mcx-eyebrow">PROFESSIONAL CATALOGUE</p>
-          <h1>PREMIUM</h1>
-          <p>
-            Advanced AI, enterprise software, cloud,
-            security, automation and specialist solutions.
-          </p>
-          <p>${items.length} premium solutions available.</p>
-        </section>
-      `;
-    }
+    const nav =
+      document.querySelector("nav") ||
+      document.querySelector("header");
 
-    updatePremiumNavigation();
+    const offset = nav
+      ? nav.getBoundingClientRect().height + 20
+      : 120;
 
-    requestAnimationFrame(() => {
-      const navigation =
-        document.querySelector("nav") ||
-        document.querySelector("header");
+    const top =
+      premiumPage.getBoundingClientRect().top +
+      window.scrollY -
+      offset;
 
-      const offset = navigation
-        ? navigation.getBoundingClientRect().height + 24
-        : 120;
-
-      const top =
-        premiumPage.getBoundingClientRect().top +
-        window.scrollY -
-        offset;
-
-      window.scrollTo({
-        top: Math.max(0, top),
-        behavior: "auto"
-      });
+    window.scrollTo({
+      top: Math.max(0, top),
+      behavior: "auto"
     });
   }
 
-  function isPremiumHash() {
-    return /^#\/?premium(?:\/|$)/i.test(
-      window.location.hash
-    );
+  function schedulePremiumRender() {
+    [0, 50, 150, 350].forEach((delay) => {
+      window.setTimeout(renderPremium, delay);
+    });
   }
 
-  function openPremium(event) {
-    const trigger = event.target.closest(
-      'a[href="#/premium"],' +
-      'a[href="#premium"],' +
-      '[data-mcx-route="premium"]'
-    );
-
-    if (!trigger) {
-      return;
-    }
-
-    event.preventDefault();
-    event.stopPropagation();
-
-    if (window.location.hash !== "#/premium") {
-      window.location.hash = "#/premium";
-    } else {
-      showPremiumPage();
-    }
-  }
-
-  document.addEventListener(
+  window.addEventListener(
     "click",
-    openPremium,
+    function (event) {
+      const trigger = findPremiumTrigger(event.target);
+
+      if (!trigger) {
+        return;
+      }
+
+      event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+
+      if (window.location.hash !== PREMIUM_HASH) {
+        window.location.hash = PREMIUM_HASH;
+      }
+
+      schedulePremiumRender();
+    },
     true
   );
 
-  window.addEventListener("hashchange", () => {
+  window.addEventListener("hashchange", function () {
     if (isPremiumHash()) {
-      showPremiumPage();
+      schedulePremiumRender();
     }
   });
 
-  if (document.readyState === "loading") {
-    document.addEventListener(
-      "DOMContentLoaded",
-      () => {
-        ensurePremiumPage();
-
-        if (isPremiumHash()) {
-          showPremiumPage();
-        }
-      },
-      { once: true }
-    );
-  } else {
+  function start() {
     ensurePremiumPage();
 
     if (isPremiumHash()) {
-      showPremiumPage();
+      schedulePremiumRender();
     }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", start, {
+      once: true
+    });
+  } else {
+    start();
   }
 })();
-/* MCX_PREMIUM_CLICK_ROUTE_FIX_END */
-
-
-/* MCX_PREMIUM_FORCE_OPEN_START */
-(function () {
-  "use strict";
-
-  function isPremiumTrigger(element) {
-    if (!element || typeof element.closest !== "function") {
-      return null;
-    }
-
-    return element.closest(
-      'a[href="#/premium"],' +
-      'a[href="#premium"],' +
-      '[data-mcx-route="premium"]'
-    );
-  }
-
-  function openPremiumCatalogue(event) {
-    const trigger = isPremiumTrigger(event.target);
-
-    if (!trigger) {
-      return;
-    }
-
-    event.preventDefault();
-    event.stopPropagation();
-    event.stopImmediatePropagation();
-
-    const premiumHash = "#/premium";
-
-    if (window.location.hash !== premiumHash) {
-      window.location.hash = premiumHash;
-      return;
-    }
-
-    window.dispatchEvent(new HashChangeEvent("hashchange"));
-  }
-
-  /*
-   * Window capture runs before the website's older document click
-   * handlers, preventing them from redirecting PREMIUM to OVERVIEW.
-   */
-  window.addEventListener(
-    "click",
-    openPremiumCatalogue,
-    true
-  );
-})();
-/* MCX_PREMIUM_FORCE_OPEN_END */
+/* MCX_DEFINITIVE_PREMIUM_OPEN_END */
