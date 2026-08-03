@@ -1,4 +1,4 @@
-﻿
+
 /* MI_CATEGORY_ICON_SYSTEM_START */
 
 var mcxCategoryIconMap = {
@@ -662,6 +662,50 @@ document.addEventListener('DOMContentLoaded', function () {
         { id: "our-story", title: "OUR STORY", summary: "The company story focuses on practical innovation and meaningful technology delivery.", subtopics: [{ title: "Origin Story", summary: "The company was created to deliver reliable AI and software solutions.", points: ["Digital transformation", "Product innovation", "Client-first work"], note: "" }, { title: "Long-Term Focus", summary: "The aim is to build sustainable digital capabilities for business growth.", points: ["Innovation", "Reliability", "Global reach"], note: "" }, { title: "Values", summary: "The team works with honesty, quality and collaboration.", points: ["Quality", "Integrity", "Customer success"], note: "" }], status: "" },
         { id: "mission", title: "MISSION", summary: "To empower businesses through innovative, reliable and intelligent technology solutions.", subtopics: [{ title: "Mission", summary: "Build useful tools that improve operations, service and growth.", points: ["Reliable systems", "Modern technology", "Practical delivery"], note: "" }, { title: "Vision", summary: "To become a globally recognized AI and software technology company.", points: ["Global expansion", "World-class products", "Strategic growth"], note: "" }, { title: "Future Goals", summary: "Continue expanding the product and service portfolio.", points: ["AI products", "Global customers", "Long-term development"], note: "" }], status: "" },
         { id: "leadership", title: "LEADERSHIP", summary: "The founder and leadership team directs the company strategy and delivery model.", subtopics: [{ title: "Founder and CEO", summary: "Respected M.I. Muhammadh leads the company’s direction.", points: ["Product strategy", "Technology planning", "Client relationship management"], note: "" }, { title: "Operating Principles", summary: "The company continues to learn, improve and deliver with integrity.", points: ["Continuous learning", "Customer success", "Quality focus"], note: "" }, { title: "Research Direction", summary: "The company works across AI, automation and cloud systems.", points: ["AI", "Machine learning", "Cloud computing"], note: "" }], status: "" },
+    {
+      id: "executive-board",
+      title: "EXECUTIVE BOARD",
+      summary: "Official executive positions and leadership responsibilities of MI CORTEX X INC.",
+      subtopics: [
+        {
+          title: "Owner",
+          summary: "The official owner of MI CORTEX X INC.",
+          points: [
+            "OWNER OF MI CORTEX X INC.",
+            "M.I. MUHAMMADH"
+          ],
+          note: ""
+        },
+        {
+          title: "Chairman",
+          summary: "The official chairman of MI CORTEX X INC.",
+          points: [
+            "CHAIRMAN OF MI CORTEX X INC.",
+            "M.I. MUHAMMADH"
+          ],
+          note: ""
+        },
+        {
+          title: "Chief Executive Officer",
+          summary: "The official Chief Executive Officer of MI CORTEX X INC.",
+          points: [
+            "CHIEF EXECUTIVE OFFICER (CEO) OF MI CORTEX X INC.",
+            "M.I. MUHAMMADH"
+          ],
+          note: ""
+        },
+        {
+          title: "Founder",
+          summary: "The official founder of MI CORTEX X INC.",
+          points: [
+            "FOUNDER OF MI CORTEX X INC.",
+            "M.I. MUHAMMADH"
+          ],
+          note: ""
+        }
+      ],
+      status: ""
+    },
         { id: "core-values", title: "CORE VALUES", summary: "The company’s core values guide the work and decisions.", subtopics: [{ title: "Innovation", summary: "The company develops modern solutions with future-ready thinking.", points: ["Creative product design", "Tech-led business solutions", "Strategic growth"], note: "" }, { title: "Quality", summary: "Every project is treated with professionalism, detail and care.", points: ["Reliable delivery", "Clear communication", "Strong execution"], note: "" }, { title: "Integrity", summary: "Transparent work and honest communication remain central to the business.", points: ["Honest estimates", "Clear scope", "No misleading claims"], note: "" }], status: "" }
       ]
     },
