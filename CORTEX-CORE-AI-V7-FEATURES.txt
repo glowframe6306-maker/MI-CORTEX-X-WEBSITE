@@ -1,0 +1,57 @@
+CORTEX CORE AI V7 - 50 IMPLEMENTED CUSTOMER FEATURES
+
+1. Smart welcome greeting
+2. Returning-customer greeting
+3. Sinhala understanding
+4. Singlish understanding
+5. English understanding
+6. Mixed-language understanding
+7. Punctuation-free questions
+8. Small typo tolerance
+9. Intent detection
+10. Follow-up context
+11. Company information answers
+12. Executive answers
+13. Product answers
+14. Service answers
+15. Exact starting prices
+16. Delivery-time answers
+17. Support-period answers
+18. Contact answers
+19. Business-hours answers
+20. Location answers
+21. Appointment actions
+22. Executive appointment routing
+23. Quotation wizard
+24. Support-request wizard
+25. Service recommendation wizard
+26. Service comparison
+27. Product demo request
+28. WhatsApp deep links
+29. Telegram deep links
+30. Email composer links
+31. Conversation history
+32. Draft autosave
+33. New chat
+34. Clear history
+35. Conversation search
+36. Copy answer
+37. Regenerate answer
+38. Save favourites
+39. Helpful feedback
+40. Not-helpful feedback
+41. Export transcript
+42. Print transcript
+43. Share transcript
+44. Dark theme
+45. Light theme
+46. Text-size settings
+47. Offline notice
+48. Keyboard shortcuts
+49. Focus trapping
+50. Mobile responsive UI
+
+IMPORTANT:
+- Live order tracking, real ticket IDs, real payments and server-side analytics are not simulated.
+- Those features require a connected backend/database.
+- This patch does not expose API keys or collect card details.
