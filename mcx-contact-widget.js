@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
   "use strict";
 
   if (window.__MCX_CONTACT_HUB_INSTALLED__) return;
@@ -715,189 +715,7 @@
 /* MCX_EXACT_ICON_RENDERER_END */
 
 
-/* MCX_EXACT_SCREEN_VISIBILITY_START */
-(function () {
-  "use strict";
 
-  let observer = null;
-  let framePending = false;
-  let retries = 0;
-
-  const launcherSelector = [
-    "[data-mcx-contact-toggle]",
-    "#mcx-contact-launcher",
-    "#mcx-contact-fab",
-    ".mcx-contact-launcher",
-    ".mcx-contact-fab",
-    ".mcx-contact-button",
-    ".mcx-widget-launcher",
-    ".mcx-exact-icon-launcher"
-  ].join(",");
-
-  const widgetSelector = [
-    "[data-mcx-contact-widget]",
-    "#mcx-contact-widget",
-    ".mcx-contact-widget",
-    ".mcx-contact-hub",
-    ".mcx-widget"
-  ].join(",");
-
-  function findLauncher() {
-    return document.querySelector(launcherSelector);
-  }
-
-  function findWidget(launcher) {
-    if (!launcher) return null;
-
-    return launcher.closest(widgetSelector) || launcher;
-  }
-
-  function isVisible(element) {
-    if (!element) return false;
-
-    const style = window.getComputedStyle(element);
-    const rect = element.getBoundingClientRect();
-
-    return (
-      style.display !== "none" &&
-      style.visibility !== "hidden" &&
-      Number.parseFloat(style.opacity || "1") > 0 &&
-      rect.width > 50 &&
-      rect.height > 30 &&
-      rect.bottom > 0 &&
-      rect.top < window.innerHeight
-    );
-  }
-
-  function visibleMainNavigationExists() {
-    const candidates = Array.from(
-      document.querySelectorAll(
-        "header nav, nav, .site-header, .mi-fixed-glass-nav, " +
-        ".main-navigation, [data-main-navigation]"
-      )
-    );
-
-    return candidates.some((nav) => {
-      if (!isVisible(nav)) return false;
-
-      const text = (nav.innerText || nav.textContent || "")
-        .replace(/\s+/g, " ")
-        .trim()
-        .toUpperCase();
-
-      const rect = nav.getBoundingClientRect();
-
-      return (
-        rect.width > 500 &&
-        text.includes("HOME") &&
-        text.includes("ABOUT") &&
-        text.includes("PRODUCTS") &&
-        text.includes("SERVICES") &&
-        text.includes("CONTACT")
-      );
-    });
-  }
-
-  function setHidden(element, hidden) {
-    if (!element) return;
-
-    if (hidden) {
-      element.setAttribute("aria-hidden", "true");
-      element.style.setProperty("display", "none", "important");
-      element.style.setProperty("visibility", "hidden", "important");
-      element.style.setProperty("opacity", "0", "important");
-      element.style.setProperty("pointer-events", "none", "important");
-    } else {
-      element.removeAttribute("aria-hidden");
-      element.style.removeProperty("display");
-      element.style.removeProperty("visibility");
-      element.style.removeProperty("opacity");
-      element.style.removeProperty("pointer-events");
-    }
-  }
-
-  function updateFloatingButton() {
-    framePending = false;
-
-    const launcher = findLauncher();
-    const widget = findWidget(launcher);
-
-    if (!launcher || !widget) {
-      retries += 1;
-
-      if (retries < 40) {
-        window.setTimeout(scheduleUpdate, 200);
-      }
-
-      return;
-    }
-
-    retries = 0;
-
-    /*
-     * IMAGE 1: Navigation is not visible -> hide floating button.
-     * IMAGE 2: Navigation is visible     -> show floating button.
-     */
-    const mustHide = !visibleMainNavigationExists();
-
-    setHidden(widget, mustHide);
-
-    if (launcher !== widget) {
-      setHidden(launcher, mustHide);
-    }
-  }
-
-  function scheduleUpdate() {
-    if (framePending) return;
-
-    framePending = true;
-    window.requestAnimationFrame(updateFloatingButton);
-  }
-
-  function start() {
-    updateFloatingButton();
-
-    [100, 300, 700, 1200, 2000, 3500].forEach((delay) => {
-      window.setTimeout(updateFloatingButton, delay);
-    });
-
-    if (!observer) {
-      observer = new MutationObserver(scheduleUpdate);
-
-      observer.observe(document.body, {
-        childList: true,
-        subtree: true,
-        attributes: true,
-        attributeFilter: [
-          "class",
-          "style",
-          "hidden",
-          "aria-hidden"
-        ]
-      });
-    }
-  }
-
-  window.addEventListener("scroll", scheduleUpdate, {
-    passive: true
-  });
-
-  window.addEventListener("resize", scheduleUpdate, {
-    passive: true
-  });
-
-  window.addEventListener("hashchange", scheduleUpdate);
-  window.addEventListener("popstate", scheduleUpdate);
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", start, {
-      once: true
-    });
-  } else {
-    start();
-  }
-})();
-/* MCX_EXACT_SCREEN_VISIBILITY_END */
 
 /* MCX_FRONT_PAGE_FLOATING_BUTTON_FIX_START */
 (function () {
@@ -1003,3 +821,115 @@
   );
 })();
 /* MCX_FRONT_PAGE_FLOATING_BUTTON_FIX_END */
+
+/* MCX_EXACT_FRONT_BANNER_HIDE_START */
+(function () {
+  "use strict";
+
+  let frontObserver = null;
+  let retryTimer = null;
+  let retryCount = 0;
+
+  function getFrontBanner() {
+    return document.getElementById("mi-front-page");
+  }
+
+  function getContactHub() {
+    return document.getElementById("mcx-contact-hub-root");
+  }
+
+  function frontBannerIsOnScreen(frontBanner) {
+    if (!frontBanner) return false;
+
+    const rect = frontBanner.getBoundingClientRect();
+    const viewportHeight =
+      window.innerHeight || document.documentElement.clientHeight;
+
+    return rect.top < viewportHeight && rect.bottom > 1;
+  }
+
+  function setHubVisibility() {
+    const frontBanner = getFrontBanner();
+    const contactHub = getContactHub();
+
+    if (!frontBanner || !contactHub) {
+      retryCount += 1;
+
+      if (retryCount <= 40) {
+        window.clearTimeout(retryTimer);
+        retryTimer = window.setTimeout(setHubVisibility, 150);
+      }
+
+      return;
+    }
+
+    retryCount = 0;
+
+    const hideOnFrontBanner = frontBannerIsOnScreen(frontBanner);
+
+    contactHub.classList.toggle(
+      "mcx-hide-contact-hub-on-front-banner",
+      hideOnFrontBanner
+    );
+
+    if (hideOnFrontBanner) {
+      contactHub.setAttribute("aria-hidden", "true");
+    } else {
+      contactHub.removeAttribute("aria-hidden");
+    }
+  }
+
+  function installFrontObserver() {
+    const frontBanner = getFrontBanner();
+
+    if (!frontBanner) {
+      setHubVisibility();
+      return;
+    }
+
+    if (frontObserver) {
+      frontObserver.disconnect();
+    }
+
+    frontObserver = new IntersectionObserver(
+      function () {
+        setHubVisibility();
+      },
+      {
+        root: null,
+        threshold: [0, 0.001, 0.01]
+      }
+    );
+
+    frontObserver.observe(frontBanner);
+    setHubVisibility();
+  }
+
+  function start() {
+    installFrontObserver();
+
+    [100, 300, 700, 1200, 2000].forEach(function (delay) {
+      window.setTimeout(setHubVisibility, delay);
+    });
+  }
+
+  window.addEventListener("scroll", setHubVisibility, {
+    passive: true
+  });
+
+  window.addEventListener("resize", setHubVisibility, {
+    passive: true
+  });
+
+  window.addEventListener("hashchange", setHubVisibility);
+  window.addEventListener("popstate", setHubVisibility);
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", start, {
+      once: true
+    });
+  } else {
+    start();
+  }
+})();
+/* MCX_EXACT_FRONT_BANNER_HIDE_END */

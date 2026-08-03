@@ -1,4 +1,4 @@
-﻿/* MI CORTEX X Contact Hub Widget */
+/* MI CORTEX X Contact Hub Widget */
 :root {
   --mcx-hub-bg: rgba(5, 12, 31, 0.96);
   --mcx-hub-panel: linear-gradient(145deg, rgba(8, 27, 55, 0.98), rgba(29, 20, 79, 0.98));
@@ -363,20 +363,7 @@ textarea.mcx-hub-input { min-height: 104px; resize: vertical; }
 /* MCX_REAL_WHATSAPP_ICON_END */
 
 
-/* MCX_CORRECT_BANNER_WIDGET_HIDE_START */
 
-/*
- * Hide the floating widget only while the real opening banner is visible.
- * It remains visible on Home, About, Products, Services and other pages.
- */
-.mcx-hidden-only-on-real-front-banner {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-}
-
-/* MCX_CORRECT_BANNER_WIDGET_HIDE_END */
 
 /* MCX_FRONT_PAGE_FLOATING_BUTTON_CSS_START */
 html.mcx-hide-floating-button-on-front-page [data-mcx-contact-widget],
@@ -398,3 +385,13 @@ html.mcx-hide-floating-button-on-front-page .mcx-exact-icon-launcher {
   pointer-events: none !important;
 }
 /* MCX_FRONT_PAGE_FLOATING_BUTTON_CSS_END */
+
+/* MCX_EXACT_FRONT_BANNER_HIDE_START */
+/* Hide the complete floating contact hub only while #mi-front-page is visible. */
+#mcx-contact-hub-root.mcx-hide-contact-hub-on-front-banner {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+/* MCX_EXACT_FRONT_BANNER_HIDE_END */
