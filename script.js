@@ -1,4 +1,4 @@
-
+﻿
 /* MI_CATEGORY_ICON_SYSTEM_START */
 
 var mcxCategoryIconMap = {
@@ -669,7 +669,7 @@ document.addEventListener('DOMContentLoaded', function () {
       subtopics: [
         {
           title: "Owner",
-          summary: "OWNER OF MI CORTEX X INC. - M.I. MUHAMMADH",
+          summary: "OWNER OF MI CORTEX X INC.",
           points: [
             "OWNER OF MI CORTEX X INC.",
             "M.I. MUHAMMADH"
@@ -678,7 +678,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         {
           title: "Chairman",
-          summary: "CHAIRMAN OF MI CORTEX X INC. - M.I. MUHAMMADH",
+          summary: "CHAIRMAN OF MI CORTEX X INC.",
           points: [
             "CHAIRMAN OF MI CORTEX X INC.",
             "M.I. MUHAMMADH"
@@ -687,7 +687,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         {
           title: "Chief Executive Officer (CEO)",
-          summary: "CHIEF EXECUTIVE OFFICER (CEO) OF MI CORTEX X INC. - M.I. MUHAMMADH",
+          summary: "CHIEF EXECUTIVE OFFICER (CEO) OF MI CORTEX X INC.",
           points: [
             "CHIEF EXECUTIVE OFFICER (CEO) OF MI CORTEX X INC.",
             "M.I. MUHAMMADH"
@@ -696,7 +696,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         {
           title: "Founder",
-          summary: "FOUNDER OF MI CORTEX X INC. - M.I. MUHAMMADH",
+          summary: "FOUNDER OF MI CORTEX X INC.",
           points: [
             "FOUNDER OF MI CORTEX X INC.",
             "M.I. MUHAMMADH"
@@ -12677,4 +12677,5 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 })();
 /* MCX_CURRENT_NAVIGATION_ACTIVE_END */
+
 
