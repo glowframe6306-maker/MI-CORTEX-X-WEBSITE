@@ -1,4 +1,4 @@
-/* MI CORTEX X Contact Hub Widget */
+﻿/* MI CORTEX X Contact Hub Widget */
 :root {
   --mcx-hub-bg: rgba(5, 12, 31, 0.96);
   --mcx-hub-panel: linear-gradient(145deg, rgba(8, 27, 55, 0.98), rgba(29, 20, 79, 0.98));
@@ -377,3 +377,24 @@ textarea.mcx-hub-input { min-height: 104px; resize: vertical; }
 }
 
 /* MCX_CORRECT_BANNER_WIDGET_HIDE_END */
+
+/* MCX_FRONT_PAGE_FLOATING_BUTTON_CSS_START */
+html.mcx-hide-floating-button-on-front-page [data-mcx-contact-widget],
+html.mcx-hide-floating-button-on-front-page #mcx-contact-widget,
+html.mcx-hide-floating-button-on-front-page .mcx-contact-widget,
+html.mcx-hide-floating-button-on-front-page .mcx-contact-hub,
+html.mcx-hide-floating-button-on-front-page .mcx-widget,
+html.mcx-hide-floating-button-on-front-page [data-mcx-contact-toggle],
+html.mcx-hide-floating-button-on-front-page #mcx-contact-launcher,
+html.mcx-hide-floating-button-on-front-page #mcx-contact-fab,
+html.mcx-hide-floating-button-on-front-page .mcx-contact-launcher,
+html.mcx-hide-floating-button-on-front-page .mcx-contact-fab,
+html.mcx-hide-floating-button-on-front-page .mcx-contact-button,
+html.mcx-hide-floating-button-on-front-page .mcx-widget-launcher,
+html.mcx-hide-floating-button-on-front-page .mcx-exact-icon-launcher {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+/* MCX_FRONT_PAGE_FLOATING_BUTTON_CSS_END */

@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   "use strict";
 
   if (window.__MCX_CONTACT_HUB_INSTALLED__) return;
@@ -898,3 +898,108 @@
   }
 })();
 /* MCX_EXACT_SCREEN_VISIBILITY_END */
+
+/* MCX_FRONT_PAGE_FLOATING_BUTTON_FIX_START */
+(function () {
+  "use strict";
+
+  let frameRequested = false;
+
+  function isElementVisible(element) {
+    if (!element) return false;
+
+    const style = window.getComputedStyle(element);
+    const rect = element.getBoundingClientRect();
+
+    return (
+      style.display !== "none" &&
+      style.visibility !== "hidden" &&
+      Number(style.opacity || 1) !== 0 &&
+      rect.width > 0 &&
+      rect.height > 0
+    );
+  }
+
+  function frontPageIsCurrentlyVisible() {
+    const frontPage =
+      document.querySelector("#mi-front-page") ||
+      document.querySelector(".mi-front-page") ||
+      document.querySelector("#front-page") ||
+      document.querySelector(".front-page") ||
+      document.querySelector('[data-page="front"]') ||
+      document.querySelector('[data-section="front-page"]');
+
+    if (!isElementVisible(frontPage)) return false;
+
+    const rect = frontPage.getBoundingClientRect();
+    const viewportCenter = window.innerHeight / 2;
+
+    return (
+      rect.top <= viewportCenter &&
+      rect.bottom >= viewportCenter
+    );
+  }
+
+  function updateFloatingButtonVisibility() {
+    frameRequested = false;
+
+    document.documentElement.classList.toggle(
+      "mcx-hide-floating-button-on-front-page",
+      frontPageIsCurrentlyVisible()
+    );
+  }
+
+  function requestVisibilityUpdate() {
+    if (frameRequested) return;
+
+    frameRequested = true;
+    window.requestAnimationFrame(updateFloatingButtonVisibility);
+  }
+
+  window.addEventListener("scroll", requestVisibilityUpdate, {
+    passive: true
+  });
+
+  window.addEventListener("resize", requestVisibilityUpdate, {
+    passive: true
+  });
+
+  window.addEventListener("hashchange", requestVisibilityUpdate);
+  window.addEventListener("popstate", requestVisibilityUpdate);
+
+  document.addEventListener("click", function () {
+    window.setTimeout(requestVisibilityUpdate, 0);
+    window.setTimeout(requestVisibilityUpdate, 150);
+    window.setTimeout(requestVisibilityUpdate, 500);
+  });
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      requestVisibilityUpdate,
+      { once: true }
+    );
+  } else {
+    requestVisibilityUpdate();
+  }
+
+  [100, 300, 700, 1200, 2000].forEach(function (delay) {
+    window.setTimeout(requestVisibilityUpdate, delay);
+  });
+
+  new MutationObserver(requestVisibilityUpdate).observe(
+    document.documentElement,
+    {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: [
+        "class",
+        "style",
+        "hidden",
+        "aria-hidden"
+      ]
+    }
+  );
+})();
+/* MCX_FRONT_PAGE_FLOATING_BUTTON_FIX_END */
