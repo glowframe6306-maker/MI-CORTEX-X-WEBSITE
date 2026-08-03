@@ -12287,3 +12287,250 @@ document.addEventListener('DOMContentLoaded', function () {
 /* MI_SEMICOLON_TO_MINUS_ICON_END */
 
 
+/* MCX_PREMIUM_CLICK_ROUTE_FIX_START */
+(function () {
+  "use strict";
+
+  function getPremiumItems() {
+    if (
+      typeof catalogueData !== "undefined" &&
+      Array.isArray(catalogueData.premium)
+    ) {
+      return catalogueData.premium;
+    }
+
+    return [];
+  }
+
+  function ensurePremiumPage() {
+    let premiumPage = document.querySelector(
+      '[data-mcx-page="premium"]'
+    );
+
+    if (premiumPage) {
+      return premiumPage;
+    }
+
+    const servicesPage = document.querySelector(
+      '[data-mcx-page="services"]'
+    );
+
+    if (!servicesPage || !servicesPage.parentNode) {
+      return null;
+    }
+
+    premiumPage = servicesPage.cloneNode(true);
+    premiumPage.setAttribute("data-mcx-page", "premium");
+    premiumPage.hidden = true;
+    premiumPage.classList.remove("active", "is-active");
+
+    premiumPage.querySelectorAll("*").forEach((element) => {
+      Array.from(element.attributes).forEach((attribute) => {
+        if (
+          typeof attribute.value === "string" &&
+          attribute.value.includes("services")
+        ) {
+          element.setAttribute(
+            attribute.name,
+            attribute.value.replace(/services/g, "premium")
+          );
+        }
+      });
+    });
+
+    const indexHost = premiumPage.querySelector(
+      '[data-mcx-category-index="premium"]'
+    );
+
+    const detailHost = premiumPage.querySelector(
+      '[data-mcx-category-detail="premium"]'
+    );
+
+    if (indexHost) {
+      indexHost.innerHTML = "";
+      indexHost.hidden = false;
+    }
+
+    if (detailHost) {
+      detailHost.innerHTML = "";
+      detailHost.hidden = true;
+    }
+
+    servicesPage.insertAdjacentElement(
+      "afterend",
+      premiumPage
+    );
+
+    return premiumPage;
+  }
+
+  function hideAllPages() {
+    document
+      .querySelectorAll("[data-mcx-page]")
+      .forEach((page) => {
+        page.hidden = true;
+        page.classList.remove("active", "is-active");
+      });
+  }
+
+  function updatePremiumNavigation() {
+    document
+      .querySelectorAll(
+        'a[href="#/premium"],' +
+        'a[href="#premium"],' +
+        '[data-mcx-route="premium"]'
+      )
+      .forEach((element) => {
+        element.classList.add("active");
+        element.setAttribute("aria-current", "page");
+      });
+
+    document
+      .querySelectorAll(
+        'nav a:not([href="#/premium"]):not([href="#premium"])'
+      )
+      .forEach((element) => {
+        element.classList.remove("active");
+        element.removeAttribute("aria-current");
+      });
+  }
+
+  function showPremiumPage() {
+    const premiumPage = ensurePremiumPage();
+
+    if (!premiumPage) {
+      console.error("PREMIUM page host could not be created.");
+      return;
+    }
+
+    hideAllPages();
+
+    premiumPage.hidden = false;
+    premiumPage.classList.add("active", "is-active");
+
+    const items = getPremiumItems();
+
+    if (typeof renderIndex === "function") {
+      try {
+        renderIndex("premium");
+      } catch (error) {
+        console.error("PREMIUM renderIndex failed.", error);
+      }
+    }
+
+    if (typeof renderCatalogueIndex === "function") {
+      try {
+        renderCatalogueIndex("premium");
+      } catch (error) {
+        console.error(
+          "PREMIUM renderCatalogueIndex failed.",
+          error
+        );
+      }
+    }
+
+    const host = premiumPage.querySelector(
+      '[data-mcx-category-index="premium"]'
+    );
+
+    if (
+      host &&
+      !host.innerHTML.trim() &&
+      items.length
+    ) {
+      host.innerHTML = `
+        <section class="mcx-catalogue-shell">
+          <p class="mcx-eyebrow">PROFESSIONAL CATALOGUE</p>
+          <h1>PREMIUM</h1>
+          <p>
+            Advanced AI, enterprise software, cloud,
+            security, automation and specialist solutions.
+          </p>
+          <p>${items.length} premium solutions available.</p>
+        </section>
+      `;
+    }
+
+    updatePremiumNavigation();
+
+    requestAnimationFrame(() => {
+      const navigation =
+        document.querySelector("nav") ||
+        document.querySelector("header");
+
+      const offset = navigation
+        ? navigation.getBoundingClientRect().height + 24
+        : 120;
+
+      const top =
+        premiumPage.getBoundingClientRect().top +
+        window.scrollY -
+        offset;
+
+      window.scrollTo({
+        top: Math.max(0, top),
+        behavior: "auto"
+      });
+    });
+  }
+
+  function isPremiumHash() {
+    return /^#\/?premium(?:\/|$)/i.test(
+      window.location.hash
+    );
+  }
+
+  function openPremium(event) {
+    const trigger = event.target.closest(
+      'a[href="#/premium"],' +
+      'a[href="#premium"],' +
+      '[data-mcx-route="premium"]'
+    );
+
+    if (!trigger) {
+      return;
+    }
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (window.location.hash !== "#/premium") {
+      window.location.hash = "#/premium";
+    } else {
+      showPremiumPage();
+    }
+  }
+
+  document.addEventListener(
+    "click",
+    openPremium,
+    true
+  );
+
+  window.addEventListener("hashchange", () => {
+    if (isPremiumHash()) {
+      showPremiumPage();
+    }
+  });
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      () => {
+        ensurePremiumPage();
+
+        if (isPremiumHash()) {
+          showPremiumPage();
+        }
+      },
+      { once: true }
+    );
+  } else {
+    ensurePremiumPage();
+
+    if (isPremiumHash()) {
+      showPremiumPage();
+    }
+  }
+})();
+/* MCX_PREMIUM_CLICK_ROUTE_FIX_END */
