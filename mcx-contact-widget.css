@@ -426,3 +426,22 @@ html.mcx-hide-floating-button-on-front-page .mcx-exact-icon-launcher {
 
 /* MCX_ROUND_COMPANY_LOGO_END */
 
+
+/* ===== MI CORTEX X FLOATING LOGO SIZE ===== */
+.mcx-exact-launcher-svg,
+.mcx-hub-fab-icon svg{
+    width:90%!important;
+    height:90%!important;
+    max-width:90%!important;
+    max-height:90%!important;
+    display:block!important;
+    margin:auto!important;
+}
+
+.mcx-hub-fab-icon{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+}
+/* ===== END MI CORTEX X FLOATING LOGO SIZE ===== */
+
