@@ -688,28 +688,11280 @@ document.addEventListener('DOMContentLoaded', function () {
   };
 
   const catalogueData = {
-    products: [
-      { id: "cortex-core-ai", name: "CORTEX CORE AI", category: "AI Products", description: "A next-generation AI platform designed to automate business operations, provide intelligent customer support, generate content and integrate with websites, mobile applications and enterprise systems.", priceLkr: 45000, prefix: "Starting from", billingPeriod: "", status: "Development", features: ["AI platform", "Business automation", "Website and app integration"], deliveryTime: "7–30 days", supportPeriod: "30 days", route: "#/products/cortex-core-ai", type: "product", note: "Free plan available when released." },
-      { id: "mi-business-management-suite", name: "MI Business Management Suite", category: "Business Management Products", description: "A complete business management platform including CRM, HRM, inventory, POS, ERP and analytics.", priceLkr: 80000, prefix: "Starting from", billingPeriod: "", status: "Upcoming", features: ["CRM", "HRM", "Inventory and POS"], deliveryTime: "Custom", supportPeriod: "60 days", route: "#/products/business-suite", type: "product", note: "Professional setup and configuration available." }
-    ],
-    services: [
-      { id: "ai-development", name: "AI Development", category: "AI Development", description: "Custom AI solutions for automation, integrations and intelligent business workflows.", priceLkr: 60000, prefix: "Starting from", billingPeriod: "", status: "Available", features: ["AI models", "Automation", "AI integration"], deliveryTime: "7–30 days", supportPeriod: "30 days", route: "#/services/ai-development", type: "service" },
-      { id: "ai-chatbot-development", name: "AI Chatbot Development", category: "AI Development", description: "Professional chatbot development for customer support, onboarding and business communication.", priceLkr: 45000, prefix: "Starting from", billingPeriod: "", status: "Available", features: ["AI integration", "Business chatbot", "Multilingual support"], deliveryTime: "5–14 days", supportPeriod: "30 days", route: "#/services/ai-chatbot-development", type: "service" },
-      { id: "ai-automation", name: "AI Automation", category: "Automation", description: "Workflow automation and AI agent development for modern business operations.", priceLkr: 65000, prefix: "Starting from", billingPeriod: "", status: "Available", features: ["Workflow automation", "AI agents", "Business automation"], deliveryTime: "7–21 days", supportPeriod: "30 days", route: "#/services/ai-automation", type: "service" },
-      { id: "website-development", name: "Website Development", category: "Website Development", description: "Responsive and SEO-ready website development for modern businesses.", priceLkr: 15000, prefix: "Starting from", billingPeriod: "", status: "Available", features: ["Responsive design", "SEO-ready structure", "Admin options"], deliveryTime: "3–14 days", supportPeriod: "30 days", route: "#/services/website-development", type: "service" },
-      { id: "web-application-development", name: "Web Application Development", category: "Web Application Development", description: "Secure and scalable web application development for business platforms.", priceLkr: 50000, prefix: "Starting from", billingPeriod: "", status: "Available", features: ["Secure login", "Dashboard", "Database"], deliveryTime: "7–30 days", supportPeriod: "30 days", route: "#/services/web-application-development", type: "service" },
-      { id: "mobile-app-development", name: "Mobile App Development", category: "Mobile App Development", description: "Android, iOS and cross-platform development for modern mobile experiences.", priceLkr: 85000, prefix: "Starting from", billingPeriod: "", status: "Available", features: ["Android", "iOS", "Cross-platform"], deliveryTime: "14–45 days", supportPeriod: "30 days", route: "#/services/mobile-app-development", type: "service" },
-      { id: "desktop-software-development", name: "Desktop Software Development", category: "Desktop Software Development", description: "Windows and Linux desktop software with secure database support.", priceLkr: 70000, prefix: "Starting from", billingPeriod: "", status: "Available", features: ["Windows", "Linux", "Database support"], deliveryTime: "10–30 days", supportPeriod: "30 days", route: "#/services/desktop-software-development", type: "service" },
-      { id: "enterprise-software", name: "Enterprise Software", category: "Enterprise Software Development", description: "Enterprise-grade software for ERP, CRM, HRM and POS requirements.", priceLkr: 250000, prefix: "Starting from", billingPeriod: "", status: "Available", features: ["ERP", "CRM", "HRM and POS"], deliveryTime: "30–90 days", supportPeriod: "90 days", route: "#/services/enterprise-software", type: "service" },
-      { id: "api-development", name: "API Development", category: "API Development", description: "REST and GraphQL API development and secure interface delivery.", priceLkr: 30000, prefix: "Starting from", billingPeriod: "", status: "Available", features: ["REST", "GraphQL", "Secure APIs"], deliveryTime: "3–10 days", supportPeriod: "30 days", route: "#/services/api-development", type: "service" },
-      { id: "api-integration", name: "API Integration", category: "API Integration", description: "Integration with payment services, AI providers and third-party platforms.", priceLkr: 20000, prefix: "Starting from", billingPeriod: "", status: "Available", features: ["Payment APIs", "AI APIs", "Third-party integrations"], deliveryTime: "2–7 days", supportPeriod: "30 days", route: "#/services/api-integration", type: "service" },
-      { id: "cloud-solutions", name: "Cloud Solutions", category: "Cloud and Hosting", description: "Cloud setup and hosting configuration across AWS, Azure and Google Cloud.", priceLkr: 30000, prefix: "Starting from", billingPeriod: "", status: "Available", features: ["AWS", "Azure", "Google Cloud"], deliveryTime: "2–10 days", supportPeriod: "30 days", route: "#/services/cloud-solutions", type: "service" },
-      { id: "ui-ux-design", name: "UI/UX Design", category: "UI/UX Design", description: "Modern UI and UX design with responsive layouts and interactive prototypes.", priceLkr: 15000, prefix: "Starting from", billingPeriod: "", status: "Available", features: ["Modern UI", "Responsive design", "Prototype"], deliveryTime: "3–10 days", supportPeriod: "14 days", route: "#/services/ui-ux-design", type: "service" },
-      { id: "software-maintenance", name: "Software Maintenance", category: "Maintenance", description: "Ongoing maintenance, bug fixes, updates and monitoring for live systems.", priceLkr: 7500, prefix: "Starting from", billingPeriod: "per month", status: "Available", features: ["Bug fixes", "Updates", "Monitoring"], deliveryTime: "Ongoing", supportPeriod: "Monthly", route: "#/services/software-maintenance", type: "service" },
-      { id: "technical-consulting", name: "Technical Consulting", category: "Consultation", description: "Architecture review, planning guidance and technical consultation for your project.", priceLkr: 5000, prefix: "Starting from", billingPeriod: "", status: "Available", features: ["Technology planning", "Architecture advice", "Project guidance"], deliveryTime: "Same day when available", supportPeriod: "Consultation only", route: "#/services/technical-consulting", type: "service" },
-      { id: "custom-software-development", name: "Custom Software Development", category: "Custom Software Development", description: "Fully customized software built around your business process and requirements.", priceLkr: 100000, prefix: "Starting from", billingPeriod: "", status: "Available", features: ["Fully customized solutions", "Scalable architecture", "Project-specific delivery"], deliveryTime: "14–90 days", supportPeriod: "60 days", route: "#/services/custom-software-development", type: "service" }
-    ]
-  };
+  "products": [
+    {
+      "id": "cortex-core-ai",
+      "name": "CORTEX CORE AI",
+      "category": "AI Products",
+      "description": "A next-generation AI platform designed to automate business operations, provide intelligent customer support, generate content and integrate with websites, mobile applications and enterprise systems.",
+      "priceLkr": 45000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Development",
+      "features": [
+        "AI platform",
+        "Business automation",
+        "Website and app integration"
+      ],
+      "deliveryTime": "7-30 days",
+      "supportPeriod": "30 days",
+      "route": "#/products/cortex-core-ai",
+      "type": "product",
+      "note": "Free plan available when released."
+    },
+    {
+      "id": "mi-business-management-suite",
+      "name": "MI Business Management Suite",
+      "category": "Business Management Products",
+      "description": "A complete business management platform including CRM, HRM, inventory, POS, ERP and analytics.",
+      "priceLkr": 80000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Upcoming",
+      "features": [
+        "CRM",
+        "HRM",
+        "Inventory and POS"
+      ],
+      "deliveryTime": "Custom",
+      "supportPeriod": "60 days",
+      "route": "#/products/mi-business-management-suite",
+      "type": "product",
+      "note": "Professional setup and configuration available."
+    },
+    {
+      "id": "ai-chatbot",
+      "name": "AI Chatbot",
+      "category": "AI Chatbots",
+      "description": "A reusable AI Chatbot solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 45000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-chatbot",
+      "type": "product"
+    },
+    {
+      "id": "business-ai-chatbot",
+      "name": "Business AI Chatbot",
+      "category": "AI Chatbots",
+      "description": "A reusable Business AI Chatbot solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 55000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/business-ai-chatbot",
+      "type": "product"
+    },
+    {
+      "id": "customer-support-ai",
+      "name": "Customer Support AI",
+      "category": "AI Products",
+      "description": "A reusable Customer Support AI solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 55000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/customer-support-ai",
+      "type": "product"
+    },
+    {
+      "id": "website-ai-assistant",
+      "name": "Website AI Assistant",
+      "category": "AI Assistants",
+      "description": "A reusable Website AI Assistant solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 45000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/website-ai-assistant",
+      "type": "product"
+    },
+    {
+      "id": "whatsapp-ai-bot",
+      "name": "WhatsApp AI Bot",
+      "category": "AI Chatbots",
+      "description": "A reusable WhatsApp AI Bot solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 50000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/whatsapp-ai-bot",
+      "type": "product"
+    },
+    {
+      "id": "telegram-ai-bot",
+      "name": "Telegram AI Bot",
+      "category": "AI Chatbots",
+      "description": "A reusable Telegram AI Bot solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 40000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/telegram-ai-bot",
+      "type": "product"
+    },
+    {
+      "id": "facebook-messenger-bot",
+      "name": "Facebook Messenger Bot",
+      "category": "Business Management Products",
+      "description": "A reusable Facebook Messenger Bot solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 50000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/facebook-messenger-bot",
+      "type": "product"
+    },
+    {
+      "id": "instagram-ai-bot",
+      "name": "Instagram AI Bot",
+      "category": "AI Chatbots",
+      "description": "A reusable Instagram AI Bot solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 50000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/instagram-ai-bot",
+      "type": "product"
+    },
+    {
+      "id": "discord-ai-bot",
+      "name": "Discord AI Bot",
+      "category": "AI Chatbots",
+      "description": "A reusable Discord AI Bot solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 40000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/discord-ai-bot",
+      "type": "product"
+    },
+    {
+      "id": "slack-ai-bot",
+      "name": "Slack AI Bot",
+      "category": "AI Chatbots",
+      "description": "A reusable Slack AI Bot solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 45000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/slack-ai-bot",
+      "type": "product"
+    },
+    {
+      "id": "ai-faq-bot",
+      "name": "AI FAQ Bot",
+      "category": "AI Chatbots",
+      "description": "A reusable AI FAQ Bot solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 35000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-faq-bot",
+      "type": "product"
+    },
+    {
+      "id": "ai-sales-assistant",
+      "name": "AI Sales Assistant",
+      "category": "AI Assistants",
+      "description": "A reusable AI Sales Assistant solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 60000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-sales-assistant",
+      "type": "product"
+    },
+    {
+      "id": "ai-lead-generation-bot",
+      "name": "AI Lead Generation Bot",
+      "category": "AI Chatbots",
+      "description": "A reusable AI Lead Generation Bot solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 65000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-lead-generation-bot",
+      "type": "product"
+    },
+    {
+      "id": "ai-booking-assistant",
+      "name": "AI Booking Assistant",
+      "category": "AI Assistants",
+      "description": "A reusable AI Booking Assistant solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 55000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-booking-assistant",
+      "type": "product"
+    },
+    {
+      "id": "ai-appointment-system",
+      "name": "AI Appointment System",
+      "category": "AI Products",
+      "description": "A reusable AI Appointment System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 50000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-appointment-system",
+      "type": "product"
+    },
+    {
+      "id": "ai-receptionist",
+      "name": "AI Receptionist",
+      "category": "AI Products",
+      "description": "A reusable AI Receptionist solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 75000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-receptionist",
+      "type": "product"
+    },
+    {
+      "id": "ai-voice-assistant",
+      "name": "AI Voice Assistant",
+      "category": "AI Assistants",
+      "description": "A reusable AI Voice Assistant solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 95000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-voice-assistant",
+      "type": "product"
+    },
+    {
+      "id": "ai-voice-chatbot",
+      "name": "AI Voice Chatbot",
+      "category": "AI Chatbots",
+      "description": "A reusable AI Voice Chatbot solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 120000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-voice-chatbot",
+      "type": "product"
+    },
+    {
+      "id": "ai-pdf-chat",
+      "name": "AI PDF Chat",
+      "category": "AI Products",
+      "description": "A reusable AI PDF Chat solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 60000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-pdf-chat",
+      "type": "product"
+    },
+    {
+      "id": "ai-document-analyzer",
+      "name": "AI Document Analyzer",
+      "category": "AI Products",
+      "description": "A reusable AI Document Analyzer solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 65000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-document-analyzer",
+      "type": "product"
+    },
+    {
+      "id": "ai-resume-builder",
+      "name": "AI Resume Builder",
+      "category": "AI Products",
+      "description": "A reusable AI Resume Builder solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 45000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-resume-builder",
+      "type": "product"
+    },
+    {
+      "id": "ai-cv-analyzer",
+      "name": "AI CV Analyzer",
+      "category": "AI Products",
+      "description": "A reusable AI CV Analyzer solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 50000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-cv-analyzer",
+      "type": "product"
+    },
+    {
+      "id": "ai-email-writer",
+      "name": "AI Email Writer",
+      "category": "AI Products",
+      "description": "A reusable AI Email Writer solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 45000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-email-writer",
+      "type": "product"
+    },
+    {
+      "id": "ai-content-writer",
+      "name": "AI Content Writer",
+      "category": "AI Products",
+      "description": "A reusable AI Content Writer solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 55000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-content-writer",
+      "type": "product"
+    },
+    {
+      "id": "ai-blog-generator",
+      "name": "AI Blog Generator",
+      "category": "AI Products",
+      "description": "A reusable AI Blog Generator solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 55000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-blog-generator",
+      "type": "product"
+    },
+    {
+      "id": "ai-news-generator",
+      "name": "AI News Generator",
+      "category": "AI Products",
+      "description": "A reusable AI News Generator solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 60000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-news-generator",
+      "type": "product"
+    },
+    {
+      "id": "ai-image-generator",
+      "name": "AI Image Generator",
+      "category": "AI Products",
+      "description": "A reusable AI Image Generator solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 75000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-image-generator",
+      "type": "product"
+    },
+    {
+      "id": "ai-image-caption-generator",
+      "name": "AI Image Caption Generator",
+      "category": "AI Products",
+      "description": "A reusable AI Image Caption Generator solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 45000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-image-caption-generator",
+      "type": "product"
+    },
+    {
+      "id": "ai-ocr-system",
+      "name": "AI OCR System",
+      "category": "AI Products",
+      "description": "A reusable AI OCR System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 70000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-ocr-system",
+      "type": "product"
+    },
+    {
+      "id": "ai-translator",
+      "name": "AI Translator",
+      "category": "AI Products",
+      "description": "A reusable AI Translator solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 50000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-translator",
+      "type": "product"
+    },
+    {
+      "id": "ai-grammar-checker",
+      "name": "AI Grammar Checker",
+      "category": "AI Products",
+      "description": "A reusable AI Grammar Checker solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 45000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-grammar-checker",
+      "type": "product"
+    },
+    {
+      "id": "ai-code-assistant",
+      "name": "AI Code Assistant",
+      "category": "AI Assistants",
+      "description": "A reusable AI Code Assistant solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 110000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-code-assistant",
+      "type": "product"
+    },
+    {
+      "id": "ai-programming-tutor",
+      "name": "AI Programming Tutor",
+      "category": "AI Products",
+      "description": "A reusable AI Programming Tutor solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 90000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-programming-tutor",
+      "type": "product"
+    },
+    {
+      "id": "ai-school-assistant",
+      "name": "AI School Assistant",
+      "category": "AI Assistants",
+      "description": "A reusable AI School Assistant solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 80000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-school-assistant",
+      "type": "product"
+    },
+    {
+      "id": "ai-hospital-assistant",
+      "name": "AI Hospital Assistant",
+      "category": "AI Assistants",
+      "description": "A reusable AI Hospital Assistant solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 100000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-hospital-assistant",
+      "type": "product"
+    },
+    {
+      "id": "ai-hotel-assistant",
+      "name": "AI Hotel Assistant",
+      "category": "AI Assistants",
+      "description": "A reusable AI Hotel Assistant solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 90000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-hotel-assistant",
+      "type": "product"
+    },
+    {
+      "id": "ai-restaurant-assistant",
+      "name": "AI Restaurant Assistant",
+      "category": "AI Assistants",
+      "description": "A reusable AI Restaurant Assistant solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 80000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-restaurant-assistant",
+      "type": "product"
+    },
+    {
+      "id": "ai-property-assistant",
+      "name": "AI Property Assistant",
+      "category": "AI Assistants",
+      "description": "A reusable AI Property Assistant solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 90000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-property-assistant",
+      "type": "product"
+    },
+    {
+      "id": "pos-point-of-sale-system",
+      "name": "POS (Point of Sale) System",
+      "category": "POS Products",
+      "description": "A reusable POS (Point of Sale) System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 60000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/pos-point-of-sale-system",
+      "type": "product"
+    },
+    {
+      "id": "restaurant-pos-system",
+      "name": "Restaurant POS System",
+      "category": "POS Products",
+      "description": "A reusable Restaurant POS System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 75000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/restaurant-pos-system",
+      "type": "product"
+    },
+    {
+      "id": "retail-pos-system",
+      "name": "Retail POS System",
+      "category": "AI Products",
+      "description": "A reusable Retail POS System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 70000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/retail-pos-system",
+      "type": "product"
+    },
+    {
+      "id": "pharmacy-pos-system",
+      "name": "Pharmacy POS System",
+      "category": "POS Products",
+      "description": "A reusable Pharmacy POS System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 80000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/pharmacy-pos-system",
+      "type": "product"
+    },
+    {
+      "id": "supermarket-pos-system",
+      "name": "Supermarket POS System",
+      "category": "POS Products",
+      "description": "A reusable Supermarket POS System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 90000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/supermarket-pos-system",
+      "type": "product"
+    },
+    {
+      "id": "inventory-management-system",
+      "name": "Inventory Management System",
+      "category": "Inventory Products",
+      "description": "A reusable Inventory Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 65000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/inventory-management-system",
+      "type": "product"
+    },
+    {
+      "id": "stock-management-system",
+      "name": "Stock Management System",
+      "category": "Inventory Products",
+      "description": "A reusable Stock Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 60000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/stock-management-system",
+      "type": "product"
+    },
+    {
+      "id": "warehouse-management-system",
+      "name": "Warehouse Management System",
+      "category": "Inventory Products",
+      "description": "A reusable Warehouse Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 85000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/warehouse-management-system",
+      "type": "product"
+    },
+    {
+      "id": "asset-management-system",
+      "name": "Asset Management System",
+      "category": "Business Management Products",
+      "description": "A reusable Asset Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 70000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/asset-management-system",
+      "type": "product"
+    },
+    {
+      "id": "purchase-management-system",
+      "name": "Purchase Management System",
+      "category": "Business Management Products",
+      "description": "A reusable Purchase Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 60000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/purchase-management-system",
+      "type": "product"
+    },
+    {
+      "id": "sales-management-system",
+      "name": "Sales Management System",
+      "category": "Business Management Products",
+      "description": "A reusable Sales Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 60000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/sales-management-system",
+      "type": "product"
+    },
+    {
+      "id": "supplier-management-system",
+      "name": "Supplier Management System",
+      "category": "Business Management Products",
+      "description": "A reusable Supplier Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 55000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/supplier-management-system",
+      "type": "product"
+    },
+    {
+      "id": "customer-management-system",
+      "name": "Customer Management System",
+      "category": "Business Management Products",
+      "description": "A reusable Customer Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 55000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/customer-management-system",
+      "type": "product"
+    },
+    {
+      "id": "crm-customer-relationship-management",
+      "name": "CRM (Customer Relationship Management)",
+      "category": "CRM Products",
+      "description": "A reusable CRM (Customer Relationship Management) solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 90000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/crm-customer-relationship-management",
+      "type": "product"
+    },
+    {
+      "id": "erp-enterprise-resource-planning",
+      "name": "ERP (Enterprise Resource Planning)",
+      "category": "ERP Products",
+      "description": "A reusable ERP (Enterprise Resource Planning) solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 250000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/erp-enterprise-resource-planning",
+      "type": "product"
+    },
+    {
+      "id": "accounting-software",
+      "name": "Accounting Software",
+      "category": "Business Management Products",
+      "description": "A reusable Accounting Software solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 80000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/accounting-software",
+      "type": "product"
+    },
+    {
+      "id": "billing-invoice-system",
+      "name": "Billing & Invoice System",
+      "category": "Business Management Products",
+      "description": "A reusable Billing & Invoice System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 40000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/billing-invoice-system",
+      "type": "product"
+    },
+    {
+      "id": "quotation-management-system",
+      "name": "Quotation Management System",
+      "category": "Business Management Products",
+      "description": "A reusable Quotation Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 35000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/quotation-management-system",
+      "type": "product"
+    },
+    {
+      "id": "expense-tracking-system",
+      "name": "Expense Tracking System",
+      "category": "Business Management Products",
+      "description": "A reusable Expense Tracking System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 35000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/expense-tracking-system",
+      "type": "product"
+    },
+    {
+      "id": "finance-management-system",
+      "name": "Finance Management System",
+      "category": "Business Management Products",
+      "description": "A reusable Finance Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 90000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/finance-management-system",
+      "type": "product"
+    },
+    {
+      "id": "payroll-management-system",
+      "name": "Payroll Management System",
+      "category": "Business Management Products",
+      "description": "A reusable Payroll Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 70000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/payroll-management-system",
+      "type": "product"
+    },
+    {
+      "id": "hr-management-system",
+      "name": "HR Management System",
+      "category": "HRM Products",
+      "description": "A reusable HR Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 80000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/hr-management-system",
+      "type": "product"
+    },
+    {
+      "id": "employee-management-system",
+      "name": "Employee Management System",
+      "category": "Business Management Products",
+      "description": "A reusable Employee Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 65000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/employee-management-system",
+      "type": "product"
+    },
+    {
+      "id": "attendance-management-system",
+      "name": "Attendance Management System",
+      "category": "Business Management Products",
+      "description": "A reusable Attendance Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 50000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/attendance-management-system",
+      "type": "product"
+    },
+    {
+      "id": "biometric-attendance-system",
+      "name": "Biometric Attendance System",
+      "category": "Business Management Products",
+      "description": "A reusable Biometric Attendance System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 75000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/biometric-attendance-system",
+      "type": "product"
+    },
+    {
+      "id": "leave-management-system",
+      "name": "Leave Management System",
+      "category": "Business Management Products",
+      "description": "A reusable Leave Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 45000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/leave-management-system",
+      "type": "product"
+    },
+    {
+      "id": "recruitment-management-system",
+      "name": "Recruitment Management System",
+      "category": "Business Management Products",
+      "description": "A reusable Recruitment Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 70000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/recruitment-management-system",
+      "type": "product"
+    },
+    {
+      "id": "performance-evaluation-system",
+      "name": "Performance Evaluation System",
+      "category": "Business Management Products",
+      "description": "A reusable Performance Evaluation System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 65000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/performance-evaluation-system",
+      "type": "product"
+    },
+    {
+      "id": "school-management-system",
+      "name": "School Management System",
+      "category": "Education Systems",
+      "description": "A reusable School Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 110000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/school-management-system",
+      "type": "product"
+    },
+    {
+      "id": "student-information-system",
+      "name": "Student Information System",
+      "category": "Education Systems",
+      "description": "A reusable Student Information System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 80000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/student-information-system",
+      "type": "product"
+    },
+    {
+      "id": "learning-management-system-lms",
+      "name": "Learning Management System (LMS)",
+      "category": "Education Systems",
+      "description": "A reusable Learning Management System (LMS) solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 90000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/learning-management-system-lms",
+      "type": "product"
+    },
+    {
+      "id": "exam-management-system",
+      "name": "Exam Management System",
+      "category": "Education Systems",
+      "description": "A reusable Exam Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 75000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/exam-management-system",
+      "type": "product"
+    },
+    {
+      "id": "library-management-system",
+      "name": "Library Management System",
+      "category": "Education Systems",
+      "description": "A reusable Library Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 55000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/library-management-system",
+      "type": "product"
+    },
+    {
+      "id": "hostel-management-system",
+      "name": "Hostel Management System",
+      "category": "Business Management Products",
+      "description": "A reusable Hostel Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 70000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/hostel-management-system",
+      "type": "product"
+    },
+    {
+      "id": "fee-management-system",
+      "name": "Fee Management System",
+      "category": "Business Management Products",
+      "description": "A reusable Fee Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 60000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/fee-management-system",
+      "type": "product"
+    },
+    {
+      "id": "online-admission-system",
+      "name": "Online Admission System",
+      "category": "Business Management Products",
+      "description": "A reusable Online Admission System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 70000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/online-admission-system",
+      "type": "product"
+    },
+    {
+      "id": "hospital-management-system",
+      "name": "Hospital Management System",
+      "category": "Healthcare Systems",
+      "description": "A reusable Hospital Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 180000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/hospital-management-system",
+      "type": "product"
+    },
+    {
+      "id": "clinic-management-system",
+      "name": "Clinic Management System",
+      "category": "Healthcare Systems",
+      "description": "A reusable Clinic Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 90000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/clinic-management-system",
+      "type": "product"
+    },
+    {
+      "id": "patient-management-system",
+      "name": "Patient Management System",
+      "category": "Healthcare Systems",
+      "description": "A reusable Patient Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 85000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/patient-management-system",
+      "type": "product"
+    },
+    {
+      "id": "doctor-appointment-system",
+      "name": "Doctor Appointment System",
+      "category": "Healthcare Systems",
+      "description": "A reusable Doctor Appointment System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 60000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/doctor-appointment-system",
+      "type": "product"
+    },
+    {
+      "id": "laboratory-management-system",
+      "name": "Laboratory Management System",
+      "category": "Healthcare Systems",
+      "description": "A reusable Laboratory Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 100000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/laboratory-management-system",
+      "type": "product"
+    },
+    {
+      "id": "medical-record-system",
+      "name": "Medical Record System",
+      "category": "Healthcare Systems",
+      "description": "A reusable Medical Record System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 90000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/medical-record-system",
+      "type": "product"
+    },
+    {
+      "id": "pharmacy-management-system",
+      "name": "Pharmacy Management System",
+      "category": "Healthcare Systems",
+      "description": "A reusable Pharmacy Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 85000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/pharmacy-management-system",
+      "type": "product"
+    },
+    {
+      "id": "hotel-management-system",
+      "name": "Hotel Management System",
+      "category": "Hospitality Systems",
+      "description": "A reusable Hotel Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 130000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/hotel-management-system",
+      "type": "product"
+    },
+    {
+      "id": "room-booking-system",
+      "name": "Room Booking System",
+      "category": "Hospitality Systems",
+      "description": "A reusable Room Booking System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 80000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/room-booking-system",
+      "type": "product"
+    },
+    {
+      "id": "restaurant-management-system",
+      "name": "Restaurant Management System",
+      "category": "Hospitality Systems",
+      "description": "A reusable Restaurant Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 85000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/restaurant-management-system",
+      "type": "product"
+    },
+    {
+      "id": "resort-management-system",
+      "name": "Resort Management System",
+      "category": "Hospitality Systems",
+      "description": "A reusable Resort Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 140000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/resort-management-system",
+      "type": "product"
+    },
+    {
+      "id": "vehicle-management-system",
+      "name": "Vehicle Management System",
+      "category": "Business Management Products",
+      "description": "A reusable Vehicle Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 75000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/vehicle-management-system",
+      "type": "product"
+    },
+    {
+      "id": "fleet-management-system",
+      "name": "Fleet Management System",
+      "category": "Business Management Products",
+      "description": "A reusable Fleet Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 120000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/fleet-management-system",
+      "type": "product"
+    },
+    {
+      "id": "vehicle-rental-management-system",
+      "name": "Vehicle Rental Management System",
+      "category": "Business Management Products",
+      "description": "A reusable Vehicle Rental Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 100000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/vehicle-rental-management-system",
+      "type": "product"
+    },
+    {
+      "id": "garage-management-system",
+      "name": "Garage Management System",
+      "category": "Business Management Products",
+      "description": "A reusable Garage Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 80000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/garage-management-system",
+      "type": "product"
+    },
+    {
+      "id": "real-estate-management-system",
+      "name": "Real Estate Management System",
+      "category": "Business Management Products",
+      "description": "A reusable Real Estate Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 100000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/real-estate-management-system",
+      "type": "product"
+    },
+    {
+      "id": "property-management-system",
+      "name": "Property Management System",
+      "category": "Business Management Products",
+      "description": "A reusable Property Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 95000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/property-management-system",
+      "type": "product"
+    },
+    {
+      "id": "project-management-system",
+      "name": "Project Management System",
+      "category": "Business Management Products",
+      "description": "A reusable Project Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 80000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/project-management-system",
+      "type": "product"
+    },
+    {
+      "id": "task-management-system",
+      "name": "Task Management System",
+      "category": "Business Management Products",
+      "description": "A reusable Task Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 55000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/task-management-system",
+      "type": "product"
+    },
+    {
+      "id": "help-desk-ticket-system",
+      "name": "Help Desk / Ticket System",
+      "category": "Business Management Products",
+      "description": "A reusable Help Desk / Ticket System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 65000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/help-desk-ticket-system",
+      "type": "product"
+    },
+    {
+      "id": "complaint-management-system",
+      "name": "Complaint Management System",
+      "category": "AI Products",
+      "description": "A reusable Complaint Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 55000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/complaint-management-system",
+      "type": "product"
+    },
+    {
+      "id": "visitor-management-system",
+      "name": "Visitor Management System",
+      "category": "Business Management Products",
+      "description": "A reusable Visitor Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 60000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/visitor-management-system",
+      "type": "product"
+    },
+    {
+      "id": "document-management-system",
+      "name": "Document Management System",
+      "category": "Business Management Products",
+      "description": "A reusable Document Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 70000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/document-management-system",
+      "type": "product"
+    },
+    {
+      "id": "file-management-system",
+      "name": "File Management System",
+      "category": "Business Management Products",
+      "description": "A reusable File Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 60000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/file-management-system",
+      "type": "product"
+    },
+    {
+      "id": "knowledge-base-system",
+      "name": "Knowledge Base System",
+      "category": "Business Management Products",
+      "description": "A reusable Knowledge Base System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 60000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/knowledge-base-system",
+      "type": "product"
+    },
+    {
+      "id": "membership-management-system",
+      "name": "Membership Management System",
+      "category": "Business Management Products",
+      "description": "A reusable Membership Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 65000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/membership-management-system",
+      "type": "product"
+    },
+    {
+      "id": "gym-management-system",
+      "name": "Gym Management System",
+      "category": "Business Management Products",
+      "description": "A reusable Gym Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 75000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/gym-management-system",
+      "type": "product"
+    },
+    {
+      "id": "event-management-system",
+      "name": "Event Management System",
+      "category": "Business Management Products",
+      "description": "A reusable Event Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 80000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/event-management-system",
+      "type": "product"
+    },
+    {
+      "id": "wedding-management-system",
+      "name": "Wedding Management System",
+      "category": "Business Management Products",
+      "description": "A reusable Wedding Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 60000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/wedding-management-system",
+      "type": "product"
+    },
+    {
+      "id": "online-booking-system",
+      "name": "Online Booking System",
+      "category": "Business Management Products",
+      "description": "A reusable Online Booking System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 75000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/online-booking-system",
+      "type": "product"
+    },
+    {
+      "id": "appointment-scheduling-system",
+      "name": "Appointment Scheduling System",
+      "category": "Mobile Products",
+      "description": "A reusable Appointment Scheduling System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 55000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/appointment-scheduling-system",
+      "type": "product"
+    },
+    {
+      "id": "queue-management-system",
+      "name": "Queue Management System",
+      "category": "Business Management Products",
+      "description": "A reusable Queue Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 70000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/queue-management-system",
+      "type": "product"
+    },
+    {
+      "id": "qr-code-management-system",
+      "name": "QR Code Management System",
+      "category": "Business Management Products",
+      "description": "A reusable QR Code Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 35000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/qr-code-management-system",
+      "type": "product"
+    },
+    {
+      "id": "barcode-management-system",
+      "name": "Barcode Management System",
+      "category": "Business Management Products",
+      "description": "A reusable Barcode Management System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 40000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/barcode-management-system",
+      "type": "product"
+    },
+    {
+      "id": "autonomous-ai-systems",
+      "name": "Autonomous AI Systems",
+      "category": "AI Products",
+      "description": "A reusable Autonomous AI Systems solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 180000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/autonomous-ai-systems",
+      "type": "product"
+    },
+    {
+      "id": "multi-agent-ai-systems",
+      "name": "Multi-Agent AI Systems",
+      "category": "AI Agents",
+      "description": "A reusable Multi-Agent AI Systems solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 220000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/multi-agent-ai-systems",
+      "type": "product"
+    },
+    {
+      "id": "ai-coding-assistant",
+      "name": "AI Coding Assistant",
+      "category": "AI Assistants",
+      "description": "A reusable AI Coding Assistant solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 120000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-coding-assistant",
+      "type": "product"
+    },
+    {
+      "id": "ai-analytics-platform",
+      "name": "AI Analytics Platform",
+      "category": "AI Products",
+      "description": "A reusable AI Analytics Platform solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 120000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-analytics-platform",
+      "type": "product"
+    },
+    {
+      "id": "ai-recommendation-system",
+      "name": "AI Recommendation System",
+      "category": "AI Products",
+      "description": "A reusable AI Recommendation System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 90000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-recommendation-system",
+      "type": "product"
+    },
+    {
+      "id": "ai-medical-assistant",
+      "name": "AI Medical Assistant",
+      "category": "AI Assistants",
+      "description": "A reusable AI Medical Assistant solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 180000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-medical-assistant",
+      "type": "product"
+    },
+    {
+      "id": "ai-legal-assistant",
+      "name": "AI Legal Assistant",
+      "category": "AI Assistants",
+      "description": "A reusable AI Legal Assistant solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 180000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-legal-assistant",
+      "type": "product"
+    },
+    {
+      "id": "ai-finance-assistant",
+      "name": "AI Finance Assistant",
+      "category": "AI Assistants",
+      "description": "A reusable AI Finance Assistant solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 160000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-finance-assistant",
+      "type": "product"
+    },
+    {
+      "id": "ai-hr-assistant",
+      "name": "AI HR Assistant",
+      "category": "AI Assistants",
+      "description": "A reusable AI HR Assistant solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 100000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-hr-assistant",
+      "type": "product"
+    },
+    {
+      "id": "ai-recruitment-system",
+      "name": "AI Recruitment System",
+      "category": "AI Products",
+      "description": "A reusable AI Recruitment System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 120000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-recruitment-system",
+      "type": "product"
+    },
+    {
+      "id": "ai-education-platform",
+      "name": "AI Education Platform",
+      "category": "AI Products",
+      "description": "A reusable AI Education Platform solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 140000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/ai-education-platform",
+      "type": "product"
+    },
+    {
+      "id": "inventory-software",
+      "name": "Inventory Software",
+      "category": "Inventory Products",
+      "description": "A reusable Inventory Software solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 75000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/inventory-software",
+      "type": "product"
+    },
+    {
+      "id": "accounting-software-2",
+      "name": "Accounting Software",
+      "category": "Business Management Products",
+      "description": "A reusable Accounting Software solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 100000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/accounting-software-2",
+      "type": "product"
+    },
+    {
+      "id": "hospital-erp",
+      "name": "Hospital ERP",
+      "category": "ERP Products",
+      "description": "A reusable Hospital ERP solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 450000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/hospital-erp",
+      "type": "product"
+    },
+    {
+      "id": "school-erp",
+      "name": "School ERP",
+      "category": "ERP Products",
+      "description": "A reusable School ERP solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 180000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/school-erp",
+      "type": "product"
+    },
+    {
+      "id": "hotel-erp",
+      "name": "Hotel ERP",
+      "category": "ERP Products",
+      "description": "A reusable Hotel ERP solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 250000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/hotel-erp",
+      "type": "product"
+    },
+    {
+      "id": "custom-web-portal",
+      "name": "Custom Web Portal",
+      "category": "Business Management Products",
+      "description": "A reusable Custom Web Portal solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 80000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/custom-web-portal",
+      "type": "product"
+    },
+    {
+      "id": "client-portal",
+      "name": "Client Portal",
+      "category": "Business Management Products",
+      "description": "A reusable Client Portal solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 60000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/client-portal",
+      "type": "product"
+    },
+    {
+      "id": "employee-portal",
+      "name": "Employee Portal",
+      "category": "Business Management Products",
+      "description": "A reusable Employee Portal solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 70000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/employee-portal",
+      "type": "product"
+    },
+    {
+      "id": "vendor-portal",
+      "name": "Vendor Portal",
+      "category": "Business Management Products",
+      "description": "A reusable Vendor Portal solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 70000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/vendor-portal",
+      "type": "product"
+    },
+    {
+      "id": "supplier-portal",
+      "name": "Supplier Portal",
+      "category": "Business Management Products",
+      "description": "A reusable Supplier Portal solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 70000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/supplier-portal",
+      "type": "product"
+    },
+    {
+      "id": "customer-dashboard",
+      "name": "Customer Dashboard",
+      "category": "Business Management Products",
+      "description": "A reusable Customer Dashboard solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 45000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/customer-dashboard",
+      "type": "product"
+    },
+    {
+      "id": "admin-dashboard",
+      "name": "Admin Dashboard",
+      "category": "Business Management Products",
+      "description": "A reusable Admin Dashboard solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 35000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/admin-dashboard",
+      "type": "product"
+    },
+    {
+      "id": "executive-dashboard",
+      "name": "Executive Dashboard",
+      "category": "Business Management Products",
+      "description": "A reusable Executive Dashboard solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 60000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/executive-dashboard",
+      "type": "product"
+    },
+    {
+      "id": "subscription-billing-system",
+      "name": "Subscription Billing System",
+      "category": "Business Management Products",
+      "description": "A reusable Subscription Billing System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 55000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/subscription-billing-system",
+      "type": "product"
+    },
+    {
+      "id": "digital-signature-system",
+      "name": "Digital Signature System",
+      "category": "Business Management Products",
+      "description": "A reusable Digital Signature System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 50000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/digital-signature-system",
+      "type": "product"
+    },
+    {
+      "id": "smart-home-systems",
+      "name": "Smart Home Systems",
+      "category": "Business Management Products",
+      "description": "A reusable Smart Home Systems solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 90000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/smart-home-systems",
+      "type": "product"
+    },
+    {
+      "id": "smart-office-systems",
+      "name": "Smart Office Systems",
+      "category": "Business Management Products",
+      "description": "A reusable Smart Office Systems solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 120000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/smart-office-systems",
+      "type": "product"
+    },
+    {
+      "id": "gps-tracking-system",
+      "name": "GPS Tracking System",
+      "category": "Business Management Products",
+      "description": "A reusable GPS Tracking System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 85000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/gps-tracking-system",
+      "type": "product"
+    },
+    {
+      "id": "fleet-tracking-system",
+      "name": "Fleet Tracking System",
+      "category": "Business Management Products",
+      "description": "A reusable Fleet Tracking System solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 140000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/fleet-tracking-system",
+      "type": "product"
+    },
+    {
+      "id": "desktop-software",
+      "name": "Desktop Software",
+      "category": "Desktop Products",
+      "description": "A reusable Desktop Software solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 70000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/desktop-software",
+      "type": "product"
+    },
+    {
+      "id": "windows-software",
+      "name": "Windows Software",
+      "category": "Desktop Products",
+      "description": "A reusable Windows Software solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 70000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/windows-software",
+      "type": "product"
+    },
+    {
+      "id": "mac-software",
+      "name": "Mac Software",
+      "category": "Desktop Products",
+      "description": "A reusable Mac Software solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 90000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/mac-software",
+      "type": "product"
+    },
+    {
+      "id": "linux-software",
+      "name": "Linux Software",
+      "category": "Desktop Products",
+      "description": "A reusable Linux Software solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 80000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/linux-software",
+      "type": "product"
+    },
+    {
+      "id": "automation-systems",
+      "name": "Automation Systems",
+      "category": "Automation Products",
+      "description": "A reusable Automation Systems solution from MI CORTEX X that can be configured for business or organizational requirements.",
+      "priceLkr": 45000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Reusable solution",
+        "Professional configuration",
+        "Business-ready delivery"
+      ],
+      "deliveryTime": "Configuration based",
+      "supportPeriod": "30 days",
+      "route": "#/products/automation-systems",
+      "type": "product"
+    }
+  ],
+  "services": [
+    {
+      "id": "custom-ai-platform",
+      "name": "Custom AI Platform",
+      "category": "AI Development",
+      "description": "Professional Custom AI Platform service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 150000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/custom-ai-platform",
+      "type": "service"
+    },
+    {
+      "id": "enterprise-ai-solution",
+      "name": "Enterprise AI Solution",
+      "category": "AI Development",
+      "description": "Professional Enterprise AI Solution service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 300000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/enterprise-ai-solution",
+      "type": "service"
+    },
+    {
+      "id": "landing-page",
+      "name": "Landing Page",
+      "category": "Website Development",
+      "description": "Professional Landing Page service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 15000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/landing-page",
+      "type": "service"
+    },
+    {
+      "id": "one-page-website",
+      "name": "One Page Website",
+      "category": "Website Development",
+      "description": "Professional One Page Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 18000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/one-page-website",
+      "type": "service"
+    },
+    {
+      "id": "personal-website",
+      "name": "Personal Website",
+      "category": "Website Development",
+      "description": "Professional Personal Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 20000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/personal-website",
+      "type": "service"
+    },
+    {
+      "id": "portfolio-website",
+      "name": "Portfolio Website",
+      "category": "Website Development",
+      "description": "Professional Portfolio Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 25000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/portfolio-website",
+      "type": "service"
+    },
+    {
+      "id": "resume-cv-website",
+      "name": "Resume / CV Website",
+      "category": "Website Development",
+      "description": "Professional Resume / CV Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 20000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/resume-cv-website",
+      "type": "service"
+    },
+    {
+      "id": "business-website",
+      "name": "Business Website",
+      "category": "Website Development",
+      "description": "Professional Business Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 35000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/business-website",
+      "type": "service"
+    },
+    {
+      "id": "company-website",
+      "name": "Company Website",
+      "category": "Website Development",
+      "description": "Professional Company Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 45000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/company-website",
+      "type": "service"
+    },
+    {
+      "id": "corporate-website",
+      "name": "Corporate Website",
+      "category": "Website Development",
+      "description": "Professional Corporate Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 55000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/corporate-website",
+      "type": "service"
+    },
+    {
+      "id": "startup-website",
+      "name": "Startup Website",
+      "category": "Website Development",
+      "description": "Professional Startup Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 40000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/startup-website",
+      "type": "service"
+    },
+    {
+      "id": "agency-website",
+      "name": "Agency Website",
+      "category": "Website Development",
+      "description": "Professional Agency Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 45000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/agency-website",
+      "type": "service"
+    },
+    {
+      "id": "blog-website",
+      "name": "Blog Website",
+      "category": "Website Development",
+      "description": "Professional Blog Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 30000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/blog-website",
+      "type": "service"
+    },
+    {
+      "id": "news-website",
+      "name": "News Website",
+      "category": "Website Development",
+      "description": "Professional News Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 50000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/news-website",
+      "type": "service"
+    },
+    {
+      "id": "magazine-website",
+      "name": "Magazine Website",
+      "category": "Website Development",
+      "description": "Professional Magazine Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 55000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/magazine-website",
+      "type": "service"
+    },
+    {
+      "id": "school-website",
+      "name": "School Website",
+      "category": "Website Development",
+      "description": "Professional School Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 45000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/school-website",
+      "type": "service"
+    },
+    {
+      "id": "university-website",
+      "name": "University Website",
+      "category": "Website Development",
+      "description": "Professional University Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 70000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/university-website",
+      "type": "service"
+    },
+    {
+      "id": "tuition-class-website",
+      "name": "Tuition Class Website",
+      "category": "Website Development",
+      "description": "Professional Tuition Class Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 35000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/tuition-class-website",
+      "type": "service"
+    },
+    {
+      "id": "lms-website",
+      "name": "LMS Website",
+      "category": "Website Development",
+      "description": "Professional LMS Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 80000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/lms-website",
+      "type": "service"
+    },
+    {
+      "id": "e-learning-website",
+      "name": "E-Learning Website",
+      "category": "Website Development",
+      "description": "Professional E-Learning Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 90000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/e-learning-website",
+      "type": "service"
+    },
+    {
+      "id": "hospital-website",
+      "name": "Hospital Website",
+      "category": "Website Development",
+      "description": "Professional Hospital Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 65000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/hospital-website",
+      "type": "service"
+    },
+    {
+      "id": "clinic-website",
+      "name": "Clinic Website",
+      "category": "Website Development",
+      "description": "Professional Clinic Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 45000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/clinic-website",
+      "type": "service"
+    },
+    {
+      "id": "doctor-website",
+      "name": "Doctor Website",
+      "category": "Website Development",
+      "description": "Professional Doctor Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 35000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/doctor-website",
+      "type": "service"
+    },
+    {
+      "id": "pharmacy-website",
+      "name": "Pharmacy Website",
+      "category": "Website Development",
+      "description": "Professional Pharmacy Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 45000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/pharmacy-website",
+      "type": "service"
+    },
+    {
+      "id": "hotel-website",
+      "name": "Hotel Website",
+      "category": "Website Development",
+      "description": "Professional Hotel Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 50000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/hotel-website",
+      "type": "service"
+    },
+    {
+      "id": "villa-website",
+      "name": "Villa Website",
+      "category": "Website Development",
+      "description": "Professional Villa Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 45000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/villa-website",
+      "type": "service"
+    },
+    {
+      "id": "restaurant-website",
+      "name": "Restaurant Website",
+      "category": "Website Development",
+      "description": "Professional Restaurant Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 40000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/restaurant-website",
+      "type": "service"
+    },
+    {
+      "id": "cafe-website",
+      "name": "Cafe Website",
+      "category": "Website Development",
+      "description": "Professional Cafe Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 35000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/cafe-website",
+      "type": "service"
+    },
+    {
+      "id": "travel-agency-website",
+      "name": "Travel Agency Website",
+      "category": "Website Development",
+      "description": "Professional Travel Agency Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 50000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/travel-agency-website",
+      "type": "service"
+    },
+    {
+      "id": "tour-booking-website",
+      "name": "Tour Booking Website",
+      "category": "Website Development",
+      "description": "Professional Tour Booking Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 75000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/tour-booking-website",
+      "type": "service"
+    },
+    {
+      "id": "real-estate-website",
+      "name": "Real Estate Website",
+      "category": "Website Development",
+      "description": "Professional Real Estate Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 70000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/real-estate-website",
+      "type": "service"
+    },
+    {
+      "id": "property-listing-website",
+      "name": "Property Listing Website",
+      "category": "Website Development",
+      "description": "Professional Property Listing Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 75000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/property-listing-website",
+      "type": "service"
+    },
+    {
+      "id": "car-sales-website",
+      "name": "Car Sales Website",
+      "category": "Website Development",
+      "description": "Professional Car Sales Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 60000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/car-sales-website",
+      "type": "service"
+    },
+    {
+      "id": "vehicle-rental-website",
+      "name": "Vehicle Rental Website",
+      "category": "Website Development",
+      "description": "Professional Vehicle Rental Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 65000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/vehicle-rental-website",
+      "type": "service"
+    },
+    {
+      "id": "job-portal-website",
+      "name": "Job Portal Website",
+      "category": "Website Development",
+      "description": "Professional Job Portal Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 80000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/job-portal-website",
+      "type": "service"
+    },
+    {
+      "id": "freelance-marketplace-website",
+      "name": "Freelance Marketplace Website",
+      "category": "Website Development",
+      "description": "Professional Freelance Marketplace Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 110000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/freelance-marketplace-website",
+      "type": "service"
+    },
+    {
+      "id": "e-commerce-website",
+      "name": "E-Commerce Website",
+      "category": "Website Development",
+      "description": "Professional E-Commerce Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 75000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/e-commerce-website",
+      "type": "service"
+    },
+    {
+      "id": "online-store",
+      "name": "Online Store",
+      "category": "Website Development Services",
+      "description": "Professional Online Store service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 70000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/online-store",
+      "type": "service"
+    },
+    {
+      "id": "fashion-store-website",
+      "name": "Fashion Store Website",
+      "category": "Website Development",
+      "description": "Professional Fashion Store Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 70000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/fashion-store-website",
+      "type": "service"
+    },
+    {
+      "id": "jewelry-store-website",
+      "name": "Jewelry Store Website",
+      "category": "Website Development",
+      "description": "Professional Jewelry Store Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 75000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/jewelry-store-website",
+      "type": "service"
+    },
+    {
+      "id": "electronics-store-website",
+      "name": "Electronics Store Website",
+      "category": "Website Development",
+      "description": "Professional Electronics Store Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 75000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/electronics-store-website",
+      "type": "service"
+    },
+    {
+      "id": "multi-vendor-marketplace",
+      "name": "Multi Vendor Marketplace",
+      "category": "Website Development Services",
+      "description": "Professional Multi Vendor Marketplace service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 150000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/multi-vendor-marketplace",
+      "type": "service"
+    },
+    {
+      "id": "ngo-website",
+      "name": "NGO Website",
+      "category": "Website Development",
+      "description": "Professional NGO Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 40000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/ngo-website",
+      "type": "service"
+    },
+    {
+      "id": "charity-website",
+      "name": "Charity Website",
+      "category": "Website Development",
+      "description": "Professional Charity Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 40000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/charity-website",
+      "type": "service"
+    },
+    {
+      "id": "church-mosque-website",
+      "name": "Church / Mosque Website",
+      "category": "Website Development",
+      "description": "Professional Church / Mosque Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 35000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/church-mosque-website",
+      "type": "service"
+    },
+    {
+      "id": "government-information-website",
+      "name": "Government Information Website",
+      "category": "Website Development",
+      "description": "Professional Government Information Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 80000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/government-information-website",
+      "type": "service"
+    },
+    {
+      "id": "event-website",
+      "name": "Event Website",
+      "category": "Website Development",
+      "description": "Professional Event Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 35000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/event-website",
+      "type": "service"
+    },
+    {
+      "id": "wedding-website",
+      "name": "Wedding Website",
+      "category": "Website Development",
+      "description": "Professional Wedding Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 25000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/wedding-website",
+      "type": "service"
+    },
+    {
+      "id": "sports-club-website",
+      "name": "Sports Club Website",
+      "category": "Website Development",
+      "description": "Professional Sports Club Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 35000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/sports-club-website",
+      "type": "service"
+    },
+    {
+      "id": "gym-website",
+      "name": "Gym Website",
+      "category": "Website Development",
+      "description": "Professional Gym Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 35000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/gym-website",
+      "type": "service"
+    },
+    {
+      "id": "fitness-website",
+      "name": "Fitness Website",
+      "category": "Website Development",
+      "description": "Professional Fitness Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 35000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/fitness-website",
+      "type": "service"
+    },
+    {
+      "id": "photography-website",
+      "name": "Photography Website",
+      "category": "Website Development",
+      "description": "Professional Photography Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 30000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/photography-website",
+      "type": "service"
+    },
+    {
+      "id": "music-website",
+      "name": "Music Website",
+      "category": "Website Development",
+      "description": "Professional Music Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 35000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/music-website",
+      "type": "service"
+    },
+    {
+      "id": "streaming-website",
+      "name": "Streaming Website",
+      "category": "Website Development",
+      "description": "Professional Streaming Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 120000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/streaming-website",
+      "type": "service"
+    },
+    {
+      "id": "video-sharing-website",
+      "name": "Video Sharing Website",
+      "category": "Website Development",
+      "description": "Professional Video Sharing Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 150000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/video-sharing-website",
+      "type": "service"
+    },
+    {
+      "id": "forum-website",
+      "name": "Forum Website",
+      "category": "Website Development",
+      "description": "Professional Forum Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 50000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/forum-website",
+      "type": "service"
+    },
+    {
+      "id": "community-website",
+      "name": "Community Website",
+      "category": "Website Development",
+      "description": "Professional Community Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 45000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/community-website",
+      "type": "service"
+    },
+    {
+      "id": "wiki-website",
+      "name": "Wiki Website",
+      "category": "Website Development",
+      "description": "Professional Wiki Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 60000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/wiki-website",
+      "type": "service"
+    },
+    {
+      "id": "membership-website",
+      "name": "Membership Website",
+      "category": "Website Development",
+      "description": "Professional Membership Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 75000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/membership-website",
+      "type": "service"
+    },
+    {
+      "id": "subscription-website",
+      "name": "Subscription Website",
+      "category": "Website Development",
+      "description": "Professional Subscription Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 90000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/subscription-website",
+      "type": "service"
+    },
+    {
+      "id": "booking-website",
+      "name": "Booking Website",
+      "category": "Website Development",
+      "description": "Professional Booking Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 80000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/booking-website",
+      "type": "service"
+    },
+    {
+      "id": "appointment-website",
+      "name": "Appointment Website",
+      "category": "Website Development",
+      "description": "Professional Appointment Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 55000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/appointment-website",
+      "type": "service"
+    },
+    {
+      "id": "custom-website",
+      "name": "Custom Website",
+      "category": "Website Development",
+      "description": "Professional Custom Website service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 50000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/custom-website",
+      "type": "service"
+    },
+    {
+      "id": "website-redesign",
+      "name": "Website Redesign",
+      "category": "Website Development",
+      "description": "Professional Website Redesign service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 25000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/website-redesign",
+      "type": "service"
+    },
+    {
+      "id": "website-bug-fix",
+      "name": "Website Bug Fix",
+      "category": "Website Development",
+      "description": "Professional Website Bug Fix service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 3000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/website-bug-fix",
+      "type": "service"
+    },
+    {
+      "id": "website-speed-optimization",
+      "name": "Website Speed Optimization",
+      "category": "Website Development",
+      "description": "Professional Website Speed Optimization service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 12000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/website-speed-optimization",
+      "type": "service"
+    },
+    {
+      "id": "website-maintenance",
+      "name": "Website Maintenance",
+      "category": "Website Development",
+      "description": "Professional Website Maintenance service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 7500,
+      "prefix": "Starting from",
+      "billingPeriod": "per month",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/website-maintenance",
+      "type": "service"
+    },
+    {
+      "id": "seo-optimization",
+      "name": "SEO Optimization",
+      "category": "SEO",
+      "description": "Professional SEO Optimization service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 15000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/seo-optimization",
+      "type": "service"
+    },
+    {
+      "id": "domain-hosting-setup",
+      "name": "Domain & Hosting Setup",
+      "category": "Cloud and Hosting",
+      "description": "Professional Domain & Hosting Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/domain-hosting-setup",
+      "type": "service"
+    },
+    {
+      "id": "ssl-installation",
+      "name": "SSL Installation",
+      "category": "Cloud and Hosting",
+      "description": "Professional SSL Installation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 5000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/ssl-installation",
+      "type": "service"
+    },
+    {
+      "id": "website-migration",
+      "name": "Website Migration",
+      "category": "Website Development",
+      "description": "Professional Website Migration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 10000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/website-migration",
+      "type": "service"
+    },
+    {
+      "id": "android-app-development",
+      "name": "Android App Development",
+      "category": "Mobile App Development",
+      "description": "Professional Android App Development service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 85000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/android-app-development",
+      "type": "service"
+    },
+    {
+      "id": "ios-app-development",
+      "name": "iOS App Development",
+      "category": "Mobile App Development",
+      "description": "Professional iOS App Development service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 110000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/ios-app-development",
+      "type": "service"
+    },
+    {
+      "id": "cross-platform-app",
+      "name": "Cross Platform App",
+      "category": "Mobile App Development",
+      "description": "Professional Cross Platform App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 120000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/cross-platform-app",
+      "type": "service"
+    },
+    {
+      "id": "hybrid-mobile-app",
+      "name": "Hybrid Mobile App",
+      "category": "Mobile App Development",
+      "description": "Professional Hybrid Mobile App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 120000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/hybrid-mobile-app",
+      "type": "service"
+    },
+    {
+      "id": "native-android-app",
+      "name": "Native Android App",
+      "category": "Mobile App Development",
+      "description": "Professional Native Android App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 95000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/native-android-app",
+      "type": "service"
+    },
+    {
+      "id": "native-iphone-app",
+      "name": "Native iPhone App",
+      "category": "Mobile App Development",
+      "description": "Professional Native iPhone App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 125000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/native-iphone-app",
+      "type": "service"
+    },
+    {
+      "id": "business-mobile-app",
+      "name": "Business Mobile App",
+      "category": "Mobile App Development",
+      "description": "Professional Business Mobile App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 90000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/business-mobile-app",
+      "type": "service"
+    },
+    {
+      "id": "company-mobile-app",
+      "name": "Company Mobile App",
+      "category": "Mobile App Development",
+      "description": "Professional Company Mobile App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 90000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/company-mobile-app",
+      "type": "service"
+    },
+    {
+      "id": "corporate-mobile-app",
+      "name": "Corporate Mobile App",
+      "category": "Mobile App Development",
+      "description": "Professional Corporate Mobile App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 120000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/corporate-mobile-app",
+      "type": "service"
+    },
+    {
+      "id": "portfolio-app",
+      "name": "Portfolio App",
+      "category": "Mobile App Development",
+      "description": "Professional Portfolio App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 45000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/portfolio-app",
+      "type": "service"
+    },
+    {
+      "id": "personal-mobile-app",
+      "name": "Personal Mobile App",
+      "category": "Mobile App Development",
+      "description": "Professional Personal Mobile App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 40000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/personal-mobile-app",
+      "type": "service"
+    },
+    {
+      "id": "e-commerce-mobile-app",
+      "name": "E-Commerce Mobile App",
+      "category": "Mobile App Development",
+      "description": "Professional E-Commerce Mobile App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 120000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/e-commerce-mobile-app",
+      "type": "service"
+    },
+    {
+      "id": "online-shopping-app",
+      "name": "Online Shopping App",
+      "category": "Mobile App Development",
+      "description": "Professional Online Shopping App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 130000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/online-shopping-app",
+      "type": "service"
+    },
+    {
+      "id": "marketplace-app",
+      "name": "Marketplace App",
+      "category": "Mobile App Development",
+      "description": "Professional Marketplace App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 180000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/marketplace-app",
+      "type": "service"
+    },
+    {
+      "id": "food-ordering-app",
+      "name": "Food Ordering App",
+      "category": "Mobile App Development",
+      "description": "Professional Food Ordering App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 140000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/food-ordering-app",
+      "type": "service"
+    },
+    {
+      "id": "restaurant-app",
+      "name": "Restaurant App",
+      "category": "Mobile App Development",
+      "description": "Professional Restaurant App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 100000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/restaurant-app",
+      "type": "service"
+    },
+    {
+      "id": "cafe-ordering-app",
+      "name": "Cafe Ordering App",
+      "category": "Mobile App Development",
+      "description": "Professional Cafe Ordering App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 90000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/cafe-ordering-app",
+      "type": "service"
+    },
+    {
+      "id": "hotel-booking-app",
+      "name": "Hotel Booking App",
+      "category": "Mobile App Development",
+      "description": "Professional Hotel Booking App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 130000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/hotel-booking-app",
+      "type": "service"
+    },
+    {
+      "id": "travel-booking-app",
+      "name": "Travel Booking App",
+      "category": "Mobile App Development",
+      "description": "Professional Travel Booking App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 140000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/travel-booking-app",
+      "type": "service"
+    },
+    {
+      "id": "tour-guide-app",
+      "name": "Tour Guide App",
+      "category": "Mobile App Development",
+      "description": "Professional Tour Guide App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 95000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/tour-guide-app",
+      "type": "service"
+    },
+    {
+      "id": "taxi-booking-app",
+      "name": "Taxi Booking App",
+      "category": "Mobile App Development",
+      "description": "Professional Taxi Booking App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 180000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/taxi-booking-app",
+      "type": "service"
+    },
+    {
+      "id": "vehicle-rental-app",
+      "name": "Vehicle Rental App",
+      "category": "Mobile App Development",
+      "description": "Professional Vehicle Rental App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 130000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/vehicle-rental-app",
+      "type": "service"
+    },
+    {
+      "id": "delivery-app",
+      "name": "Delivery App",
+      "category": "Mobile App Development",
+      "description": "Professional Delivery App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 150000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/delivery-app",
+      "type": "service"
+    },
+    {
+      "id": "courier-tracking-app",
+      "name": "Courier Tracking App",
+      "category": "Mobile App Development",
+      "description": "Professional Courier Tracking App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 110000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/courier-tracking-app",
+      "type": "service"
+    },
+    {
+      "id": "parcel-delivery-app",
+      "name": "Parcel Delivery App",
+      "category": "Mobile App Development",
+      "description": "Professional Parcel Delivery App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 140000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/parcel-delivery-app",
+      "type": "service"
+    },
+    {
+      "id": "school-app",
+      "name": "School App",
+      "category": "Mobile App Development",
+      "description": "Professional School App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 90000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/school-app",
+      "type": "service"
+    },
+    {
+      "id": "university-app",
+      "name": "University App",
+      "category": "Mobile App Development",
+      "description": "Professional University App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 120000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/university-app",
+      "type": "service"
+    },
+    {
+      "id": "learning-app",
+      "name": "Learning App",
+      "category": "Mobile App Development",
+      "description": "Professional Learning App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 110000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/learning-app",
+      "type": "service"
+    },
+    {
+      "id": "online-course-app",
+      "name": "Online Course App",
+      "category": "Mobile App Development",
+      "description": "Professional Online Course App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 130000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/online-course-app",
+      "type": "service"
+    },
+    {
+      "id": "exam-preparation-app",
+      "name": "Exam Preparation App",
+      "category": "Mobile App Development",
+      "description": "Professional Exam Preparation App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 100000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/exam-preparation-app",
+      "type": "service"
+    },
+    {
+      "id": "student-management-app",
+      "name": "Student Management App",
+      "category": "Mobile App Development",
+      "description": "Professional Student Management App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 140000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/student-management-app",
+      "type": "service"
+    },
+    {
+      "id": "hospital-app",
+      "name": "Hospital App",
+      "category": "Mobile App Development",
+      "description": "Professional Hospital App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 120000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/hospital-app",
+      "type": "service"
+    },
+    {
+      "id": "clinic-app",
+      "name": "Clinic App",
+      "category": "Mobile App Development",
+      "description": "Professional Clinic App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 95000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/clinic-app",
+      "type": "service"
+    },
+    {
+      "id": "doctor-appointment-app",
+      "name": "Doctor Appointment App",
+      "category": "Mobile App Development",
+      "description": "Professional Doctor Appointment App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 100000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/doctor-appointment-app",
+      "type": "service"
+    },
+    {
+      "id": "medical-store-app",
+      "name": "Medical Store App",
+      "category": "Mobile App Development",
+      "description": "Professional Medical Store App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 100000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/medical-store-app",
+      "type": "service"
+    },
+    {
+      "id": "pharmacy-app",
+      "name": "Pharmacy App",
+      "category": "Mobile App Development",
+      "description": "Professional Pharmacy App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 110000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/pharmacy-app",
+      "type": "service"
+    },
+    {
+      "id": "chat-application",
+      "name": "Chat Application",
+      "category": "Mobile App Development",
+      "description": "Professional Chat Application service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 180000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/chat-application",
+      "type": "service"
+    },
+    {
+      "id": "social-media-app",
+      "name": "Social Media App",
+      "category": "Mobile App Development",
+      "description": "Professional Social Media App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 220000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/social-media-app",
+      "type": "service"
+    },
+    {
+      "id": "community-app",
+      "name": "Community App",
+      "category": "Mobile App Development",
+      "description": "Professional Community App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 130000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/community-app",
+      "type": "service"
+    },
+    {
+      "id": "forum-app",
+      "name": "Forum App",
+      "category": "Mobile App Development",
+      "description": "Professional Forum App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 120000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/forum-app",
+      "type": "service"
+    },
+    {
+      "id": "news-app",
+      "name": "News App",
+      "category": "Mobile App Development",
+      "description": "Professional News App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 90000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/news-app",
+      "type": "service"
+    },
+    {
+      "id": "blog-app",
+      "name": "Blog App",
+      "category": "Mobile App Development",
+      "description": "Professional Blog App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 80000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/blog-app",
+      "type": "service"
+    },
+    {
+      "id": "media-streaming-app",
+      "name": "Media Streaming App",
+      "category": "Mobile App Development",
+      "description": "Professional Media Streaming App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 200000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/media-streaming-app",
+      "type": "service"
+    },
+    {
+      "id": "music-streaming-app",
+      "name": "Music Streaming App",
+      "category": "Mobile App Development",
+      "description": "Professional Music Streaming App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 220000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/music-streaming-app",
+      "type": "service"
+    },
+    {
+      "id": "video-streaming-app",
+      "name": "Video Streaming App",
+      "category": "Mobile App Development",
+      "description": "Professional Video Streaming App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 250000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/video-streaming-app",
+      "type": "service"
+    },
+    {
+      "id": "real-estate-app",
+      "name": "Real Estate App",
+      "category": "Mobile App Development",
+      "description": "Professional Real Estate App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 140000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/real-estate-app",
+      "type": "service"
+    },
+    {
+      "id": "property-listing-app",
+      "name": "Property Listing App",
+      "category": "Mobile App Development",
+      "description": "Professional Property Listing App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 150000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/property-listing-app",
+      "type": "service"
+    },
+    {
+      "id": "job-portal-app",
+      "name": "Job Portal App",
+      "category": "Mobile App Development",
+      "description": "Professional Job Portal App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 140000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/job-portal-app",
+      "type": "service"
+    },
+    {
+      "id": "freelancer-app",
+      "name": "Freelancer App",
+      "category": "Mobile App Development",
+      "description": "Professional Freelancer App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 180000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/freelancer-app",
+      "type": "service"
+    },
+    {
+      "id": "ai-chatbot-mobile-app",
+      "name": "AI Chatbot Mobile App",
+      "category": "AI Development",
+      "description": "Professional AI Chatbot Mobile App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 140000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/ai-chatbot-mobile-app",
+      "type": "service"
+    },
+    {
+      "id": "ai-assistant-app",
+      "name": "AI Assistant App",
+      "category": "AI Development",
+      "description": "Professional AI Assistant App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 170000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/ai-assistant-app",
+      "type": "service"
+    },
+    {
+      "id": "ai-voice-assistant-app",
+      "name": "AI Voice Assistant App",
+      "category": "AI Development",
+      "description": "Professional AI Voice Assistant App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 200000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/ai-voice-assistant-app",
+      "type": "service"
+    },
+    {
+      "id": "ai-image-generator-app",
+      "name": "AI Image Generator App",
+      "category": "Mobile App Development",
+      "description": "Professional AI Image Generator App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 180000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/ai-image-generator-app",
+      "type": "service"
+    },
+    {
+      "id": "ai-translator-app",
+      "name": "AI Translator App",
+      "category": "Mobile App Development",
+      "description": "Professional AI Translator App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 140000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/ai-translator-app",
+      "type": "service"
+    },
+    {
+      "id": "qr-scanner-app",
+      "name": "QR Scanner App",
+      "category": "Mobile App Development",
+      "description": "Professional QR Scanner App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 60000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/qr-scanner-app",
+      "type": "service"
+    },
+    {
+      "id": "barcode-scanner-app",
+      "name": "Barcode Scanner App",
+      "category": "Mobile App Development",
+      "description": "Professional Barcode Scanner App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 60000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/barcode-scanner-app",
+      "type": "service"
+    },
+    {
+      "id": "attendance-app",
+      "name": "Attendance App",
+      "category": "Mobile App Development",
+      "description": "Professional Attendance App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 80000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/attendance-app",
+      "type": "service"
+    },
+    {
+      "id": "inventory-app",
+      "name": "Inventory App",
+      "category": "Mobile App Development",
+      "description": "Professional Inventory App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 110000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/inventory-app",
+      "type": "service"
+    },
+    {
+      "id": "pos-mobile-app",
+      "name": "POS Mobile App",
+      "category": "Mobile App Development",
+      "description": "Professional POS Mobile App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 120000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/pos-mobile-app",
+      "type": "service"
+    },
+    {
+      "id": "crm-mobile-app",
+      "name": "CRM Mobile App",
+      "category": "Mobile App Development",
+      "description": "Professional CRM Mobile App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 150000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/crm-mobile-app",
+      "type": "service"
+    },
+    {
+      "id": "erp-mobile-app",
+      "name": "ERP Mobile App",
+      "category": "Mobile App Development",
+      "description": "Professional ERP Mobile App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 220000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/erp-mobile-app",
+      "type": "service"
+    },
+    {
+      "id": "fitness-app",
+      "name": "Fitness App",
+      "category": "Mobile App Development",
+      "description": "Professional Fitness App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 110000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/fitness-app",
+      "type": "service"
+    },
+    {
+      "id": "gym-app",
+      "name": "Gym App",
+      "category": "Mobile App Development",
+      "description": "Professional Gym App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 100000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/gym-app",
+      "type": "service"
+    },
+    {
+      "id": "event-management-app",
+      "name": "Event Management App",
+      "category": "Mobile App Development",
+      "description": "Professional Event Management App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 120000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/event-management-app",
+      "type": "service"
+    },
+    {
+      "id": "appointment-booking-app",
+      "name": "Appointment Booking App",
+      "category": "Mobile App Development",
+      "description": "Professional Appointment Booking App service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 100000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/appointment-booking-app",
+      "type": "service"
+    },
+    {
+      "id": "custom-mobile-application",
+      "name": "Custom Mobile Application",
+      "category": "Mobile App Development",
+      "description": "Professional Custom Mobile Application service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 90000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/custom-mobile-application",
+      "type": "service"
+    },
+    {
+      "id": "desktop-software-development",
+      "name": "Desktop Software Development",
+      "category": "Desktop Software Development",
+      "description": "Professional Desktop Software Development service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 60000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/desktop-software-development",
+      "type": "service"
+    },
+    {
+      "id": "custom-business-software",
+      "name": "Custom Business Software",
+      "category": "Desktop Software & Business Management Systems",
+      "description": "Professional Custom Business Software service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 100000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/custom-business-software",
+      "type": "service"
+    },
+    {
+      "id": "enterprise-software-solution",
+      "name": "Enterprise Software Solution",
+      "category": "Enterprise Software Development",
+      "description": "Professional Enterprise Software Solution service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 300000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/enterprise-software-solution",
+      "type": "service"
+    },
+    {
+      "id": "logo-design",
+      "name": "Logo Design",
+      "category": "Graphic Design and Branding",
+      "description": "Professional Logo Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 6000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/logo-design",
+      "type": "service"
+    },
+    {
+      "id": "premium-logo-design",
+      "name": "Premium Logo Design",
+      "category": "Graphic Design and Branding",
+      "description": "Professional Premium Logo Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 12000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/premium-logo-design",
+      "type": "service"
+    },
+    {
+      "id": "luxury-logo-design",
+      "name": "Luxury Logo Design",
+      "category": "UI/UX Design",
+      "description": "Professional Luxury Logo Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 18000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/luxury-logo-design",
+      "type": "service"
+    },
+    {
+      "id": "brand-identity-design",
+      "name": "Brand Identity Design",
+      "category": "Graphic Design and Branding",
+      "description": "Professional Brand Identity Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 20000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/brand-identity-design",
+      "type": "service"
+    },
+    {
+      "id": "business-card-design",
+      "name": "Business Card Design",
+      "category": "Graphic Design and Branding",
+      "description": "Professional Business Card Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 3000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/business-card-design",
+      "type": "service"
+    },
+    {
+      "id": "letterhead-design",
+      "name": "Letterhead Design",
+      "category": "Graphic Design & Branding Services",
+      "description": "Professional Letterhead Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 3500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/letterhead-design",
+      "type": "service"
+    },
+    {
+      "id": "envelope-design",
+      "name": "Envelope Design",
+      "category": "Graphic Design & Branding Services",
+      "description": "Professional Envelope Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 2500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/envelope-design",
+      "type": "service"
+    },
+    {
+      "id": "company-profile-design",
+      "name": "Company Profile Design",
+      "category": "Graphic Design & Branding Services",
+      "description": "Professional Company Profile Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 15000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/company-profile-design",
+      "type": "service"
+    },
+    {
+      "id": "brand-guidelines",
+      "name": "Brand Guidelines",
+      "category": "UI/UX Design",
+      "description": "Professional Brand Guidelines service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 18000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/brand-guidelines",
+      "type": "service"
+    },
+    {
+      "id": "corporate-identity-package",
+      "name": "Corporate Identity Package",
+      "category": "Graphic Design & Branding Services",
+      "description": "Professional Corporate Identity Package service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 25000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/corporate-identity-package",
+      "type": "service"
+    },
+    {
+      "id": "flyer-design",
+      "name": "Flyer Design",
+      "category": "Graphic Design and Branding",
+      "description": "Professional Flyer Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 3500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/flyer-design",
+      "type": "service"
+    },
+    {
+      "id": "brochure-design",
+      "name": "Brochure Design",
+      "category": "Graphic Design and Branding",
+      "description": "Professional Brochure Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 6000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/brochure-design",
+      "type": "service"
+    },
+    {
+      "id": "tri-fold-brochure",
+      "name": "Tri-Fold Brochure",
+      "category": "Graphic Design and Branding",
+      "description": "Professional Tri-Fold Brochure service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 6500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/tri-fold-brochure",
+      "type": "service"
+    },
+    {
+      "id": "bi-fold-brochure",
+      "name": "Bi-Fold Brochure",
+      "category": "Graphic Design and Branding",
+      "description": "Professional Bi-Fold Brochure service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 6000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/bi-fold-brochure",
+      "type": "service"
+    },
+    {
+      "id": "poster-design",
+      "name": "Poster Design",
+      "category": "Graphic Design and Branding",
+      "description": "Professional Poster Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 4000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/poster-design",
+      "type": "service"
+    },
+    {
+      "id": "banner-design",
+      "name": "Banner Design",
+      "category": "Graphic Design and Branding",
+      "description": "Professional Banner Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 3500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/banner-design",
+      "type": "service"
+    },
+    {
+      "id": "roll-up-banner-design",
+      "name": "Roll-Up Banner Design",
+      "category": "Graphic Design and Branding",
+      "description": "Professional Roll-Up Banner Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 5000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/roll-up-banner-design",
+      "type": "service"
+    },
+    {
+      "id": "billboard-design",
+      "name": "Billboard Design",
+      "category": "Graphic Design & Branding Services",
+      "description": "Professional Billboard Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/billboard-design",
+      "type": "service"
+    },
+    {
+      "id": "standee-design",
+      "name": "Standee Design",
+      "category": "Graphic Design & Branding Services",
+      "description": "Professional Standee Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 4500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/standee-design",
+      "type": "service"
+    },
+    {
+      "id": "menu-card-design",
+      "name": "Menu Card Design",
+      "category": "Graphic Design and Branding",
+      "description": "Professional Menu Card Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 5000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/menu-card-design",
+      "type": "service"
+    },
+    {
+      "id": "price-list-design",
+      "name": "Price List Design",
+      "category": "Graphic Design & Branding Services",
+      "description": "Professional Price List Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 3500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/price-list-design",
+      "type": "service"
+    },
+    {
+      "id": "product-catalog-design",
+      "name": "Product Catalog Design",
+      "category": "Graphic Design and Branding",
+      "description": "Professional Product Catalog Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 12000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/product-catalog-design",
+      "type": "service"
+    },
+    {
+      "id": "social-media-post-design",
+      "name": "Social Media Post Design",
+      "category": "Graphic Design & Branding Services",
+      "description": "Professional Social Media Post Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 800,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/social-media-post-design",
+      "type": "service"
+    },
+    {
+      "id": "facebook-post-design",
+      "name": "Facebook Post Design",
+      "category": "Graphic Design & Branding Services",
+      "description": "Professional Facebook Post Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 800,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/facebook-post-design",
+      "type": "service"
+    },
+    {
+      "id": "instagram-post-design",
+      "name": "Instagram Post Design",
+      "category": "Graphic Design & Branding Services",
+      "description": "Professional Instagram Post Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 800,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/instagram-post-design",
+      "type": "service"
+    },
+    {
+      "id": "linkedin-post-design",
+      "name": "LinkedIn Post Design",
+      "category": "Graphic Design & Branding Services",
+      "description": "Professional LinkedIn Post Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 900,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/linkedin-post-design",
+      "type": "service"
+    },
+    {
+      "id": "x-twitter-banner",
+      "name": "X (Twitter) Banner",
+      "category": "Graphic Design and Branding",
+      "description": "Professional X (Twitter) Banner service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 1500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/x-twitter-banner",
+      "type": "service"
+    },
+    {
+      "id": "facebook-cover-design",
+      "name": "Facebook Cover Design",
+      "category": "Graphic Design & Branding Services",
+      "description": "Professional Facebook Cover Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 1800,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/facebook-cover-design",
+      "type": "service"
+    },
+    {
+      "id": "youtube-banner-design",
+      "name": "YouTube Banner Design",
+      "category": "Graphic Design and Branding",
+      "description": "Professional YouTube Banner Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 2000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/youtube-banner-design",
+      "type": "service"
+    },
+    {
+      "id": "youtube-thumbnail",
+      "name": "YouTube Thumbnail",
+      "category": "Graphic Design & Branding Services",
+      "description": "Professional YouTube Thumbnail service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 700,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/youtube-thumbnail",
+      "type": "service"
+    },
+    {
+      "id": "instagram-story-design",
+      "name": "Instagram Story Design",
+      "category": "Graphic Design & Branding Services",
+      "description": "Professional Instagram Story Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 700,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/instagram-story-design",
+      "type": "service"
+    },
+    {
+      "id": "whatsapp-status-design",
+      "name": "WhatsApp Status Design",
+      "category": "Mobile App Development",
+      "description": "Professional WhatsApp Status Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 600,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/whatsapp-status-design",
+      "type": "service"
+    },
+    {
+      "id": "social-media-package-10-posts",
+      "name": "Social Media Package (10 Posts)",
+      "category": "Graphic Design & Branding Services",
+      "description": "Professional Social Media Package (10 Posts) service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 7500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/social-media-package-10-posts",
+      "type": "service"
+    },
+    {
+      "id": "social-media-package-20-posts",
+      "name": "Social Media Package (20 Posts)",
+      "category": "Graphic Design & Branding Services",
+      "description": "Professional Social Media Package (20 Posts) service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 14000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/social-media-package-20-posts",
+      "type": "service"
+    },
+    {
+      "id": "monthly-social-media-design",
+      "name": "Monthly Social Media Design",
+      "category": "Graphic Design & Branding Services",
+      "description": "Professional Monthly Social Media Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 15000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/monthly-social-media-design",
+      "type": "service"
+    },
+    {
+      "id": "presentation-design",
+      "name": "Presentation Design",
+      "category": "Graphic Design & Branding Services",
+      "description": "Professional Presentation Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 6000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/presentation-design",
+      "type": "service"
+    },
+    {
+      "id": "pitch-deck-design",
+      "name": "Pitch Deck Design",
+      "category": "Graphic Design & Branding Services",
+      "description": "Professional Pitch Deck Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 12000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/pitch-deck-design",
+      "type": "service"
+    },
+    {
+      "id": "company-presentation",
+      "name": "Company Presentation",
+      "category": "Graphic Design & Branding Services",
+      "description": "Professional Company Presentation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 10000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/company-presentation",
+      "type": "service"
+    },
+    {
+      "id": "annual-report-design",
+      "name": "Annual Report Design",
+      "category": "Graphic Design & Branding Services",
+      "description": "Professional Annual Report Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 15000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/annual-report-design",
+      "type": "service"
+    },
+    {
+      "id": "photo-editing",
+      "name": "Photo Editing",
+      "category": "Graphic Design and Branding",
+      "description": "Professional Photo Editing service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/photo-editing",
+      "type": "service"
+    },
+    {
+      "id": "photo-retouching",
+      "name": "Photo Retouching",
+      "category": "Graphic Design and Branding",
+      "description": "Professional Photo Retouching service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 700,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/photo-retouching",
+      "type": "service"
+    },
+    {
+      "id": "background-removal",
+      "name": "Background Removal",
+      "category": "Graphic Design & Branding Services",
+      "description": "Professional Background Removal service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 300,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/background-removal",
+      "type": "service"
+    },
+    {
+      "id": "image-enhancement",
+      "name": "Image Enhancement",
+      "category": "Graphic Design & Branding Services",
+      "description": "Professional Image Enhancement service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/image-enhancement",
+      "type": "service"
+    },
+    {
+      "id": "ai-image-editing",
+      "name": "AI Image Editing",
+      "category": "Graphic Design & Branding Services",
+      "description": "Professional AI Image Editing service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 800,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/ai-image-editing",
+      "type": "service"
+    },
+    {
+      "id": "video-editing",
+      "name": "Video Editing",
+      "category": "Video and Motion Design",
+      "description": "Professional Video Editing service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 3500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/video-editing",
+      "type": "service"
+    },
+    {
+      "id": "youtube-video-editing",
+      "name": "YouTube Video Editing",
+      "category": "Video and Motion Design",
+      "description": "Professional YouTube Video Editing service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 4500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/youtube-video-editing",
+      "type": "service"
+    },
+    {
+      "id": "short-video-editing",
+      "name": "Short Video Editing",
+      "category": "Video and Motion Design",
+      "description": "Professional Short Video Editing service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 2000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/short-video-editing",
+      "type": "service"
+    },
+    {
+      "id": "instagram-reel-editing",
+      "name": "Instagram Reel Editing",
+      "category": "Video and Motion Design",
+      "description": "Professional Instagram Reel Editing service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 2000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/instagram-reel-editing",
+      "type": "service"
+    },
+    {
+      "id": "tiktok-video-editing",
+      "name": "TikTok Video Editing",
+      "category": "Video and Motion Design",
+      "description": "Professional TikTok Video Editing service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 2000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/tiktok-video-editing",
+      "type": "service"
+    },
+    {
+      "id": "promotional-video",
+      "name": "Promotional Video",
+      "category": "Video and Motion Design",
+      "description": "Professional Promotional Video service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/promotional-video",
+      "type": "service"
+    },
+    {
+      "id": "corporate-video-editing",
+      "name": "Corporate Video Editing",
+      "category": "Video and Motion Design",
+      "description": "Professional Corporate Video Editing service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 10000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/corporate-video-editing",
+      "type": "service"
+    },
+    {
+      "id": "intro-animation",
+      "name": "Intro Animation",
+      "category": "Video and Motion Design",
+      "description": "Professional Intro Animation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 3000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/intro-animation",
+      "type": "service"
+    },
+    {
+      "id": "outro-animation",
+      "name": "Outro Animation",
+      "category": "Video and Motion Design",
+      "description": "Professional Outro Animation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 3000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/outro-animation",
+      "type": "service"
+    },
+    {
+      "id": "motion-graphics",
+      "name": "Motion Graphics",
+      "category": "Video and Motion Design",
+      "description": "Professional Motion Graphics service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 7500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/motion-graphics",
+      "type": "service"
+    },
+    {
+      "id": "logo-animation",
+      "name": "Logo Animation",
+      "category": "Graphic Design and Branding",
+      "description": "Professional Logo Animation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 5000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/logo-animation",
+      "type": "service"
+    },
+    {
+      "id": "ui-design",
+      "name": "UI Design",
+      "category": "UI/UX Design",
+      "description": "Professional UI Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 12000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/ui-design",
+      "type": "service"
+    },
+    {
+      "id": "ux-design",
+      "name": "UX Design",
+      "category": "UI/UX Design",
+      "description": "Professional UX Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 15000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/ux-design",
+      "type": "service"
+    },
+    {
+      "id": "mobile-app-ui-design",
+      "name": "Mobile App UI Design",
+      "category": "Mobile App Development",
+      "description": "Professional Mobile App UI Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 20000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/mobile-app-ui-design",
+      "type": "service"
+    },
+    {
+      "id": "website-ui-design",
+      "name": "Website UI Design",
+      "category": "Website Development",
+      "description": "Professional Website UI Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 18000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/website-ui-design",
+      "type": "service"
+    },
+    {
+      "id": "dashboard-ui-design",
+      "name": "Dashboard UI Design",
+      "category": "UI/UX Design",
+      "description": "Professional Dashboard UI Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 18000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/dashboard-ui-design",
+      "type": "service"
+    },
+    {
+      "id": "wireframe-design",
+      "name": "Wireframe Design",
+      "category": "UI/UX Design",
+      "description": "Professional Wireframe Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/wireframe-design",
+      "type": "service"
+    },
+    {
+      "id": "prototype-design",
+      "name": "Prototype Design",
+      "category": "UI/UX Design",
+      "description": "Professional Prototype Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 12000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/prototype-design",
+      "type": "service"
+    },
+    {
+      "id": "certificate-design",
+      "name": "Certificate Design",
+      "category": "Graphic Design and Branding",
+      "description": "Professional Certificate Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 2000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/certificate-design",
+      "type": "service"
+    },
+    {
+      "id": "invitation-card-design",
+      "name": "Invitation Card Design",
+      "category": "Graphic Design and Branding",
+      "description": "Professional Invitation Card Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 2500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/invitation-card-design",
+      "type": "service"
+    },
+    {
+      "id": "wedding-card-design",
+      "name": "Wedding Card Design",
+      "category": "Graphic Design and Branding",
+      "description": "Professional Wedding Card Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 3500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/wedding-card-design",
+      "type": "service"
+    },
+    {
+      "id": "id-card-design",
+      "name": "ID Card Design",
+      "category": "Graphic Design and Branding",
+      "description": "Professional ID Card Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 2000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/id-card-design",
+      "type": "service"
+    },
+    {
+      "id": "calendar-design",
+      "name": "Calendar Design",
+      "category": "Graphic Design & Branding Services",
+      "description": "Professional Calendar Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 3000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/calendar-design",
+      "type": "service"
+    },
+    {
+      "id": "sticker-design",
+      "name": "Sticker Design",
+      "category": "Graphic Design & Branding Services",
+      "description": "Professional Sticker Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 2000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/sticker-design",
+      "type": "service"
+    },
+    {
+      "id": "packaging-design",
+      "name": "Packaging Design",
+      "category": "Graphic Design and Branding",
+      "description": "Professional Packaging Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/packaging-design",
+      "type": "service"
+    },
+    {
+      "id": "label-design",
+      "name": "Label Design",
+      "category": "Graphic Design and Branding",
+      "description": "Professional Label Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 4000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/label-design",
+      "type": "service"
+    },
+    {
+      "id": "t-shirt-design",
+      "name": "T-Shirt Design",
+      "category": "Graphic Design and Branding",
+      "description": "Professional T-Shirt Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 3500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/t-shirt-design",
+      "type": "service"
+    },
+    {
+      "id": "mug-design",
+      "name": "Mug Design",
+      "category": "Graphic Design and Branding",
+      "description": "Professional Mug Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 2500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/mug-design",
+      "type": "service"
+    },
+    {
+      "id": "domain-registration",
+      "name": "Domain Registration",
+      "category": "Cloud and Hosting",
+      "description": "Professional Domain Registration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 4000,
+      "prefix": "Starting from",
+      "billingPeriod": "per year",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/domain-registration",
+      "type": "service"
+    },
+    {
+      "id": "domain-transfer",
+      "name": "Domain Transfer",
+      "category": "Cloud and Hosting",
+      "description": "Professional Domain Transfer service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 3500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/domain-transfer",
+      "type": "service"
+    },
+    {
+      "id": "dns-configuration",
+      "name": "DNS Configuration",
+      "category": "Cloud and Hosting",
+      "description": "Professional DNS Configuration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 2000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/dns-configuration",
+      "type": "service"
+    },
+    {
+      "id": "subdomain-setup",
+      "name": "Subdomain Setup",
+      "category": "Cloud and Hosting",
+      "description": "Professional Subdomain Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 1500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/subdomain-setup",
+      "type": "service"
+    },
+    {
+      "id": "shared-hosting-setup",
+      "name": "Shared Hosting Setup",
+      "category": "Cloud and Hosting",
+      "description": "Professional Shared Hosting Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 5000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/shared-hosting-setup",
+      "type": "service"
+    },
+    {
+      "id": "cloud-hosting-setup",
+      "name": "Cloud Hosting Setup",
+      "category": "Cloud and Hosting",
+      "description": "Professional Cloud Hosting Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/cloud-hosting-setup",
+      "type": "service"
+    },
+    {
+      "id": "vps-server-setup",
+      "name": "VPS Server Setup",
+      "category": "Cloud and Hosting",
+      "description": "Professional VPS Server Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 15000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/vps-server-setup",
+      "type": "service"
+    },
+    {
+      "id": "dedicated-server-setup",
+      "name": "Dedicated Server Setup",
+      "category": "Cloud and Hosting",
+      "description": "Professional Dedicated Server Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 25000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/dedicated-server-setup",
+      "type": "service"
+    },
+    {
+      "id": "website-migration-2",
+      "name": "Website Migration",
+      "category": "Website Development",
+      "description": "Professional Website Migration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/website-migration-2",
+      "type": "service"
+    },
+    {
+      "id": "website-backup-restore",
+      "name": "Website Backup & Restore",
+      "category": "Website Development",
+      "description": "Professional Website Backup & Restore service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 4000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/website-backup-restore",
+      "type": "service"
+    },
+    {
+      "id": "ssl-certificate-installation",
+      "name": "SSL Certificate Installation",
+      "category": "Cloud and Hosting",
+      "description": "Professional SSL Certificate Installation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 3000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/ssl-certificate-installation",
+      "type": "service"
+    },
+    {
+      "id": "cdn-configuration",
+      "name": "CDN Configuration",
+      "category": "Cloud and Hosting",
+      "description": "Professional CDN Configuration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 5000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/cdn-configuration",
+      "type": "service"
+    },
+    {
+      "id": "email-hosting-setup",
+      "name": "Email Hosting Setup",
+      "category": "Cloud and Hosting",
+      "description": "Professional Email Hosting Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 5000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/email-hosting-setup",
+      "type": "service"
+    },
+    {
+      "id": "business-email-configuration",
+      "name": "Business Email Configuration",
+      "category": "Cloud, Hosting, Api & Automation Services",
+      "description": "Professional Business Email Configuration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 4000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/business-email-configuration",
+      "type": "service"
+    },
+    {
+      "id": "google-workspace-setup",
+      "name": "Google Workspace Setup",
+      "category": "Cloud, Hosting, Api & Automation Services",
+      "description": "Professional Google Workspace Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 6000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/google-workspace-setup",
+      "type": "service"
+    },
+    {
+      "id": "microsoft-365-setup",
+      "name": "Microsoft 365 Setup",
+      "category": "Cloud, Hosting, Api & Automation Services",
+      "description": "Professional Microsoft 365 Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 6000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/microsoft-365-setup",
+      "type": "service"
+    },
+    {
+      "id": "firebase-setup",
+      "name": "Firebase Setup",
+      "category": "Database Services",
+      "description": "Professional Firebase Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/firebase-setup",
+      "type": "service"
+    },
+    {
+      "id": "supabase-setup",
+      "name": "Supabase Setup",
+      "category": "Database Services",
+      "description": "Professional Supabase Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/supabase-setup",
+      "type": "service"
+    },
+    {
+      "id": "mongodb-database-setup",
+      "name": "MongoDB Database Setup",
+      "category": "Database Services",
+      "description": "Professional MongoDB Database Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/mongodb-database-setup",
+      "type": "service"
+    },
+    {
+      "id": "mysql-database-setup",
+      "name": "MySQL Database Setup",
+      "category": "Database Services",
+      "description": "Professional MySQL Database Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 6000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/mysql-database-setup",
+      "type": "service"
+    },
+    {
+      "id": "postgresql-database-setup",
+      "name": "PostgreSQL Database Setup",
+      "category": "Database Services",
+      "description": "Professional PostgreSQL Database Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 7000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/postgresql-database-setup",
+      "type": "service"
+    },
+    {
+      "id": "sqlite-database-setup",
+      "name": "SQLite Database Setup",
+      "category": "Database Services",
+      "description": "Professional SQLite Database Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 4000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/sqlite-database-setup",
+      "type": "service"
+    },
+    {
+      "id": "database-migration",
+      "name": "Database Migration",
+      "category": "Database Services",
+      "description": "Professional Database Migration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 10000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/database-migration",
+      "type": "service"
+    },
+    {
+      "id": "database-optimization",
+      "name": "Database Optimization",
+      "category": "Database Services",
+      "description": "Professional Database Optimization service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/database-optimization",
+      "type": "service"
+    },
+    {
+      "id": "rest-api-development",
+      "name": "REST API Development",
+      "category": "API Development",
+      "description": "Professional REST API Development service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 25000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/rest-api-development",
+      "type": "service"
+    },
+    {
+      "id": "graphql-api-development",
+      "name": "GraphQL API Development",
+      "category": "API Development",
+      "description": "Professional GraphQL API Development service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 30000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/graphql-api-development",
+      "type": "service"
+    },
+    {
+      "id": "custom-api-development",
+      "name": "Custom API Development",
+      "category": "API Development",
+      "description": "Professional Custom API Development service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 30000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/custom-api-development",
+      "type": "service"
+    },
+    {
+      "id": "third-party-api-integration",
+      "name": "Third-Party API Integration",
+      "category": "API Integration",
+      "description": "Professional Third-Party API Integration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 15000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/third-party-api-integration",
+      "type": "service"
+    },
+    {
+      "id": "payment-gateway-integration",
+      "name": "Payment Gateway Integration",
+      "category": "API Integration",
+      "description": "Professional Payment Gateway Integration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 18000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/payment-gateway-integration",
+      "type": "service"
+    },
+    {
+      "id": "sms-api-integration",
+      "name": "SMS API Integration",
+      "category": "API Integration",
+      "description": "Professional SMS API Integration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 10000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/sms-api-integration",
+      "type": "service"
+    },
+    {
+      "id": "email-api-integration",
+      "name": "Email API Integration",
+      "category": "API Integration",
+      "description": "Professional Email API Integration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/email-api-integration",
+      "type": "service"
+    },
+    {
+      "id": "google-maps-api-integration",
+      "name": "Google Maps API Integration",
+      "category": "API Integration",
+      "description": "Professional Google Maps API Integration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 10000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/google-maps-api-integration",
+      "type": "service"
+    },
+    {
+      "id": "openai-ai-api-integration",
+      "name": "OpenAI / AI API Integration",
+      "category": "API Integration",
+      "description": "Professional OpenAI / AI API Integration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 18000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/openai-ai-api-integration",
+      "type": "service"
+    },
+    {
+      "id": "whatsapp-api-integration",
+      "name": "WhatsApp API Integration",
+      "category": "Mobile App Development",
+      "description": "Professional WhatsApp API Integration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 20000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/whatsapp-api-integration",
+      "type": "service"
+    },
+    {
+      "id": "telegram-api-integration",
+      "name": "Telegram API Integration",
+      "category": "API Integration",
+      "description": "Professional Telegram API Integration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 12000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/telegram-api-integration",
+      "type": "service"
+    },
+    {
+      "id": "facebook-api-integration",
+      "name": "Facebook API Integration",
+      "category": "API Integration",
+      "description": "Professional Facebook API Integration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 12000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/facebook-api-integration",
+      "type": "service"
+    },
+    {
+      "id": "stripe-integration",
+      "name": "Stripe Integration",
+      "category": "API Integration",
+      "description": "Professional Stripe Integration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 18000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/stripe-integration",
+      "type": "service"
+    },
+    {
+      "id": "paypal-integration",
+      "name": "PayPal Integration",
+      "category": "API Integration",
+      "description": "Professional PayPal Integration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 18000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/paypal-integration",
+      "type": "service"
+    },
+    {
+      "id": "admin-dashboard-development",
+      "name": "Admin Dashboard Development",
+      "category": "Cloud, Hosting, Api & Automation Services",
+      "description": "Professional Admin Dashboard Development service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 30000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/admin-dashboard-development",
+      "type": "service"
+    },
+    {
+      "id": "analytics-dashboard",
+      "name": "Analytics Dashboard",
+      "category": "Cloud, Hosting, Api & Automation Services",
+      "description": "Professional Analytics Dashboard service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 35000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/analytics-dashboard",
+      "type": "service"
+    },
+    {
+      "id": "reporting-dashboard",
+      "name": "Reporting Dashboard",
+      "category": "Cloud, Hosting, Api & Automation Services",
+      "description": "Professional Reporting Dashboard service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 30000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/reporting-dashboard",
+      "type": "service"
+    },
+    {
+      "id": "workflow-automation",
+      "name": "Workflow Automation",
+      "category": "Automation",
+      "description": "Professional Workflow Automation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 25000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/workflow-automation",
+      "type": "service"
+    },
+    {
+      "id": "business-process-automation",
+      "name": "Business Process Automation",
+      "category": "Automation",
+      "description": "Professional Business Process Automation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 35000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/business-process-automation",
+      "type": "service"
+    },
+    {
+      "id": "email-automation",
+      "name": "Email Automation",
+      "category": "AI Development",
+      "description": "Professional Email Automation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 10000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/email-automation",
+      "type": "service"
+    },
+    {
+      "id": "notification-system",
+      "name": "Notification System",
+      "category": "Cloud, Hosting, Api & Automation Services",
+      "description": "Professional Notification System service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 12000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/notification-system",
+      "type": "service"
+    },
+    {
+      "id": "otp-verification-system",
+      "name": "OTP Verification System",
+      "category": "Cloud, Hosting, Api & Automation Services",
+      "description": "Professional OTP Verification System service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 12000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/otp-verification-system",
+      "type": "service"
+    },
+    {
+      "id": "authentication-system",
+      "name": "Authentication System",
+      "category": "Cloud, Hosting, Api & Automation Services",
+      "description": "Professional Authentication System service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 15000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/authentication-system",
+      "type": "service"
+    },
+    {
+      "id": "role-based-access-control-rbac",
+      "name": "Role-Based Access Control (RBAC)",
+      "category": "Cloud, Hosting, Api & Automation Services",
+      "description": "Professional Role-Based Access Control (RBAC) service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 20000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/role-based-access-control-rbac",
+      "type": "service"
+    },
+    {
+      "id": "linux-server-configuration",
+      "name": "Linux Server Configuration",
+      "category": "UI/UX Design",
+      "description": "Professional Linux Server Configuration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 12000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/linux-server-configuration",
+      "type": "service"
+    },
+    {
+      "id": "ubuntu-server-setup",
+      "name": "Ubuntu Server Setup",
+      "category": "Cloud and Hosting",
+      "description": "Professional Ubuntu Server Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 10000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/ubuntu-server-setup",
+      "type": "service"
+    },
+    {
+      "id": "nginx-server-configuration",
+      "name": "Nginx Server Configuration",
+      "category": "Cloud, Hosting, Api & Automation Services",
+      "description": "Professional Nginx Server Configuration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/nginx-server-configuration",
+      "type": "service"
+    },
+    {
+      "id": "apache-server-configuration",
+      "name": "Apache Server Configuration",
+      "category": "Cloud, Hosting, Api & Automation Services",
+      "description": "Professional Apache Server Configuration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/apache-server-configuration",
+      "type": "service"
+    },
+    {
+      "id": "docker-setup",
+      "name": "Docker Setup",
+      "category": "DevOps",
+      "description": "Professional Docker Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 15000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/docker-setup",
+      "type": "service"
+    },
+    {
+      "id": "docker-compose-configuration",
+      "name": "Docker Compose Configuration",
+      "category": "DevOps",
+      "description": "Professional Docker Compose Configuration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 18000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/docker-compose-configuration",
+      "type": "service"
+    },
+    {
+      "id": "ci-cd-pipeline-setup",
+      "name": "CI/CD Pipeline Setup",
+      "category": "DevOps",
+      "description": "Professional CI/CD Pipeline Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 25000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/ci-cd-pipeline-setup",
+      "type": "service"
+    },
+    {
+      "id": "github-actions-setup",
+      "name": "GitHub Actions Setup",
+      "category": "DevOps",
+      "description": "Professional GitHub Actions Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 12000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/github-actions-setup",
+      "type": "service"
+    },
+    {
+      "id": "gitlab-ci-setup",
+      "name": "GitLab CI Setup",
+      "category": "DevOps",
+      "description": "Professional GitLab CI Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 15000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/gitlab-ci-setup",
+      "type": "service"
+    },
+    {
+      "id": "cloud-storage-integration",
+      "name": "Cloud Storage Integration",
+      "category": "API Integration",
+      "description": "Professional Cloud Storage Integration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 10000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/cloud-storage-integration",
+      "type": "service"
+    },
+    {
+      "id": "file-upload-system",
+      "name": "File Upload System",
+      "category": "Cloud, Hosting, Api & Automation Services",
+      "description": "Professional File Upload System service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 10000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/file-upload-system",
+      "type": "service"
+    },
+    {
+      "id": "media-storage-system",
+      "name": "Media Storage System",
+      "category": "Cloud, Hosting, Api & Automation Services",
+      "description": "Professional Media Storage System service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 12000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/media-storage-system",
+      "type": "service"
+    },
+    {
+      "id": "real-time-chat-system",
+      "name": "Real-Time Chat System",
+      "category": "Cloud, Hosting, Api & Automation Services",
+      "description": "Professional Real-Time Chat System service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 35000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/real-time-chat-system",
+      "type": "service"
+    },
+    {
+      "id": "push-notification-system",
+      "name": "Push Notification System",
+      "category": "Cloud, Hosting, Api & Automation Services",
+      "description": "Professional Push Notification System service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 15000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/push-notification-system",
+      "type": "service"
+    },
+    {
+      "id": "live-tracking-system",
+      "name": "Live Tracking System",
+      "category": "Cloud, Hosting, Api & Automation Services",
+      "description": "Professional Live Tracking System service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 30000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/live-tracking-system",
+      "type": "service"
+    },
+    {
+      "id": "qr-code-generator-system",
+      "name": "QR Code Generator System",
+      "category": "Cloud, Hosting, Api & Automation Services",
+      "description": "Professional QR Code Generator System service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/qr-code-generator-system",
+      "type": "service"
+    },
+    {
+      "id": "barcode-generator-system",
+      "name": "Barcode Generator System",
+      "category": "Cloud, Hosting, Api & Automation Services",
+      "description": "Professional Barcode Generator System service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/barcode-generator-system",
+      "type": "service"
+    },
+    {
+      "id": "custom-automation-solution",
+      "name": "Custom Automation Solution",
+      "category": "Automation",
+      "description": "Professional Custom Automation Solution service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 40000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/custom-automation-solution",
+      "type": "service"
+    },
+    {
+      "id": "cloud-infrastructure-setup",
+      "name": "Cloud Infrastructure Setup",
+      "category": "Cloud and Hosting",
+      "description": "Professional Cloud Infrastructure Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 50000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/cloud-infrastructure-setup",
+      "type": "service"
+    },
+    {
+      "id": "enterprise-devops-solution",
+      "name": "Enterprise DevOps Solution",
+      "category": "DevOps",
+      "description": "Professional Enterprise DevOps Solution service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 100000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/enterprise-devops-solution",
+      "type": "service"
+    },
+    {
+      "id": "website-security-audit",
+      "name": "Website Security Audit",
+      "category": "Website Development",
+      "description": "Professional Website Security Audit service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 12000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/website-security-audit",
+      "type": "service"
+    },
+    {
+      "id": "web-application-security-audit",
+      "name": "Web Application Security Audit",
+      "category": "Web Application Development",
+      "description": "Professional Web Application Security Audit service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 18000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/web-application-security-audit",
+      "type": "service"
+    },
+    {
+      "id": "network-security-audit",
+      "name": "Network Security Audit",
+      "category": "Cyber Security",
+      "description": "Professional Network Security Audit service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 20000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/network-security-audit",
+      "type": "service"
+    },
+    {
+      "id": "cyber-security-consultation",
+      "name": "Cyber Security Consultation",
+      "category": "Cyber Security",
+      "description": "Professional Cyber Security Consultation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/cyber-security-consultation",
+      "type": "service"
+    },
+    {
+      "id": "security-hardening",
+      "name": "Security Hardening",
+      "category": "Cyber Security",
+      "description": "Professional Security Hardening service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 15000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/security-hardening",
+      "type": "service"
+    },
+    {
+      "id": "penetration-testing-basic",
+      "name": "Penetration Testing (Basic)",
+      "category": "Cyber Security",
+      "description": "Professional Penetration Testing (Basic) service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 20000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/penetration-testing-basic",
+      "type": "service"
+    },
+    {
+      "id": "penetration-testing-advanced",
+      "name": "Penetration Testing (Advanced)",
+      "category": "Cyber Security",
+      "description": "Professional Penetration Testing (Advanced) service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 40000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/penetration-testing-advanced",
+      "type": "service"
+    },
+    {
+      "id": "vulnerability-assessment",
+      "name": "Vulnerability Assessment",
+      "category": "Cyber Security",
+      "description": "Professional Vulnerability Assessment service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 18000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/vulnerability-assessment",
+      "type": "service"
+    },
+    {
+      "id": "malware-removal",
+      "name": "Malware Removal",
+      "category": "Cyber Security",
+      "description": "Professional Malware Removal service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/malware-removal",
+      "type": "service"
+    },
+    {
+      "id": "virus-removal",
+      "name": "Virus Removal",
+      "category": "Cyber Security",
+      "description": "Professional Virus Removal service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 5000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/virus-removal",
+      "type": "service"
+    },
+    {
+      "id": "website-hack-recovery",
+      "name": "Website Hack Recovery",
+      "category": "Website Development",
+      "description": "Professional Website Hack Recovery service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 15000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/website-hack-recovery",
+      "type": "service"
+    },
+    {
+      "id": "server-security-configuration",
+      "name": "Server Security Configuration",
+      "category": "Cyber Security",
+      "description": "Professional Server Security Configuration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 15000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/server-security-configuration",
+      "type": "service"
+    },
+    {
+      "id": "firewall-configuration",
+      "name": "Firewall Configuration",
+      "category": "Cyber Security",
+      "description": "Professional Firewall Configuration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 12000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/firewall-configuration",
+      "type": "service"
+    },
+    {
+      "id": "ssl-security-configuration",
+      "name": "SSL Security Configuration",
+      "category": "Cloud and Hosting",
+      "description": "Professional SSL Security Configuration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 3000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/ssl-security-configuration",
+      "type": "service"
+    },
+    {
+      "id": "backup-disaster-recovery",
+      "name": "Backup & Disaster Recovery",
+      "category": "Cyber Security",
+      "description": "Professional Backup & Disaster Recovery service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 12000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/backup-disaster-recovery",
+      "type": "service"
+    },
+    {
+      "id": "data-encryption-setup",
+      "name": "Data Encryption Setup",
+      "category": "Cyber Security",
+      "description": "Professional Data Encryption Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 15000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/data-encryption-setup",
+      "type": "service"
+    },
+    {
+      "id": "security-monitoring",
+      "name": "Security Monitoring",
+      "category": "Cyber Security",
+      "description": "Professional Security Monitoring service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "per month",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/security-monitoring",
+      "type": "service"
+    },
+    {
+      "id": "basic-seo-setup",
+      "name": "Basic SEO Setup",
+      "category": "SEO",
+      "description": "Professional Basic SEO Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 12000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/basic-seo-setup",
+      "type": "service"
+    },
+    {
+      "id": "advanced-seo-optimization",
+      "name": "Advanced SEO Optimization",
+      "category": "SEO",
+      "description": "Professional Advanced SEO Optimization service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 25000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/advanced-seo-optimization",
+      "type": "service"
+    },
+    {
+      "id": "technical-seo",
+      "name": "Technical SEO",
+      "category": "SEO",
+      "description": "Professional Technical SEO service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 20000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/technical-seo",
+      "type": "service"
+    },
+    {
+      "id": "on-page-seo",
+      "name": "On-Page SEO",
+      "category": "SEO",
+      "description": "Professional On-Page SEO service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 15000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/on-page-seo",
+      "type": "service"
+    },
+    {
+      "id": "off-page-seo",
+      "name": "Off-Page SEO",
+      "category": "SEO",
+      "description": "Professional Off-Page SEO service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 18000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/off-page-seo",
+      "type": "service"
+    },
+    {
+      "id": "local-seo",
+      "name": "Local SEO",
+      "category": "SEO",
+      "description": "Professional Local SEO service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 15000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/local-seo",
+      "type": "service"
+    },
+    {
+      "id": "google-search-console-setup",
+      "name": "Google Search Console Setup",
+      "category": "SEO",
+      "description": "Professional Google Search Console Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 5000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/google-search-console-setup",
+      "type": "service"
+    },
+    {
+      "id": "google-analytics-setup",
+      "name": "Google Analytics Setup",
+      "category": "SEO",
+      "description": "Professional Google Analytics Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 5000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/google-analytics-setup",
+      "type": "service"
+    },
+    {
+      "id": "google-business-profile-setup",
+      "name": "Google Business Profile Setup",
+      "category": "Seo Services",
+      "description": "Professional Google Business Profile Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 6000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/google-business-profile-setup",
+      "type": "service"
+    },
+    {
+      "id": "keyword-research",
+      "name": "Keyword Research",
+      "category": "SEO",
+      "description": "Professional Keyword Research service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 6000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/keyword-research",
+      "type": "service"
+    },
+    {
+      "id": "seo-content-optimization",
+      "name": "SEO Content Optimization",
+      "category": "SEO",
+      "description": "Professional SEO Content Optimization service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 10000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/seo-content-optimization",
+      "type": "service"
+    },
+    {
+      "id": "monthly-seo-package",
+      "name": "Monthly SEO Package",
+      "category": "SEO",
+      "description": "Professional Monthly SEO Package service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 15000,
+      "prefix": "Starting from",
+      "billingPeriod": "per month",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/monthly-seo-package",
+      "type": "service"
+    },
+    {
+      "id": "digital-marketing-consultation",
+      "name": "Digital Marketing Consultation",
+      "category": "Digital Marketing",
+      "description": "Professional Digital Marketing Consultation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 5000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/digital-marketing-consultation",
+      "type": "service"
+    },
+    {
+      "id": "facebook-marketing-setup",
+      "name": "Facebook Marketing Setup",
+      "category": "Digital Marketing",
+      "description": "Professional Facebook Marketing Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/facebook-marketing-setup",
+      "type": "service"
+    },
+    {
+      "id": "instagram-marketing-setup",
+      "name": "Instagram Marketing Setup",
+      "category": "Digital Marketing",
+      "description": "Professional Instagram Marketing Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/instagram-marketing-setup",
+      "type": "service"
+    },
+    {
+      "id": "tiktok-marketing-setup",
+      "name": "TikTok Marketing Setup",
+      "category": "Digital Marketing",
+      "description": "Professional TikTok Marketing Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/tiktok-marketing-setup",
+      "type": "service"
+    },
+    {
+      "id": "linkedin-marketing-setup",
+      "name": "LinkedIn Marketing Setup",
+      "category": "Digital Marketing",
+      "description": "Professional LinkedIn Marketing Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/linkedin-marketing-setup",
+      "type": "service"
+    },
+    {
+      "id": "youtube-channel-setup",
+      "name": "YouTube Channel Setup",
+      "category": "Digital Marketing",
+      "description": "Professional YouTube Channel Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/youtube-channel-setup",
+      "type": "service"
+    },
+    {
+      "id": "email-marketing-setup",
+      "name": "Email Marketing Setup",
+      "category": "Digital Marketing",
+      "description": "Professional Email Marketing Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/email-marketing-setup",
+      "type": "service"
+    },
+    {
+      "id": "sms-marketing-setup",
+      "name": "SMS Marketing Setup",
+      "category": "Digital Marketing",
+      "description": "Professional SMS Marketing Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 6000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/sms-marketing-setup",
+      "type": "service"
+    },
+    {
+      "id": "google-ads-setup",
+      "name": "Google Ads Setup",
+      "category": "Digital Marketing",
+      "description": "Professional Google Ads Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 12000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/google-ads-setup",
+      "type": "service"
+    },
+    {
+      "id": "facebook-ads-setup",
+      "name": "Facebook Ads Setup",
+      "category": "Digital Marketing",
+      "description": "Professional Facebook Ads Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 10000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/facebook-ads-setup",
+      "type": "service"
+    },
+    {
+      "id": "meta-ads-management",
+      "name": "Meta Ads Management",
+      "category": "Digital Marketing",
+      "description": "Professional Meta Ads Management service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 15000,
+      "prefix": "Starting from",
+      "billingPeriod": "per month",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/meta-ads-management",
+      "type": "service"
+    },
+    {
+      "id": "google-ads-management",
+      "name": "Google Ads Management",
+      "category": "Digital Marketing",
+      "description": "Professional Google Ads Management service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 15000,
+      "prefix": "Starting from",
+      "billingPeriod": "per month",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/google-ads-management",
+      "type": "service"
+    },
+    {
+      "id": "social-media-management",
+      "name": "Social Media Management",
+      "category": "Digital Marketing",
+      "description": "Professional Social Media Management service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 18000,
+      "prefix": "Starting from",
+      "billingPeriod": "per month",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/social-media-management",
+      "type": "service"
+    },
+    {
+      "id": "content-marketing",
+      "name": "Content Marketing",
+      "category": "Digital Marketing",
+      "description": "Professional Content Marketing service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 15000,
+      "prefix": "Starting from",
+      "billingPeriod": "per month",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/content-marketing",
+      "type": "service"
+    },
+    {
+      "id": "remote-it-support",
+      "name": "Remote IT Support",
+      "category": "IT Support",
+      "description": "Professional Remote IT Support service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 2500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/remote-it-support",
+      "type": "service"
+    },
+    {
+      "id": "on-site-it-support",
+      "name": "On-Site IT Support",
+      "category": "IT Support",
+      "description": "Professional On-Site IT Support service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 5000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/on-site-it-support",
+      "type": "service"
+    },
+    {
+      "id": "pc-health-check",
+      "name": "PC Health Check",
+      "category": "IT Support",
+      "description": "Professional PC Health Check service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 3000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/pc-health-check",
+      "type": "service"
+    },
+    {
+      "id": "windows-installation",
+      "name": "Windows Installation",
+      "category": "IT Support",
+      "description": "Professional Windows Installation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 3500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/windows-installation",
+      "type": "service"
+    },
+    {
+      "id": "linux-installation",
+      "name": "Linux Installation",
+      "category": "UI/UX Design",
+      "description": "Professional Linux Installation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 3500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/linux-installation",
+      "type": "service"
+    },
+    {
+      "id": "software-installation",
+      "name": "Software Installation",
+      "category": "It Support",
+      "description": "Professional Software Installation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 1000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/software-installation",
+      "type": "service"
+    },
+    {
+      "id": "driver-installation",
+      "name": "Driver Installation",
+      "category": "IT Support",
+      "description": "Professional Driver Installation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 1500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/driver-installation",
+      "type": "service"
+    },
+    {
+      "id": "pc-optimization",
+      "name": "PC Optimization",
+      "category": "IT Support",
+      "description": "Professional PC Optimization service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 3000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/pc-optimization",
+      "type": "service"
+    },
+    {
+      "id": "laptop-optimization",
+      "name": "Laptop Optimization",
+      "category": "It Support",
+      "description": "Professional Laptop Optimization service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 3000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/laptop-optimization",
+      "type": "service"
+    },
+    {
+      "id": "network-troubleshooting",
+      "name": "Network Troubleshooting",
+      "category": "IT Support",
+      "description": "Professional Network Troubleshooting service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 4000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/network-troubleshooting",
+      "type": "service"
+    },
+    {
+      "id": "wi-fi-configuration",
+      "name": "Wi-Fi Configuration",
+      "category": "IT Support",
+      "description": "Professional Wi-Fi Configuration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 2500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/wi-fi-configuration",
+      "type": "service"
+    },
+    {
+      "id": "printer-setup",
+      "name": "Printer Setup",
+      "category": "IT Support",
+      "description": "Professional Printer Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 2000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/printer-setup",
+      "type": "service"
+    },
+    {
+      "id": "nas-setup",
+      "name": "NAS Setup",
+      "category": "IT Support",
+      "description": "Professional NAS Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 10000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/nas-setup",
+      "type": "service"
+    },
+    {
+      "id": "data-backup",
+      "name": "Data Backup",
+      "category": "It Support",
+      "description": "Professional Data Backup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 3000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/data-backup",
+      "type": "service"
+    },
+    {
+      "id": "data-recovery",
+      "name": "Data Recovery",
+      "category": "IT Support",
+      "description": "Professional Data Recovery service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/data-recovery",
+      "type": "service"
+    },
+    {
+      "id": "website-maintenance-2",
+      "name": "Website Maintenance",
+      "category": "Website Development",
+      "description": "Professional Website Maintenance service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 7500,
+      "prefix": "Starting from",
+      "billingPeriod": "per month",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/website-maintenance-2",
+      "type": "service"
+    },
+    {
+      "id": "e-commerce-maintenance",
+      "name": "E-Commerce Maintenance",
+      "category": "Maintenance",
+      "description": "Professional E-Commerce Maintenance service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 10000,
+      "prefix": "Starting from",
+      "billingPeriod": "per month",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/e-commerce-maintenance",
+      "type": "service"
+    },
+    {
+      "id": "mobile-app-maintenance",
+      "name": "Mobile App Maintenance",
+      "category": "Mobile App Development",
+      "description": "Professional Mobile App Maintenance service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 10000,
+      "prefix": "Starting from",
+      "billingPeriod": "per month",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/mobile-app-maintenance",
+      "type": "service"
+    },
+    {
+      "id": "software-maintenance",
+      "name": "Software Maintenance",
+      "category": "Maintenance",
+      "description": "Professional Software Maintenance service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 12000,
+      "prefix": "Starting from",
+      "billingPeriod": "per month",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/software-maintenance",
+      "type": "service"
+    },
+    {
+      "id": "cloud-server-maintenance",
+      "name": "Cloud Server Maintenance",
+      "category": "Cloud and Hosting",
+      "description": "Professional Cloud Server Maintenance service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 12000,
+      "prefix": "Starting from",
+      "billingPeriod": "per month",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/cloud-server-maintenance",
+      "type": "service"
+    },
+    {
+      "id": "security-monitoring-2",
+      "name": "Security Monitoring",
+      "category": "Cyber Security",
+      "description": "Professional Security Monitoring service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "per month",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/security-monitoring-2",
+      "type": "service"
+    },
+    {
+      "id": "bug-fixing",
+      "name": "Bug Fixing",
+      "category": "Maintenance",
+      "description": "Professional Bug Fixing service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 3000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/bug-fixing",
+      "type": "service"
+    },
+    {
+      "id": "performance-optimization",
+      "name": "Performance Optimization",
+      "category": "Maintenance",
+      "description": "Professional Performance Optimization service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/performance-optimization",
+      "type": "service"
+    },
+    {
+      "id": "database-maintenance",
+      "name": "Database Maintenance",
+      "category": "Maintenance",
+      "description": "Professional Database Maintenance service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 6000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/database-maintenance",
+      "type": "service"
+    },
+    {
+      "id": "api-maintenance",
+      "name": "API Maintenance",
+      "category": "API Development",
+      "description": "Professional API Maintenance service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 5000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/api-maintenance",
+      "type": "service"
+    },
+    {
+      "id": "content-updates",
+      "name": "Content Updates",
+      "category": "Maintenance",
+      "description": "Professional Content Updates service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 2500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/content-updates",
+      "type": "service"
+    },
+    {
+      "id": "monthly-technical-support",
+      "name": "Monthly Technical Support",
+      "category": "Maintenance",
+      "description": "Professional Monthly Technical Support service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 10000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/monthly-technical-support",
+      "type": "service"
+    },
+    {
+      "id": "annual-maintenance-contract-amc",
+      "name": "Annual Maintenance Contract (AMC)",
+      "category": "Maintenance",
+      "description": "Professional Annual Maintenance Contract (AMC) service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 60000,
+      "prefix": "Starting from",
+      "billingPeriod": "per year",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/annual-maintenance-contract-amc",
+      "type": "service"
+    },
+    {
+      "id": "business-it-consultation",
+      "name": "Business IT Consultation",
+      "category": "Consultation",
+      "description": "Professional Business IT Consultation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 5000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/business-it-consultation",
+      "type": "service"
+    },
+    {
+      "id": "software-project-consultation",
+      "name": "Software Project Consultation",
+      "category": "Consultation",
+      "description": "Professional Software Project Consultation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 7500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/software-project-consultation",
+      "type": "service"
+    },
+    {
+      "id": "ai-consultation",
+      "name": "AI Consultation",
+      "category": "Consultation",
+      "description": "Professional AI Consultation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 7500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/ai-consultation",
+      "type": "service"
+    },
+    {
+      "id": "website-planning-consultation",
+      "name": "Website Planning Consultation",
+      "category": "Website Development",
+      "description": "Professional Website Planning Consultation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 5000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/website-planning-consultation",
+      "type": "service"
+    },
+    {
+      "id": "mobile-app-consultation",
+      "name": "Mobile App Consultation",
+      "category": "Mobile App Development",
+      "description": "Professional Mobile App Consultation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 5000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/mobile-app-consultation",
+      "type": "service"
+    },
+    {
+      "id": "cloud-consultation",
+      "name": "Cloud Consultation",
+      "category": "Cloud and Hosting",
+      "description": "Professional Cloud Consultation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 7500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/cloud-consultation",
+      "type": "service"
+    },
+    {
+      "id": "cyber-security-consultation-2",
+      "name": "Cyber Security Consultation",
+      "category": "Cyber Security",
+      "description": "Professional Cyber Security Consultation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/cyber-security-consultation-2",
+      "type": "service"
+    },
+    {
+      "id": "digital-transformation-consultation",
+      "name": "Digital Transformation Consultation",
+      "category": "Consultation",
+      "description": "Professional Digital Transformation Consultation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 10000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/digital-transformation-consultation",
+      "type": "service"
+    },
+    {
+      "id": "ai-agent-development",
+      "name": "AI Agent Development",
+      "category": "AI Development",
+      "description": "Professional AI Agent Development service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 120000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/ai-agent-development",
+      "type": "service"
+    },
+    {
+      "id": "voice-ai-receptionist",
+      "name": "Voice AI Receptionist",
+      "category": "Consultation",
+      "description": "Professional Voice AI Receptionist service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 85000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/voice-ai-receptionist",
+      "type": "service"
+    },
+    {
+      "id": "ai-call-center",
+      "name": "AI Call Center",
+      "category": "Consultation",
+      "description": "Professional AI Call Center service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 180000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/ai-call-center",
+      "type": "service"
+    },
+    {
+      "id": "ai-sales-agent",
+      "name": "AI Sales Agent",
+      "category": "AI Development",
+      "description": "Professional AI Sales Agent service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 90000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/ai-sales-agent",
+      "type": "service"
+    },
+    {
+      "id": "ai-document-processing",
+      "name": "AI Document Processing",
+      "category": "Consultation",
+      "description": "Professional AI Document Processing service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 80000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/ai-document-processing",
+      "type": "service"
+    },
+    {
+      "id": "ai-workflow-automation",
+      "name": "AI Workflow Automation",
+      "category": "AI Development",
+      "description": "Professional AI Workflow Automation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 65000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/ai-workflow-automation",
+      "type": "service"
+    },
+    {
+      "id": "ai-business-intelligence",
+      "name": "AI Business Intelligence",
+      "category": "Consultation",
+      "description": "Professional AI Business Intelligence service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 95000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/ai-business-intelligence",
+      "type": "service"
+    },
+    {
+      "id": "ai-knowledge-base",
+      "name": "AI Knowledge Base",
+      "category": "Consultation",
+      "description": "Professional AI Knowledge Base service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 60000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/ai-knowledge-base",
+      "type": "service"
+    },
+    {
+      "id": "ai-search-engine",
+      "name": "AI Search Engine",
+      "category": "Consultation",
+      "description": "Professional AI Search Engine service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 100000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/ai-search-engine",
+      "type": "service"
+    },
+    {
+      "id": "saas-development",
+      "name": "SaaS Development",
+      "category": "Consultation",
+      "description": "Professional SaaS Development service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 180000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/saas-development",
+      "type": "service"
+    },
+    {
+      "id": "crm-development",
+      "name": "CRM Development",
+      "category": "Enterprise Software Development",
+      "description": "Professional CRM Development service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 120000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/crm-development",
+      "type": "service"
+    },
+    {
+      "id": "erp-development",
+      "name": "ERP Development",
+      "category": "Enterprise Software Development",
+      "description": "Professional ERP Development service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 300000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/erp-development",
+      "type": "service"
+    },
+    {
+      "id": "hrm-development",
+      "name": "HRM Development",
+      "category": "Enterprise Software Development",
+      "description": "Professional HRM Development service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 100000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/hrm-development",
+      "type": "service"
+    },
+    {
+      "id": "pos-development",
+      "name": "POS Development",
+      "category": "Enterprise Software Development",
+      "description": "Professional POS Development service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 80000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/pos-development",
+      "type": "service"
+    },
+    {
+      "id": "payment-gateway-integration-2",
+      "name": "Payment Gateway Integration",
+      "category": "API Integration",
+      "description": "Professional Payment Gateway Integration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 18000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/payment-gateway-integration-2",
+      "type": "service"
+    },
+    {
+      "id": "invoice-automation",
+      "name": "Invoice Automation",
+      "category": "Automation",
+      "description": "Professional Invoice Automation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 40000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/invoice-automation",
+      "type": "service"
+    },
+    {
+      "id": "e-commerce-automation",
+      "name": "E-Commerce Automation",
+      "category": "Automation",
+      "description": "Professional E-Commerce Automation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 60000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/e-commerce-automation",
+      "type": "service"
+    },
+    {
+      "id": "warehouse-automation",
+      "name": "Warehouse Automation",
+      "category": "Automation",
+      "description": "Professional Warehouse Automation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 80000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/warehouse-automation",
+      "type": "service"
+    },
+    {
+      "id": "cloud-infrastructure",
+      "name": "Cloud Infrastructure",
+      "category": "Cloud and Hosting",
+      "description": "Professional Cloud Infrastructure service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 60000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/cloud-infrastructure",
+      "type": "service"
+    },
+    {
+      "id": "aws-deployment",
+      "name": "AWS Deployment",
+      "category": "Consultation",
+      "description": "Professional AWS Deployment service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 30000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/aws-deployment",
+      "type": "service"
+    },
+    {
+      "id": "microsoft-azure-deployment",
+      "name": "Microsoft Azure Deployment",
+      "category": "Consultation",
+      "description": "Professional Microsoft Azure Deployment service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 30000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/microsoft-azure-deployment",
+      "type": "service"
+    },
+    {
+      "id": "google-cloud-deployment",
+      "name": "Google Cloud Deployment",
+      "category": "Cloud and Hosting",
+      "description": "Professional Google Cloud Deployment service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 30000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/google-cloud-deployment",
+      "type": "service"
+    },
+    {
+      "id": "docker-deployment",
+      "name": "Docker Deployment",
+      "category": "DevOps",
+      "description": "Professional Docker Deployment service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 20000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/docker-deployment",
+      "type": "service"
+    },
+    {
+      "id": "kubernetes-deployment",
+      "name": "Kubernetes Deployment",
+      "category": "DevOps",
+      "description": "Professional Kubernetes Deployment service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 45000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/kubernetes-deployment",
+      "type": "service"
+    },
+    {
+      "id": "database-optimization-2",
+      "name": "Database Optimization",
+      "category": "Database Services",
+      "description": "Professional Database Optimization service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 18000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/database-optimization-2",
+      "type": "service"
+    },
+    {
+      "id": "database-clustering",
+      "name": "Database Clustering",
+      "category": "Database Services",
+      "description": "Professional Database Clustering service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 60000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/database-clustering",
+      "type": "service"
+    },
+    {
+      "id": "high-availability-setup",
+      "name": "High Availability Setup",
+      "category": "Consultation",
+      "description": "Professional High Availability Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 80000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/high-availability-setup",
+      "type": "service"
+    },
+    {
+      "id": "load-balancer-setup",
+      "name": "Load Balancer Setup",
+      "category": "Consultation",
+      "description": "Professional Load Balancer Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 35000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/load-balancer-setup",
+      "type": "service"
+    },
+    {
+      "id": "cdn-configuration-2",
+      "name": "CDN Configuration",
+      "category": "Cloud and Hosting",
+      "description": "Professional CDN Configuration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 12000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/cdn-configuration-2",
+      "type": "service"
+    },
+    {
+      "id": "cyber-security-audit",
+      "name": "Cyber Security Audit",
+      "category": "Cyber Security",
+      "description": "Professional Cyber Security Audit service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 25000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/cyber-security-audit",
+      "type": "service"
+    },
+    {
+      "id": "iso-27001-consultation",
+      "name": "ISO 27001 Consultation",
+      "category": "Cyber Security",
+      "description": "Professional ISO 27001 Consultation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 40000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/iso-27001-consultation",
+      "type": "service"
+    },
+    {
+      "id": "penetration-testing",
+      "name": "Penetration Testing",
+      "category": "Cyber Security",
+      "description": "Professional Penetration Testing service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 35000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/penetration-testing",
+      "type": "service"
+    },
+    {
+      "id": "soc-setup",
+      "name": "SOC Setup",
+      "category": "Cyber Security",
+      "description": "Professional SOC Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 180000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/soc-setup",
+      "type": "service"
+    },
+    {
+      "id": "security-monitoring-3",
+      "name": "Security Monitoring",
+      "category": "Cyber Security",
+      "description": "Professional Security Monitoring service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 12000,
+      "prefix": "Starting from",
+      "billingPeriod": "per month",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/security-monitoring-3",
+      "type": "service"
+    },
+    {
+      "id": "disaster-recovery",
+      "name": "Disaster Recovery",
+      "category": "Cyber Security",
+      "description": "Professional Disaster Recovery service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 45000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/disaster-recovery",
+      "type": "service"
+    },
+    {
+      "id": "iot-solutions",
+      "name": "IoT Solutions",
+      "category": "Consultation",
+      "description": "Professional IoT Solutions service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 120000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/iot-solutions",
+      "type": "service"
+    },
+    {
+      "id": "rfid-management",
+      "name": "RFID Management",
+      "category": "Consultation",
+      "description": "Professional RFID Management service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 80000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/rfid-management",
+      "type": "service"
+    },
+    {
+      "id": "blockchain-development",
+      "name": "Blockchain Development",
+      "category": "AI Development",
+      "description": "Professional Blockchain Development service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 300000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/blockchain-development",
+      "type": "service"
+    },
+    {
+      "id": "nft-marketplace",
+      "name": "NFT Marketplace",
+      "category": "Consultation",
+      "description": "Professional NFT Marketplace service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 350000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/nft-marketplace",
+      "type": "service"
+    },
+    {
+      "id": "crypto-wallet",
+      "name": "Crypto Wallet",
+      "category": "Consultation",
+      "description": "Professional Crypto Wallet service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 280000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/crypto-wallet",
+      "type": "service"
+    },
+    {
+      "id": "smart-contract-development",
+      "name": "Smart Contract Development",
+      "category": "Consultation",
+      "description": "Professional Smart Contract Development service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 120000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/smart-contract-development",
+      "type": "service"
+    },
+    {
+      "id": "browser-extension-development",
+      "name": "Browser Extension Development",
+      "category": "Consultation",
+      "description": "Professional Browser Extension Development service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 30000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/browser-extension-development",
+      "type": "service"
+    },
+    {
+      "id": "chrome-extension",
+      "name": "Chrome Extension",
+      "category": "Consultation",
+      "description": "Professional Chrome Extension service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 30000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/chrome-extension",
+      "type": "service"
+    },
+    {
+      "id": "edge-extension",
+      "name": "Edge Extension",
+      "category": "Consultation",
+      "description": "Professional Edge Extension service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 30000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/edge-extension",
+      "type": "service"
+    },
+    {
+      "id": "firefox-extension",
+      "name": "Firefox Extension",
+      "category": "Consultation",
+      "description": "Professional Firefox Extension service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 30000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/firefox-extension",
+      "type": "service"
+    },
+    {
+      "id": "api-development",
+      "name": "API Development",
+      "category": "API Development",
+      "description": "Professional API Development service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 30000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/api-development",
+      "type": "service"
+    },
+    {
+      "id": "rest-api",
+      "name": "REST API",
+      "category": "API Development",
+      "description": "Professional REST API service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 25000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/rest-api",
+      "type": "service"
+    },
+    {
+      "id": "graphql-api",
+      "name": "GraphQL API",
+      "category": "API Development",
+      "description": "Professional GraphQL API service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 35000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/graphql-api",
+      "type": "service"
+    },
+    {
+      "id": "webhook-integration",
+      "name": "Webhook Integration",
+      "category": "API Integration",
+      "description": "Professional Webhook Integration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 15000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/webhook-integration",
+      "type": "service"
+    },
+    {
+      "id": "third-party-integration",
+      "name": "Third Party Integration",
+      "category": "API Integration",
+      "description": "Professional Third Party Integration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 20000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/third-party-integration",
+      "type": "service"
+    },
+    {
+      "id": "whatsapp-automation",
+      "name": "WhatsApp Automation",
+      "category": "Mobile App Development",
+      "description": "Professional WhatsApp Automation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 35000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/whatsapp-automation",
+      "type": "service"
+    },
+    {
+      "id": "telegram-automation",
+      "name": "Telegram Automation",
+      "category": "Automation",
+      "description": "Professional Telegram Automation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 25000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/telegram-automation",
+      "type": "service"
+    },
+    {
+      "id": "discord-automation",
+      "name": "Discord Automation",
+      "category": "Automation",
+      "description": "Professional Discord Automation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 25000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/discord-automation",
+      "type": "service"
+    },
+    {
+      "id": "email-automation-2",
+      "name": "Email Automation",
+      "category": "AI Development",
+      "description": "Professional Email Automation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 18000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/email-automation-2",
+      "type": "service"
+    },
+    {
+      "id": "sms-automation",
+      "name": "SMS Automation",
+      "category": "Automation",
+      "description": "Professional SMS Automation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 20000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/sms-automation",
+      "type": "service"
+    },
+    {
+      "id": "digital-marketing",
+      "name": "Digital Marketing",
+      "category": "Digital Marketing",
+      "description": "Professional Digital Marketing service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 15000,
+      "prefix": "Starting from",
+      "billingPeriod": "per month",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/digital-marketing",
+      "type": "service"
+    },
+    {
+      "id": "seo",
+      "name": "SEO",
+      "category": "SEO",
+      "description": "Professional SEO service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 15000,
+      "prefix": "Starting from",
+      "billingPeriod": "per month",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/seo",
+      "type": "service"
+    },
+    {
+      "id": "google-ads",
+      "name": "Google Ads",
+      "category": "Digital Marketing",
+      "description": "Professional Google Ads service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 15000,
+      "prefix": "Starting from",
+      "billingPeriod": "per month",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/google-ads",
+      "type": "service"
+    },
+    {
+      "id": "meta-ads",
+      "name": "Meta Ads",
+      "category": "Digital Marketing",
+      "description": "Professional Meta Ads service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 15000,
+      "prefix": "Starting from",
+      "billingPeriod": "per month",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/meta-ads",
+      "type": "service"
+    },
+    {
+      "id": "social-media-management-2",
+      "name": "Social Media Management",
+      "category": "Digital Marketing",
+      "description": "Professional Social Media Management service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 18000,
+      "prefix": "Starting from",
+      "billingPeriod": "per month",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/social-media-management-2",
+      "type": "service"
+    },
+    {
+      "id": "content-writing",
+      "name": "Content Writing",
+      "category": "Digital Marketing",
+      "description": "Professional Content Writing service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 2000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/content-writing",
+      "type": "service"
+    },
+    {
+      "id": "copywriting",
+      "name": "Copywriting",
+      "category": "Digital Marketing",
+      "description": "Professional Copywriting service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 3000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/copywriting",
+      "type": "service"
+    },
+    {
+      "id": "ui-ux-design",
+      "name": "UI/UX Design",
+      "category": "UI/UX Design",
+      "description": "Professional UI/UX Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 15000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/ui-ux-design",
+      "type": "service"
+    },
+    {
+      "id": "brand-identity",
+      "name": "Brand Identity",
+      "category": "Graphic Design and Branding",
+      "description": "Professional Brand Identity service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 20000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/brand-identity",
+      "type": "service"
+    },
+    {
+      "id": "logo-design-2",
+      "name": "Logo Design",
+      "category": "Graphic Design and Branding",
+      "description": "Professional Logo Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 6000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/logo-design-2",
+      "type": "service"
+    },
+    {
+      "id": "motion-graphics-2",
+      "name": "Motion Graphics",
+      "category": "Video and Motion Design",
+      "description": "Professional Motion Graphics service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/motion-graphics-2",
+      "type": "service"
+    },
+    {
+      "id": "video-editing-2",
+      "name": "Video Editing",
+      "category": "Video and Motion Design",
+      "description": "Professional Video Editing service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 3500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/video-editing-2",
+      "type": "service"
+    },
+    {
+      "id": "3d-product-design",
+      "name": "3D Product Design",
+      "category": "Consultation",
+      "description": "Professional 3D Product Design service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 20000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/3d-product-design",
+      "type": "service"
+    },
+    {
+      "id": "domain-registration-2",
+      "name": "Domain Registration",
+      "category": "Cloud and Hosting",
+      "description": "Professional Domain Registration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 4000,
+      "prefix": "Starting from",
+      "billingPeriod": "per year",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/domain-registration-2",
+      "type": "service"
+    },
+    {
+      "id": "web-hosting",
+      "name": "Web Hosting",
+      "category": "Cloud and Hosting",
+      "description": "Professional Web Hosting service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "per year",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/web-hosting",
+      "type": "service"
+    },
+    {
+      "id": "cloud-hosting",
+      "name": "Cloud Hosting",
+      "category": "Cloud and Hosting",
+      "description": "Professional Cloud Hosting service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 15000,
+      "prefix": "Starting from",
+      "billingPeriod": "per year",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/cloud-hosting",
+      "type": "service"
+    },
+    {
+      "id": "business-email",
+      "name": "Business Email",
+      "category": "Consultation",
+      "description": "Professional Business Email service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 5000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/business-email",
+      "type": "service"
+    },
+    {
+      "id": "ssl-certificate",
+      "name": "SSL Certificate",
+      "category": "Cloud and Hosting",
+      "description": "Professional SSL Certificate service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 3000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/ssl-certificate",
+      "type": "service"
+    },
+    {
+      "id": "website-migration-3",
+      "name": "Website Migration",
+      "category": "Website Development",
+      "description": "Professional Website Migration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/website-migration-3",
+      "type": "service"
+    },
+    {
+      "id": "website-maintenance-3",
+      "name": "Website Maintenance",
+      "category": "Website Development",
+      "description": "Professional Website Maintenance service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 7500,
+      "prefix": "Starting from",
+      "billingPeriod": "per month",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/website-maintenance-3",
+      "type": "service"
+    },
+    {
+      "id": "app-maintenance",
+      "name": "App Maintenance",
+      "category": "Mobile App Development",
+      "description": "Professional App Maintenance service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 10000,
+      "prefix": "Starting from",
+      "billingPeriod": "per month",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/app-maintenance",
+      "type": "service"
+    },
+    {
+      "id": "remote-it-support-2",
+      "name": "Remote IT Support",
+      "category": "IT Support",
+      "description": "Professional Remote IT Support service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 2500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/remote-it-support-2",
+      "type": "service"
+    },
+    {
+      "id": "server-administration",
+      "name": "Server Administration",
+      "category": "DevOps",
+      "description": "Professional Server Administration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 15000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/server-administration",
+      "type": "service"
+    },
+    {
+      "id": "linux-administration",
+      "name": "Linux Administration",
+      "category": "UI/UX Design",
+      "description": "Professional Linux Administration service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 12000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/linux-administration",
+      "type": "service"
+    },
+    {
+      "id": "windows-server-management",
+      "name": "Windows Server Management",
+      "category": "DevOps",
+      "description": "Professional Windows Server Management service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 12000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/windows-server-management",
+      "type": "service"
+    },
+    {
+      "id": "devops-services",
+      "name": "DevOps Services",
+      "category": "DevOps",
+      "description": "Professional DevOps Services service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 40000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/devops-services",
+      "type": "service"
+    },
+    {
+      "id": "ci-cd-pipeline-setup-2",
+      "name": "CI/CD Pipeline Setup",
+      "category": "DevOps",
+      "description": "Professional CI/CD Pipeline Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 25000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/ci-cd-pipeline-setup-2",
+      "type": "service"
+    },
+    {
+      "id": "github-management",
+      "name": "GitHub Management",
+      "category": "Consultation",
+      "description": "Professional GitHub Management service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 8000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/github-management",
+      "type": "service"
+    },
+    {
+      "id": "consultation-services",
+      "name": "Consultation Services",
+      "category": "Consultation",
+      "description": "Professional Consultation Services service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 5000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/consultation-services",
+      "type": "service"
+    },
+    {
+      "id": "ai-consultation-2",
+      "name": "AI Consultation",
+      "category": "Consultation",
+      "description": "Professional AI Consultation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 7500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/ai-consultation-2",
+      "type": "service"
+    },
+    {
+      "id": "software-consultation",
+      "name": "Software Consultation",
+      "category": "Consultation",
+      "description": "Professional Software Consultation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 7500,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/software-consultation",
+      "type": "service"
+    },
+    {
+      "id": "startup-consultation",
+      "name": "Startup Consultation",
+      "category": "Consultation",
+      "description": "Professional Startup Consultation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 10000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/startup-consultation",
+      "type": "service"
+    },
+    {
+      "id": "digital-transformation-consultation-2",
+      "name": "Digital Transformation Consultation",
+      "category": "Consultation",
+      "description": "Professional Digital Transformation Consultation service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 15000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/digital-transformation-consultation-2",
+      "type": "service"
+    },
+    {
+      "id": "technology-roadmap-planning",
+      "name": "Technology Roadmap Planning",
+      "category": "Consultation",
+      "description": "Professional Technology Roadmap Planning service tailored to the customer's scope, features, integrations and delivery requirements.",
+      "priceLkr": 20000,
+      "prefix": "Starting from",
+      "billingPeriod": "",
+      "status": "Available",
+      "features": [
+        "Custom requirements",
+        "Professional implementation",
+        "Quotation-based delivery"
+      ],
+      "deliveryTime": "Based on scope",
+      "supportPeriod": "As quoted",
+      "route": "#/services/technology-roadmap-planning",
+      "type": "service"
+    }
+  ]
+};
 
   const validPages = ["overview", ...Object.keys(pageData)];
   const esc = (value) => String(value ?? "").replace(/[&<>\"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[char]));
