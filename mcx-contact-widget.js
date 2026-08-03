@@ -713,3 +713,87 @@
   }
 })();
 /* MCX_EXACT_ICON_RENDERER_END */
+
+
+/* MCX_FRONT_PAGE_WIDGET_HIDE_START */
+(function () {
+  "use strict";
+
+  let retryCount = 0;
+  const maximumRetries = 30;
+
+  function isFrontPage() {
+    return (
+      window.location.hash === "" ||
+      window.location.hash === "#"
+    );
+  }
+
+  function findFloatingWidget() {
+    const launcher = document.querySelector(
+      "[data-mcx-contact-toggle]," +
+      ".mcx-contact-launcher," +
+      ".mcx-contact-fab," +
+      ".mcx-contact-button," +
+      ".mcx-widget-launcher"
+    );
+
+    if (!launcher) {
+      return null;
+    }
+
+    return (
+      launcher.closest(
+        "[data-mcx-contact-widget]," +
+        ".mcx-contact-widget," +
+        ".mcx-contact-hub," +
+        ".mcx-widget"
+      ) || launcher
+    );
+  }
+
+  function updateFloatingWidgetVisibility() {
+    const widget = findFloatingWidget();
+
+    if (!widget) {
+      retryCount += 1;
+
+      if (retryCount <= maximumRetries) {
+        window.setTimeout(
+          updateFloatingWidgetVisibility,
+          200
+        );
+      }
+
+      return;
+    }
+
+    retryCount = 0;
+
+    widget.classList.toggle(
+      "mcx-hidden-on-front-page",
+      isFrontPage()
+    );
+  }
+
+  window.addEventListener(
+    "hashchange",
+    updateFloatingWidgetVisibility
+  );
+
+  window.addEventListener(
+    "popstate",
+    updateFloatingWidgetVisibility
+  );
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      updateFloatingWidgetVisibility,
+      { once: true }
+    );
+  } else {
+    updateFloatingWidgetVisibility();
+  }
+})();
+/* MCX_FRONT_PAGE_WIDGET_HIDE_END */

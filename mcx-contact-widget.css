@@ -361,3 +361,16 @@ textarea.mcx-hub-input { min-height: 104px; resize: vertical; }
 }
 
 /* MCX_REAL_WHATSAPP_ICON_END */
+
+
+/* MCX_FRONT_PAGE_WIDGET_HIDE_START */
+
+/* Hide only the floating contact widget on the front page. */
+.mcx-hidden-on-front-page {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* MCX_FRONT_PAGE_WIDGET_HIDE_END */
