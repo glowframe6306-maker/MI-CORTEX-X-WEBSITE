@@ -5124,3 +5124,8 @@ body.mcx-modal-open {
 }
 
 /* MCX_ORDER_MODAL_ABOVE_NAV_END */
+
+/* MCX_PREMIUM_TAB_START */
+.mcx-catalogue-segment { flex-wrap: wrap; }
+.mcx-segment-button[data-mcx-route="premium"] { font-weight: 800; letter-spacing: .04em; }
+/* MCX_PREMIUM_TAB_END */

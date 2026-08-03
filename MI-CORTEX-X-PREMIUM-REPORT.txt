@@ -1,0 +1,6 @@
+Premium items: 124
+Removed from Products and Services by exact name: YES
+Original LKR prices preserved from owner list: YES
+USD conversion logic preserved: YES
+Files modified: index.html, script.js, styles.css
+Backup: C:\Users\Administrator\MI-CORTEX-X-before-premium-20260803-123557

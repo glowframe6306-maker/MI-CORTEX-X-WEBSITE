@@ -680,6 +680,7 @@ document.addEventListener('DOMContentLoaded', function () {
       intro: "Review starting prices for products and services, with custom quotation support.",
       categories: [{ id: "pricing-overview", title: "PRICING OVERVIEW", summary: "Pricing remains flexible for scope, integrations, delivery and support needs.", subtopics: [{ title: "Starting estimates", summary: "All listed prices are starting estimates.", points: ["30% advance", "Before final delivery", "Custom scope adjustments"], note: "" }], status: "" }, { id: "payment-info", title: "PAYMENT INFORMATION", summary: "Payment terms and options are outlined before work begins.", subtopics: [{ title: "Advance and delivery", summary: "The advance is 30% and the balance is due before final delivery.", points: ["30% advance", "Remaining balance before final delivery", "Instalments not currently available"], note: "" }], status: "" }]
     },
+    premium: { title: "PREMIUM", intro: "Advanced premium solutions for enterprise, automation, infrastructure and professional requirements.", categories: [] },
     contact: {
       title: "CONTACT",
       intro: "Connect with MI CORTEX X by email, WhatsApp or Telegram for project inquiries and support.",
@@ -689,7 +690,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const catalogueData = {
   "products": [
-    {
+      {
       "id": "cortex-core-ai",
       "name": "CORTEX CORE AI",
       "category": "AI Products",
@@ -709,7 +710,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "type": "product",
       "note": "Free plan available when released."
     },
-    {
+      {
       "id": "mi-business-management-suite",
       "name": "MI Business Management Suite",
       "category": "Business Management Products",
@@ -729,7 +730,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "type": "product",
       "note": "Professional setup and configuration available."
     },
-    {
+      {
       "id": "ai-chatbot",
       "name": "AI Chatbot",
       "category": "AI Chatbots",
@@ -748,7 +749,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/ai-chatbot",
       "type": "product"
     },
-    {
+      {
       "id": "business-ai-chatbot",
       "name": "Business AI Chatbot",
       "category": "AI Chatbots",
@@ -767,7 +768,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/business-ai-chatbot",
       "type": "product"
     },
-    {
+      {
       "id": "customer-support-ai",
       "name": "Customer Support AI",
       "category": "AI Products",
@@ -786,7 +787,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/customer-support-ai",
       "type": "product"
     },
-    {
+      {
       "id": "website-ai-assistant",
       "name": "Website AI Assistant",
       "category": "AI Assistants",
@@ -805,7 +806,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/website-ai-assistant",
       "type": "product"
     },
-    {
+      {
       "id": "whatsapp-ai-bot",
       "name": "WhatsApp AI Bot",
       "category": "AI Chatbots",
@@ -824,7 +825,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/whatsapp-ai-bot",
       "type": "product"
     },
-    {
+      {
       "id": "telegram-ai-bot",
       "name": "Telegram AI Bot",
       "category": "AI Chatbots",
@@ -843,7 +844,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/telegram-ai-bot",
       "type": "product"
     },
-    {
+      {
       "id": "facebook-messenger-bot",
       "name": "Facebook Messenger Bot",
       "category": "Business Management Products",
@@ -862,7 +863,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/facebook-messenger-bot",
       "type": "product"
     },
-    {
+      {
       "id": "instagram-ai-bot",
       "name": "Instagram AI Bot",
       "category": "AI Chatbots",
@@ -881,7 +882,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/instagram-ai-bot",
       "type": "product"
     },
-    {
+      {
       "id": "discord-ai-bot",
       "name": "Discord AI Bot",
       "category": "AI Chatbots",
@@ -900,7 +901,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/discord-ai-bot",
       "type": "product"
     },
-    {
+      {
       "id": "slack-ai-bot",
       "name": "Slack AI Bot",
       "category": "AI Chatbots",
@@ -919,7 +920,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/slack-ai-bot",
       "type": "product"
     },
-    {
+      {
       "id": "ai-faq-bot",
       "name": "AI FAQ Bot",
       "category": "AI Chatbots",
@@ -938,7 +939,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/ai-faq-bot",
       "type": "product"
     },
-    {
+      {
       "id": "ai-sales-assistant",
       "name": "AI Sales Assistant",
       "category": "AI Assistants",
@@ -957,7 +958,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/ai-sales-assistant",
       "type": "product"
     },
-    {
+      {
       "id": "ai-lead-generation-bot",
       "name": "AI Lead Generation Bot",
       "category": "AI Chatbots",
@@ -976,7 +977,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/ai-lead-generation-bot",
       "type": "product"
     },
-    {
+      {
       "id": "ai-booking-assistant",
       "name": "AI Booking Assistant",
       "category": "AI Assistants",
@@ -995,7 +996,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/ai-booking-assistant",
       "type": "product"
     },
-    {
+      {
       "id": "ai-appointment-system",
       "name": "AI Appointment System",
       "category": "AI Products",
@@ -1014,7 +1015,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/ai-appointment-system",
       "type": "product"
     },
-    {
+      {
       "id": "ai-receptionist",
       "name": "AI Receptionist",
       "category": "AI Products",
@@ -1033,7 +1034,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/ai-receptionist",
       "type": "product"
     },
-    {
+      {
       "id": "ai-voice-assistant",
       "name": "AI Voice Assistant",
       "category": "AI Assistants",
@@ -1052,7 +1053,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/ai-voice-assistant",
       "type": "product"
     },
-    {
+      {
       "id": "ai-voice-chatbot",
       "name": "AI Voice Chatbot",
       "category": "AI Chatbots",
@@ -1071,7 +1072,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/ai-voice-chatbot",
       "type": "product"
     },
-    {
+      {
       "id": "ai-pdf-chat",
       "name": "AI PDF Chat",
       "category": "AI Products",
@@ -1090,7 +1091,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/ai-pdf-chat",
       "type": "product"
     },
-    {
+      {
       "id": "ai-document-analyzer",
       "name": "AI Document Analyzer",
       "category": "AI Products",
@@ -1109,7 +1110,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/ai-document-analyzer",
       "type": "product"
     },
-    {
+      {
       "id": "ai-resume-builder",
       "name": "AI Resume Builder",
       "category": "AI Products",
@@ -1128,7 +1129,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/ai-resume-builder",
       "type": "product"
     },
-    {
+      {
       "id": "ai-cv-analyzer",
       "name": "AI CV Analyzer",
       "category": "AI Products",
@@ -1147,7 +1148,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/ai-cv-analyzer",
       "type": "product"
     },
-    {
+      {
       "id": "ai-email-writer",
       "name": "AI Email Writer",
       "category": "AI Products",
@@ -1166,7 +1167,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/ai-email-writer",
       "type": "product"
     },
-    {
+      {
       "id": "ai-content-writer",
       "name": "AI Content Writer",
       "category": "AI Products",
@@ -1185,7 +1186,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/ai-content-writer",
       "type": "product"
     },
-    {
+      {
       "id": "ai-blog-generator",
       "name": "AI Blog Generator",
       "category": "AI Products",
@@ -1204,7 +1205,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/ai-blog-generator",
       "type": "product"
     },
-    {
+      {
       "id": "ai-news-generator",
       "name": "AI News Generator",
       "category": "AI Products",
@@ -1223,7 +1224,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/ai-news-generator",
       "type": "product"
     },
-    {
+      {
       "id": "ai-image-generator",
       "name": "AI Image Generator",
       "category": "AI Products",
@@ -1242,7 +1243,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/ai-image-generator",
       "type": "product"
     },
-    {
+      {
       "id": "ai-image-caption-generator",
       "name": "AI Image Caption Generator",
       "category": "AI Products",
@@ -1261,7 +1262,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/ai-image-caption-generator",
       "type": "product"
     },
-    {
+      {
       "id": "ai-ocr-system",
       "name": "AI OCR System",
       "category": "AI Products",
@@ -1280,7 +1281,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/ai-ocr-system",
       "type": "product"
     },
-    {
+      {
       "id": "ai-translator",
       "name": "AI Translator",
       "category": "AI Products",
@@ -1299,7 +1300,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/ai-translator",
       "type": "product"
     },
-    {
+      {
       "id": "ai-grammar-checker",
       "name": "AI Grammar Checker",
       "category": "AI Products",
@@ -1318,7 +1319,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/ai-grammar-checker",
       "type": "product"
     },
-    {
+      {
       "id": "ai-code-assistant",
       "name": "AI Code Assistant",
       "category": "AI Assistants",
@@ -1337,7 +1338,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/ai-code-assistant",
       "type": "product"
     },
-    {
+      {
       "id": "ai-programming-tutor",
       "name": "AI Programming Tutor",
       "category": "AI Products",
@@ -1356,7 +1357,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/ai-programming-tutor",
       "type": "product"
     },
-    {
+      {
       "id": "ai-school-assistant",
       "name": "AI School Assistant",
       "category": "AI Assistants",
@@ -1375,7 +1376,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/ai-school-assistant",
       "type": "product"
     },
-    {
+      {
       "id": "ai-hospital-assistant",
       "name": "AI Hospital Assistant",
       "category": "AI Assistants",
@@ -1394,7 +1395,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/ai-hospital-assistant",
       "type": "product"
     },
-    {
+      {
       "id": "ai-hotel-assistant",
       "name": "AI Hotel Assistant",
       "category": "AI Assistants",
@@ -1413,7 +1414,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/ai-hotel-assistant",
       "type": "product"
     },
-    {
+      {
       "id": "ai-restaurant-assistant",
       "name": "AI Restaurant Assistant",
       "category": "AI Assistants",
@@ -1432,7 +1433,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/ai-restaurant-assistant",
       "type": "product"
     },
-    {
+      {
       "id": "ai-property-assistant",
       "name": "AI Property Assistant",
       "category": "AI Assistants",
@@ -1451,7 +1452,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/ai-property-assistant",
       "type": "product"
     },
-    {
+      {
       "id": "pos-point-of-sale-system",
       "name": "POS (Point of Sale) System",
       "category": "POS Products",
@@ -1470,7 +1471,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/pos-point-of-sale-system",
       "type": "product"
     },
-    {
+      {
       "id": "restaurant-pos-system",
       "name": "Restaurant POS System",
       "category": "POS Products",
@@ -1489,7 +1490,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/restaurant-pos-system",
       "type": "product"
     },
-    {
+      {
       "id": "retail-pos-system",
       "name": "Retail POS System",
       "category": "AI Products",
@@ -1508,7 +1509,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/retail-pos-system",
       "type": "product"
     },
-    {
+      {
       "id": "pharmacy-pos-system",
       "name": "Pharmacy POS System",
       "category": "POS Products",
@@ -1527,7 +1528,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/pharmacy-pos-system",
       "type": "product"
     },
-    {
+      {
       "id": "supermarket-pos-system",
       "name": "Supermarket POS System",
       "category": "POS Products",
@@ -1546,7 +1547,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/supermarket-pos-system",
       "type": "product"
     },
-    {
+      {
       "id": "inventory-management-system",
       "name": "Inventory Management System",
       "category": "Inventory Products",
@@ -1565,7 +1566,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/inventory-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "stock-management-system",
       "name": "Stock Management System",
       "category": "Inventory Products",
@@ -1584,7 +1585,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/stock-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "warehouse-management-system",
       "name": "Warehouse Management System",
       "category": "Inventory Products",
@@ -1603,7 +1604,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/warehouse-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "asset-management-system",
       "name": "Asset Management System",
       "category": "Business Management Products",
@@ -1622,7 +1623,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/asset-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "purchase-management-system",
       "name": "Purchase Management System",
       "category": "Business Management Products",
@@ -1641,7 +1642,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/purchase-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "sales-management-system",
       "name": "Sales Management System",
       "category": "Business Management Products",
@@ -1660,7 +1661,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/sales-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "supplier-management-system",
       "name": "Supplier Management System",
       "category": "Business Management Products",
@@ -1679,7 +1680,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/supplier-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "customer-management-system",
       "name": "Customer Management System",
       "category": "Business Management Products",
@@ -1698,7 +1699,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/customer-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "crm-customer-relationship-management",
       "name": "CRM (Customer Relationship Management)",
       "category": "CRM Products",
@@ -1717,7 +1718,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/crm-customer-relationship-management",
       "type": "product"
     },
-    {
+      {
       "id": "erp-enterprise-resource-planning",
       "name": "ERP (Enterprise Resource Planning)",
       "category": "ERP Products",
@@ -1736,26 +1737,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/erp-enterprise-resource-planning",
       "type": "product"
     },
-    {
-      "id": "accounting-software",
-      "name": "Accounting Software",
-      "category": "Business Management Products",
-      "description": "A reusable Accounting Software solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 80000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/accounting-software",
-      "type": "product"
-    },
-    {
+      {
       "id": "billing-invoice-system",
       "name": "Billing & Invoice System",
       "category": "Business Management Products",
@@ -1774,7 +1756,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/billing-invoice-system",
       "type": "product"
     },
-    {
+      {
       "id": "quotation-management-system",
       "name": "Quotation Management System",
       "category": "Business Management Products",
@@ -1793,7 +1775,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/quotation-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "expense-tracking-system",
       "name": "Expense Tracking System",
       "category": "Business Management Products",
@@ -1812,7 +1794,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/expense-tracking-system",
       "type": "product"
     },
-    {
+      {
       "id": "finance-management-system",
       "name": "Finance Management System",
       "category": "Business Management Products",
@@ -1831,7 +1813,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/finance-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "payroll-management-system",
       "name": "Payroll Management System",
       "category": "Business Management Products",
@@ -1850,7 +1832,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/payroll-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "hr-management-system",
       "name": "HR Management System",
       "category": "HRM Products",
@@ -1869,7 +1851,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/hr-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "employee-management-system",
       "name": "Employee Management System",
       "category": "Business Management Products",
@@ -1888,7 +1870,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/employee-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "attendance-management-system",
       "name": "Attendance Management System",
       "category": "Business Management Products",
@@ -1907,7 +1889,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/attendance-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "biometric-attendance-system",
       "name": "Biometric Attendance System",
       "category": "Business Management Products",
@@ -1926,7 +1908,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/biometric-attendance-system",
       "type": "product"
     },
-    {
+      {
       "id": "leave-management-system",
       "name": "Leave Management System",
       "category": "Business Management Products",
@@ -1945,7 +1927,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/leave-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "recruitment-management-system",
       "name": "Recruitment Management System",
       "category": "Business Management Products",
@@ -1964,7 +1946,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/recruitment-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "performance-evaluation-system",
       "name": "Performance Evaluation System",
       "category": "Business Management Products",
@@ -1983,7 +1965,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/performance-evaluation-system",
       "type": "product"
     },
-    {
+      {
       "id": "school-management-system",
       "name": "School Management System",
       "category": "Education Systems",
@@ -2002,7 +1984,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/school-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "student-information-system",
       "name": "Student Information System",
       "category": "Education Systems",
@@ -2021,7 +2003,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/student-information-system",
       "type": "product"
     },
-    {
+      {
       "id": "learning-management-system-lms",
       "name": "Learning Management System (LMS)",
       "category": "Education Systems",
@@ -2040,7 +2022,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/learning-management-system-lms",
       "type": "product"
     },
-    {
+      {
       "id": "exam-management-system",
       "name": "Exam Management System",
       "category": "Education Systems",
@@ -2059,7 +2041,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/exam-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "library-management-system",
       "name": "Library Management System",
       "category": "Education Systems",
@@ -2078,7 +2060,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/library-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "hostel-management-system",
       "name": "Hostel Management System",
       "category": "Business Management Products",
@@ -2097,7 +2079,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/hostel-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "fee-management-system",
       "name": "Fee Management System",
       "category": "Business Management Products",
@@ -2116,7 +2098,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/fee-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "online-admission-system",
       "name": "Online Admission System",
       "category": "Business Management Products",
@@ -2135,7 +2117,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/online-admission-system",
       "type": "product"
     },
-    {
+      {
       "id": "hospital-management-system",
       "name": "Hospital Management System",
       "category": "Healthcare Systems",
@@ -2154,7 +2136,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/hospital-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "clinic-management-system",
       "name": "Clinic Management System",
       "category": "Healthcare Systems",
@@ -2173,7 +2155,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/clinic-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "patient-management-system",
       "name": "Patient Management System",
       "category": "Healthcare Systems",
@@ -2192,7 +2174,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/patient-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "doctor-appointment-system",
       "name": "Doctor Appointment System",
       "category": "Healthcare Systems",
@@ -2211,7 +2193,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/doctor-appointment-system",
       "type": "product"
     },
-    {
+      {
       "id": "laboratory-management-system",
       "name": "Laboratory Management System",
       "category": "Healthcare Systems",
@@ -2230,7 +2212,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/laboratory-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "medical-record-system",
       "name": "Medical Record System",
       "category": "Healthcare Systems",
@@ -2249,7 +2231,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/medical-record-system",
       "type": "product"
     },
-    {
+      {
       "id": "pharmacy-management-system",
       "name": "Pharmacy Management System",
       "category": "Healthcare Systems",
@@ -2268,7 +2250,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/pharmacy-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "hotel-management-system",
       "name": "Hotel Management System",
       "category": "Hospitality Systems",
@@ -2287,7 +2269,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/hotel-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "room-booking-system",
       "name": "Room Booking System",
       "category": "Hospitality Systems",
@@ -2306,7 +2288,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/room-booking-system",
       "type": "product"
     },
-    {
+      {
       "id": "restaurant-management-system",
       "name": "Restaurant Management System",
       "category": "Hospitality Systems",
@@ -2325,7 +2307,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/restaurant-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "resort-management-system",
       "name": "Resort Management System",
       "category": "Hospitality Systems",
@@ -2344,7 +2326,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/resort-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "vehicle-management-system",
       "name": "Vehicle Management System",
       "category": "Business Management Products",
@@ -2363,7 +2345,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/vehicle-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "fleet-management-system",
       "name": "Fleet Management System",
       "category": "Business Management Products",
@@ -2382,7 +2364,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/fleet-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "vehicle-rental-management-system",
       "name": "Vehicle Rental Management System",
       "category": "Business Management Products",
@@ -2401,7 +2383,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/vehicle-rental-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "garage-management-system",
       "name": "Garage Management System",
       "category": "Business Management Products",
@@ -2420,7 +2402,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/garage-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "real-estate-management-system",
       "name": "Real Estate Management System",
       "category": "Business Management Products",
@@ -2439,7 +2421,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/real-estate-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "property-management-system",
       "name": "Property Management System",
       "category": "Business Management Products",
@@ -2458,7 +2440,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/property-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "project-management-system",
       "name": "Project Management System",
       "category": "Business Management Products",
@@ -2477,7 +2459,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/project-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "task-management-system",
       "name": "Task Management System",
       "category": "Business Management Products",
@@ -2496,7 +2478,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/task-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "help-desk-ticket-system",
       "name": "Help Desk / Ticket System",
       "category": "Business Management Products",
@@ -2515,7 +2497,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/help-desk-ticket-system",
       "type": "product"
     },
-    {
+      {
       "id": "complaint-management-system",
       "name": "Complaint Management System",
       "category": "AI Products",
@@ -2534,7 +2516,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/complaint-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "visitor-management-system",
       "name": "Visitor Management System",
       "category": "Business Management Products",
@@ -2553,7 +2535,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/visitor-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "document-management-system",
       "name": "Document Management System",
       "category": "Business Management Products",
@@ -2572,7 +2554,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/document-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "file-management-system",
       "name": "File Management System",
       "category": "Business Management Products",
@@ -2591,7 +2573,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/file-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "knowledge-base-system",
       "name": "Knowledge Base System",
       "category": "Business Management Products",
@@ -2610,7 +2592,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/knowledge-base-system",
       "type": "product"
     },
-    {
+      {
       "id": "membership-management-system",
       "name": "Membership Management System",
       "category": "Business Management Products",
@@ -2629,7 +2611,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/membership-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "gym-management-system",
       "name": "Gym Management System",
       "category": "Business Management Products",
@@ -2648,7 +2630,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/gym-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "event-management-system",
       "name": "Event Management System",
       "category": "Business Management Products",
@@ -2667,7 +2649,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/event-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "wedding-management-system",
       "name": "Wedding Management System",
       "category": "Business Management Products",
@@ -2686,7 +2668,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/wedding-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "online-booking-system",
       "name": "Online Booking System",
       "category": "Business Management Products",
@@ -2705,7 +2687,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/online-booking-system",
       "type": "product"
     },
-    {
+      {
       "id": "appointment-scheduling-system",
       "name": "Appointment Scheduling System",
       "category": "Mobile Products",
@@ -2724,7 +2706,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/appointment-scheduling-system",
       "type": "product"
     },
-    {
+      {
       "id": "queue-management-system",
       "name": "Queue Management System",
       "category": "Business Management Products",
@@ -2743,7 +2725,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/queue-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "qr-code-management-system",
       "name": "QR Code Management System",
       "category": "Business Management Products",
@@ -2762,7 +2744,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/products/qr-code-management-system",
       "type": "product"
     },
-    {
+      {
       "id": "barcode-management-system",
       "name": "Barcode Management System",
       "category": "Business Management Products",
@@ -2780,675 +2762,10 @@ document.addEventListener('DOMContentLoaded', function () {
       "supportPeriod": "30 days",
       "route": "#/products/barcode-management-system",
       "type": "product"
-    },
-    {
-      "id": "autonomous-ai-systems",
-      "name": "Autonomous AI Systems",
-      "category": "AI Products",
-      "description": "A reusable Autonomous AI Systems solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 180000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/autonomous-ai-systems",
-      "type": "product"
-    },
-    {
-      "id": "multi-agent-ai-systems",
-      "name": "Multi-Agent AI Systems",
-      "category": "AI Agents",
-      "description": "A reusable Multi-Agent AI Systems solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 220000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/multi-agent-ai-systems",
-      "type": "product"
-    },
-    {
-      "id": "ai-coding-assistant",
-      "name": "AI Coding Assistant",
-      "category": "AI Assistants",
-      "description": "A reusable AI Coding Assistant solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 120000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/ai-coding-assistant",
-      "type": "product"
-    },
-    {
-      "id": "ai-analytics-platform",
-      "name": "AI Analytics Platform",
-      "category": "AI Products",
-      "description": "A reusable AI Analytics Platform solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 120000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/ai-analytics-platform",
-      "type": "product"
-    },
-    {
-      "id": "ai-recommendation-system",
-      "name": "AI Recommendation System",
-      "category": "AI Products",
-      "description": "A reusable AI Recommendation System solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 90000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/ai-recommendation-system",
-      "type": "product"
-    },
-    {
-      "id": "ai-medical-assistant",
-      "name": "AI Medical Assistant",
-      "category": "AI Assistants",
-      "description": "A reusable AI Medical Assistant solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 180000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/ai-medical-assistant",
-      "type": "product"
-    },
-    {
-      "id": "ai-legal-assistant",
-      "name": "AI Legal Assistant",
-      "category": "AI Assistants",
-      "description": "A reusable AI Legal Assistant solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 180000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/ai-legal-assistant",
-      "type": "product"
-    },
-    {
-      "id": "ai-finance-assistant",
-      "name": "AI Finance Assistant",
-      "category": "AI Assistants",
-      "description": "A reusable AI Finance Assistant solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 160000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/ai-finance-assistant",
-      "type": "product"
-    },
-    {
-      "id": "ai-hr-assistant",
-      "name": "AI HR Assistant",
-      "category": "AI Assistants",
-      "description": "A reusable AI HR Assistant solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 100000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/ai-hr-assistant",
-      "type": "product"
-    },
-    {
-      "id": "ai-recruitment-system",
-      "name": "AI Recruitment System",
-      "category": "AI Products",
-      "description": "A reusable AI Recruitment System solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 120000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/ai-recruitment-system",
-      "type": "product"
-    },
-    {
-      "id": "ai-education-platform",
-      "name": "AI Education Platform",
-      "category": "AI Products",
-      "description": "A reusable AI Education Platform solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 140000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/ai-education-platform",
-      "type": "product"
-    },
-    {
-      "id": "inventory-software",
-      "name": "Inventory Software",
-      "category": "Inventory Products",
-      "description": "A reusable Inventory Software solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 75000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/inventory-software",
-      "type": "product"
-    },
-    {
-      "id": "accounting-software-2",
-      "name": "Accounting Software",
-      "category": "Business Management Products",
-      "description": "A reusable Accounting Software solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 100000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/accounting-software-2",
-      "type": "product"
-    },
-    {
-      "id": "hospital-erp",
-      "name": "Hospital ERP",
-      "category": "ERP Products",
-      "description": "A reusable Hospital ERP solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 450000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/hospital-erp",
-      "type": "product"
-    },
-    {
-      "id": "school-erp",
-      "name": "School ERP",
-      "category": "ERP Products",
-      "description": "A reusable School ERP solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 180000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/school-erp",
-      "type": "product"
-    },
-    {
-      "id": "hotel-erp",
-      "name": "Hotel ERP",
-      "category": "ERP Products",
-      "description": "A reusable Hotel ERP solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 250000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/hotel-erp",
-      "type": "product"
-    },
-    {
-      "id": "custom-web-portal",
-      "name": "Custom Web Portal",
-      "category": "Business Management Products",
-      "description": "A reusable Custom Web Portal solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 80000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/custom-web-portal",
-      "type": "product"
-    },
-    {
-      "id": "client-portal",
-      "name": "Client Portal",
-      "category": "Business Management Products",
-      "description": "A reusable Client Portal solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 60000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/client-portal",
-      "type": "product"
-    },
-    {
-      "id": "employee-portal",
-      "name": "Employee Portal",
-      "category": "Business Management Products",
-      "description": "A reusable Employee Portal solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 70000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/employee-portal",
-      "type": "product"
-    },
-    {
-      "id": "vendor-portal",
-      "name": "Vendor Portal",
-      "category": "Business Management Products",
-      "description": "A reusable Vendor Portal solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 70000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/vendor-portal",
-      "type": "product"
-    },
-    {
-      "id": "supplier-portal",
-      "name": "Supplier Portal",
-      "category": "Business Management Products",
-      "description": "A reusable Supplier Portal solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 70000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/supplier-portal",
-      "type": "product"
-    },
-    {
-      "id": "customer-dashboard",
-      "name": "Customer Dashboard",
-      "category": "Business Management Products",
-      "description": "A reusable Customer Dashboard solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 45000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/customer-dashboard",
-      "type": "product"
-    },
-    {
-      "id": "admin-dashboard",
-      "name": "Admin Dashboard",
-      "category": "Business Management Products",
-      "description": "A reusable Admin Dashboard solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 35000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/admin-dashboard",
-      "type": "product"
-    },
-    {
-      "id": "executive-dashboard",
-      "name": "Executive Dashboard",
-      "category": "Business Management Products",
-      "description": "A reusable Executive Dashboard solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 60000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/executive-dashboard",
-      "type": "product"
-    },
-    {
-      "id": "subscription-billing-system",
-      "name": "Subscription Billing System",
-      "category": "Business Management Products",
-      "description": "A reusable Subscription Billing System solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 55000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/subscription-billing-system",
-      "type": "product"
-    },
-    {
-      "id": "digital-signature-system",
-      "name": "Digital Signature System",
-      "category": "Business Management Products",
-      "description": "A reusable Digital Signature System solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 50000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/digital-signature-system",
-      "type": "product"
-    },
-    {
-      "id": "smart-home-systems",
-      "name": "Smart Home Systems",
-      "category": "Business Management Products",
-      "description": "A reusable Smart Home Systems solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 90000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/smart-home-systems",
-      "type": "product"
-    },
-    {
-      "id": "smart-office-systems",
-      "name": "Smart Office Systems",
-      "category": "Business Management Products",
-      "description": "A reusable Smart Office Systems solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 120000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/smart-office-systems",
-      "type": "product"
-    },
-    {
-      "id": "gps-tracking-system",
-      "name": "GPS Tracking System",
-      "category": "Business Management Products",
-      "description": "A reusable GPS Tracking System solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 85000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/gps-tracking-system",
-      "type": "product"
-    },
-    {
-      "id": "fleet-tracking-system",
-      "name": "Fleet Tracking System",
-      "category": "Business Management Products",
-      "description": "A reusable Fleet Tracking System solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 140000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/fleet-tracking-system",
-      "type": "product"
-    },
-    {
-      "id": "desktop-software",
-      "name": "Desktop Software",
-      "category": "Desktop Products",
-      "description": "A reusable Desktop Software solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 70000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/desktop-software",
-      "type": "product"
-    },
-    {
-      "id": "windows-software",
-      "name": "Windows Software",
-      "category": "Desktop Products",
-      "description": "A reusable Windows Software solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 70000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/windows-software",
-      "type": "product"
-    },
-    {
-      "id": "mac-software",
-      "name": "Mac Software",
-      "category": "Desktop Products",
-      "description": "A reusable Mac Software solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 90000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/mac-software",
-      "type": "product"
-    },
-    {
-      "id": "linux-software",
-      "name": "Linux Software",
-      "category": "Desktop Products",
-      "description": "A reusable Linux Software solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 80000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/linux-software",
-      "type": "product"
-    },
-    {
-      "id": "automation-systems",
-      "name": "Automation Systems",
-      "category": "Automation Products",
-      "description": "A reusable Automation Systems solution from MI CORTEX X that can be configured for business or organizational requirements.",
-      "priceLkr": 45000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Reusable solution",
-        "Professional configuration",
-        "Business-ready delivery"
-      ],
-      "deliveryTime": "Configuration based",
-      "supportPeriod": "30 days",
-      "route": "#/products/automation-systems",
-      "type": "product"
     }
-  ],
+    ],
   "services": [
-    {
+      {
       "id": "custom-ai-platform",
       "name": "Custom AI Platform",
       "category": "AI Development",
@@ -3467,7 +2784,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/custom-ai-platform",
       "type": "service"
     },
-    {
+      {
       "id": "enterprise-ai-solution",
       "name": "Enterprise AI Solution",
       "category": "AI Development",
@@ -3486,7 +2803,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/enterprise-ai-solution",
       "type": "service"
     },
-    {
+      {
       "id": "landing-page",
       "name": "Landing Page",
       "category": "Website Development",
@@ -3505,7 +2822,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/landing-page",
       "type": "service"
     },
-    {
+      {
       "id": "one-page-website",
       "name": "One Page Website",
       "category": "Website Development",
@@ -3524,7 +2841,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/one-page-website",
       "type": "service"
     },
-    {
+      {
       "id": "personal-website",
       "name": "Personal Website",
       "category": "Website Development",
@@ -3543,7 +2860,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/personal-website",
       "type": "service"
     },
-    {
+      {
       "id": "portfolio-website",
       "name": "Portfolio Website",
       "category": "Website Development",
@@ -3562,7 +2879,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/portfolio-website",
       "type": "service"
     },
-    {
+      {
       "id": "resume-cv-website",
       "name": "Resume / CV Website",
       "category": "Website Development",
@@ -3581,7 +2898,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/resume-cv-website",
       "type": "service"
     },
-    {
+      {
       "id": "business-website",
       "name": "Business Website",
       "category": "Website Development",
@@ -3600,7 +2917,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/business-website",
       "type": "service"
     },
-    {
+      {
       "id": "company-website",
       "name": "Company Website",
       "category": "Website Development",
@@ -3619,7 +2936,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/company-website",
       "type": "service"
     },
-    {
+      {
       "id": "corporate-website",
       "name": "Corporate Website",
       "category": "Website Development",
@@ -3638,7 +2955,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/corporate-website",
       "type": "service"
     },
-    {
+      {
       "id": "startup-website",
       "name": "Startup Website",
       "category": "Website Development",
@@ -3657,7 +2974,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/startup-website",
       "type": "service"
     },
-    {
+      {
       "id": "agency-website",
       "name": "Agency Website",
       "category": "Website Development",
@@ -3676,7 +2993,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/agency-website",
       "type": "service"
     },
-    {
+      {
       "id": "blog-website",
       "name": "Blog Website",
       "category": "Website Development",
@@ -3695,7 +3012,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/blog-website",
       "type": "service"
     },
-    {
+      {
       "id": "news-website",
       "name": "News Website",
       "category": "Website Development",
@@ -3714,7 +3031,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/news-website",
       "type": "service"
     },
-    {
+      {
       "id": "magazine-website",
       "name": "Magazine Website",
       "category": "Website Development",
@@ -3733,7 +3050,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/magazine-website",
       "type": "service"
     },
-    {
+      {
       "id": "school-website",
       "name": "School Website",
       "category": "Website Development",
@@ -3752,7 +3069,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/school-website",
       "type": "service"
     },
-    {
+      {
       "id": "university-website",
       "name": "University Website",
       "category": "Website Development",
@@ -3771,7 +3088,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/university-website",
       "type": "service"
     },
-    {
+      {
       "id": "tuition-class-website",
       "name": "Tuition Class Website",
       "category": "Website Development",
@@ -3790,7 +3107,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/tuition-class-website",
       "type": "service"
     },
-    {
+      {
       "id": "lms-website",
       "name": "LMS Website",
       "category": "Website Development",
@@ -3809,7 +3126,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/lms-website",
       "type": "service"
     },
-    {
+      {
       "id": "e-learning-website",
       "name": "E-Learning Website",
       "category": "Website Development",
@@ -3828,7 +3145,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/e-learning-website",
       "type": "service"
     },
-    {
+      {
       "id": "hospital-website",
       "name": "Hospital Website",
       "category": "Website Development",
@@ -3847,7 +3164,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/hospital-website",
       "type": "service"
     },
-    {
+      {
       "id": "clinic-website",
       "name": "Clinic Website",
       "category": "Website Development",
@@ -3866,7 +3183,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/clinic-website",
       "type": "service"
     },
-    {
+      {
       "id": "doctor-website",
       "name": "Doctor Website",
       "category": "Website Development",
@@ -3885,7 +3202,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/doctor-website",
       "type": "service"
     },
-    {
+      {
       "id": "pharmacy-website",
       "name": "Pharmacy Website",
       "category": "Website Development",
@@ -3904,7 +3221,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/pharmacy-website",
       "type": "service"
     },
-    {
+      {
       "id": "hotel-website",
       "name": "Hotel Website",
       "category": "Website Development",
@@ -3923,7 +3240,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/hotel-website",
       "type": "service"
     },
-    {
+      {
       "id": "villa-website",
       "name": "Villa Website",
       "category": "Website Development",
@@ -3942,7 +3259,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/villa-website",
       "type": "service"
     },
-    {
+      {
       "id": "restaurant-website",
       "name": "Restaurant Website",
       "category": "Website Development",
@@ -3961,7 +3278,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/restaurant-website",
       "type": "service"
     },
-    {
+      {
       "id": "cafe-website",
       "name": "Cafe Website",
       "category": "Website Development",
@@ -3980,7 +3297,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/cafe-website",
       "type": "service"
     },
-    {
+      {
       "id": "travel-agency-website",
       "name": "Travel Agency Website",
       "category": "Website Development",
@@ -3999,7 +3316,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/travel-agency-website",
       "type": "service"
     },
-    {
+      {
       "id": "tour-booking-website",
       "name": "Tour Booking Website",
       "category": "Website Development",
@@ -4018,7 +3335,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/tour-booking-website",
       "type": "service"
     },
-    {
+      {
       "id": "real-estate-website",
       "name": "Real Estate Website",
       "category": "Website Development",
@@ -4037,7 +3354,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/real-estate-website",
       "type": "service"
     },
-    {
+      {
       "id": "property-listing-website",
       "name": "Property Listing Website",
       "category": "Website Development",
@@ -4056,7 +3373,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/property-listing-website",
       "type": "service"
     },
-    {
+      {
       "id": "car-sales-website",
       "name": "Car Sales Website",
       "category": "Website Development",
@@ -4075,7 +3392,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/car-sales-website",
       "type": "service"
     },
-    {
+      {
       "id": "vehicle-rental-website",
       "name": "Vehicle Rental Website",
       "category": "Website Development",
@@ -4094,7 +3411,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/vehicle-rental-website",
       "type": "service"
     },
-    {
+      {
       "id": "job-portal-website",
       "name": "Job Portal Website",
       "category": "Website Development",
@@ -4113,7 +3430,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/job-portal-website",
       "type": "service"
     },
-    {
+      {
       "id": "freelance-marketplace-website",
       "name": "Freelance Marketplace Website",
       "category": "Website Development",
@@ -4132,7 +3449,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/freelance-marketplace-website",
       "type": "service"
     },
-    {
+      {
       "id": "e-commerce-website",
       "name": "E-Commerce Website",
       "category": "Website Development",
@@ -4151,7 +3468,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/e-commerce-website",
       "type": "service"
     },
-    {
+      {
       "id": "online-store",
       "name": "Online Store",
       "category": "Website Development Services",
@@ -4170,7 +3487,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/online-store",
       "type": "service"
     },
-    {
+      {
       "id": "fashion-store-website",
       "name": "Fashion Store Website",
       "category": "Website Development",
@@ -4189,7 +3506,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/fashion-store-website",
       "type": "service"
     },
-    {
+      {
       "id": "jewelry-store-website",
       "name": "Jewelry Store Website",
       "category": "Website Development",
@@ -4208,7 +3525,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/jewelry-store-website",
       "type": "service"
     },
-    {
+      {
       "id": "electronics-store-website",
       "name": "Electronics Store Website",
       "category": "Website Development",
@@ -4227,7 +3544,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/electronics-store-website",
       "type": "service"
     },
-    {
+      {
       "id": "multi-vendor-marketplace",
       "name": "Multi Vendor Marketplace",
       "category": "Website Development Services",
@@ -4246,7 +3563,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/multi-vendor-marketplace",
       "type": "service"
     },
-    {
+      {
       "id": "ngo-website",
       "name": "NGO Website",
       "category": "Website Development",
@@ -4265,7 +3582,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/ngo-website",
       "type": "service"
     },
-    {
+      {
       "id": "charity-website",
       "name": "Charity Website",
       "category": "Website Development",
@@ -4284,7 +3601,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/charity-website",
       "type": "service"
     },
-    {
+      {
       "id": "church-mosque-website",
       "name": "Church / Mosque Website",
       "category": "Website Development",
@@ -4303,7 +3620,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/church-mosque-website",
       "type": "service"
     },
-    {
+      {
       "id": "government-information-website",
       "name": "Government Information Website",
       "category": "Website Development",
@@ -4322,7 +3639,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/government-information-website",
       "type": "service"
     },
-    {
+      {
       "id": "event-website",
       "name": "Event Website",
       "category": "Website Development",
@@ -4341,7 +3658,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/event-website",
       "type": "service"
     },
-    {
+      {
       "id": "wedding-website",
       "name": "Wedding Website",
       "category": "Website Development",
@@ -4360,7 +3677,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/wedding-website",
       "type": "service"
     },
-    {
+      {
       "id": "sports-club-website",
       "name": "Sports Club Website",
       "category": "Website Development",
@@ -4379,7 +3696,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/sports-club-website",
       "type": "service"
     },
-    {
+      {
       "id": "gym-website",
       "name": "Gym Website",
       "category": "Website Development",
@@ -4398,7 +3715,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/gym-website",
       "type": "service"
     },
-    {
+      {
       "id": "fitness-website",
       "name": "Fitness Website",
       "category": "Website Development",
@@ -4417,7 +3734,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/fitness-website",
       "type": "service"
     },
-    {
+      {
       "id": "photography-website",
       "name": "Photography Website",
       "category": "Website Development",
@@ -4436,7 +3753,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/photography-website",
       "type": "service"
     },
-    {
+      {
       "id": "music-website",
       "name": "Music Website",
       "category": "Website Development",
@@ -4455,7 +3772,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/music-website",
       "type": "service"
     },
-    {
+      {
       "id": "streaming-website",
       "name": "Streaming Website",
       "category": "Website Development",
@@ -4474,7 +3791,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/streaming-website",
       "type": "service"
     },
-    {
+      {
       "id": "video-sharing-website",
       "name": "Video Sharing Website",
       "category": "Website Development",
@@ -4493,7 +3810,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/video-sharing-website",
       "type": "service"
     },
-    {
+      {
       "id": "forum-website",
       "name": "Forum Website",
       "category": "Website Development",
@@ -4512,7 +3829,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/forum-website",
       "type": "service"
     },
-    {
+      {
       "id": "community-website",
       "name": "Community Website",
       "category": "Website Development",
@@ -4531,7 +3848,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/community-website",
       "type": "service"
     },
-    {
+      {
       "id": "wiki-website",
       "name": "Wiki Website",
       "category": "Website Development",
@@ -4550,7 +3867,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/wiki-website",
       "type": "service"
     },
-    {
+      {
       "id": "membership-website",
       "name": "Membership Website",
       "category": "Website Development",
@@ -4569,7 +3886,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/membership-website",
       "type": "service"
     },
-    {
+      {
       "id": "subscription-website",
       "name": "Subscription Website",
       "category": "Website Development",
@@ -4588,7 +3905,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/subscription-website",
       "type": "service"
     },
-    {
+      {
       "id": "booking-website",
       "name": "Booking Website",
       "category": "Website Development",
@@ -4607,7 +3924,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/booking-website",
       "type": "service"
     },
-    {
+      {
       "id": "appointment-website",
       "name": "Appointment Website",
       "category": "Website Development",
@@ -4626,7 +3943,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/appointment-website",
       "type": "service"
     },
-    {
+      {
       "id": "custom-website",
       "name": "Custom Website",
       "category": "Website Development",
@@ -4645,7 +3962,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/custom-website",
       "type": "service"
     },
-    {
+      {
       "id": "website-redesign",
       "name": "Website Redesign",
       "category": "Website Development",
@@ -4664,7 +3981,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/website-redesign",
       "type": "service"
     },
-    {
+      {
       "id": "website-bug-fix",
       "name": "Website Bug Fix",
       "category": "Website Development",
@@ -4683,7 +4000,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/website-bug-fix",
       "type": "service"
     },
-    {
+      {
       "id": "website-speed-optimization",
       "name": "Website Speed Optimization",
       "category": "Website Development",
@@ -4702,26 +4019,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/website-speed-optimization",
       "type": "service"
     },
-    {
-      "id": "website-maintenance",
-      "name": "Website Maintenance",
-      "category": "Website Development",
-      "description": "Professional Website Maintenance service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 7500,
-      "prefix": "Starting from",
-      "billingPeriod": "per month",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/website-maintenance",
-      "type": "service"
-    },
-    {
+      {
       "id": "seo-optimization",
       "name": "SEO Optimization",
       "category": "SEO",
@@ -4740,7 +4038,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/seo-optimization",
       "type": "service"
     },
-    {
+      {
       "id": "domain-hosting-setup",
       "name": "Domain & Hosting Setup",
       "category": "Cloud and Hosting",
@@ -4759,7 +4057,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/domain-hosting-setup",
       "type": "service"
     },
-    {
+      {
       "id": "ssl-installation",
       "name": "SSL Installation",
       "category": "Cloud and Hosting",
@@ -4778,26 +4076,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/ssl-installation",
       "type": "service"
     },
-    {
-      "id": "website-migration",
-      "name": "Website Migration",
-      "category": "Website Development",
-      "description": "Professional Website Migration service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 10000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/website-migration",
-      "type": "service"
-    },
-    {
+      {
       "id": "android-app-development",
       "name": "Android App Development",
       "category": "Mobile App Development",
@@ -4816,7 +4095,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/android-app-development",
       "type": "service"
     },
-    {
+      {
       "id": "ios-app-development",
       "name": "iOS App Development",
       "category": "Mobile App Development",
@@ -4835,7 +4114,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/ios-app-development",
       "type": "service"
     },
-    {
+      {
       "id": "cross-platform-app",
       "name": "Cross Platform App",
       "category": "Mobile App Development",
@@ -4854,7 +4133,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/cross-platform-app",
       "type": "service"
     },
-    {
+      {
       "id": "hybrid-mobile-app",
       "name": "Hybrid Mobile App",
       "category": "Mobile App Development",
@@ -4873,7 +4152,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/hybrid-mobile-app",
       "type": "service"
     },
-    {
+      {
       "id": "native-android-app",
       "name": "Native Android App",
       "category": "Mobile App Development",
@@ -4892,7 +4171,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/native-android-app",
       "type": "service"
     },
-    {
+      {
       "id": "native-iphone-app",
       "name": "Native iPhone App",
       "category": "Mobile App Development",
@@ -4911,7 +4190,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/native-iphone-app",
       "type": "service"
     },
-    {
+      {
       "id": "business-mobile-app",
       "name": "Business Mobile App",
       "category": "Mobile App Development",
@@ -4930,7 +4209,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/business-mobile-app",
       "type": "service"
     },
-    {
+      {
       "id": "company-mobile-app",
       "name": "Company Mobile App",
       "category": "Mobile App Development",
@@ -4949,7 +4228,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/company-mobile-app",
       "type": "service"
     },
-    {
+      {
       "id": "corporate-mobile-app",
       "name": "Corporate Mobile App",
       "category": "Mobile App Development",
@@ -4968,7 +4247,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/corporate-mobile-app",
       "type": "service"
     },
-    {
+      {
       "id": "portfolio-app",
       "name": "Portfolio App",
       "category": "Mobile App Development",
@@ -4987,7 +4266,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/portfolio-app",
       "type": "service"
     },
-    {
+      {
       "id": "personal-mobile-app",
       "name": "Personal Mobile App",
       "category": "Mobile App Development",
@@ -5006,7 +4285,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/personal-mobile-app",
       "type": "service"
     },
-    {
+      {
       "id": "e-commerce-mobile-app",
       "name": "E-Commerce Mobile App",
       "category": "Mobile App Development",
@@ -5025,7 +4304,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/e-commerce-mobile-app",
       "type": "service"
     },
-    {
+      {
       "id": "online-shopping-app",
       "name": "Online Shopping App",
       "category": "Mobile App Development",
@@ -5044,7 +4323,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/online-shopping-app",
       "type": "service"
     },
-    {
+      {
       "id": "marketplace-app",
       "name": "Marketplace App",
       "category": "Mobile App Development",
@@ -5063,7 +4342,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/marketplace-app",
       "type": "service"
     },
-    {
+      {
       "id": "food-ordering-app",
       "name": "Food Ordering App",
       "category": "Mobile App Development",
@@ -5082,7 +4361,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/food-ordering-app",
       "type": "service"
     },
-    {
+      {
       "id": "restaurant-app",
       "name": "Restaurant App",
       "category": "Mobile App Development",
@@ -5101,7 +4380,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/restaurant-app",
       "type": "service"
     },
-    {
+      {
       "id": "cafe-ordering-app",
       "name": "Cafe Ordering App",
       "category": "Mobile App Development",
@@ -5120,7 +4399,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/cafe-ordering-app",
       "type": "service"
     },
-    {
+      {
       "id": "hotel-booking-app",
       "name": "Hotel Booking App",
       "category": "Mobile App Development",
@@ -5139,7 +4418,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/hotel-booking-app",
       "type": "service"
     },
-    {
+      {
       "id": "travel-booking-app",
       "name": "Travel Booking App",
       "category": "Mobile App Development",
@@ -5158,7 +4437,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/travel-booking-app",
       "type": "service"
     },
-    {
+      {
       "id": "tour-guide-app",
       "name": "Tour Guide App",
       "category": "Mobile App Development",
@@ -5177,7 +4456,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/tour-guide-app",
       "type": "service"
     },
-    {
+      {
       "id": "taxi-booking-app",
       "name": "Taxi Booking App",
       "category": "Mobile App Development",
@@ -5196,7 +4475,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/taxi-booking-app",
       "type": "service"
     },
-    {
+      {
       "id": "vehicle-rental-app",
       "name": "Vehicle Rental App",
       "category": "Mobile App Development",
@@ -5215,7 +4494,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/vehicle-rental-app",
       "type": "service"
     },
-    {
+      {
       "id": "delivery-app",
       "name": "Delivery App",
       "category": "Mobile App Development",
@@ -5234,7 +4513,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/delivery-app",
       "type": "service"
     },
-    {
+      {
       "id": "courier-tracking-app",
       "name": "Courier Tracking App",
       "category": "Mobile App Development",
@@ -5253,7 +4532,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/courier-tracking-app",
       "type": "service"
     },
-    {
+      {
       "id": "parcel-delivery-app",
       "name": "Parcel Delivery App",
       "category": "Mobile App Development",
@@ -5272,7 +4551,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/parcel-delivery-app",
       "type": "service"
     },
-    {
+      {
       "id": "school-app",
       "name": "School App",
       "category": "Mobile App Development",
@@ -5291,7 +4570,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/school-app",
       "type": "service"
     },
-    {
+      {
       "id": "university-app",
       "name": "University App",
       "category": "Mobile App Development",
@@ -5310,7 +4589,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/university-app",
       "type": "service"
     },
-    {
+      {
       "id": "learning-app",
       "name": "Learning App",
       "category": "Mobile App Development",
@@ -5329,7 +4608,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/learning-app",
       "type": "service"
     },
-    {
+      {
       "id": "online-course-app",
       "name": "Online Course App",
       "category": "Mobile App Development",
@@ -5348,7 +4627,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/online-course-app",
       "type": "service"
     },
-    {
+      {
       "id": "exam-preparation-app",
       "name": "Exam Preparation App",
       "category": "Mobile App Development",
@@ -5367,7 +4646,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/exam-preparation-app",
       "type": "service"
     },
-    {
+      {
       "id": "student-management-app",
       "name": "Student Management App",
       "category": "Mobile App Development",
@@ -5386,7 +4665,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/student-management-app",
       "type": "service"
     },
-    {
+      {
       "id": "hospital-app",
       "name": "Hospital App",
       "category": "Mobile App Development",
@@ -5405,7 +4684,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/hospital-app",
       "type": "service"
     },
-    {
+      {
       "id": "clinic-app",
       "name": "Clinic App",
       "category": "Mobile App Development",
@@ -5424,7 +4703,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/clinic-app",
       "type": "service"
     },
-    {
+      {
       "id": "doctor-appointment-app",
       "name": "Doctor Appointment App",
       "category": "Mobile App Development",
@@ -5443,7 +4722,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/doctor-appointment-app",
       "type": "service"
     },
-    {
+      {
       "id": "medical-store-app",
       "name": "Medical Store App",
       "category": "Mobile App Development",
@@ -5462,7 +4741,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/medical-store-app",
       "type": "service"
     },
-    {
+      {
       "id": "pharmacy-app",
       "name": "Pharmacy App",
       "category": "Mobile App Development",
@@ -5481,7 +4760,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/pharmacy-app",
       "type": "service"
     },
-    {
+      {
       "id": "chat-application",
       "name": "Chat Application",
       "category": "Mobile App Development",
@@ -5500,7 +4779,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/chat-application",
       "type": "service"
     },
-    {
+      {
       "id": "social-media-app",
       "name": "Social Media App",
       "category": "Mobile App Development",
@@ -5519,7 +4798,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/social-media-app",
       "type": "service"
     },
-    {
+      {
       "id": "community-app",
       "name": "Community App",
       "category": "Mobile App Development",
@@ -5538,7 +4817,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/community-app",
       "type": "service"
     },
-    {
+      {
       "id": "forum-app",
       "name": "Forum App",
       "category": "Mobile App Development",
@@ -5557,7 +4836,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/forum-app",
       "type": "service"
     },
-    {
+      {
       "id": "news-app",
       "name": "News App",
       "category": "Mobile App Development",
@@ -5576,7 +4855,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/news-app",
       "type": "service"
     },
-    {
+      {
       "id": "blog-app",
       "name": "Blog App",
       "category": "Mobile App Development",
@@ -5595,7 +4874,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/blog-app",
       "type": "service"
     },
-    {
+      {
       "id": "media-streaming-app",
       "name": "Media Streaming App",
       "category": "Mobile App Development",
@@ -5614,7 +4893,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/media-streaming-app",
       "type": "service"
     },
-    {
+      {
       "id": "music-streaming-app",
       "name": "Music Streaming App",
       "category": "Mobile App Development",
@@ -5633,7 +4912,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/music-streaming-app",
       "type": "service"
     },
-    {
+      {
       "id": "video-streaming-app",
       "name": "Video Streaming App",
       "category": "Mobile App Development",
@@ -5652,7 +4931,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/video-streaming-app",
       "type": "service"
     },
-    {
+      {
       "id": "real-estate-app",
       "name": "Real Estate App",
       "category": "Mobile App Development",
@@ -5671,7 +4950,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/real-estate-app",
       "type": "service"
     },
-    {
+      {
       "id": "property-listing-app",
       "name": "Property Listing App",
       "category": "Mobile App Development",
@@ -5690,7 +4969,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/property-listing-app",
       "type": "service"
     },
-    {
+      {
       "id": "job-portal-app",
       "name": "Job Portal App",
       "category": "Mobile App Development",
@@ -5709,7 +4988,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/job-portal-app",
       "type": "service"
     },
-    {
+      {
       "id": "freelancer-app",
       "name": "Freelancer App",
       "category": "Mobile App Development",
@@ -5728,7 +5007,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/freelancer-app",
       "type": "service"
     },
-    {
+      {
       "id": "ai-chatbot-mobile-app",
       "name": "AI Chatbot Mobile App",
       "category": "AI Development",
@@ -5747,7 +5026,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/ai-chatbot-mobile-app",
       "type": "service"
     },
-    {
+      {
       "id": "ai-assistant-app",
       "name": "AI Assistant App",
       "category": "AI Development",
@@ -5766,7 +5045,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/ai-assistant-app",
       "type": "service"
     },
-    {
+      {
       "id": "ai-voice-assistant-app",
       "name": "AI Voice Assistant App",
       "category": "AI Development",
@@ -5785,7 +5064,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/ai-voice-assistant-app",
       "type": "service"
     },
-    {
+      {
       "id": "ai-image-generator-app",
       "name": "AI Image Generator App",
       "category": "Mobile App Development",
@@ -5804,7 +5083,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/ai-image-generator-app",
       "type": "service"
     },
-    {
+      {
       "id": "ai-translator-app",
       "name": "AI Translator App",
       "category": "Mobile App Development",
@@ -5823,7 +5102,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/ai-translator-app",
       "type": "service"
     },
-    {
+      {
       "id": "qr-scanner-app",
       "name": "QR Scanner App",
       "category": "Mobile App Development",
@@ -5842,7 +5121,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/qr-scanner-app",
       "type": "service"
     },
-    {
+      {
       "id": "barcode-scanner-app",
       "name": "Barcode Scanner App",
       "category": "Mobile App Development",
@@ -5861,7 +5140,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/barcode-scanner-app",
       "type": "service"
     },
-    {
+      {
       "id": "attendance-app",
       "name": "Attendance App",
       "category": "Mobile App Development",
@@ -5880,7 +5159,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/attendance-app",
       "type": "service"
     },
-    {
+      {
       "id": "inventory-app",
       "name": "Inventory App",
       "category": "Mobile App Development",
@@ -5899,7 +5178,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/inventory-app",
       "type": "service"
     },
-    {
+      {
       "id": "pos-mobile-app",
       "name": "POS Mobile App",
       "category": "Mobile App Development",
@@ -5918,7 +5197,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/pos-mobile-app",
       "type": "service"
     },
-    {
+      {
       "id": "crm-mobile-app",
       "name": "CRM Mobile App",
       "category": "Mobile App Development",
@@ -5937,7 +5216,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/crm-mobile-app",
       "type": "service"
     },
-    {
+      {
       "id": "erp-mobile-app",
       "name": "ERP Mobile App",
       "category": "Mobile App Development",
@@ -5956,7 +5235,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/erp-mobile-app",
       "type": "service"
     },
-    {
+      {
       "id": "fitness-app",
       "name": "Fitness App",
       "category": "Mobile App Development",
@@ -5975,7 +5254,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/fitness-app",
       "type": "service"
     },
-    {
+      {
       "id": "gym-app",
       "name": "Gym App",
       "category": "Mobile App Development",
@@ -5994,7 +5273,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/gym-app",
       "type": "service"
     },
-    {
+      {
       "id": "event-management-app",
       "name": "Event Management App",
       "category": "Mobile App Development",
@@ -6013,7 +5292,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/event-management-app",
       "type": "service"
     },
-    {
+      {
       "id": "appointment-booking-app",
       "name": "Appointment Booking App",
       "category": "Mobile App Development",
@@ -6032,7 +5311,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/appointment-booking-app",
       "type": "service"
     },
-    {
+      {
       "id": "custom-mobile-application",
       "name": "Custom Mobile Application",
       "category": "Mobile App Development",
@@ -6051,7 +5330,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/custom-mobile-application",
       "type": "service"
     },
-    {
+      {
       "id": "desktop-software-development",
       "name": "Desktop Software Development",
       "category": "Desktop Software Development",
@@ -6070,7 +5349,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/desktop-software-development",
       "type": "service"
     },
-    {
+      {
       "id": "custom-business-software",
       "name": "Custom Business Software",
       "category": "Desktop Software & Business Management Systems",
@@ -6089,7 +5368,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/custom-business-software",
       "type": "service"
     },
-    {
+      {
       "id": "enterprise-software-solution",
       "name": "Enterprise Software Solution",
       "category": "Enterprise Software Development",
@@ -6108,26 +5387,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/enterprise-software-solution",
       "type": "service"
     },
-    {
-      "id": "logo-design",
-      "name": "Logo Design",
-      "category": "Graphic Design and Branding",
-      "description": "Professional Logo Design service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 6000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/logo-design",
-      "type": "service"
-    },
-    {
+      {
       "id": "premium-logo-design",
       "name": "Premium Logo Design",
       "category": "Graphic Design and Branding",
@@ -6146,7 +5406,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/premium-logo-design",
       "type": "service"
     },
-    {
+      {
       "id": "luxury-logo-design",
       "name": "Luxury Logo Design",
       "category": "UI/UX Design",
@@ -6165,7 +5425,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/luxury-logo-design",
       "type": "service"
     },
-    {
+      {
       "id": "brand-identity-design",
       "name": "Brand Identity Design",
       "category": "Graphic Design and Branding",
@@ -6184,7 +5444,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/brand-identity-design",
       "type": "service"
     },
-    {
+      {
       "id": "business-card-design",
       "name": "Business Card Design",
       "category": "Graphic Design and Branding",
@@ -6203,7 +5463,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/business-card-design",
       "type": "service"
     },
-    {
+      {
       "id": "letterhead-design",
       "name": "Letterhead Design",
       "category": "Graphic Design & Branding Services",
@@ -6222,7 +5482,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/letterhead-design",
       "type": "service"
     },
-    {
+      {
       "id": "envelope-design",
       "name": "Envelope Design",
       "category": "Graphic Design & Branding Services",
@@ -6241,7 +5501,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/envelope-design",
       "type": "service"
     },
-    {
+      {
       "id": "company-profile-design",
       "name": "Company Profile Design",
       "category": "Graphic Design & Branding Services",
@@ -6260,7 +5520,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/company-profile-design",
       "type": "service"
     },
-    {
+      {
       "id": "brand-guidelines",
       "name": "Brand Guidelines",
       "category": "UI/UX Design",
@@ -6279,7 +5539,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/brand-guidelines",
       "type": "service"
     },
-    {
+      {
       "id": "corporate-identity-package",
       "name": "Corporate Identity Package",
       "category": "Graphic Design & Branding Services",
@@ -6298,7 +5558,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/corporate-identity-package",
       "type": "service"
     },
-    {
+      {
       "id": "flyer-design",
       "name": "Flyer Design",
       "category": "Graphic Design and Branding",
@@ -6317,7 +5577,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/flyer-design",
       "type": "service"
     },
-    {
+      {
       "id": "brochure-design",
       "name": "Brochure Design",
       "category": "Graphic Design and Branding",
@@ -6336,7 +5596,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/brochure-design",
       "type": "service"
     },
-    {
+      {
       "id": "tri-fold-brochure",
       "name": "Tri-Fold Brochure",
       "category": "Graphic Design and Branding",
@@ -6355,7 +5615,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/tri-fold-brochure",
       "type": "service"
     },
-    {
+      {
       "id": "bi-fold-brochure",
       "name": "Bi-Fold Brochure",
       "category": "Graphic Design and Branding",
@@ -6374,7 +5634,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/bi-fold-brochure",
       "type": "service"
     },
-    {
+      {
       "id": "poster-design",
       "name": "Poster Design",
       "category": "Graphic Design and Branding",
@@ -6393,7 +5653,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/poster-design",
       "type": "service"
     },
-    {
+      {
       "id": "banner-design",
       "name": "Banner Design",
       "category": "Graphic Design and Branding",
@@ -6412,7 +5672,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/banner-design",
       "type": "service"
     },
-    {
+      {
       "id": "roll-up-banner-design",
       "name": "Roll-Up Banner Design",
       "category": "Graphic Design and Branding",
@@ -6431,7 +5691,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/roll-up-banner-design",
       "type": "service"
     },
-    {
+      {
       "id": "billboard-design",
       "name": "Billboard Design",
       "category": "Graphic Design & Branding Services",
@@ -6450,7 +5710,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/billboard-design",
       "type": "service"
     },
-    {
+      {
       "id": "standee-design",
       "name": "Standee Design",
       "category": "Graphic Design & Branding Services",
@@ -6469,7 +5729,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/standee-design",
       "type": "service"
     },
-    {
+      {
       "id": "menu-card-design",
       "name": "Menu Card Design",
       "category": "Graphic Design and Branding",
@@ -6488,7 +5748,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/menu-card-design",
       "type": "service"
     },
-    {
+      {
       "id": "price-list-design",
       "name": "Price List Design",
       "category": "Graphic Design & Branding Services",
@@ -6507,7 +5767,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/price-list-design",
       "type": "service"
     },
-    {
+      {
       "id": "product-catalog-design",
       "name": "Product Catalog Design",
       "category": "Graphic Design and Branding",
@@ -6526,7 +5786,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/product-catalog-design",
       "type": "service"
     },
-    {
+      {
       "id": "social-media-post-design",
       "name": "Social Media Post Design",
       "category": "Graphic Design & Branding Services",
@@ -6545,7 +5805,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/social-media-post-design",
       "type": "service"
     },
-    {
+      {
       "id": "facebook-post-design",
       "name": "Facebook Post Design",
       "category": "Graphic Design & Branding Services",
@@ -6564,7 +5824,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/facebook-post-design",
       "type": "service"
     },
-    {
+      {
       "id": "instagram-post-design",
       "name": "Instagram Post Design",
       "category": "Graphic Design & Branding Services",
@@ -6583,7 +5843,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/instagram-post-design",
       "type": "service"
     },
-    {
+      {
       "id": "linkedin-post-design",
       "name": "LinkedIn Post Design",
       "category": "Graphic Design & Branding Services",
@@ -6602,7 +5862,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/linkedin-post-design",
       "type": "service"
     },
-    {
+      {
       "id": "x-twitter-banner",
       "name": "X (Twitter) Banner",
       "category": "Graphic Design and Branding",
@@ -6621,7 +5881,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/x-twitter-banner",
       "type": "service"
     },
-    {
+      {
       "id": "facebook-cover-design",
       "name": "Facebook Cover Design",
       "category": "Graphic Design & Branding Services",
@@ -6640,7 +5900,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/facebook-cover-design",
       "type": "service"
     },
-    {
+      {
       "id": "youtube-banner-design",
       "name": "YouTube Banner Design",
       "category": "Graphic Design and Branding",
@@ -6659,7 +5919,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/youtube-banner-design",
       "type": "service"
     },
-    {
+      {
       "id": "youtube-thumbnail",
       "name": "YouTube Thumbnail",
       "category": "Graphic Design & Branding Services",
@@ -6678,7 +5938,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/youtube-thumbnail",
       "type": "service"
     },
-    {
+      {
       "id": "instagram-story-design",
       "name": "Instagram Story Design",
       "category": "Graphic Design & Branding Services",
@@ -6697,7 +5957,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/instagram-story-design",
       "type": "service"
     },
-    {
+      {
       "id": "whatsapp-status-design",
       "name": "WhatsApp Status Design",
       "category": "Mobile App Development",
@@ -6716,7 +5976,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/whatsapp-status-design",
       "type": "service"
     },
-    {
+      {
       "id": "social-media-package-10-posts",
       "name": "Social Media Package (10 Posts)",
       "category": "Graphic Design & Branding Services",
@@ -6735,7 +5995,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/social-media-package-10-posts",
       "type": "service"
     },
-    {
+      {
       "id": "social-media-package-20-posts",
       "name": "Social Media Package (20 Posts)",
       "category": "Graphic Design & Branding Services",
@@ -6754,7 +6014,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/social-media-package-20-posts",
       "type": "service"
     },
-    {
+      {
       "id": "monthly-social-media-design",
       "name": "Monthly Social Media Design",
       "category": "Graphic Design & Branding Services",
@@ -6773,7 +6033,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/monthly-social-media-design",
       "type": "service"
     },
-    {
+      {
       "id": "presentation-design",
       "name": "Presentation Design",
       "category": "Graphic Design & Branding Services",
@@ -6792,7 +6052,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/presentation-design",
       "type": "service"
     },
-    {
+      {
       "id": "pitch-deck-design",
       "name": "Pitch Deck Design",
       "category": "Graphic Design & Branding Services",
@@ -6811,7 +6071,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/pitch-deck-design",
       "type": "service"
     },
-    {
+      {
       "id": "company-presentation",
       "name": "Company Presentation",
       "category": "Graphic Design & Branding Services",
@@ -6830,7 +6090,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/company-presentation",
       "type": "service"
     },
-    {
+      {
       "id": "annual-report-design",
       "name": "Annual Report Design",
       "category": "Graphic Design & Branding Services",
@@ -6849,7 +6109,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/annual-report-design",
       "type": "service"
     },
-    {
+      {
       "id": "photo-editing",
       "name": "Photo Editing",
       "category": "Graphic Design and Branding",
@@ -6868,7 +6128,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/photo-editing",
       "type": "service"
     },
-    {
+      {
       "id": "photo-retouching",
       "name": "Photo Retouching",
       "category": "Graphic Design and Branding",
@@ -6887,7 +6147,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/photo-retouching",
       "type": "service"
     },
-    {
+      {
       "id": "background-removal",
       "name": "Background Removal",
       "category": "Graphic Design & Branding Services",
@@ -6906,7 +6166,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/background-removal",
       "type": "service"
     },
-    {
+      {
       "id": "image-enhancement",
       "name": "Image Enhancement",
       "category": "Graphic Design & Branding Services",
@@ -6925,7 +6185,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/image-enhancement",
       "type": "service"
     },
-    {
+      {
       "id": "ai-image-editing",
       "name": "AI Image Editing",
       "category": "Graphic Design & Branding Services",
@@ -6944,26 +6204,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/ai-image-editing",
       "type": "service"
     },
-    {
-      "id": "video-editing",
-      "name": "Video Editing",
-      "category": "Video and Motion Design",
-      "description": "Professional Video Editing service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 3500,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/video-editing",
-      "type": "service"
-    },
-    {
+      {
       "id": "youtube-video-editing",
       "name": "YouTube Video Editing",
       "category": "Video and Motion Design",
@@ -6982,7 +6223,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/youtube-video-editing",
       "type": "service"
     },
-    {
+      {
       "id": "short-video-editing",
       "name": "Short Video Editing",
       "category": "Video and Motion Design",
@@ -7001,7 +6242,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/short-video-editing",
       "type": "service"
     },
-    {
+      {
       "id": "instagram-reel-editing",
       "name": "Instagram Reel Editing",
       "category": "Video and Motion Design",
@@ -7020,7 +6261,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/instagram-reel-editing",
       "type": "service"
     },
-    {
+      {
       "id": "tiktok-video-editing",
       "name": "TikTok Video Editing",
       "category": "Video and Motion Design",
@@ -7039,7 +6280,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/tiktok-video-editing",
       "type": "service"
     },
-    {
+      {
       "id": "promotional-video",
       "name": "Promotional Video",
       "category": "Video and Motion Design",
@@ -7058,7 +6299,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/promotional-video",
       "type": "service"
     },
-    {
+      {
       "id": "corporate-video-editing",
       "name": "Corporate Video Editing",
       "category": "Video and Motion Design",
@@ -7077,7 +6318,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/corporate-video-editing",
       "type": "service"
     },
-    {
+      {
       "id": "intro-animation",
       "name": "Intro Animation",
       "category": "Video and Motion Design",
@@ -7096,7 +6337,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/intro-animation",
       "type": "service"
     },
-    {
+      {
       "id": "outro-animation",
       "name": "Outro Animation",
       "category": "Video and Motion Design",
@@ -7115,26 +6356,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/outro-animation",
       "type": "service"
     },
-    {
-      "id": "motion-graphics",
-      "name": "Motion Graphics",
-      "category": "Video and Motion Design",
-      "description": "Professional Motion Graphics service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 7500,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/motion-graphics",
-      "type": "service"
-    },
-    {
+      {
       "id": "logo-animation",
       "name": "Logo Animation",
       "category": "Graphic Design and Branding",
@@ -7153,7 +6375,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/logo-animation",
       "type": "service"
     },
-    {
+      {
       "id": "ui-design",
       "name": "UI Design",
       "category": "UI/UX Design",
@@ -7172,7 +6394,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/ui-design",
       "type": "service"
     },
-    {
+      {
       "id": "ux-design",
       "name": "UX Design",
       "category": "UI/UX Design",
@@ -7191,7 +6413,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/ux-design",
       "type": "service"
     },
-    {
+      {
       "id": "mobile-app-ui-design",
       "name": "Mobile App UI Design",
       "category": "Mobile App Development",
@@ -7210,7 +6432,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/mobile-app-ui-design",
       "type": "service"
     },
-    {
+      {
       "id": "website-ui-design",
       "name": "Website UI Design",
       "category": "Website Development",
@@ -7229,7 +6451,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/website-ui-design",
       "type": "service"
     },
-    {
+      {
       "id": "dashboard-ui-design",
       "name": "Dashboard UI Design",
       "category": "UI/UX Design",
@@ -7248,7 +6470,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/dashboard-ui-design",
       "type": "service"
     },
-    {
+      {
       "id": "wireframe-design",
       "name": "Wireframe Design",
       "category": "UI/UX Design",
@@ -7267,7 +6489,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/wireframe-design",
       "type": "service"
     },
-    {
+      {
       "id": "prototype-design",
       "name": "Prototype Design",
       "category": "UI/UX Design",
@@ -7286,7 +6508,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/prototype-design",
       "type": "service"
     },
-    {
+      {
       "id": "certificate-design",
       "name": "Certificate Design",
       "category": "Graphic Design and Branding",
@@ -7305,7 +6527,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/certificate-design",
       "type": "service"
     },
-    {
+      {
       "id": "invitation-card-design",
       "name": "Invitation Card Design",
       "category": "Graphic Design and Branding",
@@ -7324,7 +6546,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/invitation-card-design",
       "type": "service"
     },
-    {
+      {
       "id": "wedding-card-design",
       "name": "Wedding Card Design",
       "category": "Graphic Design and Branding",
@@ -7343,7 +6565,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/wedding-card-design",
       "type": "service"
     },
-    {
+      {
       "id": "id-card-design",
       "name": "ID Card Design",
       "category": "Graphic Design and Branding",
@@ -7362,7 +6584,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/id-card-design",
       "type": "service"
     },
-    {
+      {
       "id": "calendar-design",
       "name": "Calendar Design",
       "category": "Graphic Design & Branding Services",
@@ -7381,7 +6603,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/calendar-design",
       "type": "service"
     },
-    {
+      {
       "id": "sticker-design",
       "name": "Sticker Design",
       "category": "Graphic Design & Branding Services",
@@ -7400,7 +6622,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/sticker-design",
       "type": "service"
     },
-    {
+      {
       "id": "packaging-design",
       "name": "Packaging Design",
       "category": "Graphic Design and Branding",
@@ -7419,7 +6641,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/packaging-design",
       "type": "service"
     },
-    {
+      {
       "id": "label-design",
       "name": "Label Design",
       "category": "Graphic Design and Branding",
@@ -7438,7 +6660,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/label-design",
       "type": "service"
     },
-    {
+      {
       "id": "t-shirt-design",
       "name": "T-Shirt Design",
       "category": "Graphic Design and Branding",
@@ -7457,7 +6679,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/t-shirt-design",
       "type": "service"
     },
-    {
+      {
       "id": "mug-design",
       "name": "Mug Design",
       "category": "Graphic Design and Branding",
@@ -7476,26 +6698,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/mug-design",
       "type": "service"
     },
-    {
-      "id": "domain-registration",
-      "name": "Domain Registration",
-      "category": "Cloud and Hosting",
-      "description": "Professional Domain Registration service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 4000,
-      "prefix": "Starting from",
-      "billingPeriod": "per year",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/domain-registration",
-      "type": "service"
-    },
-    {
+      {
       "id": "domain-transfer",
       "name": "Domain Transfer",
       "category": "Cloud and Hosting",
@@ -7514,7 +6717,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/domain-transfer",
       "type": "service"
     },
-    {
+      {
       "id": "dns-configuration",
       "name": "DNS Configuration",
       "category": "Cloud and Hosting",
@@ -7533,7 +6736,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/dns-configuration",
       "type": "service"
     },
-    {
+      {
       "id": "subdomain-setup",
       "name": "Subdomain Setup",
       "category": "Cloud and Hosting",
@@ -7552,7 +6755,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/subdomain-setup",
       "type": "service"
     },
-    {
+      {
       "id": "shared-hosting-setup",
       "name": "Shared Hosting Setup",
       "category": "Cloud and Hosting",
@@ -7571,7 +6774,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/shared-hosting-setup",
       "type": "service"
     },
-    {
+      {
       "id": "cloud-hosting-setup",
       "name": "Cloud Hosting Setup",
       "category": "Cloud and Hosting",
@@ -7590,7 +6793,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/cloud-hosting-setup",
       "type": "service"
     },
-    {
+      {
       "id": "vps-server-setup",
       "name": "VPS Server Setup",
       "category": "Cloud and Hosting",
@@ -7609,7 +6812,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/vps-server-setup",
       "type": "service"
     },
-    {
+      {
       "id": "dedicated-server-setup",
       "name": "Dedicated Server Setup",
       "category": "Cloud and Hosting",
@@ -7628,26 +6831,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/dedicated-server-setup",
       "type": "service"
     },
-    {
-      "id": "website-migration-2",
-      "name": "Website Migration",
-      "category": "Website Development",
-      "description": "Professional Website Migration service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 8000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/website-migration-2",
-      "type": "service"
-    },
-    {
+      {
       "id": "website-backup-restore",
       "name": "Website Backup & Restore",
       "category": "Website Development",
@@ -7666,7 +6850,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/website-backup-restore",
       "type": "service"
     },
-    {
+      {
       "id": "ssl-certificate-installation",
       "name": "SSL Certificate Installation",
       "category": "Cloud and Hosting",
@@ -7685,26 +6869,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/ssl-certificate-installation",
       "type": "service"
     },
-    {
-      "id": "cdn-configuration",
-      "name": "CDN Configuration",
-      "category": "Cloud and Hosting",
-      "description": "Professional CDN Configuration service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 5000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/cdn-configuration",
-      "type": "service"
-    },
-    {
+      {
       "id": "email-hosting-setup",
       "name": "Email Hosting Setup",
       "category": "Cloud and Hosting",
@@ -7723,7 +6888,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/email-hosting-setup",
       "type": "service"
     },
-    {
+      {
       "id": "business-email-configuration",
       "name": "Business Email Configuration",
       "category": "Cloud, Hosting, Api & Automation Services",
@@ -7742,7 +6907,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/business-email-configuration",
       "type": "service"
     },
-    {
+      {
       "id": "google-workspace-setup",
       "name": "Google Workspace Setup",
       "category": "Cloud, Hosting, Api & Automation Services",
@@ -7761,7 +6926,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/google-workspace-setup",
       "type": "service"
     },
-    {
+      {
       "id": "microsoft-365-setup",
       "name": "Microsoft 365 Setup",
       "category": "Cloud, Hosting, Api & Automation Services",
@@ -7780,7 +6945,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/microsoft-365-setup",
       "type": "service"
     },
-    {
+      {
       "id": "firebase-setup",
       "name": "Firebase Setup",
       "category": "Database Services",
@@ -7799,7 +6964,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/firebase-setup",
       "type": "service"
     },
-    {
+      {
       "id": "supabase-setup",
       "name": "Supabase Setup",
       "category": "Database Services",
@@ -7818,7 +6983,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/supabase-setup",
       "type": "service"
     },
-    {
+      {
       "id": "mongodb-database-setup",
       "name": "MongoDB Database Setup",
       "category": "Database Services",
@@ -7837,7 +7002,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/mongodb-database-setup",
       "type": "service"
     },
-    {
+      {
       "id": "mysql-database-setup",
       "name": "MySQL Database Setup",
       "category": "Database Services",
@@ -7856,7 +7021,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/mysql-database-setup",
       "type": "service"
     },
-    {
+      {
       "id": "postgresql-database-setup",
       "name": "PostgreSQL Database Setup",
       "category": "Database Services",
@@ -7875,7 +7040,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/postgresql-database-setup",
       "type": "service"
     },
-    {
+      {
       "id": "sqlite-database-setup",
       "name": "SQLite Database Setup",
       "category": "Database Services",
@@ -7894,7 +7059,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/sqlite-database-setup",
       "type": "service"
     },
-    {
+      {
       "id": "database-migration",
       "name": "Database Migration",
       "category": "Database Services",
@@ -7913,26 +7078,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/database-migration",
       "type": "service"
     },
-    {
-      "id": "database-optimization",
-      "name": "Database Optimization",
-      "category": "Database Services",
-      "description": "Professional Database Optimization service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 8000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/database-optimization",
-      "type": "service"
-    },
-    {
+      {
       "id": "rest-api-development",
       "name": "REST API Development",
       "category": "API Development",
@@ -7951,7 +7097,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/rest-api-development",
       "type": "service"
     },
-    {
+      {
       "id": "graphql-api-development",
       "name": "GraphQL API Development",
       "category": "API Development",
@@ -7970,7 +7116,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/graphql-api-development",
       "type": "service"
     },
-    {
+      {
       "id": "custom-api-development",
       "name": "Custom API Development",
       "category": "API Development",
@@ -7989,7 +7135,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/custom-api-development",
       "type": "service"
     },
-    {
+      {
       "id": "third-party-api-integration",
       "name": "Third-Party API Integration",
       "category": "API Integration",
@@ -8008,26 +7154,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/third-party-api-integration",
       "type": "service"
     },
-    {
-      "id": "payment-gateway-integration",
-      "name": "Payment Gateway Integration",
-      "category": "API Integration",
-      "description": "Professional Payment Gateway Integration service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 18000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/payment-gateway-integration",
-      "type": "service"
-    },
-    {
+      {
       "id": "sms-api-integration",
       "name": "SMS API Integration",
       "category": "API Integration",
@@ -8046,7 +7173,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/sms-api-integration",
       "type": "service"
     },
-    {
+      {
       "id": "email-api-integration",
       "name": "Email API Integration",
       "category": "API Integration",
@@ -8065,7 +7192,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/email-api-integration",
       "type": "service"
     },
-    {
+      {
       "id": "google-maps-api-integration",
       "name": "Google Maps API Integration",
       "category": "API Integration",
@@ -8084,7 +7211,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/google-maps-api-integration",
       "type": "service"
     },
-    {
+      {
       "id": "openai-ai-api-integration",
       "name": "OpenAI / AI API Integration",
       "category": "API Integration",
@@ -8103,7 +7230,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/openai-ai-api-integration",
       "type": "service"
     },
-    {
+      {
       "id": "whatsapp-api-integration",
       "name": "WhatsApp API Integration",
       "category": "Mobile App Development",
@@ -8122,7 +7249,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/whatsapp-api-integration",
       "type": "service"
     },
-    {
+      {
       "id": "telegram-api-integration",
       "name": "Telegram API Integration",
       "category": "API Integration",
@@ -8141,7 +7268,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/telegram-api-integration",
       "type": "service"
     },
-    {
+      {
       "id": "facebook-api-integration",
       "name": "Facebook API Integration",
       "category": "API Integration",
@@ -8160,7 +7287,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/facebook-api-integration",
       "type": "service"
     },
-    {
+      {
       "id": "stripe-integration",
       "name": "Stripe Integration",
       "category": "API Integration",
@@ -8179,7 +7306,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/stripe-integration",
       "type": "service"
     },
-    {
+      {
       "id": "paypal-integration",
       "name": "PayPal Integration",
       "category": "API Integration",
@@ -8198,7 +7325,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/paypal-integration",
       "type": "service"
     },
-    {
+      {
       "id": "admin-dashboard-development",
       "name": "Admin Dashboard Development",
       "category": "Cloud, Hosting, Api & Automation Services",
@@ -8217,7 +7344,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/admin-dashboard-development",
       "type": "service"
     },
-    {
+      {
       "id": "analytics-dashboard",
       "name": "Analytics Dashboard",
       "category": "Cloud, Hosting, Api & Automation Services",
@@ -8236,7 +7363,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/analytics-dashboard",
       "type": "service"
     },
-    {
+      {
       "id": "reporting-dashboard",
       "name": "Reporting Dashboard",
       "category": "Cloud, Hosting, Api & Automation Services",
@@ -8255,7 +7382,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/reporting-dashboard",
       "type": "service"
     },
-    {
+      {
       "id": "workflow-automation",
       "name": "Workflow Automation",
       "category": "Automation",
@@ -8274,7 +7401,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/workflow-automation",
       "type": "service"
     },
-    {
+      {
       "id": "business-process-automation",
       "name": "Business Process Automation",
       "category": "Automation",
@@ -8293,26 +7420,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/business-process-automation",
       "type": "service"
     },
-    {
-      "id": "email-automation",
-      "name": "Email Automation",
-      "category": "AI Development",
-      "description": "Professional Email Automation service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 10000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/email-automation",
-      "type": "service"
-    },
-    {
+      {
       "id": "notification-system",
       "name": "Notification System",
       "category": "Cloud, Hosting, Api & Automation Services",
@@ -8331,7 +7439,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/notification-system",
       "type": "service"
     },
-    {
+      {
       "id": "otp-verification-system",
       "name": "OTP Verification System",
       "category": "Cloud, Hosting, Api & Automation Services",
@@ -8350,7 +7458,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/otp-verification-system",
       "type": "service"
     },
-    {
+      {
       "id": "authentication-system",
       "name": "Authentication System",
       "category": "Cloud, Hosting, Api & Automation Services",
@@ -8369,7 +7477,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/authentication-system",
       "type": "service"
     },
-    {
+      {
       "id": "role-based-access-control-rbac",
       "name": "Role-Based Access Control (RBAC)",
       "category": "Cloud, Hosting, Api & Automation Services",
@@ -8388,7 +7496,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/role-based-access-control-rbac",
       "type": "service"
     },
-    {
+      {
       "id": "linux-server-configuration",
       "name": "Linux Server Configuration",
       "category": "UI/UX Design",
@@ -8407,7 +7515,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/linux-server-configuration",
       "type": "service"
     },
-    {
+      {
       "id": "ubuntu-server-setup",
       "name": "Ubuntu Server Setup",
       "category": "Cloud and Hosting",
@@ -8426,7 +7534,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/ubuntu-server-setup",
       "type": "service"
     },
-    {
+      {
       "id": "nginx-server-configuration",
       "name": "Nginx Server Configuration",
       "category": "Cloud, Hosting, Api & Automation Services",
@@ -8445,7 +7553,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/nginx-server-configuration",
       "type": "service"
     },
-    {
+      {
       "id": "apache-server-configuration",
       "name": "Apache Server Configuration",
       "category": "Cloud, Hosting, Api & Automation Services",
@@ -8464,7 +7572,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/apache-server-configuration",
       "type": "service"
     },
-    {
+      {
       "id": "docker-setup",
       "name": "Docker Setup",
       "category": "DevOps",
@@ -8483,7 +7591,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/docker-setup",
       "type": "service"
     },
-    {
+      {
       "id": "docker-compose-configuration",
       "name": "Docker Compose Configuration",
       "category": "DevOps",
@@ -8502,26 +7610,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/docker-compose-configuration",
       "type": "service"
     },
-    {
-      "id": "ci-cd-pipeline-setup",
-      "name": "CI/CD Pipeline Setup",
-      "category": "DevOps",
-      "description": "Professional CI/CD Pipeline Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 25000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/ci-cd-pipeline-setup",
-      "type": "service"
-    },
-    {
+      {
       "id": "github-actions-setup",
       "name": "GitHub Actions Setup",
       "category": "DevOps",
@@ -8540,7 +7629,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/github-actions-setup",
       "type": "service"
     },
-    {
+      {
       "id": "gitlab-ci-setup",
       "name": "GitLab CI Setup",
       "category": "DevOps",
@@ -8559,7 +7648,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/gitlab-ci-setup",
       "type": "service"
     },
-    {
+      {
       "id": "cloud-storage-integration",
       "name": "Cloud Storage Integration",
       "category": "API Integration",
@@ -8578,7 +7667,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/cloud-storage-integration",
       "type": "service"
     },
-    {
+      {
       "id": "file-upload-system",
       "name": "File Upload System",
       "category": "Cloud, Hosting, Api & Automation Services",
@@ -8597,7 +7686,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/file-upload-system",
       "type": "service"
     },
-    {
+      {
       "id": "media-storage-system",
       "name": "Media Storage System",
       "category": "Cloud, Hosting, Api & Automation Services",
@@ -8616,7 +7705,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/media-storage-system",
       "type": "service"
     },
-    {
+      {
       "id": "real-time-chat-system",
       "name": "Real-Time Chat System",
       "category": "Cloud, Hosting, Api & Automation Services",
@@ -8635,7 +7724,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/real-time-chat-system",
       "type": "service"
     },
-    {
+      {
       "id": "push-notification-system",
       "name": "Push Notification System",
       "category": "Cloud, Hosting, Api & Automation Services",
@@ -8654,7 +7743,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/push-notification-system",
       "type": "service"
     },
-    {
+      {
       "id": "live-tracking-system",
       "name": "Live Tracking System",
       "category": "Cloud, Hosting, Api & Automation Services",
@@ -8673,7 +7762,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/live-tracking-system",
       "type": "service"
     },
-    {
+      {
       "id": "qr-code-generator-system",
       "name": "QR Code Generator System",
       "category": "Cloud, Hosting, Api & Automation Services",
@@ -8692,7 +7781,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/qr-code-generator-system",
       "type": "service"
     },
-    {
+      {
       "id": "barcode-generator-system",
       "name": "Barcode Generator System",
       "category": "Cloud, Hosting, Api & Automation Services",
@@ -8711,7 +7800,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/barcode-generator-system",
       "type": "service"
     },
-    {
+      {
       "id": "custom-automation-solution",
       "name": "Custom Automation Solution",
       "category": "Automation",
@@ -8730,7 +7819,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/custom-automation-solution",
       "type": "service"
     },
-    {
+      {
       "id": "cloud-infrastructure-setup",
       "name": "Cloud Infrastructure Setup",
       "category": "Cloud and Hosting",
@@ -8749,7 +7838,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/cloud-infrastructure-setup",
       "type": "service"
     },
-    {
+      {
       "id": "enterprise-devops-solution",
       "name": "Enterprise DevOps Solution",
       "category": "DevOps",
@@ -8768,7 +7857,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/enterprise-devops-solution",
       "type": "service"
     },
-    {
+      {
       "id": "website-security-audit",
       "name": "Website Security Audit",
       "category": "Website Development",
@@ -8787,7 +7876,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/website-security-audit",
       "type": "service"
     },
-    {
+      {
       "id": "web-application-security-audit",
       "name": "Web Application Security Audit",
       "category": "Web Application Development",
@@ -8806,7 +7895,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/web-application-security-audit",
       "type": "service"
     },
-    {
+      {
       "id": "network-security-audit",
       "name": "Network Security Audit",
       "category": "Cyber Security",
@@ -8825,7 +7914,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/network-security-audit",
       "type": "service"
     },
-    {
+      {
       "id": "cyber-security-consultation",
       "name": "Cyber Security Consultation",
       "category": "Cyber Security",
@@ -8844,7 +7933,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/cyber-security-consultation",
       "type": "service"
     },
-    {
+      {
       "id": "security-hardening",
       "name": "Security Hardening",
       "category": "Cyber Security",
@@ -8863,7 +7952,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/security-hardening",
       "type": "service"
     },
-    {
+      {
       "id": "penetration-testing-basic",
       "name": "Penetration Testing (Basic)",
       "category": "Cyber Security",
@@ -8882,7 +7971,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/penetration-testing-basic",
       "type": "service"
     },
-    {
+      {
       "id": "penetration-testing-advanced",
       "name": "Penetration Testing (Advanced)",
       "category": "Cyber Security",
@@ -8901,7 +7990,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/penetration-testing-advanced",
       "type": "service"
     },
-    {
+      {
       "id": "vulnerability-assessment",
       "name": "Vulnerability Assessment",
       "category": "Cyber Security",
@@ -8920,7 +8009,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/vulnerability-assessment",
       "type": "service"
     },
-    {
+      {
       "id": "malware-removal",
       "name": "Malware Removal",
       "category": "Cyber Security",
@@ -8939,7 +8028,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/malware-removal",
       "type": "service"
     },
-    {
+      {
       "id": "virus-removal",
       "name": "Virus Removal",
       "category": "Cyber Security",
@@ -8958,7 +8047,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/virus-removal",
       "type": "service"
     },
-    {
+      {
       "id": "website-hack-recovery",
       "name": "Website Hack Recovery",
       "category": "Website Development",
@@ -8977,7 +8066,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/website-hack-recovery",
       "type": "service"
     },
-    {
+      {
       "id": "server-security-configuration",
       "name": "Server Security Configuration",
       "category": "Cyber Security",
@@ -8996,7 +8085,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/server-security-configuration",
       "type": "service"
     },
-    {
+      {
       "id": "firewall-configuration",
       "name": "Firewall Configuration",
       "category": "Cyber Security",
@@ -9015,7 +8104,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/firewall-configuration",
       "type": "service"
     },
-    {
+      {
       "id": "ssl-security-configuration",
       "name": "SSL Security Configuration",
       "category": "Cloud and Hosting",
@@ -9034,7 +8123,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/ssl-security-configuration",
       "type": "service"
     },
-    {
+      {
       "id": "backup-disaster-recovery",
       "name": "Backup & Disaster Recovery",
       "category": "Cyber Security",
@@ -9053,7 +8142,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/backup-disaster-recovery",
       "type": "service"
     },
-    {
+      {
       "id": "data-encryption-setup",
       "name": "Data Encryption Setup",
       "category": "Cyber Security",
@@ -9072,26 +8161,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/data-encryption-setup",
       "type": "service"
     },
-    {
-      "id": "security-monitoring",
-      "name": "Security Monitoring",
-      "category": "Cyber Security",
-      "description": "Professional Security Monitoring service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 8000,
-      "prefix": "Starting from",
-      "billingPeriod": "per month",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/security-monitoring",
-      "type": "service"
-    },
-    {
+      {
       "id": "basic-seo-setup",
       "name": "Basic SEO Setup",
       "category": "SEO",
@@ -9110,7 +8180,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/basic-seo-setup",
       "type": "service"
     },
-    {
+      {
       "id": "advanced-seo-optimization",
       "name": "Advanced SEO Optimization",
       "category": "SEO",
@@ -9129,7 +8199,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/advanced-seo-optimization",
       "type": "service"
     },
-    {
+      {
       "id": "technical-seo",
       "name": "Technical SEO",
       "category": "SEO",
@@ -9148,7 +8218,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/technical-seo",
       "type": "service"
     },
-    {
+      {
       "id": "on-page-seo",
       "name": "On-Page SEO",
       "category": "SEO",
@@ -9167,7 +8237,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/on-page-seo",
       "type": "service"
     },
-    {
+      {
       "id": "off-page-seo",
       "name": "Off-Page SEO",
       "category": "SEO",
@@ -9186,7 +8256,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/off-page-seo",
       "type": "service"
     },
-    {
+      {
       "id": "local-seo",
       "name": "Local SEO",
       "category": "SEO",
@@ -9205,7 +8275,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/local-seo",
       "type": "service"
     },
-    {
+      {
       "id": "google-search-console-setup",
       "name": "Google Search Console Setup",
       "category": "SEO",
@@ -9224,7 +8294,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/google-search-console-setup",
       "type": "service"
     },
-    {
+      {
       "id": "google-analytics-setup",
       "name": "Google Analytics Setup",
       "category": "SEO",
@@ -9243,7 +8313,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/google-analytics-setup",
       "type": "service"
     },
-    {
+      {
       "id": "google-business-profile-setup",
       "name": "Google Business Profile Setup",
       "category": "Seo Services",
@@ -9262,7 +8332,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/google-business-profile-setup",
       "type": "service"
     },
-    {
+      {
       "id": "keyword-research",
       "name": "Keyword Research",
       "category": "SEO",
@@ -9281,7 +8351,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/keyword-research",
       "type": "service"
     },
-    {
+      {
       "id": "seo-content-optimization",
       "name": "SEO Content Optimization",
       "category": "SEO",
@@ -9300,7 +8370,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/seo-content-optimization",
       "type": "service"
     },
-    {
+      {
       "id": "monthly-seo-package",
       "name": "Monthly SEO Package",
       "category": "SEO",
@@ -9319,7 +8389,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/monthly-seo-package",
       "type": "service"
     },
-    {
+      {
       "id": "digital-marketing-consultation",
       "name": "Digital Marketing Consultation",
       "category": "Digital Marketing",
@@ -9338,7 +8408,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/digital-marketing-consultation",
       "type": "service"
     },
-    {
+      {
       "id": "facebook-marketing-setup",
       "name": "Facebook Marketing Setup",
       "category": "Digital Marketing",
@@ -9357,7 +8427,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/facebook-marketing-setup",
       "type": "service"
     },
-    {
+      {
       "id": "instagram-marketing-setup",
       "name": "Instagram Marketing Setup",
       "category": "Digital Marketing",
@@ -9376,7 +8446,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/instagram-marketing-setup",
       "type": "service"
     },
-    {
+      {
       "id": "tiktok-marketing-setup",
       "name": "TikTok Marketing Setup",
       "category": "Digital Marketing",
@@ -9395,7 +8465,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/tiktok-marketing-setup",
       "type": "service"
     },
-    {
+      {
       "id": "linkedin-marketing-setup",
       "name": "LinkedIn Marketing Setup",
       "category": "Digital Marketing",
@@ -9414,7 +8484,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/linkedin-marketing-setup",
       "type": "service"
     },
-    {
+      {
       "id": "youtube-channel-setup",
       "name": "YouTube Channel Setup",
       "category": "Digital Marketing",
@@ -9433,7 +8503,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/youtube-channel-setup",
       "type": "service"
     },
-    {
+      {
       "id": "email-marketing-setup",
       "name": "Email Marketing Setup",
       "category": "Digital Marketing",
@@ -9452,7 +8522,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/email-marketing-setup",
       "type": "service"
     },
-    {
+      {
       "id": "sms-marketing-setup",
       "name": "SMS Marketing Setup",
       "category": "Digital Marketing",
@@ -9471,7 +8541,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/sms-marketing-setup",
       "type": "service"
     },
-    {
+      {
       "id": "google-ads-setup",
       "name": "Google Ads Setup",
       "category": "Digital Marketing",
@@ -9490,7 +8560,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/google-ads-setup",
       "type": "service"
     },
-    {
+      {
       "id": "facebook-ads-setup",
       "name": "Facebook Ads Setup",
       "category": "Digital Marketing",
@@ -9509,7 +8579,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/facebook-ads-setup",
       "type": "service"
     },
-    {
+      {
       "id": "meta-ads-management",
       "name": "Meta Ads Management",
       "category": "Digital Marketing",
@@ -9528,7 +8598,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/meta-ads-management",
       "type": "service"
     },
-    {
+      {
       "id": "google-ads-management",
       "name": "Google Ads Management",
       "category": "Digital Marketing",
@@ -9547,26 +8617,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/google-ads-management",
       "type": "service"
     },
-    {
-      "id": "social-media-management",
-      "name": "Social Media Management",
-      "category": "Digital Marketing",
-      "description": "Professional Social Media Management service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 18000,
-      "prefix": "Starting from",
-      "billingPeriod": "per month",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/social-media-management",
-      "type": "service"
-    },
-    {
+      {
       "id": "content-marketing",
       "name": "Content Marketing",
       "category": "Digital Marketing",
@@ -9585,26 +8636,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/content-marketing",
       "type": "service"
     },
-    {
-      "id": "remote-it-support",
-      "name": "Remote IT Support",
-      "category": "IT Support",
-      "description": "Professional Remote IT Support service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 2500,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/remote-it-support",
-      "type": "service"
-    },
-    {
+      {
       "id": "on-site-it-support",
       "name": "On-Site IT Support",
       "category": "IT Support",
@@ -9623,7 +8655,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/on-site-it-support",
       "type": "service"
     },
-    {
+      {
       "id": "pc-health-check",
       "name": "PC Health Check",
       "category": "IT Support",
@@ -9642,7 +8674,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/pc-health-check",
       "type": "service"
     },
-    {
+      {
       "id": "windows-installation",
       "name": "Windows Installation",
       "category": "IT Support",
@@ -9661,7 +8693,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/windows-installation",
       "type": "service"
     },
-    {
+      {
       "id": "linux-installation",
       "name": "Linux Installation",
       "category": "UI/UX Design",
@@ -9680,7 +8712,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/linux-installation",
       "type": "service"
     },
-    {
+      {
       "id": "software-installation",
       "name": "Software Installation",
       "category": "It Support",
@@ -9699,7 +8731,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/software-installation",
       "type": "service"
     },
-    {
+      {
       "id": "driver-installation",
       "name": "Driver Installation",
       "category": "IT Support",
@@ -9718,7 +8750,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/driver-installation",
       "type": "service"
     },
-    {
+      {
       "id": "pc-optimization",
       "name": "PC Optimization",
       "category": "IT Support",
@@ -9737,7 +8769,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/pc-optimization",
       "type": "service"
     },
-    {
+      {
       "id": "laptop-optimization",
       "name": "Laptop Optimization",
       "category": "It Support",
@@ -9756,7 +8788,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/laptop-optimization",
       "type": "service"
     },
-    {
+      {
       "id": "network-troubleshooting",
       "name": "Network Troubleshooting",
       "category": "IT Support",
@@ -9775,7 +8807,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/network-troubleshooting",
       "type": "service"
     },
-    {
+      {
       "id": "wi-fi-configuration",
       "name": "Wi-Fi Configuration",
       "category": "IT Support",
@@ -9794,7 +8826,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/wi-fi-configuration",
       "type": "service"
     },
-    {
+      {
       "id": "printer-setup",
       "name": "Printer Setup",
       "category": "IT Support",
@@ -9813,7 +8845,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/printer-setup",
       "type": "service"
     },
-    {
+      {
       "id": "nas-setup",
       "name": "NAS Setup",
       "category": "IT Support",
@@ -9832,7 +8864,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/nas-setup",
       "type": "service"
     },
-    {
+      {
       "id": "data-backup",
       "name": "Data Backup",
       "category": "It Support",
@@ -9851,7 +8883,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/data-backup",
       "type": "service"
     },
-    {
+      {
       "id": "data-recovery",
       "name": "Data Recovery",
       "category": "IT Support",
@@ -9870,26 +8902,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/data-recovery",
       "type": "service"
     },
-    {
-      "id": "website-maintenance-2",
-      "name": "Website Maintenance",
-      "category": "Website Development",
-      "description": "Professional Website Maintenance service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 7500,
-      "prefix": "Starting from",
-      "billingPeriod": "per month",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/website-maintenance-2",
-      "type": "service"
-    },
-    {
+      {
       "id": "e-commerce-maintenance",
       "name": "E-Commerce Maintenance",
       "category": "Maintenance",
@@ -9908,7 +8921,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/e-commerce-maintenance",
       "type": "service"
     },
-    {
+      {
       "id": "mobile-app-maintenance",
       "name": "Mobile App Maintenance",
       "category": "Mobile App Development",
@@ -9927,7 +8940,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/mobile-app-maintenance",
       "type": "service"
     },
-    {
+      {
       "id": "software-maintenance",
       "name": "Software Maintenance",
       "category": "Maintenance",
@@ -9946,7 +8959,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/software-maintenance",
       "type": "service"
     },
-    {
+      {
       "id": "cloud-server-maintenance",
       "name": "Cloud Server Maintenance",
       "category": "Cloud and Hosting",
@@ -9965,26 +8978,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/cloud-server-maintenance",
       "type": "service"
     },
-    {
-      "id": "security-monitoring-2",
-      "name": "Security Monitoring",
-      "category": "Cyber Security",
-      "description": "Professional Security Monitoring service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 8000,
-      "prefix": "Starting from",
-      "billingPeriod": "per month",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/security-monitoring-2",
-      "type": "service"
-    },
-    {
+      {
       "id": "bug-fixing",
       "name": "Bug Fixing",
       "category": "Maintenance",
@@ -10003,7 +8997,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/bug-fixing",
       "type": "service"
     },
-    {
+      {
       "id": "performance-optimization",
       "name": "Performance Optimization",
       "category": "Maintenance",
@@ -10022,7 +9016,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/performance-optimization",
       "type": "service"
     },
-    {
+      {
       "id": "database-maintenance",
       "name": "Database Maintenance",
       "category": "Maintenance",
@@ -10041,7 +9035,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/database-maintenance",
       "type": "service"
     },
-    {
+      {
       "id": "api-maintenance",
       "name": "API Maintenance",
       "category": "API Development",
@@ -10060,7 +9054,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/api-maintenance",
       "type": "service"
     },
-    {
+      {
       "id": "content-updates",
       "name": "Content Updates",
       "category": "Maintenance",
@@ -10079,7 +9073,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/content-updates",
       "type": "service"
     },
-    {
+      {
       "id": "monthly-technical-support",
       "name": "Monthly Technical Support",
       "category": "Maintenance",
@@ -10098,7 +9092,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/monthly-technical-support",
       "type": "service"
     },
-    {
+      {
       "id": "annual-maintenance-contract-amc",
       "name": "Annual Maintenance Contract (AMC)",
       "category": "Maintenance",
@@ -10117,7 +9111,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/annual-maintenance-contract-amc",
       "type": "service"
     },
-    {
+      {
       "id": "business-it-consultation",
       "name": "Business IT Consultation",
       "category": "Consultation",
@@ -10136,7 +9130,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/business-it-consultation",
       "type": "service"
     },
-    {
+      {
       "id": "software-project-consultation",
       "name": "Software Project Consultation",
       "category": "Consultation",
@@ -10155,26 +9149,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/software-project-consultation",
       "type": "service"
     },
-    {
-      "id": "ai-consultation",
-      "name": "AI Consultation",
-      "category": "Consultation",
-      "description": "Professional AI Consultation service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 7500,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/ai-consultation",
-      "type": "service"
-    },
-    {
+      {
       "id": "website-planning-consultation",
       "name": "Website Planning Consultation",
       "category": "Website Development",
@@ -10193,7 +9168,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/website-planning-consultation",
       "type": "service"
     },
-    {
+      {
       "id": "mobile-app-consultation",
       "name": "Mobile App Consultation",
       "category": "Mobile App Development",
@@ -10212,7 +9187,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/mobile-app-consultation",
       "type": "service"
     },
-    {
+      {
       "id": "cloud-consultation",
       "name": "Cloud Consultation",
       "category": "Cloud and Hosting",
@@ -10231,7 +9206,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "route": "#/services/cloud-consultation",
       "type": "service"
     },
-    {
+      {
       "id": "cyber-security-consultation-2",
       "name": "Cyber Security Consultation",
       "category": "Cyber Security",
@@ -10249,1718 +9224,134 @@ document.addEventListener('DOMContentLoaded', function () {
       "supportPeriod": "As quoted",
       "route": "#/services/cyber-security-consultation-2",
       "type": "service"
-    },
-    {
-      "id": "digital-transformation-consultation",
-      "name": "Digital Transformation Consultation",
-      "category": "Consultation",
-      "description": "Professional Digital Transformation Consultation service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 10000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/digital-transformation-consultation",
-      "type": "service"
-    },
-    {
-      "id": "ai-agent-development",
-      "name": "AI Agent Development",
-      "category": "AI Development",
-      "description": "Professional AI Agent Development service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 120000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/ai-agent-development",
-      "type": "service"
-    },
-    {
-      "id": "voice-ai-receptionist",
-      "name": "Voice AI Receptionist",
-      "category": "Consultation",
-      "description": "Professional Voice AI Receptionist service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 85000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/voice-ai-receptionist",
-      "type": "service"
-    },
-    {
-      "id": "ai-call-center",
-      "name": "AI Call Center",
-      "category": "Consultation",
-      "description": "Professional AI Call Center service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 180000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/ai-call-center",
-      "type": "service"
-    },
-    {
-      "id": "ai-sales-agent",
-      "name": "AI Sales Agent",
-      "category": "AI Development",
-      "description": "Professional AI Sales Agent service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 90000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/ai-sales-agent",
-      "type": "service"
-    },
-    {
-      "id": "ai-document-processing",
-      "name": "AI Document Processing",
-      "category": "Consultation",
-      "description": "Professional AI Document Processing service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 80000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/ai-document-processing",
-      "type": "service"
-    },
-    {
-      "id": "ai-workflow-automation",
-      "name": "AI Workflow Automation",
-      "category": "AI Development",
-      "description": "Professional AI Workflow Automation service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 65000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/ai-workflow-automation",
-      "type": "service"
-    },
-    {
-      "id": "ai-business-intelligence",
-      "name": "AI Business Intelligence",
-      "category": "Consultation",
-      "description": "Professional AI Business Intelligence service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 95000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/ai-business-intelligence",
-      "type": "service"
-    },
-    {
-      "id": "ai-knowledge-base",
-      "name": "AI Knowledge Base",
-      "category": "Consultation",
-      "description": "Professional AI Knowledge Base service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 60000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/ai-knowledge-base",
-      "type": "service"
-    },
-    {
-      "id": "ai-search-engine",
-      "name": "AI Search Engine",
-      "category": "Consultation",
-      "description": "Professional AI Search Engine service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 100000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/ai-search-engine",
-      "type": "service"
-    },
-    {
-      "id": "saas-development",
-      "name": "SaaS Development",
-      "category": "Consultation",
-      "description": "Professional SaaS Development service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 180000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/saas-development",
-      "type": "service"
-    },
-    {
-      "id": "crm-development",
-      "name": "CRM Development",
-      "category": "Enterprise Software Development",
-      "description": "Professional CRM Development service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 120000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/crm-development",
-      "type": "service"
-    },
-    {
-      "id": "erp-development",
-      "name": "ERP Development",
-      "category": "Enterprise Software Development",
-      "description": "Professional ERP Development service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 300000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/erp-development",
-      "type": "service"
-    },
-    {
-      "id": "hrm-development",
-      "name": "HRM Development",
-      "category": "Enterprise Software Development",
-      "description": "Professional HRM Development service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 100000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/hrm-development",
-      "type": "service"
-    },
-    {
-      "id": "pos-development",
-      "name": "POS Development",
-      "category": "Enterprise Software Development",
-      "description": "Professional POS Development service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 80000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/pos-development",
-      "type": "service"
-    },
-    {
-      "id": "payment-gateway-integration-2",
-      "name": "Payment Gateway Integration",
-      "category": "API Integration",
-      "description": "Professional Payment Gateway Integration service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 18000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/payment-gateway-integration-2",
-      "type": "service"
-    },
-    {
-      "id": "invoice-automation",
-      "name": "Invoice Automation",
-      "category": "Automation",
-      "description": "Professional Invoice Automation service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 40000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/invoice-automation",
-      "type": "service"
-    },
-    {
-      "id": "e-commerce-automation",
-      "name": "E-Commerce Automation",
-      "category": "Automation",
-      "description": "Professional E-Commerce Automation service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 60000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/e-commerce-automation",
-      "type": "service"
-    },
-    {
-      "id": "warehouse-automation",
-      "name": "Warehouse Automation",
-      "category": "Automation",
-      "description": "Professional Warehouse Automation service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 80000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/warehouse-automation",
-      "type": "service"
-    },
-    {
-      "id": "cloud-infrastructure",
-      "name": "Cloud Infrastructure",
-      "category": "Cloud and Hosting",
-      "description": "Professional Cloud Infrastructure service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 60000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/cloud-infrastructure",
-      "type": "service"
-    },
-    {
-      "id": "aws-deployment",
-      "name": "AWS Deployment",
-      "category": "Consultation",
-      "description": "Professional AWS Deployment service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 30000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/aws-deployment",
-      "type": "service"
-    },
-    {
-      "id": "microsoft-azure-deployment",
-      "name": "Microsoft Azure Deployment",
-      "category": "Consultation",
-      "description": "Professional Microsoft Azure Deployment service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 30000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/microsoft-azure-deployment",
-      "type": "service"
-    },
-    {
-      "id": "google-cloud-deployment",
-      "name": "Google Cloud Deployment",
-      "category": "Cloud and Hosting",
-      "description": "Professional Google Cloud Deployment service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 30000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/google-cloud-deployment",
-      "type": "service"
-    },
-    {
-      "id": "docker-deployment",
-      "name": "Docker Deployment",
-      "category": "DevOps",
-      "description": "Professional Docker Deployment service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 20000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/docker-deployment",
-      "type": "service"
-    },
-    {
-      "id": "kubernetes-deployment",
-      "name": "Kubernetes Deployment",
-      "category": "DevOps",
-      "description": "Professional Kubernetes Deployment service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 45000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/kubernetes-deployment",
-      "type": "service"
-    },
-    {
-      "id": "database-optimization-2",
-      "name": "Database Optimization",
-      "category": "Database Services",
-      "description": "Professional Database Optimization service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 18000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/database-optimization-2",
-      "type": "service"
-    },
-    {
-      "id": "database-clustering",
-      "name": "Database Clustering",
-      "category": "Database Services",
-      "description": "Professional Database Clustering service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 60000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/database-clustering",
-      "type": "service"
-    },
-    {
-      "id": "high-availability-setup",
-      "name": "High Availability Setup",
-      "category": "Consultation",
-      "description": "Professional High Availability Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 80000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/high-availability-setup",
-      "type": "service"
-    },
-    {
-      "id": "load-balancer-setup",
-      "name": "Load Balancer Setup",
-      "category": "Consultation",
-      "description": "Professional Load Balancer Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 35000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/load-balancer-setup",
-      "type": "service"
-    },
-    {
-      "id": "cdn-configuration-2",
-      "name": "CDN Configuration",
-      "category": "Cloud and Hosting",
-      "description": "Professional CDN Configuration service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 12000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/cdn-configuration-2",
-      "type": "service"
-    },
-    {
-      "id": "cyber-security-audit",
-      "name": "Cyber Security Audit",
-      "category": "Cyber Security",
-      "description": "Professional Cyber Security Audit service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 25000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/cyber-security-audit",
-      "type": "service"
-    },
-    {
-      "id": "iso-27001-consultation",
-      "name": "ISO 27001 Consultation",
-      "category": "Cyber Security",
-      "description": "Professional ISO 27001 Consultation service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 40000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/iso-27001-consultation",
-      "type": "service"
-    },
-    {
-      "id": "penetration-testing",
-      "name": "Penetration Testing",
-      "category": "Cyber Security",
-      "description": "Professional Penetration Testing service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 35000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/penetration-testing",
-      "type": "service"
-    },
-    {
-      "id": "soc-setup",
-      "name": "SOC Setup",
-      "category": "Cyber Security",
-      "description": "Professional SOC Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 180000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/soc-setup",
-      "type": "service"
-    },
-    {
-      "id": "security-monitoring-3",
-      "name": "Security Monitoring",
-      "category": "Cyber Security",
-      "description": "Professional Security Monitoring service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 12000,
-      "prefix": "Starting from",
-      "billingPeriod": "per month",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/security-monitoring-3",
-      "type": "service"
-    },
-    {
-      "id": "disaster-recovery",
-      "name": "Disaster Recovery",
-      "category": "Cyber Security",
-      "description": "Professional Disaster Recovery service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 45000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/disaster-recovery",
-      "type": "service"
-    },
-    {
-      "id": "iot-solutions",
-      "name": "IoT Solutions",
-      "category": "Consultation",
-      "description": "Professional IoT Solutions service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 120000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/iot-solutions",
-      "type": "service"
-    },
-    {
-      "id": "rfid-management",
-      "name": "RFID Management",
-      "category": "Consultation",
-      "description": "Professional RFID Management service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 80000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/rfid-management",
-      "type": "service"
-    },
-    {
-      "id": "blockchain-development",
-      "name": "Blockchain Development",
-      "category": "AI Development",
-      "description": "Professional Blockchain Development service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 300000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/blockchain-development",
-      "type": "service"
-    },
-    {
-      "id": "nft-marketplace",
-      "name": "NFT Marketplace",
-      "category": "Consultation",
-      "description": "Professional NFT Marketplace service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 350000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/nft-marketplace",
-      "type": "service"
-    },
-    {
-      "id": "crypto-wallet",
-      "name": "Crypto Wallet",
-      "category": "Consultation",
-      "description": "Professional Crypto Wallet service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 280000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/crypto-wallet",
-      "type": "service"
-    },
-    {
-      "id": "smart-contract-development",
-      "name": "Smart Contract Development",
-      "category": "Consultation",
-      "description": "Professional Smart Contract Development service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 120000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/smart-contract-development",
-      "type": "service"
-    },
-    {
-      "id": "browser-extension-development",
-      "name": "Browser Extension Development",
-      "category": "Consultation",
-      "description": "Professional Browser Extension Development service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 30000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/browser-extension-development",
-      "type": "service"
-    },
-    {
-      "id": "chrome-extension",
-      "name": "Chrome Extension",
-      "category": "Consultation",
-      "description": "Professional Chrome Extension service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 30000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/chrome-extension",
-      "type": "service"
-    },
-    {
-      "id": "edge-extension",
-      "name": "Edge Extension",
-      "category": "Consultation",
-      "description": "Professional Edge Extension service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 30000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/edge-extension",
-      "type": "service"
-    },
-    {
-      "id": "firefox-extension",
-      "name": "Firefox Extension",
-      "category": "Consultation",
-      "description": "Professional Firefox Extension service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 30000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/firefox-extension",
-      "type": "service"
-    },
-    {
-      "id": "api-development",
-      "name": "API Development",
-      "category": "API Development",
-      "description": "Professional API Development service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 30000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/api-development",
-      "type": "service"
-    },
-    {
-      "id": "rest-api",
-      "name": "REST API",
-      "category": "API Development",
-      "description": "Professional REST API service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 25000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/rest-api",
-      "type": "service"
-    },
-    {
-      "id": "graphql-api",
-      "name": "GraphQL API",
-      "category": "API Development",
-      "description": "Professional GraphQL API service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 35000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/graphql-api",
-      "type": "service"
-    },
-    {
-      "id": "webhook-integration",
-      "name": "Webhook Integration",
-      "category": "API Integration",
-      "description": "Professional Webhook Integration service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 15000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/webhook-integration",
-      "type": "service"
-    },
-    {
-      "id": "third-party-integration",
-      "name": "Third Party Integration",
-      "category": "API Integration",
-      "description": "Professional Third Party Integration service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 20000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/third-party-integration",
-      "type": "service"
-    },
-    {
-      "id": "whatsapp-automation",
-      "name": "WhatsApp Automation",
-      "category": "Mobile App Development",
-      "description": "Professional WhatsApp Automation service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 35000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/whatsapp-automation",
-      "type": "service"
-    },
-    {
-      "id": "telegram-automation",
-      "name": "Telegram Automation",
-      "category": "Automation",
-      "description": "Professional Telegram Automation service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 25000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/telegram-automation",
-      "type": "service"
-    },
-    {
-      "id": "discord-automation",
-      "name": "Discord Automation",
-      "category": "Automation",
-      "description": "Professional Discord Automation service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 25000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/discord-automation",
-      "type": "service"
-    },
-    {
-      "id": "email-automation-2",
-      "name": "Email Automation",
-      "category": "AI Development",
-      "description": "Professional Email Automation service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 18000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/email-automation-2",
-      "type": "service"
-    },
-    {
-      "id": "sms-automation",
-      "name": "SMS Automation",
-      "category": "Automation",
-      "description": "Professional SMS Automation service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 20000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/sms-automation",
-      "type": "service"
-    },
-    {
-      "id": "digital-marketing",
-      "name": "Digital Marketing",
-      "category": "Digital Marketing",
-      "description": "Professional Digital Marketing service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 15000,
-      "prefix": "Starting from",
-      "billingPeriod": "per month",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/digital-marketing",
-      "type": "service"
-    },
-    {
-      "id": "seo",
-      "name": "SEO",
-      "category": "SEO",
-      "description": "Professional SEO service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 15000,
-      "prefix": "Starting from",
-      "billingPeriod": "per month",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/seo",
-      "type": "service"
-    },
-    {
-      "id": "google-ads",
-      "name": "Google Ads",
-      "category": "Digital Marketing",
-      "description": "Professional Google Ads service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 15000,
-      "prefix": "Starting from",
-      "billingPeriod": "per month",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/google-ads",
-      "type": "service"
-    },
-    {
-      "id": "meta-ads",
-      "name": "Meta Ads",
-      "category": "Digital Marketing",
-      "description": "Professional Meta Ads service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 15000,
-      "prefix": "Starting from",
-      "billingPeriod": "per month",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/meta-ads",
-      "type": "service"
-    },
-    {
-      "id": "social-media-management-2",
-      "name": "Social Media Management",
-      "category": "Digital Marketing",
-      "description": "Professional Social Media Management service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 18000,
-      "prefix": "Starting from",
-      "billingPeriod": "per month",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/social-media-management-2",
-      "type": "service"
-    },
-    {
-      "id": "content-writing",
-      "name": "Content Writing",
-      "category": "Digital Marketing",
-      "description": "Professional Content Writing service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 2000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/content-writing",
-      "type": "service"
-    },
-    {
-      "id": "copywriting",
-      "name": "Copywriting",
-      "category": "Digital Marketing",
-      "description": "Professional Copywriting service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 3000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/copywriting",
-      "type": "service"
-    },
-    {
-      "id": "ui-ux-design",
-      "name": "UI/UX Design",
-      "category": "UI/UX Design",
-      "description": "Professional UI/UX Design service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 15000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/ui-ux-design",
-      "type": "service"
-    },
-    {
-      "id": "brand-identity",
-      "name": "Brand Identity",
-      "category": "Graphic Design and Branding",
-      "description": "Professional Brand Identity service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 20000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/brand-identity",
-      "type": "service"
-    },
-    {
-      "id": "logo-design-2",
-      "name": "Logo Design",
-      "category": "Graphic Design and Branding",
-      "description": "Professional Logo Design service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 6000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/logo-design-2",
-      "type": "service"
-    },
-    {
-      "id": "motion-graphics-2",
-      "name": "Motion Graphics",
-      "category": "Video and Motion Design",
-      "description": "Professional Motion Graphics service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 8000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/motion-graphics-2",
-      "type": "service"
-    },
-    {
-      "id": "video-editing-2",
-      "name": "Video Editing",
-      "category": "Video and Motion Design",
-      "description": "Professional Video Editing service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 3500,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/video-editing-2",
-      "type": "service"
-    },
-    {
-      "id": "3d-product-design",
-      "name": "3D Product Design",
-      "category": "Consultation",
-      "description": "Professional 3D Product Design service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 20000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/3d-product-design",
-      "type": "service"
-    },
-    {
-      "id": "domain-registration-2",
-      "name": "Domain Registration",
-      "category": "Cloud and Hosting",
-      "description": "Professional Domain Registration service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 4000,
-      "prefix": "Starting from",
-      "billingPeriod": "per year",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/domain-registration-2",
-      "type": "service"
-    },
-    {
-      "id": "web-hosting",
-      "name": "Web Hosting",
-      "category": "Cloud and Hosting",
-      "description": "Professional Web Hosting service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 8000,
-      "prefix": "Starting from",
-      "billingPeriod": "per year",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/web-hosting",
-      "type": "service"
-    },
-    {
-      "id": "cloud-hosting",
-      "name": "Cloud Hosting",
-      "category": "Cloud and Hosting",
-      "description": "Professional Cloud Hosting service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 15000,
-      "prefix": "Starting from",
-      "billingPeriod": "per year",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/cloud-hosting",
-      "type": "service"
-    },
-    {
-      "id": "business-email",
-      "name": "Business Email",
-      "category": "Consultation",
-      "description": "Professional Business Email service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 5000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/business-email",
-      "type": "service"
-    },
-    {
-      "id": "ssl-certificate",
-      "name": "SSL Certificate",
-      "category": "Cloud and Hosting",
-      "description": "Professional SSL Certificate service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 3000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/ssl-certificate",
-      "type": "service"
-    },
-    {
-      "id": "website-migration-3",
-      "name": "Website Migration",
-      "category": "Website Development",
-      "description": "Professional Website Migration service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 8000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/website-migration-3",
-      "type": "service"
-    },
-    {
-      "id": "website-maintenance-3",
-      "name": "Website Maintenance",
-      "category": "Website Development",
-      "description": "Professional Website Maintenance service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 7500,
-      "prefix": "Starting from",
-      "billingPeriod": "per month",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/website-maintenance-3",
-      "type": "service"
-    },
-    {
-      "id": "app-maintenance",
-      "name": "App Maintenance",
-      "category": "Mobile App Development",
-      "description": "Professional App Maintenance service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 10000,
-      "prefix": "Starting from",
-      "billingPeriod": "per month",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/app-maintenance",
-      "type": "service"
-    },
-    {
-      "id": "remote-it-support-2",
-      "name": "Remote IT Support",
-      "category": "IT Support",
-      "description": "Professional Remote IT Support service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 2500,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/remote-it-support-2",
-      "type": "service"
-    },
-    {
-      "id": "server-administration",
-      "name": "Server Administration",
-      "category": "DevOps",
-      "description": "Professional Server Administration service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 15000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/server-administration",
-      "type": "service"
-    },
-    {
-      "id": "linux-administration",
-      "name": "Linux Administration",
-      "category": "UI/UX Design",
-      "description": "Professional Linux Administration service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 12000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/linux-administration",
-      "type": "service"
-    },
-    {
-      "id": "windows-server-management",
-      "name": "Windows Server Management",
-      "category": "DevOps",
-      "description": "Professional Windows Server Management service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 12000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/windows-server-management",
-      "type": "service"
-    },
-    {
-      "id": "devops-services",
-      "name": "DevOps Services",
-      "category": "DevOps",
-      "description": "Professional DevOps Services service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 40000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/devops-services",
-      "type": "service"
-    },
-    {
-      "id": "ci-cd-pipeline-setup-2",
-      "name": "CI/CD Pipeline Setup",
-      "category": "DevOps",
-      "description": "Professional CI/CD Pipeline Setup service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 25000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/ci-cd-pipeline-setup-2",
-      "type": "service"
-    },
-    {
-      "id": "github-management",
-      "name": "GitHub Management",
-      "category": "Consultation",
-      "description": "Professional GitHub Management service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 8000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/github-management",
-      "type": "service"
-    },
-    {
-      "id": "consultation-services",
-      "name": "Consultation Services",
-      "category": "Consultation",
-      "description": "Professional Consultation Services service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 5000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/consultation-services",
-      "type": "service"
-    },
-    {
-      "id": "ai-consultation-2",
-      "name": "AI Consultation",
-      "category": "Consultation",
-      "description": "Professional AI Consultation service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 7500,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/ai-consultation-2",
-      "type": "service"
-    },
-    {
-      "id": "software-consultation",
-      "name": "Software Consultation",
-      "category": "Consultation",
-      "description": "Professional Software Consultation service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 7500,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/software-consultation",
-      "type": "service"
-    },
-    {
-      "id": "startup-consultation",
-      "name": "Startup Consultation",
-      "category": "Consultation",
-      "description": "Professional Startup Consultation service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 10000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/startup-consultation",
-      "type": "service"
-    },
-    {
-      "id": "digital-transformation-consultation-2",
-      "name": "Digital Transformation Consultation",
-      "category": "Consultation",
-      "description": "Professional Digital Transformation Consultation service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 15000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/digital-transformation-consultation-2",
-      "type": "service"
-    },
-    {
-      "id": "technology-roadmap-planning",
-      "name": "Technology Roadmap Planning",
-      "category": "Consultation",
-      "description": "Professional Technology Roadmap Planning service tailored to the customer's scope, features, integrations and delivery requirements.",
-      "priceLkr": 20000,
-      "prefix": "Starting from",
-      "billingPeriod": "",
-      "status": "Available",
-      "features": [
-        "Custom requirements",
-        "Professional implementation",
-        "Quotation-based delivery"
-      ],
-      "deliveryTime": "Based on scope",
-      "supportPeriod": "As quoted",
-      "route": "#/services/technology-roadmap-planning",
-      "type": "service"
     }
-  ]
+    ],
+    premium: [
+      {"id":"ai-agent-development","name":"AI Agent Development","category":"AI Premium Solutions","description":"Premium AI Agent Development solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":120000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/ai-agent-development","type":"service"},
+      {"id":"autonomous-ai-systems","name":"Autonomous AI Systems","category":"AI Premium Solutions","description":"Premium Autonomous AI Systems solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":180000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/autonomous-ai-systems","type":"service"},
+      {"id":"multi-agent-ai-systems","name":"Multi-Agent AI Systems","category":"AI Premium Solutions","description":"Premium Multi-Agent AI Systems solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":220000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/multi-agent-ai-systems","type":"service"},
+      {"id":"voice-ai-receptionist","name":"Voice AI Receptionist","category":"AI Premium Solutions","description":"Premium Voice AI Receptionist solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":85000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/voice-ai-receptionist","type":"service"},
+      {"id":"ai-call-center","name":"AI Call Center","category":"AI Premium Solutions","description":"Premium AI Call Center solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":180000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/ai-call-center","type":"service"},
+      {"id":"ai-sales-agent","name":"AI Sales Agent","category":"AI Premium Solutions","description":"Premium AI Sales Agent solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":90000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/ai-sales-agent","type":"service"},
+      {"id":"ai-coding-assistant","name":"AI Coding Assistant","category":"AI Premium Solutions","description":"Premium AI Coding Assistant solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":120000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/ai-coding-assistant","type":"service"},
+      {"id":"ai-document-processing","name":"AI Document Processing","category":"AI Premium Solutions","description":"Premium AI Document Processing solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":80000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/ai-document-processing","type":"service"},
+      {"id":"ai-workflow-automation","name":"AI Workflow Automation","category":"AI Premium Solutions","description":"Premium AI Workflow Automation solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":65000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/ai-workflow-automation","type":"service"},
+      {"id":"ai-business-intelligence","name":"AI Business Intelligence","category":"AI Premium Solutions","description":"Premium AI Business Intelligence solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":95000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/ai-business-intelligence","type":"service"},
+      {"id":"ai-analytics-platform","name":"AI Analytics Platform","category":"AI Premium Solutions","description":"Premium AI Analytics Platform solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":120000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/ai-analytics-platform","type":"service"},
+      {"id":"ai-knowledge-base","name":"AI Knowledge Base","category":"AI Premium Solutions","description":"Premium AI Knowledge Base solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":60000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/ai-knowledge-base","type":"service"},
+      {"id":"ai-search-engine","name":"AI Search Engine","category":"AI Premium Solutions","description":"Premium AI Search Engine solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":100000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/ai-search-engine","type":"service"},
+      {"id":"ai-recommendation-system","name":"AI Recommendation System","category":"AI Premium Solutions","description":"Premium AI Recommendation System solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":90000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/ai-recommendation-system","type":"service"},
+      {"id":"ai-medical-assistant","name":"AI Medical Assistant","category":"AI Premium Solutions","description":"Premium AI Medical Assistant solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":180000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/ai-medical-assistant","type":"service"},
+      {"id":"ai-legal-assistant","name":"AI Legal Assistant","category":"AI Premium Solutions","description":"Premium AI Legal Assistant solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":180000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/ai-legal-assistant","type":"service"},
+      {"id":"ai-finance-assistant","name":"AI Finance Assistant","category":"AI Premium Solutions","description":"Premium AI Finance Assistant solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":160000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/ai-finance-assistant","type":"service"},
+      {"id":"ai-hr-assistant","name":"AI HR Assistant","category":"AI Premium Solutions","description":"Premium AI HR Assistant solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":100000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/ai-hr-assistant","type":"service"},
+      {"id":"ai-recruitment-system","name":"AI Recruitment System","category":"AI Premium Solutions","description":"Premium AI Recruitment System solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":120000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/ai-recruitment-system","type":"service"},
+      {"id":"ai-education-platform","name":"AI Education Platform","category":"AI Premium Solutions","description":"Premium AI Education Platform solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":140000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/ai-education-platform","type":"service"},
+      {"id":"saas-development","name":"SaaS Development","category":"SaaS and Enterprise","description":"Premium SaaS Development solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":180000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/saas-development","type":"service"},
+      {"id":"crm-development","name":"CRM Development","category":"SaaS and Enterprise","description":"Premium CRM Development solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":120000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/crm-development","type":"service"},
+      {"id":"erp-development","name":"ERP Development","category":"SaaS and Enterprise","description":"Premium ERP Development solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":300000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/erp-development","type":"service"},
+      {"id":"hrm-development","name":"HRM Development","category":"SaaS and Enterprise","description":"Premium HRM Development solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":100000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/hrm-development","type":"service"},
+      {"id":"pos-development","name":"POS Development","category":"SaaS and Enterprise","description":"Premium POS Development solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":80000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/pos-development","type":"service"},
+      {"id":"inventory-software","name":"Inventory Software","category":"SaaS and Enterprise","description":"Premium Inventory Software solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":75000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/inventory-software","type":"service"},
+      {"id":"accounting-software","name":"Accounting Software","category":"Premium Solutions","description":"Premium Accounting Software solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":100000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/accounting-software","type":"service"},
+      {"id":"hospital-erp","name":"Hospital ERP","category":"SaaS and Enterprise","description":"Premium Hospital ERP solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":450000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/hospital-erp","type":"service"},
+      {"id":"school-erp","name":"School ERP","category":"SaaS and Enterprise","description":"Premium School ERP solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":180000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/school-erp","type":"service"},
+      {"id":"hotel-erp","name":"Hotel ERP","category":"SaaS and Enterprise","description":"Premium Hotel ERP solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":250000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/hotel-erp","type":"service"},
+      {"id":"custom-web-portal","name":"Custom Web Portal","category":"Portals and Dashboards","description":"Premium Custom Web Portal solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":80000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/custom-web-portal","type":"service"},
+      {"id":"client-portal","name":"Client Portal","category":"Portals and Dashboards","description":"Premium Client Portal solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":60000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/client-portal","type":"service"},
+      {"id":"employee-portal","name":"Employee Portal","category":"Portals and Dashboards","description":"Premium Employee Portal solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":70000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/employee-portal","type":"service"},
+      {"id":"vendor-portal","name":"Vendor Portal","category":"Portals and Dashboards","description":"Premium Vendor Portal solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":70000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/vendor-portal","type":"service"},
+      {"id":"supplier-portal","name":"Supplier Portal","category":"Portals and Dashboards","description":"Premium Supplier Portal solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":70000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/supplier-portal","type":"service"},
+      {"id":"customer-dashboard","name":"Customer Dashboard","category":"Portals and Dashboards","description":"Premium Customer Dashboard solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":45000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/customer-dashboard","type":"service"},
+      {"id":"admin-dashboard","name":"Admin Dashboard","category":"Portals and Dashboards","description":"Premium Admin Dashboard solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":35000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/admin-dashboard","type":"service"},
+      {"id":"executive-dashboard","name":"Executive Dashboard","category":"Portals and Dashboards","description":"Premium Executive Dashboard solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":60000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/executive-dashboard","type":"service"},
+      {"id":"payment-gateway-integration","name":"Payment Gateway Integration","category":"Payments and Automation","description":"Premium Payment Gateway Integration solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":18000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/payment-gateway-integration","type":"service"},
+      {"id":"subscription-billing-system","name":"Subscription Billing System","category":"Payments and Automation","description":"Premium Subscription Billing System solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":55000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/subscription-billing-system","type":"service"},
+      {"id":"invoice-automation","name":"Invoice Automation","category":"Payments and Automation","description":"Premium Invoice Automation solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":40000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/invoice-automation","type":"service"},
+      {"id":"digital-signature-system","name":"Digital Signature System","category":"Payments and Automation","description":"Premium Digital Signature System solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":50000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/digital-signature-system","type":"service"},
+      {"id":"e-commerce-automation","name":"E-Commerce Automation","category":"Payments and Automation","description":"Premium E-Commerce Automation solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":60000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/e-commerce-automation","type":"service"},
+      {"id":"warehouse-automation","name":"Warehouse Automation","category":"Payments and Automation","description":"Premium Warehouse Automation solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":80000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/warehouse-automation","type":"service"},
+      {"id":"cloud-infrastructure","name":"Cloud Infrastructure","category":"Cloud and DevOps","description":"Premium Cloud Infrastructure solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":60000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/cloud-infrastructure","type":"service"},
+      {"id":"aws-deployment","name":"AWS Deployment","category":"Cloud and DevOps","description":"Premium AWS Deployment solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":30000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/aws-deployment","type":"service"},
+      {"id":"microsoft-azure-deployment","name":"Microsoft Azure Deployment","category":"Cloud and DevOps","description":"Premium Microsoft Azure Deployment solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":30000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/microsoft-azure-deployment","type":"service"},
+      {"id":"google-cloud-deployment","name":"Google Cloud Deployment","category":"Cloud and DevOps","description":"Premium Google Cloud Deployment solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":30000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/google-cloud-deployment","type":"service"},
+      {"id":"docker-deployment","name":"Docker Deployment","category":"Cloud and DevOps","description":"Premium Docker Deployment solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":20000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/docker-deployment","type":"service"},
+      {"id":"kubernetes-deployment","name":"Kubernetes Deployment","category":"Cloud and DevOps","description":"Premium Kubernetes Deployment solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":45000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/kubernetes-deployment","type":"service"},
+      {"id":"database-optimization","name":"Database Optimization","category":"Database and Infrastructure","description":"Premium Database Optimization solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":18000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/database-optimization","type":"service"},
+      {"id":"database-clustering","name":"Database Clustering","category":"Database and Infrastructure","description":"Premium Database Clustering solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":60000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/database-clustering","type":"service"},
+      {"id":"high-availability-setup","name":"High Availability Setup","category":"Database and Infrastructure","description":"Premium High Availability Setup solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":80000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/high-availability-setup","type":"service"},
+      {"id":"load-balancer-setup","name":"Load Balancer Setup","category":"Database and Infrastructure","description":"Premium Load Balancer Setup solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":35000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/load-balancer-setup","type":"service"},
+      {"id":"cdn-configuration","name":"CDN Configuration","category":"Database and Infrastructure","description":"Premium CDN Configuration solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":12000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/cdn-configuration","type":"service"},
+      {"id":"cyber-security-audit","name":"Cyber Security Audit","category":"Cyber Security","description":"Premium Cyber Security Audit solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":25000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/cyber-security-audit","type":"service"},
+      {"id":"iso-27001-consultation","name":"ISO 27001 Consultation","category":"Consultation","description":"Premium ISO 27001 Consultation solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":40000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/iso-27001-consultation","type":"service"},
+      {"id":"penetration-testing","name":"Penetration Testing","category":"Cyber Security","description":"Premium Penetration Testing solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":35000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/penetration-testing","type":"service"},
+      {"id":"soc-setup","name":"SOC Setup","category":"Cyber Security","description":"Premium SOC Setup solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":180000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/soc-setup","type":"service"},
+      {"id":"security-monitoring","name":"Security Monitoring","category":"Cyber Security","description":"Premium Security Monitoring solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":12000,"prefix":"Starting from","billingPeriod":"per month","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/security-monitoring","type":"service"},
+      {"id":"disaster-recovery","name":"Disaster Recovery","category":"Cyber Security","description":"Premium Disaster Recovery solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":45000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/disaster-recovery","type":"service"},
+      {"id":"iot-solutions","name":"IoT Solutions","category":"IoT and Smart Systems","description":"Premium IoT Solutions solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":120000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/iot-solutions","type":"service"},
+      {"id":"smart-home-systems","name":"Smart Home Systems","category":"IoT and Smart Systems","description":"Premium Smart Home Systems solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":90000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/smart-home-systems","type":"service"},
+      {"id":"smart-office-systems","name":"Smart Office Systems","category":"IoT and Smart Systems","description":"Premium Smart Office Systems solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":120000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/smart-office-systems","type":"service"},
+      {"id":"gps-tracking-system","name":"GPS Tracking System","category":"IoT and Smart Systems","description":"Premium GPS Tracking System solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":85000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/gps-tracking-system","type":"service"},
+      {"id":"fleet-tracking-system","name":"Fleet Tracking System","category":"IoT and Smart Systems","description":"Premium Fleet Tracking System solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":140000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/fleet-tracking-system","type":"service"},
+      {"id":"rfid-management","name":"RFID Management","category":"IoT and Smart Systems","description":"Premium RFID Management solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":80000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/rfid-management","type":"service"},
+      {"id":"blockchain-development","name":"Blockchain Development","category":"Blockchain","description":"Premium Blockchain Development solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":300000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/blockchain-development","type":"service"},
+      {"id":"nft-marketplace","name":"NFT Marketplace","category":"Blockchain","description":"Premium NFT Marketplace solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":350000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/nft-marketplace","type":"service"},
+      {"id":"crypto-wallet","name":"Crypto Wallet","category":"Blockchain","description":"Premium Crypto Wallet solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":280000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/crypto-wallet","type":"service"},
+      {"id":"smart-contract-development","name":"Smart Contract Development","category":"Blockchain","description":"Premium Smart Contract Development solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":120000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/smart-contract-development","type":"service"},
+      {"id":"desktop-software","name":"Desktop Software","category":"Desktop and Extensions","description":"Premium Desktop Software solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":70000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/desktop-software","type":"service"},
+      {"id":"windows-software","name":"Windows Software","category":"Desktop and Extensions","description":"Premium Windows Software solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":70000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/windows-software","type":"service"},
+      {"id":"mac-software","name":"Mac Software","category":"Desktop and Extensions","description":"Premium Mac Software solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":90000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/mac-software","type":"service"},
+      {"id":"linux-software","name":"Linux Software","category":"Desktop and Extensions","description":"Premium Linux Software solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":80000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/linux-software","type":"service"},
+      {"id":"browser-extension-development","name":"Browser Extension Development","category":"Desktop and Extensions","description":"Premium Browser Extension Development solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":30000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/browser-extension-development","type":"service"},
+      {"id":"chrome-extension","name":"Chrome Extension","category":"Desktop and Extensions","description":"Premium Chrome Extension solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":30000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/chrome-extension","type":"service"},
+      {"id":"edge-extension","name":"Edge Extension","category":"Desktop and Extensions","description":"Premium Edge Extension solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":30000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/edge-extension","type":"service"},
+      {"id":"firefox-extension","name":"Firefox Extension","category":"Desktop and Extensions","description":"Premium Firefox Extension solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":30000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/firefox-extension","type":"service"},
+      {"id":"api-development","name":"API Development","category":"API and Integrations","description":"Premium API Development solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":30000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/api-development","type":"service"},
+      {"id":"rest-api","name":"REST API","category":"API and Integrations","description":"Premium REST API solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":25000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/rest-api","type":"service"},
+      {"id":"graphql-api","name":"GraphQL API","category":"API and Integrations","description":"Premium GraphQL API solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":35000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/graphql-api","type":"service"},
+      {"id":"webhook-integration","name":"Webhook Integration","category":"API and Integrations","description":"Premium Webhook Integration solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":15000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/webhook-integration","type":"service"},
+      {"id":"third-party-integration","name":"Third Party Integration","category":"API and Integrations","description":"Premium Third Party Integration solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":20000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/third-party-integration","type":"service"},
+      {"id":"automation-systems","name":"Automation Systems","category":"Automation","description":"Premium Automation Systems solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":45000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/automation-systems","type":"service"},
+      {"id":"whatsapp-automation","name":"WhatsApp Automation","category":"Automation","description":"Premium WhatsApp Automation solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":35000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/whatsapp-automation","type":"service"},
+      {"id":"telegram-automation","name":"Telegram Automation","category":"Automation","description":"Premium Telegram Automation solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":25000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/telegram-automation","type":"service"},
+      {"id":"discord-automation","name":"Discord Automation","category":"Automation","description":"Premium Discord Automation solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":25000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/discord-automation","type":"service"},
+      {"id":"email-automation","name":"Email Automation","category":"Automation","description":"Premium Email Automation solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":18000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/email-automation","type":"service"},
+      {"id":"sms-automation","name":"SMS Automation","category":"Automation","description":"Premium SMS Automation solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":20000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/sms-automation","type":"service"},
+      {"id":"digital-marketing","name":"Digital Marketing","category":"Marketing and Content","description":"Premium Digital Marketing solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":15000,"prefix":"Starting from","billingPeriod":"per month","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/digital-marketing","type":"service"},
+      {"id":"seo","name":"SEO","category":"Marketing and Content","description":"Premium SEO solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":15000,"prefix":"Starting from","billingPeriod":"per month","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/seo","type":"service"},
+      {"id":"google-ads","name":"Google Ads","category":"Marketing and Content","description":"Premium Google Ads solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":15000,"prefix":"Starting from","billingPeriod":"per month","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/google-ads","type":"service"},
+      {"id":"meta-ads","name":"Meta Ads","category":"Marketing and Content","description":"Premium Meta Ads solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":15000,"prefix":"Starting from","billingPeriod":"per month","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/meta-ads","type":"service"},
+      {"id":"social-media-management","name":"Social Media Management","category":"Cyber Security","description":"Premium Social Media Management solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":18000,"prefix":"Starting from","billingPeriod":"per month","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/social-media-management","type":"service"},
+      {"id":"content-writing","name":"Content Writing","category":"Marketing and Content","description":"Premium Content Writing solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":2000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/content-writing","type":"service"},
+      {"id":"copywriting","name":"Copywriting","category":"Marketing and Content","description":"Premium Copywriting solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":3000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/copywriting","type":"service"},
+      {"id":"ui-ux-design","name":"UI/UX Design","category":"Design and Media","description":"Premium UI/UX Design solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":15000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/ui-ux-design","type":"service"},
+      {"id":"brand-identity","name":"Brand Identity","category":"Design and Media","description":"Premium Brand Identity solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":20000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/brand-identity","type":"service"},
+      {"id":"logo-design","name":"Logo Design","category":"Design and Media","description":"Premium Logo Design solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":6000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/logo-design","type":"service"},
+      {"id":"motion-graphics","name":"Motion Graphics","category":"Design and Media","description":"Premium Motion Graphics solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":8000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/motion-graphics","type":"service"},
+      {"id":"video-editing","name":"Video Editing","category":"Design and Media","description":"Premium Video Editing solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":3500,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/video-editing","type":"service"},
+      {"id":"3d-product-design","name":"3D Product Design","category":"Design and Media","description":"Premium 3D Product Design solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":20000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/3d-product-design","type":"service"},
+      {"id":"domain-registration","name":"Domain Registration","category":"Hosting and Web Operations","description":"Premium Domain Registration solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":4000,"prefix":"Starting from","billingPeriod":"per year","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/domain-registration","type":"service"},
+      {"id":"web-hosting","name":"Web Hosting","category":"Hosting and Web Operations","description":"Premium Web Hosting solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":8000,"prefix":"Starting from","billingPeriod":"per year","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/web-hosting","type":"service"},
+      {"id":"cloud-hosting","name":"Cloud Hosting","category":"Cloud and DevOps","description":"Premium Cloud Hosting solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":15000,"prefix":"Starting from","billingPeriod":"per year","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/cloud-hosting","type":"service"},
+      {"id":"business-email","name":"Business Email","category":"Hosting and Web Operations","description":"Premium Business Email solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":5000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/business-email","type":"service"},
+      {"id":"ssl-certificate","name":"SSL Certificate","category":"Hosting and Web Operations","description":"Premium SSL Certificate solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":3000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/ssl-certificate","type":"service"},
+      {"id":"website-migration","name":"Website Migration","category":"Hosting and Web Operations","description":"Premium Website Migration solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":8000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/website-migration","type":"service"},
+      {"id":"website-maintenance","name":"Website Maintenance","category":"Hosting and Web Operations","description":"Premium Website Maintenance solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":7500,"prefix":"Starting from","billingPeriod":"per month","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/website-maintenance","type":"service"},
+      {"id":"app-maintenance","name":"App Maintenance","category":"Hosting and Web Operations","description":"Premium App Maintenance solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":10000,"prefix":"Starting from","billingPeriod":"per month","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/app-maintenance","type":"service"},
+      {"id":"remote-it-support","name":"Remote IT Support","category":"IT Support","description":"Premium Remote IT Support solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":2500,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/remote-it-support","type":"service"},
+      {"id":"server-administration","name":"Server Administration","category":"IT Support","description":"Premium Server Administration solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":15000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/server-administration","type":"service"},
+      {"id":"linux-administration","name":"Linux Administration","category":"IT Support","description":"Premium Linux Administration solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":12000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/linux-administration","type":"service"},
+      {"id":"windows-server-management","name":"Windows Server Management","category":"IT Support","description":"Premium Windows Server Management solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":12000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/windows-server-management","type":"service"},
+      {"id":"devops-services","name":"DevOps Services","category":"Cloud and DevOps","description":"Premium DevOps Services solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":40000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/devops-services","type":"service"},
+      {"id":"ci-cd-pipeline-setup","name":"CI/CD Pipeline Setup","category":"Cloud and DevOps","description":"Premium CI/CD Pipeline Setup solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":25000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/ci-cd-pipeline-setup","type":"service"},
+      {"id":"github-management","name":"GitHub Management","category":"Cloud and DevOps","description":"Premium GitHub Management solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":8000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/github-management","type":"service"},
+      {"id":"consultation-services","name":"Consultation Services","category":"Consultation","description":"Premium Consultation Services solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":5000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/consultation-services","type":"service"},
+      {"id":"ai-consultation","name":"AI Consultation","category":"AI Premium Solutions","description":"Premium AI Consultation solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":7500,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/ai-consultation","type":"service"},
+      {"id":"software-consultation","name":"Software Consultation","category":"Consultation","description":"Premium Software Consultation solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":7500,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/software-consultation","type":"service"},
+      {"id":"startup-consultation","name":"Startup Consultation","category":"Consultation","description":"Premium Startup Consultation solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":10000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/startup-consultation","type":"service"},
+      {"id":"digital-transformation-consultation","name":"Digital Transformation Consultation","category":"Consultation","description":"Premium Digital Transformation Consultation solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":15000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/digital-transformation-consultation","type":"service"},
+      {"id":"technology-roadmap-planning","name":"Technology Roadmap Planning","category":"Consultation","description":"Premium Technology Roadmap Planning solution from MI CORTEX X, tailored for advanced business, enterprise or professional requirements.","priceLkr":20000,"prefix":"Starting from","billingPeriod":"","status":"Premium","features":["Premium implementation","Professional configuration","Quotation-based delivery"],"deliveryTime":"Custom","supportPeriod":"According to agreement","route":"#/premium/technology-roadmap-planning","type":"service"}
+    ]
 };
 
   const validPages = ["overview", ...Object.keys(pageData)];
@@ -11999,7 +9390,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function getPageTitle(page) { return pageData[page]?.title || "MI CORTEX X"; }
   function categoryById(page, id) { return pageData[page]?.categories.find((item) => item.id === id) || null; }
   function subtopicId(title, index) { return String(title).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "") + "-" + (index + 1); }
-  function getCatalogueItems(page) { if (page === "products") return catalogueData.products; if (page === "services") return catalogueData.services; if (page === "pricing") return [...catalogueData.products, ...catalogueData.services]; return []; }
+  function getCatalogueItems(page) { if (page === "products") return catalogueData.products; if (page === "services") return catalogueData.services; if (page === "pricing") return [...catalogueData.products, ...catalogueData.services]; if (page === "premium") return catalogueData.premium; return []; }
   function getCatalogueItem(page, slug) { return getCatalogueItems(page).find((item) => item.id === slug) || null; }
   function groupOptions(page) { const groups = Array.from(new Set(getCatalogueItems(page).map((item) => item.category))).sort((a, b) => a.localeCompare(b)); return groups; }
   const usdPriceFormatter = new Intl.NumberFormat("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -12066,7 +9457,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const currentPage = hashState().page;
 
       if (
-        ["products", "services", "pricing"].includes(
+        ["products", "services", "pricing", "premium"].includes(
           currentPage
         )
       ) {
@@ -12290,10 +9681,10 @@ document.addEventListener('DOMContentLoaded', function () {
     return state.ratePromise;
   }
 
-  function actionMarkup(page, category) { if (page === "contact") { if (category.id === "email") return `<div class="mcx-action-row"><a class="mcx-action" href="mailto:${company.email}">SEND EMAIL</a></div>`; if (category.id === "whatsapp") return `<div class="mcx-action-row"><a class="mcx-action" href="https://wa.me/${company.whatsapp}" target="_blank" rel="noopener noreferrer">OPEN WHATSAPP</a></div>`; if (["contact-info", "support", "send-inquiry", "inquiry-form"].includes(category.id)) return `<div class="mcx-action-row"><a class="mcx-action" href="mailto:${company.email}">SEND EMAIL</a><a class="mcx-action secondary" href="https://wa.me/${company.whatsapp}" target="_blank" rel="noopener noreferrer">OPEN WHATSAPP</a></div>`; } if (["products", "services", "pricing"].includes(page)) return `<div class="mcx-action-row"><button type="button" class="mcx-action" data-mcx-route="contact/send-inquiry">REQUEST INFORMATION</button></div>`; return ""; }
+  function actionMarkup(page, category) { if (page === "contact") { if (category.id === "email") return `<div class="mcx-action-row"><a class="mcx-action" href="mailto:${company.email}">SEND EMAIL</a></div>`; if (category.id === "whatsapp") return `<div class="mcx-action-row"><a class="mcx-action" href="https://wa.me/${company.whatsapp}" target="_blank" rel="noopener noreferrer">OPEN WHATSAPP</a></div>`; if (["contact-info", "support", "send-inquiry", "inquiry-form"].includes(category.id)) return `<div class="mcx-action-row"><a class="mcx-action" href="mailto:${company.email}">SEND EMAIL</a><a class="mcx-action secondary" href="https://wa.me/${company.whatsapp}" target="_blank" rel="noopener noreferrer">OPEN WHATSAPP</a></div>`; } if (["products", "services", "pricing", "premium"].includes(page)) return `<div class="mcx-action-row"><button type="button" class="mcx-action" data-mcx-route="contact/send-inquiry">REQUEST INFORMATION</button></div>`; return ""; }
   function formMarkup() { return `<form class="mcx-form" data-mcx-contact-form><div class="mcx-field"><label>Full Name<input name="fullName" required autocomplete="name"></label></div><div class="mcx-field"><label>Email Address<input name="email" type="email" required autocomplete="email"></label></div><div class="mcx-field"><label>Phone Number (Optional)<input name="phone" type="tel" autocomplete="tel"></label></div><div class="mcx-field"><label>Country<input name="country" required></label></div><div class="mcx-field"><label>Company Name (Optional)<input name="company"></label></div><div class="mcx-field"><label>Project Type<select name="projectType" required><option value="">Select</option><option>AI Development</option><option>AI Chatbot</option><option>Website</option><option>Web Application</option><option>Mobile Application</option><option>Desktop Software</option><option>Business Software</option><option>API or Integration</option><option>Other Custom Project</option></select></label></div><div class="mcx-field"><label>Estimated Budget (Optional)<input name="budget"></label></div><div class="mcx-field"><label>Preferred Deadline<input name="deadline"></label></div><div class="mcx-field full"><label>Project Description<textarea name="description" required></textarea></label></div><label class="mcx-consent"><input type="checkbox" required> I agree to provide these details for receiving a response.</label><p class="mcx-form-note">Submitting opens your email application because a dedicated form backend is not currently connected.</p><button class="mcx-action" type="submit">PREPARE EMAIL INQUIRY</button></form>`; }
-  function renderIndex(page) { const host = document.querySelector(`[data-mcx-category-index="${page}"]`); if (!host) return; if (["products", "services", "pricing"].includes(page)) { renderCatalogueIndex(page); return; } host.innerHTML = `<div class="mcx-index-heading"><span class="mcx-index-kicker">CATEGORY DIRECTORY</span><h2>${esc(getPageTitle(page))} CATEGORIES</h2><p>${esc(pageData[page]?.intro || "Select a category to open its subtopics and complete information.")}</p></div><div class="mcx-category-stack">${pageData[page].categories.map((category) => `<button type="button" class="mcx-category-row" data-mcx-category="${page}/${category.id}"><span class="mcx-category-number mcx-category-icon" aria-hidden="true">${mcxGetCategoryIcon(page, category.id)}</span><span class="mcx-category-copy">${category.status ? `<small>${esc(category.status)}</small>` : ""}<strong>${esc(category.title)}</strong><em>${esc(category.summary)}</em></span><span class="mcx-category-arrow" aria-hidden="true">&#8594;</span></button>`).join("")}</div>`; }
-  function renderCategory(page, categoryId, activeSubtopic = "") { if (["products", "services", "pricing"].includes(page)) { const item = getCatalogueItem(page, categoryId); if (item) return renderCatalogueDetail(page, item); } const category = categoryById(page, categoryId); const index = document.querySelector(`[data-mcx-category-index="${page}"]`); const detail = document.querySelector(`[data-mcx-category-detail="${page}"]`); if (!category || !index || !detail) return false; index.hidden = true; detail.hidden = false; detail.innerHTML = `<button type="button" class="mcx-back-button" data-mcx-route="${page}">&#8592; ALL ${esc(getPageTitle(page))} CATEGORIES</button><header class="mcx-category-header">${category.status ? `<span class="mcx-status">${esc(category.status)}</span>` : ""}<h2>${esc(category.title)}</h2><p>${esc(category.summary)}</p></header><div class="mcx-subtopic-stack">${category.subtopics.map((topic, indexValue) => { const id = subtopicId(topic.title, indexValue); const open = activeSubtopic === id; return `<article class="mcx-subtopic-item${open ? " open" : ""}"><button type="button" class="mcx-subtopic-button" data-mcx-subtopic="${page}/${category.id}/${id}" aria-expanded="${open}"><span><strong>${esc(topic.title)}</strong><em>${esc(topic.summary)}</em></span><b aria-hidden="true">${open ? "&#8722;" : "+"}</b></button><div class="mcx-subtopic-content"${open ? "" : " hidden"}>${topic.note ? `<p class="mcx-topic-note">${esc(topic.note)}</p>` : ""}<ul>${topic.points.map((point) => `<li>${esc(point)}</li>`).join("")}</ul></div></article>`; }).join("")}</div>${category.id === "inquiry-form" ? formMarkup() : ""}${actionMarkup(page, category)}`; detail.focus({ preventScroll: true }); const form = detail.querySelector("[data-mcx-contact-form]"); if (form) form.addEventListener("submit", submitForm); return true; }
+  function renderIndex(page) { const host = document.querySelector(`[data-mcx-category-index="${page}"]`); if (!host) return; if (["products", "services", "pricing", "premium"].includes(page)) { renderCatalogueIndex(page); return; } host.innerHTML = `<div class="mcx-index-heading"><span class="mcx-index-kicker">CATEGORY DIRECTORY</span><h2>${esc(getPageTitle(page))} CATEGORIES</h2><p>${esc(pageData[page]?.intro || "Select a category to open its subtopics and complete information.")}</p></div><div class="mcx-category-stack">${pageData[page].categories.map((category) => `<button type="button" class="mcx-category-row" data-mcx-category="${page}/${category.id}"><span class="mcx-category-number mcx-category-icon" aria-hidden="true">${mcxGetCategoryIcon(page, category.id)}</span><span class="mcx-category-copy">${category.status ? `<small>${esc(category.status)}</small>` : ""}<strong>${esc(category.title)}</strong><em>${esc(category.summary)}</em></span><span class="mcx-category-arrow" aria-hidden="true">&#8594;</span></button>`).join("")}</div>`; }
+  function renderCategory(page, categoryId, activeSubtopic = "") { if (["products", "services", "pricing", "premium"].includes(page)) { const item = getCatalogueItem(page, categoryId); if (item) return renderCatalogueDetail(page, item); } const category = categoryById(page, categoryId); const index = document.querySelector(`[data-mcx-category-index="${page}"]`); const detail = document.querySelector(`[data-mcx-category-detail="${page}"]`); if (!category || !index || !detail) return false; index.hidden = true; detail.hidden = false; detail.innerHTML = `<button type="button" class="mcx-back-button" data-mcx-route="${page}">&#8592; ALL ${esc(getPageTitle(page))} CATEGORIES</button><header class="mcx-category-header">${category.status ? `<span class="mcx-status">${esc(category.status)}</span>` : ""}<h2>${esc(category.title)}</h2><p>${esc(category.summary)}</p></header><div class="mcx-subtopic-stack">${category.subtopics.map((topic, indexValue) => { const id = subtopicId(topic.title, indexValue); const open = activeSubtopic === id; return `<article class="mcx-subtopic-item${open ? " open" : ""}"><button type="button" class="mcx-subtopic-button" data-mcx-subtopic="${page}/${category.id}/${id}" aria-expanded="${open}"><span><strong>${esc(topic.title)}</strong><em>${esc(topic.summary)}</em></span><b aria-hidden="true">${open ? "&#8722;" : "+"}</b></button><div class="mcx-subtopic-content"${open ? "" : " hidden"}>${topic.note ? `<p class="mcx-topic-note">${esc(topic.note)}</p>` : ""}<ul>${topic.points.map((point) => `<li>${esc(point)}</li>`).join("")}</ul></div></article>`; }).join("")}</div>${category.id === "inquiry-form" ? formMarkup() : ""}${actionMarkup(page, category)}`; detail.focus({ preventScroll: true }); const form = detail.querySelector("[data-mcx-contact-form]"); if (form) form.addEventListener("submit", submitForm); return true; }
   function submitForm(event) { event.preventDefault(); const form = event.currentTarget; if (!form.reportValidity()) return; const data = new FormData(form); const subject = encodeURIComponent(`MI CORTEX X Project Inquiry - ${data.get("projectType") || "Custom Project"}`); const body = encodeURIComponent([`Full Name: ${data.get("fullName") || ""}`, `Email: ${data.get("email") || ""}`, `Phone: ${data.get("phone") || "Not provided"}`, `Country: ${data.get("country") || ""}`, `Company: ${data.get("company") || "Not provided"}`, `Project Type: ${data.get("projectType") || ""}`, `Estimated Budget: ${data.get("budget") || "Not provided"}`, `Preferred Deadline: ${data.get("deadline") || "Not provided"}`, "", "Project Description:", data.get("description") || ""].join("\n")); location.href = `mailto:${company.email}?subject=${subject}&body=${body}`; }
 
   /* MCX_RATE_STATUS_FIX_START */
@@ -12322,19 +9713,19 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   /* MCX_RATE_STATUS_FIX_END */
 
-  function renderCatalogueIndex(page) { const host = document.querySelector(`[data-mcx-category-index="${page}"]`); const detail = document.querySelector(`[data-mcx-category-detail="${page}"]`); if (!host) return; host.hidden = false; if (detail) { detail.hidden = true; detail.innerHTML = ""; } const items = getCatalogueItems(page); const groups = groupOptions(page); const filteredItems = getFilteredItems(items); const visibleItems = filteredItems.slice(0, state.visibleCount); host.innerHTML = `<div class="mcx-catalogue-shell"><div class="mcx-catalogue-toolbar"><div class="mcx-catalogue-header"><span class="mcx-index-kicker">PROFESSIONAL CATALOGUE</span><h2>${esc(page === "products" ? "PRODUCTS" : page === "pricing" ? "PRICING" : "SERVICES")}</h2><p>${esc(page === "products" ? "Reusable product solutions for modern operations." : page === "pricing" ? "Starting estimates for products and services with custom quotation support." : "Custom service solutions tailored to each client project.")}</p></div><div class="mcx-catalogue-segment" role="tablist" aria-label="Catalogue type selector"><button type="button" class="mcx-segment-button ${page === "products" ? "active" : ""}" data-mcx-route="products">PRODUCTS</button><button type="button" class="mcx-segment-button ${page === "services" ? "active" : ""}" data-mcx-route="services">SERVICES</button><button type="button" class="mcx-segment-button ${page === "pricing" ? "active" : ""}" data-mcx-route="pricing">PRICING</button></div><div class="mcx-catalogue-controls"><label class="mcx-control-field"><span class="mcx-control-label">Search</span><input type="search" data-mcx-catalogue-search value="${esc(state.search)}" placeholder="Search by name or keyword" /></label><label class="mcx-control-field"><span class="mcx-control-label">Category</span><select data-mcx-catalogue-group><option value="all">All categories</option>${groups.map((group) => `<option value="${esc(group)}" ${state.selectedGroup === group ? "selected" : ""}>${esc(group)}</option>`).join("")}</select></label><label class="mcx-control-field"><span class="mcx-control-label">Type</span><select data-mcx-catalogue-type><option value="all" ${state.filteredType === "all" ? "selected" : ""}>All</option><option value="product" ${state.filteredType === "product" ? "selected" : ""}>Products</option><option value="service" ${state.filteredType === "service" ? "selected" : ""}>Services</option></select></label><label class="mcx-control-field"><span class="mcx-control-label">Sort</span><select data-mcx-catalogue-sort><option value="name" ${state.sort === "name" ? "selected" : ""}>Sort by name</option><option value="price-low" ${state.sort === "price-low" ? "selected" : ""}>Sort by price low to high</option><option value="price-high" ${state.sort === "price-high" ? "selected" : ""}>Sort by price high to low</option></select></label><button type="button" class="mcx-secondary-button" data-mcx-clear-filters>Clear filters</button></div></div><div class="mcx-catalogue-meta"><div class="mcx-catalogue-count">${esc(`${visibleItems.length} of ${filteredItems.length} listed`)}</div></div><div class="mcx-catalogue-grid">${visibleItems.map((item) => `<article class="mcx-catalogue-card"><div class="mcx-card-top"><span class="mcx-card-type">${item.type === "service" ? "Service" : "Product"}</span><span class="mcx-card-status">${esc(item.status || "Available")}</span></div><h3>${esc(item.name)}</h3><p class="mcx-card-category">${esc(item.category)}</p><p class="mcx-card-description">${esc(item.description)}</p><div class="mcx-card-price">${esc(getPriceLabel(item))}</div><div class="mcx-card-meta">${item.billingPeriod ? `<div><strong>Billing:</strong> ${esc(item.billingPeriod)}</div>` : ""}${item.deliveryTime ? `<div><strong>Delivery:</strong> ${esc(item.deliveryTime)}</div>` : ""}${item.supportPeriod ? `<div><strong>Support:</strong> ${esc(item.supportPeriod)}</div>` : ""}</div><ul class="mcx-card-features">${item.features.map((feature) => `<li>${esc(feature)}</li>`).join("")}</ul><div class="mcx-card-actions"><button type="button" class="mcx-secondary-button" data-mcx-catalogue-detail="${page}/${item.id}">View Details</button><button type="button" class="mcx-action" data-mcx-order-item="${page}/${item.id}">Order / Request Quote</button></div></article>`).join("")}</div>${filteredItems.length > state.visibleCount ? `<div class="mcx-catalogue-footer"><button type="button" class="mcx-secondary-button" data-mcx-load-more>Load More</button></div>` : ""}</div>`; }
+  function renderCatalogueIndex(page) { const host = document.querySelector(`[data-mcx-category-index="${page}"]`); const detail = document.querySelector(`[data-mcx-category-detail="${page}"]`); if (!host) return; host.hidden = false; if (detail) { detail.hidden = true; detail.innerHTML = ""; } const items = getCatalogueItems(page); const groups = groupOptions(page); const filteredItems = getFilteredItems(items); const visibleItems = filteredItems.slice(0, state.visibleCount); host.innerHTML = `<div class="mcx-catalogue-shell"><div class="mcx-catalogue-toolbar"><div class="mcx-catalogue-header"><span class="mcx-index-kicker">PROFESSIONAL CATALOGUE</span><h2>${esc(page === "products" ? "PRODUCTS" : page === "pricing" ? "PRICING" : page === "premium" ? "PREMIUM" : "SERVICES")}</h2><p>${esc(page === "products" ? "Reusable product solutions for modern operations." : page === "pricing" ? "Starting estimates for products and services with custom quotation support." : page === "premium" ? "Advanced premium solutions for enterprise and professional requirements." : "Custom service solutions tailored to each client project.")}</p></div><div class="mcx-catalogue-segment" role="tablist" aria-label="Catalogue type selector"><button type="button" class="mcx-segment-button ${page === "products" ? "active" : ""}" data-mcx-route="products">PRODUCTS</button><button type="button" class="mcx-segment-button ${page === "services" ? "active" : ""}" data-mcx-route="services">SERVICES</button><button type="button" class="mcx-segment-button ${page === "pricing" ? "active" : ""}" data-mcx-route="pricing">PRICING</button><button type="button" class="mcx-segment-button ${page === "premium" ? "active" : ""}" data-mcx-route="premium">PREMIUM</button></div><div class="mcx-catalogue-controls"><label class="mcx-control-field"><span class="mcx-control-label">Search</span><input type="search" data-mcx-catalogue-search value="${esc(state.search)}" placeholder="Search by name or keyword" /></label><label class="mcx-control-field"><span class="mcx-control-label">Category</span><select data-mcx-catalogue-group><option value="all">All categories</option>${groups.map((group) => `<option value="${esc(group)}" ${state.selectedGroup === group ? "selected" : ""}>${esc(group)}</option>`).join("")}</select></label><label class="mcx-control-field"><span class="mcx-control-label">Type</span><select data-mcx-catalogue-type><option value="all" ${state.filteredType === "all" ? "selected" : ""}>All</option><option value="product" ${state.filteredType === "product" ? "selected" : ""}>Products</option><option value="service" ${state.filteredType === "service" ? "selected" : ""}>Services</option></select></label><label class="mcx-control-field"><span class="mcx-control-label">Sort</span><select data-mcx-catalogue-sort><option value="name" ${state.sort === "name" ? "selected" : ""}>Sort by name</option><option value="price-low" ${state.sort === "price-low" ? "selected" : ""}>Sort by price low to high</option><option value="price-high" ${state.sort === "price-high" ? "selected" : ""}>Sort by price high to low</option></select></label><button type="button" class="mcx-secondary-button" data-mcx-clear-filters>Clear filters</button></div></div><div class="mcx-catalogue-meta"><div class="mcx-catalogue-count">${esc(`${visibleItems.length} of ${filteredItems.length} listed`)}</div></div><div class="mcx-catalogue-grid">${visibleItems.map((item) => `<article class="mcx-catalogue-card"><div class="mcx-card-top"><span class="mcx-card-type">${item.type === "service" ? "Service" : "Product"}</span><span class="mcx-card-status">${esc(item.status || "Available")}</span></div><h3>${esc(item.name)}</h3><p class="mcx-card-category">${esc(item.category)}</p><p class="mcx-card-description">${esc(item.description)}</p><div class="mcx-card-price">${esc(getPriceLabel(item))}</div><div class="mcx-card-meta">${item.billingPeriod ? `<div><strong>Billing:</strong> ${esc(item.billingPeriod)}</div>` : ""}${item.deliveryTime ? `<div><strong>Delivery:</strong> ${esc(item.deliveryTime)}</div>` : ""}${item.supportPeriod ? `<div><strong>Support:</strong> ${esc(item.supportPeriod)}</div>` : ""}</div><ul class="mcx-card-features">${item.features.map((feature) => `<li>${esc(feature)}</li>`).join("")}</ul><div class="mcx-card-actions"><button type="button" class="mcx-secondary-button" data-mcx-catalogue-detail="${page}/${item.id}">View Details</button><button type="button" class="mcx-action" data-mcx-order-item="${page}/${item.id}">Order / Request Quote</button></div></article>`).join("")}</div>${filteredItems.length > state.visibleCount ? `<div class="mcx-catalogue-footer"><button type="button" class="mcx-secondary-button" data-mcx-load-more>Load More</button></div>` : ""}</div>`; }
   function getFilteredItems(items) { let filtered = items.slice(); const search = state.search.trim().toLowerCase(); if (search) filtered = filtered.filter((item) => [item.name, item.description, item.category, ...(item.features || [])].join(" ").toLowerCase().includes(search)); if (state.selectedGroup !== "all") filtered = filtered.filter((item) => item.category === state.selectedGroup); if (state.filteredType === "product") filtered = filtered.filter((item) => item.type !== "service"); if (state.filteredType === "service") filtered = filtered.filter((item) => item.type === "service"); if (state.sort === "price-low") filtered.sort((a, b) => a.priceLkr - b.priceLkr); else if (state.sort === "price-high") filtered.sort((a, b) => b.priceLkr - a.priceLkr); else filtered.sort((a, b) => a.name.localeCompare(b.name)); return filtered; }
   function renderCatalogueDetail(page, item) { const index = document.querySelector(`[data-mcx-category-index="${page}"]`); const detail = document.querySelector(`[data-mcx-category-detail="${page}"]`); if (!index || !detail) return false; index.hidden = true; detail.hidden = false; detail.innerHTML = `<div class="mcx-detail-panel"><button type="button" class="mcx-back-button" data-mcx-route="${page}">&#8592; BACK TO CATALOGUE</button><div class="mcx-detail-grid"><section class="mcx-detail-main"><span class="mcx-index-kicker">${item.type === "service" ? "SERVICE DETAIL" : "PRODUCT DETAIL"}</span><h2>${esc(item.name)}</h2><p class="mcx-card-category">${esc(item.category)}</p><p>${esc(item.description)}</p><div class="mcx-detail-price">${esc(getPriceLabel(item))}</div><p class="mcx-detail-note">Prices are starting estimates and may change according to project scope, features, integrations, delivery requirements, hosting, third-party charges and ongoing support. Tax and third-party provider fees are not included.</p><div class="mcx-detail-meta">${item.status ? `<div><strong>Status:</strong> ${esc(item.status)}</div>` : ""}${item.deliveryTime ? `<div><strong>Delivery:</strong> ${esc(item.deliveryTime)}</div>` : ""}${item.supportPeriod ? `<div><strong>Support:</strong> ${esc(item.supportPeriod)}</div>` : ""}</div><ul class="mcx-card-features">${item.features.map((feature) => `<li>${esc(feature)}</li>`).join("")}</ul><div class="mcx-card-actions"><button type="button" class="mcx-action" data-mcx-order-item="${page}/${item.id}">Order / Request Quote</button></div></section><aside class="mcx-detail-side"><div class="mcx-detail-card"><h3>Business process</h3><ul><li>Free consultation</li><li>Requirement analysis and quotation</li><li>30% advance payment before development</li><li>Testing, remaining payment and final delivery</li></ul></div><div class="mcx-detail-card"><h3>Payment notice</h3><p>Online payments are being configured. Submit an order request and our team will contact you with an approved payment method.</p><p>Refunds: Full refund before project commencement. No refund after project commencement.</p></div></aside></div></div>`; detail.focus({ preventScroll: true }); return true; }
   function getReferenceNumber() { const date = new Date(); const stamp = `${date.getFullYear()}${String(date.getMonth() + 1).padStart(2, "0")}${String(date.getDate()).padStart(2, "0")}`; const suffix = Math.random().toString(36).slice(2, 8).toUpperCase(); return `MCX-${stamp}-${suffix}`; }
   function openOrderModal(page, item) { state.modalItem = item; state.modalReference = getReferenceNumber(); const overlay = document.createElement("div"); overlay.className = "mcx-modal-overlay"; overlay.innerHTML = `<div class="mcx-modal" role="dialog" aria-modal="true" aria-labelledby="mcx-modal-title"><button type="button" class="mcx-modal-close" data-mcx-close-modal aria-label="Close order request">&#10005;</button><h2 id="mcx-modal-title">Order request for ${esc(item.name)}</h2><p class="mcx-modal-intro">${esc(item.type === "service" ? "Service request" : "Product request")}</p><div class="mcx-modal-grid"><div class="mcx-modal-column"><p><strong>Selected item:</strong> ${esc(item.name)}</p><p><strong>Type:</strong> ${esc(item.type === "service" ? "Service" : "Product")}</p><p><strong>Currency:</strong> USD estimate with fixed LKR reference</p><p><strong>Estimated price:</strong> ${esc(formatPriceForModal(item))}</p><p><strong>Reference:</strong> ${esc(state.modalReference)}</p></div><div class="mcx-modal-column"><label class="mcx-modal-field"><span>Customer name</span><input name="customerName" required></label><label class="mcx-modal-field"><span>Email address</span><input name="customerEmail" type="email" required></label><label class="mcx-modal-field"><span>WhatsApp number</span><input name="customerWhatsapp" required></label><label class="mcx-modal-field"><span>Country</span><input name="customerCountry" required></label><label class="mcx-modal-field"><span>Business / company</span><input name="customerCompany"></label></div></div><label class="mcx-modal-field full"><span>Required features</span><textarea name="requiredFeatures" rows="3"></textarea></label><label class="mcx-modal-field full"><span>Project description</span><textarea name="projectDescription" rows="4" required></textarea></label><label class="mcx-modal-field full"><span>Preferred delivery date</span><input name="deliveryDate" type="date"></label><label class="mcx-checkbox"><input type="checkbox" name="agreement" required> I agree to share these details for quotation and support follow-up.</label><div class="mcx-payment-box"><h3>Payment options</h3><ul><li>PayPal — Coming Soon</li><li>PayHere — Coming Soon</li><li>Stripe / Card — Coming Soon</li></ul><p>Online payments are being configured. Submit an order request and our team will contact you with an approved payment method.</p></div><div class="mcx-card-actions"><button type="button" class="mcx-action" data-mcx-send-whatsapp>Send via WhatsApp</button><button type="button" class="mcx-secondary-button" data-mcx-send-email>Send via Email</button></div></div>`; document.body.appendChild(overlay); document.body.classList.add("mcx-modal-open"); setTimeout(() => overlay.querySelector("input, textarea, button").focus(), 40); }
   function closeOrderModal() { document.querySelector(".mcx-modal-overlay")?.remove(); document.body.classList.remove("mcx-modal-open"); }
   function sendOrderRequest(mode) { if (!state.modalItem) return; const overlay = document.querySelector(".mcx-modal-overlay"); if (!overlay) return; const fields = overlay.querySelectorAll("input, textarea"); const data = {}; fields.forEach((field) => { if (field.name) data[field.name] = field.value; }); const reference = state.modalReference || getReferenceNumber(); const item = state.modalItem; const body = [`Reference: ${reference}`, `Customer Name: ${data.customerName || "Not provided"}`, `Selected Item: ${item.name}`, `Type: ${item.type === "service" ? "Service" : "Product"}`, "Display Currency: USD estimate with fixed LKR reference", `Estimated Price: ${formatPriceForModal(item)}`, `Requirements: ${data.requiredFeatures || "Not specified"}`, `Project Description: ${data.projectDescription || "No project description provided."}`, `Preferred Delivery Date: ${data.deliveryDate || "Not provided"}`].join("\n"); if (mode === "whatsapp") { window.open(`https://wa.me/${company.whatsapp}?text=${encodeURIComponent(body)}`, "_blank", "noopener,noreferrer"); } else { window.location.href = `mailto:${company.salesEmail}?subject=${encodeURIComponent(`Quotation Request - ${item.name}`)}&body=${encodeURIComponent(body)}`; } const note = document.createElement("p"); note.className = "mcx-request-status"; note.textContent = mode === "whatsapp" ? "Quotation request prepared for WhatsApp follow-up." : "Quotation request prepared for email follow-up."; overlay.querySelector(".mcx-card-actions").insertAdjacentElement("afterend", note); }
-  function route(scroll = true) { const { page, category, subtopic } = hashState(); document.querySelectorAll("[data-mcx-page]").forEach((section) => { const active = section.dataset.mcxPage === page; section.classList.toggle("active", active); section.hidden = !active; }); document.querySelectorAll("[data-mcx-page-link]").forEach((link) => link.classList.toggle("active", link.dataset.mcxPageLink === page)); const index = document.querySelector(`[data-mcx-category-index="${page}"]`); const detail = document.querySelector(`[data-mcx-category-detail="${page}"]`); if (["products", "services", "pricing"].includes(page)) { if (category) { const item = getCatalogueItem(page, category); if (item) { renderCatalogueDetail(page, item); } else { if (index) index.hidden = false; if (detail) { detail.hidden = false; detail.innerHTML = `<div class="mcx-not-found"><h2>Not Found</h2><p>The requested catalogue item is not available yet. Please return to the main catalogue and choose another item.</p><button type="button" class="mcx-action" data-mcx-route="${page}">BACK TO CATALOGUE</button></div>`; } } } else { renderCatalogueIndex(page); } } else if (category && renderCategory(page, category, subtopic)) { } else { if (index) index.hidden = false; if (detail) { detail.hidden = true; detail.innerHTML = ""; } renderIndex(page); } if (scroll) { const activePage = document.querySelector(`[data-mcx-page="${page}"]`); const scrollTarget = detail && !detail.hidden ? detail : activePage; if (scrollTarget) { const fixedNavigation = document.querySelector(".site-header") || document.querySelector("header") || document.querySelector("nav"); let navigationOffset = 22; if (fixedNavigation) { const navigationStyle = window.getComputedStyle(fixedNavigation); if (navigationStyle.position === "fixed" || navigationStyle.position === "sticky") navigationOffset = fixedNavigation.getBoundingClientRect().height + 22; } const targetTop = scrollTarget.getBoundingClientRect().top + window.scrollY - navigationOffset; window.scrollTo({ top: Math.max(0, targetTop), left: 0, behavior: "smooth" }); } } }
+  function route(scroll = true) { const { page, category, subtopic } = hashState(); document.querySelectorAll("[data-mcx-page]").forEach((section) => { const active = section.dataset.mcxPage === page; section.classList.toggle("active", active); section.hidden = !active; }); document.querySelectorAll("[data-mcx-page-link]").forEach((link) => link.classList.toggle("active", link.dataset.mcxPageLink === page)); const index = document.querySelector(`[data-mcx-category-index="${page}"]`); const detail = document.querySelector(`[data-mcx-category-detail="${page}"]`); if (["products", "services", "pricing", "premium"].includes(page)) { if (category) { const item = getCatalogueItem(page, category); if (item) { renderCatalogueDetail(page, item); } else { if (index) index.hidden = false; if (detail) { detail.hidden = false; detail.innerHTML = `<div class="mcx-not-found"><h2>Not Found</h2><p>The requested catalogue item is not available yet. Please return to the main catalogue and choose another item.</p><button type="button" class="mcx-action" data-mcx-route="${page}">BACK TO CATALOGUE</button></div>`; } } } else { renderCatalogueIndex(page); } } else if (category && renderCategory(page, category, subtopic)) { } else { if (index) index.hidden = false; if (detail) { detail.hidden = true; detail.innerHTML = ""; } renderIndex(page); } if (scroll) { const activePage = document.querySelector(`[data-mcx-page="${page}"]`); const scrollTarget = detail && !detail.hidden ? detail : activePage; if (scrollTarget) { const fixedNavigation = document.querySelector(".site-header") || document.querySelector("header") || document.querySelector("nav"); let navigationOffset = 22; if (fixedNavigation) { const navigationStyle = window.getComputedStyle(fixedNavigation); if (navigationStyle.position === "fixed" || navigationStyle.position === "sticky") navigationOffset = fixedNavigation.getBoundingClientRect().height + 22; } const targetTop = scrollTarget.getBoundingClientRect().top + window.scrollY - navigationOffset; window.scrollTo({ top: Math.max(0, targetTop), left: 0, behavior: "smooth" }); } } }
   function init() {
     /* MCX_LIVE_DUAL_PRICE_INIT */
     state.currency = "USD";
     loadExchangeRate(false).catch((error) => { console.warn("Exchange-rate update skipped.", error); });
- restoreCachedExchangeRate(); validPages.forEach(renderIndex); document.addEventListener("click", (event) => { const nav = event.target.closest("[data-mcx-page-link]"); if (nav) { event.preventDefault(); setHash(nav.dataset.mcxPageLink); return; } const category = event.target.closest("[data-mcx-category]"); if (category) { const [page, id] = category.dataset.mcxCategory.split("/"); setHash(page, id); return; } const sub = event.target.closest("[data-mcx-subtopic]"); if (sub) { const [page, cat, id] = sub.dataset.mcxSubtopic.split("/"); const current = hashState(); setHash(page, cat, current.subtopic === id ? "" : id); return; } const routeButton = event.target.closest("[data-mcx-route]"); if (routeButton) { const [page, cat = "", subtopicValue = ""] = routeButton.dataset.mcxRoute.split("/"); setHash(page, cat, subtopicValue); return; } const detailButton = event.target.closest("[data-mcx-catalogue-detail]"); if (detailButton) { const [page, slug] = detailButton.dataset.mcxCatalogueDetail.split("/"); setHash(page, slug); return; } const orderButton = event.target.closest("[data-mcx-order-item]"); if (orderButton) { const [page, slug] = orderButton.dataset.mcxOrderItem.split("/"); const item = getCatalogueItem(page, slug); if (item) openOrderModal(page, { ...item, type: page === "services" ? "service" : "product" }); return; } const loadMore = event.target.closest("[data-mcx-load-more]"); if (loadMore) { state.visibleCount += 8; renderCatalogueIndex(hashState().page); return; } const clearFilters = event.target.closest("[data-mcx-clear-filters]"); if (clearFilters) { state.search = ""; state.selectedGroup = "all"; state.filteredType = "all"; state.sort = "name"; state.visibleCount = 8; renderCatalogueIndex(hashState().page); return; } const closeButton = event.target.closest("[data-mcx-close-modal]"); if (closeButton) { closeOrderModal(); } const sendWhatsApp = event.target.closest("[data-mcx-send-whatsapp]"); if (sendWhatsApp) { sendOrderRequest("whatsapp"); return; } const sendEmail = event.target.closest("[data-mcx-send-email]"); if (sendEmail) { sendOrderRequest("email"); return; } }); document.addEventListener("input", (event) => { const searchInput = event.target.closest("[data-mcx-catalogue-search]"); if (searchInput) { state.search = searchInput.value; if (["products", "services", "pricing"].includes(hashState().page)) { state.visibleCount = 8; renderCatalogueIndex(hashState().page); } } }); document.addEventListener("change", (event) => {
+ restoreCachedExchangeRate(); validPages.forEach(renderIndex); document.addEventListener("click", (event) => { const nav = event.target.closest("[data-mcx-page-link]"); if (nav) { event.preventDefault(); setHash(nav.dataset.mcxPageLink); return; } const category = event.target.closest("[data-mcx-category]"); if (category) { const [page, id] = category.dataset.mcxCategory.split("/"); setHash(page, id); return; } const sub = event.target.closest("[data-mcx-subtopic]"); if (sub) { const [page, cat, id] = sub.dataset.mcxSubtopic.split("/"); const current = hashState(); setHash(page, cat, current.subtopic === id ? "" : id); return; } const routeButton = event.target.closest("[data-mcx-route]"); if (routeButton) { const [page, cat = "", subtopicValue = ""] = routeButton.dataset.mcxRoute.split("/"); setHash(page, cat, subtopicValue); return; } const detailButton = event.target.closest("[data-mcx-catalogue-detail]"); if (detailButton) { const [page, slug] = detailButton.dataset.mcxCatalogueDetail.split("/"); setHash(page, slug); return; } const orderButton = event.target.closest("[data-mcx-order-item]"); if (orderButton) { const [page, slug] = orderButton.dataset.mcxOrderItem.split("/"); const item = getCatalogueItem(page, slug); if (item) openOrderModal(page, { ...item, type: item.type || (page === "products" ? "product" : "service") }); return; } const loadMore = event.target.closest("[data-mcx-load-more]"); if (loadMore) { state.visibleCount += 8; renderCatalogueIndex(hashState().page); return; } const clearFilters = event.target.closest("[data-mcx-clear-filters]"); if (clearFilters) { state.search = ""; state.selectedGroup = "all"; state.filteredType = "all"; state.sort = "name"; state.visibleCount = 8; renderCatalogueIndex(hashState().page); return; } const closeButton = event.target.closest("[data-mcx-close-modal]"); if (closeButton) { closeOrderModal(); } const sendWhatsApp = event.target.closest("[data-mcx-send-whatsapp]"); if (sendWhatsApp) { sendOrderRequest("whatsapp"); return; } const sendEmail = event.target.closest("[data-mcx-send-email]"); if (sendEmail) { sendOrderRequest("email"); return; } }); document.addEventListener("input", (event) => { const searchInput = event.target.closest("[data-mcx-catalogue-search]"); if (searchInput) { state.search = searchInput.value; if (["products", "services", "pricing", "premium"].includes(hashState().page)) { state.visibleCount = 8; renderCatalogueIndex(hashState().page); } } }); document.addEventListener("change", (event) => {
     const groupSelect = event.target.closest(
       "[data-mcx-catalogue-group]"
     );
