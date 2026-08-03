@@ -5129,3 +5129,9 @@ body.mcx-modal-open {
 .mcx-catalogue-segment { flex-wrap: wrap; }
 .mcx-segment-button[data-mcx-route="premium"] { font-weight: 800; letter-spacing: .04em; }
 /* MCX_PREMIUM_TAB_END */
+
+
+/* MCX_PREMIUM_FINAL_START */
+.mcx-catalogue-segment { flex-wrap: wrap; }
+.mcx-segment-button[data-mcx-route="premium"] { font-weight: 800; letter-spacing: .04em; }
+/* MCX_PREMIUM_FINAL_END */
