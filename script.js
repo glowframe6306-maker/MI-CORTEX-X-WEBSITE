@@ -1,4 +1,4 @@
-﻿
+
 /* MI_CATEGORY_ICON_SYSTEM_START */
 
 var mcxCategoryIconMap = {
