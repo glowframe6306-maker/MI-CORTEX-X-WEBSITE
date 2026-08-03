@@ -342,3 +342,165 @@
     }
   });
 })();
+
+
+/* MCX_EXACT_FLOATING_BUTTON_FIX_START */
+(function () {
+  "use strict";
+
+  const iconClasses = [
+    "mcx-fixed-whatsapp-icon",
+    "mcx-fixed-telegram-icon",
+    "mcx-fixed-company-icon",
+    "mcx-fixed-ai-icon"
+  ];
+
+  let currentIconIndex = 0;
+  let iconTimer = null;
+
+  function findLauncher() {
+    return document.querySelector(
+      "[data-mcx-contact-toggle]," +
+      ".mcx-contact-launcher," +
+      ".mcx-contact-fab," +
+      ".mcx-contact-button," +
+      ".mcx-widget-launcher"
+    );
+  }
+
+  function findWidgetRoot(launcher) {
+    if (!launcher) {
+      return null;
+    }
+
+    return (
+      launcher.closest(
+        "[data-mcx-contact-widget]," +
+        ".mcx-contact-widget," +
+        ".mcx-contact-hub," +
+        ".mcx-widget"
+      ) || launcher
+    );
+  }
+
+  function getCurrentRoute() {
+    return window.location.hash
+      .replace(/^#\/?/, "")
+      .split("/")[0]
+      .trim()
+      .toLowerCase();
+  }
+
+  function isFrontPage() {
+    const route = getCurrentRoute();
+
+    return (
+      !window.location.hash ||
+      window.location.hash === "#" ||
+      route === "" ||
+      route === "home" ||
+      route === "overview"
+    );
+  }
+
+  function updateFrontPageVisibility() {
+    const launcher = findLauncher();
+    const widget = findWidgetRoot(launcher);
+
+    if (!widget) {
+      return;
+    }
+
+    widget.classList.toggle(
+      "mcx-floating-hidden-on-front-page",
+      isFrontPage()
+    );
+  }
+
+  function removeConnectLabel() {
+    document.querySelectorAll("body *").forEach((element) => {
+      if (element.children.length !== 0) {
+        return;
+      }
+
+      const text = (element.textContent || "")
+        .replace(/\s+/g, " ")
+        .trim()
+        .toLowerCase();
+
+      if (text === "connect with mi cortex x") {
+        element.classList.add("mcx-connect-label-removed");
+        element.setAttribute("aria-hidden", "true");
+      }
+    });
+  }
+
+  function showCurrentIcon(launcher) {
+    iconClasses.forEach((className) => {
+      launcher.classList.remove(className);
+    });
+
+    launcher.classList.add(
+      "mcx-fixed-rotating-launcher",
+      iconClasses[currentIconIndex]
+    );
+
+    launcher.setAttribute(
+      "aria-label",
+      "Open MI CORTEX X contact center"
+    );
+  }
+
+  function startIconRotation() {
+    const launcher = findLauncher();
+
+    if (!launcher) {
+      window.setTimeout(startIconRotation, 300);
+      return;
+    }
+
+    if (iconTimer) {
+      window.clearInterval(iconTimer);
+    }
+
+    currentIconIndex = 0;
+    showCurrentIcon(launcher);
+
+    iconTimer = window.setInterval(() => {
+      currentIconIndex =
+        (currentIconIndex + 1) % iconClasses.length;
+
+      showCurrentIcon(launcher);
+    }, 3000);
+  }
+
+  function initializeFloatingButtonFix() {
+    updateFrontPageVisibility();
+    removeConnectLabel();
+    startIconRotation();
+
+    window.setTimeout(removeConnectLabel, 500);
+    window.setTimeout(removeConnectLabel, 1500);
+  }
+
+  window.addEventListener(
+    "hashchange",
+    updateFrontPageVisibility
+  );
+
+  window.addEventListener(
+    "popstate",
+    updateFrontPageVisibility
+  );
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      initializeFloatingButtonFix,
+      { once: true }
+    );
+  } else {
+    initializeFloatingButtonFix();
+  }
+})();
+/* MCX_EXACT_FLOATING_BUTTON_FIX_END */
