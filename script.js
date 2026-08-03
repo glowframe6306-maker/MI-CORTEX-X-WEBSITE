@@ -669,39 +669,39 @@ document.addEventListener('DOMContentLoaded', function () {
       subtopics: [
         {
           title: "Owner",
-          summary: "The official owner of MI CORTEX X INC.",
+          summary: "OWNER OF MI CORTEX X INC. - M.I. MUHAMMADH",
           points: [
             "OWNER OF MI CORTEX X INC.",
             "M.I. MUHAMMADH"
           ],
-          note: ""
+          note: "Mohomed Imran Muhammadh is the Owner of MI CORTEX X INC., a Sri Lankan artificial intelligence and software technology company established in 2026. As the owner, he is responsible for defining the company's long-term vision, corporate strategy, business direction and overall growth. He oversees the development of innovative products and technology services while ensuring that every solution delivered by the company reflects high standards of quality, reliability, security and customer satisfaction. With a strong passion for artificial intelligence, software engineering and technological innovation, he is dedicated to transforming ideas into practical digital solutions that create real value for businesses, organizations and individuals. His long-term objective is to establish MI CORTEX X INC. as a globally recognized technology company known for innovation, excellence, professionalism and trust."
         },
         {
           title: "Chairman",
-          summary: "The official chairman of MI CORTEX X INC.",
+          summary: "CHAIRMAN OF MI CORTEX X INC. - M.I. MUHAMMADH",
           points: [
             "CHAIRMAN OF MI CORTEX X INC.",
             "M.I. MUHAMMADH"
           ],
-          note: ""
+          note: "As the Chairman of MI CORTEX X INC., Mohomed Imran Muhammadh provides strategic leadership and corporate governance while guiding the company's long-term vision and future expansion. He is responsible for overseeing major business decisions, setting organizational objectives and ensuring that every area of the company operates in alignment with its mission and values. His leadership emphasizes continuous innovation, responsible technology, sustainable business growth and operational excellence. By promoting modern business practices and forward-thinking strategies, he aims to position MI CORTEX X INC. as a respected technology company capable of competing successfully in both local and international markets."
         },
         {
-          title: "Chief Executive Officer",
-          summary: "The official Chief Executive Officer of MI CORTEX X INC.",
+          title: "Chief Executive Officer (CEO)",
+          summary: "CHIEF EXECUTIVE OFFICER (CEO) OF MI CORTEX X INC. - M.I. MUHAMMADH",
           points: [
             "CHIEF EXECUTIVE OFFICER (CEO) OF MI CORTEX X INC.",
             "M.I. MUHAMMADH"
           ],
-          note: ""
+          note: "Mohomed Imran Muhammadh serves as the Chief Executive Officer (CEO) of MI CORTEX X INC., leading the company's day-to-day operations, product development, software engineering initiatives and technological innovation. He oversees project planning, business development, research activities, customer engagement and the successful delivery of digital solutions across multiple industries. Driven by a passion for artificial intelligence and emerging technologies, he is committed to developing secure, scalable, reliable and high-quality software products that help businesses improve efficiency, increase productivity and embrace digital transformation. Under his leadership, the company continues to pursue excellence through innovation, professionalism and customer-focused solutions."
         },
         {
           title: "Founder",
-          summary: "The official founder of MI CORTEX X INC.",
+          summary: "FOUNDER OF MI CORTEX X INC. - M.I. MUHAMMADH",
           points: [
             "FOUNDER OF MI CORTEX X INC.",
             "M.I. MUHAMMADH"
           ],
-          note: ""
+          note: "Mohomed Imran Muhammadh is the Founder of MI CORTEX X INC., establishing the company in 2026 with a vision of creating advanced artificial intelligence solutions, innovative software products and modern digital services for clients around the world. Inspired by the transformative power of technology, he founded the company to develop intelligent platforms that simplify business operations, improve decision-making and support digital growth across multiple industries. Since its establishment, his vision has remained focused on continuous innovation, research, product excellence and long-term global expansion. He is committed to building MI CORTEX X INC. into an internationally recognized technology brand respected for delivering reliable software, intelligent automation and world-class digital solutions while maintaining high standards of integrity, quality and customer satisfaction."
         }
       ],
       status: ""
@@ -12194,7 +12194,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function renderIndex(page) { const host = document.querySelector(`[data-mcx-category-index="${page}"]`); if (!host) return; if (["products", "services", "pricing", "premium"].includes(page)) { renderCatalogueIndex(page); return; } host.innerHTML = `<div class="mcx-index-heading"><span class="mcx-index-kicker">CATEGORY DIRECTORY</span><h2>${esc(getPageTitle(page))} CATEGORIES</h2><p>${esc(pageData[page]?.intro || "Select a category to open its subtopics and complete information.")}</p></div><div class="mcx-category-stack">${pageData[page].categories.map((category) => `<button type="button" class="mcx-category-row" data-mcx-category="${page}/${category.id}"><span class="mcx-category-number mcx-category-icon" aria-hidden="true">${mcxGetCategoryIcon(page, category.id)}</span><span class="mcx-category-copy">${category.status ? `<small>${esc(category.status)}</small>` : ""}<strong>${esc(category.title)}</strong><em>${esc(category.summary)}</em></span><span class="mcx-category-arrow" aria-hidden="true">&#8594;</span></button>`).join("")}</div>`; }
-  function renderCategory(page, categoryId, activeSubtopic = "") { if (["products", "services", "pricing", "premium"].includes(page)) { const item = getCatalogueItem(page, categoryId); if (item) return renderCatalogueDetail(page, item); } const category = categoryById(page, categoryId); const index = document.querySelector(`[data-mcx-category-index="${page}"]`); const detail = document.querySelector(`[data-mcx-category-detail="${page}"]`); if (!category || !index || !detail) return false; index.hidden = true; detail.hidden = false; detail.innerHTML = `<button type="button" class="mcx-back-button" data-mcx-route="${page}">&#8592; ALL ${esc(getPageTitle(page))} CATEGORIES</button><header class="mcx-category-header">${category.status ? `<span class="mcx-status">${esc(category.status)}</span>` : ""}<h2>${esc(category.title)}</h2><p>${esc(category.summary)}</p></header><div class="mcx-subtopic-stack">${category.subtopics.map((topic, indexValue) => { const id = subtopicId(topic.title, indexValue); const open = activeSubtopic === id; return `<article class="mcx-subtopic-item${open ? " open" : ""}"><button type="button" class="mcx-subtopic-button" data-mcx-subtopic="${page}/${category.id}/${id}" aria-expanded="${open}"><span><strong>${esc(topic.title)}</strong><em>${esc(topic.summary)}</em></span><b aria-hidden="true">${open ? "&#8722;" : "+"}</b></button><div class="mcx-subtopic-content"${open ? "" : " hidden"}>${topic.note ? `<p class="mcx-topic-note">${esc(topic.note)}</p>` : ""}<ul>${topic.points.map((point) => `<li>${esc(point)}</li>`).join("")}</ul></div></article>`; }).join("")}</div>${category.id === "inquiry-form" ? formMarkup() : ""}${actionMarkup(page, category)}`; detail.focus({ preventScroll: true }); const form = detail.querySelector("[data-mcx-contact-form]"); if (form) form.addEventListener("submit", submitForm); return true; }
+  function renderCategory(page, categoryId, activeSubtopic = "") { if (["products", "services", "pricing", "premium"].includes(page)) { const item = getCatalogueItem(page, categoryId); if (item) return renderCatalogueDetail(page, item); } const category = categoryById(page, categoryId); const index = document.querySelector(`[data-mcx-category-index="${page}"]`); const detail = document.querySelector(`[data-mcx-category-detail="${page}"]`); if (!category || !index || !detail) return false; index.hidden = true; detail.hidden = false; detail.innerHTML = `<button type="button" class="mcx-back-button" data-mcx-route="${page}">&#8592; ALL ${esc(getPageTitle(page))} CATEGORIES</button><header class="mcx-category-header">${category.status ? `<span class="mcx-status">${esc(category.status)}</span>` : ""}<h2>${esc(category.title)}</h2><p>${esc(category.summary)}</p></header><div class="mcx-subtopic-stack">${category.subtopics.map((topic, indexValue) => { const id = subtopicId(topic.title, indexValue); const open = activeSubtopic === id; return `<article class="mcx-subtopic-item${open ? " open" : ""}"><button type="button" class="mcx-subtopic-button" data-mcx-subtopic="${page}/${category.id}/${id}" aria-expanded="${open}"><span><strong>${esc(topic.title)}</strong><em>${esc(topic.summary)}</em></span><b aria-hidden="true">${open ? "&#8722;" : "+"}</b></button><div class="mcx-subtopic-content"${open ? "" : " hidden"}>${category.id === "executive-board" ? `<ul>${topic.points.map((point) => `<li>${esc(point)}</li>`).join("")}</ul>${topic.note ? `<p class="mcx-topic-note">${esc(topic.note)}</p>` : ""}` : `${topic.note ? `<p class="mcx-topic-note">${esc(topic.note)}</p>` : ""}<ul>${topic.points.map((point) => `<li>${esc(point)}</li>`).join("")}</ul>`}</div></article>`; }).join("")}</div>${category.id === "inquiry-form" ? formMarkup() : ""}${actionMarkup(page, category)}`; detail.focus({ preventScroll: true }); const form = detail.querySelector("[data-mcx-contact-form]"); if (form) form.addEventListener("submit", submitForm); return true; }
   function submitForm(event) { event.preventDefault(); const form = event.currentTarget; if (!form.reportValidity()) return; const data = new FormData(form); const subject = encodeURIComponent(`MI CORTEX X Project Inquiry - ${data.get("projectType") || "Custom Project"}`); const body = encodeURIComponent([`Full Name: ${data.get("fullName") || ""}`, `Email: ${data.get("email") || ""}`, `Phone: ${data.get("phone") || "Not provided"}`, `Country: ${data.get("country") || ""}`, `Company: ${data.get("company") || "Not provided"}`, `Project Type: ${data.get("projectType") || ""}`, `Estimated Budget: ${data.get("budget") || "Not provided"}`, `Preferred Deadline: ${data.get("deadline") || "Not provided"}`, "", "Project Description:", data.get("description") || ""].join("\n")); location.href = `mailto:${company.email}?subject=${subject}&body=${body}`; }
 
   /* MCX_RATE_STATUS_FIX_START */
