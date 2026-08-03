@@ -9361,7 +9361,7 @@ document.addEventListener('DOMContentLoaded', function () {
     categories: []
   };
 
-  const validPages = ["overview", ...Object.keys(pageData)];
+  const validPages = ["overview", ...Object.keys(pageData), "premium"];
   const esc = (value) => String(value ?? "").replace(/[&<>\"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[char]));
   const priceFormatter = new Intl.NumberFormat("en-LK", { maximumFractionDigits: 0 });
   const state = { currency: "LKR", exchangeRate: null, exchangeRateUpdatedAt: null, rateLoading: false, rateError: "", ratePromise: null, filteredType: "all", selectedGroup: "all", search: "", sort: "name", pageSize: 8, visibleCount: 8, modalItem: null, modalReference: null };
@@ -9392,8 +9392,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 
-  function hashState() { const raw = location.hash.replace(/^#/, "") || "overview"; const [pageRaw = "overview", category = "", subtopic = ""] = raw.split("/"); const page = validPages.includes(pageRaw) ? pageRaw : "overview"; return { page, category, subtopic }; }
-  function setHash(page, category = "", subtopic = "") { const next = `#${page}${category ? `/${category}` : ""}${subtopic ? `/${subtopic}` : ""}`; if (location.hash === next) route(); else location.hash = next; }
+  function hashState() { const raw = location.hash.replace(/^#\/?/, "") || "overview"; const [pageRaw = "overview", category = "", subtopic = ""] = raw.split("/"); const page = validPages.includes(pageRaw) ? pageRaw : "overview"; return { page, category, subtopic }; }
+  function setHash(page, category = "", subtopic = "") { const next = `#/${page}${category ? `/${category}` : ""}${subtopic ? `/${subtopic}` : ""}`; if (location.hash === next) route(); else location.hash = next; }
   function getPageTitle(page) { return pageData[page]?.title || "MI CORTEX X"; }
   function categoryById(page, id) { return pageData[page]?.categories.find((item) => item.id === id) || null; }
   function subtopicId(title, index) { return String(title).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "") + "-" + (index + 1); }
