@@ -363,54 +363,17 @@ textarea.mcx-hub-input { min-height: 104px; resize: vertical; }
 /* MCX_REAL_WHATSAPP_ICON_END */
 
 
-/* MCX_FRONT_PAGE_WIDGET_HIDE_START */
-
-/* Hide only the floating contact widget on the front page. */
-.mcx-hidden-on-front-page {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-}
-
-/* MCX_FRONT_PAGE_WIDGET_HIDE_END */
-
-
-/* MCX_HIDE_WIDGET_ON_BANNER_START */
-.mcx-force-hide-on-front-banner {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-}
-/* MCX_HIDE_WIDGET_ON_BANNER_END */
-
-
-/* MCX_FRONT_FLOATING_REMOVE_START */
+/* MCX_CORRECT_BANNER_WIDGET_HIDE_START */
 
 /*
- * Completely hide the floating contact button and its widget
- * only on the first front-banner screen.
+ * Hide the floating widget only while the real opening banner is visible.
+ * It remains visible on Home, About, Products, Services and other pages.
  */
-html.mcx-front-banner-screen [data-mcx-contact-widget],
-html.mcx-front-banner-screen [data-mcx-contact-toggle],
-html.mcx-front-banner-screen [data-contact-widget],
-html.mcx-front-banner-screen [data-contact-toggle],
-html.mcx-front-banner-screen #mcx-contact-widget,
-html.mcx-front-banner-screen #mcx-contact-launcher,
-html.mcx-front-banner-screen #mcx-contact-fab,
-html.mcx-front-banner-screen .mcx-contact-widget,
-html.mcx-front-banner-screen .mcx-contact-hub,
-html.mcx-front-banner-screen .mcx-contact-launcher,
-html.mcx-front-banner-screen .mcx-contact-fab,
-html.mcx-front-banner-screen .mcx-contact-button,
-html.mcx-front-banner-screen .mcx-widget-launcher,
-html.mcx-front-banner-screen [class*="mcx-contact"],
-html.mcx-front-banner-screen [id*="mcx-contact"] {
+.mcx-hidden-only-on-real-front-banner {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
     pointer-events: none !important;
 }
 
-/* MCX_FRONT_FLOATING_REMOVE_END */
+/* MCX_CORRECT_BANNER_WIDGET_HIDE_END */

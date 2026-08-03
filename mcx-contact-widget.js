@@ -715,21 +715,14 @@
 /* MCX_EXACT_ICON_RENDERER_END */
 
 
-/* MCX_FRONT_PAGE_WIDGET_HIDE_START */
+/* MCX_CORRECT_BANNER_WIDGET_HIDE_START */
 (function () {
   "use strict";
 
   let retryCount = 0;
-  const maximumRetries = 30;
+  let observer = null;
 
-  function isFrontPage() {
-    return (
-      window.location.hash === "" ||
-      window.location.hash === "#"
-    );
-  }
-
-  function findFloatingWidget() {
+  function findWidget() {
     const launcher = document.querySelector(
       "[data-mcx-contact-toggle]," +
       ".mcx-contact-launcher," +
@@ -752,17 +745,43 @@
     );
   }
 
-  function updateFloatingWidgetVisibility() {
-    const widget = findFloatingWidget();
+  function isVisible(element) {
+    if (!element) {
+      return false;
+    }
+
+    const style = window.getComputedStyle(element);
+    const rect = element.getBoundingClientRect();
+
+    return (
+      style.display !== "none" &&
+      style.visibility !== "hidden" &&
+      Number(style.opacity || "1") > 0 &&
+      rect.width > 20 &&
+      rect.height > 20
+    );
+  }
+
+  function isMainNavigationVisible() {
+    const candidates = [
+      document.querySelector("header nav"),
+      document.querySelector(".site-header"),
+      document.querySelector(".mi-fixed-glass-nav"),
+      document.querySelector("[data-main-navigation]"),
+      document.querySelector("nav")
+    ];
+
+    return candidates.some(isVisible);
+  }
+
+  function updateWidgetVisibility() {
+    const widget = findWidget();
 
     if (!widget) {
       retryCount += 1;
 
-      if (retryCount <= maximumRetries) {
-        window.setTimeout(
-          updateFloatingWidgetVisibility,
-          200
-        );
+      if (retryCount < 40) {
+        window.setTimeout(updateWidgetVisibility, 200);
       }
 
       return;
@@ -770,100 +789,81 @@
 
     retryCount = 0;
 
+    /*
+     * Front banner: main navigation is not visible.
+     * Home/Overview and all content pages: navigation is visible.
+     */
+    const hideOnFrontBanner = !isMainNavigationVisible();
+
     widget.classList.toggle(
-      "mcx-hidden-on-front-page",
-      isFrontPage()
+      "mcx-hidden-only-on-real-front-banner",
+      hideOnFrontBanner
     );
+
+    widget.setAttribute(
+      "aria-hidden",
+      hideOnFrontBanner ? "true" : "false"
+    );
+  }
+
+  function scheduleVisibilityCheck() {
+    [0, 100, 300, 700, 1200].forEach((delay) => {
+      window.setTimeout(updateWidgetVisibility, delay);
+    });
   }
 
   window.addEventListener(
     "hashchange",
-    updateFloatingWidgetVisibility
+    scheduleVisibilityCheck
   );
 
   window.addEventListener(
     "popstate",
-    updateFloatingWidgetVisibility
+    scheduleVisibilityCheck
   );
 
-  if (document.readyState === "loading") {
-    document.addEventListener(
-      "DOMContentLoaded",
-      updateFloatingWidgetVisibility,
-      { once: true }
-    );
-  } else {
-    updateFloatingWidgetVisibility();
+  window.addEventListener(
+    "scroll",
+    updateWidgetVisibility,
+    { passive: true }
+  );
+
+  window.addEventListener(
+    "resize",
+    updateWidgetVisibility,
+    { passive: true }
+  );
+
+  function start() {
+    scheduleVisibilityCheck();
+
+    if (!observer) {
+      observer = new MutationObserver(() => {
+        window.requestAnimationFrame(updateWidgetVisibility);
+      });
+
+      observer.observe(document.body, {
+        attributes: true,
+        childList: true,
+        subtree: true,
+        attributeFilter: [
+          "class",
+          "hidden",
+          "style",
+          "aria-hidden"
+        ]
+      });
+    }
   }
-})();
-/* MCX_FRONT_PAGE_WIDGET_HIDE_END */
-
-
-/* MCX_HIDE_WIDGET_ON_BANNER_START */
-(function () {
-  "use strict";
-
-  const widgetSelectors = [
-    "[data-mcx-contact-widget]",
-    "[data-mcx-contact-toggle]",
-    ".mcx-contact-widget",
-    ".mcx-contact-hub",
-    ".mcx-contact-launcher",
-    ".mcx-contact-fab",
-    ".mcx-contact-button",
-    ".mcx-widget-launcher",
-    "#mcx-contact-widget",
-    "#mcx-contact-launcher"
-  ].join(",");
-
-  function isFrontBanner() {
-    const hash = window.location.hash.trim().toLowerCase();
-
-    return (
-      hash === "" ||
-      hash === "#" ||
-      hash === "#/" ||
-      hash === "#/front" ||
-      hash === "#front"
-    );
-  }
-
-  function updateFloatingWidget() {
-    const hide = isFrontBanner();
-
-    document.querySelectorAll(widgetSelectors).forEach((element) => {
-      element.classList.toggle(
-        "mcx-force-hide-on-front-banner",
-        hide
-      );
-
-      if (hide) {
-        element.setAttribute("aria-hidden", "true");
-      } else {
-        element.removeAttribute("aria-hidden");
-      }
-    });
-  }
-
-  function runInitialChecks() {
-    updateFloatingWidget();
-
-    [100, 300, 700, 1500, 2500].forEach((delay) => {
-      window.setTimeout(updateFloatingWidget, delay);
-    });
-  }
-
-  window.addEventListener("hashchange", updateFloatingWidget);
-  window.addEventListener("popstate", updateFloatingWidget);
 
   if (document.readyState === "loading") {
     document.addEventListener(
       "DOMContentLoaded",
-      runInitialChecks,
+      start,
       { once: true }
     );
   } else {
-    runInitialChecks();
+    start();
   }
 })();
-/* MCX_HIDE_WIDGET_ON_BANNER_END */
+/* MCX_CORRECT_BANNER_WIDGET_HIDE_END */
