@@ -9398,15 +9398,25 @@ document.addEventListener('DOMContentLoaded', function () {
   function categoryById(page, id) { return pageData[page]?.categories.find((item) => item.id === id) || null; }
   function subtopicId(title, index) { return String(title).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "") + "-" + (index + 1); }
   function getCatalogueItems(page) {
-    if (page === "products") return catalogueData.products || [];
-    if (page === "services") return catalogueData.services || [];
-    if (page === "premium") return catalogueData.premium || [];
+    if (page === "products") {
+      return catalogueData.products || [];
+    }
+
+    if (page === "services") {
+      return catalogueData.services || [];
+    }
+
+    if (page === "premium") {
+      return catalogueData.premium || [];
+    }
+
     if (page === "pricing") {
       return [
         ...(catalogueData.products || []),
         ...(catalogueData.services || [])
       ];
     }
+
     return [];
   }
   function getCatalogueItem(page, slug) { return getCatalogueItems(page).find((item) => item.id === slug) || null; }
