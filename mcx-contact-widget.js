@@ -278,13 +278,47 @@
     if (direct) {
       const message = direct.dataset.message || "Hello";
       if (direct.dataset.direct === "whatsapp") window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, "_blank", "noopener");
-      if (direct.dataset.direct === "telegram") copyText(message).then(() => { showToast("Message copied. Paste it into Telegram and press Send."); window.open(TELEGRAM_URL, "_blank", "noopener"); });
+      if (direct.dataset.direct === "telegram") {
+        const telegramUrl =
+          TELEGRAM_URL +
+          "?text=" +
+          encodeURIComponent(message);
+
+        copyText(message).catch(() => {});
+
+        showToast(
+          "Telegram opened with the message prepared. Press Send to continue."
+        );
+
+        window.open(
+          telegramUrl,
+          "_blank",
+          "noopener,noreferrer"
+        );
+      }
       if (direct.dataset.direct === "email") window.location.href = `mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent(direct.dataset.subject || "MI CORTEX X Request")}&body=${encodeURIComponent(direct.dataset.body || "Hello")}`;
     }
     const send = event.target.closest("[data-send]");
     if (send && appointmentMessage) {
       if (send.dataset.send === "whatsapp") window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(appointmentMessage)}`, "_blank", "noopener");
-      if (send.dataset.send === "telegram") copyText(appointmentMessage).then(() => { showToast("Appointment request copied. Paste it into Telegram and press Send."); window.open(TELEGRAM_URL, "_blank", "noopener"); });
+      if (send.dataset.send === "telegram") {
+        const telegramUrl =
+          TELEGRAM_URL +
+          "?text=" +
+          encodeURIComponent(appointmentMessage);
+
+        copyText(appointmentMessage).catch(() => {});
+
+        showToast(
+          "Telegram opened with the appointment request prepared. Press Send to continue."
+        );
+
+        window.open(
+          telegramUrl,
+          "_blank",
+          "noopener,noreferrer"
+        );
+      }
     }
   });
 
