@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --bg: #040711;
   --bg-deep: #02040a;
   --surface: rgba(7, 12, 24, 0.76);
@@ -5139,10 +5139,10 @@ body.mcx-modal-open {
 /* ===== MI CORTEX X FLOATING LOGO SIZE ===== */
 .mcx-exact-launcher-svg,
 .mcx-hub-fab-icon svg{
-    width:90%!important;
-    height:90%!important;
-    max-width:90%!important;
-    max-height:90%!important;
+    width:98%!important;
+    height:98%!important;
+    max-width:98%!important;
+    max-height:98%!important;
     display:block!important;
     margin:auto!important;
 }
@@ -5153,4 +5153,5 @@ body.mcx-modal-open {
     justify-content:center!important;
 }
 /* ===== END MI CORTEX X FLOATING LOGO SIZE ===== */
+
 

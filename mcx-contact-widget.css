@@ -430,10 +430,10 @@ html.mcx-hide-floating-button-on-front-page .mcx-exact-icon-launcher {
 /* ===== MI CORTEX X FLOATING LOGO SIZE ===== */
 .mcx-exact-launcher-svg,
 .mcx-hub-fab-icon svg{
-    width:90%!important;
-    height:90%!important;
-    max-width:90%!important;
-    max-height:90%!important;
+    width:98%!important;
+    height:98%!important;
+    max-width:98%!important;
+    max-height:98%!important;
     display:block!important;
     margin:auto!important;
 }
@@ -444,4 +444,5 @@ html.mcx-hide-floating-button-on-front-page .mcx-exact-icon-launcher {
     justify-content:center!important;
 }
 /* ===== END MI CORTEX X FLOATING LOGO SIZE ===== */
+
 

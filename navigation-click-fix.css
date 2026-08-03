@@ -1,4 +1,4 @@
-/* MI CORTEX X navigation click reliability patch */
+﻿/* MI CORTEX X navigation click reliability patch */
 .site-header {
   pointer-events: auto !important;
 }
@@ -25,3 +25,4 @@
   position: relative;
   z-index: 5 !important;
 }
+
