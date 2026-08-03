@@ -9354,6 +9354,13 @@ document.addEventListener('DOMContentLoaded', function () {
     ]
 };
 
+
+  pageData.premium = {
+    title: "PREMIUM",
+    intro: "Explore advanced, enterprise-ready and specialist technology solutions from MI CORTEX X.",
+    categories: []
+  };
+
   const validPages = ["overview", ...Object.keys(pageData)];
   const esc = (value) => String(value ?? "").replace(/[&<>\"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[char]));
   const priceFormatter = new Intl.NumberFormat("en-LK", { maximumFractionDigits: 0 });
@@ -9390,7 +9397,18 @@ document.addEventListener('DOMContentLoaded', function () {
   function getPageTitle(page) { return pageData[page]?.title || "MI CORTEX X"; }
   function categoryById(page, id) { return pageData[page]?.categories.find((item) => item.id === id) || null; }
   function subtopicId(title, index) { return String(title).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "") + "-" + (index + 1); }
-  function getCatalogueItems(page) { if (page === "products") return catalogueData.products; if (page === "services") return catalogueData.services; if (page === "pricing") return [...catalogueData.products, ...catalogueData.services]; if (page === "premium") return catalogueData.premium; return []; }
+  function getCatalogueItems(page) {
+    if (page === "products") return catalogueData.products || [];
+    if (page === "services") return catalogueData.services || [];
+    if (page === "premium") return catalogueData.premium || [];
+    if (page === "pricing") {
+      return [
+        ...(catalogueData.products || []),
+        ...(catalogueData.services || [])
+      ];
+    }
+    return [];
+  }
   function getCatalogueItem(page, slug) { return getCatalogueItems(page).find((item) => item.id === slug) || null; }
   function groupOptions(page) { const groups = Array.from(new Set(getCatalogueItems(page).map((item) => item.category))).sort((a, b) => a.localeCompare(b)); return groups; }
   const usdPriceFormatter = new Intl.NumberFormat("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -9683,6 +9701,101 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function actionMarkup(page, category) { if (page === "contact") { if (category.id === "email") return `<div class="mcx-action-row"><a class="mcx-action" href="mailto:${company.email}">SEND EMAIL</a></div>`; if (category.id === "whatsapp") return `<div class="mcx-action-row"><a class="mcx-action" href="https://wa.me/${company.whatsapp}" target="_blank" rel="noopener noreferrer">OPEN WHATSAPP</a></div>`; if (["contact-info", "support", "send-inquiry", "inquiry-form"].includes(category.id)) return `<div class="mcx-action-row"><a class="mcx-action" href="mailto:${company.email}">SEND EMAIL</a><a class="mcx-action secondary" href="https://wa.me/${company.whatsapp}" target="_blank" rel="noopener noreferrer">OPEN WHATSAPP</a></div>`; } if (["products", "services", "pricing", "premium"].includes(page)) return `<div class="mcx-action-row"><button type="button" class="mcx-action" data-mcx-route="contact/send-inquiry">REQUEST INFORMATION</button></div>`; return ""; }
   function formMarkup() { return `<form class="mcx-form" data-mcx-contact-form><div class="mcx-field"><label>Full Name<input name="fullName" required autocomplete="name"></label></div><div class="mcx-field"><label>Email Address<input name="email" type="email" required autocomplete="email"></label></div><div class="mcx-field"><label>Phone Number (Optional)<input name="phone" type="tel" autocomplete="tel"></label></div><div class="mcx-field"><label>Country<input name="country" required></label></div><div class="mcx-field"><label>Company Name (Optional)<input name="company"></label></div><div class="mcx-field"><label>Project Type<select name="projectType" required><option value="">Select</option><option>AI Development</option><option>AI Chatbot</option><option>Website</option><option>Web Application</option><option>Mobile Application</option><option>Desktop Software</option><option>Business Software</option><option>API or Integration</option><option>Other Custom Project</option></select></label></div><div class="mcx-field"><label>Estimated Budget (Optional)<input name="budget"></label></div><div class="mcx-field"><label>Preferred Deadline<input name="deadline"></label></div><div class="mcx-field full"><label>Project Description<textarea name="description" required></textarea></label></div><label class="mcx-consent"><input type="checkbox" required> I agree to provide these details for receiving a response.</label><p class="mcx-form-note">Submitting opens your email application because a dedicated form backend is not currently connected.</p><button class="mcx-action" type="submit">PREPARE EMAIL INQUIRY</button></form>`; }
+
+  function ensurePremiumPageHost() {
+    if (document.querySelector('[data-mcx-page="premium"]')) {
+      return;
+    }
+
+    const pricingPage = document.querySelector(
+      '[data-mcx-page="pricing"]'
+    );
+
+    if (!pricingPage || !pricingPage.parentNode) {
+      throw new Error(
+        "Pricing page host was not found for PREMIUM cloning."
+      );
+    }
+
+    const premiumPage = pricingPage.cloneNode(true);
+
+    premiumPage.dataset.mcxPage = "premium";
+    premiumPage.classList.remove("active");
+    premiumPage.hidden = true;
+
+    const allElements = [
+      premiumPage,
+      ...premiumPage.querySelectorAll("*")
+    ];
+
+    allElements.forEach((element) => {
+      Array.from(element.attributes || []).forEach((attribute) => {
+        if (
+          attribute.value &&
+          attribute.value.toLowerCase().includes("pricing")
+        ) {
+          element.setAttribute(
+            attribute.name,
+            attribute.value.replace(/pricing/gi, "premium")
+          );
+        }
+      });
+    });
+
+    const indexHost = premiumPage.querySelector(
+      '[data-mcx-category-index="premium"]'
+    );
+
+    const detailHost = premiumPage.querySelector(
+      '[data-mcx-category-detail="premium"]'
+    );
+
+    if (!indexHost || !detailHost) {
+      throw new Error(
+        "PREMIUM catalogue hosts could not be created."
+      );
+    }
+
+    indexHost.innerHTML = "";
+    indexHost.hidden = false;
+
+    detailHost.innerHTML = "";
+    detailHost.hidden = true;
+
+    pricingPage.insertAdjacentElement(
+      "afterend",
+      premiumPage
+    );
+  }
+
+  function getCatalogueHeading(page) {
+    if (page === "products") return "PRODUCTS";
+    if (page === "services") return "SERVICES";
+    if (page === "pricing") return "PRICING";
+    if (page === "premium") return "PREMIUM";
+    return "CATALOGUE";
+  }
+
+  function getCatalogueIntro(page) {
+    if (page === "products") {
+      return "Reusable product solutions for modern operations.";
+    }
+
+    if (page === "services") {
+      return "Custom service solutions tailored to each client project.";
+    }
+
+    if (page === "pricing") {
+      return "Starting estimates for products and services with custom quotation support.";
+    }
+
+    if (page === "premium") {
+      return "Advanced AI, enterprise software, cloud, security, automation and specialist technology solutions.";
+    }
+
+    return "Explore MI CORTEX X technology solutions.";
+  }
+
   function renderIndex(page) { const host = document.querySelector(`[data-mcx-category-index="${page}"]`); if (!host) return; if (["products", "services", "pricing", "premium"].includes(page)) { renderCatalogueIndex(page); return; } host.innerHTML = `<div class="mcx-index-heading"><span class="mcx-index-kicker">CATEGORY DIRECTORY</span><h2>${esc(getPageTitle(page))} CATEGORIES</h2><p>${esc(pageData[page]?.intro || "Select a category to open its subtopics and complete information.")}</p></div><div class="mcx-category-stack">${pageData[page].categories.map((category) => `<button type="button" class="mcx-category-row" data-mcx-category="${page}/${category.id}"><span class="mcx-category-number mcx-category-icon" aria-hidden="true">${mcxGetCategoryIcon(page, category.id)}</span><span class="mcx-category-copy">${category.status ? `<small>${esc(category.status)}</small>` : ""}<strong>${esc(category.title)}</strong><em>${esc(category.summary)}</em></span><span class="mcx-category-arrow" aria-hidden="true">&#8594;</span></button>`).join("")}</div>`; }
   function renderCategory(page, categoryId, activeSubtopic = "") { if (["products", "services", "pricing", "premium"].includes(page)) { const item = getCatalogueItem(page, categoryId); if (item) return renderCatalogueDetail(page, item); } const category = categoryById(page, categoryId); const index = document.querySelector(`[data-mcx-category-index="${page}"]`); const detail = document.querySelector(`[data-mcx-category-detail="${page}"]`); if (!category || !index || !detail) return false; index.hidden = true; detail.hidden = false; detail.innerHTML = `<button type="button" class="mcx-back-button" data-mcx-route="${page}">&#8592; ALL ${esc(getPageTitle(page))} CATEGORIES</button><header class="mcx-category-header">${category.status ? `<span class="mcx-status">${esc(category.status)}</span>` : ""}<h2>${esc(category.title)}</h2><p>${esc(category.summary)}</p></header><div class="mcx-subtopic-stack">${category.subtopics.map((topic, indexValue) => { const id = subtopicId(topic.title, indexValue); const open = activeSubtopic === id; return `<article class="mcx-subtopic-item${open ? " open" : ""}"><button type="button" class="mcx-subtopic-button" data-mcx-subtopic="${page}/${category.id}/${id}" aria-expanded="${open}"><span><strong>${esc(topic.title)}</strong><em>${esc(topic.summary)}</em></span><b aria-hidden="true">${open ? "&#8722;" : "+"}</b></button><div class="mcx-subtopic-content"${open ? "" : " hidden"}>${topic.note ? `<p class="mcx-topic-note">${esc(topic.note)}</p>` : ""}<ul>${topic.points.map((point) => `<li>${esc(point)}</li>`).join("")}</ul></div></article>`; }).join("")}</div>${category.id === "inquiry-form" ? formMarkup() : ""}${actionMarkup(page, category)}`; detail.focus({ preventScroll: true }); const form = detail.querySelector("[data-mcx-contact-form]"); if (form) form.addEventListener("submit", submitForm); return true; }
   function submitForm(event) { event.preventDefault(); const form = event.currentTarget; if (!form.reportValidity()) return; const data = new FormData(form); const subject = encodeURIComponent(`MI CORTEX X Project Inquiry - ${data.get("projectType") || "Custom Project"}`); const body = encodeURIComponent([`Full Name: ${data.get("fullName") || ""}`, `Email: ${data.get("email") || ""}`, `Phone: ${data.get("phone") || "Not provided"}`, `Country: ${data.get("country") || ""}`, `Company: ${data.get("company") || "Not provided"}`, `Project Type: ${data.get("projectType") || ""}`, `Estimated Budget: ${data.get("budget") || "Not provided"}`, `Preferred Deadline: ${data.get("deadline") || "Not provided"}`, "", "Project Description:", data.get("description") || ""].join("\n")); location.href = `mailto:${company.email}?subject=${subject}&body=${body}`; }
@@ -9722,6 +9835,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function sendOrderRequest(mode) { if (!state.modalItem) return; const overlay = document.querySelector(".mcx-modal-overlay"); if (!overlay) return; const fields = overlay.querySelectorAll("input, textarea"); const data = {}; fields.forEach((field) => { if (field.name) data[field.name] = field.value; }); const reference = state.modalReference || getReferenceNumber(); const item = state.modalItem; const body = [`Reference: ${reference}`, `Customer Name: ${data.customerName || "Not provided"}`, `Selected Item: ${item.name}`, `Type: ${item.type === "service" ? "Service" : "Product"}`, "Display Currency: USD estimate with fixed LKR reference", `Estimated Price: ${formatPriceForModal(item)}`, `Requirements: ${data.requiredFeatures || "Not specified"}`, `Project Description: ${data.projectDescription || "No project description provided."}`, `Preferred Delivery Date: ${data.deliveryDate || "Not provided"}`].join("\n"); if (mode === "whatsapp") { window.open(`https://wa.me/${company.whatsapp}?text=${encodeURIComponent(body)}`, "_blank", "noopener,noreferrer"); } else { window.location.href = `mailto:${company.salesEmail}?subject=${encodeURIComponent(`Quotation Request - ${item.name}`)}&body=${encodeURIComponent(body)}`; } const note = document.createElement("p"); note.className = "mcx-request-status"; note.textContent = mode === "whatsapp" ? "Quotation request prepared for WhatsApp follow-up." : "Quotation request prepared for email follow-up."; overlay.querySelector(".mcx-card-actions").insertAdjacentElement("afterend", note); }
   function route(scroll = true) { const { page, category, subtopic } = hashState(); document.querySelectorAll("[data-mcx-page]").forEach((section) => { const active = section.dataset.mcxPage === page; section.classList.toggle("active", active); section.hidden = !active; }); document.querySelectorAll("[data-mcx-page-link]").forEach((link) => link.classList.toggle("active", link.dataset.mcxPageLink === page)); const index = document.querySelector(`[data-mcx-category-index="${page}"]`); const detail = document.querySelector(`[data-mcx-category-detail="${page}"]`); if (["products", "services", "pricing", "premium"].includes(page)) { if (category) { const item = getCatalogueItem(page, category); if (item) { renderCatalogueDetail(page, item); } else { if (index) index.hidden = false; if (detail) { detail.hidden = false; detail.innerHTML = `<div class="mcx-not-found"><h2>Not Found</h2><p>The requested catalogue item is not available yet. Please return to the main catalogue and choose another item.</p><button type="button" class="mcx-action" data-mcx-route="${page}">BACK TO CATALOGUE</button></div>`; } } } else { renderCatalogueIndex(page); } } else if (category && renderCategory(page, category, subtopic)) { } else { if (index) index.hidden = false; if (detail) { detail.hidden = true; detail.innerHTML = ""; } renderIndex(page); } if (scroll) { const activePage = document.querySelector(`[data-mcx-page="${page}"]`); const scrollTarget = detail && !detail.hidden ? detail : activePage; if (scrollTarget) { const fixedNavigation = document.querySelector(".site-header") || document.querySelector("header") || document.querySelector("nav"); let navigationOffset = 22; if (fixedNavigation) { const navigationStyle = window.getComputedStyle(fixedNavigation); if (navigationStyle.position === "fixed" || navigationStyle.position === "sticky") navigationOffset = fixedNavigation.getBoundingClientRect().height + 22; } const targetTop = scrollTarget.getBoundingClientRect().top + window.scrollY - navigationOffset; window.scrollTo({ top: Math.max(0, targetTop), left: 0, behavior: "smooth" }); } } }
   function init() {
+    ensurePremiumPageHost();
     /* MCX_LIVE_DUAL_PRICE_INIT */
     state.currency = "USD";
     loadExchangeRate(false).catch((error) => { console.warn("Exchange-rate update skipped.", error); });
