@@ -867,3 +867,200 @@
   }
 })();
 /* MCX_CORRECT_BANNER_WIDGET_HIDE_END */
+
+
+/* MCX_BANNER_ONLY_FLOATING_HIDE_START */
+(function () {
+  "use strict";
+
+  let scheduled = false;
+  let retryCount = 0;
+
+  function findLauncher() {
+    return document.querySelector(
+      "[data-mcx-contact-toggle]," +
+      "#mcx-contact-launcher," +
+      "#mcx-contact-fab," +
+      ".mcx-contact-launcher," +
+      ".mcx-contact-fab," +
+      ".mcx-contact-button," +
+      ".mcx-widget-launcher," +
+      ".mcx-exact-icon-launcher"
+    );
+  }
+
+  function findWidget(launcher) {
+    if (!launcher) {
+      return null;
+    }
+
+    return (
+      launcher.closest(
+        "[data-mcx-contact-widget]," +
+        "#mcx-contact-widget," +
+        ".mcx-contact-widget," +
+        ".mcx-contact-hub," +
+        ".mcx-widget"
+      ) || launcher
+    );
+  }
+
+  function elementIsVisible(element) {
+    if (!element) {
+      return false;
+    }
+
+    const style = window.getComputedStyle(element);
+    const rect = element.getBoundingClientRect();
+
+    return (
+      style.display !== "none" &&
+      style.visibility !== "hidden" &&
+      Number.parseFloat(style.opacity || "1") > 0 &&
+      rect.width > 100 &&
+      rect.height > 30 &&
+      rect.bottom > 0 &&
+      rect.top < window.innerHeight
+    );
+  }
+
+  function hasVisibleMainNavigation() {
+    const candidates = Array.from(
+      document.querySelectorAll(
+        "nav," +
+        "header," +
+        ".site-header," +
+        ".main-navigation," +
+        ".mi-fixed-glass-nav," +
+        "[data-main-navigation]"
+      )
+    );
+
+    return candidates.some((element) => {
+      if (!elementIsVisible(element)) {
+        return false;
+      }
+
+      const text = (element.textContent || "")
+        .replace(/\s+/g, " ")
+        .trim()
+        .toUpperCase();
+
+      return (
+        text.includes("HOME") &&
+        text.includes("ABOUT") &&
+        text.includes("PRODUCTS") &&
+        text.includes("SERVICES")
+      );
+    });
+  }
+
+  function updateFloatingButton() {
+    scheduled = false;
+
+    const launcher = findLauncher();
+    const widget = findWidget(launcher);
+
+    if (!launcher || !widget) {
+      retryCount += 1;
+
+      if (retryCount <= 40) {
+        window.setTimeout(updateFloatingButton, 200);
+      }
+
+      return;
+    }
+
+    retryCount = 0;
+
+    /*
+     * Opening banner:
+     * Main navigation is not visible, so hide the floating button.
+     *
+     * HOME and every other website page:
+     * Main navigation is visible, so show the floating button.
+     */
+    const showFloatingButton = hasVisibleMainNavigation();
+
+    if (showFloatingButton) {
+      widget.hidden = false;
+      widget.removeAttribute("aria-hidden");
+      widget.style.removeProperty("display");
+      widget.style.removeProperty("visibility");
+      widget.style.removeProperty("opacity");
+      widget.style.removeProperty("pointer-events");
+
+      launcher.hidden = false;
+      launcher.removeAttribute("aria-hidden");
+      launcher.style.removeProperty("display");
+      launcher.style.removeProperty("visibility");
+      launcher.style.removeProperty("opacity");
+      launcher.style.removeProperty("pointer-events");
+    } else {
+      widget.hidden = true;
+      widget.setAttribute("aria-hidden", "true");
+      widget.style.setProperty("display", "none", "important");
+      widget.style.setProperty("visibility", "hidden", "important");
+      widget.style.setProperty("opacity", "0", "important");
+      widget.style.setProperty("pointer-events", "none", "important");
+
+      launcher.hidden = true;
+      launcher.setAttribute("aria-hidden", "true");
+      launcher.style.setProperty("display", "none", "important");
+      launcher.style.setProperty("visibility", "hidden", "important");
+      launcher.style.setProperty("opacity", "0", "important");
+      launcher.style.setProperty("pointer-events", "none", "important");
+    }
+  }
+
+  function scheduleUpdate() {
+    if (scheduled) {
+      return;
+    }
+
+    scheduled = true;
+
+    window.requestAnimationFrame(updateFloatingButton);
+  }
+
+  window.addEventListener(
+    "scroll",
+    scheduleUpdate,
+    { passive: true }
+  );
+
+  window.addEventListener(
+    "resize",
+    scheduleUpdate,
+    { passive: true }
+  );
+
+  window.addEventListener(
+    "hashchange",
+    scheduleUpdate
+  );
+
+  window.addEventListener(
+    "popstate",
+    scheduleUpdate
+  );
+
+  function start() {
+    updateFloatingButton();
+
+    [100, 300, 700, 1200, 2000, 3500].forEach((delay) => {
+      window.setTimeout(updateFloatingButton, delay);
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      start,
+      { once: true }
+    );
+  } else {
+    start();
+  }
+})();
+/* MCX_BANNER_ONLY_FLOATING_HIDE_END */
