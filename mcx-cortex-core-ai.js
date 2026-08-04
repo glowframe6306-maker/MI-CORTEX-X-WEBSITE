@@ -1285,6 +1285,8 @@
     const input = document.createElement("input");
     input.type = "file";
     input.hidden = true;
+    input.tabIndex = -1;
+    input.setAttribute("aria-hidden", "true");
     input.multiple = true;
     input.accept =
       "image/png,image/jpeg,image/webp,application/pdf,text/plain,text/markdown,text/csv,application/json,text/html,text/css,text/javascript,.js,.py,.java,.xml,.yaml,.yml";
@@ -1297,10 +1299,21 @@
     attach.title = "Attach files or images";
     attach.textContent = "ðŸ“Ž";
 
-    form.insertBefore(attach, input);
+    const messageInput = form.querySelector("textarea");
+
+    if (messageInput) {
+      form.insertBefore(attach, messageInput);
+    } else {
+      form.prepend(attach);
+    }
+
     form.append(input);
 
-    attach.addEventListener("click", () => input.click());
+    attach.addEventListener("click", event => {
+      event.preventDefault();
+      event.stopPropagation();
+      input.click();
+    });
     input.addEventListener("change", async () => {
       await addFiles(input.files || []);
       input.value = "";
@@ -1661,6 +1674,9 @@
     }
   });
   input.addEventListener("input",()=>{input.style.height="auto";input.style.height=`${Math.min(input.scrollHeight,130)}px`;localStorage.setItem(KEYS.draft,input.value);});
+
+  root.dataset.mcxAiRuntimeReady = "true";
+  root.classList.add("mcx-ai-runtime-ready");
 
   document.addEventListener("keydown",event=>{
     if(event.ctrlKey&&event.key==="/"){event.preventDefault();openChat();}
