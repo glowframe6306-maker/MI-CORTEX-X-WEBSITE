@@ -1,0 +1,38 @@
+/* MCX V20 - Navigation shake-only stabilization */
+
+.site-header {
+  transform: none !important;
+  translate: none !important;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+}
+
+html.mcx-v19-front-page .site-header {
+  transform: none !important;
+}
+
+html.mcx-v19-inner-page .site-header {
+  transform: none !important;
+}
+
+.site-header .nav {
+  transform: none !important;
+  translate: none !important;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+}
+
+.site-header .nav::before,
+.site-header .nav::after {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+  translate: none !important;
+}
+
+.site-header,
+.site-header .nav,
+.site-header .nav::before,
+.site-header .nav::after {
+  will-change: auto !important;
+}

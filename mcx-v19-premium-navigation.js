@@ -1,65 +1,49 @@
 (function () {
   "use strict";
 
-  if (window.__MCX_V19_NAVIGATION_VISIBILITY_FIX__) {
+  if (window.__MCX_V20_NAV_SHAKE_FIX__) {
     return;
   }
 
-  window.__MCX_V19_NAVIGATION_VISIBILITY_FIX__ = true;
+  window.__MCX_V20_NAV_SHAKE_FIX__ = true;
 
-  function isElementVisible(element) {
-    if (!element) {
+  var framePending = false;
+  var lastFrontVisible = null;
+  var lastPageName = "";
+
+  function getFrontPage() {
+    return document.getElementById("mi-front-page");
+  }
+
+  function isFrontPageVisible() {
+    var frontPage = getFrontPage();
+
+    if (!frontPage) {
       return false;
     }
 
-    if (
-      element.hidden ||
-      element.getAttribute("aria-hidden") === "true"
-    ) {
-      return false;
-    }
-
-    const style = window.getComputedStyle(element);
+    var style = window.getComputedStyle(frontPage);
 
     if (
+      frontPage.hidden ||
+      frontPage.getAttribute("aria-hidden") === "true" ||
       style.display === "none" ||
-      style.visibility === "hidden" ||
-      Number(style.opacity) === 0
+      style.visibility === "hidden"
     ) {
       return false;
     }
 
-    const rect = element.getBoundingClientRect();
+    var rect = frontPage.getBoundingClientRect();
 
-    return (
-      rect.width > 20 &&
-      rect.height > 20 &&
-      rect.bottom > 0 &&
-      rect.top < window.innerHeight
-    );
-  }
-
-  function getFrontPageElement() {
-    return (
-      document.getElementById("mi-front-page") ||
-      document.querySelector(
-        "[data-mcx-front-page]," +
-        ".mi-front-page," +
-        ".mcx-front-page," +
-        ".front-page-banner," +
-        ".front-banner"
-      )
-    );
-  }
-
-  function isActualFrontPageVisible() {
-    const frontPage = getFrontPageElement();
-
-    return isElementVisible(frontPage);
+    /*
+     * A small fixed threshold prevents visibility from rapidly switching
+     * at the exact edge of the front banner.
+     */
+    return rect.height > 20 && rect.bottom > 12;
   }
 
   function currentPageName() {
-    const hash = String(window.location.hash || "")
+    var hash = String(window.location.hash || "")
       .replace(/^#\/?/, "")
       .split("?")[0]
       .split("/")[0]
@@ -70,189 +54,159 @@
       return hash;
     }
 
-    const activeSection = document.querySelector(
-      '[data-page].active,' +
-      '[data-page]:not([hidden]),' +
-      '.page-section.active,' +
-      '.route-page.active'
-    );
-
-    if (activeSection) {
-      return String(
-        activeSection.dataset.page ||
-        activeSection.id ||
-        "home"
-      )
-        .replace(/^page-/, "")
-        .toLowerCase();
-    }
-
     return "home";
   }
 
-  function updateNavigationVisibility() {
-    const frontVisible = isActualFrontPageVisible();
-    const html = document.documentElement;
-    const header = document.querySelector(".site-header");
+  function applyNavigationState() {
+    framePending = false;
 
-    html.classList.toggle(
-      "mcx-v19-front-page",
-      frontVisible
-    );
+    var html = document.documentElement;
+    var header = document.querySelector(".site-header");
+    var frontVisible = isFrontPageVisible();
+    var pageName = currentPageName();
 
-    html.classList.toggle(
-      "mcx-v19-inner-page",
-      !frontVisible
-    );
+    /*
+     * Write classes only when the state really changed.
+     * This avoids continuous style recalculation and visual shaking.
+     */
+    if (frontVisible !== lastFrontVisible) {
+      lastFrontVisible = frontVisible;
 
-    if (header) {
-      header.hidden = false;
-      header.setAttribute(
-        "aria-hidden",
-        frontVisible ? "true" : "false"
+      html.classList.toggle(
+        "mcx-v19-front-page",
+        frontVisible
       );
+
+      html.classList.toggle(
+        "mcx-v19-inner-page",
+        !frontVisible
+      );
+
+      if (header) {
+        header.hidden = false;
+        header.setAttribute(
+          "aria-hidden",
+          frontVisible ? "true" : "false"
+        );
+      }
     }
 
-    const currentPage = currentPageName();
+    if (pageName !== lastPageName || lastPageName === "") {
+      lastPageName = pageName;
 
-    document
-      .querySelectorAll(
-        ".site-header .nav-links a[data-mcx-page-link]"
-      )
-      .forEach(function (link) {
-        const linkPage = String(
-          link.dataset.mcxPageLink || ""
+      document
+        .querySelectorAll(
+          ".site-header .nav-links a[data-mcx-page-link]"
         )
-          .trim()
-          .toLowerCase();
+        .forEach(function (link) {
+          var linkPage = String(
+            link.dataset.mcxPageLink || ""
+          )
+            .trim()
+            .toLowerCase();
 
-        const active =
-          !frontVisible &&
-          (
-            linkPage === currentPage ||
+          var active =
+            !frontVisible &&
             (
-              currentPage === "" &&
-              linkPage === "home"
-            )
-          );
+              linkPage === pageName ||
+              (pageName === "" && linkPage === "home")
+            );
 
-        link.classList.toggle(
-          "mcx-v19-active",
-          active
-        );
+          if (
+            link.classList.contains("mcx-v19-active") !== active
+          ) {
+            link.classList.toggle(
+              "mcx-v19-active",
+              active
+            );
+          }
 
-        if (active) {
-          link.setAttribute(
-            "aria-current",
-            "page"
-          );
-        } else {
-          link.removeAttribute(
-            "aria-current"
-          );
-        }
-      });
+          if (active) {
+            if (link.getAttribute("aria-current") !== "page") {
+              link.setAttribute("aria-current", "page");
+            }
+          } else if (link.hasAttribute("aria-current")) {
+            link.removeAttribute("aria-current");
+          }
+        });
+    }
   }
 
-  let updateTimer = null;
+  function scheduleNavigationUpdate() {
+    if (framePending) {
+      return;
+    }
 
-  function scheduleUpdate() {
-    window.clearTimeout(updateTimer);
-
-    updateTimer = window.setTimeout(
-      updateNavigationVisibility,
-      30
-    );
+    framePending = true;
+    window.requestAnimationFrame(applyNavigationState);
   }
 
   document.addEventListener(
     "click",
     function (event) {
-      const link = event.target.closest(
+      var link = event.target.closest(
         ".site-header .nav-links a"
       );
 
-      if (link) {
-        const links =
-          document.querySelector(
-            ".site-header .nav-links"
-          );
-
-        const toggle =
-          document.querySelector(
-            ".site-header .nav-toggle"
-          );
-
-        links?.classList.remove("open");
-
-        toggle?.setAttribute(
-          "aria-expanded",
-          "false"
-        );
-
-        window.setTimeout(scheduleUpdate, 0);
-        window.setTimeout(scheduleUpdate, 150);
-        window.setTimeout(scheduleUpdate, 500);
+      if (!link) {
+        return;
       }
+
+      var links = document.querySelector(
+        ".site-header .nav-links"
+      );
+
+      var toggle = document.querySelector(
+        ".site-header .nav-toggle"
+      );
+
+      if (links) {
+        links.classList.remove("open");
+      }
+
+      if (toggle) {
+        toggle.setAttribute("aria-expanded", "false");
+      }
+
+      scheduleNavigationUpdate();
     },
     true
   );
 
   window.addEventListener(
-    "hashchange",
-    scheduleUpdate
-  );
-
-  window.addEventListener(
-    "popstate",
-    scheduleUpdate
-  );
-
-  window.addEventListener(
-    "pageshow",
-    scheduleUpdate
-  );
-
-  window.addEventListener(
     "scroll",
-    scheduleUpdate,
+    scheduleNavigationUpdate,
     { passive: true }
   );
 
   window.addEventListener(
     "resize",
-    scheduleUpdate
+    scheduleNavigationUpdate,
+    { passive: true }
   );
 
-  const observer = new MutationObserver(
-    scheduleUpdate
+  window.addEventListener(
+    "hashchange",
+    scheduleNavigationUpdate
   );
 
-  observer.observe(
-    document.documentElement,
-    {
-      attributes: true,
-      childList: true,
-      subtree: true,
-      attributeFilter: [
-        "class",
-        "style",
-        "hidden",
-        "aria-hidden"
-      ]
-    }
+  window.addEventListener(
+    "popstate",
+    scheduleNavigationUpdate
+  );
+
+  window.addEventListener(
+    "pageshow",
+    scheduleNavigationUpdate
   );
 
   if (document.readyState === "loading") {
     document.addEventListener(
       "DOMContentLoaded",
-      scheduleUpdate,
+      scheduleNavigationUpdate,
       { once: true }
     );
   } else {
-    scheduleUpdate();
+    scheduleNavigationUpdate();
   }
-
-  window.setTimeout(scheduleUpdate, 200);
-  window.setTimeout(scheduleUpdate, 800);
 })();
