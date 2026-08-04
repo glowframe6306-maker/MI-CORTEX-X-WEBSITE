@@ -680,7 +680,7 @@
         </div>
         <div class="mcx-ai-messages" aria-live="polite"></div>
         <div class="mcx-ai-suggestions" hidden></div>
-        <form class="mcx-ai-composer">
+        <form class="mcx-ai-composer" action="javascript:void(0)" method="post">
           <textarea rows="1" maxlength="1800" placeholder="Ask in Sinhala, English or Singlish..." required></textarea>
           <button class="mcx-ai-send" type="submit" aria-label="Send">&#10148;</button>
         </form>
@@ -1468,3 +1468,134 @@
   applySettings();
 })();
 
+/* MCX_AI_MESSAGE_RELOAD_FIX_START */
+(() => {
+  "use strict";
+
+  if (window.__MCX_AI_MESSAGE_RELOAD_FIX__) {
+    return;
+  }
+
+  window.__MCX_AI_MESSAGE_RELOAD_FIX__ = true;
+
+  function getAIForm(target) {
+    if (!(target instanceof Element)) {
+      return null;
+    }
+
+    const form = target.closest(
+      "#mcx-ai-chat-root form.mcx-ai-composer"
+    );
+
+    return form instanceof HTMLFormElement ? form : null;
+  }
+
+  /*
+   * Capture every AI form submission before the browser can navigate
+   * to /? or reload the website. Existing CORTEX CORE AI submit
+   * listeners still receive the event and produce the AI reply.
+   */
+  document.addEventListener(
+    "submit",
+    event => {
+      const form = getAIForm(event.target);
+
+      if (!form) {
+        return;
+      }
+
+      event.preventDefault();
+
+      form.setAttribute("action", "javascript:void(0)");
+      form.setAttribute("method", "post");
+    },
+    true
+  );
+
+  /*
+   * Stop the send button's native HTML form navigation, then create
+   * one controlled submit event. The existing AI handler processes it.
+   */
+  document.addEventListener(
+    "click",
+    event => {
+      const button = event.target.closest(
+        "#mcx-ai-chat-root .mcx-ai-send"
+      );
+
+      if (!button) {
+        return;
+      }
+
+      const form = button.closest("form.mcx-ai-composer");
+
+      if (!form) {
+        return;
+      }
+
+      event.preventDefault();
+
+      const submitEvent =
+        typeof SubmitEvent === "function"
+          ? new SubmitEvent("submit", {
+              bubbles: true,
+              cancelable: true,
+              submitter: button
+            })
+          : new Event("submit", {
+              bubbles: true,
+              cancelable: true
+            });
+
+      form.dispatchEvent(submitEvent);
+    },
+    true
+  );
+
+  /*
+   * Enter sends the message. Shift + Enter creates a new line.
+   * Native browser submission is never allowed.
+   */
+  document.addEventListener(
+    "keydown",
+    event => {
+      const textarea = event.target.closest(
+        "#mcx-ai-chat-root .mcx-ai-composer textarea"
+      );
+
+      if (
+        !textarea ||
+        event.key !== "Enter" ||
+        event.shiftKey ||
+        event.isComposing
+      ) {
+        return;
+      }
+
+      event.preventDefault();
+
+      const form = textarea.closest("form.mcx-ai-composer");
+      const button = form?.querySelector(".mcx-ai-send");
+
+      if (!form) {
+        return;
+      }
+
+      const submitEvent =
+        typeof SubmitEvent === "function"
+          ? new SubmitEvent("submit", {
+              bubbles: true,
+              cancelable: true,
+              submitter: button || undefined
+            })
+          : new Event("submit", {
+              bubbles: true,
+              cancelable: true
+            });
+
+      form.dispatchEvent(submitEvent);
+    },
+    true
+  );
+})();
+/* MCX_AI_MESSAGE_RELOAD_FIX_END */
