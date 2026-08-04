@@ -1,0 +1,46 @@
+CORTEX CORE AI V9 — SMART UNDERSTANDING
+
+1. Intent confidence scoring
+2. Second-best intent comparison
+3. Ambiguity detection
+4. Clarification instead of guessing
+5. Singlish normalization
+6. Common spelling correction
+7. Punctuation-free question support
+8. Token similarity matching
+9. Phrase similarity matching
+10. CEO variations
+11. Owner variations
+12. Chairman variations
+13. Founder variations
+14. Company-name questions
+15. AI-name questions
+16. Company-about questions
+17. Founded-date questions
+18. Location questions
+19. Contact questions
+20. Business-hour questions
+21. Appointment questions
+22. Product-list questions
+23. Service-list questions
+24. Price questions
+25. Quotation questions
+26. Recommendation questions
+27. Support questions
+28. Payment questions
+29. Website intent
+30. Web-application intent
+31. Mobile-app intent
+32. AI-chatbot intent
+33. AI-automation intent
+34. Custom-software intent
+35. Role-aware appointment actions
+36. Clarification suggestions
+37. Safer unknown-question handling
+38. Professional UI refinement
+
+IMPORTANT:
+This patch substantially improves deterministic company-question understanding.
+No fixed keyword system can guarantee 100% or 200% understanding.
+When confidence is low, the assistant asks for clarification rather than inventing an answer.
+A secure backend AI model is required for unrestricted natural-language reasoning.

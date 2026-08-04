@@ -208,7 +208,269 @@
     ];
   }
 
+
+  /* MCX_V9_SMART_INTENT_ENGINE_START */
+
+  const v9Intents = {
+    ai_name: ["your name","who are you","assistant name","oyage nama","obe nama","ai eke nama","ඔයාගේ නම","ඔබ කවුද"],
+    company_name: ["company name","company eke nama","meke nama","සමාගමේ නම"],
+    ceo: ["ceo","chief executive officer","chief executive","company boss","company eka lead karanne","ප්‍රධාන විධායක"],
+    owner: ["owner","company owner","who owns","අයිතිකරු","හිමිකරු"],
+    chairman: ["chairman","chair person","සභාපති"],
+    founder: ["founder","who started company","created company","නිර්මාතෘ","ආරම්භකයා"],
+    about: ["about company","company eka gana","what does company do","oya sell karanne monawada","mi cortex x mokakda","සමාගම ගැන"],
+    founded: ["when founded","when started","patan gaththe kawadda","පටන් ගත්තේ කවදාද"],
+    location: ["where located","office location","company eka koheda","address","location","කොහෙද","ලිපිනය"],
+    contact: ["contact","whatsapp","telegram","email","phone number","number eka","message karanna","සම්බන්ධ","අමතන්න"],
+    hours: ["business hours","opening hours","sunday open","open da","closed da","වැඩ කරන වෙලාව","ඇරලාද","වහලාද"],
+    appointment: ["appointment","book meeting","meet ceo","meet owner","appointment danna","meeting ekak","හමුවීම","වෙන්කරන්න"],
+    products: ["products","product list","what products","product pennanna","products monawada","නිෂ්පාදන"],
+    services: ["services","service list","what services","services monawada","oya karanne monawada","සේවා"],
+    price: ["price","cost","fee","how much","mila","keeyada","kiyada","ganan","මිල","කීයද","ගාණ"],
+    quote: ["quote","quotation","estimate","quotation ekak","මිල ගණන්"],
+    recommend: ["recommend","suggest","best for me","suitable","mage business ekata","mata monawada honda","සුදුසු"],
+    support: ["support","customer service","help","problem","issue","bug","udaw","sahaya","උදව්","සහාය"],
+    payment: ["payment","advance","refund","card payment","ගෙවීම","අත්තිකාරම්"],
+    website: ["website","web site","business website","web ekak","website ekak","වෙබ් අඩවිය"],
+    web_app: ["web app","web application","dashboard system","online system"],
+    mobile_app: ["mobile app","android app","ios app","phone app","app ekak"],
+    chatbot: ["ai chatbot","chatbot","chat bot","customer service bot","bot ekak"],
+    automation: ["ai automation","workflow automation","manual work automate","auto system"],
+    custom_software: ["custom software","software ekak","custom system","business software"]
+  };
+
+  function v9Canon(value) {
+    let text = normalize(value)
+      .replace(/\bcheif\b/g,"chief")
+      .replace(/\bexcutive\b/g,"executive")
+      .replace(/\bexcecutive\b/g,"executive")
+      .replace(/\bappoinment\b/g,"appointment")
+      .replace(/\bapointment\b/g,"appointment")
+      .replace(/\bchairmen\b/g,"chairman")
+      .replace(/\bwhatsap+\b/g,"whatsapp")
+      .replace(/\bwatsapp\b/g,"whatsapp")
+      .replace(/\btelegarm\b/g,"telegram")
+      .replace(/\bservise\b/g,"service")
+      .replace(/\bserivce\b/g,"service")
+      .replace(/\bprodact\b/g,"product")
+      .replace(/\bprduct\b/g,"product")
+      .replace(/\bchat bot\b/g,"chatbot");
+
+    const map = {
+      kawda:"who", kauda:"who", kawuda:"who",
+      mokakda:"what", mokadda:"what", mokada:"what",
+      keeyada:"price", kiyada:"price", kiyakda:"price",
+      koheda:"where", kohomada:"how", kawadda:"when",
+      denna:"give", pennanna:"show", penwanna:"show",
+      one:"need", oni:"need", hadanna:"build", danna:"book",
+      daanna:"book", mila:"price", gana:"about",
+      oyage:"your", obe:"your", mata:"need", mage:"my"
+    };
+
+    Object.entries(map).forEach(([from,to]) => {
+      text = text.replace(new RegExp(`\\b${from}\\b`,"g"),to);
+    });
+
+    return text.replace(/\s+/g," ").trim();
+  }
+
+  function v9Similarity(a,b) {
+    a = v9Canon(a);
+    b = v9Canon(b);
+    if (!a || !b) return 0;
+    if (a === b) return 1;
+    if (a.includes(b)) return Math.min(1, 0.84 + b.length / 160);
+
+    const aw = a.split(" ").filter(Boolean);
+    const bw = b.split(" ").filter(Boolean);
+    let score = 0;
+
+    for (const target of bw) {
+      let best = 0;
+      for (const input of aw) {
+        if (input === target) best = Math.max(best,1);
+        else if (input.includes(target) || target.includes(input)) best = Math.max(best,.86);
+        else {
+          const distance = levenshtein(input,target);
+          const longest = Math.max(input.length,target.length);
+          if (longest >= 5) best = Math.max(best,1 - distance / longest);
+        }
+      }
+      score += Math.max(0,best);
+    }
+
+    return bw.length ? score / bw.length : 0;
+  }
+
+  function v9Classify(raw) {
+    const results = Object.entries(v9Intents).map(([intent,examples]) => ({
+      intent,
+      score: Math.max(...examples.map(example => v9Similarity(raw,example)))
+    })).sort((a,b) => b.score - a.score);
+
+    const first = results[0] || {intent:"unknown",score:0};
+    const second = results[1] || {intent:"unknown",score:0};
+
+    return {
+      intent:first.intent,
+      confidence:first.score,
+      second:second.intent,
+      margin:first.score-second.score,
+      ambiguous:first.score < .47 || (first.score < .74 && first.score-second.score < .08)
+    };
+  }
+
+  function v9Role(raw) {
+    const q = v9Canon(raw);
+    if (/\bceo\b/.test(q) || v9Similarity(q,"chief executive officer") > .68) return "Chief Executive Officer (CEO)";
+    if (v9Similarity(q,"owner") > .72) return "Owner";
+    if (v9Similarity(q,"chairman") > .72) return "Chairman";
+    if (v9Similarity(q,"founder") > .72) return "Founder";
+    return "";
+  }
+
+  function v9Clarify(classification) {
+    const options = {
+      price:["PRODUCT PRICE","SERVICE PRICE","CUSTOM QUOTATION"],
+      contact:["WHATSAPP","TELEGRAM","EMAIL"],
+      support:["TECHNICAL SUPPORT","BILLING QUESTION","FEATURE REQUEST"],
+      recommend:["WEBSITE","MOBILE APP","AI CHATBOT","CUSTOM SOFTWARE"],
+      appointment:["OWNER","CHAIRMAN","CEO","FOUNDER"]
+    }[classification.intent] || ["PRODUCTS","SERVICES","PRICING","SUPPORT"];
+
+    return reply(
+      "I want to make sure I understood correctly. Please choose the option that best matches your request.",
+      [],
+      options
+    );
+  }
+
+  function v9Answer(raw) {
+    const result = v9Classify(raw);
+    const lang = detectLanguage(raw);
+    const role = v9Role(raw);
+
+    if (result.ambiguous) return v9Clarify(result);
+
+    switch(result.intent) {
+      case "ai_name":
+        return reply(lang==="si"
+          ? "මගේ නම CORTEX CORE AI. මම MI CORTEX X සමාගමේ automated AI assistant එකයි."
+          : "My name is CORTEX CORE AI. I am the automated AI assistant of MI CORTEX X.",
+          [action("ABOUT COMPANY","route","#/about"),action("SUPPORT","hub","support")]);
+
+      case "company_name":
+        return reply(lang==="si" ? "සමාගමේ නම MI CORTEX X INC." : "The company name is MI CORTEX X INC.",
+          [action("ABOUT COMPANY","route","#/about")]);
+
+      case "ceo":
+        return reply(`The Chief Executive Officer (CEO) of MI CORTEX X INC. is ${company.ceo}.`,
+          [action("BOOK CEO APPOINTMENT","appointment","Chief Executive Officer (CEO)"),action("EXECUTIVE BOARD","route","#/about/executive-board")]);
+
+      case "owner":
+        return reply(`The Owner of MI CORTEX X INC. is ${company.owner}.`,
+          [action("BOOK OWNER APPOINTMENT","appointment","Owner"),action("EXECUTIVE BOARD","route","#/about/executive-board")]);
+
+      case "chairman":
+        return reply(`The Chairman of MI CORTEX X INC. is ${company.chairman}.`,
+          [action("BOOK CHAIRMAN APPOINTMENT","appointment","Chairman"),action("EXECUTIVE BOARD","route","#/about/executive-board")]);
+
+      case "founder":
+        return reply(`The Founder of MI CORTEX X INC. is ${company.founder}. The company was founded in ${company.founded}.`,
+          [action("BOOK FOUNDER APPOINTMENT","appointment","Founder"),action("EXECUTIVE BOARD","route","#/about/executive-board")]);
+
+      case "about":
+        return reply(`MI CORTEX X is a Sri Lankan artificial intelligence and software technology company founded in ${company.founded}. It develops intelligent digital products and custom technology solutions worldwide.`,
+          [action("ABOUT COMPANY","route","#/about"),action("PRODUCTS","route","#/products"),action("SERVICES","route","#/services")]);
+
+      case "founded":
+        return reply(`MI CORTEX X was founded in ${company.founded}.`,[action("ABOUT COMPANY","route","#/about")]);
+
+      case "location":
+        return reply(`MI CORTEX X operates online from ${company.city}, ${company.country}. There is no public walk-in office.`,
+          [action("CONTACT PAGE","route","#/contact")]);
+
+      case "contact":
+        return reply(`MI CORTEX X Contact Information\n• Primary email: ${company.primaryEmail}\n• Support: ${company.supportEmail}\n• Sales: ${company.salesEmail}\n• WhatsApp: ${company.whatsappDisplay}\n• Telegram: ${company.telegram}\n• Website: ${company.website}`,
+          contactActions());
+
+      case "hours":
+        return reply(`Business hours: ${company.hours}`,[action("CONTACT SUPPORT","hub","support")]);
+
+      case "appointment":
+        return reply(role
+          ? `You can prepare an appointment request for the ${role}.`
+          : "Choose an Executive Board member and complete the appointment form.",
+          appointmentActions(role));
+
+      case "products":
+        return reply(products.map(p=>`• ${p.name} — ${p.status} — ${p.priceText}`).join("\n"),
+          [action("VIEW PRODUCTS","route","#/products"),action("PRODUCT INFORMATION","hub","products")]);
+
+      case "services":
+        return reply(services.map(s=>`• ${s.name} — Starting from ${currency(s.price)}${s.billing?` ${s.billing}`:""}`).join("\n"),
+          [action("VIEW SERVICES","route","#/services"),action("PRICING","route","#/pricing"),action("GET RECOMMENDATION","recommend")]);
+
+      case "quote":
+        return reply("I can collect your requirements step by step and prepare a quotation-request summary.",
+          [action("START QUOTATION","quote"),action("PRICING","route","#/pricing")]);
+
+      case "recommend":
+        return reply("I can recommend a suitable service after learning your goal, preferred platform, budget, and deadline.",
+          [action("START RECOMMENDATION","recommend")]);
+
+      case "support":
+        return reply(`Support is available through Email, WhatsApp, Telegram, and the website contact form. Normal response time: ${company.responseTime}.`,
+          [action("INFORMATION CENTER","hub","support"),...contactActions()]);
+
+      case "payment":
+        return reply(`Project payment information:\n• Advance: ${company.advance}\n• Remaining payment: Before final delivery\n• Online card payments: Not activated yet\n• Full refund: Before project commencement\n• Completed work and delivered milestones are non-refundable after development begins.`,
+          [action("REQUEST QUOTE","quote"),action("CONTACT SALES","url",`mailto:${company.salesEmail}`)]);
+
+      case "website":
+        return reply("Website Development starts from LKR 15,000. Estimated delivery is usually 3–14 days, with 30 days of support. Final price depends on pages, design, features, and integrations.",
+          [action("VIEW WEBSITE DEVELOPMENT","route","#/services/website-development"),action("GET QUOTE","quote","Website Development"),action("BOOK CONSULTATION","appointment")]);
+
+      case "web_app":
+        return reply("Web Application Development starts from LKR 50,000. It can include secure login, dashboards, databases, and custom workflows.",
+          [action("VIEW WEB APPLICATION","route","#/services/web-application-development"),action("GET QUOTE","quote","Web Application Development")]);
+
+      case "mobile_app":
+        return reply("Mobile App Development starts from LKR 85,000. Estimated delivery is normally 14–45 days, depending on platforms and features.",
+          [action("VIEW MOBILE APP","route","#/services/mobile-app-development"),action("GET QUOTE","quote","Mobile App Development")]);
+
+      case "chatbot":
+        return reply("AI Chatbot Development starts from LKR 45,000. Estimated delivery is usually 5–14 days, with 30 days of support.",
+          [action("VIEW AI CHATBOT","route","#/services/ai-chatbot-development"),action("GET QUOTE","quote","AI Chatbot Development"),action("BOOK CONSULTATION","appointment")]);
+
+      case "automation":
+        return reply("AI Automation starts from LKR 65,000. It can reduce repetitive manual work and connect business workflows.",
+          [action("VIEW AI AUTOMATION","route","#/services/ai-automation"),action("GET QUOTE","quote","AI Automation")]);
+
+      case "custom_software":
+        return reply("Custom Software Development starts from LKR 100,000. Final cost depends on users, modules, integrations, security, and platforms.",
+          [action("VIEW CUSTOM SOFTWARE","route","#/services/custom-software-development"),action("GET QUOTE","quote","Custom Software Development")]);
+
+      case "price":
+        return reply("Please specify the exact product or service so I can provide the correct starting price.",
+          [action("VIEW PRICING","route","#/pricing"),action("CUSTOM QUOTE","quote")],
+          ["AI chatbot eke mila keeyada?","Website ekak hadanna keeyada?","Mobile app eke mila keeyada?"]);
+
+      default:
+        return null;
+    }
+  }
+
+  /* MCX_V9_SMART_INTENT_ENGINE_END */
+
+
   function answer(raw) {
+    const smartAnswer = v9Answer(raw);
+
+    if (smartAnswer) {
+      return smartAnswer;
+    }
+
     const q=interpret(raw),lang=detectLanguage(raw);
     const product=findEntity(raw,products),service=findEntity(raw,services);
     const isPrice=asks(q,"price","cost","මිල","කීයද","quotation");

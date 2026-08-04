@@ -23,3 +23,27 @@ body.mcx-ai-open{overflow:hidden!important}
 @media(max-width:640px){.mcx-ai-overlay{padding:0}.mcx-ai-dialog{width:100%;height:100dvh;border-radius:0}.mcx-ai-bubble{max-width:93%}.mcx-ai-header{padding:12px}.mcx-ai-header-actions button{width:33px;height:33px}.mcx-ai-brand span:not(.mcx-ai-status-dot){display:none}}
 @media print{body>*:not(#mcx-ai-chat-root){display:none!important}.mcx-ai-overlay{position:static;background:#fff;padding:0}.mcx-ai-dialog{height:auto;box-shadow:none;border:0;background:#fff;color:#000}.mcx-ai-header-actions,.mcx-ai-toolbar,.mcx-ai-composer,.mcx-ai-suggestions,.mcx-ai-tools,.mcx-ai-message-actions{display:none!important}.mcx-ai-messages{overflow:visible}.mcx-ai-assistant .mcx-ai-bubble,.mcx-ai-user .mcx-ai-bubble{background:#fff;color:#000;border:1px solid #ccc}}
 @media(prefers-reduced-motion:reduce){.mcx-ai-messages{scroll-behavior:auto}.mcx-ai-typing span{animation:none}}
+
+
+/* CORTEX CORE AI V9 — premium interface refinement */
+.mcx-ai-dialog{
+  border-color:rgba(92,224,255,.68);
+  background:
+    radial-gradient(circle at 8% 0%,rgba(21,139,203,.19),transparent 36%),
+    radial-gradient(circle at 94% 100%,rgba(111,70,224,.23),transparent 38%),
+    linear-gradient(145deg,rgba(3,17,40,.997),rgba(25,17,76,.997));
+}
+.mcx-ai-header{background:linear-gradient(90deg,rgba(8,35,72,.92),rgba(34,20,91,.86))}
+.mcx-ai-brand strong{
+  background:linear-gradient(90deg,#fff,#84e7ff,#d4c8ff);
+  -webkit-background-clip:text;background-clip:text;color:transparent
+}
+.mcx-ai-toolbar button,.mcx-ai-message-actions button,.mcx-ai-suggestions button{
+  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease
+}
+.mcx-ai-toolbar button:hover,.mcx-ai-message-actions button:hover,.mcx-ai-suggestions button:hover{
+  transform:translateY(-1px);border-color:rgba(105,231,255,.8);
+  box-shadow:0 8px 20px rgba(31,164,218,.17)
+}
+.mcx-ai-bubble{box-shadow:0 10px 28px rgba(0,0,0,.14)}
+.mcx-ai-composer{box-shadow:0 -12px 36px rgba(0,0,0,.19)}
