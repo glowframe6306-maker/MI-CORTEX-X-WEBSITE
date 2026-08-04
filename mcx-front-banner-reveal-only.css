@@ -1,0 +1,49 @@
+/* MCX FRONT BANNER REVEAL ONLY */
+
+/*
+ * Keep the original front page ready underneath the welcome/neural overlay.
+ */
+#mi-front-page,
+.mi-front-page {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/*
+ * Fix only the banner image layer.
+ * The previous negative z-index placed it behind the section background.
+ */
+#mi-front-page .mi-front-page-banner,
+.mi-front-page .mi-front-page-banner {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: cover !important;
+  object-position: center center !important;
+
+  pointer-events: none !important;
+}
+
+/* Keep the existing shade above the banner image. */
+#mi-front-page .mi-front-page-shade,
+.mi-front-page .mi-front-page-shade {
+  z-index: 1 !important;
+}
+
+/*
+ * The welcome/neural animation remains above the front banner.
+ * When it lifts, the banner underneath is revealed immediately.
+ */
+#mi-neural-intro,
+.mi-neural-intro {
+  z-index: 2147483000 !important;
+}
