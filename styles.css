@@ -5016,3 +5016,37 @@ body.mcx-modal-open {
 /* ===== END MI CORTEX X FLOATING LOGO SIZE ===== */
 
 
+/* MI_HIDE_FRONT_PAGE_DURING_WELCOME_START */
+
+/*
+The front-page image remains unchanged.
+It is hidden only while the welcome intro is active.
+*/
+
+html:not(.welcome-complete):not(.intro-complete):not(.mi-page-ready) #mi-front-page,
+html:not(.welcome-complete):not(.intro-complete):not(.mi-page-ready) .mi-front-page,
+body:not(.welcome-complete):not(.intro-complete):not(.mi-page-ready) #mi-front-page,
+body:not(.welcome-complete):not(.intro-complete):not(.mi-page-ready) .mi-front-page {
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+html.welcome-complete #mi-front-page,
+html.welcome-complete .mi-front-page,
+html.intro-complete #mi-front-page,
+html.intro-complete .mi-front-page,
+html.mi-page-ready #mi-front-page,
+html.mi-page-ready .mi-front-page,
+body.welcome-complete #mi-front-page,
+body.welcome-complete .mi-front-page,
+body.intro-complete #mi-front-page,
+body.intro-complete .mi-front-page,
+body.mi-page-ready #mi-front-page,
+body.mi-page-ready .mi-front-page {
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+/* MI_HIDE_FRONT_PAGE_DURING_WELCOME_END */
