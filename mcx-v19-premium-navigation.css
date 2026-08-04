@@ -1,4 +1,4 @@
-/* MI CORTEX X V19 - Premium navigation matching the requested design */
+﻿/* MI CORTEX X V19 - Premium navigation matching the requested design */
 
 html.mcx-v19-front-page .site-header {
   opacity: 0 !important;
@@ -439,13 +439,13 @@ html.mcx-v19-front-page body {
     ) !important;
 
   backdrop-filter:
-    blur(22px)
+    blur(44px)
     saturate(180%)
     brightness(108%)
     contrast(106%) !important;
 
   -webkit-backdrop-filter:
-    blur(22px)
+    blur(44px)
     saturate(180%)
     brightness(108%)
     contrast(106%) !important;
@@ -510,12 +510,12 @@ html.mcx-v19-front-page body {
 @media (max-width: 900px) {
   .site-header .nav {
     backdrop-filter:
-      blur(19px)
+      blur(38px)
       saturate(170%)
       brightness(106%) !important;
 
     -webkit-backdrop-filter:
-      blur(19px)
+      blur(38px)
       saturate(170%)
       brightness(106%) !important;
   }
