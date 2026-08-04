@@ -118,3 +118,55 @@ body.mcx-ai-open{overflow:hidden!important}
   .mcx-ai-composer{grid-template-columns:auto 1fr auto}
   .mcx-v11-attach,.mcx-ai-send{width:43px;height:43px}
 }
+
+
+/* CORTEX CORE AI V12 — direct-open fade-in animation */
+.mcx-ai-overlay:not([hidden]) {
+  animation: mcxAiOverlayFadeIn .28s ease both;
+}
+
+.mcx-ai-overlay:not([hidden]) .mcx-ai-dialog {
+  animation: mcxAiDialogFadeIn .42s cubic-bezier(.2,.8,.2,1) both;
+  transform-origin: center;
+}
+
+.mcx-ai-message {
+  animation: mcxAiMessageFadeIn .28s ease both;
+}
+
+@keyframes mcxAiOverlayFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes mcxAiDialogFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(.965);
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes mcxAiMessageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mcx-ai-overlay:not([hidden]),
+  .mcx-ai-overlay:not([hidden]) .mcx-ai-dialog,
+  .mcx-ai-message {
+    animation: none !important;
+  }
+}

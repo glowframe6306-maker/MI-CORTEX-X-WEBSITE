@@ -85,7 +85,7 @@
           <h2 id="mcx-hub-title">How may we assist you?</h2>
           <p class="mcx-hub-subtitle">Choose a secure communication or information option.</p>
           <div class="mcx-hub-grid">
-            <button class="mcx-hub-button" type="button" data-open="ai"><span class="mcx-hub-button-icon">${icons.ai}</span><span>CHAT WITH CORTEX CORE AI<small>Automated company assistant - coming soon</small></span></button>
+            <button class="mcx-hub-button" type="button" data-open="ai"><span class="mcx-hub-button-icon">${icons.ai}</span><span>CHAT WITH CORTEX CORE AI<small>Live company AI assistant</small></span></button>
             <button class="mcx-hub-button" type="button" data-open="support"><span class="mcx-hub-button-icon">${icons.people}</span><span>CONNECT WITH INFORMATION CENTER<small>WhatsApp, Telegram or Email support</small></span></button>
             <button class="mcx-hub-button" type="button" data-open="executives"><span class="mcx-hub-button-icon">${icons.logo}</span><span>CONNECT WITH AN EXECUTIVE BOARD MEMBER<small>Prepare a professional appointment request</small></span></button>
             <button class="mcx-hub-button" type="button" data-open="products"><span class="mcx-hub-button-icon">${icons.info}</span><span>INFORMATION ABOUT PRODUCTS AND SERVICES<small>Request product, service or pricing information</small></span></button>
@@ -94,8 +94,8 @@
         <div class="mcx-hub-panel" data-panel="ai" hidden>
           <button class="mcx-hub-back" type="button">&#8592; Back</button>
           <h2>CORTEX CORE AI</h2>
-          <p class="mcx-hub-subtitle">The automated chat system is being prepared. Use the Information Center for immediate assistance.</p>
-          <div class="mcx-hub-notice">CORTEX CORE AI will answer questions about MI CORTEX X, products, services, prices and company information after the AI service is connected.</div>
+          <p class="mcx-hub-subtitle">Opening the secure MI CORTEX X company AI assistant...</p>
+          <div class="mcx-hub-notice">You can ask about company information, executives, products, services, prices, quotations, support and appointments.</div>
         </div>
         <div class="mcx-hub-panel" data-panel="support" hidden>
           <button class="mcx-hub-back" type="button">&#8592; Back</button>
@@ -262,7 +262,19 @@
   overlay.addEventListener("click", event => { if (event.target === overlay) closeHub(); });
   root.addEventListener("click", event => {
     const open = event.target.closest("[data-open]");
-    if (open) showPanel(open.dataset.open);
+    if (open) {
+      if (open.dataset.open === "ai") {
+        event.preventDefault();
+        event.stopPropagation();
+        closeHub();
+        window.setTimeout(() => {
+          window.dispatchEvent(new CustomEvent("mcx:open-cortex-core-ai"));
+        }, 180);
+        return;
+      }
+
+      showPanel(open.dataset.open);
+    }
     const back = event.target.closest(".mcx-hub-back");
     if (back) showPanel(back.dataset.back || "main");
     const executive = event.target.closest("[data-executive]");

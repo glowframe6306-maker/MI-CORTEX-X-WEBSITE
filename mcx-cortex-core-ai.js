@@ -786,6 +786,10 @@
 
   function closeChat(){overlay.hidden=true;document.body.classList.remove("mcx-ai-open");lastFocus?.focus?.();}
 
+  window.addEventListener("mcx:open-cortex-core-ai", () => {
+    openChat();
+  });
+
   function openHub(panel="main",role=""){
     closeChat();const hub=document.getElementById("mcx-contact-hub-root");
     if(!hub){location.hash="#/contact";return;}
