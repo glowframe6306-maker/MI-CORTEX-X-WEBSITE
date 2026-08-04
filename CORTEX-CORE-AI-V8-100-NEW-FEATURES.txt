@@ -1,0 +1,109 @@
+CORTEX CORE AI V8 — 100 NEW CUSTOMER FEATURES
+
+1. Command Center
+2. Command search
+3. Recent action history
+4. Customer FAQ library
+5. FAQ search
+6. FAQ-to-chat transfer
+7. Project cost estimator
+8. Service base-price calculator
+9. Page/screen cost factor
+10. Integration cost factor
+11. Custom-design cost factor
+12. Urgency cost factor
+13. Estimate-to-quote action
+14. Estimate-to-WhatsApp action
+15. Customer tools panel
+16. Copy full conversation
+17. Export conversation JSON
+18. Export conversation CSV
+19. Clear saved draft
+20. Pinned-answer viewer
+21. Session summary
+22. Keyboard-help panel
+23. Preference reset
+24. Browser customer profile
+25. Customer-name storage
+26. Customer-company storage
+27. Privacy warning
+28. Local-storage consent
+29. Sensitive-data warning
+30. Toast notifications
+31. Optional notification sound
+32. Unread-message counter
+33. Browser-title unread badge
+34. Scroll-to-latest button
+35. Automatic long-answer detection
+36. Collapse long answers
+37. Expand answers
+38. Answer word count
+39. Pin individual answer
+40. Persistent pinned answers
+41. Command palette shortcut
+42. Panel Escape handling
+43. Recent-route shortcuts
+44. Products command
+45. Services command
+46. Pricing command
+47. Premium command
+48. Contact command
+49. About command
+50. Appointment command
+51. Recommendation command
+52. Quote command
+53. Support command
+54. WhatsApp command
+55. Sales-email command
+56. Support-email command
+57. Compact conversation mode
+58. High-contrast mode
+59. Timestamp visibility control
+60. Reduced-motion preference
+61. Reading-width control
+62. Conversation-density control
+63. Preferred-language preference
+64. Responsive full-screen mobile panels
+65. Sticky panel headers
+66. Accessible search fields
+67. Safe external-link behavior
+68. CSV escaping
+69. JSON structured export
+70. Profile-local-only notice
+71. Non-binding estimate notice
+72. No fake ticket numbers
+73. No fake live tracking
+74. No fake payment status
+75. No card-data collection
+76. Session duration calculation
+77. Message-count summary
+78. Pinned-count summary
+79. Recent-action count summary
+80. FAQ executive answer
+81. FAQ chatbot-price answer
+82. FAQ website-price answer
+83. FAQ mobile-delivery answer
+84. FAQ support-contact answer
+85. FAQ payment-status answer
+86. FAQ advance-payment answer
+87. FAQ office-location answer
+88. FAQ Sunday-hours answer
+89. FAQ appointment answer
+90. Service selector
+91. Numeric input validation
+92. Calculator minimum values
+93. Calculator maximum values
+94. Calculator result rounding
+95. Customer-profile save confirmation
+96. Pinned-answer confirmation
+97. Draft-clear confirmation
+98. Conversation-copy confirmation
+99. Offline-compatible local tools
+100. Message observer integration
+
+SAFETY AND REALITY CHECKS
+- Live order tracking is not faked; it requires a backend and verified data.
+- Real support ticket IDs are not faked; requests are prepared for email or WhatsApp.
+- Payment success is never simulated.
+- Card details are never collected.
+- Cost-estimator values are non-binding starting estimates.
