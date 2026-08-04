@@ -1,4 +1,4 @@
-(() => {
+﻿(() => {
     "use strict";
 
     if (window.__MCX_AI_DIRECT_OPEN_FIX__) {
@@ -77,3 +77,19 @@
         true
     );
 })();
+document.addEventListener("keydown", function(e){
+
+    if(
+        e.key === "Enter" &&
+        e.target &&
+        (
+            e.target.tagName === "INPUT" ||
+            e.target.tagName === "TEXTAREA"
+        )
+    ){
+
+        e.preventDefault();
+
+    }
+
+});

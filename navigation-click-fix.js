@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   "use strict";
 
   if (window.__mcxNavigationClickFixInstalled) {
@@ -134,3 +134,20 @@
     }, 80);
   });
 })();
+
+document.addEventListener("keydown", function(e){
+
+    if(
+        e.key === "Enter" &&
+        e.target &&
+        (
+            e.target.tagName === "INPUT" ||
+            e.target.tagName === "TEXTAREA"
+        )
+    ){
+
+        e.preventDefault();
+
+    }
+
+});

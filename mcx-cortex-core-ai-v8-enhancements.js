@@ -1,4 +1,4 @@
-(() => {
+﻿(() => {
   "use strict";
 
   if (window.__MCX_AI_V8_ENHANCEMENTS__) return;
@@ -225,7 +225,7 @@
       ["Who is the CEO?", "The CEO of MI CORTEX X INC. is M.I. MUHAMMADH."],
       ["What is the AI chatbot price?", "AI Chatbot Development starts from LKR 45,000."],
       ["What is the website price?", "Website Development starts from LKR 15,000."],
-      ["How long does a mobile app take?", "Mobile App Development usually takes 14–45 days."],
+      ["How long does a mobile app take?", "Mobile App Development usually takes 14â€“45 days."],
       ["How can I contact support?", "Use WhatsApp, Telegram, support email, or the website information center."],
       ["Is online payment active?", "Online card payments are not activated yet."],
       ["What is the advance payment?", "The normal advance is 30% after project approval."],
@@ -273,7 +273,7 @@
     const estimate = Math.round(subtotal * urgency / 500) * 500;
 
     calculatorPanel.querySelector("[data-calc-result]").textContent =
-      `Estimated starting range: LKR ${estimate.toLocaleString("en-US")} – LKR ${(Math.round(estimate * 1.28 / 500) * 500).toLocaleString("en-US")}`;
+      `Estimated starting range: LKR ${estimate.toLocaleString("en-US")} â€“ LKR ${(Math.round(estimate * 1.28 / 500) * 500).toLocaleString("en-US")}`;
   }
 
   function buildCalculatorPanel() {
@@ -465,7 +465,7 @@
       const minutes = Math.max(1, Math.round((Date.now() - sessionStarted) / 60000));
       alert(`Session duration: ${minutes} minute(s)\nMessages: ${rows.length}\nPinned answers: ${pins.length}\nRecent actions: ${recent.length}`);
     } else if (name === "keyboard") {
-      alert("Keyboard shortcuts:\nCtrl + / — Open AI\nCtrl + K — Search chat\nEscape — Close panel/chat\nEnter — Send\nShift + Enter — New line");
+      alert("Keyboard shortcuts:\nCtrl + / â€” Open AI\nCtrl + K â€” Search chat\nEscape â€” Close panel/chat\nEnter â€” Send\nShift + Enter â€” New line");
     } else if (name === "reset") {
       localStorage.removeItem(KEYS.v8);
       localStorage.removeItem(KEYS.pins);
@@ -514,7 +514,7 @@
     const scrollButton = document.createElement("button");
     scrollButton.type = "button";
     scrollButton.className = "mcx-v8-scroll-bottom";
-    scrollButton.textContent = "↓";
+    scrollButton.textContent = "â†“";
     scrollButton.title = "Scroll to latest message";
     scrollButton.addEventListener("click", () => messages.scrollTo({ top: messages.scrollHeight, behavior: "smooth" }));
     dialog.append(scrollButton);
@@ -617,3 +617,4 @@
 
   initialize();
 })();
+
