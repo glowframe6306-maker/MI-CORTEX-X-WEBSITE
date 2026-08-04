@@ -1,0 +1,124 @@
+/* MI CORTEX X V23 - Welcome logo animation only */
+
+/*
+ * Correct descendant selectors for the existing neural-logo sequence.
+ * No navigation, content, floating button, AI, layout, or page styling is changed.
+ */
+
+.mi-neural-intro .mi-logo-reveal {
+  position: relative !important;
+  z-index: 3 !important;
+  display: grid !important;
+  place-items: center !important;
+  width: clamp(170px, 19vw, 290px) !important;
+  aspect-ratio: 1 !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  transform: scale(.68) !important;
+  filter: blur(18px) !important;
+  transform-origin: center center !important;
+  will-change: opacity, transform, filter !important;
+}
+
+.mi-neural-intro.mi-logo-entering .mi-logo-reveal {
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: scale(1.16) !important;
+  filter: blur(0) !important;
+  transition:
+    opacity 1.15s cubic-bezier(.22, 1, .36, 1),
+    transform 1.8s cubic-bezier(.16, 1, .3, 1),
+    filter 1.3s cubic-bezier(.22, 1, .36, 1) !important;
+}
+
+.mi-neural-intro.mi-logo-settled .mi-logo-reveal {
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  filter: blur(0) !important;
+  transition:
+    transform 1.5s cubic-bezier(.22, 1, .36, 1) !important;
+}
+
+.mi-neural-intro.mi-logo-leaving .mi-logo-reveal {
+  visibility: visible !important;
+  opacity: 0 !important;
+  transform: scale(.88) !important;
+  filter: blur(14px) !important;
+  transition:
+    opacity 1.15s cubic-bezier(.22, 1, .36, 1),
+    transform 1.15s cubic-bezier(.22, 1, .36, 1),
+    filter 1.15s cubic-bezier(.22, 1, .36, 1) !important;
+}
+
+.mi-neural-intro .mi-intro-logo {
+  display: block !important;
+  visibility: visible !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  border-radius: 50% !important;
+  transform-origin: center center !important;
+}
+
+.mi-neural-intro .mi-logo-tagline {
+  position: absolute !important;
+  top: calc(100% + 22px) !important;
+  left: 50% !important;
+  width: max-content !important;
+  max-width: 92vw !important;
+  transform: translateX(-50%) translateY(12px) !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  filter: blur(8px) !important;
+}
+
+.mi-neural-intro.mi-logo-entering .mi-logo-tagline,
+.mi-neural-intro.mi-logo-settled .mi-logo-tagline {
+  visibility: visible !important;
+  opacity: 1 !important;
+  filter: blur(0) !important;
+  transform: translateX(-50%) translateY(0) !important;
+  transition:
+    opacity .9s ease,
+    filter 1s ease,
+    transform 1s cubic-bezier(.22, 1, .36, 1) !important;
+}
+
+.mi-neural-intro.mi-logo-leaving .mi-logo-tagline {
+  opacity: 0 !important;
+  filter: blur(8px) !important;
+  transform: translateX(-50%) translateY(-8px) !important;
+  transition:
+    opacity .75s ease,
+    filter .75s ease,
+    transform .75s ease !important;
+}
+
+.mi-neural-intro .mi-logo-shine {
+  opacity: 0 !important;
+}
+
+.mi-neural-intro.mi-logo-settled .mi-logo-shine {
+  opacity: 1 !important;
+}
+
+.mi-neural-intro.mi-logo-settled .mi-logo-shine::before {
+  animation: miLogoShine 1.6s cubic-bezier(.22, 1, .36, 1) forwards !important;
+}
+
+.mi-neural-intro.mi-neural-exiting {
+  transform: translate3d(0, -100%, 0) !important;
+  transition:
+    transform 2.2s cubic-bezier(.76, 0, .24, 1) !important;
+}
+
+@media (max-width: 700px) {
+  .mi-neural-intro .mi-logo-reveal {
+    width: clamp(165px, 52vw, 260px) !important;
+  }
+
+  .mi-neural-intro .mi-logo-tagline {
+    top: calc(100% + 18px) !important;
+  }
+}
