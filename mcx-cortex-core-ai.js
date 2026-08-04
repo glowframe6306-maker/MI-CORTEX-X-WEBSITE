@@ -1,4 +1,4 @@
-﻿(() => {
+(() => {
   "use strict";
 
   if (window.__MCX_CORTEX_CORE_AI_V7__) return;
@@ -661,10 +661,10 @@
         </header>
         <div class="mcx-ai-offline" hidden>You appear to be offline. Saved company answers remain available; external links may not open.</div>
         <div class="mcx-ai-toolbar">
-          <button data-ai-route="#/products">PRODUCTS</button><button data-ai-route="#/services">SERVICES</button>
-          <button data-ai-route="#/pricing">PRICING</button><button data-ai-action="recommend">RECOMMEND</button>
-          <button data-ai-action="quote">QUOTE</button><button data-ai-appointment="">APPOINTMENT</button>
-          <button data-ai-hub="support">SUPPORT</button>
+          <button type="button" data-ai-route="#/products">PRODUCTS</button><button type="button" data-ai-route="#/services">SERVICES</button>
+          <button type="button" data-ai-route="#/pricing">PRICING</button><button type="button" data-ai-action="recommend">RECOMMEND</button>
+          <button type="button" data-ai-action="quote">QUOTE</button><button type="button" data-ai-appointment="">APPOINTMENT</button>
+          <button type="button" data-ai-hub="support">SUPPORT</button>
         </div>
         <div class="mcx-ai-search-panel" hidden>
           <input type="search" placeholder="Search this conversation..." aria-label="Search conversation">
@@ -680,7 +680,7 @@
         </div>
         <div class="mcx-ai-messages" aria-live="polite"></div>
         <div class="mcx-ai-suggestions" hidden></div>
-        <form class="mcx-ai-composer">
+        <form class="mcx-ai-composer" action="javascript:void(0)" novalidate>
           <textarea rows="1" maxlength="1800" placeholder="Ask in Sinhala, English or Singlish..." required></textarea>
           <button class="mcx-ai-send" aria-label="Send" type="submit">&#10148;</button>
         </form>
@@ -1395,9 +1395,13 @@
     if(normalize(trigger.innerText||trigger.textContent).includes("chat with cortex core ai")){event.preventDefault();event.stopPropagation();openChat();}
   },true);
 
-  root.addEventListener("click",async event=>{
-    const removeAttachment = event.target.closest("[data-remove-attachment]");
+  root.addEventListener("click", async event => {
+    const target = event.target instanceof Element ? event.target : null;
+    if (!target) return;
+
+    const removeAttachment = target.closest("[data-remove-attachment]");
     if (removeAttachment) {
+      event.preventDefault();
       pendingAttachments.splice(
         Number(removeAttachment.dataset.removeAttachment),
         1
@@ -1406,37 +1410,188 @@
       return;
     }
 
-    if (event.target.closest("[data-ai-analytics]")) {
+    if (target.closest("[data-ai-analytics]")) {
+      event.preventDefault();
       showLocalAnalytics();
       return;
     }
 
-    const a=event.target.closest("[data-action]");if(a)execute(a.dataset.action,a.dataset.value||"");
-    const s=event.target.closest("[data-suggestion]");if(s)process(s.dataset.suggestion);
-    const r=event.target.closest("[data-ai-route]");if(r)execute("route",r.dataset.aiRoute);
-    const ap=event.target.closest("[data-ai-appointment]");if(ap)execute("appointment",ap.dataset.aiAppointment||"");
-    const h=event.target.closest("[data-ai-hub]");if(h)execute("hub",h.dataset.aiHub);
-    const qa=event.target.closest("[data-ai-action]");if(qa)execute(qa.dataset.aiAction);
-    const c=event.target.closest("[data-copy]");if(c){await navigator.clipboard?.writeText(c.dataset.copy||"");c.textContent="COPIED";setTimeout(()=>c.textContent="COPY",1200);}
-    const fav=event.target.closest("[data-favorite]");if(fav){favorites.push({text:fav.dataset.favorite,time:Date.now()});favorites=favorites.slice(-50);save(KEYS.favorites,favorites);fav.textContent="SAVED";}
-    const fb=event.target.closest("[data-feedback]");if(fb){feedback.push({value:fb.dataset.feedback,time:Date.now(),question:lastQuestion});feedback=feedback.slice(-100);save(KEYS.feedback,feedback);fb.textContent="RECORDED";}
-    if(event.target.closest("[data-regenerate]")&&lastQuestion)process(lastQuestion);
-    if(event.target.closest("[data-ai-new]"))newChat();
-    if(event.target.closest("[data-ai-clear]")&&confirm("Clear complete AI chat history?"))newChat();
-    if(event.target.closest(".mcx-ai-close"))closeChat();
-    if(event.target===overlay)closeChat();
-    if(event.target.closest("[data-ai-search]")){searchPanel.hidden=!searchPanel.hidden;searchPanel.querySelector("input")?.focus();}
-    if(event.target.closest("[data-ai-search-close]"))searchPanel.hidden=true;
-    if(event.target.closest("[data-ai-settings]"))settingsPanel.hidden=!settingsPanel.hidden;
-    if(event.target.closest("[data-ai-export]"))downloadText("CORTEX-CORE-AI-CHAT.txt",transcript());
-    if(event.target.closest("[data-ai-print]"))window.print();
-    if(event.target.closest("[data-ai-share]")){
-      const data={title:"CORTEX CORE AI Conversation",text:transcript()};
-      if(navigator.share)navigator.share(data).catch(()=>{});
-      else{await navigator.clipboard?.writeText(data.text);addMessage("assistant","Conversation copied because Web Share is unavailable.");}
+    const actionButton = target.closest("[data-action]");
+    if (actionButton) {
+      event.preventDefault();
+      execute(
+        actionButton.dataset.action,
+        actionButton.dataset.value || ""
+      );
+      return;
     }
-    if(event.target.closest("[data-ai-favorites]")){
-      addMessage("assistant",favorites.length?favorites.map((f,i)=>`${i+1}. ${f.text}`).join("\n\n"):"No saved answers yet.");
+
+    const suggestion = target.closest("[data-suggestion]");
+    if (suggestion) {
+      event.preventDefault();
+      await process(suggestion.dataset.suggestion || "");
+      return;
+    }
+
+    const route = target.closest("[data-ai-route]");
+    if (route) {
+      event.preventDefault();
+      execute("route", route.dataset.aiRoute || "#/home");
+      return;
+    }
+
+    const appointment = target.closest("[data-ai-appointment]");
+    if (appointment) {
+      event.preventDefault();
+      execute(
+        "appointment",
+        appointment.dataset.aiAppointment || ""
+      );
+      return;
+    }
+
+    const hub = target.closest("[data-ai-hub]");
+    if (hub) {
+      event.preventDefault();
+      execute("hub", hub.dataset.aiHub || "main");
+      return;
+    }
+
+    const quickAction = target.closest("[data-ai-action]");
+    if (quickAction) {
+      event.preventDefault();
+      execute(quickAction.dataset.aiAction || "");
+      return;
+    }
+
+    const copy = target.closest("[data-copy]");
+    if (copy) {
+      event.preventDefault();
+      await navigator.clipboard?.writeText(copy.dataset.copy || "");
+      const original = copy.textContent;
+      copy.textContent = "COPIED";
+      window.setTimeout(() => {
+        copy.textContent = original || "COPY";
+      }, 1200);
+      return;
+    }
+
+    const favorite = target.closest("[data-favorite]");
+    if (favorite) {
+      event.preventDefault();
+      favorites.push({
+        text: favorite.dataset.favorite || "",
+        time: Date.now()
+      });
+      favorites = favorites.slice(-50);
+      save(KEYS.favorites, favorites);
+      favorite.textContent = "SAVED";
+      return;
+    }
+
+    const feedbackButton = target.closest("[data-feedback]");
+    if (feedbackButton) {
+      event.preventDefault();
+      feedback.push({
+        value: feedbackButton.dataset.feedback || "",
+        time: Date.now(),
+        question: lastQuestion
+      });
+      feedback = feedback.slice(-100);
+      save(KEYS.feedback, feedback);
+      feedbackButton.textContent = "RECORDED";
+      return;
+    }
+
+    if (target.closest("[data-regenerate]")) {
+      event.preventDefault();
+      if (lastQuestion) await process(lastQuestion);
+      return;
+    }
+
+    if (target.closest("[data-ai-new]")) {
+      event.preventDefault();
+      newChat();
+      return;
+    }
+
+    if (target.closest("[data-ai-clear]")) {
+      event.preventDefault();
+      if (confirm("Clear complete AI chat history?")) newChat();
+      return;
+    }
+
+    if (target.closest(".mcx-ai-close")) {
+      event.preventDefault();
+      closeChat();
+      return;
+    }
+
+    if (target === overlay) {
+      closeChat();
+      return;
+    }
+
+    if (target.closest("[data-ai-search]")) {
+      event.preventDefault();
+      searchPanel.hidden = !searchPanel.hidden;
+      searchPanel.querySelector("input")?.focus();
+      return;
+    }
+
+    if (target.closest("[data-ai-search-close]")) {
+      event.preventDefault();
+      searchPanel.hidden = true;
+      return;
+    }
+
+    if (target.closest("[data-ai-settings]")) {
+      event.preventDefault();
+      settingsPanel.hidden = !settingsPanel.hidden;
+      return;
+    }
+
+    if (target.closest("[data-ai-export]")) {
+      event.preventDefault();
+      downloadText("CORTEX-CORE-AI-CHAT.txt", transcript());
+      return;
+    }
+
+    if (target.closest("[data-ai-print]")) {
+      event.preventDefault();
+      window.print();
+      return;
+    }
+
+    if (target.closest("[data-ai-share]")) {
+      event.preventDefault();
+      const data = {
+        title: "CORTEX CORE AI Conversation",
+        text: transcript()
+      };
+
+      if (navigator.share) {
+        navigator.share(data).catch(() => {});
+      } else {
+        await navigator.clipboard?.writeText(data.text);
+        addMessage(
+          "assistant",
+          "Conversation copied because Web Share is unavailable."
+        );
+      }
+      return;
+    }
+
+    if (target.closest("[data-ai-favorites]")) {
+      event.preventDefault();
+      addMessage(
+        "assistant",
+        favorites.length
+          ? favorites.map((item, index) =>
+              `${index + 1}. ${item.text}`
+            ).join("\n\n")
+          : "No saved answers yet."
+      );
     }
   });
 
@@ -1448,8 +1603,63 @@
   root.querySelector("[data-setting-theme]").addEventListener("change",event=>{settings.theme=event.target.value;save(KEYS.settings,settings);applySettings();});
   root.querySelector("[data-setting-font]").addEventListener("change",event=>{settings.fontScale=Number(event.target.value);save(KEYS.settings,settings);applySettings();});
 
-  form.addEventListener("submit",event=>{event.preventDefault();const text=input.value.trim() || (pendingAttachments.length ? "Please analyze the attached files and answer only in relation to MI CORTEX X." : "");if(!text)return;input.value="";localStorage.removeItem(KEYS.draft);input.style.height="auto";process(text);});
-  input.addEventListener("keydown",event=>{if(event.key==="Enter"&&!event.shiftKey){event.preventDefault();form.requestSubmit();}});
+  let messageSending = false;
+
+  async function submitCurrentMessage() {
+    if (messageSending) return;
+
+    const text =
+      input.value.trim() ||
+      (
+        pendingAttachments.length
+          ? "Please analyze the attached files and answer only in relation to MI CORTEX X."
+          : ""
+      );
+
+    if (!text) {
+      input.focus();
+      return;
+    }
+
+    messageSending = true;
+    form.classList.add("mcx-ai-sending");
+    input.disabled = true;
+
+    const sendButton = form.querySelector(".mcx-ai-send");
+    if (sendButton) sendButton.disabled = true;
+
+    input.value = "";
+    localStorage.removeItem(KEYS.draft);
+    input.style.height = "auto";
+
+    try {
+      await process(text);
+    } finally {
+      messageSending = false;
+      form.classList.remove("mcx-ai-sending");
+      input.disabled = false;
+      if (sendButton) sendButton.disabled = false;
+      input.focus();
+    }
+  }
+
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+    event.stopPropagation();
+    void submitCurrentMessage();
+  });
+
+  input.addEventListener("keydown", event => {
+    if (
+      event.key === "Enter" &&
+      !event.shiftKey &&
+      !event.isComposing
+    ) {
+      event.preventDefault();
+      event.stopPropagation();
+      void submitCurrentMessage();
+    }
+  });
   input.addEventListener("input",()=>{input.style.height="auto";input.style.height=`${Math.min(input.scrollHeight,130)}px`;localStorage.setItem(KEYS.draft,input.value);});
 
   document.addEventListener("keydown",event=>{
@@ -1467,27 +1677,3 @@
 
   applySettings();
 })();
-
-/* MCX_FINAL_ENTER_KEY_FIX */
-document.addEventListener("keydown", event => {
-  const textarea = event.target.closest?.(
-    "#mcx-ai-chat-root .mcx-ai-composer textarea"
-  );
-
-  if (
-    !textarea ||
-    event.key !== "Enter" ||
-    event.shiftKey ||
-    event.isComposing
-  ) {
-    return;
-  }
-
-  event.preventDefault();
-
-  const form = textarea.closest("form.mcx-ai-composer");
-
-  if (form) {
-    form.requestSubmit();
-  }
-});

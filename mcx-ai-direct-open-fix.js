@@ -1,4 +1,4 @@
-﻿(() => {
+(() => {
     "use strict";
 
     if (window.__MCX_AI_DIRECT_OPEN_FIX__) {
@@ -34,27 +34,10 @@
         );
 
         window.setTimeout(() => {
-            const realOverlay = document.querySelector(
-                "#mcx-ai-chat-root .mcx-ai-overlay"
+            window.dispatchEvent(
+                new CustomEvent("mcx:open-cortex-core-ai")
             );
-
-            if (realOverlay && realOverlay.hidden) {
-                const temporaryButton = document.createElement("button");
-
-                temporaryButton.type = "button";
-                temporaryButton.textContent =
-                    "CHAT WITH CORTEX CORE AI";
-
-                temporaryButton.style.position = "fixed";
-                temporaryButton.style.left = "-99999px";
-                temporaryButton.style.opacity = "0";
-                temporaryButton.style.pointerEvents = "none";
-
-                document.body.appendChild(temporaryButton);
-                temporaryButton.click();
-                temporaryButton.remove();
-            }
-        }, 100);
+        }, 80);
     }
 
     document.addEventListener(
@@ -77,19 +60,3 @@
         true
     );
 })();
-document.addEventListener("keydown", function(e){
-
-    if(
-        e.key === "Enter" &&
-        e.target &&
-        (
-            e.target.tagName === "INPUT" ||
-            e.target.tagName === "TEXTAREA"
-        )
-    ){
-
-        e.preventDefault();
-
-    }
-
-});
