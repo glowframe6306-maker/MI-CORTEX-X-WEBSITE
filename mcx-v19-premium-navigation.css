@@ -421,3 +421,110 @@ html.mcx-v19-front-page body {
 }
 
 /* MCX_NAV_BLUR_ONLY_END */
+
+/* MCX_NAV_VISIBLE_LENS_START */
+
+/*
+ * Only the navigation glass effect is changed.
+ * The translucent background allows page text behind it to become visible.
+ */
+.site-header .nav {
+  background:
+    linear-gradient(
+      100deg,
+      rgba(12, 84, 157, .52) 0%,
+      rgba(20, 59, 151, .48) 38%,
+      rgba(45, 34, 151, .50) 70%,
+      rgba(64, 20, 139, .53) 100%
+    ) !important;
+
+  backdrop-filter:
+    blur(22px)
+    saturate(180%)
+    brightness(108%)
+    contrast(106%) !important;
+
+  -webkit-backdrop-filter:
+    blur(22px)
+    saturate(180%)
+    brightness(108%)
+    contrast(106%) !important;
+
+  isolation: isolate !important;
+  overflow: hidden !important;
+}
+
+/*
+ * Animated curved lens layer.
+ * It creates the zoom/refraction illusion while content passes behind.
+ */
+.site-header .nav::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: -12px !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  border-radius: inherit !important;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 48%,
+      rgba(255, 255, 255, .075) 0%,
+      rgba(99, 211, 255, .045) 42%,
+      transparent 72%
+    ) !important;
+
+  transform: scale(1.035) !important;
+  transform-origin: center !important;
+
+  filter:
+    blur(.7px)
+    brightness(1.09) !important;
+
+  animation:
+    mcxNavLensBreathing
+    3.8s
+    ease-in-out
+    infinite !important;
+}
+
+/* Keep navigation content above the lens. */
+.site-header .nav > * {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+@keyframes mcxNavLensBreathing {
+  0%,
+  100% {
+    transform: scale(1.025);
+    opacity: .58;
+  }
+
+  50% {
+    transform: scale(1.065);
+    opacity: .92;
+  }
+}
+
+@media (max-width: 900px) {
+  .site-header .nav {
+    backdrop-filter:
+      blur(19px)
+      saturate(170%)
+      brightness(106%) !important;
+
+    -webkit-backdrop-filter:
+      blur(19px)
+      saturate(170%)
+      brightness(106%) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header .nav::after {
+    animation: none !important;
+  }
+}
+
+/* MCX_NAV_VISIBLE_LENS_END */
