@@ -1,28 +1,28 @@
 /* MI CORTEX X navigation click reliability patch */
 .site-header {
-  pointer-events: auto !important;
+ pointer-events: auto!important;
 }
 
-.site-header .nav,
-.site-header .nav-links,
-.site-header .brand,
+.site-header.nav,
+.site-header.nav-links,
+.site-header.brand,
 .site-header a,
 .site-header button {
-  pointer-events: auto !important;
+ pointer-events: auto!important;
 }
 
-.site-header .nav::before,
-.site-header .nav::after,
+.site-header.nav::before,
+.site-header.nav::after,
 .site-header::before,
 .site-header::after {
-  pointer-events: none !important;
+ pointer-events: none!important;
 }
 
-.site-header .nav-links,
-.site-header .brand,
+.site-header.nav-links,
+.site-header.brand,
 .site-header a,
 .site-header button {
-  position: relative;
-  z-index: 5 !important;
+ position: relative;
+ z-index: 5!important;
 }
 

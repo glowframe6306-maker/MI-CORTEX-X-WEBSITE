@@ -1,40 +1,40 @@
 /* CORTEX CORE AI V15 — Runtime interaction stability */
 
-#mcx-ai-chat-root .mcx-ai-composer {
-  position: relative !important;
+#mcx-ai-chat-root.mcx-ai-composer {
+ position: relative!important;
 }
 
-#mcx-ai-chat-root .mcx-ai-composer > input[type="file"][hidden] {
-  display: none !important;
+#mcx-ai-chat-root.mcx-ai-composer > input[type="file"][hidden] {
+ display: none!important;
 }
 
-#mcx-ai-chat-root .mcx-ai-send,
-#mcx-ai-chat-root .mcx-v11-attach,
-#mcx-ai-chat-root .mcx-ai-toolbar button,
-#mcx-ai-chat-root .mcx-ai-header-actions button,
-#mcx-ai-chat-root .mcx-ai-message-actions button,
-#mcx-ai-chat-root .mcx-ai-suggestions button {
-  pointer-events: auto !important;
-  touch-action: manipulation !important;
-  user-select: none !important;
+#mcx-ai-chat-root.mcx-ai-send,
+#mcx-ai-chat-root.mcx-v11-attach,
+#mcx-ai-chat-root.mcx-ai-toolbar button,
+#mcx-ai-chat-root.mcx-ai-header-actions button,
+#mcx-ai-chat-root.mcx-ai-message-actions button,
+#mcx-ai-chat-root.mcx-ai-suggestions button {
+ pointer-events: auto!important;
+ touch-action: manipulation!important;
+ user-select: none!important;
 }
 
-#mcx-ai-chat-root.mcx-ai-runtime-ready .mcx-ai-send {
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.08),
-    0 10px 25px rgba(30,170,235,.18) !important;
+#mcx-ai-chat-root.mcx-ai-runtime-ready.mcx-ai-send {
+ box-shadow:
+ inset 0 1px 0 rgba(255,255,255,.08),
+ 0 10px 25px rgba(30,170,235,.18)!important;
 }
 
-#mcx-ai-chat-root .mcx-ai-send:active,
-#mcx-ai-chat-root .mcx-v11-attach:active,
+#mcx-ai-chat-root.mcx-ai-send:active,
+#mcx-ai-chat-root.mcx-v11-attach:active,
 #mcx-ai-chat-root button:active {
-  transform: scale(.97) !important;
+ transform: scale(.97)!important;
 }
 
-#mcx-ai-chat-root .mcx-ai-composer textarea:disabled {
-  cursor: wait !important;
+#mcx-ai-chat-root.mcx-ai-composer textarea:disabled {
+ cursor: wait!important;
 }
 
-#mcx-ai-chat-root .mcx-ai-composer:not(.mcx-ai-sending) textarea {
-  opacity: 1 !important;
+#mcx-ai-chat-root.mcx-ai-composer:not(.mcx-ai-sending) textarea {
+ opacity: 1!important;
 }

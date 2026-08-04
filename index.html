@@ -21,40 +21,40 @@
 <link href="./navigation-click-fix.css?v=20260803" rel="stylesheet"/>
 <script defer="" src="./navigation-click-fix.js?v=20260803"></script>
 <!-- MCX_NAV_CLICK_FIX_END -->
-  <link rel="stylesheet" href="mcx-contact-widget.css">
+ <link rel="stylesheet" href="mcx-contact-widget.css">
 <!-- MCX_FRONT_FLOATING_REMOVE_START -->
 <script>
 (function () {
-  "use strict";
+ "use strict";
 
-  function isFrontBanner() {
-    var hash = window.location.hash || "";
+ function isFrontBanner() {
+ var hash = window.location.hash || "";
 
-    return (
-      hash === "" ||
-      hash === "#" ||
-      hash === "#/"
-    );
-  }
+ return (
+ hash === "" ||
+ hash === "#" ||
+ hash === "#/"
+ );
+ }
 
-  function updateFrontBannerState() {
-    document.documentElement.classList.toggle(
-      "mcx-front-banner-screen",
-      isFrontBanner()
-    );
-  }
+ function updateFrontBannerState() {
+ document.documentElement.classList.toggle(
+ "mcx-front-banner-screen",
+ isFrontBanner()
+ );
+ }
 
-  updateFrontBannerState();
+ updateFrontBannerState();
 
-  window.addEventListener(
-    "hashchange",
-    updateFrontBannerState
-  );
+ window.addEventListener(
+ "hashchange",
+ updateFrontBannerState
+ );
 
-  window.addEventListener(
-    "popstate",
-    updateFrontBannerState
-  );
+ window.addEventListener(
+ "popstate",
+ updateFrontBannerState
+ );
 })();
 </script>
 <!-- MCX_FRONT_FLOATING_REMOVE_END -->
@@ -270,7 +270,7 @@
  "use strict";
 
  function initializeFrontPageFullScroll() {
- const frontPage = document.querySelector("#mi-front-page, .mi-front-page");
+ const frontPage = document.querySelector("#mi-front-page,.mi-front-page");
 
  if (!frontPage) {
  return;
@@ -358,7 +358,7 @@
  }
 
  function handleTouchStart(event) {
- if (!event.touches || event.touches.length !== 1) {
+ if (!event.touches || event.touches.length!== 1) {
  return;
  }
 
@@ -367,7 +367,7 @@
  }
 
  function handleTouchMove(event) {
- if (!event.touches || event.touches.length !== 1) {
+ if (!event.touches || event.touches.length!== 1) {
  return;
  }
 
@@ -398,7 +398,7 @@
  }
 
  function settlePartialFrontPage() {
- if (isAnimating || !isFrontPagePartiallyVisible()) {
+ if (isAnimating ||!isFrontPagePartiallyVisible()) {
  return;
  }
 
@@ -460,20 +460,20 @@
  "use strict";
 
  function initializeFixedGlassNavigation() {
- const frontPage = document.querySelector("#mi-front-page, .mi-front-page");
- const candidates = Array.from(document.querySelectorAll("header, nav, .navbar, .site-header, .navigation, .nav-container"));
+ const frontPage = document.querySelector("#mi-front-page,.mi-front-page");
+ const candidates = Array.from(document.querySelectorAll("header, nav,.navbar,.site-header,.navigation,.nav-container"));
 
  let navigation = candidates.find(function (element) {
  const text = String(element.textContent || "")
- .replace(/\s+/g, " ")
- .trim()
- .toUpperCase();
+.replace(/\s+/g, " ")
+.trim()
+.toUpperCase();
 
  return text.includes("MI CORTEX X") && (text.includes("AI PRODUCTS") || text.includes("WEB APPS") || text.includes("CONTACT"));
  });
 
  if (!navigation) {
- navigation = document.querySelector("header nav, nav, .navbar, .site-header");
+ navigation = document.querySelector("header nav, nav,.navbar,.site-header");
  }
 
  if (!navigation) {
@@ -541,11 +541,11 @@
  element.classList.remove("mi-fixed-glass-nav");
  });
 
- const candidates = Array.from(document.querySelectorAll("header, nav, .navbar, .nav-container, .navigation, .site-header, header > div")).filter(function (element) {
+ const candidates = Array.from(document.querySelectorAll("header, nav,.navbar,.nav-container,.navigation,.site-header, header > div")).filter(function (element) {
  const text = String(element.textContent || "")
- .replace(/\s+/g, " ")
- .trim()
- .toUpperCase();
+.replace(/\s+/g, " ")
+.trim()
+.toUpperCase();
 
  return text.includes("MI CORTEX X") && text.includes("AI PRODUCTS") && text.includes("CONTACT");
  });
@@ -563,11 +563,11 @@
 
  let roundedNavigation = candidates[0];
 
- const descendants = Array.from(roundedNavigation.querySelectorAll("nav, .navbar, .nav-container, .navigation, div")).filter(function (element) {
+ const descendants = Array.from(roundedNavigation.querySelectorAll("nav,.navbar,.nav-container,.navigation, div")).filter(function (element) {
  const text = String(element.textContent || "")
- .replace(/\s+/g, " ")
- .trim()
- .toUpperCase();
+.replace(/\s+/g, " ")
+.trim()
+.toUpperCase();
 
  const rect = element.getBoundingClientRect();
 
@@ -584,13 +584,13 @@
 
  const outerHeader = roundedNavigation.closest("header");
 
- if (outerHeader && outerHeader !== roundedNavigation) {
+ if (outerHeader && outerHeader!== roundedNavigation) {
  outerHeader.classList.add("mi-fixed-nav-outer-clean");
  }
 
  roundedNavigation.classList.add("mi-fixed-glass-nav");
 
- const frontPage = document.querySelector("#mi-front-page, .mi-front-page");
+ const frontPage = document.querySelector("#mi-front-page,.mi-front-page");
  let scrollStopTimer = null;
 
  function getMainSiteStart() {
@@ -687,7 +687,7 @@
  }
 
  function removeLoadingClasses(target) {
- if (!target || !target.classList) {
+ if (!target ||!target.classList) {
  return;
  }
 
@@ -760,7 +760,7 @@
  }
 
  function introHasFinished(element) {
- if (!element || !element.isConnected) {
+ if (!element ||!element.isConnected) {
  return true;
  }
 
@@ -858,9 +858,9 @@
 
  function normalizeText(value) {
  return String(value || "")
- .replace(/\s+/g, " ")
- .trim()
- .toUpperCase();
+.replace(/\s+/g, " ")
+.trim()
+.toUpperCase();
  }
 
  function findSlogan() {
@@ -894,7 +894,7 @@
 
  if (
  text === "INNOVATE INTELLIGENCE" ||
- text.indexOf("INNOVATE INTELLIGENCE") !== -1
+ text.indexOf("INNOVATE INTELLIGENCE")!== -1
  ) {
  return element;
  }
@@ -987,7 +987,7 @@
  body.removeAttribute("aria-busy");
  }
 
- if (overlay && overlay !== body && overlay !== root) {
+ if (overlay && overlay!== body && overlay!== root) {
  overlay.setAttribute("aria-hidden", "true");
  overlay.style.pointerEvents = "none";
  overlay.style.opacity = "0";
@@ -1025,8 +1025,8 @@
  }
 
  var existingDots = slogan.parentElement
- ? slogan.parentElement.querySelector(".mi-intro-three-dots")
- : null;
+? slogan.parentElement.querySelector(".mi-intro-three-dots")
+: null;
 
  if (existingDots) {
  dotsInstalled = true;
@@ -1046,7 +1046,7 @@
 
  var overlay = findIntroOverlay(slogan);
 
- if (overlay && overlay !== document.body) {
+ if (overlay && overlay!== document.body) {
  overlay.classList.add(
  "mi-neural-exiting",
  "intro-exiting"
@@ -1075,7 +1075,7 @@
 
  attempts += 1;
 
- if (attempts < maximumAttempts && !released) {
+ if (attempts < maximumAttempts &&!released) {
  window.setTimeout(searchForSlogan, 100);
  }
  }
@@ -1086,7 +1086,7 @@
  if (!released) {
  var slogan = findSlogan();
 
- if (slogan && !dotsInstalled) {
+ if (slogan &&!dotsInstalled) {
  installDots();
  return;
  }
@@ -1393,266 +1393,266 @@
 <!-- MI_PREMIUM_LIQUID_NAV_SCRIPT_START -->
 <script>
 (function () {
-    "use strict";
+ "use strict";
 
-    if (window.__mcxPremiumLiquidNavigationInstalled) {
-        return;
-    }
+ if (window.__mcxPremiumLiquidNavigationInstalled) {
+ return;
+ }
 
-    window.__mcxPremiumLiquidNavigationInstalled = true;
+ window.__mcxPremiumLiquidNavigationInstalled = true;
 
-    var framePending = false;
+ var framePending = false;
 
-    function findWelcomePage() {
-        return (
-            document.querySelector("#welcome-screen") ||
-            document.querySelector("#welcomeScreen") ||
-            document.querySelector(".welcome-screen") ||
-            document.querySelector("[data-welcome-screen]") ||
-            document.querySelector("#intro-screen") ||
-            document.querySelector("#introScreen") ||
-            document.querySelector(".intro-screen") ||
-            document.querySelector("[data-intro-screen]") ||
-            document.querySelector("#neural-intro") ||
-            document.querySelector(".neural-intro")
-        );
-    }
+ function findWelcomePage() {
+ return (
+ document.querySelector("#welcome-screen") ||
+ document.querySelector("#welcomeScreen") ||
+ document.querySelector(".welcome-screen") ||
+ document.querySelector("[data-welcome-screen]") ||
+ document.querySelector("#intro-screen") ||
+ document.querySelector("#introScreen") ||
+ document.querySelector(".intro-screen") ||
+ document.querySelector("[data-intro-screen]") ||
+ document.querySelector("#neural-intro") ||
+ document.querySelector(".neural-intro")
+ );
+ }
 
-    function findFrontPage() {
-        return (
-            document.querySelector("#mi-front-page") ||
-            document.querySelector(".mi-front-page") ||
-            document.querySelector("#front-page") ||
-            document.querySelector(".front-page") ||
-            document.querySelector("[data-front-page]")
-        );
-    }
+ function findFrontPage() {
+ return (
+ document.querySelector("#mi-front-page") ||
+ document.querySelector(".mi-front-page") ||
+ document.querySelector("#front-page") ||
+ document.querySelector(".front-page") ||
+ document.querySelector("[data-front-page]")
+ );
+ }
 
-    function elementIsVisible(element) {
-        if (!element) {
-            return false;
-        }
+ function elementIsVisible(element) {
+ if (!element) {
+ return false;
+ }
 
-        var style = window.getComputedStyle(element);
-        var rectangle = element.getBoundingClientRect();
+ var style = window.getComputedStyle(element);
+ var rectangle = element.getBoundingClientRect();
 
-        return (
-            style.display !== "none" &&
-            style.visibility !== "hidden" &&
-            Number.parseFloat(style.opacity || "1") > 0.02 &&
-            rectangle.width > 0 &&
-            rectangle.height > 0
-        );
-    }
+ return (
+ style.display!== "none" &&
+ style.visibility!== "hidden" &&
+ Number.parseFloat(style.opacity || "1") > 0.02 &&
+ rectangle.width > 0 &&
+ rectangle.height > 0
+ );
+ }
 
-    function welcomeIsActive() {
-        var welcome = findWelcomePage();
+ function welcomeIsActive() {
+ var welcome = findWelcomePage();
 
-        if (!elementIsVisible(welcome)) {
-            return false;
-        }
+ if (!elementIsVisible(welcome)) {
+ return false;
+ }
 
-        var rectangle = welcome.getBoundingClientRect();
+ var rectangle = welcome.getBoundingClientRect();
 
-        return (
-            rectangle.bottom > 1 &&
-            rectangle.top < window.innerHeight
-        );
-    }
+ return (
+ rectangle.bottom > 1 &&
+ rectangle.top < window.innerHeight
+ );
+ }
 
-    function frontPageIsActive() {
-        var frontPage = findFrontPage();
+ function frontPageIsActive() {
+ var frontPage = findFrontPage();
 
-        if (!elementIsVisible(frontPage)) {
-            return false;
-        }
+ if (!elementIsVisible(frontPage)) {
+ return false;
+ }
 
-        var rectangle = frontPage.getBoundingClientRect();
+ var rectangle = frontPage.getBoundingClientRect();
 
-        /*
-        Hide the navigation while any meaningful part of the
-        front-page banner remains visible.
-        */
+ /*
+ Hide the navigation while any meaningful part of the
+ front-page banner remains visible.
+ */
 
-        return (
-            rectangle.bottom > 90 &&
-            rectangle.top < window.innerHeight - 40
-        );
-    }
+ return (
+ rectangle.bottom > 90 &&
+ rectangle.top < window.innerHeight - 40
+ );
+ }
 
-    function updateNavigationVisibility() {
-        framePending = false;
+ function updateNavigationVisibility() {
+ framePending = false;
 
-        var hideNavigation =
-            welcomeIsActive() ||
-            frontPageIsActive();
+ var hideNavigation =
+ welcomeIsActive() ||
+ frontPageIsActive();
 
-        document.documentElement.classList.toggle(
-            "mcx-hide-content-navigation",
-            hideNavigation
-        );
+ document.documentElement.classList.toggle(
+ "mcx-hide-content-navigation",
+ hideNavigation
+ );
 
-        document.documentElement.classList.toggle(
-            "mcx-content-navigation-scrolled",
-            !hideNavigation && window.scrollY > 60
-        );
-    }
+ document.documentElement.classList.toggle(
+ "mcx-content-navigation-scrolled",
+!hideNavigation && window.scrollY > 60
+ );
+ }
 
-    function requestUpdate() {
-        if (framePending) {
-            return;
-        }
+ function requestUpdate() {
+ if (framePending) {
+ return;
+ }
 
-        framePending = true;
-        window.requestAnimationFrame(
-            updateNavigationVisibility
-        );
-    }
+ framePending = true;
+ window.requestAnimationFrame(
+ updateNavigationVisibility
+ );
+ }
 
-    function initialize() {
-        updateNavigationVisibility();
+ function initialize() {
+ updateNavigationVisibility();
 
-        window.addEventListener(
-            "scroll",
-            requestUpdate,
-            { passive: true }
-        );
+ window.addEventListener(
+ "scroll",
+ requestUpdate,
+ { passive: true }
+ );
 
-        window.addEventListener(
-            "resize",
-            requestUpdate,
-            { passive: true }
-        );
+ window.addEventListener(
+ "resize",
+ requestUpdate,
+ { passive: true }
+ );
 
-        window.addEventListener(
-            "hashchange",
-            function () {
-                window.setTimeout(requestUpdate, 30);
-                window.setTimeout(requestUpdate, 260);
-            }
-        );
+ window.addEventListener(
+ "hashchange",
+ function () {
+ window.setTimeout(requestUpdate, 30);
+ window.setTimeout(requestUpdate, 260);
+ }
+ );
 
-        window.addEventListener(
-            "popstate",
-            function () {
-                window.setTimeout(requestUpdate, 30);
-                window.setTimeout(requestUpdate, 260);
-            }
-        );
+ window.addEventListener(
+ "popstate",
+ function () {
+ window.setTimeout(requestUpdate, 30);
+ window.setTimeout(requestUpdate, 260);
+ }
+ );
 
-        window.addEventListener(
-            "load",
-            function () {
-                updateNavigationVisibility();
-                window.setTimeout(updateNavigationVisibility, 300);
-                window.setTimeout(updateNavigationVisibility, 1200);
-            }
-        );
+ window.addEventListener(
+ "load",
+ function () {
+ updateNavigationVisibility();
+ window.setTimeout(updateNavigationVisibility, 300);
+ window.setTimeout(updateNavigationVisibility, 1200);
+ }
+ );
 
-        document.addEventListener(
-            "click",
-            function (event) {
-                if (
-                    event.target.closest(
-                        "nav a, nav button, [data-page], [data-main-category]"
-                    )
-                ) {
-                    window.setTimeout(requestUpdate, 30);
-                    window.setTimeout(requestUpdate, 350);
-                }
-            }
-        );
-    }
+ document.addEventListener(
+ "click",
+ function (event) {
+ if (
+ event.target.closest(
+ "nav a, nav button, [data-page], [data-main-category]"
+ )
+ ) {
+ window.setTimeout(requestUpdate, 30);
+ window.setTimeout(requestUpdate, 350);
+ }
+ }
+ );
+ }
 
-    if (document.readyState === "loading") {
-        document.addEventListener(
-            "DOMContentLoaded",
-            initialize,
-            { once: true }
-        );
-    } else {
-        initialize();
-    }
+ if (document.readyState === "loading") {
+ document.addEventListener(
+ "DOMContentLoaded",
+ initialize,
+ { once: true }
+ );
+ } else {
+ initialize();
+ }
 })();
 </script>
 <!-- MI_PREMIUM_LIQUID_NAV_SCRIPT_END -->
-  <script src="mcx-contact-widget.js" defer></script>
+ <script src="mcx-contact-widget.js" defer></script>
 <!-- MCX_EXACT_FRONT_FAB_HIDE_START -->
 <style>
-html.mcx-real-front-page-visible #mcx-contact-hub-root .mcx-hub-fab,
-html.mcx-real-front-page-visible #mcx-contact-hub-root .mcx-hub-fab-label {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
+html.mcx-real-front-page-visible #mcx-contact-hub-root.mcx-hub-fab,
+html.mcx-real-front-page-visible #mcx-contact-hub-root.mcx-hub-fab-label {
+ display: none!important;
+ visibility: hidden!important;
+ opacity: 0!important;
+ pointer-events: none!important;
 }
 </style>
 
 <script>
 (function () {
-    "use strict";
+ "use strict";
 
-    var updatePending = false;
+ var updatePending = false;
 
-    function updateFrontPageButton() {
-        updatePending = false;
+ function updateFrontPageButton() {
+ updatePending = false;
 
-        var frontPage = document.getElementById("mi-front-page");
+ var frontPage = document.getElementById("mi-front-page");
 
-        if (!frontPage) {
-            document.documentElement.classList.remove(
-                "mcx-real-front-page-visible"
-            );
-            return;
-        }
+ if (!frontPage) {
+ document.documentElement.classList.remove(
+ "mcx-real-front-page-visible"
+ );
+ return;
+ }
 
-        var rect = frontPage.getBoundingClientRect();
-        var style = window.getComputedStyle(frontPage);
+ var rect = frontPage.getBoundingClientRect();
+ var style = window.getComputedStyle(frontPage);
 
-        var frontPageVisible =
-            style.display !== "none" &&
-            style.visibility !== "hidden" &&
-            rect.height > 0 &&
-            rect.bottom > 1 &&
-            rect.top < window.innerHeight;
+ var frontPageVisible =
+ style.display!== "none" &&
+ style.visibility!== "hidden" &&
+ rect.height > 0 &&
+ rect.bottom > 1 &&
+ rect.top < window.innerHeight;
 
-        document.documentElement.classList.toggle(
-            "mcx-real-front-page-visible",
-            frontPageVisible
-        );
-    }
+ document.documentElement.classList.toggle(
+ "mcx-real-front-page-visible",
+ frontPageVisible
+ );
+ }
 
-    function scheduleUpdate() {
-        if (updatePending) return;
+ function scheduleUpdate() {
+ if (updatePending) return;
 
-        updatePending = true;
-        window.requestAnimationFrame(updateFrontPageButton);
-    }
+ updatePending = true;
+ window.requestAnimationFrame(updateFrontPageButton);
+ }
 
-    window.addEventListener("scroll", scheduleUpdate, {
-        passive: true
-    });
+ window.addEventListener("scroll", scheduleUpdate, {
+ passive: true
+ });
 
-    window.addEventListener("resize", scheduleUpdate, {
-        passive: true
-    });
+ window.addEventListener("resize", scheduleUpdate, {
+ passive: true
+ });
 
-    window.addEventListener("hashchange", scheduleUpdate);
-    window.addEventListener("popstate", scheduleUpdate);
+ window.addEventListener("hashchange", scheduleUpdate);
+ window.addEventListener("popstate", scheduleUpdate);
 
-    if (document.readyState === "loading") {
-        document.addEventListener(
-            "DOMContentLoaded",
-            updateFrontPageButton,
-            { once: true }
-        );
-    } else {
-        updateFrontPageButton();
-    }
+ if (document.readyState === "loading") {
+ document.addEventListener(
+ "DOMContentLoaded",
+ updateFrontPageButton,
+ { once: true }
+ );
+ } else {
+ updateFrontPageButton();
+ }
 
-    [100, 300, 700, 1200, 2000].forEach(function (delay) {
-        window.setTimeout(updateFrontPageButton, delay);
-    });
+ [100, 300, 700, 1200, 2000].forEach(function (delay) {
+ window.setTimeout(updateFrontPageButton, delay);
+ });
 })();
 </script>
 <!-- MCX_EXACT_FRONT_FAB_HIDE_END -->

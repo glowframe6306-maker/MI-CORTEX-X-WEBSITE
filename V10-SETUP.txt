@@ -13,12 +13,12 @@ REQUIRED AFTER INSTALLATION
 1. Open the Vercel project.
 2. Go to Settings > Environment Variables.
 3. Add:
-   Name: GROQ_API_KEY
-   Value: your private Groq API key
-   Environments: Production, Preview and Development
+ Name: GROQ_API_KEY
+ Value: your private Groq API key
+ Environments: Production, Preview and Development
 4. Optional:
-   Name: GROQ_MODEL
-   Value: llama-3.3-70b-versatile
+ Name: GROQ_MODEL
+ Value: llama-3.3-70b-versatile
 5. Redeploy the project.
 
 SECURITY

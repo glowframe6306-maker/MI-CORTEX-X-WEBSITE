@@ -1,173 +1,173 @@
 /* MI CORTEX X Contact Hub Widget */
 :root {
-  --mcx-hub-bg: rgba(5, 12, 31, 0.96);
-  --mcx-hub-panel: linear-gradient(145deg, rgba(8, 27, 55, 0.98), rgba(29, 20, 79, 0.98));
-  --mcx-hub-line: rgba(91, 208, 255, 0.32);
-  --mcx-hub-text: #f7f9ff;
-  --mcx-hub-muted: #aab6d0;
-  --mcx-hub-cyan: #68dcff;
-  --mcx-hub-gold: #ffe176;
-  --mcx-hub-danger: #ff8f9b;
+ --mcx-hub-bg: rgba(5, 12, 31, 0.96);
+ --mcx-hub-panel: linear-gradient(145deg, rgba(8, 27, 55, 0.98), rgba(29, 20, 79, 0.98));
+ --mcx-hub-line: rgba(91, 208, 255, 0.32);
+ --mcx-hub-text: #f7f9ff;
+ --mcx-hub-muted: #aab6d0;
+ --mcx-hub-cyan: #68dcff;
+ --mcx-hub-gold: #ffe176;
+ --mcx-hub-danger: #ff8f9b;
 }
 
 #mcx-contact-hub-root, #mcx-contact-hub-root * { box-sizing: border-box; }
 
 .mcx-hub-fab {
-  position: fixed;
-  right: 24px;
-  bottom: 24px;
-  width: 68px;
-  height: 68px;
-  padding: 0;
-  border: 1px solid rgba(104, 220, 255, 0.62);
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 25%, rgba(54, 199, 255, 0.45), rgba(17, 20, 70, 0.98) 68%);
-  box-shadow: 0 16px 45px rgba(0,0,0,.42), 0 0 28px rgba(72,190,255,.35);
-  z-index: 2147482500;
-  cursor: pointer;
-  overflow: hidden;
-  display: grid;
-  place-items: center;
-  isolation: isolate;
+ position: fixed;
+ right: 24px;
+ bottom: 24px;
+ width: 68px;
+ height: 68px;
+ padding: 0;
+ border: 1px solid rgba(104, 220, 255, 0.62);
+ border-radius: 50%;
+ background: radial-gradient(circle at 30% 25%, rgba(54, 199, 255, 0.45), rgba(17, 20, 70, 0.98) 68%);
+ box-shadow: 0 16px 45px rgba(0,0,0,.42), 0 0 28px rgba(72,190,255,.35);
+ z-index: 2147482500;
+ cursor: pointer;
+ overflow: hidden;
+ display: grid;
+ place-items: center;
+ isolation: isolate;
 }
 .mcx-hub-fab::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  border-radius: inherit;
-  background: conic-gradient(from 0deg, transparent, rgba(104,220,255,.75), transparent 40%, rgba(162,110,255,.75), transparent 75%);
-  animation: mcxHubSpin 6s linear infinite;
-  z-index: -2;
+ content: "";
+ position: absolute;
+ inset: -2px;
+ border-radius: inherit;
+ background: conic-gradient(from 0deg, transparent, rgba(104,220,255,.75), transparent 40%, rgba(162,110,255,.75), transparent 75%);
+ animation: mcxHubSpin 6s linear infinite;
+ z-index: -2;
 }
 .mcx-hub-fab::after {
-  content: "";
-  position: absolute;
-  inset: 3px;
-  border-radius: inherit;
-  background: rgba(5, 12, 31, .94);
-  z-index: -1;
+ content: "";
+ position: absolute;
+ inset: 3px;
+ border-radius: inherit;
+ background: rgba(5, 12, 31,.94);
+ z-index: -1;
 }
 .mcx-hub-fab:hover { transform: translateY(-2px); }
-.mcx-hub-fab:focus-visible, .mcx-hub-button:focus-visible, .mcx-hub-close:focus-visible, .mcx-hub-back:focus-visible, .mcx-hub-input:focus-visible {
-  outline: 3px solid rgba(255,225,118,.75);
-  outline-offset: 3px;
+.mcx-hub-fab:focus-visible,.mcx-hub-button:focus-visible,.mcx-hub-close:focus-visible,.mcx-hub-back:focus-visible,.mcx-hub-input:focus-visible {
+ outline: 3px solid rgba(255,225,118,.75);
+ outline-offset: 3px;
 }
-.mcx-hub-fab-icon { width: 42px; height: 42px; display: grid; place-items: center; animation: mcxHubSwap .35s ease; }
-.mcx-hub-fab-icon img, .mcx-hub-fab-icon svg { width: 100%; height: 100%; object-fit: contain; }
+.mcx-hub-fab-icon { width: 42px; height: 42px; display: grid; place-items: center; animation: mcxHubSwap.35s ease; }
+.mcx-hub-fab-icon img,.mcx-hub-fab-icon svg { width: 100%; height: 100%; object-fit: contain; }
 .mcx-hub-fab-label {
-  position: fixed;
-  right: 22px;
-  bottom: 100px;
-  z-index: 2147482499;
-  padding: 8px 12px;
-  border-radius: 999px;
-  color: var(--mcx-hub-text);
-  background: rgba(5, 12, 31, .9);
-  border: 1px solid var(--mcx-hub-line);
-  font: 700 12px/1.2 system-ui, sans-serif;
-  box-shadow: 0 10px 30px rgba(0,0,0,.3);
-  pointer-events: none;
+ position: fixed;
+ right: 22px;
+ bottom: 100px;
+ z-index: 2147482499;
+ padding: 8px 12px;
+ border-radius: 999px;
+ color: var(--mcx-hub-text);
+ background: rgba(5, 12, 31,.9);
+ border: 1px solid var(--mcx-hub-line);
+ font: 700 12px/1.2 system-ui, sans-serif;
+ box-shadow: 0 10px 30px rgba(0,0,0,.3);
+ pointer-events: none;
 }
 
 .mcx-hub-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 2147483000;
-  display: grid;
-  place-items: center;
-  padding: 18px;
-  background: rgba(0, 5, 18, .76);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+ position: fixed;
+ inset: 0;
+ z-index: 2147483000;
+ display: grid;
+ place-items: center;
+ padding: 18px;
+ background: rgba(0, 5, 18,.76);
+ backdrop-filter: blur(14px);
+ -webkit-backdrop-filter: blur(14px);
 }
-.mcx-hub-overlay[hidden] { display: none !important; }
+.mcx-hub-overlay[hidden] { display: none!important; }
 .mcx-hub-modal {
-  width: min(760px, 100%);
-  max-height: min(88vh, 900px);
-  overflow: auto;
-  border: 1px solid var(--mcx-hub-line);
-  border-radius: 28px;
-  background: var(--mcx-hub-panel);
-  box-shadow: 0 30px 90px rgba(0,0,0,.62), 0 0 40px rgba(68,178,255,.16);
-  color: var(--mcx-hub-text);
-  padding: 24px;
-  position: relative;
+ width: min(760px, 100%);
+ max-height: min(88vh, 900px);
+ overflow: auto;
+ border: 1px solid var(--mcx-hub-line);
+ border-radius: 28px;
+ background: var(--mcx-hub-panel);
+ box-shadow: 0 30px 90px rgba(0,0,0,.62), 0 0 40px rgba(68,178,255,.16);
+ color: var(--mcx-hub-text);
+ padding: 24px;
+ position: relative;
 }
-.mcx-hub-modal h2 { margin: 0; font: 800 clamp(1.35rem, 3vw, 2rem)/1.15 system-ui, sans-serif; letter-spacing: .02em; }
+.mcx-hub-modal h2 { margin: 0; font: 800 clamp(1.35rem, 3vw, 2rem)/1.15 system-ui, sans-serif; letter-spacing:.02em; }
 .mcx-hub-subtitle { margin: 8px 0 22px; color: var(--mcx-hub-muted); font: 500 14px/1.55 system-ui, sans-serif; }
-.mcx-hub-close, .mcx-hub-back {
-  border: 1px solid var(--mcx-hub-line);
-  background: rgba(9, 22, 48, .76);
-  color: var(--mcx-hub-text);
-  border-radius: 12px;
-  min-width: 42px;
-  height: 42px;
-  cursor: pointer;
-  font: 800 18px/1 system-ui, sans-serif;
+.mcx-hub-close,.mcx-hub-back {
+ border: 1px solid var(--mcx-hub-line);
+ background: rgba(9, 22, 48,.76);
+ color: var(--mcx-hub-text);
+ border-radius: 12px;
+ min-width: 42px;
+ height: 42px;
+ cursor: pointer;
+ font: 800 18px/1 system-ui, sans-serif;
 }
 .mcx-hub-close { position: absolute; top: 18px; right: 18px; }
 .mcx-hub-back { margin-bottom: 16px; padding: 0 14px; font-size: 13px; }
 .mcx-hub-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
 .mcx-hub-button {
-  border: 1px solid rgba(104,220,255,.28);
-  border-radius: 18px;
-  min-height: 82px;
-  padding: 16px;
-  background: linear-gradient(135deg, rgba(10,42,73,.9), rgba(41,27,96,.85));
-  color: var(--mcx-hub-text);
-  cursor: pointer;
-  text-align: left;
-  display: flex;
-  gap: 13px;
-  align-items: center;
-  font: 750 14px/1.35 system-ui, sans-serif;
-  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+ border: 1px solid rgba(104,220,255,.28);
+ border-radius: 18px;
+ min-height: 82px;
+ padding: 16px;
+ background: linear-gradient(135deg, rgba(10,42,73,.9), rgba(41,27,96,.85));
+ color: var(--mcx-hub-text);
+ cursor: pointer;
+ text-align: left;
+ display: flex;
+ gap: 13px;
+ align-items: center;
+ font: 750 14px/1.35 system-ui, sans-serif;
+ transition: transform.18s ease, border-color.18s ease, box-shadow.18s ease;
 }
 .mcx-hub-button:hover { transform: translateY(-2px); border-color: rgba(104,220,255,.72); box-shadow: 0 12px 30px rgba(0,0,0,.24); }
 .mcx-hub-button-icon { flex: 0 0 42px; width: 42px; height: 42px; display: grid; place-items: center; border-radius: 12px; background: rgba(5,12,31,.55); }
-.mcx-hub-button-icon svg, .mcx-hub-button-icon img { width: 28px; height: 28px; object-fit: contain; }
+.mcx-hub-button-icon svg,.mcx-hub-button-icon img { width: 28px; height: 28px; object-fit: contain; }
 .mcx-hub-button small { display: block; color: var(--mcx-hub-muted); font-size: 12px; font-weight: 500; margin-top: 4px; }
-.mcx-hub-panel[hidden] { display: none !important; }
+.mcx-hub-panel[hidden] { display: none!important; }
 
 .mcx-hub-form-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; }
 .mcx-hub-field { display: grid; gap: 7px; }
 .mcx-hub-field.full { grid-column: 1 / -1; }
-.mcx-hub-field label { font: 750 12px/1.2 system-ui, sans-serif; color: var(--mcx-hub-cyan); letter-spacing: .04em; text-transform: uppercase; }
+.mcx-hub-field label { font: 750 12px/1.2 system-ui, sans-serif; color: var(--mcx-hub-cyan); letter-spacing:.04em; text-transform: uppercase; }
 .mcx-hub-input {
-  width: 100%;
-  border: 1px solid rgba(104,220,255,.28);
-  border-radius: 13px;
-  background: rgba(2, 13, 34, .72);
-  color: var(--mcx-hub-text);
-  min-height: 46px;
-  padding: 11px 13px;
-  font: 500 14px/1.4 system-ui, sans-serif;
+ width: 100%;
+ border: 1px solid rgba(104,220,255,.28);
+ border-radius: 13px;
+ background: rgba(2, 13, 34,.72);
+ color: var(--mcx-hub-text);
+ min-height: 46px;
+ padding: 11px 13px;
+ font: 500 14px/1.4 system-ui, sans-serif;
 }
 textarea.mcx-hub-input { min-height: 104px; resize: vertical; }
 .mcx-hub-help { color: var(--mcx-hub-muted); font: 500 12px/1.45 system-ui, sans-serif; }
 .mcx-hub-error { min-height: 18px; color: var(--mcx-hub-danger); font: 650 12px/1.4 system-ui, sans-serif; }
 .mcx-hub-notice { border: 1px solid rgba(255,225,118,.26); background: rgba(255,225,118,.07); color: #f8edbd; padding: 12px 14px; border-radius: 13px; font: 500 12px/1.5 system-ui, sans-serif; margin: 14px 0; }
 .mcx-hub-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
-.mcx-hub-actions .mcx-hub-button { min-height: 50px; flex: 1 1 180px; justify-content: center; text-align: center; }
+.mcx-hub-actions.mcx-hub-button { min-height: 50px; flex: 1 1 180px; justify-content: center; text-align: center; }
 .mcx-hub-primary { background: linear-gradient(135deg, rgba(0,155,210,.95), rgba(102,70,238,.95)); }
 .mcx-hub-checkbox { display: flex; gap: 10px; align-items: flex-start; color: var(--mcx-hub-muted); font: 500 13px/1.45 system-ui, sans-serif; margin-top: 14px; }
 .mcx-hub-checkbox input { margin-top: 3px; }
 .mcx-hub-toast { position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%); z-index: 2147483600; max-width: min(92vw, 520px); padding: 12px 16px; border-radius: 12px; color: #fff; background: rgba(7,22,46,.96); border: 1px solid var(--mcx-hub-line); box-shadow: 0 14px 45px rgba(0,0,0,.45); font: 650 13px/1.4 system-ui, sans-serif; }
-.mcx-hub-toast[hidden] { display:none !important; }
+.mcx-hub-toast[hidden] { display:none!important; }
 
 @keyframes mcxHubSpin { to { transform: rotate(360deg); } }
 @keyframes mcxHubSwap { from { opacity: 0; transform: scale(.78) rotate(-8deg); } to { opacity: 1; transform: scale(1) rotate(0); } }
 @media (max-width: 640px) {
-  .mcx-hub-fab { right: 16px; bottom: 16px; width: 62px; height: 62px; }
-  .mcx-hub-fab-label { right: 14px; bottom: 88px; }
-  .mcx-hub-modal { border-radius: 22px; padding: 20px 16px; }
-  .mcx-hub-grid, .mcx-hub-form-grid { grid-template-columns: 1fr; }
-  .mcx-hub-field.full { grid-column: auto; }
+.mcx-hub-fab { right: 16px; bottom: 16px; width: 62px; height: 62px; }
+.mcx-hub-fab-label { right: 14px; bottom: 88px; }
+.mcx-hub-modal { border-radius: 22px; padding: 20px 16px; }
+.mcx-hub-grid,.mcx-hub-form-grid { grid-template-columns: 1fr; }
+.mcx-hub-field.full { grid-column: auto; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .mcx-hub-fab::before { animation: none; }
-  .mcx-hub-fab-icon { animation: none; }
-  .mcx-hub-button { transition: none; }
+.mcx-hub-fab::before { animation: none; }
+.mcx-hub-fab-icon { animation: none; }
+.mcx-hub-button { transition: none; }
 }
 
 
@@ -175,84 +175,84 @@ textarea.mcx-hub-input { min-height: 104px; resize: vertical; }
 
 /* Hide only the floating contact widget on the front page. */
 .mcx-floating-hidden-on-front-page {
-    display: none !important;
+ display: none!important;
 }
 
 /* Permanently remove the typed label. */
 .mcx-connect-label-removed {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
+ display: none!important;
+ visibility: hidden!important;
+ opacity: 0!important;
+ pointer-events: none!important;
 }
 
 /* Keep the existing launcher button and replace only its visible icon. */
 .mcx-fixed-rotating-launcher {
-    position: relative !important;
-    overflow: hidden !important;
-    border-radius: 50% !important;
-    isolation: isolate !important;
+ position: relative!important;
+ overflow: hidden!important;
+ border-radius: 50%!important;
+ isolation: isolate!important;
 }
 
 .mcx-fixed-rotating-launcher > img,
 .mcx-fixed-rotating-launcher > svg,
 .mcx-fixed-rotating-launcher > span,
 .mcx-fixed-rotating-launcher > i {
-    opacity: 0 !important;
-    visibility: hidden !important;
+ opacity: 0!important;
+ visibility: hidden!important;
 }
 
 .mcx-fixed-rotating-launcher::after {
-    content: "" !important;
-    position: absolute !important;
-    inset: 7px !important;
-    z-index: 20 !important;
-    display: block !important;
-    border-radius: 50% !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    background-size: contain !important;
-    pointer-events: none !important;
-    animation: mcxFixedIconEntrance 0.4s ease both !important;
+ content: ""!important;
+ position: absolute!important;
+ inset: 7px!important;
+ z-index: 20!important;
+ display: block!important;
+ border-radius: 50%!important;
+ background-position: center!important;
+ background-repeat: no-repeat!important;
+ background-size: contain!important;
+ pointer-events: none!important;
+ animation: mcxFixedIconEntrance 0.4s ease both!important;
 }
 
 /* Real WhatsApp icon. */
 .mcx-fixed-rotating-launcher.mcx-fixed-whatsapp-icon::after {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%2325D366' d='M380.9 97.1C339 55.1 283.2 32 223.9 32 101.5 32 2.2 131.6 2.2 254c0 39.1 10.2 77.3 29.6 111L.3 480l117.7-30.9c32.4 17.7 68.9 27 106 27 122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.2-157zM224 438.7c-33.2 0-65.7-8.9-94-25.8l-6.7-4-69.8 18.3 18.6-68-4.4-7c-18.5-29.4-28.2-63.4-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.1c-5.5-2.8-32.8-16.1-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z'/%3E%3C/svg%3E") !important;
+ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%2325D366' d='M380.9 97.1C339 55.1 283.2 32 223.9 32 101.5 32 2.2 131.6 2.2 254c0 39.1 10.2 77.3 29.6 111L.3 480l117.7-30.9c32.4 17.7 68.9 27 106 27 122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.2-157zM224 438.7c-33.2 0-65.7-8.9-94-25.8l-6.7-4-69.8 18.3 18.6-68-4.4-7c-18.5-29.4-28.2-63.4-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.1c-5.5-2.8-32.8-16.1-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z'/%3E%3C/svg%3E")!important;
 }
 
 /* Telegram icon. */
 .mcx-fixed-rotating-launcher.mcx-fixed-telegram-icon::after {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Ccircle cx='256' cy='256' r='256' fill='%2326A5E4'/%3E%3Cpath fill='white' d='M371.8 135.7 327.6 370c-3.3 16.5-12 20.6-24.3 12.8l-67.4-49.7-32.5 31.3c-3.6 3.6-6.6 6.6-13.5 6.6l4.8-68.6 124.9-112.8c5.4-4.8-1.2-7.5-8.4-2.7L156.8 284.1l-66.5-20.8c-14.5-4.5-14.7-14.5 3-21.4l260-100.2c12-4.4 22.5 2.9 18.5 14z'/%3E%3C/svg%3E") !important;
+ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Ccircle cx='256' cy='256' r='256' fill='%2326A5E4'/%3E%3Cpath fill='white' d='M371.8 135.7 327.6 370c-3.3 16.5-12 20.6-24.3 12.8l-67.4-49.7-32.5 31.3c-3.6 3.6-6.6 6.6-13.5 6.6l4.8-68.6 124.9-112.8c5.4-4.8-1.2-7.5-8.4-2.7L156.8 284.1l-66.5-20.8c-14.5-4.5-14.7-14.5 3-21.4l260-100.2c12-4.4 22.5 2.9 18.5 14z'/%3E%3C/svg%3E")!important;
 }
 
 /* Existing MI CORTEX X logo with a round crop. */
 .mcx-fixed-rotating-launcher.mcx-fixed-company-icon::after {
-    inset: 5px !important;
-    background-image: url("./logo.png") !important;
-    background-size: cover !important;
-    background-color: #020817 !important;
-    border: 1px solid rgba(77, 211, 255, 0.75) !important;
-    box-shadow:
-        inset 0 0 12px rgba(0, 153, 255, 0.28),
-        0 0 12px rgba(0, 153, 255, 0.25) !important;
+ inset: 5px!important;
+ background-image: url("./logo.png")!important;
+ background-size: cover!important;
+ background-color: #020817!important;
+ border: 1px solid rgba(77, 211, 255, 0.75)!important;
+ box-shadow:
+ inset 0 0 12px rgba(0, 153, 255, 0.28),
+ 0 0 12px rgba(0, 153, 255, 0.25)!important;
 }
 
 /* AI icon. */
 .mcx-fixed-rotating-launcher.mcx-fixed-ai-icon::after {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='29' fill='%23040b24' stroke='%2354d9ff' stroke-width='2'/%3E%3Cpath d='M20 25c0-7 5-12 12-12s12 5 12 12v14c0 7-5 12-12 12s-12-5-12-12V25z' fill='none' stroke='%2354d9ff' stroke-width='3'/%3E%3Ccircle cx='27' cy='31' r='2.5' fill='%2354d9ff'/%3E%3Ccircle cx='37' cy='31' r='2.5' fill='%2354d9ff'/%3E%3Cpath d='M26 40c4 3 8 3 12 0M32 13V7M17 20l-5-3M47 20l5-3' fill='none' stroke='%2354d9ff' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E") !important;
+ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='29' fill='%23040b24' stroke='%2354d9ff' stroke-width='2'/%3E%3Cpath d='M20 25c0-7 5-12 12-12s12 5 12 12v14c0 7-5 12-12 12s-12-5-12-12V25z' fill='none' stroke='%2354d9ff' stroke-width='3'/%3E%3Ccircle cx='27' cy='31' r='2.5' fill='%2354d9ff'/%3E%3Ccircle cx='37' cy='31' r='2.5' fill='%2354d9ff'/%3E%3Cpath d='M26 40c4 3 8 3 12 0M32 13V7M17 20l-5-3M47 20l5-3' fill='none' stroke='%2354d9ff' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E")!important;
 }
 
 @keyframes mcxFixedIconEntrance {
-    from {
-        opacity: 0;
-        transform: scale(0.72) rotate(-10deg);
-    }
+ from {
+ opacity: 0;
+ transform: scale(0.72) rotate(-10deg);
+ }
 
-    to {
-        opacity: 1;
-        transform: scale(1) rotate(0);
-    }
+ to {
+ opacity: 1;
+ transform: scale(1) rotate(0);
+ }
 }
 
 /* MCX_EXACT_FLOATING_BUTTON_FIX_END */
@@ -261,51 +261,51 @@ textarea.mcx-hub-input { min-height: 104px; resize: vertical; }
 
 /* The floating contact button is hidden only on the actual front banner. */
 .mcx-exact-hidden-on-front {
-    display: none !important;
+ display: none!important;
 }
 
 /* Preserve the existing button, but display the exact icon inside it. */
 .mcx-exact-icon-launcher {
-    display: grid !important;
-    place-items: center !important;
-    position: relative !important;
-    overflow: hidden !important;
-    padding: 0 !important;
-    border-radius: 50% !important;
+ display: grid!important;
+ place-items: center!important;
+ position: relative!important;
+ overflow: hidden!important;
+ padding: 0!important;
+ border-radius: 50%!important;
 }
 
 .mcx-exact-launcher-svg,
 .mcx-exact-company-logo {
-    display: block !important;
-    width: calc(100% - 14px) !important;
-    height: calc(100% - 14px) !important;
-    margin: 7px !important;
-    flex: none !important;
-    pointer-events: none !important;
-    animation: mcxExactIconChange 0.38s ease both !important;
+ display: block!important;
+ width: calc(100% - 14px)!important;
+ height: calc(100% - 14px)!important;
+ margin: 7px!important;
+ flex: none!important;
+ pointer-events: none!important;
+ animation: mcxExactIconChange 0.38s ease both!important;
 }
 
 .mcx-exact-company-logo {
-    object-fit: cover !important;
-    object-position: center !important;
-    border-radius: 50% !important;
-    background: #020817 !important;
-    border: 1px solid rgba(84, 217, 255, 0.72) !important;
-    box-shadow:
-        inset 0 0 12px rgba(0, 153, 255, 0.28),
-        0 0 10px rgba(0, 153, 255, 0.24) !important;
+ object-fit: cover!important;
+ object-position: center!important;
+ border-radius: 50%!important;
+ background: #020817!important;
+ border: 1px solid rgba(84, 217, 255, 0.72)!important;
+ box-shadow:
+ inset 0 0 12px rgba(0, 153, 255, 0.28),
+ 0 0 10px rgba(0, 153, 255, 0.24)!important;
 }
 
 @keyframes mcxExactIconChange {
-    from {
-        opacity: 0;
-        transform: scale(0.72) rotate(-8deg);
-    }
+ from {
+ opacity: 0;
+ transform: scale(0.72) rotate(-8deg);
+ }
 
-    to {
-        opacity: 1;
-        transform: scale(1) rotate(0);
-    }
+ to {
+ opacity: 1;
+ transform: scale(1) rotate(0);
+ }
 }
 
 /* MCX_EXACT_ICON_RENDERER_END */
@@ -321,8 +321,8 @@ textarea.mcx-hub-input { min-height: 104px; resize: vertical; }
 .mcx-contact-launcher.mcx-fixed-whatsapp-icon,
 .mcx-contact-fab.mcx-fixed-whatsapp-icon,
 .mcx-contact-button.mcx-fixed-whatsapp-icon {
-    position: relative !important;
-    overflow: hidden !important;
+ position: relative!important;
+ overflow: hidden!important;
 }
 
 .mcx-fixed-rotating-launcher.mcx-fixed-whatsapp-icon > *,
@@ -332,8 +332,8 @@ textarea.mcx-hub-input { min-height: 104px; resize: vertical; }
 .mcx-contact-launcher.mcx-fixed-whatsapp-icon > *,
 .mcx-contact-fab.mcx-fixed-whatsapp-icon > *,
 .mcx-contact-button.mcx-fixed-whatsapp-icon > * {
-    opacity: 0 !important;
-    visibility: hidden !important;
+ opacity: 0!important;
+ visibility: hidden!important;
 }
 
 .mcx-fixed-rotating-launcher.mcx-fixed-whatsapp-icon::after,
@@ -343,21 +343,21 @@ textarea.mcx-hub-input { min-height: 104px; resize: vertical; }
 .mcx-contact-launcher.mcx-fixed-whatsapp-icon::after,
 .mcx-contact-fab.mcx-fixed-whatsapp-icon::after,
 .mcx-contact-button.mcx-fixed-whatsapp-icon::after {
-    content: "" !important;
-    position: absolute !important;
-    inset: 7px !important;
-    z-index: 999 !important;
-    display: block !important;
-    border-radius: 50% !important;
-    background-color: #25d366 !important;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23ffffff' d='M380.9 97.1C339 55.1 283.2 32 223.9 32 101.5 32 2.2 131.6 2.2 254c0 39.1 10.2 77.3 29.6 111L.3 480l117.7-30.9c32.4 17.7 68.9 27 106 27 122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.2-157zM224 438.7c-33.2 0-65.7-8.9-94-25.8l-6.7-4-69.8 18.3 18.6-68-4.4-7c-18.5-29.4-28.2-63.4-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.1c-5.5-2.8-32.8-16.1-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z'/%3E%3C/svg%3E") !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    background-size: 68% !important;
-    box-shadow:
-        inset 0 0 0 1px rgba(255,255,255,0.22),
-        0 0 12px rgba(37,211,102,0.35) !important;
-    pointer-events: none !important;
+ content: ""!important;
+ position: absolute!important;
+ inset: 7px!important;
+ z-index: 999!important;
+ display: block!important;
+ border-radius: 50%!important;
+ background-color: #25d366!important;
+ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23ffffff' d='M380.9 97.1C339 55.1 283.2 32 223.9 32 101.5 32 2.2 131.6 2.2 254c0 39.1 10.2 77.3 29.6 111L.3 480l117.7-30.9c32.4 17.7 68.9 27 106 27 122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.2-157zM224 438.7c-33.2 0-65.7-8.9-94-25.8l-6.7-4-69.8 18.3 18.6-68-4.4-7c-18.5-29.4-28.2-63.4-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.1c-5.5-2.8-32.8-16.1-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z'/%3E%3C/svg%3E")!important;
+ background-position: center!important;
+ background-repeat: no-repeat!important;
+ background-size: 68%!important;
+ box-shadow:
+ inset 0 0 0 1px rgba(255,255,255,0.22),
+ 0 0 12px rgba(37,211,102,0.35)!important;
+ pointer-events: none!important;
 }
 
 /* MCX_REAL_WHATSAPP_ICON_END */
@@ -368,31 +368,31 @@ textarea.mcx-hub-input { min-height: 104px; resize: vertical; }
 /* MCX_FRONT_PAGE_FLOATING_BUTTON_CSS_START */
 html.mcx-hide-floating-button-on-front-page [data-mcx-contact-widget],
 html.mcx-hide-floating-button-on-front-page #mcx-contact-widget,
-html.mcx-hide-floating-button-on-front-page .mcx-contact-widget,
-html.mcx-hide-floating-button-on-front-page .mcx-contact-hub,
-html.mcx-hide-floating-button-on-front-page .mcx-widget,
+html.mcx-hide-floating-button-on-front-page.mcx-contact-widget,
+html.mcx-hide-floating-button-on-front-page.mcx-contact-hub,
+html.mcx-hide-floating-button-on-front-page.mcx-widget,
 html.mcx-hide-floating-button-on-front-page [data-mcx-contact-toggle],
 html.mcx-hide-floating-button-on-front-page #mcx-contact-launcher,
 html.mcx-hide-floating-button-on-front-page #mcx-contact-fab,
-html.mcx-hide-floating-button-on-front-page .mcx-contact-launcher,
-html.mcx-hide-floating-button-on-front-page .mcx-contact-fab,
-html.mcx-hide-floating-button-on-front-page .mcx-contact-button,
-html.mcx-hide-floating-button-on-front-page .mcx-widget-launcher,
-html.mcx-hide-floating-button-on-front-page .mcx-exact-icon-launcher {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
+html.mcx-hide-floating-button-on-front-page.mcx-contact-launcher,
+html.mcx-hide-floating-button-on-front-page.mcx-contact-fab,
+html.mcx-hide-floating-button-on-front-page.mcx-contact-button,
+html.mcx-hide-floating-button-on-front-page.mcx-widget-launcher,
+html.mcx-hide-floating-button-on-front-page.mcx-exact-icon-launcher {
+ display: none!important;
+ visibility: hidden!important;
+ opacity: 0!important;
+ pointer-events: none!important;
 }
 /* MCX_FRONT_PAGE_FLOATING_BUTTON_CSS_END */
 
 /* MCX_EXACT_FRONT_BANNER_HIDE_START */
 /* Hide the complete floating contact hub only while #mi-front-page is visible. */
 #mcx-contact-hub-root.mcx-hide-contact-hub-on-front-banner {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
+ display: none!important;
+ visibility: hidden!important;
+ opacity: 0!important;
+ pointer-events: none!important;
 }
 /* MCX_EXACT_FRONT_BANNER_HIDE_END */
 
@@ -404,24 +404,24 @@ html.mcx-hide-floating-button-on-front-page .mcx-exact-icon-launcher {
 .mcx-exact-company-logo,
 .mcx-fixed-rotating-launcher.mcx-fixed-company-icon::after,
 .mcx-custom-cycle-launcher.mcx-cycle-company::before {
-    border-radius: 50% !important;
-    object-fit: cover !important;
-    object-position: center !important;
-    overflow: hidden !important;
-    background-color: #020817 !important;
-    border: 1px solid rgba(84, 217, 255, 0.8) !important;
-    box-shadow:
-        inset 0 0 12px rgba(0, 153, 255, 0.25),
-        0 0 12px rgba(0, 153, 255, 0.3) !important;
+ border-radius: 50%!important;
+ object-fit: cover!important;
+ object-position: center!important;
+ overflow: hidden!important;
+ background-color: #020817!important;
+ border: 1px solid rgba(84, 217, 255, 0.8)!important;
+ box-shadow:
+ inset 0 0 12px rgba(0, 153, 255, 0.25),
+ 0 0 12px rgba(0, 153, 255, 0.3)!important;
 }
 
 /* Keep the logo neatly inside the floating button. */
 .mcx-hub-fab-icon img,
 .mcx-exact-company-logo {
-    width: calc(100% - 4px) !important;
-    height: calc(100% - 4px) !important;
-    margin: 2px !important;
-    display: block !important;
+ width: calc(100% - 4px)!important;
+ height: calc(100% - 4px)!important;
+ margin: 2px!important;
+ display: block!important;
 }
 
 /* MCX_ROUND_COMPANY_LOGO_END */
@@ -430,18 +430,18 @@ html.mcx-hide-floating-button-on-front-page .mcx-exact-icon-launcher {
 /* ===== MI CORTEX X FLOATING LOGO SIZE ===== */
 .mcx-exact-launcher-svg,
 .mcx-hub-fab-icon svg{
-    width:98%!important;
-    height:98%!important;
-    max-width:98%!important;
-    max-height:98%!important;
-    display:block!important;
-    margin:auto!important;
+ width:98%!important;
+ height:98%!important;
+ max-width:98%!important;
+ max-height:98%!important;
+ display:block!important;
+ margin:auto!important;
 }
 
 .mcx-hub-fab-icon{
-    display:flex!important;
-    align-items:center!important;
-    justify-content:center!important;
+ display:flex!important;
+ align-items:center!important;
+ justify-content:center!important;
 }
 /* ===== END MI CORTEX X FLOATING LOGO SIZE ===== */
 

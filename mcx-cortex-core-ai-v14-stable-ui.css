@@ -1,226 +1,226 @@
 
 /* CORTEX CORE AI V14 — Stable Customer Experience UI */
 
-#mcx-ai-chat-root .mcx-ai-overlay {
-  padding: 18px !important;
-  background:
-    radial-gradient(circle at 12% 10%, rgba(34, 199, 255, .15), transparent 34%),
-    radial-gradient(circle at 90% 88%, rgba(126, 79, 255, .18), transparent 36%),
-    rgba(1, 8, 22, .78) !important;
-  backdrop-filter: blur(22px) saturate(145%) !important;
-  -webkit-backdrop-filter: blur(22px) saturate(145%) !important;
+#mcx-ai-chat-root.mcx-ai-overlay {
+ padding: 18px!important;
+ background:
+ radial-gradient(circle at 12% 10%, rgba(34, 199, 255,.15), transparent 34%),
+ radial-gradient(circle at 90% 88%, rgba(126, 79, 255,.18), transparent 36%),
+ rgba(1, 8, 22,.78)!important;
+ backdrop-filter: blur(22px) saturate(145%)!important;
+ -webkit-backdrop-filter: blur(22px) saturate(145%)!important;
 }
 
-#mcx-ai-chat-root .mcx-ai-dialog {
-  width: min(960px, 100%) !important;
-  height: min(860px, calc(100dvh - 36px)) !important;
-  border: 1px solid rgba(102, 220, 255, .48) !important;
-  border-radius: 28px !important;
-  overflow: hidden !important;
-  background:
-    linear-gradient(145deg, rgba(7, 25, 57, .82), rgba(31, 19, 88, .76)) !important;
-  box-shadow:
-    0 28px 90px rgba(0, 0, 0, .58),
-    inset 0 1px 0 rgba(255, 255, 255, .08),
-    0 0 60px rgba(50, 185, 255, .10) !important;
-  backdrop-filter: blur(28px) saturate(155%) !important;
-  -webkit-backdrop-filter: blur(28px) saturate(155%) !important;
-  pointer-events: auto !important;
+#mcx-ai-chat-root.mcx-ai-dialog {
+ width: min(960px, 100%)!important;
+ height: min(860px, calc(100dvh - 36px))!important;
+ border: 1px solid rgba(102, 220, 255,.48)!important;
+ border-radius: 28px!important;
+ overflow: hidden!important;
+ background:
+ linear-gradient(145deg, rgba(7, 25, 57,.82), rgba(31, 19, 88,.76))!important;
+ box-shadow:
+ 0 28px 90px rgba(0, 0, 0,.58),
+ inset 0 1px 0 rgba(255, 255, 255,.08),
+ 0 0 60px rgba(50, 185, 255,.10)!important;
+ backdrop-filter: blur(28px) saturate(155%)!important;
+ -webkit-backdrop-filter: blur(28px) saturate(155%)!important;
+ pointer-events: auto!important;
 }
 
-#mcx-ai-chat-root .mcx-ai-header {
-  min-height: 78px !important;
-  padding: 15px 18px !important;
-  background:
-    linear-gradient(90deg, rgba(8, 39, 76, .76), rgba(48, 25, 112, .70)) !important;
-  border-bottom: 1px solid rgba(126, 219, 255, .14) !important;
+#mcx-ai-chat-root.mcx-ai-header {
+ min-height: 78px!important;
+ padding: 15px 18px!important;
+ background:
+ linear-gradient(90deg, rgba(8, 39, 76,.76), rgba(48, 25, 112,.70))!important;
+ border-bottom: 1px solid rgba(126, 219, 255,.14)!important;
 }
 
-#mcx-ai-chat-root .mcx-ai-toolbar {
-  display: flex !important;
-  gap: 9px !important;
-  padding: 11px 14px !important;
-  overflow-x: auto !important;
-  background: rgba(4, 18, 44, .55) !important;
-  border-bottom: 1px solid rgba(112, 211, 255, .11) !important;
+#mcx-ai-chat-root.mcx-ai-toolbar {
+ display: flex!important;
+ gap: 9px!important;
+ padding: 11px 14px!important;
+ overflow-x: auto!important;
+ background: rgba(4, 18, 44,.55)!important;
+ border-bottom: 1px solid rgba(112, 211, 255,.11)!important;
 }
 
-#mcx-ai-chat-root .mcx-ai-toolbar button,
-#mcx-ai-chat-root .mcx-ai-header-actions button,
-#mcx-ai-chat-root .mcx-ai-message-actions button,
-#mcx-ai-chat-root .mcx-ai-suggestions button {
-  pointer-events: auto !important;
-  cursor: pointer !important;
-  touch-action: manipulation !important;
+#mcx-ai-chat-root.mcx-ai-toolbar button,
+#mcx-ai-chat-root.mcx-ai-header-actions button,
+#mcx-ai-chat-root.mcx-ai-message-actions button,
+#mcx-ai-chat-root.mcx-ai-suggestions button {
+ pointer-events: auto!important;
+ cursor: pointer!important;
+ touch-action: manipulation!important;
 }
 
-#mcx-ai-chat-root .mcx-ai-toolbar button {
-  flex: none !important;
-  min-height: 38px !important;
-  padding: 9px 14px !important;
-  border: 1px solid rgba(101, 220, 255, .30) !important;
-  border-radius: 999px !important;
-  background:
-    linear-gradient(145deg, rgba(8, 43, 83, .74), rgba(47, 29, 111, .66)) !important;
-  color: #f4fbff !important;
-  font-size: .70rem !important;
-  font-weight: 800 !important;
-  letter-spacing: .035em !important;
+#mcx-ai-chat-root.mcx-ai-toolbar button {
+ flex: none!important;
+ min-height: 38px!important;
+ padding: 9px 14px!important;
+ border: 1px solid rgba(101, 220, 255,.30)!important;
+ border-radius: 999px!important;
+ background:
+ linear-gradient(145deg, rgba(8, 43, 83,.74), rgba(47, 29, 111,.66))!important;
+ color: #f4fbff!important;
+ font-size:.70rem!important;
+ font-weight: 800!important;
+ letter-spacing:.035em!important;
 }
 
-#mcx-ai-chat-root .mcx-ai-messages {
-  min-height: 0 !important;
-  padding: 20px 18px 18px !important;
-  scroll-behavior: smooth !important;
-  background:
-    linear-gradient(180deg, rgba(3, 15, 38, .34), rgba(28, 17, 79, .18)) !important;
+#mcx-ai-chat-root.mcx-ai-messages {
+ min-height: 0!important;
+ padding: 20px 18px 18px!important;
+ scroll-behavior: smooth!important;
+ background:
+ linear-gradient(180deg, rgba(3, 15, 38,.34), rgba(28, 17, 79,.18))!important;
 }
 
-#mcx-ai-chat-root .mcx-ai-message {
-  margin-bottom: 16px !important;
-  animation: mcxV14MessageIn .26s ease both !important;
+#mcx-ai-chat-root.mcx-ai-message {
+ margin-bottom: 16px!important;
+ animation: mcxV14MessageIn.26s ease both!important;
 }
 
-#mcx-ai-chat-root .mcx-ai-bubble {
-  max-width: min(82%, 720px) !important;
-  padding: 14px 15px !important;
-  border-radius: 20px !important;
-  line-height: 1.58 !important;
+#mcx-ai-chat-root.mcx-ai-bubble {
+ max-width: min(82%, 720px)!important;
+ padding: 14px 15px!important;
+ border-radius: 20px!important;
+ line-height: 1.58!important;
 }
 
-#mcx-ai-chat-root .mcx-ai-assistant .mcx-ai-bubble {
-  border: 1px solid rgba(89, 215, 255, .28) !important;
-  border-bottom-left-radius: 7px !important;
-  background:
-    linear-gradient(145deg, rgba(8, 46, 88, .78), rgba(20, 42, 92, .70)) !important;
+#mcx-ai-chat-root.mcx-ai-assistant.mcx-ai-bubble {
+ border: 1px solid rgba(89, 215, 255,.28)!important;
+ border-bottom-left-radius: 7px!important;
+ background:
+ linear-gradient(145deg, rgba(8, 46, 88,.78), rgba(20, 42, 92,.70))!important;
 }
 
-#mcx-ai-chat-root .mcx-ai-user .mcx-ai-bubble {
-  border: 1px solid rgba(174, 140, 255, .34) !important;
-  border-bottom-right-radius: 7px !important;
-  background:
-    linear-gradient(135deg, rgba(29, 122, 165, .92), rgba(82, 57, 177, .90)) !important;
+#mcx-ai-chat-root.mcx-ai-user.mcx-ai-bubble {
+ border: 1px solid rgba(174, 140, 255,.34)!important;
+ border-bottom-right-radius: 7px!important;
+ background:
+ linear-gradient(135deg, rgba(29, 122, 165,.92), rgba(82, 57, 177,.90))!important;
 }
 
-#mcx-ai-chat-root .mcx-ai-message-actions {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  gap: 8px !important;
-  margin-top: 12px !important;
+#mcx-ai-chat-root.mcx-ai-message-actions {
+ display: flex!important;
+ flex-wrap: wrap!important;
+ gap: 8px!important;
+ margin-top: 12px!important;
 }
 
-#mcx-ai-chat-root .mcx-ai-message-actions button {
-  min-height: 38px !important;
-  padding: 9px 13px !important;
-  border: 1px solid rgba(101, 225, 255, .34) !important;
-  border-radius: 12px !important;
-  background:
-    linear-gradient(135deg, rgba(12, 112, 156, .84), rgba(75, 50, 169, .82)) !important;
-  color: #fff !important;
-  font-size: .69rem !important;
-  font-weight: 800 !important;
+#mcx-ai-chat-root.mcx-ai-message-actions button {
+ min-height: 38px!important;
+ padding: 9px 13px!important;
+ border: 1px solid rgba(101, 225, 255,.34)!important;
+ border-radius: 12px!important;
+ background:
+ linear-gradient(135deg, rgba(12, 112, 156,.84), rgba(75, 50, 169,.82))!important;
+ color: #fff!important;
+ font-size:.69rem!important;
+ font-weight: 800!important;
 }
 
-#mcx-ai-chat-root .mcx-ai-suggestions,
-#mcx-ai-chat-root .mcx-v11-attachment-tray {
-  padding: 10px 14px !important;
-  background: rgba(4, 17, 42, .66) !important;
-  border-top: 1px solid rgba(101, 202, 255, .10) !important;
+#mcx-ai-chat-root.mcx-ai-suggestions,
+#mcx-ai-chat-root.mcx-v11-attachment-tray {
+ padding: 10px 14px!important;
+ background: rgba(4, 17, 42,.66)!important;
+ border-top: 1px solid rgba(101, 202, 255,.10)!important;
 }
 
-#mcx-ai-chat-root .mcx-ai-composer {
-  display: grid !important;
-  grid-template-columns: minmax(0, 1fr) 50px !important;
-  align-items: end !important;
-  gap: 10px !important;
-  width: 100% !important;
-  padding: 14px !important;
-  background:
-    linear-gradient(90deg, rgba(3, 17, 41, .90), rgba(25, 18, 76, .84)) !important;
-  border-top: 1px solid rgba(112, 214, 255, .15) !important;
-  pointer-events: auto !important;
+#mcx-ai-chat-root.mcx-ai-composer {
+ display: grid!important;
+ grid-template-columns: minmax(0, 1fr) 50px!important;
+ align-items: end!important;
+ gap: 10px!important;
+ width: 100%!important;
+ padding: 14px!important;
+ background:
+ linear-gradient(90deg, rgba(3, 17, 41,.90), rgba(25, 18, 76,.84))!important;
+ border-top: 1px solid rgba(112, 214, 255,.15)!important;
+ pointer-events: auto!important;
 }
 
-#mcx-ai-chat-root .mcx-ai-composer:has(.mcx-v11-attach) {
-  grid-template-columns: 48px minmax(0, 1fr) 50px !important;
+#mcx-ai-chat-root.mcx-ai-composer:has(.mcx-v11-attach) {
+ grid-template-columns: 48px minmax(0, 1fr) 50px!important;
 }
 
-#mcx-ai-chat-root .mcx-ai-composer textarea {
-  width: 100% !important;
-  min-width: 0 !important;
-  min-height: 50px !important;
-  max-height: 140px !important;
-  padding: 14px 15px !important;
-  resize: none !important;
-  border: 1px solid rgba(96, 220, 255, .46) !important;
-  border-radius: 17px !important;
-  background: rgba(2, 15, 36, .82) !important;
-  color: #f8fcff !important;
-  pointer-events: auto !important;
+#mcx-ai-chat-root.mcx-ai-composer textarea {
+ width: 100%!important;
+ min-width: 0!important;
+ min-height: 50px!important;
+ max-height: 140px!important;
+ padding: 14px 15px!important;
+ resize: none!important;
+ border: 1px solid rgba(96, 220, 255,.46)!important;
+ border-radius: 17px!important;
+ background: rgba(2, 15, 36,.82)!important;
+ color: #f8fcff!important;
+ pointer-events: auto!important;
 }
 
-#mcx-ai-chat-root .mcx-ai-send,
-#mcx-ai-chat-root .mcx-v11-attach {
-  width: 50px !important;
-  height: 50px !important;
-  border: 1px solid rgba(104, 225, 255, .45) !important;
-  border-radius: 16px !important;
-  background:
-    linear-gradient(145deg, rgba(10, 67, 111, .92), rgba(68, 42, 164, .90)) !important;
-  color: #fff !important;
-  cursor: pointer !important;
-  pointer-events: auto !important;
+#mcx-ai-chat-root.mcx-ai-send,
+#mcx-ai-chat-root.mcx-v11-attach {
+ width: 50px!important;
+ height: 50px!important;
+ border: 1px solid rgba(104, 225, 255,.45)!important;
+ border-radius: 16px!important;
+ background:
+ linear-gradient(145deg, rgba(10, 67, 111,.92), rgba(68, 42, 164,.90))!important;
+ color: #fff!important;
+ cursor: pointer!important;
+ pointer-events: auto!important;
 }
 
-#mcx-ai-chat-root .mcx-ai-composer.mcx-ai-sending {
-  opacity: .82 !important;
+#mcx-ai-chat-root.mcx-ai-composer.mcx-ai-sending {
+ opacity:.82!important;
 }
 
-#mcx-ai-chat-root .mcx-ai-composer.mcx-ai-sending .mcx-ai-send {
-  cursor: wait !important;
+#mcx-ai-chat-root.mcx-ai-composer.mcx-ai-sending.mcx-ai-send {
+ cursor: wait!important;
 }
 
 #mcx-ai-chat-root button:disabled,
 #mcx-ai-chat-root textarea:disabled {
-  opacity: .60 !important;
+ opacity:.60!important;
 }
 
 @keyframes mcxV14MessageIn {
-  from { opacity: 0; transform: translateY(7px); }
-  to { opacity: 1; transform: translateY(0); }
+ from { opacity: 0; transform: translateY(7px); }
+ to { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 700px) {
-  #mcx-ai-chat-root .mcx-ai-overlay {
-    padding: 0 !important;
-  }
+ #mcx-ai-chat-root.mcx-ai-overlay {
+ padding: 0!important;
+ }
 
-  #mcx-ai-chat-root .mcx-ai-dialog {
-    width: 100vw !important;
-    height: 100dvh !important;
-    border-radius: 0 !important;
-  }
+ #mcx-ai-chat-root.mcx-ai-dialog {
+ width: 100vw!important;
+ height: 100dvh!important;
+ border-radius: 0!important;
+ }
 
-  #mcx-ai-chat-root .mcx-ai-messages {
-    padding: 14px 10px !important;
-  }
+ #mcx-ai-chat-root.mcx-ai-messages {
+ padding: 14px 10px!important;
+ }
 
-  #mcx-ai-chat-root .mcx-ai-bubble {
-    max-width: 93% !important;
-  }
+ #mcx-ai-chat-root.mcx-ai-bubble {
+ max-width: 93%!important;
+ }
 
-  #mcx-ai-chat-root .mcx-ai-composer {
-    grid-template-columns: minmax(0, 1fr) 46px !important;
-    padding: 10px !important;
-  }
+ #mcx-ai-chat-root.mcx-ai-composer {
+ grid-template-columns: minmax(0, 1fr) 46px!important;
+ padding: 10px!important;
+ }
 
-  #mcx-ai-chat-root .mcx-ai-composer:has(.mcx-v11-attach) {
-    grid-template-columns: 44px minmax(0, 1fr) 46px !important;
-  }
+ #mcx-ai-chat-root.mcx-ai-composer:has(.mcx-v11-attach) {
+ grid-template-columns: 44px minmax(0, 1fr) 46px!important;
+ }
 
-  #mcx-ai-chat-root .mcx-ai-send,
-  #mcx-ai-chat-root .mcx-v11-attach {
-    width: 46px !important;
-    height: 46px !important;
-  }
+ #mcx-ai-chat-root.mcx-ai-send,
+ #mcx-ai-chat-root.mcx-v11-attach {
+ width: 46px!important;
+ height: 46px!important;
+ }
 }
