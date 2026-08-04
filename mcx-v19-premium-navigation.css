@@ -405,3 +405,153 @@ html.mcx-v19-front-page body {
 }
 
 /* MCX_V19_BLUR_ONLY_END */
+
+/* MCX_NAV_ZOOM_BLUR_START */
+
+/*
+ * Glass lens effect:
+ * Content moving behind the navigation appears softer,
+ * brighter and visually enlarged through the glass.
+ */
+.site-header .nav {
+  isolation: isolate !important;
+
+  backdrop-filter:
+    blur(13px)
+    saturate(185%)
+    contrast(112%)
+    brightness(118%) !important;
+
+  -webkit-backdrop-filter:
+    blur(13px)
+    saturate(185%)
+    contrast(112%)
+    brightness(118%) !important;
+
+  box-shadow:
+    0 18px 48px rgba(0, 0, 0, .34),
+    0 0 34px rgba(44, 186, 255, .16),
+    inset 0 1px 0 rgba(255, 255, 255, .20),
+    inset 0 -1px 0 rgba(92, 187, 255, .10) !important;
+}
+
+/*
+ * Inner lens layer creates the visual zoom/refraction feeling.
+ */
+.site-header .nav::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 2px !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  border-radius: inherit !important;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 45%,
+      rgba(255, 255, 255, .055) 0%,
+      rgba(100, 204, 255, .028) 48%,
+      rgba(100, 65, 220, .035) 75%,
+      transparent 100%
+    ) !important;
+
+  transform: scale(1.018) !important;
+  transform-origin: center !important;
+
+  filter:
+    blur(.25px)
+    brightness(1.07)
+    contrast(1.04) !important;
+
+  box-shadow:
+    inset 0 0 38px rgba(99, 207, 255, .06),
+    inset 0 0 70px rgba(96, 59, 210, .04) !important;
+}
+
+/*
+ * Soft curved highlight makes the bar look like thick glass.
+ */
+.site-header .nav::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 3% !important;
+  right: 3% !important;
+  top: 3px !important;
+  height: 42% !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+  border-radius: 999px !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, .15),
+      rgba(255, 255, 255, .035),
+      transparent
+    ) !important;
+
+  filter: blur(1.2px) !important;
+  opacity: .75 !important;
+}
+
+/* Keep logo and navigation links above the lens layers. */
+.site-header .nav > * {
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+/* Slight lens blur on individual navigation buttons. */
+.site-header .nav-links a {
+  backdrop-filter:
+    blur(7px)
+    saturate(150%)
+    brightness(108%) !important;
+
+  -webkit-backdrop-filter:
+    blur(7px)
+    saturate(150%)
+    brightness(108%) !important;
+}
+
+.site-header .nav-links a:hover {
+  backdrop-filter:
+    blur(10px)
+    saturate(175%)
+    brightness(118%) !important;
+
+  -webkit-backdrop-filter:
+    blur(10px)
+    saturate(175%)
+    brightness(118%) !important;
+}
+
+/* Active button has stronger magnified glass appearance. */
+.site-header .nav-links a.active,
+.site-header .nav-links a[aria-current="page"],
+.site-header .nav-links a.mcx-v19-active {
+  backdrop-filter:
+    blur(11px)
+    saturate(180%)
+    brightness(120%) !important;
+
+  -webkit-backdrop-filter:
+    blur(11px)
+    saturate(180%)
+    brightness(120%) !important;
+}
+
+@media (max-width: 900px) {
+  .site-header .nav {
+    backdrop-filter:
+      blur(12px)
+      saturate(175%)
+      brightness(115%) !important;
+
+    -webkit-backdrop-filter:
+      blur(12px)
+      saturate(175%)
+      brightness(115%) !important;
+  }
+}
+
+/* MCX_NAV_ZOOM_BLUR_END */
