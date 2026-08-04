@@ -1,0 +1,124 @@
+/* MCX NEURAL OPAQUE LIFT ONLY */
+
+/*
+ * Keep the complete neural page fully opaque.
+ * No front-page image may show through it.
+ */
+#mi-neural-intro,
+.mi-neural-intro {
+  opacity: 1 !important;
+  visibility: visible !important;
+  background: #000 !important;
+  background-color: #000 !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+
+  transition:
+    transform 2.1s cubic-bezier(.76, 0, .24, 1) !important;
+}
+
+/*
+ * Permanent opaque layer behind the neuron network.
+ */
+#mi-neural-intro::after,
+.mi-neural-intro::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  display: block !important;
+
+  background:
+    radial-gradient(
+      circle at 50% 48%,
+      rgba(10, 42, 92, .22),
+      rgba(0, 3, 12, .99) 55%,
+      #000 100%
+    ) !important;
+
+  opacity: 1 !important;
+  pointer-events: none !important;
+}
+
+/*
+ * Keep neuron animation and logo above the opaque layer.
+ */
+#mi-neural-intro .mi-neural-background,
+#mi-neural-intro .mi-neural-network,
+#mi-neural-intro .mi-logo-reveal,
+.mi-neural-intro .mi-neural-background,
+.mi-neural-intro .mi-neural-network,
+.mi-neural-intro .mi-logo-reveal {
+  z-index: 2 !important;
+}
+
+/*
+ * Hide every large image inside the welcome/neural page.
+ * Keep only the actual centered intro logo.
+ */
+#mi-neural-intro img:not(.mi-intro-logo),
+.mi-neural-intro img:not(.mi-intro-logo),
+#mi-neural-intro picture,
+.mi-neural-intro picture,
+#mi-neural-intro .front-page-banner,
+#mi-neural-intro .front-banner,
+#mi-neural-intro .welcome-banner,
+#mi-neural-intro .hero-banner,
+.mi-neural-intro .front-page-banner,
+.mi-neural-intro .front-banner,
+.mi-neural-intro .welcome-banner,
+.mi-neural-intro .hero-banner {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  background-image: none !important;
+}
+
+/*
+ * Logo may fade out, but the neural page itself must stay visible.
+ */
+#mi-neural-intro.mi-logo-leaving,
+#mi-neural-intro.mcx-v25-logo-out,
+.mi-neural-intro.mi-logo-leaving,
+.mi-neural-intro.mcx-v25-logo-out {
+  opacity: 1 !important;
+  visibility: visible !important;
+  background-color: #000 !important;
+}
+
+/*
+ * Lift the complete neural page upward without transparency.
+ */
+#mi-neural-intro.mi-neural-exiting,
+#mi-neural-intro.mcx-v25-page-out,
+.mi-neural-intro.mi-neural-exiting,
+.mi-neural-intro.mcx-v25-page-out {
+  opacity: 1 !important;
+  visibility: visible !important;
+  background-color: #000 !important;
+
+  transform: translate3d(0, -100%, 0) !important;
+
+  transition:
+    transform 2.1s cubic-bezier(.76, 0, .24, 1) !important;
+}
+
+/*
+ * Stop old rules from fading the complete neural page.
+ */
+#mi-neural-intro.mi-neural-exiting::after,
+#mi-neural-intro.mcx-v25-page-out::after,
+.mi-neural-intro.mi-neural-exiting::after,
+.mi-neural-intro.mcx-v25-page-out::after {
+  opacity: 1 !important;
+}
+
+/*
+ * The front-page banner remains underneath and appears only
+ * while the opaque neural page physically lifts upward.
+ */
+#mi-front-page,
+.mi-front-page {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
