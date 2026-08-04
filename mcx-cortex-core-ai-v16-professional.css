@@ -1,0 +1,36 @@
+/* CORTEX CORE AI V16 — Professional reply presentation */
+
+#mcx-ai-chat-root .mcx-ai-content {
+  white-space: pre-wrap !important;
+  overflow-wrap: anywhere !important;
+  font-size: .91rem !important;
+  line-height: 1.68 !important;
+  letter-spacing: .005em !important;
+}
+
+#mcx-ai-chat-root .mcx-ai-assistant .mcx-ai-content {
+  color: rgba(246, 251, 255, .96) !important;
+}
+
+#mcx-ai-chat-root .mcx-ai-bubble {
+  text-align: left !important;
+}
+
+#mcx-ai-chat-root .mcx-ai-meta {
+  margin-top: 10px !important;
+  font-size: .60rem !important;
+  letter-spacing: .035em !important;
+  text-transform: uppercase !important;
+}
+
+#mcx-ai-chat-root .mcx-ai-message-actions button {
+  min-height: 39px !important;
+  padding-inline: 14px !important;
+}
+
+#mcx-ai-chat-root .mcx-ai-assistant .mcx-ai-bubble {
+  box-shadow:
+    0 14px 34px rgba(0,0,0,.18),
+    inset 0 1px 0 rgba(255,255,255,.045),
+    0 0 0 1px rgba(85,213,255,.025) !important;
+}

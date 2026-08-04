@@ -36,7 +36,7 @@
     telegram: "@MICORTEXX",
     telegramUrl: "https://t.me/MICORTEXX",
     location: "Online operations, Colombo, Sri Lanka",
-    hours: "Monday to Saturday — 24 hours. Sunday — Closed.",
+    hours: "Monday to Saturday â€” 24 hours. Sunday â€” Closed.",
     responseTime: "Within 24 hours",
     advance: "30%",
     consultation: "Free consultation up to 30 minutes",
@@ -66,21 +66,21 @@
   ];
 
   const services = [
-    ["ai-development","AI Development",["ai development","ai develop","artificial intelligence"],60000,"","7–30 days","30 days",["AI models","Automation","AI integration"],"AI Development"],
-    ["ai-chatbot-development","AI Chatbot Development",["ai chatbot","chatbot","chat bot","bot development"],45000,"","5–14 days","30 days",["AI integration","Business chatbot","Multilingual support"],"AI Development"],
-    ["ai-automation","AI Automation",["ai automation","workflow automation","business automation"],65000,"","7–21 days","30 days",["Workflow automation","AI agents","Business automation"],"Automation"],
-    ["website-development","Website Development",["website","web site","site development"],15000,"","3–14 days","30 days",["Responsive design","SEO-ready structure","Admin options"],"Website Development"],
-    ["web-application-development","Web Application Development",["web application","web app","webapp"],50000,"","7–30 days","30 days",["Secure login","Dashboard","Database"],"Web Application Development"],
-    ["mobile-app-development","Mobile App Development",["mobile app","android app","ios app","application development"],85000,"","14–45 days","30 days",["Android","iOS","Cross-platform development"],"Mobile App Development"],
-    ["desktop-software-development","Desktop Software Development",["desktop software","windows software","linux software"],70000,"","10–30 days","30 days",["Windows","Linux","Database support"],"Desktop Software Development"],
-    ["enterprise-software","Enterprise Software",["enterprise software","enterprise system","erp crm hrm pos"],250000,"","30–90 days","90 days",["ERP","CRM","HRM","POS"],"Enterprise Software Development"],
-    ["api-development","API Development",["api development","rest api","graphql api"],30000,"","3–10 days","30 days",["REST","GraphQL","Secure APIs"],"API Development"],
-    ["api-integration","API Integration",["api integration","third party integration","payment integration"],20000,"","2–7 days","30 days",["Payment APIs","AI APIs","Third-party APIs"],"API Integration"],
-    ["cloud-solutions","Cloud Solutions",["cloud","aws","azure","google cloud"],30000,"","2–10 days","30 days",["AWS","Microsoft Azure","Google Cloud"],"Cloud and Hosting"],
-    ["ui-ux-design","UI/UX Design",["ui ux","ui design","ux design","interface design"],15000,"","3–10 days","14 days",["Modern UI","Responsive design","Prototype"],"UI/UX Design"],
+    ["ai-development","AI Development",["ai development","ai develop","artificial intelligence"],60000,"","7â€“30 days","30 days",["AI models","Automation","AI integration"],"AI Development"],
+    ["ai-chatbot-development","AI Chatbot Development",["ai chatbot","chatbot","chat bot","bot development"],45000,"","5â€“14 days","30 days",["AI integration","Business chatbot","Multilingual support"],"AI Development"],
+    ["ai-automation","AI Automation",["ai automation","workflow automation","business automation"],65000,"","7â€“21 days","30 days",["Workflow automation","AI agents","Business automation"],"Automation"],
+    ["website-development","Website Development",["website","web site","site development"],15000,"","3â€“14 days","30 days",["Responsive design","SEO-ready structure","Admin options"],"Website Development"],
+    ["web-application-development","Web Application Development",["web application","web app","webapp"],50000,"","7â€“30 days","30 days",["Secure login","Dashboard","Database"],"Web Application Development"],
+    ["mobile-app-development","Mobile App Development",["mobile app","android app","ios app","application development"],85000,"","14â€“45 days","30 days",["Android","iOS","Cross-platform development"],"Mobile App Development"],
+    ["desktop-software-development","Desktop Software Development",["desktop software","windows software","linux software"],70000,"","10â€“30 days","30 days",["Windows","Linux","Database support"],"Desktop Software Development"],
+    ["enterprise-software","Enterprise Software",["enterprise software","enterprise system","erp crm hrm pos"],250000,"","30â€“90 days","90 days",["ERP","CRM","HRM","POS"],"Enterprise Software Development"],
+    ["api-development","API Development",["api development","rest api","graphql api"],30000,"","3â€“10 days","30 days",["REST","GraphQL","Secure APIs"],"API Development"],
+    ["api-integration","API Integration",["api integration","third party integration","payment integration"],20000,"","2â€“7 days","30 days",["Payment APIs","AI APIs","Third-party APIs"],"API Integration"],
+    ["cloud-solutions","Cloud Solutions",["cloud","aws","azure","google cloud"],30000,"","2â€“10 days","30 days",["AWS","Microsoft Azure","Google Cloud"],"Cloud and Hosting"],
+    ["ui-ux-design","UI/UX Design",["ui ux","ui design","ux design","interface design"],15000,"","3â€“10 days","14 days",["Modern UI","Responsive design","Prototype"],"UI/UX Design"],
     ["software-maintenance","Software Maintenance",["maintenance","bug fixes","software support"],7500,"per month","Ongoing","Monthly",["Bug fixes","Updates","Monitoring"],"Maintenance"],
     ["technical-consulting","Technical Consulting",["technical consulting","consulting","consultation","technical advice"],5000,"","Same day when available","Consultation only",["Technology planning","Architecture advice"],"Consultation"],
-    ["custom-software-development","Custom Software Development",["custom software","custom system"],100000,"","14–90 days","60 days",["Fully customized solutions"],"Custom Software Development"]
+    ["custom-software-development","Custom Software Development",["custom software","custom system"],100000,"","14â€“90 days","60 days",["Fully customized solutions"],"Custom Software Development"]
   ].map(([id,name,aliases,price,billing,delivery,support,features,category]) => ({
     id,name,aliases,price,billing,delivery,support,features,category,route:`#/services/${id}`
   }));
@@ -132,7 +132,7 @@
   const normalize = value => String(value || "")
     .toLowerCase()
     .normalize("NFKD")
-    .replace(/[’'".,!?;:()[\]{}<>/_\\|@#$%^&*+=~`-]/g, " ")
+    .replace(/[â€™'".,!?;:()[\]{}<>/_\\|@#$%^&*+=~`-]/g, " ")
     .replace(/[^\p{L}\p{N}\s]/gu, " ")
     .replace(/\s+/g, " ")
     .trim();
@@ -193,6 +193,62 @@
   function action(label,type,value=""){return{label,action:type,value};}
   function reply(text,actions=[],suggestions=[],extra={}){return{text,actions,suggestions,...extra};}
 
+  function professionalText(value) {
+    let text = String(value || "")
+      .replace(/\r\n/g, "\n")
+      .replace(/[ \t]+\n/g, "\n")
+      .replace(/\n{3,}/g, "\n\n")
+      .trim();
+
+    const replacements = new Map([
+      [
+        "To provide the correct information, please select the option that best matches your request.",
+        "To provide the correct information, please select the option that best matches your request."
+      ],
+      [
+        "The secure company AI service could not be reached, so I used the verified local company knowledge.",
+        ""
+      ],
+      [
+        "CORTEX CORE AI needs GROQ_API_KEY in Vercel Environment Variables. Until it is configured, the verified local company answer is shown below.",
+        ""
+      ],
+      [
+        "I could not identify a verified company answer. Please include a product/service name, executive title, price, contact, support or appointment topic.",
+        "I could not confidently identify the exact company information you need. Please mention the relevant product, service, executive role, pricing, support, contact, or appointment topic."
+      ]
+    ]);
+
+    for (const [from, to] of replacements) {
+      text = text.replace(from, to);
+    }
+
+    text = text
+      .replace(/^\s*\n+/, "")
+      .replace(/\n{3,}/g, "\n\n")
+      .trim();
+
+    return text;
+  }
+
+  function professionalReply(result) {
+    if (!result || typeof result !== "object") {
+      return result;
+    }
+
+    return {
+      ...result,
+      text: professionalText(result.text),
+      actions: Array.isArray(result.actions)
+        ? result.actions.slice(0, 5)
+        : [],
+      suggestions: Array.isArray(result.suggestions)
+        ? result.suggestions.slice(0, 4)
+        : []
+    };
+  }
+
+
   function contactActions(){
     return[
       action("WHATSAPP","url",`https://wa.me/${company.whatsappNumber}?text=${encodeURIComponent("Hello 👋")}`),
@@ -213,7 +269,7 @@
 
   const v9Intents = {
     ai_name: ["your name","who are you","assistant name","oyage nama","obe nama","ai eke nama","à¶”à¶ºà·à¶œà·š à¶±à¶¸","à¶”à¶¶ à¶šà·€à·”à¶¯"],
-    company_name: ["company name","company eke nama","meke nama","à·ƒà¶¸à·à¶œà¶¸à·š à¶±à¶¸"],
+    company_name: ["company name","company eke nama","meke nama","සමාගමේ නම"],
     ceo: ["ceo","chief executive officer","chief executive","company boss","company eka lead karanne","à¶´à·Šâ€à¶»à¶°à·à¶± à·€à·’à¶°à·à¶ºà¶š"],
     owner: ["owner","company owner","who owns","à¶…à¶ºà·’à¶­à·’à¶šà¶»à·”","à·„à·’à¶¸à·’à¶šà¶»à·”"],
     chairman: ["chairman","chair person","à·ƒà¶·à·à¶´à¶­à·’"],
@@ -346,6 +402,25 @@
   }
 
   function v9Answer(raw) {
+    const greetingText = v9Canon(raw);
+
+    if (/^(hi|hello|hey|good morning|good afternoon|good evening|ayubowan)$/.test(greetingText)) {
+      return reply(
+        "Hello. Welcome to CORTEX CORE AI, the official company assistant of MI CORTEX X. I can assist you with company information, executives, products, services, pricing, quotations, support, and appointment requests.",
+        [
+          action("VIEW PRODUCTS","route","#/products"),
+          action("VIEW SERVICES","route","#/services"),
+          action("REQUEST QUOTE","quote"),
+          action("CONTACT SUPPORT","hub","support")
+        ],
+        [
+          "Who is the CEO?",
+          "What services are available?",
+          "How much does an AI chatbot cost?"
+        ]
+      );
+    }
+
     const result = v9Classify(raw);
     const lang = detectLanguage(raw);
     const role = v9Role(raw);
@@ -355,28 +430,28 @@
     switch(result.intent) {
       case "ai_name":
         return reply(lang==="si"
-          ? "à¶¸à¶œà·š à¶±à¶¸ CORTEX CORE AI. à¶¸à¶¸ MI CORTEX X à·ƒà¶¸à·à¶œà¶¸à·š automated AI assistant à¶‘à¶šà¶ºà·’."
+          ? "මගේ නම CORTEX CORE AI. à¶¸à¶¸ MI CORTEX X à·ƒà¶¸à·à¶œà¶¸à·š automated AI assistant à¶‘à¶šà¶ºà·’."
           : "My name is CORTEX CORE AI. I am the automated AI assistant of MI CORTEX X.",
           [action("ABOUT COMPANY","route","#/about"),action("SUPPORT","hub","support")]);
 
       case "company_name":
-        return reply(lang==="si" ? "à·ƒà¶¸à·à¶œà¶¸à·š à¶±à¶¸ MI CORTEX X INC." : "The company name is MI CORTEX X INC.",
+        return reply(lang==="si" ? "සමාගමේ නම MI CORTEX X INC." : "The company name is MI CORTEX X INC.",
           [action("ABOUT COMPANY","route","#/about")]);
 
       case "ceo":
-        return reply(`The Chief Executive Officer (CEO) of MI CORTEX X INC. is ${company.ceo}.`,
+        return reply(`The Chief Executive Officer (CEO) of MI CORTEX X INC. is ${company.ceo}. The CEO is responsible for the company’s executive leadership, strategic direction, and overall operations.`,
           [action("BOOK CEO APPOINTMENT","appointment","Chief Executive Officer (CEO)"),action("EXECUTIVE BOARD","route","#/about/executive-board")]);
 
       case "owner":
-        return reply(`The Owner of MI CORTEX X INC. is ${company.owner}.`,
+        return reply(`The Owner of MI CORTEX X INC. is ${company.owner}. For an official discussion, you may submit an appointment request through the executive appointment service.`,
           [action("BOOK OWNER APPOINTMENT","appointment","Owner"),action("EXECUTIVE BOARD","route","#/about/executive-board")]);
 
       case "chairman":
-        return reply(`The Chairman of MI CORTEX X INC. is ${company.chairman}.`,
+        return reply(`The Chairman of MI CORTEX X INC. is ${company.chairman}. You may use the executive appointment service to submit a formal meeting request.`,
           [action("BOOK CHAIRMAN APPOINTMENT","appointment","Chairman"),action("EXECUTIVE BOARD","route","#/about/executive-board")]);
 
       case "founder":
-        return reply(`The Founder of MI CORTEX X INC. is ${company.founder}. The company was founded in ${company.founded}.`,
+        return reply(`The Founder of MI CORTEX X INC. is ${company.founder}. MI CORTEX X was founded in ${company.founded} with a focus on artificial intelligence and software technology solutions.`,
           [action("BOOK FOUNDER APPOINTMENT","appointment","Founder"),action("EXECUTIVE BOARD","route","#/about/executive-board")]);
 
       case "about":
@@ -391,7 +466,7 @@
           [action("CONTACT PAGE","route","#/contact")]);
 
       case "contact":
-        return reply(`MI CORTEX X Contact Information\n• Primary email: ${company.primaryEmail}\n• Support: ${company.supportEmail}\n• Sales: ${company.salesEmail}\n• WhatsApp: ${company.whatsappDisplay}\n• Telegram: ${company.telegram}\n• Website: ${company.website}`,
+        return reply(`MI CORTEX X Contact Information\nâ€¢ Primary email: ${company.primaryEmail}\nâ€¢ Support: ${company.supportEmail}\nâ€¢ Sales: ${company.salesEmail}\nâ€¢ WhatsApp: ${company.whatsappDisplay}\nâ€¢ Telegram: ${company.telegram}\nâ€¢ Website: ${company.website}`,
           contactActions());
 
       case "hours":
@@ -399,16 +474,16 @@
 
       case "appointment":
         return reply(role
-          ? `You can prepare an appointment request for the ${role}.`
-          : "Choose an Executive Board member and complete the appointment form.",
+          ? `You may submit a formal appointment request for the ${role}. Please complete the required details accurately; the request remains pending until confirmed by MI CORTEX X.`
+          : "Please select the relevant Executive Board member and complete the appointment request form. The appointment is confirmed only after official approval.",
           appointmentActions(role));
 
       case "products":
-        return reply(products.map(p=>`• ${p.name} — ${p.status} — ${p.priceText}`).join("\n"),
+        return reply(products.map(p=>`â€¢ ${p.name} â€” ${p.status} â€” ${p.priceText}`).join("\n"),
           [action("VIEW PRODUCTS","route","#/products"),action("PRODUCT INFORMATION","hub","products")]);
 
       case "services":
-        return reply(services.map(s=>`• ${s.name} — Starting from ${currency(s.price)}${s.billing?` ${s.billing}`:""}`).join("\n"),
+        return reply(services.map(s=>`â€¢ ${s.name} â€” Starting from ${currency(s.price)}${s.billing?` ${s.billing}`:""}`).join("\n"),
           [action("VIEW SERVICES","route","#/services"),action("PRICING","route","#/pricing"),action("GET RECOMMENDATION","recommend")]);
 
       case "quote":
@@ -424,11 +499,11 @@
           [action("INFORMATION CENTER","hub","support"),...contactActions()]);
 
       case "payment":
-        return reply(`Project payment information:\n• Advance: ${company.advance}\n• Remaining payment: Before final delivery\n• Online card payments: Not activated yet\n• Full refund: Before project commencement\n• Completed work and delivered milestones are non-refundable after development begins.`,
+        return reply(`Project payment information:\nâ€¢ Advance: ${company.advance}\nâ€¢ Remaining payment: Before final delivery\nâ€¢ Online card payments: Not activated yet\nâ€¢ Full refund: Before project commencement\nâ€¢ Completed work and delivered milestones are non-refundable after development begins.`,
           [action("REQUEST QUOTE","quote"),action("CONTACT SALES","url",`mailto:${company.salesEmail}`)]);
 
       case "website":
-        return reply("Website Development starts from LKR 15,000. Estimated delivery is usually 3–14 days, with 30 days of support. Final price depends on pages, design, features, and integrations.",
+        return reply("Website Development starts from LKR 15,000. Estimated delivery is usually 3â€“14 days, with 30 days of support. Final price depends on pages, design, features, and integrations.",
           [action("VIEW WEBSITE DEVELOPMENT","route","#/services/website-development"),action("GET QUOTE","quote","Website Development"),action("BOOK CONSULTATION","appointment")]);
 
       case "web_app":
@@ -436,11 +511,11 @@
           [action("VIEW WEB APPLICATION","route","#/services/web-application-development"),action("GET QUOTE","quote","Web Application Development")]);
 
       case "mobile_app":
-        return reply("Mobile App Development starts from LKR 85,000. Estimated delivery is normally 14–45 days, depending on platforms and features.",
+        return reply("Mobile App Development starts from LKR 85,000. Estimated delivery is normally 14â€“45 days, depending on platforms and features.",
           [action("VIEW MOBILE APP","route","#/services/mobile-app-development"),action("GET QUOTE","quote","Mobile App Development")]);
 
       case "chatbot":
-        return reply("AI Chatbot Development starts from LKR 45,000. Estimated delivery is usually 5–14 days, with 30 days of support.",
+        return reply("AI Chatbot Development starts from LKR 45,000. Estimated delivery is usually 5â€“14 days, with 30 days of support.",
           [action("VIEW AI CHATBOT","route","#/services/ai-chatbot-development"),action("GET QUOTE","quote","AI Chatbot Development"),action("BOOK CONSULTATION","appointment")]);
 
       case "automation":
@@ -474,35 +549,35 @@
     const q=interpret(raw),lang=detectLanguage(raw);
     const product=findEntity(raw,products),service=findEntity(raw,services);
     const isPrice=asks(q,"price","cost","à¶¸à·’à¶½","à¶šà·“à¶ºà¶¯","quotation");
-    const isDelivery=asks(q,"delivery","days","time","à¶šà·œà¶ à·Šà¶ à¶» à¶šà¶½à·Š","à¶¯à·€à·ƒà·Š");
+    const isDelivery=asks(q,"delivery","days","time","à¶šà·œà¶ à·Šà¶ à¶» à¶šà¶½à·Š","à¶¯à·€à·ƒà·Š");
     const isFeatures=asks(q,"features","include","included","à¶¸à·œà¶±à·€à¶¯ à¶­à·’à¶ºà·™à¶±à·Šà¶±à·š");
     const isSupport=asks(q,"support","warranty","after delivery","à·ƒà·„à·à¶º");
     const isOrder=asks(q,"order","buy","request quote","quotation","à¶œà¶±à·Šà¶± à¶•à¶±","à·„à¶¯à¶±à·Šà¶± à¶•à¶±");
 
     if(/^(hi|hello|hey|hii+|à·„à·à¶ºà·’|à·„à·™à¶½à·|à¶†à¶ºà·”à¶¶à·à·€à¶±à·Š|ayubowan|vanakkam)\b/.test(q)){
-      const greeting=profile.name?`Hi ${profile.name} 👋`:"Hi 👋";
+      const greeting=profile.name?`Hi ${profile.name} ðŸ‘‹`:"Hi ðŸ‘‹";
       return reply(
-        `${greeting} I’m CORTEX CORE AI. Ask in Sinhala, English or Singlish about company information, products, services, prices, support, quotations or appointments.`,
+        `${greeting} Iâ€™m CORTEX CORE AI. Ask in Sinhala, English or Singlish about company information, products, services, prices, support, quotations or appointments.`,
         [action("PRODUCTS","route","#/products"),action("SERVICES","route","#/services"),action("GET RECOMMENDATION","recommend"),action("APPOINTMENT","appointment")],
         ["Oyaga nama mokakda?","CEO kawda?","Website ekak hadanna keeyada?"]
       );
     }
 
     if(asks(q,"your name","who are you","à¶”à¶ºà·à¶œà·š à¶±à¶¸","ai à¶±à¶¸","assistant à¶±à¶¸")||q==="à¶±à¶¸ à¶¸à·œà¶šà¶šà·Šà¶¯"){
-      return reply(lang==="si"?"à¶¸à¶œà·š à¶±à¶¸ CORTEX CORE AI. à¶¸à¶¸ MI CORTEX X à·ƒà¶¸à·à¶œà¶¸à·š automated AI assistant à¶‘à¶šà¶ºà·’.":"My name is CORTEX CORE AI. I am the automated AI assistant of MI CORTEX X.",
+      return reply(lang==="si"?"මගේ නම CORTEX CORE AI. à¶¸à¶¸ MI CORTEX X à·ƒà¶¸à·à¶œà¶¸à·š automated AI assistant à¶‘à¶šà¶ºà·’.":"My name is CORTEX CORE AI. I am the automated AI assistant of MI CORTEX X.",
         [action("ABOUT COMPANY","route","#/about"),action("SUPPORT","hub","support")]);
     }
 
-    if(asks(q,"remember my name","my name is","à¶¸à¶œà·š à¶±à¶¸")){
-      const match=raw.match(/(?:my name is|à¶¸à¶œà·š à¶±à¶¸|mage nama)\s+(.+)/i);
+    if(asks(q,"remember my name","my name is","මගේ නම")){
+      const match=raw.match(/(?:my name is|මගේ නම|mage nama)\s+(.+)/i);
       if(match){
         profile.name=match[1].trim().slice(0,60);save(KEYS.profile,profile);
-        return reply(`Nice to meet you, ${profile.name}. I’ll use your name in this browser.`,[action("FORGET MY PROFILE","forget-profile")]);
+        return reply(`Nice to meet you, ${profile.name}. Iâ€™ll use your name in this browser.`,[action("FORGET MY PROFILE","forget-profile")]);
       }
     }
 
     if(asks(q,"company name","à·ƒà¶¸à·à¶œà¶¸ à¶±à¶¸","company eke nama","à¶¸à·šà¶šà·š à¶±à¶¸"))
-      return reply(lang==="si"?"à·ƒà¶¸à·à¶œà¶¸à·š à¶±à¶¸ MI CORTEX X INC.":"The company name is MI CORTEX X INC.",[action("ABOUT COMPANY","route","#/about")]);
+      return reply(lang==="si"?"සමාගමේ නම MI CORTEX X INC.":"The company name is MI CORTEX X INC.",[action("ABOUT COMPANY","route","#/about")]);
 
     const roles=[
       ["CEO",["ceo","chief executive","chief executive officer"],company.ceo,"Chief Executive Officer (CEO)"],
@@ -525,7 +600,7 @@
     if(product){
       context={topic:"product",entityId:product.id,entityName:product.name};save(KEYS.context,context);
       return reply(
-        `${product.name}\n• Status: ${product.status}\n• Price: ${product.priceText}\n• Free plan: ${product.freePlan}\n\n${product.description}`,
+        `${product.name}\nâ€¢ Status: ${product.status}\nâ€¢ Price: ${product.priceText}\nâ€¢ Free plan: ${product.freePlan}\n\n${product.description}`,
         [action("VIEW PRODUCT","route",product.route),action("REQUEST DEMO","demo",product.name),action("REQUEST INFORMATION","hub","products"),action("WHATSAPP","url",`https://wa.me/${company.whatsappNumber}?text=${encodeURIComponent(`Hello, I need information about ${product.name}.`)}`)],
         ["Status eka mokakda?","Free plan ekak thiyenawada?","Demo ekak one"]
       );
@@ -533,7 +608,7 @@
 
     if(service){
       context={topic:"service",entityId:service.id,entityName:service.name};save(KEYS.context,context);
-      let text=`${service.name}\n• Category: ${service.category}\n• Starting price: ${currency(service.price)}${service.billing?` ${service.billing}`:""}\n• Estimated delivery: ${service.delivery}\n• Support: ${service.support}\n• Main features: ${service.features.join(", ")}\n\nFinal pricing depends on scope, features, integrations, hosting and support.`;
+      let text=`${service.name}\nâ€¢ Category: ${service.category}\nâ€¢ Starting price: ${currency(service.price)}${service.billing?` ${service.billing}`:""}\nâ€¢ Estimated delivery: ${service.delivery}\nâ€¢ Support: ${service.support}\nâ€¢ Main features: ${service.features.join(", ")}\n\nFinal pricing depends on scope, features, integrations, hosting and support.`;
       if(isPrice)text=`${service.name} starts from ${currency(service.price)}${service.billing?` ${service.billing}`:""}. Final price depends on requirements.`;
       else if(isDelivery)text=`${service.name} estimated delivery: ${service.delivery}.`;
       else if(isFeatures)text=`${service.name} main features: ${service.features.join(", ")}.`;
@@ -596,15 +671,15 @@
       return reply("Terms and Conditions are available on the website. Use the legal page for the full current text.",[action("VIEW TERMS","route","#/terms")]);
 
     if(asks(q,"products","product list","à¶±à·’à·‚à·Šà¶´à·à¶¯à¶±"))
-      return reply(products.map(p=>`• ${p.name} — ${p.status} — ${p.priceText}`).join("\n"),
+      return reply(products.map(p=>`â€¢ ${p.name} â€” ${p.status} â€” ${p.priceText}`).join("\n"),
         [action("VIEW PRODUCTS","route","#/products"),action("PRODUCT INFORMATION","hub","products")]);
 
     if(asks(q,"services","service list","à·ƒà·šà·€à·"))
-      return reply(services.map(s=>`• ${s.name} — Starting from ${currency(s.price)}${s.billing?` ${s.billing}`:""}`).join("\n"),
+      return reply(services.map(s=>`â€¢ ${s.name} â€” Starting from ${currency(s.price)}${s.billing?` ${s.billing}`:""}`).join("\n"),
         [action("VIEW SERVICES","route","#/services"),action("PRICING","route","#/pricing"),action("GET RECOMMENDATION","recommend")]);
 
     if(asks(q,"contact","whatsapp","telegram","email","number","à¶…à¶¸à¶­à¶±à·Šà¶±","à·ƒà¶¸à·Šà¶¶à¶±à·Šà¶°"))
-      return reply(`MI CORTEX X Contact Information\n• Primary email: ${company.primaryEmail}\n• Support: ${company.supportEmail}\n• Sales: ${company.salesEmail}\n• WhatsApp: ${company.whatsappDisplay}\n• Telegram: ${company.telegram}\n• Website: ${company.website}`,contactActions());
+      return reply(`MI CORTEX X Contact Information\nâ€¢ Primary email: ${company.primaryEmail}\nâ€¢ Support: ${company.supportEmail}\nâ€¢ Sales: ${company.salesEmail}\nâ€¢ WhatsApp: ${company.whatsappDisplay}\nâ€¢ Telegram: ${company.telegram}\nâ€¢ Website: ${company.website}`,contactActions());
 
     if(asks(q,"location","office","address","à¶šà·œà·„à·™à¶¯","à¶½à·’à¶´à·’à¶±à¶º"))
       return reply(`${company.name} operates online from ${company.city}, ${company.country}. There is no public walk-in office.`,[action("CONTACT PAGE","route","#/contact")]);
@@ -619,7 +694,7 @@
     if(asks(q,"vision"))return reply(`Vision: ${company.vision}`,[action("ABOUT COMPANY","route","#/about")]);
 
     if(asks(q,"payment","advance","refund","à¶œà·™à·€à·“à¶¸","à¶…à¶­à·Šà¶­à·’à¶šà·à¶»à¶¸à·Š"))
-      return reply(`Project payment information:\n• Advance: ${company.advance}\n• Remaining payment: Before final delivery\n• Online card payments: Not activated yet\n• Full refund: Before project commencement\n• Completed work and delivered milestones are non-refundable after development begins.`,
+      return reply(`Project payment information:\nâ€¢ Advance: ${company.advance}\nâ€¢ Remaining payment: Before final delivery\nâ€¢ Online card payments: Not activated yet\nâ€¢ Full refund: Before project commencement\nâ€¢ Completed work and delivered milestones are non-refundable after development begins.`,
         [action("REQUEST QUOTE","quote"),action("CONTACT SALES","url",`mailto:${company.salesEmail}`)]);
 
     if(asks(q,"support","customer service","help","à¶‹à¶¯à·€à·Š","à·ƒà·„à·à¶º"))
@@ -631,7 +706,7 @@
         [action("ABOUT COMPANY","route","#/about"),action("PRODUCTS","route","#/products"),action("SERVICES","route","#/services")]);
 
     if(isPrice)
-      return reply("Include the exact product or service name. Example: “AI chatbot eke mila keeyada?” or “Website ekak hadanna keeyada?”",
+      return reply("Include the exact product or service name. Example: â€œAI chatbot eke mila keeyada?â€ or â€œWebsite ekak hadanna keeyada?â€",
         [action("PRICING","route","#/pricing"),action("CUSTOM QUOTE","quote")],
         ["AI chatbot eke mila keeyada?","Website ekak hadanna keeyada?","Mobile app eke mila keeyada?"]);
 
@@ -729,7 +804,7 @@
     const row=document.createElement("article");row.className=`mcx-ai-message mcx-ai-${type}`;
     const bubble=document.createElement("div");bubble.className="mcx-ai-bubble";
     const content=document.createElement("div");content.className="mcx-ai-content";linkify(content,data.text||"");bubble.append(content);
-    const meta=document.createElement("div");meta.className="mcx-ai-meta";meta.textContent=`${type==="user"?"You":"CORTEX CORE AI"} · ${formatTime(timestamp)}`;bubble.append(meta);
+    const meta=document.createElement("div");meta.className="mcx-ai-meta";meta.textContent=`${type==="user"?"You":"CORTEX CORE AI"} Â· ${formatTime(timestamp)}`;bubble.append(meta);
 
     if(type==="assistant"){
       const tools=document.createElement("div");tools.className="mcx-ai-tools";
@@ -770,7 +845,7 @@
     history=[];quoteFlow=null;supportFlow=null;requirementFlow=null;context={};save(KEYS.history,history);save(KEYS.context,context);
     messages.innerHTML="";showSuggestions([]);
     addMessage("assistant",reply(
-      `${profile.name?`Hi ${profile.name}`:"Hi"} 👋 I’m CORTEX CORE AI. I can help with company information, service recommendations, quotations, support requests and appointments.`,
+      `${profile.name?`Hi ${profile.name}`:"Hi"} ðŸ‘‹ Iâ€™m CORTEX CORE AI. I can help with company information, service recommendations, quotations, support requests and appointments.`,
       [action("GET RECOMMENDATION","recommend"),action("INSTANT QUOTE","quote"),action("SUPPORT REQUEST","support-flow"),action("APPOINTMENT","appointment")],
       ["CEO kawda?","Website ekak hadanna keeyada?","Mata suitable service ekak kiyanna"]
     ));
@@ -831,7 +906,7 @@
     if(kind==="quote")quoteFlow=state;
     if(kind==="support")supportFlow=state;
     if(kind==="recommend")requirementFlow=state;
-    addMessage("assistant",kind==="quote"?"I’ll prepare a quotation-request summary. Do not enter card information.":kind==="support"?"I’ll prepare a support request. A real ticket is created only after you send it to support.":"I’ll ask a few questions and recommend a suitable starting service.");
+    addMessage("assistant",kind==="quote"?"Iâ€™ll prepare a quotation-request summary. Do not enter card information.":kind==="support"?"Iâ€™ll prepare a support request. A real ticket is created only after you send it to support.":"Iâ€™ll ask a few questions and recommend a suitable starting service.");
     continueFlow(state);
   }
 
@@ -879,7 +954,7 @@
     const first=services.find(s=>s.id===firstId)||services[0];
     const second=services.find(s=>s.id!==first.id&&s.price>=first.price)||services[1];
     addMessage("assistant",reply(
-      `${first.name} vs ${second.name}\n\n${first.name}\n• ${currency(first.price)}${first.billing?` ${first.billing}`:""}\n• Delivery: ${first.delivery}\n• Support: ${first.support}\n\n${second.name}\n• ${currency(second.price)}${second.billing?` ${second.billing}`:""}\n• Delivery: ${second.delivery}\n• Support: ${second.support}`,
+      `${first.name} vs ${second.name}\n\n${first.name}\nâ€¢ ${currency(first.price)}${first.billing?` ${first.billing}`:""}\nâ€¢ Delivery: ${first.delivery}\nâ€¢ Support: ${first.support}\n\n${second.name}\nâ€¢ ${currency(second.price)}${second.billing?` ${second.billing}`:""}\nâ€¢ Delivery: ${second.delivery}\nâ€¢ Support: ${second.support}`,
       [action(`VIEW ${first.name.toUpperCase()}`,"route",first.route),action(`VIEW ${second.name.toUpperCase()}`,"route",second.route),action("CUSTOM QUOTE","quote")]
     ));
   }
@@ -987,7 +1062,7 @@
 
     const meta = document.createElement("div");
     meta.className = "mcx-ai-meta";
-    meta.textContent = `CORTEX CORE AI · ${formatTime(Date.now())}`;
+    meta.textContent = `CORTEX CORE AI Â· ${formatTime(Date.now())}`;
 
     bubble.append(content, meta);
     row.append(bubble);
@@ -1087,11 +1162,11 @@
 
       recordV11Intent(intent);
 
-      return reply(
+      return professionalReply(reply(
         answer.trim(),
         actions,
         suggestions.map(value => String(value).slice(0, 140))
-      );
+      ));
     } finally {
       window.clearTimeout(timer);
     }
@@ -1101,22 +1176,18 @@
     v11Analytics.fallbackAnswers += 1;
     saveV11Analytics();
 
-    const local = answer(question);
+    const local = professionalReply(answer(question));
 
-    if (error?.status === 503) {
-      return reply(
-        "CORTEX CORE AI needs GROQ_API_KEY in Vercel Environment Variables. Until it is configured, the verified local company answer is shown below.\n\n" +
-        local.text,
-        local.actions,
-        local.suggestions
-      );
+    if (local?.text) {
+      return local;
     }
 
     return reply(
-      "The secure company AI service could not be reached, so I used the verified local company knowledge.\n\n" +
-      local.text,
-      local.actions,
-      local.suggestions
+      "I’m unable to provide a verified response at this moment. Please use the Information Center for official assistance.",
+      [
+        action("CONTACT INFORMATION CENTER","hub","support"),
+        action("EMAIL SUPPORT","url",`mailto:${company.supportEmail}`)
+      ]
     );
   }
 
@@ -1216,7 +1287,7 @@
       const chip = document.createElement("div");
       chip.className = "mcx-v11-attachment-chip";
       chip.innerHTML = `
-        <span>${item.category === "image" ? "🖼️" : "ðŸ“„"}</span>
+        <span>${item.category === "image" ? "ðŸ–¼ï¸" : "ðŸ“„"}</span>
         <strong>${item.name}</strong>
         <small>${item.sizeLabel}</small>
         <button type="button" data-remove-attachment="${index}" aria-label="Remove attachment">Ã—</button>
@@ -1297,7 +1368,7 @@
     attach.dataset.aiAttach = "true";
     attach.setAttribute("aria-label", "Attach files");
     attach.title = "Attach files or images";
-    attach.textContent = "📎";
+    attach.textContent = "ðŸ“Ž";
 
     const messageInput = form.querySelector("textarea");
 
@@ -1343,7 +1414,7 @@
       .join("\n");
 
     alert(
-      `CORTEX CORE AI — Local Analytics\n\n` +
+      `CORTEX CORE AI â€” Local Analytics\n\n` +
       `Questions: ${v11Analytics.questions}\n` +
       `Successful AI answers: ${v11Analytics.successfulAnswers}\n` +
       `Fallback answers: ${v11Analytics.fallbackAnswers}\n` +
@@ -1396,7 +1467,7 @@
     catch (error) {
       console.error("CORTEX CORE AI request failed:", error);
       streaming.row.remove();
-      addMessage("assistant", advancedAIFallback(error, text));
+      addMessage("assistant", professionalReply(advancedAIFallback(error, text)));
     }
   }
 
