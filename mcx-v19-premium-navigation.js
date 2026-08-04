@@ -1,21 +1,34 @@
 (function () {
   "use strict";
 
-  if (window.__MCX_V20_NAV_SHAKE_FIX__) {
+  if (window.__MCX_V21_NAV_SMOOTH_STABILITY__) {
     return;
   }
 
-  window.__MCX_V20_NAV_SHAKE_FIX__ = true;
+  window.__MCX_V21_NAV_SMOOTH_STABILITY__ = true;
 
+  var frontObserver = null;
   var framePending = false;
-  var lastFrontVisible = null;
-  var lastPageName = "";
+  var frontVisible = false;
+  var appliedFrontVisible = null;
+  var appliedPageName = "";
 
   function getFrontPage() {
     return document.getElementById("mi-front-page");
   }
 
-  function isFrontPageVisible() {
+  function currentPageName() {
+    var hash = String(window.location.hash || "")
+      .replace(/^#\/?/, "")
+      .split("?")[0]
+      .split("/")[0]
+      .trim()
+      .toLowerCase();
+
+    return hash || "home";
+  }
+
+  function detectFrontPageWithoutObserver() {
     var frontPage = getFrontPage();
 
     if (!frontPage) {
@@ -36,25 +49,13 @@
     var rect = frontPage.getBoundingClientRect();
 
     /*
-     * A small fixed threshold prevents visibility from rapidly switching
-     * at the exact edge of the front banner.
+     * Hysteresis prevents rapid hide/show switching near the boundary.
      */
-    return rect.height > 20 && rect.bottom > 12;
-  }
-
-  function currentPageName() {
-    var hash = String(window.location.hash || "")
-      .replace(/^#\/?/, "")
-      .split("?")[0]
-      .split("/")[0]
-      .trim()
-      .toLowerCase();
-
-    if (hash) {
-      return hash;
+    if (frontVisible) {
+      return rect.bottom > -24;
     }
 
-    return "home";
+    return rect.bottom > 72;
   }
 
   function applyNavigationState() {
@@ -62,15 +63,10 @@
 
     var html = document.documentElement;
     var header = document.querySelector(".site-header");
-    var frontVisible = isFrontPageVisible();
     var pageName = currentPageName();
 
-    /*
-     * Write classes only when the state really changed.
-     * This avoids continuous style recalculation and visual shaking.
-     */
-    if (frontVisible !== lastFrontVisible) {
-      lastFrontVisible = frontVisible;
+    if (frontVisible !== appliedFrontVisible) {
+      appliedFrontVisible = frontVisible;
 
       html.classList.toggle(
         "mcx-v19-front-page",
@@ -91,8 +87,8 @@
       }
     }
 
-    if (pageName !== lastPageName || lastPageName === "") {
-      lastPageName = pageName;
+    if (pageName !== appliedPageName || appliedPageName === "") {
+      appliedPageName = pageName;
 
       document
         .querySelectorAll(
@@ -107,10 +103,7 @@
 
           var active =
             !frontVisible &&
-            (
-              linkPage === pageName ||
-              (pageName === "" && linkPage === "home")
-            );
+            linkPage === pageName;
 
           if (
             link.classList.contains("mcx-v19-active") !== active
@@ -132,13 +125,73 @@
     }
   }
 
-  function scheduleNavigationUpdate() {
+  function scheduleApply() {
     if (framePending) {
       return;
     }
 
     framePending = true;
     window.requestAnimationFrame(applyNavigationState);
+  }
+
+  function updateFallbackVisibility() {
+    var next = detectFrontPageWithoutObserver();
+
+    if (next !== frontVisible) {
+      frontVisible = next;
+      scheduleApply();
+    }
+  }
+
+  function connectFrontObserver() {
+    var frontPage = getFrontPage();
+
+    if (!frontPage) {
+      frontVisible = false;
+      scheduleApply();
+      return;
+    }
+
+    if ("IntersectionObserver" in window) {
+      frontObserver = new IntersectionObserver(
+        function (entries) {
+          var entry = entries[0];
+
+          if (!entry) {
+            return;
+          }
+
+          var next =
+            entry.isIntersecting &&
+            entry.intersectionRect.height > 24;
+
+          if (next !== frontVisible) {
+            frontVisible = next;
+            scheduleApply();
+          }
+        },
+        {
+          root: null,
+          threshold: [0, 0.01],
+          rootMargin: "-1px 0px -36px 0px"
+        }
+      );
+
+      frontObserver.observe(frontPage);
+      return;
+    }
+
+    frontVisible = detectFrontPageWithoutObserver();
+
+    window.addEventListener(
+      "scroll",
+      updateFallbackVisibility,
+      { passive: true }
+    );
+  }
+
+  function updatePageOnly() {
+    scheduleApply();
   }
 
   document.addEventListener(
@@ -168,45 +221,27 @@
         toggle.setAttribute("aria-expanded", "false");
       }
 
-      scheduleNavigationUpdate();
+      updatePageOnly();
     },
     true
   );
 
-  window.addEventListener(
-    "scroll",
-    scheduleNavigationUpdate,
-    { passive: true }
-  );
+  window.addEventListener("hashchange", updatePageOnly);
+  window.addEventListener("popstate", updatePageOnly);
+  window.addEventListener("pageshow", updatePageOnly);
 
-  window.addEventListener(
-    "resize",
-    scheduleNavigationUpdate,
-    { passive: true }
-  );
-
-  window.addEventListener(
-    "hashchange",
-    scheduleNavigationUpdate
-  );
-
-  window.addEventListener(
-    "popstate",
-    scheduleNavigationUpdate
-  );
-
-  window.addEventListener(
-    "pageshow",
-    scheduleNavigationUpdate
-  );
+  function initialize() {
+    connectFrontObserver();
+    scheduleApply();
+  }
 
   if (document.readyState === "loading") {
     document.addEventListener(
       "DOMContentLoaded",
-      scheduleNavigationUpdate,
+      initialize,
       { once: true }
     );
   } else {
-    scheduleNavigationUpdate();
+    initialize();
   }
 })();

@@ -1,0 +1,49 @@
+/* MCX V21 - Navigation smooth stability only */
+
+.site-header {
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+  translate: none !important;
+  transform: none !important;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+  transition:
+    opacity .18s linear,
+    visibility 0s linear .18s !important;
+}
+
+html.mcx-v19-inner-page .site-header {
+  transform: none !important;
+  transition:
+    opacity .18s linear,
+    visibility 0s linear 0s !important;
+}
+
+html.mcx-v19-front-page .site-header {
+  transform: none !important;
+}
+
+.site-header .nav {
+  translate: none !important;
+  transform: none !important;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+  animation: none !important;
+}
+
+.site-header .nav::before,
+.site-header .nav::after {
+  animation: none !important;
+  transition: none !important;
+  translate: none !important;
+  transform: none !important;
+}
+
+.site-header,
+.site-header .nav,
+.site-header .nav::before,
+.site-header .nav::after {
+  will-change: auto !important;
+}
