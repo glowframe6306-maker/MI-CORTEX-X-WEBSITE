@@ -1,112 +1,52 @@
 (function () {
   "use strict";
 
-  if (window.__MCX_STABLE_SCROLL_NAVIGATION__) {
+  if (window.__MCX_V22_ZERO_STUCK_NAV__) {
     return;
   }
 
-  window.__MCX_STABLE_SCROLL_NAVIGATION__ = true;
+  window.__MCX_V22_ZERO_STUCK_NAV__ = true;
 
-  let framePending = false;
-  let navigationVisible = null;
+  var observer = null;
+  var frontVisible = null;
+  var routeName = "";
 
-  function getFrontPage() {
-    return (
-      document.getElementById("mi-front-page") ||
-      document.querySelector(
-        "[data-mcx-front-page]," +
-        ".mi-front-page," +
-        ".mcx-front-page," +
-        ".front-page-banner," +
-        ".front-banner"
-      )
-    );
+  function frontPageElement() {
+    return document.getElementById("mi-front-page");
   }
 
-  function getCurrentPage() {
-    const hash = String(window.location.hash || "")
+  function currentRoute() {
+    return String(window.location.hash || "")
       .replace(/^#\/?/, "")
       .split("?")[0]
       .split("/")[0]
       .trim()
-      .toLowerCase();
-
-    return hash || "home";
+      .toLowerCase() || "home";
   }
 
-  function getShowThreshold() {
-    const frontPage = getFrontPage();
+  function updateActiveLink() {
+    var current = currentRoute();
 
-    if (!frontPage) {
-      return 0;
+    if (current === routeName) {
+      return;
     }
 
-    const rect = frontPage.getBoundingClientRect();
-    const pageTop = window.scrollY + rect.top;
-    const height = Math.max(
-      frontPage.offsetHeight,
-      rect.height
-    );
-
-    return Math.max(
-      0,
-      pageTop + height - 48
-    );
-  }
-
-  function shouldShowNavigation() {
-    const frontPage = getFrontPage();
-
-    if (!frontPage) {
-      return true;
-    }
-
-    if (
-      frontPage.hidden ||
-      frontPage.getAttribute("aria-hidden") === "true"
-    ) {
-      return true;
-    }
-
-    const style = window.getComputedStyle(frontPage);
-
-    if (
-      style.display === "none" ||
-      style.visibility === "hidden"
-    ) {
-      return true;
-    }
-
-    const threshold = getShowThreshold();
-
-    /*
-     * Hysteresis prevents rapid hide/show switching
-     * when scrolling near the exact boundary.
-     */
-    if (navigationVisible === true) {
-      return window.scrollY > threshold - 32;
-    }
-
-    return window.scrollY > threshold + 16;
-  }
-
-  function updateActiveLink(showNavigation) {
-    const currentPage = getCurrentPage();
+    routeName = current;
 
     document
       .querySelectorAll(
         ".site-header .nav-links a[data-mcx-page-link]"
       )
       .forEach(function (link) {
-        const linkPage = String(
+        var page = String(
           link.dataset.mcxPageLink || ""
         )
           .trim()
           .toLowerCase();
 
-        const active =
-          showNavigation &&
-          linkPage === currentPage;
+        var active =
+          frontVisible === false &&
+          page === current;
 
         link.classList.toggle(
           "mcx-v19-active",
@@ -114,74 +54,90 @@
         );
 
         if (active) {
-          link.setAttribute(
-            "aria-current",
-            "page"
-          );
+          link.setAttribute("aria-current", "page");
         } else {
-          link.removeAttribute(
-            "aria-current"
-          );
+          link.removeAttribute("aria-current");
         }
       });
   }
 
-  function applyNavigationState() {
-    framePending = false;
-
-    const showNavigation =
-      shouldShowNavigation();
-
-    const html =
-      document.documentElement;
-
-    const header =
-      document.querySelector(".site-header");
-
-    if (navigationVisible !== showNavigation) {
-      navigationVisible = showNavigation;
-
-      html.classList.toggle(
-        "mcx-v19-front-page",
-        !showNavigation
-      );
-
-      html.classList.toggle(
-        "mcx-v19-inner-page",
-        showNavigation
-      );
-
-      if (header) {
-        header.hidden = false;
-
-        header.setAttribute(
-          "aria-hidden",
-          showNavigation
-            ? "false"
-            : "true"
-        );
-      }
-    }
-
-    updateActiveLink(showNavigation);
-  }
-
-  function scheduleNavigationUpdate() {
-    if (framePending) {
+  function applyFrontState(nextFrontVisible) {
+    if (nextFrontVisible === frontVisible) {
       return;
     }
 
-    framePending = true;
+    frontVisible = nextFrontVisible;
 
-    window.requestAnimationFrame(
-      applyNavigationState
+    var html = document.documentElement;
+    var header = document.querySelector(".site-header");
+
+    html.classList.toggle(
+      "mcx-v19-front-page",
+      nextFrontVisible
     );
+
+    html.classList.toggle(
+      "mcx-v19-inner-page",
+      !nextFrontVisible
+    );
+
+    if (header) {
+      header.hidden = false;
+      header.setAttribute(
+        "aria-hidden",
+        nextFrontVisible ? "true" : "false"
+      );
+    }
+
+    routeName = "";
+    updateActiveLink();
+  }
+
+  function setupFrontObserver() {
+    var front = frontPageElement();
+
+    if (!front) {
+      applyFrontState(false);
+      return;
+    }
+
+    if (!("IntersectionObserver" in window)) {
+      applyFrontState(false);
+      return;
+    }
+
+    observer = new IntersectionObserver(
+      function (entries) {
+        var entry = entries[0];
+
+        if (!entry) {
+          return;
+        }
+
+        /*
+         * The navigation remains hidden while at least 48px of the
+         * real front banner is visible. This fixed boundary prevents
+         * rapid switching and eliminates scroll jitter.
+         */
+        applyFrontState(
+          entry.isIntersecting &&
+          entry.intersectionRect.height >= 48
+        );
+      },
+      {
+        root: null,
+        threshold: [0, 0.001],
+        rootMargin: "0px 0px -48px 0px"
+      }
+    );
+
+    observer.observe(front);
   }
 
   document.addEventListener(
     "click",
     function (event) {
-      const link = event.target.closest(
+      var link = event.target.closest(
         ".site-header .nav-links a"
       );
 
@@ -189,62 +145,41 @@
         return;
       }
 
-      const menu =
-        document.querySelector(
-          ".site-header .nav-links"
-        );
-
-      const toggle =
-        document.querySelector(
-          ".site-header .nav-toggle"
-        );
-
-      menu?.classList.remove("open");
-
-      toggle?.setAttribute(
-        "aria-expanded",
-        "false"
+      var menu = document.querySelector(
+        ".site-header .nav-links"
       );
 
-      scheduleNavigationUpdate();
+      var toggle = document.querySelector(
+        ".site-header .nav-toggle"
+      );
+
+      if (menu) {
+        menu.classList.remove("open");
+      }
+
+      if (toggle) {
+        toggle.setAttribute("aria-expanded", "false");
+      }
     },
     true
   );
 
-  window.addEventListener(
-    "scroll",
-    scheduleNavigationUpdate,
-    { passive: true }
-  );
+  window.addEventListener("hashchange", updateActiveLink);
+  window.addEventListener("popstate", updateActiveLink);
+  window.addEventListener("pageshow", updateActiveLink);
 
-  window.addEventListener(
-    "resize",
-    scheduleNavigationUpdate,
-    { passive: true }
-  );
-
-  window.addEventListener(
-    "hashchange",
-    scheduleNavigationUpdate
-  );
-
-  window.addEventListener(
-    "popstate",
-    scheduleNavigationUpdate
-  );
-
-  window.addEventListener(
-    "pageshow",
-    scheduleNavigationUpdate
-  );
+  function initialize() {
+    setupFrontObserver();
+    updateActiveLink();
+  }
 
   if (document.readyState === "loading") {
     document.addEventListener(
       "DOMContentLoaded",
-      scheduleNavigationUpdate,
+      initialize,
       { once: true }
     );
   } else {
-    scheduleNavigationUpdate();
+    initialize();
   }
 })();

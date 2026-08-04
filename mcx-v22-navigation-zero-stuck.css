@@ -1,0 +1,55 @@
+/* MCX V22 - Navigation zero-stuck stabilization only */
+
+/*
+ * Do not change page geometry when navigation visibility changes.
+ * Dynamic body padding was the remaining source of the small scroll jump.
+ */
+html.mcx-v19-front-page body,
+html.mcx-v19-inner-page body {
+  padding-top: 0 !important;
+}
+
+/*
+ * Keep the fixed header on one compositor layer.
+ * No transform, scale, animated pseudo-element, or layout transition.
+ */
+.site-header {
+  transform: none !important;
+  translate: none !important;
+  animation: none !important;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+  will-change: auto !important;
+  transition:
+    opacity .16s linear,
+    visibility 0s linear .16s !important;
+}
+
+html.mcx-v19-inner-page .site-header {
+  transform: none !important;
+  transition:
+    opacity .16s linear,
+    visibility 0s linear 0s !important;
+}
+
+html.mcx-v19-front-page .site-header {
+  transform: none !important;
+}
+
+.site-header .nav {
+  transform: none !important;
+  translate: none !important;
+  animation: none !important;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+  will-change: auto !important;
+}
+
+.site-header .nav::before,
+.site-header .nav::after {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+  translate: none !important;
+  will-change: auto !important;
+}
