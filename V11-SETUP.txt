@@ -1,0 +1,30 @@
+CORTEX CORE AI V11 — ADVANCED COMPANY AI
+
+FEATURES
+- Last 30 messages as current-chat context
+- Rolling conversation summary
+- Better Sinhala, English, Singlish and mixed-language understanding
+- Verified products and pricing database
+- Smart appointment assistant
+- Direct CEO, Owner, Chairman and Founder appointment buttons
+- Automatic executive selection in the appointment popup
+- Quote and recommendation actions
+- Clickable action buttons
+- File upload and analysis
+- PDF selectable-text extraction
+- Image understanding using a Groq vision model
+- Streaming replies
+- Local customer analytics
+- Hallucination-reduction rules
+
+VERCEL VARIABLES
+GROQ_API_KEY = required
+GROQ_MODEL = llama-3.3-70b-versatile
+GROQ_VISION_MODEL = meta-llama/llama-4-scout-17b-16e-instruct
+
+LIMITS
+- Maximum 4 files per message
+- Images: 4 MB each
+- PDF: 8 MB, first 25 pages, selectable text
+- Text/code: 1 MB each
+- Scanned PDFs should be uploaded as screenshots

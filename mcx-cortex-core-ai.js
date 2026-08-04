@@ -896,97 +896,451 @@
   }
 
 
-  /* MCX_V10_REAL_COMPANY_AI_START */
+
+  /* MCX_V11_ADVANCED_COMPANY_AI_START */
+
+  const V11_KEYS = {
+    analytics: "mcx_ai_v11_analytics",
+    summary: "mcx_ai_v11_summary"
+  };
+
+  let pendingAttachments = [];
+  let v11Analytics = (() => {
+    try {
+      return JSON.parse(localStorage.getItem(V11_KEYS.analytics) || "null") || {
+        questions: 0,
+        successfulAnswers: 0,
+        fallbackAnswers: 0,
+        attachmentQuestions: 0,
+        intents: {}
+      };
+    } catch {
+      return {
+        questions: 0,
+        successfulAnswers: 0,
+        fallbackAnswers: 0,
+        attachmentQuestions: 0,
+        intents: {}
+      };
+    }
+  })();
+
+  function saveV11Analytics() {
+    try {
+      localStorage.setItem(V11_KEYS.analytics, JSON.stringify(v11Analytics));
+    } catch {}
+  }
+
+  function recordV11Intent(intent) {
+    const key = String(intent || "company_question").slice(0, 80);
+    v11Analytics.intents[key] = (v11Analytics.intents[key] || 0) + 1;
+    saveV11Analytics();
+  }
 
   function buildCompanyAIHistory() {
     return history
-      .slice(-12)
+      .slice(-30)
       .map(item => ({
         role: item.type === "user" ? "user" : "assistant",
-        content: String(item.payload?.text || "").slice(0, 1800)
+        content: String(item.payload?.text || "").slice(0, 2800)
       }))
       .filter(item => item.content);
   }
 
   function sanitizeRemoteActions(actions) {
-    const allowed = new Set(["route", "url", "appointment", "hub", "quote", "recommend", "support-flow"]);
+    const allowed = new Set([
+      "route", "url", "appointment", "hub",
+      "quote", "recommend", "support-flow"
+    ]);
+
     if (!Array.isArray(actions)) return [];
 
     return actions
-      .slice(0, 5)
+      .slice(0, 6)
       .filter(item =>
         item &&
         typeof item.label === "string" &&
         allowed.has(item.action)
       )
       .map(item => ({
-        label: item.label.slice(0, 60),
+        label: item.label.slice(0, 70),
         action: item.action,
-        value: typeof item.value === "string" ? item.value.slice(0, 500) : ""
+        value: typeof item.value === "string"
+          ? item.value.slice(0, 700)
+          : ""
       }));
   }
 
-  async function askRealCompanyAI(question) {
+  function createStreamingAssistantMessage() {
+    const row = document.createElement("article");
+    row.className = "mcx-ai-message mcx-ai-assistant mcx-v11-streaming";
+
+    const bubble = document.createElement("div");
+    bubble.className = "mcx-ai-bubble";
+
+    const content = document.createElement("div");
+    content.className = "mcx-ai-content";
+
+    const meta = document.createElement("div");
+    meta.className = "mcx-ai-meta";
+    meta.textContent = `CORTEX CORE AI · ${formatTime(Date.now())}`;
+
+    bubble.append(content, meta);
+    row.append(bubble);
+    messages.append(row);
+    messages.scrollTop = messages.scrollHeight;
+
+    return { row, content };
+  }
+
+  async function askAdvancedCompanyAI(question, onDelta) {
     const controller = new AbortController();
-    const timer = window.setTimeout(() => controller.abort(), 30000);
+    const timer = window.setTimeout(() => controller.abort(), 60000);
 
     try {
       const response = await fetch("/api/company-ai", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           message: question,
-          history: buildCompanyAIHistory()
+          history: buildCompanyAIHistory(),
+          conversationSummary:
+            localStorage.getItem(V11_KEYS.summary) || "",
+          attachments: pendingAttachments.map(item => ({
+            name: item.name,
+            type: item.type,
+            category: item.category,
+            content: item.content
+          }))
         }),
         signal: controller.signal
       });
 
-      const data = await response.json().catch(() => ({}));
-
       if (!response.ok) {
-        const error = new Error(data.error || `AI request failed with status ${response.status}.`);
+        const data = await response.json().catch(() => ({}));
+        const error = new Error(
+          data.error || `AI request failed with status ${response.status}.`
+        );
         error.status = response.status;
         throw error;
       }
 
-      if (!data || typeof data.answer !== "string" || !data.answer.trim()) {
+      if (!response.body) {
+        throw new Error("Streaming response is unavailable.");
+      }
+
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = "";
+      let answer = "";
+      let actions = [];
+      let suggestions = [];
+      let intent = "company_question";
+      let summary = "";
+
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+
+        buffer += decoder.decode(value, { stream: true });
+        const events = buffer.split("\n\n");
+        buffer = events.pop() || "";
+
+        for (const event of events) {
+          const line = event
+            .split("\n")
+            .find(value => value.startsWith("data:"));
+
+          if (!line) continue;
+
+          const payload = JSON.parse(line.slice(5).trim());
+
+          if (payload.type === "delta") {
+            answer += payload.text || "";
+            onDelta(payload.text || "");
+          } else if (payload.type === "meta") {
+            actions = sanitizeRemoteActions(payload.actions);
+            suggestions = Array.isArray(payload.suggestions)
+              ? payload.suggestions.slice(0, 5)
+              : [];
+            intent = payload.intent || intent;
+            summary = payload.summary || "";
+          } else if (payload.type === "error") {
+            throw new Error(payload.error || "AI streaming failed.");
+          }
+        }
+      }
+
+      if (!answer.trim()) {
         throw new Error("The AI server returned an empty answer.");
       }
 
+      if (summary) {
+        try {
+          localStorage.setItem(V11_KEYS.summary, summary.slice(0, 6000));
+        } catch {}
+      }
+
+      recordV11Intent(intent);
+
       return reply(
-        data.answer.trim(),
-        sanitizeRemoteActions(data.actions),
-        Array.isArray(data.suggestions)
-          ? data.suggestions.slice(0, 5).map(value => String(value).slice(0, 120))
-          : []
+        answer.trim(),
+        actions,
+        suggestions.map(value => String(value).slice(0, 140))
       );
-    }
-    finally {
+    } finally {
       window.clearTimeout(timer);
     }
   }
 
-  function realAIFallback(error, question) {
+  function advancedAIFallback(error, question) {
+    v11Analytics.fallbackAnswers += 1;
+    saveV11Analytics();
+
     const local = answer(question);
 
     if (error?.status === 503) {
       return reply(
-        "CORTEX CORE AI is not connected to its secure AI key yet. Add GROQ_API_KEY in the Vercel project Environment Variables and redeploy. The local company knowledge answer is shown below.\n\n" + local.text,
+        "CORTEX CORE AI needs GROQ_API_KEY in Vercel Environment Variables. Until it is configured, the verified local company answer is shown below.\n\n" +
+        local.text,
         local.actions,
         local.suggestions
       );
     }
 
     return reply(
-      "The secure AI service could not be reached, so I used the verified local company knowledge instead.\n\n" + local.text,
+      "The secure company AI service could not be reached, so I used the verified local company knowledge.\n\n" +
+      local.text,
       local.actions,
       local.suggestions
     );
   }
 
-  /* MCX_V10_REAL_COMPANY_AI_END */
+  function humanFileSize(bytes) {
+    if (bytes < 1024) return `${bytes} B`;
+    if (bytes < 1024 * 1024) return `${Math.round(bytes / 1024)} KB`;
+    return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+  }
+
+  function readAsDataURL(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onerror = () => reject(new Error(`Could not read ${file.name}.`));
+      reader.onload = () => resolve(String(reader.result || ""));
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function readAsText(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onerror = () => reject(new Error(`Could not read ${file.name}.`));
+      reader.onload = () => resolve(String(reader.result || ""));
+      reader.readAsText(file);
+    });
+  }
+
+  async function ensurePdfJs() {
+    if (window.pdfjsLib) return window.pdfjsLib;
+
+    await new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+      script.src =
+        "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js";
+      script.onload = resolve;
+      script.onerror = () =>
+        reject(new Error("PDF reader library could not be loaded."));
+      document.head.append(script);
+    });
+
+    if (!window.pdfjsLib) {
+      throw new Error("PDF text extraction is unavailable.");
+    }
+
+    window.pdfjsLib.GlobalWorkerOptions.workerSrc =
+      "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+    return window.pdfjsLib;
+  }
+
+  async function extractPdfText(file) {
+    if (file.size > 8 * 1024 * 1024) {
+      throw new Error("PDF files must be 8 MB or smaller.");
+    }
+
+    const pdfjs = await ensurePdfJs();
+    const data = new Uint8Array(await file.arrayBuffer());
+    const pdf = await pdfjs.getDocument({ data }).promise;
+    const pageCount = Math.min(pdf.numPages, 25);
+    const parts = [];
+
+    for (let pageNumber = 1; pageNumber <= pageCount; pageNumber += 1) {
+      const page = await pdf.getPage(pageNumber);
+      const content = await page.getTextContent();
+      const text = content.items
+        .map(item => item.str || "")
+        .join(" ")
+        .replace(/\s+/g, " ")
+        .trim();
+
+      if (text) parts.push(`Page ${pageNumber}: ${text}`);
+    }
+
+    if (!parts.length) {
+      throw new Error(
+        "No selectable text was found. Upload page screenshots for image analysis."
+      );
+    }
+
+    return parts.join("\n\n").slice(0, 50000);
+  }
+
+  function renderAttachmentTray() {
+    let tray = root.querySelector(".mcx-v11-attachment-tray");
+
+    if (!tray) {
+      tray = document.createElement("div");
+      tray.className = "mcx-v11-attachment-tray";
+      tray.hidden = true;
+      form.before(tray);
+    }
+
+    tray.innerHTML = "";
+    tray.hidden = pendingAttachments.length === 0;
+
+    pendingAttachments.forEach((item, index) => {
+      const chip = document.createElement("div");
+      chip.className = "mcx-v11-attachment-chip";
+      chip.innerHTML = `
+        <span>${item.category === "image" ? "🖼️" : "📄"}</span>
+        <strong>${item.name}</strong>
+        <small>${item.sizeLabel}</small>
+        <button type="button" data-remove-attachment="${index}" aria-label="Remove attachment">×</button>
+      `;
+      tray.append(chip);
+    });
+  }
+
+  async function addFiles(fileList) {
+    const files = [...fileList].slice(0, 4);
+
+    for (const file of files) {
+      if (pendingAttachments.length >= 4) {
+        alert("A maximum of 4 files can be attached to one message.");
+        break;
+      }
+
+      try {
+        if (file.type.startsWith("image/")) {
+          if (file.size > 4 * 1024 * 1024) {
+            throw new Error("Images must be 4 MB or smaller.");
+          }
+
+          pendingAttachments.push({
+            name: file.name,
+            type: file.type,
+            category: "image",
+            content: await readAsDataURL(file),
+            sizeLabel: humanFileSize(file.size)
+          });
+        } else if (
+          file.type === "application/pdf" ||
+          /\.pdf$/i.test(file.name)
+        ) {
+          pendingAttachments.push({
+            name: file.name,
+            type: "text/plain",
+            category: "document",
+            content: await extractPdfText(file),
+            sizeLabel: humanFileSize(file.size)
+          });
+        } else {
+          if (file.size > 1024 * 1024) {
+            throw new Error("Text and code files must be 1 MB or smaller.");
+          }
+
+          pendingAttachments.push({
+            name: file.name,
+            type: file.type || "text/plain",
+            category: "document",
+            content: (await readAsText(file)).slice(0, 50000),
+            sizeLabel: humanFileSize(file.size)
+          });
+        }
+      } catch (error) {
+        alert(`${file.name}: ${error.message}`);
+      }
+    }
+
+    renderAttachmentTray();
+  }
+
+  function installAttachmentUI() {
+    if (root.querySelector("[data-ai-attach]")) return;
+
+    const input = document.createElement("input");
+    input.type = "file";
+    input.hidden = true;
+    input.multiple = true;
+    input.accept =
+      "image/png,image/jpeg,image/webp,application/pdf,text/plain,text/markdown,text/csv,application/json,text/html,text/css,text/javascript,.js,.py,.java,.xml,.yaml,.yml";
+
+    const attach = document.createElement("button");
+    attach.type = "button";
+    attach.className = "mcx-v11-attach";
+    attach.dataset.aiAttach = "true";
+    attach.setAttribute("aria-label", "Attach files");
+    attach.title = "Attach files or images";
+    attach.textContent = "📎";
+
+    form.insertBefore(attach, input);
+    form.append(input);
+
+    attach.addEventListener("click", () => input.click());
+    input.addEventListener("change", async () => {
+      await addFiles(input.files || []);
+      input.value = "";
+    });
+  }
+
+  function installAnalyticsButton() {
+    if (root.querySelector("[data-ai-analytics]")) return;
+
+    const headerActions = root.querySelector(".mcx-ai-header-actions");
+    if (!headerActions) return;
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.dataset.aiAnalytics = "true";
+    button.title = "Local AI analytics";
+    button.setAttribute("aria-label", "Open local AI analytics");
+    button.textContent = "▥";
+    headerActions.insertBefore(button, headerActions.firstChild);
+  }
+
+  function showLocalAnalytics() {
+    const intents = Object.entries(v11Analytics.intents)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 8)
+      .map(([name, count]) => `${name}: ${count}`)
+      .join("\n");
+
+    alert(
+      `CORTEX CORE AI — Local Analytics\n\n` +
+      `Questions: ${v11Analytics.questions}\n` +
+      `Successful AI answers: ${v11Analytics.successfulAnswers}\n` +
+      `Fallback answers: ${v11Analytics.fallbackAnswers}\n` +
+      `Questions with attachments: ${v11Analytics.attachmentQuestions}\n\n` +
+      `Top intents:\n${intents || "No data yet."}\n\n` +
+      `These analytics are stored only in this browser.`
+    );
+  }
+
+  installAttachmentUI();
+  installAnalyticsButton();
+
+  /* MCX_V11_ADVANCED_COMPANY_AI_END */
+
 
 
   async function process(text){
@@ -997,17 +1351,35 @@
       return;
     }
 
+    v11Analytics.questions += 1;
+    if (pendingAttachments.length) {
+      v11Analytics.attachmentQuestions += 1;
+    }
+    saveV11Analytics();
+
     const loader = typing();
+    const streaming = createStreamingAssistantMessage();
+    loader.remove();
 
     try {
-      const result = await askRealCompanyAI(text);
-      loader.remove();
+      const result = await askAdvancedCompanyAI(text, delta => {
+        streaming.content.textContent += delta;
+        messages.scrollTop = messages.scrollHeight;
+      });
+
+      v11Analytics.successfulAnswers += 1;
+      saveV11Analytics();
+
+      streaming.row.remove();
       addMessage("assistant", result);
+
+      pendingAttachments = [];
+      renderAttachmentTray();
     }
     catch (error) {
       console.error("CORTEX CORE AI request failed:", error);
-      loader.remove();
-      addMessage("assistant", realAIFallback(error, text));
+      streaming.row.remove();
+      addMessage("assistant", advancedAIFallback(error, text));
     }
   }
 
@@ -1020,6 +1392,21 @@
   },true);
 
   root.addEventListener("click",async event=>{
+    const removeAttachment = event.target.closest("[data-remove-attachment]");
+    if (removeAttachment) {
+      pendingAttachments.splice(
+        Number(removeAttachment.dataset.removeAttachment),
+        1
+      );
+      renderAttachmentTray();
+      return;
+    }
+
+    if (event.target.closest("[data-ai-analytics]")) {
+      showLocalAnalytics();
+      return;
+    }
+
     const a=event.target.closest("[data-action]");if(a)execute(a.dataset.action,a.dataset.value||"");
     const s=event.target.closest("[data-suggestion]");if(s)process(s.dataset.suggestion);
     const r=event.target.closest("[data-ai-route]");if(r)execute("route",r.dataset.aiRoute);
@@ -1057,7 +1444,7 @@
   root.querySelector("[data-setting-theme]").addEventListener("change",event=>{settings.theme=event.target.value;save(KEYS.settings,settings);applySettings();});
   root.querySelector("[data-setting-font]").addEventListener("change",event=>{settings.fontScale=Number(event.target.value);save(KEYS.settings,settings);applySettings();});
 
-  form.addEventListener("submit",event=>{event.preventDefault();const text=input.value.trim();if(!text)return;input.value="";localStorage.removeItem(KEYS.draft);input.style.height="auto";process(text);});
+  form.addEventListener("submit",event=>{event.preventDefault();const text=input.value.trim() || (pendingAttachments.length ? "Please analyze the attached files and answer only in relation to MI CORTEX X." : "");if(!text)return;input.value="";localStorage.removeItem(KEYS.draft);input.style.height="auto";process(text);});
   input.addEventListener("keydown",event=>{if(event.key==="Enter"&&!event.shiftKey){event.preventDefault();form.requestSubmit();}});
   input.addEventListener("input",()=>{input.style.height="auto";input.style.height=`${Math.min(input.scrollHeight,130)}px`;localStorage.setItem(KEYS.draft,input.value);});
 
