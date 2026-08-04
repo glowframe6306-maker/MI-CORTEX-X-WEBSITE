@@ -372,3 +372,83 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* MCX_CHAT_LAYOUT_REPAIR_START */
+
+/*
+ * Normal composer:
+ * textarea + send button
+ */
+#mcx-ai-chat-root .mcx-ai-composer {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 48px !important;
+  align-items: end !important;
+  gap: 10px !important;
+  width: 100% !important;
+  pointer-events: auto !important;
+}
+
+/*
+ * Composer with attachment button:
+ * attachment + textarea + send
+ */
+#mcx-ai-chat-root .mcx-ai-composer:has(.mcx-v11-attach) {
+  grid-template-columns:
+    48px
+    minmax(0, 1fr)
+    48px !important;
+}
+
+#mcx-ai-chat-root .mcx-ai-composer textarea {
+  grid-column: auto !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 50px !important;
+  max-height: 140px !important;
+  resize: none !important;
+  pointer-events: auto !important;
+}
+
+#mcx-ai-chat-root .mcx-ai-send,
+#mcx-ai-chat-root .mcx-v11-attach {
+  grid-column: auto !important;
+  flex: none !important;
+  pointer-events: auto !important;
+}
+
+#mcx-ai-chat-root .mcx-ai-dialog,
+#mcx-ai-chat-root .mcx-ai-header,
+#mcx-ai-chat-root .mcx-ai-header-actions,
+#mcx-ai-chat-root .mcx-ai-toolbar,
+#mcx-ai-chat-root .mcx-ai-messages,
+#mcx-ai-chat-root .mcx-ai-suggestions,
+#mcx-ai-chat-root .mcx-ai-composer {
+  pointer-events: auto !important;
+}
+
+#mcx-ai-chat-root button,
+#mcx-ai-chat-root textarea,
+#mcx-ai-chat-root input {
+  pointer-events: auto !important;
+}
+
+#mcx-ai-chat-root .mcx-ai-dialog::after {
+  pointer-events: none !important;
+}
+
+@media (max-width: 700px) {
+  #mcx-ai-chat-root .mcx-ai-composer {
+    grid-template-columns:
+      minmax(0, 1fr)
+      44px !important;
+  }
+
+  #mcx-ai-chat-root .mcx-ai-composer:has(.mcx-v11-attach) {
+    grid-template-columns:
+      44px
+      minmax(0, 1fr)
+      44px !important;
+  }
+}
+
+/* MCX_CHAT_LAYOUT_REPAIR_END */
