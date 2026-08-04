@@ -1,0 +1,74 @@
+/* MCX WELCOME TAGLINE ONLY */
+
+.mi-neural-intro .mcx-welcome-tagline {
+  position: absolute;
+  top: calc(100% + 30px);
+  left: 50%;
+
+  width: max-content;
+  max-width: 94vw;
+
+  color: #f4f7ff;
+
+  font-family: "Montserrat", "Poppins", sans-serif;
+  font-size: clamp(10px, 1.25vw, 18px);
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: .52em;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  opacity: 0;
+  visibility: hidden;
+  filter: blur(10px);
+  transform: translateX(-50%) translateY(16px);
+
+  text-shadow:
+    0 0 10px rgba(70, 170, 255, .48),
+    0 0 24px rgba(70, 170, 255, .25);
+
+  pointer-events: none;
+}
+
+.mi-neural-intro .mcx-welcome-tagline span {
+  color: #37d2ff;
+
+  text-shadow:
+    0 0 10px rgba(55, 210, 255, .95),
+    0 0 22px rgba(55, 210, 255, .65);
+}
+
+.mi-neural-intro.mi-logo-entering .mcx-welcome-tagline,
+.mi-neural-intro.mi-logo-settled .mcx-welcome-tagline,
+.mi-neural-intro.mcx-v25-logo-stage .mcx-welcome-tagline {
+  visibility: visible;
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(-50%) translateY(0);
+
+  transition:
+    opacity 1.15s ease .55s,
+    filter 1.2s ease .55s,
+    transform 1.2s cubic-bezier(.22, 1, .36, 1) .55s;
+}
+
+.mi-neural-intro.mi-logo-leaving .mcx-welcome-tagline,
+.mi-neural-intro.mcx-v25-logo-out .mcx-welcome-tagline {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateX(-50%) translateY(-10px);
+
+  transition:
+    opacity .8s ease,
+    filter .8s ease,
+    transform .8s ease;
+}
+
+@media (max-width: 700px) {
+  .mi-neural-intro .mcx-welcome-tagline {
+    top: calc(100% + 22px);
+    font-size: 9px;
+    letter-spacing: .30em;
+  }
+}
