@@ -682,7 +682,7 @@
         <div class="mcx-ai-suggestions" hidden></div>
         <form class="mcx-ai-composer">
           <textarea rows="1" maxlength="1800" placeholder="Ask in Sinhala, English or Singlish..." required></textarea>
-          <button class="mcx-ai-send" type="submit" aria-label="Send">&#10148;</button>
+          <button class="mcx-ai-send" aria-label="Send" type="submit">&#10148;</button>
         </form>
       </section>
     </div>`;
@@ -1467,3 +1467,27 @@
 
   applySettings();
 })();
+
+/* MCX_FINAL_ENTER_KEY_FIX */
+document.addEventListener("keydown", event => {
+  const textarea = event.target.closest?.(
+    "#mcx-ai-chat-root .mcx-ai-composer textarea"
+  );
+
+  if (
+    !textarea ||
+    event.key !== "Enter" ||
+    event.shiftKey ||
+    event.isComposing
+  ) {
+    return;
+  }
+
+  event.preventDefault();
+
+  const form = textarea.closest("form.mcx-ai-composer");
+
+  if (form) {
+    form.requestSubmit();
+  }
+});
