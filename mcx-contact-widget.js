@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
   "use strict";
 
   if (window.__MCX_CONTACT_HUB_INSTALLED__) return;

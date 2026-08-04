@@ -1,4 +1,4 @@
-﻿const GROQ_ENDPOINT = "https://api.groq.com/openai/v1/chat/completions";
+const GROQ_ENDPOINT = "https://api.groq.com/openai/v1/chat/completions";
 
 const COMPANY_KNOWLEDGE = `
 OFFICIAL IDENTITY
@@ -45,21 +45,21 @@ PRODUCT DATABASE
    Purpose: CRM, HRM, inventory, POS, ERP and analytics.
 
 SERVICE AND PRICING DATABASE
-- AI Development: starting LKR 60,000; delivery 7â€“30 days; support 30 days.
-- AI Chatbot Development: starting LKR 45,000; delivery 5â€“14 days; support 30 days.
-- AI Automation: starting LKR 65,000; delivery 7â€“21 days; support 30 days.
-- Website Development: starting LKR 15,000; delivery 3â€“14 days; support 30 days.
-- Web Application Development: starting LKR 50,000; delivery 7â€“30 days; support 30 days.
-- Mobile App Development: starting LKR 85,000; delivery 14â€“45 days; support 30 days.
-- Desktop Software Development: starting LKR 70,000; delivery 10â€“30 days; support 30 days.
-- Enterprise Software: starting LKR 250,000; delivery 30â€“90 days; support 90 days.
-- API Development: starting LKR 30,000; delivery 3â€“10 days; support 30 days.
-- API Integration: starting LKR 20,000; delivery 2â€“7 days; support 30 days.
-- Cloud Solutions: starting LKR 30,000; delivery 2â€“10 days; support 30 days.
-- UI/UX Design: starting LKR 15,000; delivery 3â€“10 days; support 14 days.
+- AI Development: starting LKR 60,000; delivery 7–30 days; support 30 days.
+- AI Chatbot Development: starting LKR 45,000; delivery 5–14 days; support 30 days.
+- AI Automation: starting LKR 65,000; delivery 7–21 days; support 30 days.
+- Website Development: starting LKR 15,000; delivery 3–14 days; support 30 days.
+- Web Application Development: starting LKR 50,000; delivery 7–30 days; support 30 days.
+- Mobile App Development: starting LKR 85,000; delivery 14–45 days; support 30 days.
+- Desktop Software Development: starting LKR 70,000; delivery 10–30 days; support 30 days.
+- Enterprise Software: starting LKR 250,000; delivery 30–90 days; support 90 days.
+- API Development: starting LKR 30,000; delivery 3–10 days; support 30 days.
+- API Integration: starting LKR 20,000; delivery 2–7 days; support 30 days.
+- Cloud Solutions: starting LKR 30,000; delivery 2–10 days; support 30 days.
+- UI/UX Design: starting LKR 15,000; delivery 3–10 days; support 14 days.
 - Software Maintenance: starting LKR 7,500 per month.
 - Technical Consulting: starting LKR 5,000.
-- Custom Software Development: starting LKR 100,000; delivery 14â€“90 days; support 60 days.
+- Custom Software Development: starting LKR 100,000; delivery 14–90 days; support 60 days.
 - Every listed amount is a starting estimate, not a guaranteed final price.
 
 PAYMENT AND REFUND
