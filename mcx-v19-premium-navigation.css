@@ -405,3 +405,19 @@ html.mcx-v19-front-page body {
 }
 
 /* MCX_V19_BLUR_ONLY_END */
+
+/* MCX_NAV_BLUR_ONLY_START */
+
+.site-header .nav {
+  backdrop-filter: blur(30px) !important;
+  -webkit-backdrop-filter: blur(30px) !important;
+}
+
+@media (max-width: 900px) {
+  .site-header .nav {
+    backdrop-filter: blur(26px) !important;
+    -webkit-backdrop-filter: blur(26px) !important;
+  }
+}
+
+/* MCX_NAV_BLUR_ONLY_END */
