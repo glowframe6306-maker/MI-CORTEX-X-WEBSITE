@@ -753,7 +753,7 @@
 
   function typing(){
     const row=document.createElement("div");row.className="mcx-ai-message mcx-ai-assistant mcx-ai-typing";
-    row.innerHTML='<div class="mcx-ai-bubble"><span></span><span></span><span></span><em>Understanding your request...</em></div>';
+    row.innerHTML='<div class="mcx-ai-bubble"><span></span><span></span><span></span><em>Carefully analysing your company question...</em></div>';
     messages.append(row);messages.scrollTop=messages.scrollHeight;return row;
   }
 
@@ -895,9 +895,120 @@
     }else if(type==="forget-profile"){profile={name:"",company:""};save(KEYS.profile,profile);addMessage("assistant","Saved customer profile removed from this browser.");}
   }
 
-  function process(text){
-    lastQuestion=text;addMessage("user",text);if(acceptFlow(text))return;
-    const loader=typing();setTimeout(()=>{loader.remove();addMessage("assistant",answer(text));},Math.min(1200,340+text.length*7));
+
+  /* MCX_V10_REAL_COMPANY_AI_START */
+
+  function buildCompanyAIHistory() {
+    return history
+      .slice(-12)
+      .map(item => ({
+        role: item.type === "user" ? "user" : "assistant",
+        content: String(item.payload?.text || "").slice(0, 1800)
+      }))
+      .filter(item => item.content);
+  }
+
+  function sanitizeRemoteActions(actions) {
+    const allowed = new Set(["route", "url", "appointment", "hub", "quote", "recommend", "support-flow"]);
+    if (!Array.isArray(actions)) return [];
+
+    return actions
+      .slice(0, 5)
+      .filter(item =>
+        item &&
+        typeof item.label === "string" &&
+        allowed.has(item.action)
+      )
+      .map(item => ({
+        label: item.label.slice(0, 60),
+        action: item.action,
+        value: typeof item.value === "string" ? item.value.slice(0, 500) : ""
+      }));
+  }
+
+  async function askRealCompanyAI(question) {
+    const controller = new AbortController();
+    const timer = window.setTimeout(() => controller.abort(), 30000);
+
+    try {
+      const response = await fetch("/api/company-ai", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          message: question,
+          history: buildCompanyAIHistory()
+        }),
+        signal: controller.signal
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        const error = new Error(data.error || `AI request failed with status ${response.status}.`);
+        error.status = response.status;
+        throw error;
+      }
+
+      if (!data || typeof data.answer !== "string" || !data.answer.trim()) {
+        throw new Error("The AI server returned an empty answer.");
+      }
+
+      return reply(
+        data.answer.trim(),
+        sanitizeRemoteActions(data.actions),
+        Array.isArray(data.suggestions)
+          ? data.suggestions.slice(0, 5).map(value => String(value).slice(0, 120))
+          : []
+      );
+    }
+    finally {
+      window.clearTimeout(timer);
+    }
+  }
+
+  function realAIFallback(error, question) {
+    const local = answer(question);
+
+    if (error?.status === 503) {
+      return reply(
+        "CORTEX CORE AI is not connected to its secure AI key yet. Add GROQ_API_KEY in the Vercel project Environment Variables and redeploy. The local company knowledge answer is shown below.\n\n" + local.text,
+        local.actions,
+        local.suggestions
+      );
+    }
+
+    return reply(
+      "The secure AI service could not be reached, so I used the verified local company knowledge instead.\n\n" + local.text,
+      local.actions,
+      local.suggestions
+    );
+  }
+
+  /* MCX_V10_REAL_COMPANY_AI_END */
+
+
+  async function process(text){
+    lastQuestion = text;
+    addMessage("user", text);
+
+    if (acceptFlow(text)) {
+      return;
+    }
+
+    const loader = typing();
+
+    try {
+      const result = await askRealCompanyAI(text);
+      loader.remove();
+      addMessage("assistant", result);
+    }
+    catch (error) {
+      console.error("CORTEX CORE AI request failed:", error);
+      loader.remove();
+      addMessage("assistant", realAIFallback(error, text));
+    }
   }
 
   function updateOnline(){offlineBanner.hidden=navigator.onLine;}

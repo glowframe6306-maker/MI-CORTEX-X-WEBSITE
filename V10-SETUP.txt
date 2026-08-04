@@ -1,0 +1,27 @@
+CORTEX CORE AI V10 — REAL COMPANY AI
+
+WHAT THIS PATCH CHANGES
+- Replaces the final answer selection with a secure server-side language model.
+- Understands Sinhala, English, Singlish, mixed language, missing punctuation and common spelling mistakes much better.
+- Uses recent conversation history for follow-up questions.
+- Restricts answers to MI CORTEX X.
+- Uses a verified company knowledge prompt.
+- Refuses to invent missing company information.
+- Falls back to the local knowledge engine when the API is unavailable.
+
+REQUIRED AFTER INSTALLATION
+1. Open the Vercel project.
+2. Go to Settings > Environment Variables.
+3. Add:
+   Name: GROQ_API_KEY
+   Value: your private Groq API key
+   Environments: Production, Preview and Development
+4. Optional:
+   Name: GROQ_MODEL
+   Value: llama-3.3-70b-versatile
+5. Redeploy the project.
+
+SECURITY
+- Never put GROQ_API_KEY inside HTML or browser JavaScript.
+- The key is used only by /api/company-ai.
+- Do not commit a real key to GitHub.
