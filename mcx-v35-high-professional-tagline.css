@@ -1,0 +1,149 @@
+/* MI CORTEX X V35 - High-professional tagline only */
+
+/*
+ * Refines only:
+ * INTELLIGENCE • INNOVATION • INFINITY
+ *
+ * No changes to logo, neural animation, timing, navigation,
+ * front page, AI, buttons, layout, or any unrelated UI.
+ */
+
+#mi-neural-intro .mi-logo-tagline,
+#mi-neural-intro .mcx-welcome-tagline {
+  position: absolute !important;
+  top: calc(100% + 28px) !important;
+  left: 50% !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: clamp(10px, 1.25vw, 18px) !important;
+
+  width: max-content !important;
+  max-width: min(92vw, 860px) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  color: #eaf7ff !important;
+
+  font-family:
+    "Inter",
+    "SF Pro Display",
+    "Segoe UI",
+    "Montserrat",
+    sans-serif !important;
+
+  font-size: clamp(11px, 1.15vw, 17px) !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+
+  letter-spacing: clamp(.16em, .30vw, .32em) !important;
+  word-spacing: .08em !important;
+
+  text-align: center !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+
+  text-shadow:
+    0 0 6px rgba(117, 214, 255, .42),
+    0 0 14px rgba(67, 133, 255, .20) !important;
+
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+
+  transform-origin: center center !important;
+  backface-visibility: hidden !important;
+}
+
+/* Proportional separators: clear, elegant and not oversized. */
+#mi-neural-intro .mi-logo-tagline .dot,
+#mi-neural-intro .mcx-welcome-tagline .dot,
+#mi-neural-intro .mi-logo-tagline span,
+#mi-neural-intro .mcx-welcome-tagline span {
+  display: inline-grid !important;
+  place-items: center !important;
+
+  min-width: .72em !important;
+
+  color: #73d8ff !important;
+
+  font-size: .82em !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  letter-spacing: 0 !important;
+
+  text-shadow:
+    0 0 5px rgba(115, 216, 255, .70),
+    0 0 11px rgba(62, 137, 255, .34) !important;
+
+  transform: translateY(-.02em) !important;
+}
+
+/* Clean premium entrance. */
+#mi-neural-intro.mcx-v32-logo-visible .mi-logo-tagline,
+#mi-neural-intro.mcx-v32-logo-visible .mcx-welcome-tagline,
+#mi-neural-intro.mcx-v31-logo-visible .mi-logo-tagline,
+#mi-neural-intro.mcx-v31-logo-visible .mcx-welcome-tagline,
+#mi-neural-intro.mcx-v30-logo-visible .mi-logo-tagline,
+#mi-neural-intro.mcx-v30-logo-visible .mcx-welcome-tagline {
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  filter: blur(0) !important;
+  transform: translate3d(-50%, 0, 0) !important;
+
+  transition:
+    opacity 1.35s cubic-bezier(.22, 1, .36, 1) .45s,
+    filter 1.45s cubic-bezier(.22, 1, .36, 1) .45s,
+    transform 1.55s cubic-bezier(.22, 1, .36, 1) .45s !important;
+}
+
+/* Professional exit without oversized blur or gaming glow. */
+#mi-neural-intro.mcx-v32-logo-out .mi-logo-tagline,
+#mi-neural-intro.mcx-v32-logo-out .mcx-welcome-tagline,
+#mi-neural-intro.mcx-v31-logo-out .mi-logo-tagline,
+#mi-neural-intro.mcx-v31-logo-out .mcx-welcome-tagline,
+#mi-neural-intro.mcx-v30-logo-out .mi-logo-tagline,
+#mi-neural-intro.mcx-v30-logo-out .mcx-welcome-tagline {
+  opacity: 0 !important;
+  filter: blur(7px) !important;
+  transform: translate3d(-50%, -7px, 0) !important;
+
+  transition:
+    opacity 1.05s ease,
+    filter 1.05s ease,
+    transform 1.05s ease !important;
+}
+
+/* Desktop refinement. */
+@media (min-width: 1200px) {
+  #mi-neural-intro .mi-logo-tagline,
+  #mi-neural-intro .mcx-welcome-tagline {
+    font-size: 16px !important;
+    letter-spacing: .28em !important;
+    gap: 16px !important;
+  }
+}
+
+/* Tablet refinement. */
+@media (max-width: 900px) {
+  #mi-neural-intro .mi-logo-tagline,
+  #mi-neural-intro .mcx-welcome-tagline {
+    max-width: 90vw !important;
+    font-size: 11px !important;
+    letter-spacing: .19em !important;
+    gap: 10px !important;
+  }
+}
+
+/* Mobile refinement: maintain one-line premium balance where possible. */
+@media (max-width: 620px) {
+  #mi-neural-intro .mi-logo-tagline,
+  #mi-neural-intro .mcx-welcome-tagline {
+    top: calc(100% + 22px) !important;
+    max-width: 94vw !important;
+    font-size: 8px !important;
+    letter-spacing: .12em !important;
+    gap: 7px !important;
+  }
+}
