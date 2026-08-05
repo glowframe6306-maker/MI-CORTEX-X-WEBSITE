@@ -1,0 +1,454 @@
+/* MI CORTEX X V42 — Premium Brand Film Entry
+   Minimal, restrained, high-end, corporate.
+   No gaming effects, no neon overload, no orbital/neural gimmicks.
+*/
+
+html.mcx-v42-active,
+html.mcx-v42-active body {
+  overflow: hidden !important;
+}
+
+/* ---------------------------
+   GLOBAL INTRO CANVAS
+   --------------------------- */
+
+#welcome-screen,
+#mi-neural-intro {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100dvh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  backface-visibility: hidden !important;
+}
+
+#welcome-screen {
+  z-index: 2147483640 !important;
+  display: grid !important;
+  place-items: center !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(21, 23, 28, .32), transparent 34%),
+    linear-gradient(180deg, #060607 0%, #010102 100%) !important;
+  transform: translate3d(0,0,0) !important;
+}
+
+#welcome-screen .welcome-stage {
+  position: relative !important;
+  z-index: 5 !important;
+  display: grid !important;
+  place-items: center !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#welcome-screen .intro-robot,
+#welcome-screen .letter-particles {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* subtle cinematic grain */
+#welcome-screen .mcx-v42-grain,
+#mi-neural-intro .mcx-v42-grain {
+  position: absolute !important;
+  inset: -20% !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+  opacity: .055 !important;
+  background-image:
+    repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,.24) 0 1px, transparent 1px 3px) !important;
+  background-size: 5px 5px !important;
+  transform: translate3d(0,0,0) !important;
+}
+
+/* elegant vertical light */
+#welcome-screen .mcx-v42-light {
+  position: absolute !important;
+  left: 50% !important;
+  top: -10% !important;
+  z-index: 2 !important;
+  width: min(28vw, 360px) !important;
+  height: 120% !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.06),
+      rgba(215,166,55,.045) 38%,
+      rgba(255,255,255,.018) 72%,
+      transparent
+    ) !important;
+  clip-path: polygon(42% 0, 58% 0, 100% 100%, 0 100%) !important;
+  filter: blur(12px) !important;
+  transform: translateX(-50%) scaleY(.75) !important;
+}
+
+#welcome-screen.mcx-v42-light-in .mcx-v42-light {
+  opacity: 1 !important;
+  transform: translateX(-50%) scaleY(1) !important;
+  transition:
+    opacity 1.8s ease,
+    transform 2.8s cubic-bezier(.16,1,.3,1) !important;
+}
+
+/* thin gold rule */
+#welcome-screen .mcx-v42-rule {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  z-index: 3 !important;
+  width: min(58vw, 760px) !important;
+  height: 1px !important;
+  opacity: 0 !important;
+  background:
+    linear-gradient(90deg, transparent, rgba(216,168,58,.62), transparent) !important;
+  transform: translate3d(-50%,-50%,0) scaleX(.08) !important;
+  transform-origin: center center !important;
+  box-shadow: 0 0 8px rgba(189,125,18,.12) !important;
+}
+
+#welcome-screen.mcx-v42-rule-in .mcx-v42-rule {
+  opacity: 1 !important;
+  transform: translate3d(-50%,-50%,0) scaleX(1) !important;
+  transition:
+    opacity 1s ease,
+    transform 1.7s cubic-bezier(.16,1,.3,1) !important;
+}
+
+/* company name */
+#welcome-screen .welcome-title {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  z-index: 4 !important;
+  display: grid !important;
+  place-items: center !important;
+  gap: 8px !important;
+  width: max-content !important;
+  max-width: 92vw !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  filter: blur(12px) !important;
+  transform: translate3d(-50%, calc(-50% + 34px), 0) scale(.985) !important;
+}
+
+#welcome-screen .welcome-main-line,
+#welcome-screen .welcome-sub-line {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: clamp(10px, 1.6vw, 24px) !important;
+}
+
+#welcome-screen .welcome-title .title-word {
+  display: inline-block !important;
+  color: #d3a03a !important;
+  -webkit-text-fill-color: #d3a03a !important;
+  font-family:
+    "Inter",
+    "SF Pro Display",
+    "Segoe UI",
+    "Helvetica Neue",
+    sans-serif !important;
+  font-size: clamp(39px, 5.8vw, 88px) !important;
+  font-weight: 720 !important;
+  line-height: 1 !important;
+  letter-spacing: .09em !important;
+  white-space: nowrap !important;
+  text-shadow:
+    0 0 3px rgba(211,160,58,.22),
+    0 0 10px rgba(161,102,7,.09) !important;
+  -webkit-font-smoothing: antialiased !important;
+  text-rendering: geometricPrecision !important;
+}
+
+#welcome-screen .welcome-sub-line .title-word {
+  font-size: clamp(17px, 2.25vw, 32px) !important;
+  font-weight: 520 !important;
+  letter-spacing: .21em !important;
+}
+
+#welcome-screen.mcx-v42-title-in .welcome-title {
+  visibility: visible !important;
+  opacity: 1 !important;
+  filter: blur(0) !important;
+  transform: translate3d(-50%, calc(-50% + 34px), 0) scale(1) !important;
+  transition:
+    opacity 1.2s ease,
+    filter 1.4s ease,
+    transform 1.5s cubic-bezier(.16,1,.3,1) !important;
+}
+
+#welcome-screen.mcx-v42-title-out .welcome-title {
+  opacity: 0 !important;
+  filter: blur(6px) !important;
+  transform: translate3d(-50%, calc(-50% + 26px), 0) scale(.992) !important;
+  transition:
+    opacity .72s ease,
+    filter .8s ease,
+    transform .8s ease !important;
+}
+
+#welcome-screen.mcx-v42-fade-out {
+  opacity: 0 !important;
+  transition: opacity 1.05s ease !important;
+}
+
+#welcome-screen.mcx-v42-hidden {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* ---------------------------
+   LOGO BRAND FILM STAGE
+   --------------------------- */
+
+#mi-neural-intro {
+  z-index: 2147483630 !important;
+  display: grid !important;
+  place-items: center !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(18, 42, 81, .22), transparent 30%),
+    linear-gradient(180deg, #03050a 0%, #060a13 54%, #010207 100%) !important;
+}
+
+#mi-neural-intro .mi-neural-background,
+#mi-neural-intro .mi-neural-network,
+#mi-neural-intro .mi-neural-vignette,
+#mi-neural-intro .mi-neural-light {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+#mi-neural-intro.mcx-v42-brand-in,
+#mi-neural-intro.mcx-v42-logo-in,
+#mi-neural-intro.mcx-v42-lockup-in,
+#mi-neural-intro.mcx-v42-final-out {
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* restrained glass plate */
+#mi-neural-intro .mcx-v42-plate {
+  position: absolute !important;
+  left: 50% !important;
+  top: 47% !important;
+  z-index: 2 !important;
+  width: min(46vw, 560px) !important;
+  aspect-ratio: 1.22 !important;
+  opacity: 0 !important;
+  border: 1px solid rgba(255,255,255,.065) !important;
+  border-radius: 30px !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.012)),
+    rgba(7,11,20,.28) !important;
+  box-shadow:
+    0 28px 80px rgba(0,0,0,.30),
+    inset 0 1px 0 rgba(255,255,255,.045) !important;
+  backdrop-filter: blur(16px) saturate(1.05) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(1.05) !important;
+  transform: translate3d(-50%, -47%, 0) scale(.97) !important;
+}
+
+#mi-neural-intro.mcx-v42-brand-in .mcx-v42-plate,
+#mi-neural-intro.mcx-v42-logo-in .mcx-v42-plate,
+#mi-neural-intro.mcx-v42-lockup-in .mcx-v42-plate {
+  opacity: 1 !important;
+  transform: translate3d(-50%, -50%, 0) scale(1) !important;
+  transition:
+    opacity 1.25s ease,
+    transform 1.75s cubic-bezier(.16,1,.3,1) !important;
+}
+
+/* precise horizontal lines */
+#mi-neural-intro .mcx-v42-line-top,
+#mi-neural-intro .mcx-v42-line-bottom {
+  position: absolute !important;
+  left: 50% !important;
+  z-index: 3 !important;
+  width: min(64vw, 820px) !important;
+  height: 1px !important;
+  opacity: 0 !important;
+  background:
+    linear-gradient(90deg, transparent, rgba(104,179,234,.24), transparent) !important;
+  transform: translateX(-50%) scaleX(.5) !important;
+}
+
+#mi-neural-intro .mcx-v42-line-top {
+  top: 22% !important;
+}
+
+#mi-neural-intro .mcx-v42-line-bottom {
+  bottom: 22% !important;
+}
+
+#mi-neural-intro.mcx-v42-brand-in .mcx-v42-line-top,
+#mi-neural-intro.mcx-v42-brand-in .mcx-v42-line-bottom,
+#mi-neural-intro.mcx-v42-logo-in .mcx-v42-line-top,
+#mi-neural-intro.mcx-v42-logo-in .mcx-v42-line-bottom,
+#mi-neural-intro.mcx-v42-lockup-in .mcx-v42-line-top,
+#mi-neural-intro.mcx-v42-lockup-in .mcx-v42-line-bottom {
+  opacity: 1 !important;
+  transform: translateX(-50%) scaleX(1) !important;
+  transition:
+    opacity 1.2s ease,
+    transform 1.7s cubic-bezier(.16,1,.3,1) !important;
+}
+
+/* logo */
+#mi-neural-intro .mi-logo-reveal {
+  position: absolute !important;
+  left: 50% !important;
+  top: 46% !important;
+  z-index: 5 !important;
+  display: grid !important;
+  place-items: center !important;
+  width: clamp(190px, 19vw, 300px) !important;
+  aspect-ratio: 1 !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  filter: blur(13px) !important;
+  transform: translate3d(-50%, calc(-50% + 10px), 0) scale(.93) !important;
+}
+
+#mi-neural-intro.mcx-v42-logo-in .mi-logo-reveal,
+#mi-neural-intro.mcx-v42-lockup-in .mi-logo-reveal {
+  visibility: visible !important;
+  opacity: 1 !important;
+  filter: blur(0) !important;
+  transform: translate3d(-50%, -50%, 0) scale(1) !important;
+  transition:
+    opacity 1.35s ease,
+    filter 1.5s ease,
+    transform 1.7s cubic-bezier(.16,1,.3,1) !important;
+}
+
+#mi-neural-intro .mi-intro-logo {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  border-radius: 50% !important;
+  filter:
+    drop-shadow(0 0 10px rgba(93,197,255,.38))
+    drop-shadow(0 0 24px rgba(68,75,255,.15)) !important;
+}
+
+#mi-neural-intro .mi-logo-tagline {
+  position: absolute !important;
+  left: 50% !important;
+  top: calc(100% + 22px) !important;
+  width: max-content !important;
+  max-width: 90vw !important;
+  color: #edf7ff !important;
+  font-family:
+    "Inter",
+    "SF Pro Display",
+    "Segoe UI",
+    "Helvetica Neue",
+    sans-serif !important;
+  font-size: clamp(9px, .85vw, 12px) !important;
+  font-weight: 580 !important;
+  letter-spacing: .18em !important;
+  white-space: nowrap !important;
+  text-transform: uppercase !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  filter: blur(4px) !important;
+  transform: translate3d(-50%, 7px, 0) !important;
+}
+
+#mi-neural-intro.mcx-v42-logo-in .mi-logo-tagline,
+#mi-neural-intro.mcx-v42-lockup-in .mi-logo-tagline {
+  visibility: visible !important;
+  opacity: 1 !important;
+  filter: blur(0) !important;
+  transform: translate3d(-50%,0,0) !important;
+  transition:
+    opacity .95s ease .35s,
+    filter 1s ease .35s,
+    transform 1.05s ease .35s !important;
+}
+
+#mi-neural-intro .mcx-v42-company {
+  position: absolute !important;
+  left: 50% !important;
+  top: 79% !important;
+  z-index: 6 !important;
+  width: max-content !important;
+  color: #d5a23d !important;
+  font-family:
+    "Inter",
+    "SF Pro Display",
+    "Segoe UI",
+    "Helvetica Neue",
+    sans-serif !important;
+  font-size: clamp(14px,1.15vw,18px) !important;
+  font-weight: 680 !important;
+  letter-spacing: .17em !important;
+  white-space: nowrap !important;
+  text-transform: uppercase !important;
+  opacity: 0 !important;
+  transform: translate3d(-50%,9px,0) !important;
+}
+
+#mi-neural-intro.mcx-v42-lockup-in .mcx-v42-company {
+  opacity: 1 !important;
+  transform: translate3d(-50%,0,0) !important;
+  transition:
+    opacity 1s ease,
+    transform 1.15s cubic-bezier(.16,1,.3,1) !important;
+}
+
+/* elegant final dissolve */
+#mi-neural-intro.mcx-v42-final-out {
+  opacity: 0 !important;
+  transform: scale(1.012) !important;
+  transition:
+    opacity 1.15s ease,
+    transform 1.35s ease !important;
+}
+
+#mi-neural-intro.mcx-v42-finished {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+@media (max-width: 760px) {
+  #welcome-screen .welcome-title .title-word {
+    font-size: clamp(32px, 9vw, 54px) !important;
+    letter-spacing: .065em !important;
+  }
+
+  #mi-neural-intro .mcx-v42-plate {
+    width: min(84vw, 500px) !important;
+  }
+
+  #mi-neural-intro .mi-logo-reveal {
+    width: clamp(168px, 48vw, 235px) !important;
+  }
+
+  #mi-neural-intro .mi-logo-tagline {
+    font-size: 8px !important;
+    letter-spacing: .10em !important;
+  }
+
+  #mi-neural-intro .mcx-v42-company {
+    top: 80% !important;
+    font-size: 11px !important;
+    letter-spacing: .13em !important;
+  }
+}
