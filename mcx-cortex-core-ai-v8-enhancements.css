@@ -16,3 +16,45 @@
 .mcx-v8-compact.mcx-ai-message{margin-bottom:7px}.mcx-v8-compact.mcx-ai-bubble{padding:8px 10px;font-size:.84em}.mcx-v8-high-contrast{filter:contrast(1.15)}.mcx-v8-high-contrast.mcx-ai-assistant.mcx-ai-bubble{border-color:#7ee9ff}.mcx-v8-hide-times.mcx-ai-meta{display:none!important}.mcx-v8-reduced-motion *{animation:none!important;scroll-behavior:auto!important}
 .mcx-ai-dialog[data-reading-width="wide"].mcx-ai-bubble{max-width:95%}.mcx-ai-dialog[data-reading-width="narrow"].mcx-ai-bubble{max-width:70%}.mcx-ai-dialog[data-density="compact"].mcx-ai-messages{padding:10px}.mcx-ai-dialog[data-density="compact"].mcx-ai-message{margin-bottom:7px}
 @media(max-width:640px){.mcx-v8-panel{inset:58px 0 0;border-radius:0;padding:14px}.mcx-v8-panel>header{top:-14px;margin:-14px -14px 14px}.mcx-v8-profile{grid-template-columns:1fr}.mcx-v8-profile strong{grid-column:auto}.mcx-v8-privacy{align-items:flex-start}.mcx-v8-privacy span{font-size:.62rem}}
+
+
+/* =======================================================
+   MCX TAGLINE SIZE PATCH
+   ======================================================= */
+
+.mcx-tagline,
+.intro-tagline,
+.neural-tagline,
+#welcomeTagline{
+
+    font-size:28px !important;
+    font-weight:900 !important;
+    letter-spacing:12px !important;
+    text-transform:uppercase !important;
+
+    color:#F5FDFF !important;
+
+    text-shadow:
+        0 0 8px rgba(170,240,255,.95),
+        0 0 18px rgba(90,180,255,.90),
+        0 0 35px rgba(40,120,255,.70);
+
+    opacity:1 !important;
+}
+
+.mcx-tagline .dot,
+.intro-tagline .dot,
+.neural-tagline .dot,
+#welcomeTagline .dot{
+
+    font-size:34px !important;
+    font-weight:900 !important;
+
+    color:#9FEAFF !important;
+
+    text-shadow:
+        0 0 12px #9FEAFF,
+        0 0 25px #5AB9FF,
+        0 0 40px #2B6CFF;
+}
+
