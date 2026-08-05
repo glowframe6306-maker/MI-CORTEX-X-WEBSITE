@@ -1,0 +1,390 @@
+/* MI CORTEX X V30 - Welcome animation only */
+
+/* Lock only while the welcome sequence is running. */
+html.mcx-v30-welcome-active,
+html.mcx-v30-welcome-active body {
+  overflow: hidden !important;
+}
+
+/* -----------------------------
+   1. PURE BLACK + SOLID GOLD
+   ----------------------------- */
+
+#welcome-screen {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 2147483640 !important;
+
+  display: grid !important;
+  place-items: center !important;
+
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+
+  background: #000 !important;
+  transform: translate3d(0, 0, 0) !important;
+  transition: none !important;
+}
+
+#welcome-screen .welcome-stage {
+  display: grid !important;
+  place-items: center !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#welcome-screen .intro-robot,
+#welcome-screen .letter-particles {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+#welcome-screen .welcome-title {
+  display: grid !important;
+  place-items: center !important;
+  gap: 8px !important;
+
+  color: #d9a928 !important;
+  text-align: center !important;
+
+  visibility: hidden !important;
+  opacity: 0 !important;
+
+  filter: blur(42px) !important;
+  transform: scale(.92) !important;
+
+  text-shadow:
+    0 0 8px rgba(223, 173, 43, .58),
+    0 0 22px rgba(185, 125, 11, .28) !important;
+}
+
+#welcome-screen .welcome-main-line,
+#welcome-screen .welcome-sub-line {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: clamp(14px, 2.4vw, 38px) !important;
+}
+
+#welcome-screen .welcome-title .title-word {
+  display: inline-block !important;
+
+  color: #d9a928 !important;
+  background: none !important;
+  -webkit-text-fill-color: #d9a928 !important;
+
+  font-family: "Poppins", "Montserrat", sans-serif !important;
+  font-size: clamp(42px, 7.3vw, 118px) !important;
+  font-weight: 900 !important;
+  line-height: .98 !important;
+  letter-spacing: .10em !important;
+  white-space: nowrap !important;
+}
+
+#welcome-screen .welcome-sub-line .title-word {
+  font-size: clamp(23px, 3.2vw, 52px) !important;
+  font-weight: 900 !important;
+  letter-spacing: .24em !important;
+}
+
+/* Strong blur slowly becomes crystal clear. */
+#welcome-screen.mcx-v30-title-in .welcome-title {
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  filter: blur(0) !important;
+  transform: scale(1) !important;
+
+  transition:
+    opacity 1.25s ease,
+    filter 2.65s cubic-bezier(.22, 1, .36, 1),
+    transform 2.65s cubic-bezier(.22, 1, .36, 1) !important;
+}
+
+/* Gold title disappears before neural starts. */
+#welcome-screen.mcx-v30-title-out .welcome-title {
+  visibility: visible !important;
+  opacity: 0 !important;
+
+  filter: blur(30px) !important;
+  transform: scale(1.06) !important;
+
+  transition:
+    opacity 1s ease,
+    filter 1.15s ease,
+    transform 1.15s ease !important;
+}
+
+#welcome-screen.mcx-v30-welcome-hidden {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* -----------------------------
+   2. FULL OPAQUE NEURAL SCREEN
+   ----------------------------- */
+
+#mi-neural-intro {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 2147483630 !important;
+
+  display: grid !important;
+  place-items: center !important;
+
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+
+  overflow: hidden !important;
+
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+
+  background: #01030b !important;
+  background-color: #01030b !important;
+
+  transform: translate3d(0, 0, 0) !important;
+  transition: none !important;
+
+  isolation: isolate !important;
+}
+
+/* Permanent solid layer: page can never become transparent. */
+#mi-neural-intro::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+
+  background:
+    radial-gradient(
+      circle at 50% 48%,
+      rgba(18, 53, 119, .40) 0%,
+      rgba(3, 8, 28, .995) 47%,
+      #01030b 100%
+    ) !important;
+
+  opacity: 1 !important;
+}
+
+#mi-neural-intro.mcx-v30-neural-visible,
+#mi-neural-intro.mcx-v30-logo-visible,
+#mi-neural-intro.mcx-v30-logo-out,
+#mi-neural-intro.mcx-v30-neural-hold,
+#mi-neural-intro.mcx-v30-neural-lift {
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+#mi-neural-intro .mi-neural-background {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+
+  display: block !important;
+  overflow: hidden !important;
+
+  opacity: 0 !important;
+  filter: blur(12px) !important;
+  transform: scale(1.05) !important;
+}
+
+#mi-neural-intro.mcx-v30-neural-visible .mi-neural-background,
+#mi-neural-intro.mcx-v30-logo-visible .mi-neural-background,
+#mi-neural-intro.mcx-v30-logo-out .mi-neural-background,
+#mi-neural-intro.mcx-v30-neural-hold .mi-neural-background,
+#mi-neural-intro.mcx-v30-neural-lift .mi-neural-background {
+  opacity: 1 !important;
+  filter: blur(0) !important;
+  transform: scale(1) !important;
+
+  transition:
+    opacity 1.35s ease,
+    filter 1.65s ease,
+    transform 5s ease-out !important;
+}
+
+#mi-neural-intro .mi-neural-network {
+  position: absolute !important;
+  inset: -2% !important;
+
+  width: 104% !important;
+  height: 104% !important;
+
+  opacity: 1 !important;
+}
+
+/* -----------------------------
+   3. LOGO
+   ----------------------------- */
+
+#mi-neural-intro .mi-logo-reveal {
+  position: relative !important;
+  z-index: 4 !important;
+
+  display: grid !important;
+  place-items: center !important;
+
+  width: clamp(190px, 22vw, 340px) !important;
+  aspect-ratio: 1 !important;
+
+  visibility: hidden !important;
+  opacity: 0 !important;
+
+  filter: blur(20px) !important;
+  transform: scale(.68) !important;
+}
+
+#mi-neural-intro.mcx-v30-logo-visible .mi-logo-reveal {
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  filter: blur(0) !important;
+  transform: scale(1) !important;
+
+  transition:
+    opacity 1.05s ease,
+    filter 1.25s ease,
+    transform 1.55s cubic-bezier(.16, 1, .3, 1) !important;
+}
+
+#mi-neural-intro.mcx-v30-logo-out .mi-logo-reveal {
+  visibility: visible !important;
+  opacity: 0 !important;
+
+  filter: blur(16px) !important;
+  transform: scale(.84) !important;
+
+  transition:
+    opacity 1s ease,
+    filter 1s ease,
+    transform 1s ease !important;
+}
+
+#mi-neural-intro.mcx-v30-neural-hold .mi-logo-reveal,
+#mi-neural-intro.mcx-v30-neural-lift .mi-logo-reveal {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+#mi-neural-intro .mi-intro-logo {
+  display: block !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: contain !important;
+  border-radius: 50% !important;
+
+  filter:
+    drop-shadow(0 0 18px rgba(61, 190, 255, .65))
+    drop-shadow(0 0 48px rgba(83, 69, 255, .38)) !important;
+}
+
+#mi-neural-intro .mi-logo-tagline,
+#mi-neural-intro .mcx-welcome-tagline {
+  position: absolute !important;
+  top: calc(100% + 28px) !important;
+  left: 50% !important;
+
+  width: max-content !important;
+  max-width: 94vw !important;
+
+  color: #f5f8ff !important;
+
+  font-family: "Montserrat", "Poppins", sans-serif !important;
+  font-size: clamp(9px, 1.1vw, 16px) !important;
+  font-weight: 600 !important;
+  letter-spacing: .42em !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+
+  visibility: hidden !important;
+  opacity: 0 !important;
+
+  filter: blur(8px) !important;
+  transform: translateX(-50%) translateY(14px) !important;
+}
+
+#mi-neural-intro.mcx-v30-logo-visible .mi-logo-tagline,
+#mi-neural-intro.mcx-v30-logo-visible .mcx-welcome-tagline {
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  filter: blur(0) !important;
+  transform: translateX(-50%) translateY(0) !important;
+
+  transition:
+    opacity .95s ease .35s,
+    filter .95s ease .35s,
+    transform .95s ease .35s !important;
+}
+
+#mi-neural-intro.mcx-v30-logo-out .mi-logo-tagline,
+#mi-neural-intro.mcx-v30-logo-out .mcx-welcome-tagline {
+  opacity: 0 !important;
+  filter: blur(8px) !important;
+  transform: translateX(-50%) translateY(-8px) !important;
+
+  transition:
+    opacity .75s ease,
+    filter .75s ease,
+    transform .75s ease !important;
+}
+
+/* -----------------------------
+   4. OPAQUE PAGE LIFT
+   ----------------------------- */
+
+#mi-neural-intro.mcx-v30-neural-lift {
+  opacity: 1 !important;
+  visibility: visible !important;
+  background-color: #01030b !important;
+
+  transform: translate3d(0, -100%, 0) !important;
+
+  transition:
+    transform 2.2s cubic-bezier(.76, 0, .24, 1) !important;
+}
+
+#mi-neural-intro.mcx-v30-neural-lift::before {
+  opacity: 1 !important;
+}
+
+#mi-neural-intro.mcx-v30-finished {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+@media (max-width: 700px) {
+  #welcome-screen .welcome-title .title-word {
+    font-size: clamp(34px, 12vw, 70px) !important;
+  }
+
+  #mi-neural-intro .mi-logo-reveal {
+    width: clamp(175px, 56vw, 280px) !important;
+  }
+
+  #mi-neural-intro .mi-logo-tagline,
+  #mi-neural-intro .mcx-welcome-tagline {
+    font-size: 8px !important;
+    letter-spacing: .25em !important;
+  }
+}
