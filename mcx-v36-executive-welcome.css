@@ -1,0 +1,222 @@
+/* MI CORTEX X V36 - Executive welcome refinement only */
+
+/*
+ * Refines only the existing welcome sequence:
+ * - mathematically centered logo
+ * - cleaner neural density
+ * - refined gold title
+ * - subtle logo entrance
+ * - calmer pulse balance
+ * - professional page-lift timing
+ * - mobile layout tuning
+ *
+ * No changes to navigation, front page, AI, sections, buttons, content,
+ * colors outside the welcome sequence, or unrelated website behavior.
+ */
+
+/* -----------------------------
+   GOLD TITLE REFINEMENT
+   ----------------------------- */
+
+#welcome-screen .welcome-title {
+  text-shadow:
+    0 0 4px rgba(216, 164, 36, .56),
+    0 0 12px rgba(172, 113, 10, .22) !important;
+}
+
+#welcome-screen .welcome-title .title-word {
+  color: #d8a524 !important;
+  -webkit-text-fill-color: #d8a524 !important;
+  font-weight: 850 !important;
+  letter-spacing: .095em !important;
+  text-rendering: geometricPrecision !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+#welcome-screen .welcome-sub-line .title-word {
+  font-weight: 800 !important;
+  letter-spacing: .22em !important;
+}
+
+/* -----------------------------
+   CLEANER NEURAL COMPOSITION
+   ----------------------------- */
+
+/*
+ * Preserve full detail near the edges while keeping the center cleaner
+ * for the logo and tagline.
+ */
+#mi-neural-intro .mi-neural-network {
+  transform: translate3d(0, 0, 0) scale(1.015) !important;
+  transform-origin: center center !important;
+}
+
+#mi-neural-intro .mi-neural-lines {
+  opacity: .88 !important;
+}
+
+#mi-neural-intro .mi-neural-pulses {
+  opacity: .90 !important;
+}
+
+#mi-neural-intro .mi-neural-nodes {
+  opacity: .92 !important;
+}
+
+/* Reduce attention in the exact logo area without hiding the network. */
+#mi-neural-intro .mcx-v36-center-clarity {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  z-index: 4 !important;
+
+  width: min(38vw, 560px) !important;
+  aspect-ratio: 1 !important;
+
+  border-radius: 50% !important;
+  pointer-events: none !important;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(2, 8, 24, .28) 0%,
+      rgba(2, 8, 24, .14) 40%,
+      transparent 72%
+    ) !important;
+
+  transform: translate3d(-50%, -50%, 0) !important;
+}
+
+/* Calm the neural speeds for a more executive look. */
+#mi-neural-intro .mi-neural-pulse.mcx-pulse-slow {
+  animation-duration: 13.5s !important;
+}
+
+#mi-neural-intro .mi-neural-pulse.mcx-pulse-medium {
+  animation-duration: 9.2s !important;
+}
+
+#mi-neural-intro .mi-neural-pulse.mcx-pulse-fast {
+  animation-duration: 6.8s !important;
+}
+
+/* -----------------------------
+   PIXEL-PERFECT LOGO ALIGNMENT
+   ----------------------------- */
+
+#mi-neural-intro .mi-logo-reveal {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  z-index: 6 !important;
+
+  margin: 0 !important;
+
+  transform-origin: center center !important;
+  backface-visibility: hidden !important;
+}
+
+/* Subtle entrance: 0.92 -> 1.00 instead of a large zoom. */
+#mi-neural-intro.mcx-v32-logo-visible .mi-logo-reveal,
+#mi-neural-intro.mcx-v31-logo-visible .mi-logo-reveal,
+#mi-neural-intro.mcx-v30-logo-visible .mi-logo-reveal {
+  transform: translate3d(-50%, -50%, 0) scale(1) !important;
+
+  transition:
+    opacity 1.65s cubic-bezier(.22, 1, .36, 1),
+    filter 1.8s cubic-bezier(.22, 1, .36, 1),
+    transform 2.1s cubic-bezier(.16, 1, .3, 1) !important;
+}
+
+#mi-neural-intro:not(.mcx-v32-logo-visible):not(.mcx-v31-logo-visible):not(.mcx-v30-logo-visible) .mi-logo-reveal {
+  transform: translate3d(-50%, calc(-50% + 8px), 0) scale(.92) !important;
+}
+
+/* Clean professional logo exit. */
+#mi-neural-intro.mcx-v32-logo-out .mi-logo-reveal,
+#mi-neural-intro.mcx-v31-logo-out .mi-logo-reveal,
+#mi-neural-intro.mcx-v30-logo-out .mi-logo-reveal {
+  transform: translate3d(-50%, calc(-50% - 4px), 0) scale(.96) !important;
+  filter: blur(12px) !important;
+
+  transition:
+    opacity 1.35s ease,
+    filter 1.45s ease,
+    transform 1.45s ease !important;
+}
+
+/* -----------------------------
+   TAGLINE HIERARCHY
+   ----------------------------- */
+
+#mi-neural-intro .mi-logo-tagline,
+#mi-neural-intro .mcx-welcome-tagline {
+  top: calc(100% + 26px) !important;
+
+  color: #e9f6ff !important;
+
+  font-size: clamp(10px, 1vw, 15px) !important;
+  font-weight: 650 !important;
+  letter-spacing: clamp(.14em, .25vw, .28em) !important;
+
+  text-shadow:
+    0 0 5px rgba(111, 206, 255, .36),
+    0 0 11px rgba(67, 129, 255, .16) !important;
+}
+
+/* -----------------------------
+   REFINED LIFT TIMING
+   ----------------------------- */
+
+#mi-neural-intro.mcx-v32-neural-lift,
+#mi-neural-intro.mcx-v31-neural-lift,
+#mi-neural-intro.mcx-v30-neural-lift {
+  transition:
+    transform 3.05s cubic-bezier(.76, 0, .24, 1) !important;
+}
+
+/* -----------------------------
+   MOBILE REFINEMENT
+   ----------------------------- */
+
+@media (max-width: 900px) {
+  #mi-neural-intro .mi-logo-reveal {
+    width: clamp(176px, 48vw, 286px) !important;
+  }
+
+  #mi-neural-intro .mi-logo-tagline,
+  #mi-neural-intro .mcx-welcome-tagline {
+    top: calc(100% + 22px) !important;
+    max-width: 92vw !important;
+
+    font-size: 9px !important;
+    font-weight: 650 !important;
+    letter-spacing: .14em !important;
+  }
+
+  #mi-neural-intro .mcx-v36-center-clarity {
+    width: min(62vw, 460px) !important;
+  }
+}
+
+@media (max-width: 560px) {
+  #welcome-screen .welcome-title .title-word {
+    letter-spacing: .07em !important;
+  }
+
+  #welcome-screen .welcome-sub-line .title-word {
+    letter-spacing: .17em !important;
+  }
+
+  #mi-neural-intro .mi-logo-reveal {
+    width: clamp(170px, 58vw, 250px) !important;
+  }
+
+  #mi-neural-intro .mi-logo-tagline,
+  #mi-neural-intro .mcx-welcome-tagline {
+    top: calc(100% + 20px) !important;
+    font-size: 7.5px !important;
+    letter-spacing: .10em !important;
+  }
+}
