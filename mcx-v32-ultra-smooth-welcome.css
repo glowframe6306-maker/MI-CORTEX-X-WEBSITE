@@ -1,0 +1,561 @@
+/* MI CORTEX X V32 - Ultra smooth premium welcome only */
+
+html.mcx-v32-welcome-active,
+html.mcx-v32-welcome-active body {
+  overflow: hidden !important;
+}
+
+/* =========================
+   BLACK + GOLD TITLE STAGE
+   ========================= */
+
+#welcome-screen {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 2147483640 !important;
+
+  display: grid !important;
+  place-items: center !important;
+
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+
+  background:
+    radial-gradient(circle at 50% 46%, rgba(2, 10, 23, .32), #000 64%) !important;
+
+  transform: translate3d(0, 0, 0) !important;
+  transition: none !important;
+  contain: layout paint style !important;
+}
+
+#welcome-screen .welcome-stage {
+  display: grid !important;
+  place-items: center !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#welcome-screen .intro-robot,
+#welcome-screen .letter-particles {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+#welcome-screen .welcome-title {
+  display: grid !important;
+  place-items: center !important;
+  gap: 9px !important;
+
+  text-align: center !important;
+
+  visibility: hidden !important;
+  opacity: 0 !important;
+
+  filter: blur(86px) brightness(.22) saturate(.45) !important;
+  transform: translate3d(0, 10px, 0) scale(.84) !important;
+
+  text-shadow:
+    0 0 12px rgba(9, 43, 114, .88),
+    0 0 34px rgba(4, 23, 72, .75),
+    0 0 72px rgba(0, 12, 45, .62) !important;
+
+  will-change: opacity, filter, transform !important;
+  backface-visibility: hidden !important;
+}
+
+#welcome-screen .welcome-main-line,
+#welcome-screen .welcome-sub-line {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: clamp(14px, 2.4vw, 38px) !important;
+}
+
+#welcome-screen .welcome-title .title-word {
+  display: inline-block !important;
+
+  color: #d7a322 !important;
+  background: none !important;
+  -webkit-text-fill-color: #d7a322 !important;
+
+  font-family: "Poppins", "Montserrat", sans-serif !important;
+  font-size: clamp(44px, 7.5vw, 122px) !important;
+  font-weight: 900 !important;
+  line-height: .98 !important;
+  letter-spacing: .105em !important;
+  white-space: nowrap !important;
+}
+
+#welcome-screen .welcome-sub-line .title-word {
+  font-size: clamp(24px, 3.3vw, 54px) !important;
+  font-weight: 900 !important;
+  letter-spacing: .245em !important;
+}
+
+/*
+ * Extremely blurred dark-blue presence,
+ * then one continuous, slow, smooth resolve into solid gold.
+ */
+#welcome-screen.mcx-v32-title-in .welcome-title {
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  filter: blur(0) brightness(1) saturate(1) !important;
+  transform: translate3d(0, 0, 0) scale(1) !important;
+
+  text-shadow:
+    0 0 5px rgba(215, 163, 34, .68),
+    0 0 16px rgba(191, 127, 10, .30) !important;
+
+  transition:
+    opacity 2.4s cubic-bezier(.22, 1, .36, 1),
+    filter 7.2s cubic-bezier(.18, .82, .22, 1),
+    transform 7.2s cubic-bezier(.18, .82, .22, 1),
+    text-shadow 7.2s ease !important;
+}
+
+#welcome-screen.mcx-v32-title-out .welcome-title {
+  visibility: visible !important;
+  opacity: 0 !important;
+
+  filter: blur(42px) brightness(.45) saturate(.65) !important;
+  transform: translate3d(0, -4px, 0) scale(1.055) !important;
+
+  transition:
+    opacity 1.7s ease,
+    filter 1.9s ease,
+    transform 1.9s ease !important;
+}
+
+#welcome-screen.mcx-v32-welcome-hidden {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* =========================
+   OPAQUE NEURAL PAGE
+   ========================= */
+
+#mi-neural-intro {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 2147483630 !important;
+
+  display: grid !important;
+  place-items: center !important;
+
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+
+  overflow: hidden !important;
+
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+
+  background: #01030a !important;
+  background-color: #01030a !important;
+
+  transform: translate3d(0, 0, 0) !important;
+  transition: none !important;
+
+  isolation: isolate !important;
+  contain: layout paint style !important;
+  backface-visibility: hidden !important;
+}
+
+/* Always-opaque background. */
+#mi-neural-intro::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+
+  background:
+    radial-gradient(ellipse at 50% 44%, rgba(26, 75, 158, .40), rgba(7, 18, 54, .38) 35%, rgba(2, 7, 23, .995) 68%, #01030a 100%) !important;
+
+  opacity: 1 !important;
+}
+
+/* Smooth cinematic light field without heavy blur animation. */
+#mi-neural-intro::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: -10% !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+
+  background:
+    radial-gradient(circle at 18% 28%, rgba(36, 145, 255, .13), transparent 24%),
+    radial-gradient(circle at 82% 28%, rgba(86, 74, 255, .11), transparent 26%),
+    radial-gradient(circle at 52% 80%, rgba(26, 180, 255, .09), transparent 30%) !important;
+
+  opacity: .88 !important;
+  transform: translate3d(0, 0, 0) scale(1) !important;
+  animation: mcxV32Atmosphere 14s ease-in-out infinite alternate !important;
+  will-change: transform, opacity !important;
+}
+
+#mi-neural-intro.mcx-v32-neural-visible,
+#mi-neural-intro.mcx-v32-logo-visible,
+#mi-neural-intro.mcx-v32-logo-out,
+#mi-neural-intro.mcx-v32-neural-hold,
+#mi-neural-intro.mcx-v32-neural-lift {
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+#mi-neural-intro .mi-neural-background {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 2 !important;
+
+  display: block !important;
+  overflow: hidden !important;
+
+  opacity: 0 !important;
+  transform: translate3d(0, 0, 0) scale(1.035) !important;
+
+  will-change: opacity, transform !important;
+  backface-visibility: hidden !important;
+}
+
+#mi-neural-intro.mcx-v32-neural-visible .mi-neural-background,
+#mi-neural-intro.mcx-v32-logo-visible .mi-neural-background,
+#mi-neural-intro.mcx-v32-logo-out .mi-neural-background,
+#mi-neural-intro.mcx-v32-neural-hold .mi-neural-background,
+#mi-neural-intro.mcx-v32-neural-lift .mi-neural-background {
+  opacity: 1 !important;
+  transform: translate3d(0, 0, 0) scale(1) !important;
+
+  transition:
+    opacity 2.4s cubic-bezier(.22, 1, .36, 1),
+    transform 10s ease-out !important;
+}
+
+#mi-neural-intro .mi-neural-network {
+  position: absolute !important;
+  inset: -3% !important;
+
+  width: 106% !important;
+  height: 106% !important;
+
+  opacity: 1 !important;
+  shape-rendering: geometricPrecision !important;
+  text-rendering: geometricPrecision !important;
+  transform: translate3d(0, 0, 0) !important;
+}
+
+#mi-neural-intro .mi-neural-line {
+  fill: none !important;
+  stroke: rgba(67, 158, 255, .50) !important;
+  stroke-width: 1.1 !important;
+  stroke-linecap: round !important;
+  vector-effect: non-scaling-stroke !important;
+}
+
+#mi-neural-intro .mi-neural-line.mi-line-secondary {
+  stroke: rgba(109, 91, 255, .36) !important;
+}
+
+#mi-neural-intro .mi-neural-pulse {
+  fill: none !important;
+  stroke: rgba(132, 230, 255, .99) !important;
+  stroke-width: 2.05 !important;
+  stroke-linecap: round !important;
+  stroke-dasharray: 20 250 !important;
+
+  filter:
+    drop-shadow(0 0 3px rgba(113, 230, 255, .95))
+    drop-shadow(0 0 8px rgba(71, 144, 255, .82)) !important;
+
+  animation: mcxV32PulseTravel 8.2s linear infinite !important;
+  will-change: stroke-dashoffset !important;
+}
+
+#mi-neural-intro .mi-neural-node {
+  fill: #d5fbff !important;
+
+  filter:
+    drop-shadow(0 0 3px rgba(135, 239, 255, 1))
+    drop-shadow(0 0 8px rgba(70, 163, 255, .94)) !important;
+
+  transform-box: fill-box !important;
+  transform-origin: center !important;
+
+  animation: mcxV32NodeBreathe 5.2s ease-in-out infinite alternate !important;
+  will-change: transform, opacity !important;
+}
+
+#mi-neural-intro .mi-neural-node-halo {
+  fill: rgba(59, 164, 255, .11) !important;
+  stroke: rgba(92, 210, 255, .44) !important;
+  stroke-width: .85 !important;
+
+  transform-box: fill-box !important;
+  transform-origin: center !important;
+
+  animation: mcxV32HaloBreathe 6.2s ease-in-out infinite alternate !important;
+  will-change: transform, opacity !important;
+}
+
+/* Premium center energy glow. */
+#mi-neural-intro .mcx-v32-energy-core {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  z-index: 3 !important;
+
+  width: min(42vw, 620px) !important;
+  aspect-ratio: 1 !important;
+
+  border-radius: 50% !important;
+  pointer-events: none !important;
+
+  background:
+    radial-gradient(circle, rgba(46, 151, 255, .14), rgba(41, 83, 255, .05) 35%, transparent 69%) !important;
+
+  opacity: .72 !important;
+  transform: translate3d(-50%, -50%, 0) scale(.94) !important;
+  animation: mcxV32EnergyCore 8s ease-in-out infinite alternate !important;
+  will-change: transform, opacity !important;
+}
+
+/* =========================
+   LOGO STAGE
+   ========================= */
+
+#mi-neural-intro .mi-logo-reveal {
+  position: relative !important;
+  z-index: 5 !important;
+
+  display: grid !important;
+  place-items: center !important;
+
+  width: clamp(205px, 23vw, 365px) !important;
+  aspect-ratio: 1 !important;
+
+  visibility: hidden !important;
+  opacity: 0 !important;
+
+  filter: blur(28px) !important;
+  transform: translate3d(0, 8px, 0) scale(.60) !important;
+
+  will-change: opacity, filter, transform !important;
+  backface-visibility: hidden !important;
+}
+
+#mi-neural-intro.mcx-v32-logo-visible .mi-logo-reveal {
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  filter: blur(0) !important;
+  transform: translate3d(0, 0, 0) scale(1) !important;
+
+  transition:
+    opacity 2s cubic-bezier(.22, 1, .36, 1),
+    filter 2.35s cubic-bezier(.22, 1, .36, 1),
+    transform 2.6s cubic-bezier(.16, 1, .3, 1) !important;
+}
+
+#mi-neural-intro.mcx-v32-logo-out .mi-logo-reveal {
+  visibility: visible !important;
+  opacity: 0 !important;
+
+  filter: blur(22px) !important;
+  transform: translate3d(0, -4px, 0) scale(.82) !important;
+
+  transition:
+    opacity 1.8s ease,
+    filter 1.9s ease,
+    transform 1.9s ease !important;
+}
+
+#mi-neural-intro.mcx-v32-neural-hold .mi-logo-reveal,
+#mi-neural-intro.mcx-v32-neural-lift .mi-logo-reveal {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+#mi-neural-intro .mi-intro-logo {
+  display: block !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: contain !important;
+  border-radius: 50% !important;
+
+  filter:
+    drop-shadow(0 0 18px rgba(77, 203, 255, .74))
+    drop-shadow(0 0 46px rgba(76, 78, 255, .40)) !important;
+}
+
+#mi-neural-intro .mi-logo-tagline,
+#mi-neural-intro .mcx-welcome-tagline {
+  position: absolute !important;
+  top: calc(100% + 30px) !important;
+  left: 50% !important;
+
+  width: max-content !important;
+  max-width: 94vw !important;
+
+  color: #f4f8ff !important;
+
+  font-family: "Montserrat", "Poppins", sans-serif !important;
+  font-size: clamp(9px, 1.1vw, 16px) !important;
+  font-weight: 600 !important;
+  letter-spacing: .42em !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+
+  visibility: hidden !important;
+  opacity: 0 !important;
+
+  filter: blur(12px) !important;
+  transform: translate3d(-50%, 16px, 0) !important;
+
+  will-change: opacity, filter, transform !important;
+}
+
+#mi-neural-intro.mcx-v32-logo-visible .mi-logo-tagline,
+#mi-neural-intro.mcx-v32-logo-visible .mcx-welcome-tagline {
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  filter: blur(0) !important;
+  transform: translate3d(-50%, 0, 0) !important;
+
+  transition:
+    opacity 1.55s ease .55s,
+    filter 1.7s ease .55s,
+    transform 1.7s ease .55s !important;
+}
+
+#mi-neural-intro.mcx-v32-logo-out .mi-logo-tagline,
+#mi-neural-intro.mcx-v32-logo-out .mcx-welcome-tagline {
+  opacity: 0 !important;
+  filter: blur(11px) !important;
+  transform: translate3d(-50%, -9px, 0) !important;
+
+  transition:
+    opacity 1.25s ease,
+    filter 1.25s ease,
+    transform 1.25s ease !important;
+}
+
+/* =========================
+   ULTRA-SMOOTH OPAQUE LIFT
+   ========================= */
+
+#mi-neural-intro.mcx-v32-neural-lift {
+  opacity: 1 !important;
+  visibility: visible !important;
+  background-color: #01030a !important;
+
+  transform: translate3d(0, -100%, 0) !important;
+
+  transition:
+    transform 4.4s cubic-bezier(.76, 0, .24, 1) !important;
+
+  will-change: transform !important;
+}
+
+#mi-neural-intro.mcx-v32-neural-lift::before {
+  opacity: 1 !important;
+}
+
+#mi-neural-intro.mcx-v32-finished {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+@keyframes mcxV32PulseTravel {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -270;
+  }
+}
+
+@keyframes mcxV32NodeBreathe {
+  from {
+    opacity: .48;
+    transform: scale(.86);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.16);
+  }
+}
+
+@keyframes mcxV32HaloBreathe {
+  from {
+    opacity: .20;
+    transform: scale(.86);
+  }
+
+  to {
+    opacity: .70;
+    transform: scale(1.26);
+  }
+}
+
+@keyframes mcxV32Atmosphere {
+  from {
+    opacity: .70;
+    transform: translate3d(-.8%, .2%, 0) scale(.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(.8%, -.6%, 0) scale(1.035);
+  }
+}
+
+@keyframes mcxV32EnergyCore {
+  from {
+    opacity: .46;
+    transform: translate3d(-50%, -50%, 0) scale(.92);
+  }
+
+  to {
+    opacity: .82;
+    transform: translate3d(-50%, -50%, 0) scale(1.08);
+  }
+}
+
+@media (max-width: 700px) {
+  #welcome-screen .welcome-title .title-word {
+    font-size: clamp(34px, 12vw, 72px) !important;
+  }
+
+  #mi-neural-intro .mi-logo-reveal {
+    width: clamp(180px, 58vw, 295px) !important;
+  }
+
+  #mi-neural-intro .mi-logo-tagline,
+  #mi-neural-intro .mcx-welcome-tagline {
+    font-size: 8px !important;
+    letter-spacing: .25em !important;
+  }
+}
