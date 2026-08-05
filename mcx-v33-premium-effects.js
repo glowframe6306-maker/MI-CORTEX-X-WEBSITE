@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   "use strict";
 
   if (window.__MCX_V33_PREMIUM_EFFECTS__) {
@@ -81,7 +81,7 @@
     toggle.type = "button";
     toggle.title = "Toggle welcome sound";
     toggle.setAttribute("aria-label", "Toggle welcome sound");
-    toggle.textContent = "♪";
+    toggle.textContent = "â™ª";
 
     document.body.appendChild(toggle);
 
@@ -89,7 +89,7 @@
 
     function updateButton() {
       toggle.textContent =
-        audio.muted || manuallyMuted ? "×" : "♪";
+        audio.muted || manuallyMuted ? "Ã—" : "â™ª";
     }
 
     function tryPlay() {
@@ -183,7 +183,7 @@
     window.setTimeout(varyPulseSpeeds, 80);
     window.setTimeout(varyPulseSpeeds, 500);
 
-    setupAudio();
+    // Audio disabled by user
   }
 
   if (document.readyState === "loading") {
@@ -196,3 +196,4 @@
     initialize();
   }
 })();
+
