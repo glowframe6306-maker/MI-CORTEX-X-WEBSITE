@@ -1,0 +1,143 @@
+/* MI CORTEX X V34 - Crystal-clear neural refinement only */
+
+/*
+ * Remove the excessive softness seen in the current neural scene.
+ * This patch keeps the existing animation flow, mist, bloom and timings.
+ */
+
+#mi-neural-intro .mi-neural-background {
+  filter: none !important;
+  opacity: 1 !important;
+  transform: translate3d(0, 0, 0) scale(1) !important;
+}
+
+#mi-neural-intro .mi-neural-network {
+  inset: -1% !important;
+  width: 102% !important;
+  height: 102% !important;
+
+  opacity: 1 !important;
+  filter: none !important;
+
+  shape-rendering: geometricPrecision !important;
+  text-rendering: geometricPrecision !important;
+  image-rendering: auto !important;
+
+  transform: translate3d(0, 0, 0) !important;
+  backface-visibility: hidden !important;
+}
+
+/* Sharper and more visible connection lines. */
+#mi-neural-intro .mi-neural-line {
+  stroke: rgba(89, 182, 255, .82) !important;
+  stroke-width: 1.3 !important;
+  stroke-linecap: round !important;
+  opacity: .98 !important;
+
+  filter:
+    drop-shadow(0 0 1px rgba(126, 225, 255, .86))
+    drop-shadow(0 0 4px rgba(62, 139, 255, .40)) !important;
+}
+
+#mi-neural-intro .mi-neural-line.mi-line-secondary {
+  stroke: rgba(128, 108, 255, .62) !important;
+  opacity: .92 !important;
+}
+
+/* Crisp moving signals with controlled bloom. */
+#mi-neural-intro .mi-neural-pulse {
+  stroke: rgba(171, 244, 255, 1) !important;
+  stroke-width: 2.35 !important;
+  stroke-linecap: round !important;
+  opacity: 1 !important;
+
+  filter:
+    drop-shadow(0 0 2px rgba(178, 247, 255, 1))
+    drop-shadow(0 0 6px rgba(82, 176, 255, .88))
+    drop-shadow(0 0 12px rgba(71, 92, 255, .36)) !important;
+}
+
+/* More defined nodes. */
+#mi-neural-intro .mi-neural-node {
+  fill: #e4fdff !important;
+  opacity: 1 !important;
+
+  filter:
+    drop-shadow(0 0 2px rgba(202, 252, 255, 1))
+    drop-shadow(0 0 6px rgba(84, 181, 255, .92)) !important;
+}
+
+#mi-neural-intro .mi-neural-node-halo {
+  fill: rgba(60, 167, 255, .12) !important;
+  stroke: rgba(113, 220, 255, .68) !important;
+  stroke-width: 1 !important;
+  opacity: .68 !important;
+
+  filter:
+    drop-shadow(0 0 3px rgba(78, 176, 255, .42)) !important;
+}
+
+/* Mist remains, but no longer blurs the network. */
+#mi-neural-intro .mcx-v33-mist-layer {
+  z-index: 1 !important;
+  opacity: .54 !important;
+  filter: none !important;
+  mix-blend-mode: screen !important;
+}
+
+#mi-neural-intro .mcx-v33-mist {
+  opacity: .14 !important;
+  filter: blur(18px) !important;
+}
+
+/* Place the actual network clearly above the atmospheric effects. */
+#mi-neural-intro .mi-neural-background {
+  z-index: 3 !important;
+}
+
+#mi-neural-intro .mcx-v32-energy-core {
+  z-index: 2 !important;
+  opacity: .48 !important;
+}
+
+/* Reduce oversized bloom that was washing out details. */
+#mi-neural-intro .mi-neural-lines {
+  filter:
+    drop-shadow(0 0 2px rgba(66, 156, 255, .42)) !important;
+}
+
+#mi-neural-intro .mi-neural-pulses {
+  filter:
+    drop-shadow(0 0 3px rgba(117, 229, 255, .72))
+    drop-shadow(0 0 8px rgba(68, 145, 255, .34)) !important;
+}
+
+#mi-neural-intro .mi-neural-nodes {
+  filter:
+    drop-shadow(0 0 3px rgba(112, 220, 255, .50)) !important;
+}
+
+/* Clearer background contrast. */
+#mi-neural-intro::before {
+  background:
+    radial-gradient(
+      ellipse at 50% 44%,
+      rgba(20, 64, 138, .30) 0%,
+      rgba(6, 17, 49, .46) 36%,
+      rgba(2, 7, 22, .995) 68%,
+      #01030a 100%
+    ) !important;
+}
+
+/* Keep the lift smooth and sharp. */
+#mi-neural-intro.mcx-v32-neural-lift .mi-neural-network,
+#mi-neural-intro.mcx-v32-neural-lift .mi-neural-background {
+  filter: none !important;
+  transform: translate3d(0, 0, 0) !important;
+  backface-visibility: hidden !important;
+}
+
+/* Sound and its visual control are completely disabled. */
+#mcx-v33-audio-toggle {
+  display: none !important;
+}
