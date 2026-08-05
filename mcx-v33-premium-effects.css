@@ -1,0 +1,202 @@
+/* MI CORTEX X V33 - Bloom, mist, variable pulses and audio support only */
+
+/* Premium bloom: strong enough to feel cinematic, controlled enough to stay sharp. */
+#mi-neural-intro .mi-neural-lines {
+  filter:
+    drop-shadow(0 0 2px rgba(69, 164, 255, .66))
+    drop-shadow(0 0 7px rgba(54, 105, 255, .30)) !important;
+}
+
+#mi-neural-intro .mi-neural-pulses {
+  filter:
+    drop-shadow(0 0 4px rgba(122, 232, 255, .95))
+    drop-shadow(0 0 11px rgba(64, 153, 255, .68))
+    drop-shadow(0 0 20px rgba(78, 78, 255, .28)) !important;
+}
+
+#mi-neural-intro .mi-neural-nodes {
+  filter:
+    drop-shadow(0 0 3px rgba(135, 240, 255, .90))
+    drop-shadow(0 0 9px rgba(69, 157, 255, .48)) !important;
+}
+
+/* Make the network visibly crisp instead of looking like soft dots. */
+#mi-neural-intro .mi-neural-line {
+  stroke: rgba(82, 172, 255, .62) !important;
+  stroke-width: 1.15 !important;
+  opacity: .92 !important;
+}
+
+#mi-neural-intro .mi-neural-line.mi-line-secondary {
+  stroke: rgba(114, 98, 255, .46) !important;
+  opacity: .82 !important;
+}
+
+#mi-neural-intro .mi-neural-node {
+  opacity: .94 !important;
+}
+
+#mi-neural-intro .mi-neural-node-halo {
+  opacity: .58 !important;
+}
+
+/* Pulse speed variation. */
+#mi-neural-intro .mi-neural-pulse.mcx-pulse-slow {
+  animation-duration: 11.8s !important;
+  stroke-dasharray: 24 285 !important;
+}
+
+#mi-neural-intro .mi-neural-pulse.mcx-pulse-medium {
+  animation-duration: 7.8s !important;
+  stroke-dasharray: 20 248 !important;
+}
+
+#mi-neural-intro .mi-neural-pulse.mcx-pulse-fast {
+  animation-duration: 4.9s !important;
+  stroke-dasharray: 15 205 !important;
+  stroke-width: 2.2 !important;
+}
+
+/* Ambient mist container. */
+#mi-neural-intro .mcx-v33-mist-layer {
+  position: absolute !important;
+  inset: -12% !important;
+  z-index: 2 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+  opacity: .86 !important;
+  transform: translate3d(0,0,0) !important;
+}
+
+#mi-neural-intro .mcx-v33-mist {
+  position: absolute !important;
+  border-radius: 50% !important;
+  pointer-events: none !important;
+  opacity: .24 !important;
+  will-change: transform, opacity !important;
+  mix-blend-mode: screen !important;
+}
+
+#mi-neural-intro .mcx-v33-mist-a {
+  width: 58vw !important;
+  height: 28vw !important;
+  left: -18vw !important;
+  top: 8vh !important;
+  background: radial-gradient(ellipse, rgba(28, 119, 255, .30), rgba(19, 55, 139, .11) 45%, transparent 72%) !important;
+  animation: mcxV33MistA 18s ease-in-out infinite alternate !important;
+}
+
+#mi-neural-intro .mcx-v33-mist-b {
+  width: 54vw !important;
+  height: 31vw !important;
+  right: -16vw !important;
+  top: 17vh !important;
+  background: radial-gradient(ellipse, rgba(83, 71, 255, .24), rgba(35, 41, 130, .10) 48%, transparent 72%) !important;
+  animation: mcxV33MistB 22s ease-in-out infinite alternate !important;
+}
+
+#mi-neural-intro .mcx-v33-mist-c {
+  width: 70vw !important;
+  height: 24vw !important;
+  left: 15vw !important;
+  bottom: -13vw !important;
+  background: radial-gradient(ellipse, rgba(26, 183, 255, .20), rgba(17, 73, 130, .08) 48%, transparent 74%) !important;
+  animation: mcxV33MistC 20s ease-in-out infinite alternate !important;
+}
+
+/* Bloom halo behind logo. */
+#mi-neural-intro .mcx-v33-logo-bloom {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  z-index: 4 !important;
+  width: min(52vw, 760px) !important;
+  aspect-ratio: 1 !important;
+  border-radius: 50% !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  transform: translate3d(-50%, -50%, 0) scale(.72) !important;
+  background:
+    radial-gradient(circle, rgba(96, 216, 255, .22), rgba(64, 112, 255, .10) 34%, rgba(91, 57, 255, .05) 52%, transparent 72%) !important;
+  will-change: opacity, transform !important;
+}
+
+#mi-neural-intro.mcx-v32-logo-visible .mcx-v33-logo-bloom {
+  opacity: .88 !important;
+  transform: translate3d(-50%, -50%, 0) scale(1) !important;
+  transition:
+    opacity 2.2s ease,
+    transform 3.4s cubic-bezier(.16,1,.3,1) !important;
+}
+
+#mi-neural-intro.mcx-v32-logo-out .mcx-v33-logo-bloom {
+  opacity: 0 !important;
+  transform: translate3d(-50%, -50%, 0) scale(1.16) !important;
+  transition:
+    opacity 1.8s ease,
+    transform 2.1s ease !important;
+}
+
+/* Keep added visuals smooth during page lift. */
+#mi-neural-intro.mcx-v32-neural-lift .mcx-v33-mist-layer,
+#mi-neural-intro.mcx-v32-neural-lift .mcx-v33-logo-bloom {
+  backface-visibility: hidden !important;
+}
+
+/* Small optional audio status control, visible only during intro. */
+#mcx-v33-audio-toggle {
+  position: fixed !important;
+  right: 20px !important;
+  bottom: 20px !important;
+  z-index: 2147483645 !important;
+  width: 42px !important;
+  height: 42px !important;
+  border: 1px solid rgba(102, 205, 255, .46) !important;
+  border-radius: 50% !important;
+  display: grid !important;
+  place-items: center !important;
+  color: #dff8ff !important;
+  background: rgba(3, 13, 35, .62) !important;
+  box-shadow:
+    0 0 14px rgba(54, 173, 255, .22),
+    inset 0 0 12px rgba(63, 112, 255, .10) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  font: 600 16px/1 sans-serif !important;
+  cursor: pointer !important;
+  opacity: .82 !important;
+  transition: opacity .25s ease, transform .25s ease !important;
+}
+
+#mcx-v33-audio-toggle:hover {
+  opacity: 1 !important;
+  transform: scale(1.05) !important;
+}
+
+html:not(.mcx-v32-welcome-active) #mcx-v33-audio-toggle {
+  display: none !important;
+}
+
+@keyframes mcxV33MistA {
+  from { transform: translate3d(-2%, 2%, 0) scale(.96); opacity: .18; }
+  to   { transform: translate3d(13%, -5%, 0) scale(1.12); opacity: .34; }
+}
+
+@keyframes mcxV33MistB {
+  from { transform: translate3d(3%, -3%, 0) scale(1.04); opacity: .16; }
+  to   { transform: translate3d(-12%, 8%, 0) scale(.93); opacity: .31; }
+}
+
+@keyframes mcxV33MistC {
+  from { transform: translate3d(-5%, 2%, 0) scale(.95); opacity: .12; }
+  to   { transform: translate3d(8%, -7%, 0) scale(1.08); opacity: .27; }
+}
+
+@media (max-width: 700px) {
+  #mcx-v33-audio-toggle {
+    right: 14px !important;
+    bottom: 14px !important;
+    width: 38px !important;
+    height: 38px !important;
+  }
+}
