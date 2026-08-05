@@ -1,0 +1,593 @@
+/* MI CORTEX X V39 - Completely new Executive Light Gate entry */
+
+html.mcx-v39-active,
+html.mcx-v39-active body {
+  overflow: hidden !important;
+}
+
+/* =========================================================
+   STAGE 1 — EXECUTIVE BLACK VAULT
+   ========================================================= */
+
+#welcome-screen {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 2147483640 !important;
+
+  display: grid !important;
+  place-items: center !important;
+
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+
+  background:
+    linear-gradient(180deg, #020202 0%, #000 100%) !important;
+
+  transform: translate3d(0,0,0) !important;
+  transition: none !important;
+  isolation: isolate !important;
+  contain: layout paint style !important;
+}
+
+#welcome-screen .welcome-stage {
+  position: relative !important;
+  z-index: 3 !important;
+
+  display: grid !important;
+  place-items: center !important;
+
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#welcome-screen .intro-robot,
+#welcome-screen .letter-particles {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+#welcome-screen .mcx-v39-vault {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  overflow: hidden !important;
+}
+
+#welcome-screen .mcx-v39-panel {
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 50.2% !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.015),
+      transparent 24%,
+      rgba(215,165,45,.018) 50%,
+      transparent 76%,
+      rgba(255,255,255,.01)
+    ),
+    linear-gradient(90deg, #030303, #000) !important;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.018),
+    inset 0 0 90px rgba(255,255,255,.01) !important;
+
+  will-change: transform !important;
+}
+
+#welcome-screen .mcx-v39-panel-left {
+  left: 0 !important;
+  transform: translate3d(0,0,0) !important;
+}
+
+#welcome-screen .mcx-v39-panel-right {
+  right: 0 !important;
+  transform: translate3d(0,0,0) !important;
+}
+
+#welcome-screen .mcx-v39-seam {
+  position: absolute !important;
+  left: 50% !important;
+  top: 8% !important;
+  bottom: 8% !important;
+  z-index: 2 !important;
+
+  width: 1px !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent,
+      rgba(216,166,46,.18) 16%,
+      rgba(226,181,72,.95) 50%,
+      rgba(216,166,46,.18) 84%,
+      transparent
+    ) !important;
+
+  opacity: 0 !important;
+  transform: translateX(-50%) scaleY(.08) !important;
+  transform-origin: center center !important;
+
+  box-shadow:
+    0 0 10px rgba(219,169,52,.45),
+    0 0 28px rgba(197,135,21,.22) !important;
+}
+
+#welcome-screen.mcx-v39-seam-in .mcx-v39-seam {
+  opacity: 1 !important;
+  transform: translateX(-50%) scaleY(1) !important;
+
+  transition:
+    opacity .9s ease,
+    transform 1.9s cubic-bezier(.16,1,.3,1) !important;
+}
+
+#welcome-screen .welcome-title {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  z-index: 4 !important;
+
+  display: grid !important;
+  place-items: center !important;
+  gap: 10px !important;
+
+  width: max-content !important;
+  max-width: 92vw !important;
+
+  visibility: hidden !important;
+  opacity: 0 !important;
+
+  filter: blur(18px) !important;
+  transform: translate3d(-50%, -50%, 0) scale(.95) !important;
+}
+
+#welcome-screen .welcome-main-line,
+#welcome-screen .welcome-sub-line {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: clamp(12px, 2vw, 30px) !important;
+}
+
+#welcome-screen .welcome-title .title-word {
+  display: inline-block !important;
+
+  color: #d7a52d !important;
+  -webkit-text-fill-color: #d7a52d !important;
+
+  font-family:
+    "Inter",
+    "SF Pro Display",
+    "Segoe UI",
+    "Montserrat",
+    sans-serif !important;
+
+  font-size: clamp(42px, 6.6vw, 104px) !important;
+  font-weight: 820 !important;
+  line-height: 1 !important;
+  letter-spacing: .10em !important;
+  white-space: nowrap !important;
+
+  text-shadow:
+    0 0 4px rgba(215,165,45,.42),
+    0 0 14px rgba(172,111,10,.16) !important;
+}
+
+#welcome-screen .welcome-sub-line .title-word {
+  font-size: clamp(19px, 2.7vw, 40px) !important;
+  font-weight: 650 !important;
+  letter-spacing: .23em !important;
+}
+
+#welcome-screen.mcx-v39-title-in .welcome-title {
+  visibility: visible !important;
+  opacity: 1 !important;
+  filter: blur(0) !important;
+  transform: translate3d(-50%, -50%, 0) scale(1) !important;
+
+  transition:
+    opacity 1.3s ease,
+    filter 1.6s ease,
+    transform 1.7s cubic-bezier(.16,1,.3,1) !important;
+}
+
+#welcome-screen.mcx-v39-title-out .welcome-title {
+  opacity: 0 !important;
+  filter: blur(10px) !important;
+  transform: translate3d(-50%, calc(-50% - 8px), 0) scale(.985) !important;
+
+  transition:
+    opacity .85s ease,
+    filter .95s ease,
+    transform .95s ease !important;
+}
+
+/* Vault doors open — completely different from previous lift/orbit designs. */
+#welcome-screen.mcx-v39-open .mcx-v39-panel-left {
+  transform: translate3d(-100%,0,0) !important;
+  transition: transform 2.3s cubic-bezier(.76,0,.24,1) !important;
+}
+
+#welcome-screen.mcx-v39-open .mcx-v39-panel-right {
+  transform: translate3d(100%,0,0) !important;
+  transition: transform 2.3s cubic-bezier(.76,0,.24,1) !important;
+}
+
+#welcome-screen.mcx-v39-open .mcx-v39-seam {
+  opacity: 0 !important;
+  transition: opacity .35s ease !important;
+}
+
+#welcome-screen.mcx-v39-hidden {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* =========================================================
+   STAGE 2 — BRAND LIGHT CHAMBER
+   ========================================================= */
+
+#mi-neural-intro {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 2147483630 !important;
+
+  display: grid !important;
+  place-items: center !important;
+
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+
+  overflow: hidden !important;
+
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+
+  background:
+    radial-gradient(circle at 50% 46%, rgba(22,62,126,.28), transparent 34%),
+    linear-gradient(180deg, #02050c 0%, #040914 52%, #010207 100%) !important;
+
+  transform: translate3d(0,0,0) !important;
+  isolation: isolate !important;
+  contain: layout paint style !important;
+}
+
+#mi-neural-intro .mi-neural-background,
+#mi-neural-intro .mi-neural-network,
+#mi-neural-intro .mi-neural-vignette,
+#mi-neural-intro .mi-neural-light {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+#mi-neural-intro.mcx-v39-chamber-visible,
+#mi-neural-intro.mcx-v39-logo-visible,
+#mi-neural-intro.mcx-v39-signature-visible,
+#mi-neural-intro.mcx-v39-final-reveal {
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+#mi-neural-intro .mcx-v39-light-column {
+  position: absolute !important;
+  left: 50% !important;
+  top: -12% !important;
+  z-index: 1 !important;
+
+  width: min(32vw, 420px) !important;
+  height: 124% !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(115,204,255,.18),
+      rgba(72,126,255,.10) 40%,
+      rgba(68,76,255,.04) 72%,
+      transparent
+    ) !important;
+
+  clip-path: polygon(38% 0, 62% 0, 100% 100%, 0 100%) !important;
+  opacity: 0 !important;
+  transform: translateX(-50%) scaleY(.6) !important;
+  transform-origin: top center !important;
+  filter: blur(6px) !important;
+}
+
+#mi-neural-intro.mcx-v39-chamber-visible .mcx-v39-light-column,
+#mi-neural-intro.mcx-v39-logo-visible .mcx-v39-light-column,
+#mi-neural-intro.mcx-v39-signature-visible .mcx-v39-light-column {
+  opacity: .88 !important;
+  transform: translateX(-50%) scaleY(1) !important;
+
+  transition:
+    opacity 1.7s ease,
+    transform 2.2s cubic-bezier(.16,1,.3,1) !important;
+}
+
+#mi-neural-intro .mcx-v39-floor {
+  position: absolute !important;
+  left: 50% !important;
+  bottom: -18% !important;
+  z-index: 2 !important;
+
+  width: min(70vw, 860px) !important;
+  aspect-ratio: 1.9 !important;
+
+  border-radius: 50% !important;
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(84,181,255,.17),
+      rgba(63,86,255,.06) 42%,
+      transparent 70%
+    ) !important;
+
+  opacity: 0 !important;
+  transform: translateX(-50%) scale(.7) !important;
+}
+
+#mi-neural-intro.mcx-v39-chamber-visible .mcx-v39-floor,
+#mi-neural-intro.mcx-v39-logo-visible .mcx-v39-floor,
+#mi-neural-intro.mcx-v39-signature-visible .mcx-v39-floor {
+  opacity: 1 !important;
+  transform: translateX(-50%) scale(1) !important;
+
+  transition:
+    opacity 1.8s ease .2s,
+    transform 2.3s cubic-bezier(.16,1,.3,1) .2s !important;
+}
+
+#mi-neural-intro .mcx-v39-frame {
+  position: absolute !important;
+  left: 50% !important;
+  top: 48% !important;
+  z-index: 3 !important;
+
+  width: min(58vw, 680px) !important;
+  aspect-ratio: 1 !important;
+
+  transform: translate3d(-50%,-50%,0) !important;
+}
+
+#mi-neural-intro .mcx-v39-corner {
+  position: absolute !important;
+  width: 18% !important;
+  height: 18% !important;
+  opacity: 0 !important;
+}
+
+#mi-neural-intro .mcx-v39-corner::before,
+#mi-neural-intro .mcx-v39-corner::after {
+  content: "" !important;
+  position: absolute !important;
+  background: rgba(102,194,255,.62) !important;
+  box-shadow: 0 0 12px rgba(69,156,255,.25) !important;
+}
+
+#mi-neural-intro .mcx-v39-corner::before {
+  width: 100% !important;
+  height: 1px !important;
+}
+
+#mi-neural-intro .mcx-v39-corner::after {
+  width: 1px !important;
+  height: 100% !important;
+}
+
+#mi-neural-intro .mcx-v39-corner-tl { left: 0 !important; top: 0 !important; }
+#mi-neural-intro .mcx-v39-corner-tr { right: 0 !important; top: 0 !important; transform: scaleX(-1) !important; }
+#mi-neural-intro .mcx-v39-corner-bl { left: 0 !important; bottom: 0 !important; transform: scaleY(-1) !important; }
+#mi-neural-intro .mcx-v39-corner-br { right: 0 !important; bottom: 0 !important; transform: scale(-1) !important; }
+
+#mi-neural-intro.mcx-v39-chamber-visible .mcx-v39-corner,
+#mi-neural-intro.mcx-v39-logo-visible .mcx-v39-corner,
+#mi-neural-intro.mcx-v39-signature-visible .mcx-v39-corner {
+  opacity: .9 !important;
+  transition: opacity 1.3s ease .4s !important;
+}
+
+/* Existing logo presented as the hero. */
+#mi-neural-intro .mi-logo-reveal {
+  position: absolute !important;
+  left: 50% !important;
+  top: 48% !important;
+  z-index: 5 !important;
+
+  display: grid !important;
+  place-items: center !important;
+
+  width: clamp(190px, 21vw, 330px) !important;
+  aspect-ratio: 1 !important;
+
+  visibility: hidden !important;
+  opacity: 0 !important;
+  filter: blur(18px) !important;
+  transform: translate3d(-50%,calc(-50% + 14px),0) scale(.88) !important;
+}
+
+#mi-neural-intro.mcx-v39-logo-visible .mi-logo-reveal,
+#mi-neural-intro.mcx-v39-signature-visible .mi-logo-reveal {
+  visibility: visible !important;
+  opacity: 1 !important;
+  filter: blur(0) !important;
+  transform: translate3d(-50%,-50%,0) scale(1) !important;
+
+  transition:
+    opacity 1.5s ease,
+    filter 1.7s ease,
+    transform 2s cubic-bezier(.16,1,.3,1) !important;
+}
+
+#mi-neural-intro .mi-intro-logo {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  border-radius: 50% !important;
+
+  filter:
+    drop-shadow(0 0 14px rgba(95,211,255,.58))
+    drop-shadow(0 0 34px rgba(69,79,255,.25)) !important;
+}
+
+#mi-neural-intro .mi-logo-tagline {
+  position: absolute !important;
+  left: 50% !important;
+  top: calc(100% + 26px) !important;
+
+  width: max-content !important;
+  max-width: 92vw !important;
+
+  color: #eaf7ff !important;
+
+  font-family:
+    "Inter",
+    "SF Pro Display",
+    "Segoe UI",
+    "Montserrat",
+    sans-serif !important;
+
+  font-size: clamp(9px,.95vw,14px) !important;
+  font-weight: 650 !important;
+  letter-spacing: .22em !important;
+  white-space: nowrap !important;
+  text-transform: uppercase !important;
+
+  visibility: hidden !important;
+  opacity: 0 !important;
+  filter: blur(7px) !important;
+  transform: translate3d(-50%,10px,0) !important;
+
+  text-shadow:
+    0 0 5px rgba(107,205,255,.32),
+    0 0 11px rgba(69,132,255,.13) !important;
+}
+
+#mi-neural-intro.mcx-v39-logo-visible .mi-logo-tagline,
+#mi-neural-intro.mcx-v39-signature-visible .mi-logo-tagline {
+  visibility: visible !important;
+  opacity: 1 !important;
+  filter: blur(0) !important;
+  transform: translate3d(-50%,0,0) !important;
+
+  transition:
+    opacity 1.2s ease .4s,
+    filter 1.25s ease .4s,
+    transform 1.3s ease .4s !important;
+}
+
+#mi-neural-intro .mcx-v39-company-lockup {
+  position: absolute !important;
+  left: 50% !important;
+  top: 82% !important;
+  z-index: 6 !important;
+
+  width: max-content !important;
+  max-width: 92vw !important;
+
+  color: #d7a52f !important;
+
+  font-family:
+    "Inter",
+    "SF Pro Display",
+    "Segoe UI",
+    "Montserrat",
+    sans-serif !important;
+
+  font-size: clamp(14px,1.35vw,21px) !important;
+  font-weight: 760 !important;
+  letter-spacing: .20em !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+
+  opacity: 0 !important;
+  transform: translate3d(-50%,14px,0) !important;
+
+  text-shadow:
+    0 0 4px rgba(215,165,47,.38),
+    0 0 12px rgba(172,111,10,.14) !important;
+}
+
+#mi-neural-intro.mcx-v39-signature-visible .mcx-v39-company-lockup {
+  opacity: 1 !important;
+  transform: translate3d(-50%,0,0) !important;
+
+  transition:
+    opacity 1.2s ease,
+    transform 1.35s cubic-bezier(.16,1,.3,1) !important;
+}
+
+/* Final reveal uses a vertical light gate, not lift or aperture. */
+#mi-neural-intro .mcx-v39-gate-left,
+#mi-neural-intro .mcx-v39-gate-right {
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  z-index: 20 !important;
+  width: 50.2% !important;
+
+  background: #02050c !important;
+  pointer-events: none !important;
+}
+
+#mi-neural-intro .mcx-v39-gate-left { left: 0 !important; }
+#mi-neural-intro .mcx-v39-gate-right { right: 0 !important; }
+
+#mi-neural-intro.mcx-v39-final-reveal .mcx-v39-gate-left {
+  transform: translate3d(-100%,0,0) !important;
+  transition: transform 2.4s cubic-bezier(.76,0,.24,1) !important;
+}
+
+#mi-neural-intro.mcx-v39-final-reveal .mcx-v39-gate-right {
+  transform: translate3d(100%,0,0) !important;
+  transition: transform 2.4s cubic-bezier(.76,0,.24,1) !important;
+}
+
+#mi-neural-intro.mcx-v39-finished {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+@media (max-width: 760px) {
+  #welcome-screen .welcome-title .title-word {
+    font-size: clamp(34px,10vw,62px) !important;
+    letter-spacing: .07em !important;
+  }
+
+  #mi-neural-intro .mcx-v39-frame {
+    width: min(88vw,560px) !important;
+  }
+
+  #mi-neural-intro .mi-logo-reveal {
+    width: clamp(170px,52vw,250px) !important;
+  }
+
+  #mi-neural-intro .mi-logo-tagline {
+    font-size: 8px !important;
+    letter-spacing: .12em !important;
+  }
+
+  #mi-neural-intro .mcx-v39-company-lockup {
+    top: 80% !important;
+    font-size: 12px !important;
+    letter-spacing: .15em !important;
+  }
+}
