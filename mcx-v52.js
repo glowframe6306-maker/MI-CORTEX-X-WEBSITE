@@ -88,7 +88,7 @@
 
     /* 3. MI CORTEX X appears from deep blur to sharp. */
     welcome.classList.add("mcx-v52-title-in");
-    await sleep(7800);
+    await sleep(6800);
 
     /* 4. MI CORTEX X leaves. */
     welcome.classList.remove("mcx-v52-title-in");
@@ -99,13 +99,16 @@
     neural.classList.add("mcx-v52-show");
     await sleep(220);
 
-    await sleep(2250);
-
-    await sleep(1400);
+    /* 6. Curtain opens once at a normal, smooth speed. */
+    welcome.classList.remove(
+      "mcx-v52-half-open",
+      "mcx-v52-curtain-breathe"
+    );
 
     void welcome.offsetHeight;
     welcome.classList.add("mcx-v52-open");
-    await sleep(5400);
+
+    await sleep(3200);
     welcome.classList.add("mcx-v52-hidden");
 
     /* 7. Animation continues briefly. */

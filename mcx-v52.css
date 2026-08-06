@@ -509,65 +509,69 @@ html.mcx-v52-active body {
 }
 
 /* =========================================================
-   MCX V53 — SINGLE BLUE CURTAIN + PREMIUM METALLIC TITLE
+   MCX V54 — SOLID GOLD TITLE + INC + NORMAL SINGLE CURTAIN
    ========================================================= */
 
-/* Bigger, thicker title matching the requested gold/black style. */
+/* Remove the oversized/dark V53 appearance. */
 #welcome-screen .welcome-title {
-  max-width: 98vw !important;
-  filter: blur(110px) brightness(.10) saturate(.38) !important;
-  transform: translate3d(-50%, -45%, 0) scale(.80) !important;
+  max-width: 96vw !important;
+  gap: clamp(12px, 1.4vw, 20px) !important;
+  filter: blur(88px) brightness(.12) saturate(.55) !important;
+  transform: translate3d(-50%, -45%, 0) scale(.86) !important;
 }
 
 #welcome-screen .welcome-main-line {
-  gap: clamp(10px, 1.45vw, 26px) !important;
+  gap: clamp(12px, 1.7vw, 28px) !important;
 }
 
 #welcome-screen .welcome-title .title-word {
+  color: #e4b84f !important;
+  -webkit-text-fill-color: #e4b84f !important;
+  background: none !important;
+  background-clip: border-box !important;
+  -webkit-background-clip: border-box !important;
+
   font-family:
-    "Arial Black",
     "Inter",
+    "Arial Black",
     "Segoe UI",
     sans-serif !important;
 
-  font-size: clamp(72px, 10.2vw, 164px) !important;
-  font-weight: 1000 !important;
-  line-height: .91 !important;
-  letter-spacing: .045em !important;
+  font-size: clamp(58px, 8.2vw, 136px) !important;
+  font-weight: 950 !important;
+  line-height: .94 !important;
+  letter-spacing: .065em !important;
+  white-space: nowrap !important;
 
-  color: transparent !important;
-  -webkit-text-fill-color: transparent !important;
-
-  background:
-    linear-gradient(
-      180deg,
-      #fff6b8 0%,
-      #ffe174 12%,
-      #f7c23b 31%,
-      #d58a0a 55%,
-      #f2bd2f 76%,
-      #9a5600 100%
-    ) !important;
-
-  background-clip: text !important;
-  -webkit-background-clip: text !important;
-
-  -webkit-text-stroke: 2.8px rgba(0,0,0,.98) !important;
+  -webkit-text-stroke: 1.6px rgba(0,0,0,.92) !important;
   paint-order: stroke fill !important;
 
   text-shadow:
-    0 2px 0 #1a0e00,
-    0 5px 0 rgba(0,0,0,.48),
-    0 8px 8px rgba(0,0,0,.58),
-    0 0 7px rgba(255,197,52,.42),
-    0 0 20px rgba(196,116,4,.18) !important;
+    0 2px 0 rgba(0,0,0,.78),
+    0 5px 7px rgba(0,0,0,.48),
+    0 0 5px rgba(228,184,79,.32),
+    0 0 15px rgba(184,115,10,.14) !important;
 
-  filter:
-    drop-shadow(0 5px 3px rgba(0,0,0,.56)) !important;
+  filter: none !important;
 }
 
-/* Support both V51 and V52 title-state class names. */
-#welcome-screen.mcx-v51-title-in .welcome-title,
+/* Show INC. below MI CORTEX X. */
+#welcome-screen .welcome-sub-line {
+  display: flex !important;
+  margin-top: clamp(10px, 1.3vw, 18px) !important;
+}
+
+#welcome-screen .welcome-sub-line .title-word {
+  font-size: clamp(22px, 3vw, 46px) !important;
+  font-weight: 850 !important;
+  line-height: 1 !important;
+  letter-spacing: .22em !important;
+  color: #e4b84f !important;
+  -webkit-text-fill-color: #e4b84f !important;
+  -webkit-text-stroke: 1px rgba(0,0,0,.88) !important;
+}
+
+/* High blur to clear, but finish as bright solid gold. */
 #welcome-screen.mcx-v52-title-in .welcome-title {
   visibility: visible !important;
   opacity: 1 !important;
@@ -575,129 +579,63 @@ html.mcx-v52-active body {
   transform: translate3d(-50%, -50%, 0) scale(1) !important;
 
   transition:
-    opacity 1.7s ease,
-    filter 7.4s cubic-bezier(.16,.82,.22,1),
-    transform 7.4s cubic-bezier(.16,.82,.22,1) !important;
+    opacity 1.4s ease,
+    filter 6.4s cubic-bezier(.18,.82,.22,1),
+    transform 6.4s cubic-bezier(.18,.82,.22,1) !important;
 }
 
-#welcome-screen.mcx-v51-title-out .welcome-title,
 #welcome-screen.mcx-v52-title-out .welcome-title {
   visibility: visible !important;
   opacity: 0 !important;
-  filter: blur(18px) brightness(.55) saturate(.72) !important;
-  transform: translate3d(-50%, -55%, 0) scale(.95) !important;
+  filter: blur(14px) brightness(.68) saturate(.8) !important;
+  transform: translate3d(-50%, -54%, 0) scale(.975) !important;
 
   transition:
-    opacity 1.05s ease,
-    filter 1.2s ease,
-    transform 1.2s cubic-bezier(.4,0,.2,1) !important;
+    opacity 1s ease,
+    filter 1.1s ease,
+    transform 1.1s ease !important;
 }
 
-/* Deeper blue fabric appearance. */
-.mcx-v51-curtain,
-.mcx-v52-curtain {
-  background:
-    radial-gradient(
-      ellipse at 50% 116%,
-      rgba(39,119,229,.44),
-      transparent 37%
-    ),
-    repeating-linear-gradient(
-      90deg,
-      #020812 0%,
-      #06162d 4%,
-      #0c2d58 8%,
-      #15519a 12%,
-      #0a2850 17%,
-      #031026 22%,
-      #103b73 27%,
-      #061831 32%
-    ) !important;
-
-  box-shadow:
-    inset 0 0 130px rgba(0,0,0,.72),
-    inset 0 -90px 120px rgba(18,82,169,.38),
-    inset 24px 0 38px rgba(80,151,244,.07),
-    inset -24px 0 38px rgba(0,0,0,.34) !important;
-
-  filter: contrast(1.10) saturate(1.12) !important;
-}
-
-.mcx-v51-curtain::before,
-.mcx-v52-curtain::before {
-  background:
-    repeating-linear-gradient(
-      90deg,
-      rgba(255,255,255,.012) 0%,
-      rgba(94,167,255,.12) 5%,
-      transparent 10%,
-      rgba(0,0,0,.24) 15%,
-      transparent 20%
-    ) !important;
-
-  opacity: .95 !important;
-}
-
-/* Disable all old half-open / breathe stages. */
+/* Completely disable old half-open and breathing behavior. */
 #welcome-screen.mcx-v52-half-open .mcx-v52-left,
-#welcome-screen.mcx-v52-curtain-breathe .mcx-v52-left,
-#welcome-screen.mcx-v51-half-open .mcx-v51-left,
-#welcome-screen.mcx-v51-curtain-breathe .mcx-v51-left {
+#welcome-screen.mcx-v52-curtain-breathe .mcx-v52-left {
   animation: none !important;
   transform: translate3d(0,0,0) !important;
 }
 
 #welcome-screen.mcx-v52-half-open .mcx-v52-right,
-#welcome-screen.mcx-v52-curtain-breathe .mcx-v52-right,
-#welcome-screen.mcx-v51-half-open .mcx-v51-right,
-#welcome-screen.mcx-v51-curtain-breathe .mcx-v51-right {
+#welcome-screen.mcx-v52-curtain-breathe .mcx-v52-right {
   animation: none !important;
   transform: translate3d(0,0,0) scaleX(-1) !important;
 }
 
-/* One continuous theater-style movement, matching the reference video. */
-#welcome-screen.mcx-v51-open .mcx-v51-left,
+/* One normal, smooth opening — not double and not extremely slow. */
 #welcome-screen.mcx-v52-open .mcx-v52-left {
-  transform:
-    translate3d(-104%, 0, 0)
-    rotateY(-5deg)
-    skewY(-1.1deg) !important;
-
+  transform: translate3d(-101%,0,0) skewY(-.5deg) !important;
   transform-origin: left center !important;
-
-  transition:
-    transform 5.2s cubic-bezier(.68,0,.18,1) !important;
+  transition: transform 3s cubic-bezier(.76,0,.24,1) !important;
 }
 
-#welcome-screen.mcx-v51-open .mcx-v51-right,
 #welcome-screen.mcx-v52-open .mcx-v52-right {
-  transform:
-    translate3d(104%, 0, 0)
-    scaleX(-1)
-    rotateY(-5deg)
-    skewY(-1.1deg) !important;
-
+  transform: translate3d(101%,0,0) scaleX(-1) skewY(-.5deg) !important;
   transform-origin: right center !important;
-
-  transition:
-    transform 5.2s cubic-bezier(.68,0,.18,1) !important;
+  transition: transform 3s cubic-bezier(.76,0,.24,1) !important;
 }
 
-/* Remove the center seam once the one-time opening starts. */
-#welcome-screen.mcx-v51-open .mcx-v51-center-seam,
 #welcome-screen.mcx-v52-open .mcx-v52-center-seam {
   opacity: 0 !important;
-  transform: translateX(-50%) scaleY(.2) !important;
-
-  transition:
-    opacity .3s ease,
-    transform .4s ease !important;
+  transition: opacity .3s ease !important;
 }
 
 @media (max-width: 760px) {
   #welcome-screen .welcome-title .title-word {
-    font-size: clamp(44px,12.4vw,78px) !important;
-    letter-spacing: .028em !important;
-    -webkit-text-stroke: 1.7px rgba(0,0,0,.98) !important;
+    font-size: clamp(38px, 10.6vw, 68px) !important;
+    letter-spacing: .04em !important;
+    -webkit-text-stroke: 1.15px rgba(0,0,0,.92) !important;
+  }
+
+  #welcome-screen .welcome-sub-line .title-word {
+    font-size: clamp(17px, 4.8vw, 28px) !important;
+    letter-spacing: .18em !important;
   }
 }
