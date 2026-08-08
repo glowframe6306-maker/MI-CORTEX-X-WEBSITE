@@ -1,4 +1,4 @@
-﻿:root {
+:root {
  --bg: #040711;
  --bg-deep: #02040a;
  --surface: rgba(7, 12, 24, 0.76);
@@ -5099,7 +5099,9 @@ body {
         0 0 40px #2B6CFF;
 }
 
-
-
-
-
+/* MCX_V56_UI_RECOVERY_START */
+html,body{min-height:100%!important;height:auto!important;overflow-x:hidden!important;overflow-y:auto!important}
+#welcome-screen,#mi-neural-intro{display:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important}
+header,nav,.site-header,.main-header,.navbar,.nav-container,.main-nav,#navbar,#main-nav,main,#main-content,.site-content,.page-content,.front-page,.hero,.hero-section,.content-wrapper,.container,.nav-links,.nav-menu,.navigation,.menu,.categories,.category-list,.category-grid,.category-section,.main-categories,.category-container,.categories-grid,.directory-grid,.topic-grid,.card-grid{visibility:visible!important;opacity:1!important;pointer-events:auto!important}
+body:not(.intro-active) header,body:not(.intro-active) nav,body:not(.intro-active) main,body:not(.intro-active) .site-content,body:not(.intro-active) .page-content,body:not(.intro-active) .front-page,body:not(.intro-active) .hero,body:not(.intro-active) .hero-section,body:not(.intro-active) .categories,body:not(.intro-active) .category-list,body:not(.intro-active) .category-grid{transform:none!important}
+/* MCX_V56_UI_RECOVERY_END */
