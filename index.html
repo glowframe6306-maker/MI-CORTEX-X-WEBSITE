@@ -88,6 +88,10 @@
 <link rel="stylesheet" href="./mcx-v19-premium-navigation.css?v=20260804-v19">
 <script src="./mcx-v19-premium-navigation.js?v=20260804-v19" defer></script>
 <!-- MCX_V19_NAVIGATION_END -->
+<!-- MCX_V57_STABLE_UI_START -->
+<link rel="stylesheet" href="./mcx-v57-stable-ui.css?v=20260808-v57">
+<script src="./mcx-v57-stable-ui.js?v=20260808-v57" defer></script>
+<!-- MCX_V57_STABLE_UI_END -->
 </head>
 <body>
 <!-- MI_NEURAL_LOGO_SEQUENCE_START -->
@@ -1242,26 +1246,6 @@ html.mcx-real-front-page-visible #mcx-contact-hub-root.mcx-hub-fab-label {
 <!-- MCX_AI_DIRECT_OPEN_FIX_START -->
 <script src="./mcx-ai-direct-open-fix.js" defer></script>
 <!-- MCX_AI_DIRECT_OPEN_FIX_END -->
-
-<!-- MCX_V56_UI_RECOVERY_START -->
-<script>
-(function(){
-function recover(){
-var r=document.documentElement,b=document.body;
-["mcx-v50-active","mcx-v51-active","mcx-v52-active","mcx-v53-active","mcx-v54-active","mcx-v55-active","mcx-v56-active"].forEach(function(c){r.classList.remove(c)});
-b.classList.remove("intro-active");
-r.style.removeProperty("overflow");r.style.removeProperty("height");
-b.style.removeProperty("overflow");b.style.removeProperty("height");
-["welcome-screen","mi-neural-intro"].forEach(function(id){var e=document.getElementById(id);if(e){e.hidden=true;e.setAttribute("aria-hidden","true");e.style.display="none";e.style.visibility="hidden";e.style.opacity="0";e.style.pointerEvents="none"}});
-["header","nav",".site-header",".main-header",".navbar",".nav-container",".main-nav",".nav-links",".nav-menu","main","#main-content",".site-content",".page-content",".front-page",".hero",".hero-section",".categories",".category-list",".category-grid",".category-section",".main-categories",".category-container",".categories-grid",".directory-grid",".topic-grid",".card-grid"].forEach(function(s){document.querySelectorAll(s).forEach(function(e){["display","visibility","opacity","transform","pointer-events"].forEach(function(p){e.style.removeProperty(p)})})});
-window.scrollTo(0,0);
-}
-if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",recover,{once:true})}else{recover()}
-window.addEventListener("load",recover,{once:true});
-})();
-</script>
-<!-- MCX_V56_UI_RECOVERY_END -->
-
 </body>
 </html>
 

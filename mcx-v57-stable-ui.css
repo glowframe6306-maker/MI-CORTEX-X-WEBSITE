@@ -1,0 +1,20 @@
+/* MCX V57 — stable site recovery. Keeps the existing design; restores content/navigation. */
+html,body{min-height:100%!important;height:auto!important;overflow-x:hidden!important;overflow-y:auto!important}
+/* Temporarily bypass the damaged welcome layers so the actual site is usable. */
+#welcome-screen,#mi-neural-intro{display:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important}
+/* The old V19 rule hides navigation only on the empty front route. V57 always restores it. */
+.site-header{opacity:1!important;visibility:visible!important;pointer-events:auto!important;transform:translateY(0)!important;display:block!important}
+.site-header .nav{display:flex!important;visibility:visible!important;opacity:1!important}
+.site-header .nav-links{visibility:visible!important;opacity:1!important}
+/* Recovery from reveal items that were observed while hidden behind the intro. */
+.mcx-category-app .reveal,.mcx-main-directory.reveal,.mcx-page-header.reveal,.mcx-category-index.reveal{opacity:1!important;transform:none!important;visibility:visible!important}
+.mcx-main-directory{display:grid!important;visibility:visible!important;opacity:1!important}
+.mcx-main-directory-card{visibility:visible!important;opacity:1!important}
+/* Keep routing semantics: only the active page is displayed. */
+.mcx-main-page.active{display:block!important;visibility:visible!important;opacity:1!important}
+.mcx-main-page:not(.active){display:none!important}
+.mcx-main-page.active .mcx-page-wrap,.mcx-main-page.active .mcx-hierarchy-shell{visibility:visible!important;opacity:1!important}
+.mcx-main-page.active .mcx-category-index:not([hidden]){display:block!important;visibility:visible!important;opacity:1!important;transform:none!important}
+/* Never override genuine hidden detail/index state. */
+.mcx-category-index[hidden],.mcx-category-detail[hidden]{display:none!important}
+@media(max-width:900px){.site-header .nav-links.open{display:flex!important}}
