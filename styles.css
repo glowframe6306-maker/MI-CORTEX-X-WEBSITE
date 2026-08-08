@@ -5098,3 +5098,112 @@ body {
         0 0 25px #5AB9FF,
         0 0 40px #2B6CFF;
 }
+
+/* MCX_V58_NAV_ONLY_START */
+/* NAVIGATION ONLY. Welcome, intro, front page and content are untouched. */
+
+.site-header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    padding: 1rem 0 !important;
+    pointer-events: auto !important;
+}
+
+.site-header .nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: min(1180px, calc(100% - 32px)) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    min-height: 72px !important;
+    padding: 9px 16px !important;
+    border-radius: 999px !important;
+    background: linear-gradient(112deg, rgba(5,22,43,.72), rgba(14,31,69,.68) 50%, rgba(42,16,82,.68)) !important;
+    border: 1px solid rgba(92,197,255,.55) !important;
+    -webkit-backdrop-filter: blur(28px) saturate(190%) !important;
+    backdrop-filter: blur(28px) saturate(190%) !important;
+    box-shadow: 0 16px 45px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.11), 0 0 24px rgba(40,167,255,.11) !important;
+}
+
+.site-header .brand {
+    flex: 0 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    margin: 0 !important;
+    text-decoration: none !important;
+}
+
+.site-header .brand-logo {
+    width: 58px !important;
+    height: 58px !important;
+    object-fit: cover !important;
+    border-radius: 50% !important;
+    flex: 0 0 58px !important;
+}
+
+.site-header .brand > span {
+    color: #FFD44D !important;
+    -webkit-text-fill-color: #FFD44D !important;
+    font-size: 1.08rem !important;
+    font-weight: 900 !important;
+    letter-spacing: .025em !important;
+    white-space: nowrap !important;
+    -webkit-text-stroke: .8px rgba(0,0,0,.95) !important;
+    paint-order: stroke fill !important;
+    text-shadow: 0 1px 1px #000, 0 0 7px rgba(255,211,72,.26) !important;
+}
+
+.site-header .nav-links {
+    margin-left: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 2px !important;
+    width: auto !important;
+    flex: 0 1 auto !important;
+}
+
+.site-header .nav-links > a {
+    position: relative !important;
+    margin: 0 !important;
+    padding: 9px 11px !important;
+    border-radius: 999px !important;
+    border: 1px solid transparent !important;
+    background: transparent !important;
+    color: rgba(231,236,252,.74) !important;
+    font-size: .90rem !important;
+    font-weight: 650 !important;
+    letter-spacing: .01em !important;
+    white-space: nowrap !important;
+    text-decoration: none !important;
+    transition: color .2s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease !important;
+}
+
+.site-header .nav-links > a:hover {
+    color: #fff !important;
+    background: rgba(255,255,255,.045) !important;
+}
+
+.site-header .nav-links > a.active,
+.site-header .nav-links > a[aria-current="page"] {
+    color: #FFE27A !important;
+    font-weight: 800 !important;
+    border-color: rgba(255,207,64,.58) !important;
+    background: linear-gradient(180deg, rgba(255,210,72,.14), rgba(151,101,10,.08)) !important;
+    box-shadow: inset 0 1px 0 rgba(255,245,184,.15), 0 0 12px rgba(255,198,46,.12) !important;
+    text-shadow: 0 0 7px rgba(255,215,89,.32) !important;
+}
+
+@media (max-width: 900px) {
+    .site-header .nav {
+        width: min(94%, 1180px) !important;
+        border-radius: 28px !important;
+    }
+    .site-header .nav-links { gap: 1px !important; }
+    .site-header .nav-links > a { padding: 8px 9px !important; }
+}
+
+/* MCX_V58_NAV_ONLY_END */
