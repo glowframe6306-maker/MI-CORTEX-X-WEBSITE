@@ -5100,38 +5100,6 @@ body {
 }
 
 
-/* MCX_EMERGENCY_INTRO_RECOVERY_START */
 
-/* Release page scrolling */
-html,
-body {
-    overflow-x: hidden !important;
-    overflow-y: auto !important;
-    height: auto !important;
-}
 
-/* Hide only the stuck welcome / cinematic intro layers */
-#welcome-screen,
-#mi-neural-intro {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-    transform: none !important;
-}
-
-/* Make the actual website visible again */
-main,
-#main-content,
-.page-content,
-.site-content,
-.front-page,
-.hero,
-header,
-nav {
-    visibility: visible !important;
-    opacity: 1 !important;
-}
-
-/* MCX_EMERGENCY_INTRO_RECOVERY_END */
 
