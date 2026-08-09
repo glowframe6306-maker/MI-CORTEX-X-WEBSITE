@@ -6687,3 +6687,34 @@ html.mcx-v61-after-welcome .mcx-main-directory-card {
 }
 
 /* MCX_V70_NAV_LAYOUT_END */
+
+/* MCX V71 - NAV BUTTON VERTICAL CENTER FIX */
+
+.site-header .nav {
+    align-items: center !important;
+}
+
+.site-header .nav-links {
+    align-self: center !important;
+    height: 100% !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+
+    position: relative !important;
+    top: 0 !important;
+    bottom: auto !important;
+
+    transform: translateY(4px) !important;
+}
+
+.site-header .nav-links > a {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+
+    align-self: center !important;
+}
+
+/* END MCX V71 */
+
