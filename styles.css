@@ -6210,3 +6210,207 @@ html.mcx-v61-after-welcome .mcx-main-directory-card {
 
 
 /* MCX_V65_PREMIUM_BUTTONS_END */
+
+/* MCX_V66_NAV_START */
+
+/* =========================================================
+   MI CORTEX X - CLEAN EXECUTIVE NAVIGATION
+   Brand stays LEFT.
+   Menu is NOT forced to the middle.
+   Welcome / curtain / content untouched.
+   ========================================================= */
+
+
+/* ---------- MAIN MENU POSITION ---------- */
+
+.site-header .nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+}
+
+
+/* Brand stays on left */
+
+.site-header .brand {
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+}
+
+
+/* Menu begins naturally after brand */
+
+.site-header .nav-links {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+
+    width: auto !important;
+
+    margin-left: 34px !important;
+    margin-right: 0 !important;
+
+    gap: 10px !important;
+
+    transform: none !important;
+}
+
+
+/* ---------- NORMAL NAV ITEM ---------- */
+
+.site-header .nav-links > a {
+    position: relative !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    min-width: 0 !important;
+
+    padding: 10px 13px !important;
+    margin: 0 !important;
+
+    color: rgba(240,244,255,.76) !important;
+
+    font-family:
+        "Inter",
+        "Segoe UI",
+        sans-serif !important;
+
+    font-size: .87rem !important;
+    font-weight: 720 !important;
+    letter-spacing: .018em !important;
+
+    white-space: nowrap !important;
+    text-decoration: none !important;
+
+    background: transparent !important;
+
+    border: 1px solid transparent !important;
+    border-radius: 12px !important;
+
+    box-shadow: none !important;
+    text-shadow: none !important;
+
+    transform: none !important;
+
+    transition:
+        color .18s ease,
+        background .18s ease,
+        border-color .18s ease,
+        box-shadow .18s ease,
+        transform .18s ease !important;
+}
+
+
+/* ---------- HOVER ---------- */
+
+.site-header .nav-links > a:hover:not(.active):not([aria-current="page"]) {
+    color: #FFFFFF !important;
+
+    background:
+        rgba(255,255,255,.045) !important;
+
+    border-color:
+        rgba(255,255,255,.20) !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.055),
+        0 4px 14px rgba(0,0,0,.10) !important;
+
+    transform:
+        translateY(-1px) !important;
+}
+
+
+/* ---------- ACTIVE / SELECTED ---------- */
+
+.site-header .nav-links > a.active,
+.site-header .nav-links > a[aria-current="page"] {
+    color: #FFD65A !important;
+
+    font-weight: 820 !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,210,69,.10),
+            rgba(146,92,5,.045)
+        ) !important;
+
+    border:
+        1px solid rgba(235,178,42,.46) !important;
+
+    border-radius:
+        12px !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,245,176,.09),
+        0 0 10px rgba(216,154,26,.07) !important;
+
+    text-shadow:
+        0 0 5px rgba(255,205,58,.16) !important;
+}
+
+
+/* Active hover stays gold */
+
+.site-header .nav-links > a.active:hover,
+.site-header .nav-links > a[aria-current="page"]:hover {
+    color: #FFE17B !important;
+
+    border-color:
+        rgba(245,191,51,.62) !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,215,82,.13),
+            rgba(146,92,5,.06)
+        ) !important;
+}
+
+
+/* ---------- REMOVE OLD DOTS / PILLS ---------- */
+
+.site-header .nav-links > a::before,
+.site-header .nav-links > a::after {
+    content: none !important;
+    display: none !important;
+}
+
+
+/* ---------- COMPANY NAME ---------- */
+
+.site-header .brand > span {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+
+    color: #FFD34D !important;
+    -webkit-text-fill-color: #FFD34D !important;
+
+    font-weight: 900 !important;
+
+    padding: 0 !important;
+}
+
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 1050px) {
+
+    .site-header .nav-links {
+        margin-left: 18px !important;
+        gap: 4px !important;
+    }
+
+    .site-header .nav-links > a {
+        padding: 8px 9px !important;
+        font-size: .78rem !important;
+    }
+}
+
+
+/* MCX_V66_NAV_END */
