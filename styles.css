@@ -6338,3 +6338,105 @@ html.mcx-v61-after-welcome .mcx-main-directory-card {
 
 
 /* MCX_V67_EXECUTIVE_NAV_END */
+
+/* MCX_V68_NAV_ALIGN_START */
+
+/* Main rounded navigation bar */
+.site-header .nav {
+    min-height: 88px !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-left: 18px !important;
+    padding-right: 22px !important;
+}
+
+
+/* Logo + company name centered inside the round bar */
+.site-header .brand {
+    height: 100% !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    flex: 0 0 auto !important;
+
+    margin: 0 !important;
+}
+
+
+/* Navigation buttons aligned to the SAME center line */
+.site-header .nav-links {
+    align-self: stretch !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+
+    margin-left: auto !important;
+    margin-right: 0 !important;
+
+    gap: 12px !important;
+
+    height: auto !important;
+}
+
+
+/* All buttons same vertical alignment */
+.site-header .nav-links > a {
+    height: 42px !important;
+    min-height: 42px !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    box-sizing: border-box !important;
+
+    padding: 0 13px !important;
+
+    margin: 0 !important;
+
+    line-height: 1 !important;
+
+    vertical-align: middle !important;
+}
+
+
+/* Selected button fits neatly inside the round navigation */
+.site-header .nav-links > a.active,
+.site-header .nav-links > a[aria-current="page"] {
+    height: 42px !important;
+
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+
+    border-radius: 999px !important;
+}
+
+
+/* Company text stays clean */
+.site-header .brand > span {
+    line-height: 1 !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    margin: 0 !important;
+}
+
+
+/* Logo centered vertically */
+.site-header .brand-logo {
+    display: block !important;
+
+    margin: 0 !important;
+
+    align-self: center !important;
+}
+
+
+/* MCX_V68_NAV_ALIGN_END */
