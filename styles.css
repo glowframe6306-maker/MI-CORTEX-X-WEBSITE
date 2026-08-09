@@ -5809,3 +5809,35 @@ body.mcx-v76-nav-ready .site-header .nav {
 }
 
 /* MCX_V80_TRUE_CENTER_NAV_END */
+
+/* MCX_V81_STRONG_BLUR_ZOOM_START */
+/* EFFECT ONLY: stronger glass blur + very fast scroll zoom response. */
+
+body.mcx-v76-nav-ready .site-header.mcx-v81-effect .nav {
+    --mcx-v81-scale: 1;
+    --mcx-v81-blur: 42px;
+
+    -webkit-backdrop-filter:
+        blur(var(--mcx-v81-blur))
+        saturate(235%)
+        contrast(112%) !important;
+
+    backdrop-filter:
+        blur(var(--mcx-v81-blur))
+        saturate(235%)
+        contrast(112%) !important;
+
+    transform:
+        scale(var(--mcx-v81-scale)) !important;
+
+    transform-origin: 50% 50% !important;
+
+    box-shadow:
+        0 20px 58px rgba(0,0,0,.42),
+        inset 0 1px 0 rgba(255,255,255,.16),
+        0 0 42px rgba(44,151,255,.14) !important;
+
+    will-change: transform, backdrop-filter !important;
+}
+
+/* MCX_V81_STRONG_BLUR_ZOOM_END */

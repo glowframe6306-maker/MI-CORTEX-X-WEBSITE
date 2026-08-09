@@ -12415,3 +12415,53 @@ document.addEventListener('DOMContentLoaded', function () {
 /* Controlled by MCX V29. */
 /* MI_NEURAL_LOGO_SEQUENCE_END */
 
+/* MCX_V81_STRONG_BLUR_ZOOM_START */
+(function () {
+    "use strict";
+
+    var ticking = false;
+
+    function applyStrongBlurZoom() {
+        var header = document.querySelector(".site-header");
+        if (!header) return;
+
+        header.classList.add("mcx-v81-effect");
+
+        var nav = header.querySelector(".nav");
+        if (!nav) return;
+
+        /*
+          Very sensitive response:
+          only 36px of page scroll reaches the full effect.
+        */
+        var progress = Math.min(Math.max(window.scrollY, 0) / 36, 1);
+
+        var scale = 1 + (0.085 * progress);
+        var blur = 42 + (58 * progress);
+
+        nav.style.setProperty("--mcx-v81-scale", scale.toFixed(4));
+        nav.style.setProperty("--mcx-v81-blur", blur.toFixed(1) + "px");
+
+        ticking = false;
+    }
+
+    function requestEffect() {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(applyStrongBlurZoom);
+    }
+
+    window.addEventListener("scroll", requestEffect, { passive: true });
+    window.addEventListener("resize", requestEffect);
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", applyStrongBlurZoom, { once: true });
+    } else {
+        applyStrongBlurZoom();
+    }
+
+    window.addEventListener("load", applyStrongBlurZoom);
+    setTimeout(applyStrongBlurZoom, 500);
+    setTimeout(applyStrongBlurZoom, 1500);
+})();
+ /* MCX_V81_STRONG_BLUR_ZOOM_END */
