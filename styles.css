@@ -5870,3 +5870,23 @@ body.mcx-v76-nav-ready .site-header .nav {
 }
 
 /* MCX_V86_EXACT_FRONT_NAV_HIDE_END */
+
+/* MCX_V87_FRONT_NAV_ABSOLUTE_HIDE_START */
+
+/* FRONT PAGE: navigation MUST NOT be visible under any circumstance. */
+html.mcx-v87-front-page .site-header,
+body.mcx-v87-front-page .site-header {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+/* MAIN WEBSITE: restore the existing navigation exactly as it is. */
+html.mcx-v87-main-page .site-header,
+body.mcx-v87-main-page .site-header {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* MCX_V87_FRONT_NAV_ABSOLUTE_HIDE_END */

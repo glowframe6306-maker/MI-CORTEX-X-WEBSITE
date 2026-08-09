@@ -1683,6 +1683,109 @@ html.mcx-real-front-page-visible #mcx-contact-hub-root.mcx-hub-fab-label {
 </script>
 <!-- MCX_V80_TRUE_CENTER_NAV_END -->
 
+
+<!-- MCX_V87_FRONT_NAV_ABSOLUTE_HIDE_START -->
+<script>
+(function () {
+    "use strict";
+
+    var ticking = false;
+
+    function isFrontPageNow() {
+        var y = Math.max(
+            window.pageYOffset ||
+            document.documentElement.scrollTop ||
+            document.body.scrollTop ||
+            0,
+            0
+        );
+
+        /*
+          The front page is the first full-screen visual page.
+          Keep nav completely hidden until that first screen has passed.
+        */
+        var viewport = window.innerHeight || document.documentElement.clientHeight || 800;
+        return y < (viewport * 0.94);
+    }
+
+    function forceState() {
+        var front = isFrontPageNow();
+
+        document.documentElement.classList.toggle("mcx-v87-front-page", front);
+        document.documentElement.classList.toggle("mcx-v87-main-page", !front);
+
+        if (document.body) {
+            document.body.classList.toggle("mcx-v87-front-page", front);
+            document.body.classList.toggle("mcx-v87-main-page", !front);
+        }
+
+        /*
+          Enforce directly on EVERY existing navigation header so older
+          CSS/JS patches cannot make it visible on the front page.
+        */
+        document.querySelectorAll(".site-header").forEach(function (header) {
+            if (front) {
+                header.style.setProperty("display", "none", "important");
+                header.style.setProperty("opacity", "0", "important");
+                header.style.setProperty("visibility", "hidden", "important");
+                header.style.setProperty("pointer-events", "none", "important");
+            } else {
+                header.style.removeProperty("display");
+                header.style.removeProperty("opacity");
+                header.style.removeProperty("visibility");
+                header.style.removeProperty("pointer-events");
+            }
+        });
+
+        ticking = false;
+    }
+
+    function requestState() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(forceState);
+    }
+
+    window.addEventListener("scroll", requestState, { passive: true });
+    window.addEventListener("resize", requestState);
+    window.addEventListener("hashchange", requestState);
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", forceState, { once: true });
+    } else {
+        forceState();
+    }
+
+    window.addEventListener("load", forceState);
+
+    /*
+      Existing intro/navigation scripts may run later.
+      Re-enforce the rule after they finish.
+    */
+    [100, 300, 700, 1200, 2000, 3500, 6000, 9000, 12000].forEach(function (ms) {
+        setTimeout(forceState, ms);
+    });
+
+    /*
+      If another script modifies/recreates the header while on the front page,
+      enforce the hidden state again.
+    */
+    var observer = new MutationObserver(function () {
+        if (isFrontPageNow()) requestState();
+    });
+
+    if (document.documentElement) {
+        observer.observe(document.documentElement, {
+            childList: true,
+            subtree: true,
+            attributes: true,
+            attributeFilter: ["style", "class"]
+        });
+    }
+})();
+</script>
+<!-- MCX_V87_FRONT_NAV_ABSOLUTE_HIDE_END -->
+
 </body>
 </html>
 
