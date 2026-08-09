@@ -12027,7 +12027,7 @@ document.addEventListener('DOMContentLoaded', function () {
  return;
  }
 
- element.textContent = " 
+ element.textContent = "-";
  element.setAttribute("aria-label", "Collapse");
  element.classList.add("mcx-real-minus-icon");
  });
