@@ -1386,6 +1386,147 @@ html.mcx-real-front-page-visible #mcx-contact-hub-root.mcx-hub-fab-label {
 </script>
 <!-- MCX_V61_AFTER_WELCOME_END -->
 
+
+<!-- MCX_V64_NAV_START -->
+<script>
+(function () {
+    "use strict";
+
+    function initMcxNavigation() {
+
+        const links = Array.from(
+            document.querySelectorAll(".site-header .nav-links > a")
+        );
+
+        if (!links.length) return;
+
+
+        function clearActive() {
+
+            links.forEach(function(link) {
+
+                link.classList.remove("active");
+
+                if (link.hasAttribute("aria-current")) {
+
+                    link.removeAttribute("aria-current");
+
+                }
+
+            });
+
+        }
+
+
+        function activate(link) {
+
+            clearActive();
+
+            link.classList.add("active");
+
+            link.setAttribute(
+                "aria-current",
+                "page"
+            );
+
+        }
+
+
+        /*
+         * CLICK:
+         * - selected option becomes gold
+         * - normal href behavior is NOT prevented
+         * - therefore existing section/page still opens
+         */
+
+        links.forEach(function(link) {
+
+            link.addEventListener(
+                "click",
+                function() {
+
+                    activate(link);
+
+                }
+            );
+
+        });
+
+
+        /*
+         * Detect current hash / target after page load.
+         */
+
+        function syncWithLocation() {
+
+            const hash =
+                window.location.hash || "";
+
+            if (!hash) {
+
+                const home = links.find(function(link) {
+
+                    return (
+                        link.textContent.trim().toUpperCase() === "HOME"
+                    );
+
+                });
+
+                if (home) activate(home);
+
+                return;
+
+            }
+
+
+            const matching = links.find(function(link) {
+
+                const href =
+                    link.getAttribute("href") || "";
+
+                return href === hash;
+
+            });
+
+
+            if (matching) {
+
+                activate(matching);
+
+            }
+
+        }
+
+
+        syncWithLocation();
+
+
+        window.addEventListener(
+            "hashchange",
+            syncWithLocation
+        );
+
+    }
+
+
+    if (document.readyState === "loading") {
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            initMcxNavigation,
+            { once: true }
+        );
+
+    } else {
+
+        initMcxNavigation();
+
+    }
+
+})();
+</script>
+<!-- MCX_V64_NAV_END -->
+
 </body>
 </html>
 

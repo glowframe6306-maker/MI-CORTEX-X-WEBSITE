@@ -5617,3 +5617,378 @@ html.mcx-v61-after-welcome .mcx-main-directory-card {
 
 
 /* MCX_V63_CENTER_GLASS_NAV_END */
+
+/* MCX_V64_NAV_START */
+
+/* =========================================================
+   MI CORTEX X - CLEAN CENTER NAVIGATION
+   Welcome page / curtain / neural animation untouched.
+   ========================================================= */
+
+
+/* ==========================================
+   COMPLETE NAV BAR - TRUE CENTER
+   ========================================== */
+
+.site-header {
+    position: relative !important;
+
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+
+    width: 100% !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 16px 0 !important;
+
+    transform: none !important;
+
+    /* Navigation scrolls normally with page */
+    z-index: 1000 !important;
+}
+
+
+/* Actual navigation panel */
+
+.site-header .nav {
+
+    position: relative !important;
+
+    left: auto !important;
+    right: auto !important;
+
+    width: min(1180px, calc(100% - 48px)) !important;
+    max-width: 1180px !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    min-height: 72px !important;
+
+    padding: 9px 17px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    border-radius: 999px !important;
+
+    background:
+        linear-gradient(
+            110deg,
+            rgba(7, 24, 43, .62),
+            rgba(18, 35, 76, .58) 52%,
+            rgba(45, 22, 88, .58)
+        ) !important;
+
+    border:
+        1px solid rgba(87, 195, 255, .42) !important;
+
+    -webkit-backdrop-filter:
+        blur(26px)
+        saturate(170%) !important;
+
+    backdrop-filter:
+        blur(26px)
+        saturate(170%) !important;
+
+    box-shadow:
+        0 14px 38px rgba(0,0,0,.28),
+        inset 0 1px 0 rgba(255,255,255,.09) !important;
+
+    transform: none !important;
+}
+
+
+/* ==========================================
+   BRAND / LOGO
+   ========================================== */
+
+.site-header .brand {
+
+    display: flex !important;
+    align-items: center !important;
+
+    gap: 12px !important;
+
+    flex: 0 0 auto !important;
+
+    margin: 0 !important;
+
+    background: transparent !important;
+
+    border: none !important;
+
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+}
+
+
+/* Logo */
+
+.site-header .brand-logo {
+
+    width: 58px !important;
+    height: 58px !important;
+
+    flex: 0 0 58px !important;
+
+    border-radius: 50% !important;
+
+    object-fit: cover !important;
+
+    background: transparent !important;
+}
+
+
+/* MI CORTEX X
+   Gold text ONLY.
+   NO gold round / pill around company name.
+*/
+
+.site-header .brand > span {
+
+    color: #FFD34D !important;
+
+    -webkit-text-fill-color: #FFD34D !important;
+
+    font-size: 1.08rem !important;
+
+    font-weight: 900 !important;
+
+    letter-spacing: .025em !important;
+
+    white-space: nowrap !important;
+
+    background: transparent !important;
+
+    border: none !important;
+
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+
+    padding: 0 !important;
+
+    -webkit-text-stroke:
+        .7px rgba(0,0,0,.90) !important;
+
+    text-shadow:
+        0 1px 1px rgba(0,0,0,.9),
+        0 0 6px rgba(255,210,69,.20) !important;
+}
+
+
+/* ==========================================
+   MENU LINKS
+   ========================================== */
+
+.site-header .nav-links {
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: flex-end !important;
+
+    width: auto !important;
+
+    margin-left: auto !important;
+    margin-right: 0 !important;
+
+    gap: 5px !important;
+
+    transform: none !important;
+}
+
+
+/* ------------------------------------------
+   NORMAL ITEMS
+
+   No circles.
+   No blue pills.
+   No permanent background.
+   ------------------------------------------ */
+
+.site-header .nav-links > a {
+
+    position: relative !important;
+
+    display: inline-flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    margin: 0 !important;
+
+    padding: 10px 13px !important;
+
+    color: rgba(240,244,255,.78) !important;
+
+    font-size: .89rem !important;
+
+    font-weight: 700 !important;
+
+    white-space: nowrap !important;
+
+    text-decoration: none !important;
+
+    background: transparent !important;
+
+    border: 1px solid transparent !important;
+
+    border-radius: 999px !important;
+
+    box-shadow: none !important;
+
+    text-shadow: none !important;
+
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+
+    transition:
+        color .20s ease,
+        border-color .20s ease,
+        background .20s ease,
+        box-shadow .20s ease,
+        transform .20s ease !important;
+}
+
+
+/* ==========================================
+   HOVER
+
+   Mouse over:
+   WHITE rounded outline.
+
+   Mouse leaves:
+   automatically disappears.
+   ========================================== */
+
+.site-header .nav-links > a:hover:not(.active):not([aria-current="page"]) {
+
+    color: #FFFFFF !important;
+
+    background:
+        rgba(255,255,255,.055) !important;
+
+    border:
+        1px solid rgba(255,255,255,.72) !important;
+
+    border-radius: 999px !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.10),
+        0 0 11px rgba(255,255,255,.07) !important;
+
+    -webkit-backdrop-filter:
+        blur(12px) !important;
+
+    backdrop-filter:
+        blur(12px) !important;
+}
+
+
+/* ==========================================
+   SELECTED / CLICKED CATEGORY
+
+   ONLY selected option becomes gold.
+   ========================================== */
+
+.site-header .nav-links > a.active,
+.site-header .nav-links > a[aria-current="page"] {
+
+    color: #FFE071 !important;
+
+    font-weight: 850 !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,210,69,.16),
+            rgba(154,103,8,.08)
+        ) !important;
+
+    border:
+        1px solid rgba(255,205,61,.72) !important;
+
+    border-radius: 999px !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,246,184,.18),
+        0 0 13px rgba(255,194,34,.15) !important;
+
+    text-shadow:
+        0 0 6px rgba(255,211,74,.26) !important;
+
+    -webkit-backdrop-filter:
+        blur(13px) !important;
+
+    backdrop-filter:
+        blur(13px) !important;
+}
+
+
+/* Active item hover stays GOLD */
+.site-header .nav-links > a.active:hover,
+.site-header .nav-links > a[aria-current="page"]:hover {
+
+    color: #FFE071 !important;
+
+    border-color:
+        rgba(255,211,72,.86) !important;
+}
+
+
+/* ==========================================
+   REMOVE PREVIOUS SMALL DOTS / CIRCLES
+   ========================================== */
+
+.site-header .nav-links > a::before,
+.site-header .nav-links > a::after {
+
+    content: none !important;
+
+    display: none !important;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 1050px) {
+
+    .site-header .nav {
+
+        width: calc(100% - 28px) !important;
+
+        padding:
+            9px 12px !important;
+    }
+
+
+    .site-header .nav-links {
+
+        gap: 2px !important;
+    }
+
+
+    .site-header .nav-links > a {
+
+        padding:
+            9px 9px !important;
+
+        font-size:
+            .79rem !important;
+    }
+}
+
+
+/* MCX_V64_NAV_END */
