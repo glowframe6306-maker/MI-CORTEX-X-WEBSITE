@@ -12707,3 +12707,81 @@ document.addEventListener('DOMContentLoaded', function () {
 
 })();
  /* MCX_V91_FULL_CARD_CLICK_FIX_END */
+
+/* MCX_V92_BLANK_PAGE_FIX_START */
+/*
+  FIX ONLY blank content inside HOME / ABOUT / PRODUCTS / SERVICES /
+  PRICING / PREMIUM / CONTACT pages.
+  Existing navigation, blur, front-page behavior and styling are untouched.
+*/
+(function () {
+    "use strict";
+
+    function revealActivePageContent() {
+        var hash = (window.location.hash || "#/overview").replace(/^#\/?/, "");
+        var page = (hash.split("/")[0] || "overview").toLowerCase();
+
+        var activePage =
+            document.querySelector('[data-mcx-page="' + page + '"]') ||
+            document.querySelector(".mcx-main-page.active");
+
+        if (!activePage) return;
+
+        /*
+          These pages are rendered while hidden. Their existing .reveal
+          elements can therefore stay invisible even after the page opens.
+          Make only the CURRENT page's already-existing content visible.
+        */
+        activePage.querySelectorAll(".reveal").forEach(function (el) {
+            el.classList.add("is-visible");
+        });
+
+        /*
+          If this is the top-level page (not a category/detail route),
+          ensure its existing category/index host is visible.
+        */
+        var parts = hash.split("/").filter(Boolean);
+        if (parts.length <= 1) {
+            var index = activePage.querySelector(
+                '[data-mcx-category-index="' + page + '"]'
+            );
+
+            if (index) {
+                index.hidden = false;
+                index.classList.add("is-visible");
+            }
+
+            var detail = activePage.querySelector(
+                '[data-mcx-category-detail="' + page + '"]'
+            );
+
+            if (detail && !detail.innerHTML.trim()) {
+                detail.hidden = true;
+            }
+        }
+    }
+
+    function runAfterRoute() {
+        window.requestAnimationFrame(function () {
+            revealActivePageContent();
+
+            window.requestAnimationFrame(function () {
+                revealActivePageContent();
+            });
+        });
+    }
+
+    window.addEventListener("hashchange", runAfterRoute);
+    window.addEventListener("load", runAfterRoute);
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", runAfterRoute, { once: true });
+    } else {
+        runAfterRoute();
+    }
+
+    [100, 300, 700, 1200].forEach(function (ms) {
+        setTimeout(runAfterRoute, ms);
+    });
+})();
+/* MCX_V92_BLANK_PAGE_FIX_END */
