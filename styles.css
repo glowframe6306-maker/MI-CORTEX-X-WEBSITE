@@ -6024,239 +6024,160 @@ html.mcx-v61-after-welcome .mcx-main-directory-card {
 
 /* ===== END EXACT CENTER NAV FIX ===== */
 
-/* MCX_V65_PREMIUM_BUTTONS_START */
+/* MCX_V67_EXECUTIVE_NAV_START */
 
 /* =========================================================
-   PREMIUM NAV BUTTONS ONLY
-   Navigation position / logo / welcome page are untouched.
+   MI CORTEX X - EXECUTIVE GLASS NAVIGATION
    ========================================================= */
 
-
-/* ---------- NORMAL ITEM ---------- */
-
-.site-header .nav-links > a {
-
+.site-header {
     position: relative !important;
+    width: 100% !important;
 
-    display: inline-flex !important;
-    align-items: center !important;
+    padding: 16px 0 !important;
+
+    display: flex !important;
     justify-content: center !important;
+    align-items: center !important;
 
-    min-width: auto !important;
-    min-height: 0 !important;
+    background: transparent !important;
 
-    margin: 0 2px !important;
+    transform: none !important;
+}
 
-    padding: 9px 13px !important;
 
-    color: rgba(238,242,255,.78) !important;
+/* MAIN NAV GLASS PANEL */
 
-    font-size: .86rem !important;
-    font-weight: 720 !important;
-    letter-spacing: .012em !important;
+.site-header .nav {
+    width: min(1140px, calc(100% - 48px)) !important;
 
-    text-decoration: none !important;
+    min-height: 74px !important;
+
+    margin: 0 auto !important;
+
+    padding: 8px 18px !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    border-radius: 999px !important;
+
+    background:
+        linear-gradient(
+            110deg,
+            rgba(5, 18, 35, .76) 0%,
+            rgba(13, 31, 64, .70) 46%,
+            rgba(30, 19, 66, .69) 100%
+        ) !important;
+
+    border:
+        1px solid rgba(72, 175, 229, .42) !important;
+
+    -webkit-backdrop-filter:
+        blur(24px)
+        saturate(150%) !important;
+
+    backdrop-filter:
+        blur(24px)
+        saturate(150%) !important;
+
+    box-shadow:
+        0 16px 40px rgba(0,0,0,.26),
+        inset 0 1px 0 rgba(255,255,255,.08),
+        0 0 26px rgba(30,114,200,.07) !important;
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.site-header .brand {
+    display: flex !important;
+    align-items: center !important;
+
+    flex: 0 0 auto !important;
+
+    gap: 12px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: transparent !important;
+
+    border: none !important;
+    box-shadow: none !important;
+}
+
+
+/* LOGO */
+
+.site-header .brand-logo {
+    width: 58px !important;
+    height: 58px !important;
+
+    flex: 0 0 58px !important;
+
+    border-radius: 50% !important;
+
+    object-fit: cover !important;
+
+    box-shadow:
+        0 0 0 1px rgba(82,193,255,.30),
+        0 0 12px rgba(44,168,255,.16) !important;
+}
+
+
+/* MI CORTEX X */
+
+.site-header .brand > span {
+    color: #F3C94F !important;
+    -webkit-text-fill-color: #F3C94F !important;
+
+    font-size: 1.05rem !important;
+    font-weight: 900 !important;
+
+    letter-spacing: .035em !important;
+
     white-space: nowrap !important;
 
     background: transparent !important;
 
-    border: 1px solid transparent !important;
-    border-radius: 999px !important;
-
+    border: none !important;
     box-shadow: none !important;
-    text-shadow: none !important;
 
-    -webkit-backdrop-filter: none !important;
-    backdrop-filter: none !important;
+    padding: 0 !important;
 
-    transform: none !important;
-
-    transition:
-        color .20s ease,
-        background .20s ease,
-        border-color .20s ease,
-        box-shadow .20s ease,
-        transform .20s ease !important;
-}
-
-
-/* ---------- HOVER ---------- */
-
-.site-header .nav-links > a:hover:not(.active):not([aria-current="page"]) {
-
-    color: #FFFFFF !important;
-
-    background:
-        rgba(255,255,255,.035) !important;
-
-    border:
-        1px solid rgba(255,255,255,.48) !important;
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.08),
-        0 0 10px rgba(255,255,255,.045) !important;
-
-    -webkit-backdrop-filter:
-        blur(10px) saturate(130%) !important;
-
-    backdrop-filter:
-        blur(10px) saturate(130%) !important;
-
-    transform: translateY(-1px) !important;
-}
-
-
-/* ---------- SELECTED ITEM ---------- */
-
-.site-header .nav-links > a.active,
-.site-header .nav-links > a[aria-current="page"] {
-
-    color: #FFD85C !important;
-
-    font-weight: 820 !important;
-
-    padding:
-        9px 14px !important;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(255,210,72,.105) 0%,
-            rgba(164,107,8,.055) 100%
-        ) !important;
-
-    border:
-        1px solid rgba(238,182,47,.58) !important;
-
-    border-radius:
-        999px !important;
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,245,179,.11),
-        inset 0 -1px 0 rgba(111,67,0,.15),
-        0 0 10px rgba(218,157,28,.09) !important;
+    -webkit-text-stroke:
+        .55px rgba(0,0,0,.85) !important;
 
     text-shadow:
-        0 0 5px rgba(255,202,61,.20) !important;
-
-    -webkit-backdrop-filter:
-        blur(11px) saturate(135%) !important;
-
-    backdrop-filter:
-        blur(11px) saturate(135%) !important;
-
-    transform: none !important;
+        0 1px 1px rgba(0,0,0,.85),
+        0 0 7px rgba(243,201,79,.16) !important;
 }
 
-
-/* Selected item hover stays premium gold */
-
-.site-header .nav-links > a.active:hover,
-.site-header .nav-links > a[aria-current="page"]:hover {
-
-    color: #FFE27A !important;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(255,216,88,.14),
-            rgba(164,107,8,.07)
-        ) !important;
-
-    border-color:
-        rgba(255,202,62,.72) !important;
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,248,193,.14),
-        0 0 11px rgba(223,165,35,.12) !important;
-}
-
-
-/* ---------- REMOVE OLD DECORATIONS ---------- */
-
-.site-header .nav-links > a::before,
-.site-header .nav-links > a::after {
-
-    content: none !important;
-    display: none !important;
-}
-
-
-/* ---------- CLEAN SPACING ---------- */
-
-.site-header .nav-links {
-
-    gap: 3px !important;
-}
-
-
-/* ---------- MOBILE ---------- */
-
-@media (max-width: 1000px) {
-
-    .site-header .nav-links > a {
-
-        padding:
-            8px 10px !important;
-
-        margin:
-            0 1px !important;
-
-        font-size:
-            .79rem !important;
-    }
-
-}
-
-
-/* MCX_V65_PREMIUM_BUTTONS_END */
-
-/* MCX_V66_NAV_START */
 
 /* =========================================================
-   MI CORTEX X - CLEAN EXECUTIVE NAVIGATION
-   Brand stays LEFT.
-   Menu is NOT forced to the middle.
-   Welcome / curtain / content untouched.
+   MENU
    ========================================================= */
 
-
-/* ---------- MAIN MENU POSITION ---------- */
-
-.site-header .nav {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-}
-
-
-/* Brand stays on left */
-
-.site-header .brand {
-    flex: 0 0 auto !important;
-    margin: 0 !important;
-}
-
-
-/* Menu begins naturally after brand */
-
 .site-header .nav-links {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
+    margin-left: auto !important;
+    margin-right: 2px !important;
 
     width: auto !important;
 
-    margin-left: 34px !important;
-    margin-right: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
 
-    gap: 10px !important;
+    gap: 8px !important;
 
     transform: none !important;
 }
 
 
-/* ---------- NORMAL NAV ITEM ---------- */
+/* NORMAL BUTTON */
 
 .site-header .nav-links > a {
     position: relative !important;
@@ -6265,31 +6186,36 @@ html.mcx-v61-after-welcome .mcx-main-directory-card {
     align-items: center !important;
     justify-content: center !important;
 
-    min-width: 0 !important;
+    padding: 9px 12px !important;
 
-    padding: 10px 13px !important;
     margin: 0 !important;
 
-    color: rgba(240,244,255,.76) !important;
+    color:
+        rgba(232,237,249,.76) !important;
 
     font-family:
         "Inter",
         "Segoe UI",
         sans-serif !important;
 
-    font-size: .87rem !important;
+    font-size: .84rem !important;
     font-weight: 720 !important;
-    letter-spacing: .018em !important;
+
+    letter-spacing: .015em !important;
+
+    text-decoration: none !important;
 
     white-space: nowrap !important;
-    text-decoration: none !important;
 
     background: transparent !important;
 
-    border: 1px solid transparent !important;
-    border-radius: 12px !important;
+    border:
+        1px solid transparent !important;
+
+    border-radius: 999px !important;
 
     box-shadow: none !important;
+
     text-shadow: none !important;
 
     transform: none !important;
@@ -6303,7 +6229,9 @@ html.mcx-v61-after-welcome .mcx-main-directory-card {
 }
 
 
-/* ---------- HOVER ---------- */
+/* =========================================================
+   HOVER
+   ========================================================= */
 
 .site-header .nav-links > a:hover:not(.active):not([aria-current="page"]) {
     color: #FFFFFF !important;
@@ -6312,66 +6240,68 @@ html.mcx-v61-after-welcome .mcx-main-directory-card {
         rgba(255,255,255,.045) !important;
 
     border-color:
-        rgba(255,255,255,.20) !important;
+        rgba(255,255,255,.22) !important;
 
     box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.055),
-        0 4px 14px rgba(0,0,0,.10) !important;
+        inset 0 1px 0 rgba(255,255,255,.06),
+        0 4px 14px rgba(0,0,0,.11) !important;
 
     transform:
         translateY(-1px) !important;
 }
 
 
-/* ---------- ACTIVE / SELECTED ---------- */
+/* =========================================================
+   SELECTED
+   ========================================================= */
 
 .site-header .nav-links > a.active,
 .site-header .nav-links > a[aria-current="page"] {
-    color: #FFD65A !important;
+    color: #FFD75A !important;
 
-    font-weight: 820 !important;
+    font-weight: 830 !important;
 
     background:
         linear-gradient(
             180deg,
-            rgba(255,210,69,.10),
-            rgba(146,92,5,.045)
+            rgba(255,209,65,.105),
+            rgba(128,84,9,.055)
         ) !important;
 
     border:
-        1px solid rgba(235,178,42,.46) !important;
+        1px solid rgba(222,167,38,.50) !important;
 
     border-radius:
-        12px !important;
+        999px !important;
 
     box-shadow:
-        inset 0 1px 0 rgba(255,245,176,.09),
-        0 0 10px rgba(216,154,26,.07) !important;
+        inset 0 1px 0 rgba(255,242,164,.10),
+        0 0 9px rgba(211,149,27,.08) !important;
 
     text-shadow:
-        0 0 5px rgba(255,205,58,.16) !important;
+        0 0 5px rgba(255,203,53,.18) !important;
 }
 
 
-/* Active hover stays gold */
+/* Selected hover */
 
 .site-header .nav-links > a.active:hover,
 .site-header .nav-links > a[aria-current="page"]:hover {
-    color: #FFE17B !important;
+    color: #FFE27D !important;
 
     border-color:
-        rgba(245,191,51,.62) !important;
+        rgba(239,184,48,.66) !important;
 
     background:
         linear-gradient(
             180deg,
-            rgba(255,215,82,.13),
-            rgba(146,92,5,.06)
+            rgba(255,216,77,.13),
+            rgba(128,84,9,.065)
         ) !important;
 }
 
 
-/* ---------- REMOVE OLD DOTS / PILLS ---------- */
+/* REMOVE OLD DOTS */
 
 .site-header .nav-links > a::before,
 .site-header .nav-links > a::after {
@@ -6380,37 +6310,31 @@ html.mcx-v61-after-welcome .mcx-main-directory-card {
 }
 
 
-/* ---------- COMPANY NAME ---------- */
-
-.site-header .brand > span {
-    background: transparent !important;
-    border: none !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-
-    color: #FFD34D !important;
-    -webkit-text-fill-color: #FFD34D !important;
-
-    font-weight: 900 !important;
-
-    padding: 0 !important;
-}
-
-
-/* ---------- RESPONSIVE ---------- */
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
 
 @media (max-width: 1050px) {
 
+    .site-header .nav {
+        width: calc(100% - 28px) !important;
+
+        padding:
+            8px 12px !important;
+    }
+
     .site-header .nav-links {
-        margin-left: 18px !important;
-        gap: 4px !important;
+        gap: 3px !important;
     }
 
     .site-header .nav-links > a {
-        padding: 8px 9px !important;
-        font-size: .78rem !important;
+        padding:
+            8px 8px !important;
+
+        font-size:
+            .77rem !important;
     }
 }
 
 
-/* MCX_V66_NAV_END */
+/* MCX_V67_EXECUTIVE_NAV_END */
