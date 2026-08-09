@@ -12614,28 +12614,96 @@ document.addEventListener('DOMContentLoaded', function () {
 })();
  /* MCX_V89_DOUBLE_BLUR_ZOOM_END */
 
-/* MCX_V90_DIRECTORY_BUTTON_FIX_START */
-/* Fix ONLY the large HOME / ABOUT / PRODUCTS / SERVICES / PRICING / PREMIUM / CONTACT directory cards. */
+/* MCX_V91_FULL_CARD_CLICK_FIX_START */
+/*
+  Make the ENTIRE large directory card clickable.
+  HOME / ABOUT / PRODUCTS / SERVICES / PRICING / PREMIUM / CONTACT
+*/
+
 (function () {
     "use strict";
 
-    document.addEventListener("click", function (event) {
-        var card = event.target.closest(".mcx-main-directory-card[data-mcx-page-link]");
-        if (!card) return;
+    function resolvePage(card) {
+        var page =
+            card.getAttribute("data-mcx-page-link") ||
+            card.getAttribute("data-page") ||
+            card.getAttribute("data-target") ||
+            "";
 
-        event.preventDefault();
-        event.stopImmediatePropagation();
+        page = page.trim().toLowerCase();
 
-        var page = (card.getAttribute("data-mcx-page-link") || "").trim().toLowerCase();
+        if (!page) {
+            var title = card.querySelector(
+                ".mcx-main-directory-title, h2, h3, .title, .mcx-main-directory-copy"
+            );
+
+            if (title) {
+                var text = (title.textContent || "").trim().toLowerCase();
+
+                var known = [
+                    "home",
+                    "about",
+                    "products",
+                    "services",
+                    "pricing",
+                    "premium",
+                    "contact"
+                ];
+
+                for (var i = 0; i < known.length; i++) {
+                    if (text.indexOf(known[i]) !== -1) {
+                        page = known[i];
+                        break;
+                    }
+                }
+            }
+        }
+
+        return page;
+    }
+
+    function openPage(page) {
         if (!page) return;
 
-        var nextHash = "#" + page;
+        var hash = "#" + page;
 
-        if (window.location.hash === nextHash) {
+        if (window.location.hash === hash) {
             window.dispatchEvent(new HashChangeEvent("hashchange"));
         } else {
-            window.location.hash = nextHash;
+            window.location.hash = hash;
         }
-    }, true);
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+    document.addEventListener(
+        "click",
+        function (event) {
+            var card = event.target.closest(".mcx-main-directory-card");
+
+            if (!card) return;
+
+            var page = resolvePage(card);
+
+            if (!page) return;
+
+            event.preventDefault();
+            event.stopPropagation();
+
+            openPage(page);
+        },
+        true
+    );
+
+    /*
+      Improve affordance without changing existing visual design.
+    */
+    document.querySelectorAll(".mcx-main-directory-card").forEach(function (card) {
+        card.style.cursor = "pointer";
+    });
+
 })();
-/* MCX_V90_DIRECTORY_BUTTON_FIX_END */
+ /* MCX_V91_FULL_CARD_CLICK_FIX_END */
