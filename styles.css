@@ -5742,3 +5742,33 @@ body.mcx-v76-nav-ready .site-header .nav {
 }
 
 /* MCX_V76_ALWAYS_VISIBLE_NAV_END */
+
+/* MCX_V78_CENTER_NAV_ONLY_START */
+/*
+  ONLY centers the complete existing navigation bar.
+  No colors, blur, buttons, logo, welcome, scrolling, content,
+  spacing, animations, or other behavior are changed.
+*/
+
+.site-header {
+    left: 50vw !important;
+    right: auto !important;
+
+    width: min(1160px, calc(100vw - 48px)) !important;
+    max-width: 1160px !important;
+
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+
+    transform: translateX(-50%) !important;
+}
+
+.site-header .nav {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* MCX_V78_CENTER_NAV_ONLY_END */
