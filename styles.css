@@ -5783,3 +5783,29 @@ body.mcx-v76-nav-ready .site-header .nav {
 }
 
 /* MCX_V79_TRUE_CENTER_NAV_END */
+
+/* MCX_V80_TRUE_CENTER_NAV_START */
+
+/* ONLY center the complete existing navigation bar. */
+.site-header.mcx-v80-true-center {
+    left: 50% !important;
+    right: auto !important;
+
+    width: min(1160px, calc(100vw - 48px)) !important;
+    max-width: 1160px !important;
+
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+
+    transform: translateX(-50%) !important;
+}
+
+.site-header.mcx-v80-true-center .nav {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* MCX_V80_TRUE_CENTER_NAV_END */

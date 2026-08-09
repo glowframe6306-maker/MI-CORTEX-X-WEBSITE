@@ -1634,6 +1634,55 @@ html.mcx-real-front-page-visible #mcx-contact-hub-root.mcx-hub-fab-label {
 </script>
 <!-- MCX_V76_ALWAYS_VISIBLE_NAV_END -->
 
+
+<!-- MCX_V80_TRUE_CENTER_NAV_START -->
+<script>
+(function () {
+    "use strict";
+
+    function centerNavOnly() {
+        var header = document.querySelector(".site-header");
+        if (!header) return;
+
+        header.classList.add("mcx-v80-true-center");
+
+        /* Inline !important guarantees old navigation patches cannot push it right. */
+        header.style.setProperty("left", "50%", "important");
+        header.style.setProperty("right", "auto", "important");
+        header.style.setProperty("width", "min(1160px, calc(100vw - 48px))", "important");
+        header.style.setProperty("max-width", "1160px", "important");
+        header.style.setProperty("margin-left", "0", "important");
+        header.style.setProperty("margin-right", "0", "important");
+        header.style.setProperty("transform", "translateX(-50%)", "important");
+
+        var nav = header.querySelector(".nav");
+        if (nav) {
+            nav.style.setProperty("width", "100%", "important");
+            nav.style.setProperty("max-width", "100%", "important");
+            nav.style.setProperty("margin-left", "0", "important");
+            nav.style.setProperty("margin-right", "0", "important");
+        }
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", centerNavOnly, { once: true });
+    } else {
+        centerNavOnly();
+    }
+
+    window.addEventListener("load", centerNavOnly);
+    window.addEventListener("resize", centerNavOnly);
+
+    /* Re-apply after the existing welcome/navigation scripts finish. */
+    setTimeout(centerNavOnly, 500);
+    setTimeout(centerNavOnly, 1500);
+    setTimeout(centerNavOnly, 3500);
+    setTimeout(centerNavOnly, 7000);
+    setTimeout(centerNavOnly, 12000);
+})();
+</script>
+<!-- MCX_V80_TRUE_CENTER_NAV_END -->
+
 </body>
 </html>
 
