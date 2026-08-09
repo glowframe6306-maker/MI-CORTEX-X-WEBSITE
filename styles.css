@@ -5352,3 +5352,268 @@ html.mcx-v61-after-welcome .mcx-main-directory-card {
 }
 
 /* MCX_V62B_END */
+
+/* MCX_V63_CENTER_GLASS_NAV_START */
+
+/* =========================================================
+   MI CORTEX X - CENTERED GLASS NAVIGATION
+   Welcome / curtain / neural intro are NOT modified.
+   ========================================================= */
+
+/* Header scrolls normally with the page */
+.site-header {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+
+    width: 100% !important;
+
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+    padding: 16px 0 !important;
+
+    transform: none !important;
+}
+
+
+/* Actual navigation bar - EXACTLY centered */
+.site-header .nav {
+    position: relative !important;
+
+    left: auto !important;
+    right: auto !important;
+
+    width: min(1180px, calc(100% - 64px)) !important;
+    max-width: 1180px !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    padding: 9px 17px !important;
+
+    min-height: 72px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    border-radius: 999px !important;
+
+    background:
+        linear-gradient(
+            115deg,
+            rgba(4, 24, 44, .62) 0%,
+            rgba(19, 49, 105, .55) 48%,
+            rgba(50, 27, 119, .56) 100%
+        ) !important;
+
+    border:
+        1px solid rgba(83, 197, 255, .46) !important;
+
+    -webkit-backdrop-filter:
+        blur(28px)
+        saturate(175%) !important;
+
+    backdrop-filter:
+        blur(28px)
+        saturate(175%) !important;
+
+    box-shadow:
+        0 14px 42px rgba(0,0,0,.30),
+        inset 0 1px 0 rgba(255,255,255,.10),
+        0 0 20px rgba(47,157,255,.09) !important;
+
+    transform: none !important;
+}
+
+
+/* Logo / company section */
+.site-header .brand {
+    flex: 0 0 auto !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    margin: 0 !important;
+
+    gap: 12px !important;
+}
+
+
+/* Logo */
+.site-header .brand-logo {
+    width: 58px !important;
+    height: 58px !important;
+
+    flex: 0 0 58px !important;
+
+    border-radius: 50% !important;
+
+    object-fit: cover !important;
+
+    box-shadow:
+        0 0 0 1px rgba(92,214,255,.40),
+        0 0 12px rgba(45,185,255,.28) !important;
+}
+
+
+/* MI CORTEX X */
+.site-header .brand > span {
+    color: #FFD34A !important;
+    -webkit-text-fill-color: #FFD34A !important;
+
+    font-weight: 900 !important;
+    font-size: 1.08rem !important;
+
+    letter-spacing: .025em !important;
+
+    -webkit-text-stroke:
+        .7px rgba(0,0,0,.95) !important;
+
+    paint-order: stroke fill !important;
+
+    text-shadow:
+        0 1px 1px #000,
+        0 0 7px rgba(255,211,74,.26) !important;
+
+    white-space: nowrap !important;
+}
+
+
+/* Menu remains inside the centered navigation */
+.site-header .nav-links {
+    position: relative !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+
+    flex: 0 1 auto !important;
+
+    width: auto !important;
+
+    margin-left: auto !important;
+    margin-right: 0 !important;
+
+    gap: 5px !important;
+
+    transform: none !important;
+}
+
+
+/* Every navigation item gets a subtle glass effect */
+.site-header .nav-links > a {
+    position: relative !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 10px 13px !important;
+
+    margin: 0 !important;
+
+    border-radius: 999px !important;
+
+    color: rgba(238,243,255,.80) !important;
+
+    font-weight: 700 !important;
+    font-size: .89rem !important;
+
+    text-decoration: none !important;
+
+    border:
+        1px solid rgba(255,255,255,.035) !important;
+
+    background:
+        rgba(255,255,255,.018) !important;
+
+    -webkit-backdrop-filter:
+        blur(13px)
+        saturate(140%) !important;
+
+    backdrop-filter:
+        blur(13px)
+        saturate(140%) !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.025) !important;
+
+    transition:
+        color .22s ease,
+        background .22s ease,
+        border-color .22s ease,
+        box-shadow .22s ease !important;
+
+    white-space: nowrap !important;
+}
+
+
+/* Hover */
+.site-header .nav-links > a:hover {
+    color: #FFFFFF !important;
+
+    background:
+        rgba(255,255,255,.060) !important;
+
+    border-color:
+        rgba(110,210,255,.16) !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.06),
+        0 0 11px rgba(52,168,255,.08) !important;
+}
+
+
+/* Selected option */
+.site-header .nav-links > a.active,
+.site-header .nav-links > a[aria-current="page"] {
+    color: #FFE070 !important;
+
+    font-weight: 850 !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,211,72,.15),
+            rgba(142,94,9,.08)
+        ) !important;
+
+    border:
+        1px solid rgba(255,207,67,.54) !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,244,179,.16),
+        0 0 13px rgba(255,197,39,.13) !important;
+
+    text-shadow:
+        0 0 6px rgba(255,211,79,.25) !important;
+}
+
+
+/* Tablet */
+@media (max-width: 1050px) {
+
+    .site-header .nav {
+        width: calc(100% - 32px) !important;
+
+        padding-left: 13px !important;
+        padding-right: 13px !important;
+    }
+
+    .site-header .nav-links {
+        gap: 2px !important;
+    }
+
+    .site-header .nav-links > a {
+        padding: 9px 10px !important;
+
+        font-size: .80rem !important;
+    }
+}
+
+
+/* MCX_V63_CENTER_GLASS_NAV_END */
