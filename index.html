@@ -1527,6 +1527,113 @@ html.mcx-real-front-page-visible #mcx-contact-hub-root.mcx-hub-fab-label {
 </script>
 <!-- MCX_V64_NAV_END -->
 
+
+<!-- MCX_V76_ALWAYS_VISIBLE_NAV_START -->
+<script>
+(function () {
+    "use strict";
+
+    function makeNavViewportFixed() {
+        var header = document.querySelector(".site-header");
+        if (!header) return false;
+
+        /*
+          A fixed element scrolls with a page when one of its ancestors has
+          transform/filter/perspective. Move the existing header directly
+          under BODY so fixed positioning is truly relative to the viewport.
+        */
+        if (header.parentElement !== document.body) {
+            document.body.appendChild(header);
+        }
+
+        document.body.classList.add("mcx-v76-nav-ready");
+
+        header.style.removeProperty("top");
+        header.style.removeProperty("left");
+        header.style.removeProperty("right");
+        header.style.removeProperty("bottom");
+        header.style.removeProperty("transform");
+
+        return true;
+    }
+
+    function welcomeFinished() {
+        var neural = document.getElementById("mi-neural-intro");
+        var welcome = document.getElementById("welcome-screen");
+
+        if (neural && neural.classList.contains("mcx-v52-done")) {
+            return true;
+        }
+
+        if (welcome) {
+            var cs = window.getComputedStyle(welcome);
+            if (
+                welcome.hidden ||
+                welcome.classList.contains("mcx-v52-hidden") ||
+                cs.display === "none" ||
+                cs.visibility === "hidden" ||
+                parseFloat(cs.opacity || "1") < 0.05
+            ) {
+                return true;
+            }
+            return false;
+        }
+
+        return true;
+    }
+
+    function start() {
+        if (welcomeFinished()) {
+            makeNavViewportFixed();
+            return;
+        }
+
+        var neural = document.getElementById("mi-neural-intro");
+        var welcome = document.getElementById("welcome-screen");
+
+        var observer = new MutationObserver(function () {
+            if (welcomeFinished()) {
+                observer.disconnect();
+                makeNavViewportFixed();
+            }
+        });
+
+        if (neural) {
+            observer.observe(neural, {
+                attributes: true,
+                attributeFilter: ["class", "style", "hidden"]
+            });
+        }
+
+        if (welcome) {
+            observer.observe(welcome, {
+                attributes: true,
+                attributeFilter: ["class", "style", "hidden"]
+            });
+        }
+
+        var count = 0;
+        var timer = setInterval(function () {
+            count++;
+            if (welcomeFinished()) {
+                clearInterval(timer);
+                observer.disconnect();
+                makeNavViewportFixed();
+            } else if (count > 160) {
+                clearInterval(timer);
+            }
+        }, 250);
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", start, { once: true });
+    } else {
+        start();
+    }
+})();
+</script>
+<!-- MCX_V76_ALWAYS_VISIBLE_NAV_END -->
+
 </body>
 </html>
 
