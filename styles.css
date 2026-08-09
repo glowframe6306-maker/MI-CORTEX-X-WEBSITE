@@ -5743,32 +5743,43 @@ body.mcx-v76-nav-ready .site-header .nav {
 
 /* MCX_V76_ALWAYS_VISIBLE_NAV_END */
 
-/* MCX_V78_CENTER_NAV_ONLY_START */
+/* MCX_V79_TRUE_CENTER_NAV_START */
+
 /*
-  ONLY centers the complete existing navigation bar.
-  No colors, blur, buttons, logo, welcome, scrolling, content,
-  spacing, animations, or other behavior are changed.
+   ONLY centers the COMPLETE navigation bar.
+   Nothing else is changed.
 */
 
 .site-header {
-    left: 50vw !important;
-    right: auto !important;
+    left: 0 !important;
+    right: 0 !important;
+
+    width: 100vw !important;
+    max-width: none !important;
+
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+
+    transform: none !important;
+
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.site-header .nav {
+    position: relative !important;
 
     width: min(1160px, calc(100vw - 48px)) !important;
     max-width: 1160px !important;
 
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
 
-    transform: translateX(-50%) !important;
+    left: auto !important;
+    right: auto !important;
+
+    transform: none !important;
 }
 
-.site-header .nav {
-    width: 100% !important;
-    max-width: 100% !important;
-
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-}
-
-/* MCX_V78_CENTER_NAV_ONLY_END */
+/* MCX_V79_TRUE_CENTER_NAV_END */
