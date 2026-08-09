@@ -5658,21 +5658,27 @@ html.mcx-v61-after-welcome .mcx-main-directory-card {
 
 /* MCX_V73_CENTERED_NAV_END */
 
-/* MCX_V77_CENTERED_MAX_BLUR_START */
+/* MCX_V76_ALWAYS_VISIBLE_NAV_START */
 /*
-  Final centered, always-visible navigation with very strong blur.
-  Welcome / curtain / neural intro / page content untouched.
+  TRUE viewport-fixed navigation.
+  Header is re-parented to BODY after welcome, preventing transformed
+  ancestors from making position:fixed scroll with the page.
 */
 
-.site-header {
+body.mcx-v76-nav-ready {
+    padding-top: 0 !important;
+}
+
+body.mcx-v76-nav-ready .site-header {
     position: fixed !important;
-    top: 14px !important;
+    top: 12px !important;
     left: 50% !important;
     right: auto !important;
     bottom: auto !important;
 
     width: min(1160px, calc(100vw - 48px)) !important;
     max-width: 1160px !important;
+    height: auto !important;
 
     margin: 0 !important;
     padding: 0 !important;
@@ -5681,166 +5687,58 @@ html.mcx-v61-after-welcome .mcx-main-directory-card {
 
     z-index: 2147483000 !important;
 
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-
     overflow: visible !important;
     pointer-events: none !important;
+
     background: transparent !important;
 }
 
-/* Entire rounded nav sits exactly centered in the viewport. */
-.site-header .nav {
+body.mcx-v76-nav-ready .site-header .nav {
     width: 100% !important;
     max-width: 100% !important;
-    min-height: 86px !important;
 
     margin: 0 !important;
-    padding: 10px 18px !important;
-
-    display: grid !important;
-    grid-template-columns: 280px minmax(0, 1fr) !important;
-    align-items: center !important;
-
-    box-sizing: border-box !important;
-    overflow: visible !important;
 
     pointer-events: auto !important;
-
-    border-radius: 999px !important;
+    overflow: visible !important;
 
     background:
         linear-gradient(
             110deg,
-            rgba(3, 12, 24, .44) 0%,
-            rgba(10, 28, 64, .40) 50%,
-            rgba(28, 10, 74, .38) 100%
+            rgba(4, 20, 38, .70) 0%,
+            rgba(15, 44, 98, .66) 50%,
+            rgba(43, 20, 112, .64) 100%
         ) !important;
 
-    border: 1px solid rgba(97, 203, 255, .42) !important;
+    border: 1px solid rgba(86, 196, 255, .50) !important;
 
     -webkit-backdrop-filter:
-        blur(52px)
-        saturate(190%)
-        brightness(.86)
-        contrast(1.06) !important;
+        blur(30px)
+        saturate(180%) !important;
 
     backdrop-filter:
-        blur(52px)
-        saturate(190%)
-        brightness(.86)
-        contrast(1.06) !important;
+        blur(30px)
+        saturate(180%) !important;
 
     box-shadow:
-        0 18px 48px rgba(0,0,0,.40),
+        0 16px 42px rgba(0,0,0,.36),
         inset 0 1px 0 rgba(255,255,255,.11),
-        inset 0 -1px 0 rgba(255,255,255,.025),
-        0 0 28px rgba(44,151,255,.08) !important;
+        0 0 24px rgba(44,151,255,.08) !important;
 }
 
-/* Stronger frosted layer to maximize the blur feel. */
-.site-header .nav::before {
-    content: "" !important;
-    position: absolute !important;
-    inset: 0 !important;
-    border-radius: inherit !important;
-    pointer-events: none !important;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(255,255,255,.055),
-            rgba(255,255,255,.015) 38%,
-            rgba(0,0,0,.04) 100%
-        ) !important;
-
-    -webkit-backdrop-filter: blur(20px) !important;
-    backdrop-filter: blur(20px) !important;
-
-    opacity: .95 !important;
-}
-
-/* Keep nav content above the frosted overlay. */
-.site-header .brand,
-.site-header .nav-links {
+/* Ensure page content scrolls behind the fixed glass nav. */
+body.mcx-v76-nav-ready main,
+body.mcx-v76-nav-ready #main-content,
+body.mcx-v76-nav-ready .site-content,
+body.mcx-v76-nav-ready .page-content {
     position: relative !important;
-    z-index: 2 !important;
+    z-index: 1 !important;
 }
 
-/* Brand stays left inside the centered bar. */
-.site-header .brand {
-    min-width: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-
-    gap: 12px !important;
-    transform: none !important;
+/* Never let old transforms or scroll animation move the fixed header. */
+body.mcx-v76-nav-ready .site-header,
+body.mcx-v76-nav-ready .site-header .nav {
+    animation: none !important;
 }
 
-/* Menu stays neatly inside the centered bar. */
-.site-header .nav-links {
-    width: 100% !important;
-    min-width: 0 !important;
-    max-width: 100% !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-
-    gap: 6px !important;
-
-    overflow: visible !important;
-    transform: none !important;
-}
-
-/* Keep all nav buttons aligned and fully visible. */
-.site-header .nav-links > a {
-    height: 42px !important;
-    min-height: 42px !important;
-
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    margin: 0 !important;
-    padding: 0 12px !important;
-
-    line-height: 1 !important;
-    white-space: nowrap !important;
-
-    overflow: visible !important;
-    transform: none !important;
-}
-
-/* Laptop fallback */
-@media (max-width: 1180px) {
-    .site-header {
-        width: calc(100vw - 32px) !important;
-    }
-
-    .site-header .nav {
-        grid-template-columns: 255px minmax(0, 1fr) !important;
-        padding-left: 14px !important;
-        padding-right: 14px !important;
-    }
-
-    .site-header .nav-links {
-        gap: 2px !important;
-    }
-
-    .site-header .nav-links > a {
-        padding-left: 8px !important;
-        padding-right: 8px !important;
-        font-size: .76rem !important;
-    }
-}
-
-/* MCX_V77_CENTERED_MAX_BLUR_END */
+/* MCX_V76_ALWAYS_VISIBLE_NAV_END */
