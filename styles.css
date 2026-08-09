@@ -5207,3 +5207,62 @@ body {
 }
 
 /* MCX_V58_NAV_ONLY_END */
+
+/* MCX_V60_POST_WELCOME_UI_START */
+/* Post-welcome recovery only. Welcome/curtain/neural selectors are intentionally untouched. */
+
+html.mcx-post-welcome-ready,
+html.mcx-post-welcome-ready body {
+    height: auto !important;
+    min-height: 100% !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+}
+
+html.mcx-post-welcome-ready .site-header,
+html.mcx-post-welcome-ready header,
+html.mcx-post-welcome-ready nav,
+html.mcx-post-welcome-ready .navbar,
+html.mcx-post-welcome-ready .nav-container,
+html.mcx-post-welcome-ready .main-nav,
+html.mcx-post-welcome-ready .nav-links,
+html.mcx-post-welcome-ready main,
+html.mcx-post-welcome-ready #main-content,
+html.mcx-post-welcome-ready .site-content,
+html.mcx-post-welcome-ready .page-content,
+html.mcx-post-welcome-ready .front-page,
+html.mcx-post-welcome-ready .hero,
+html.mcx-post-welcome-ready .hero-section,
+html.mcx-post-welcome-ready .categories,
+html.mcx-post-welcome-ready .category-list,
+html.mcx-post-welcome-ready .category-grid,
+html.mcx-post-welcome-ready .category-section,
+html.mcx-post-welcome-ready .main-categories,
+html.mcx-post-welcome-ready .category-container,
+html.mcx-post-welcome-ready .categories-grid,
+html.mcx-post-welcome-ready .directory-grid,
+html.mcx-post-welcome-ready .topic-grid,
+html.mcx-post-welcome-ready .card-grid {
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+html.mcx-post-welcome-ready .site-header,
+html.mcx-post-welcome-ready header,
+html.mcx-post-welcome-ready nav,
+html.mcx-post-welcome-ready main,
+html.mcx-post-welcome-ready #main-content,
+html.mcx-post-welcome-ready .site-content,
+html.mcx-post-welcome-ready .page-content,
+html.mcx-post-welcome-ready .front-page,
+html.mcx-post-welcome-ready .hero,
+html.mcx-post-welcome-ready .hero-section,
+html.mcx-post-welcome-ready .categories,
+html.mcx-post-welcome-ready .category-list,
+html.mcx-post-welcome-ready .category-grid,
+html.mcx-post-welcome-ready .category-section {
+    transform: none !important;
+}
+
+/* MCX_V60_POST_WELCOME_UI_END */

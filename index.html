@@ -1242,6 +1242,83 @@ html.mcx-real-front-page-visible #mcx-contact-hub-root.mcx-hub-fab-label {
 <!-- MCX_AI_DIRECT_OPEN_FIX_START -->
 <script src="./mcx-ai-direct-open-fix.js" defer></script>
 <!-- MCX_AI_DIRECT_OPEN_FIX_END -->
+
+<!-- MCX_V60_POST_WELCOME_UI_START -->
+<script>
+(function(){
+  function unlockPostWelcome(){
+    var welcome=document.getElementById("welcome-screen");
+    if(!welcome) return;
+
+    var cs=getComputedStyle(welcome);
+    var finished =
+      welcome.classList.contains("mcx-v52-hidden") ||
+      welcome.classList.contains("hidden") ||
+      welcome.hidden ||
+      cs.display==="none" ||
+      cs.visibility==="hidden" ||
+      parseFloat(cs.opacity||"1") < 0.05;
+
+    if(!finished) return;
+
+    document.documentElement.classList.add("mcx-post-welcome-ready");
+    document.body.classList.remove("intro-active");
+
+    document.documentElement.style.removeProperty("overflow");
+    document.documentElement.style.removeProperty("height");
+    document.body.style.removeProperty("overflow");
+    document.body.style.removeProperty("height");
+
+    var selectors=[
+      ".site-header","header","nav",".navbar",".nav-container",".main-nav",".nav-links",
+      "main","#main-content",".site-content",".page-content",".front-page",
+      ".hero",".hero-section",".categories",".category-list",".category-grid",
+      ".category-section",".main-categories",".category-container",".categories-grid",
+      ".directory-grid",".topic-grid",".card-grid"
+    ];
+
+    selectors.forEach(function(s){
+      document.querySelectorAll(s).forEach(function(el){
+        ["display","visibility","opacity","transform","pointer-events"].forEach(function(p){
+          el.style.removeProperty(p);
+        });
+        el.removeAttribute("hidden");
+        if(el.getAttribute("aria-hidden")==="true") el.removeAttribute("aria-hidden");
+      });
+    });
+  }
+
+  function watch(){
+    var welcome=document.getElementById("welcome-screen");
+    if(!welcome) return;
+
+    unlockPostWelcome();
+
+    var observer=new MutationObserver(unlockPostWelcome);
+    observer.observe(welcome,{
+      attributes:true,
+      attributeFilter:["class","style","hidden","aria-hidden"]
+    });
+
+    var tries=0;
+    var timer=setInterval(function(){
+      unlockPostWelcome();
+      tries++;
+      if(document.documentElement.classList.contains("mcx-post-welcome-ready") || tries>80){
+        clearInterval(timer);
+      }
+    },250);
+  }
+
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded",watch,{once:true});
+  } else {
+    watch();
+  }
+})();
+</script>
+<!-- MCX_V60_POST_WELCOME_UI_END -->
+
 </body>
 </html>
 
