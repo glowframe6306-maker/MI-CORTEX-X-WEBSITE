@@ -1786,6 +1786,95 @@ html.mcx-real-front-page-visible #mcx-contact-hub-root.mcx-hub-fab-label {
 </script>
 <!-- MCX_V87_FRONT_NAV_ABSOLUTE_HIDE_END -->
 
+
+<!-- MCX_V88_FRONT_NAV_HIDE_START -->
+<script>
+(function () {
+    "use strict";
+
+    var ticking = false;
+
+    function onFrontPage() {
+        var y = Math.max(
+            window.pageYOffset ||
+            document.documentElement.scrollTop ||
+            document.body.scrollTop ||
+            0,
+            0
+        );
+
+        var vh = window.innerHeight ||
+                 document.documentElement.clientHeight ||
+                 800;
+
+        /*
+          Front page is the first full-screen visual.
+          Keep navigation hidden until that screen is essentially gone.
+        */
+        return y < (vh * 0.92);
+    }
+
+    function applyNavVisibility() {
+        var front = onFrontPage();
+
+        document.documentElement.classList.toggle("mcx-v88-front-page", front);
+
+        if (document.body) {
+            document.body.classList.toggle("mcx-v88-front-page", front);
+        }
+
+        /*
+          Directly force every existing nav header hidden on the front page.
+          Remove ONLY this inline display rule after entering main content.
+        */
+        document.querySelectorAll(".site-header").forEach(function (header) {
+            if (front) {
+                header.style.setProperty("display", "none", "important");
+            } else {
+                header.style.removeProperty("display");
+            }
+        });
+
+        ticking = false;
+    }
+
+    function schedule() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(applyNavVisibility);
+    }
+
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", applyNavVisibility, { once: true });
+    } else {
+        applyNavVisibility();
+    }
+
+    window.addEventListener("load", applyNavVisibility);
+
+    /*
+      Existing website scripts may modify/recreate the nav later.
+      Keep enforcing ONLY the visibility rule.
+    */
+    [100,300,700,1200,2000,3500,6000,9000,12000].forEach(function (ms) {
+        setTimeout(applyNavVisibility, ms);
+    });
+
+    var observer = new MutationObserver(function () {
+        if (onFrontPage()) schedule();
+    });
+
+    observer.observe(document.documentElement, {
+        childList: true,
+        subtree: true
+    });
+})();
+</script>
+<!-- MCX_V88_FRONT_NAV_HIDE_END -->
+
 </body>
 </html>
 

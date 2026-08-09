@@ -5890,3 +5890,13 @@ body.mcx-v87-main-page .site-header {
 }
 
 /* MCX_V87_FRONT_NAV_ABSOLUTE_HIDE_END */
+
+/* MCX_V88_FRONT_NAV_HIDE_START */
+/* Visibility behavior ONLY. No other navigation styling is changed. */
+
+html.mcx-v88-front-page .site-header,
+body.mcx-v88-front-page .site-header {
+    display: none !important;
+}
+
+/* MCX_V88_FRONT_NAV_HIDE_END */
