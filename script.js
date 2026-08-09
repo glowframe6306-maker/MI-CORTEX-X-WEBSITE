@@ -12551,3 +12551,65 @@ document.addEventListener('DOMContentLoaded', function () {
     setTimeout(updateNav, 6000);
 })();
  /* MCX_V86_EXACT_FRONT_NAV_HIDE_END */
+
+/* MCX_V89_DOUBLE_BLUR_ZOOM_START */
+(function () {
+    "use strict";
+
+    var ticking = false;
+
+    function applyV89Effect() {
+        var header = document.querySelector(".site-header");
+        if (!header) return;
+
+        header.classList.add("mcx-v89-effect");
+
+        var nav = header.querySelector(".nav");
+        if (!nav) return;
+
+        /*
+          MUCH MORE SENSITIVE:
+          Current-style threshold reduced to only 4px.
+          A tiny scroll reaches the full effect.
+        */
+        var y = Math.max(window.scrollY || 0, 0);
+        var progress = Math.min(y / 4, 1);
+
+        /*
+          About 2x stronger than V82:
+          Zoom max : 1.36x
+          Blur max : 232px
+        */
+        var scale = 1 + (0.36 * progress);
+        var blur  = 90 + (142 * progress);
+        var glow  = 0.22 + (0.28 * progress);
+
+        nav.style.setProperty("--mcx-v89-scale", scale.toFixed(4));
+        nav.style.setProperty("--mcx-v89-blur", blur.toFixed(1) + "px");
+        nav.style.setProperty("--mcx-v89-glow", glow.toFixed(3));
+
+        ticking = false;
+    }
+
+    function requestEffect() {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(applyV89Effect);
+    }
+
+    window.addEventListener("scroll", requestEffect, { passive: true });
+    window.addEventListener("resize", requestEffect);
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", applyV89Effect, { once: true });
+    } else {
+        applyV89Effect();
+    }
+
+    window.addEventListener("load", applyV89Effect);
+
+    setTimeout(applyV89Effect, 250);
+    setTimeout(applyV89Effect, 700);
+    setTimeout(applyV89Effect, 1500);
+})();
+ /* MCX_V89_DOUBLE_BLUR_ZOOM_END */
