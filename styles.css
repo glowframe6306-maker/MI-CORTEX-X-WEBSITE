@@ -5850,3 +5850,25 @@ body.mcx-v76-nav-ready .site-header .nav {
 }
 
 /* MCX_V82_ULTRA_BLUR_ZOOM_END */
+
+/* MCX_V83_FRONT_NAV_AUTO_HIDE_START */
+/*
+  ONLY controls visibility of the existing navigation.
+  Front page = hidden.
+  Main website = visible.
+  No layout, color, blur, button, welcome or content changes.
+*/
+
+.site-header.mcx-v83-front-hidden {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+.site-header.mcx-v83-main-visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+/* MCX_V83_FRONT_NAV_AUTO_HIDE_END */

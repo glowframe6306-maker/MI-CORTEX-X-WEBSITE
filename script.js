@@ -12479,3 +12479,94 @@ document.addEventListener('DOMContentLoaded', function () {
     setTimeout(applyUltraBlurZoom, 1800);
 })();
  /* MCX_V82_ULTRA_BLUR_ZOOM_END */
+
+/* MCX_V83_FRONT_NAV_AUTO_HIDE_START */
+(function () {
+    "use strict";
+
+    var ticking = false;
+
+    function getHeader() {
+        return document.querySelector(".site-header");
+    }
+
+    function getFrontPage() {
+        var selectors = [
+            "#front-page",
+            ".front-page",
+            ".frontpage",
+            ".hero-front-page",
+            ".front-page-section",
+            ".home-hero",
+            ".hero-section",
+            ".hero"
+        ];
+
+        for (var i = 0; i < selectors.length; i++) {
+            var el = document.querySelector(selectors[i]);
+            if (el) return el;
+        }
+
+        return null;
+    }
+
+    function setHidden(hidden) {
+        var header = getHeader();
+        if (!header) return;
+
+        header.classList.toggle("mcx-v83-front-hidden", hidden);
+        header.classList.toggle("mcx-v83-main-visible", !hidden);
+    }
+
+    function updateNavVisibility() {
+        var header = getHeader();
+        if (!header) {
+            ticking = false;
+            return;
+        }
+
+        var front = getFrontPage();
+        var hide = false;
+
+        if (front) {
+            var rect = front.getBoundingClientRect();
+            var viewportH = window.innerHeight || document.documentElement.clientHeight;
+
+            /*
+              Hide while the front page still occupies the main viewport.
+              As soon as the user scrolls into the main website, show nav.
+            */
+            hide = rect.bottom > Math.min(viewportH * 0.58, 520);
+        } else {
+            /*
+              Fallback for current full-screen front page:
+              hide only near the top, then show automatically after entering main content.
+            */
+            hide = (window.scrollY || 0) < Math.max(180, window.innerHeight * 0.52);
+        }
+
+        setHidden(hide);
+        ticking = false;
+    }
+
+    function requestUpdate() {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(updateNavVisibility);
+    }
+
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+    window.addEventListener("hashchange", requestUpdate);
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", updateNavVisibility, { once: true });
+    } else {
+        updateNavVisibility();
+    }
+
+    window.addEventListener("load", updateNavVisibility);
+    setTimeout(updateNavVisibility, 400);
+    setTimeout(updateNavVisibility, 1200);
+})();
+ /* MCX_V83_FRONT_NAV_AUTO_HIDE_END */
