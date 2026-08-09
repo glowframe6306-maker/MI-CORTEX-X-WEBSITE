@@ -12480,98 +12480,65 @@ document.addEventListener('DOMContentLoaded', function () {
 })();
  /* MCX_V82_ULTRA_BLUR_ZOOM_END */
 
-/* MCX_V84_FRONT_NAV_EXACT_START */
+/* MCX_V85_FRONT_NAV_HARD_FIX_START */
 (function () {
     "use strict";
 
-    var ticking = false;
+    var rafPending = false;
 
-    function setNavState(show) {
+    function updateFrontPageNav() {
         var header = document.querySelector(".site-header");
-        if (!header) return;
-
-        header.classList.toggle("mcx-v84-front-hidden", !show);
-        header.classList.toggle("mcx-v84-main-visible", show);
-    }
-
-    function getFrontPageBoundary() {
-        /*
-          Current site front page is the first full-screen visual section.
-          Use a named front-page/hero element when available.
-        */
-        var candidates = [
-            document.querySelector("#front-page"),
-            document.querySelector(".front-page"),
-            document.querySelector(".frontpage"),
-            document.querySelector(".front-page-banner"),
-            document.querySelector(".hero-front-page"),
-            document.querySelector(".home-hero"),
-            document.querySelector(".hero-section"),
-            document.querySelector(".hero")
-        ];
-
-        for (var i = 0; i < candidates.length; i++) {
-            var el = candidates[i];
-            if (!el) continue;
-
-            var rect = el.getBoundingClientRect();
-            var pageTop = rect.top + (window.scrollY || 0);
-            var height = Math.max(rect.height, window.innerHeight || 0);
-
-            /*
-              Show nav only after almost all of the front page has passed.
-            */
-            return pageTop + (height * 0.88);
+        if (!header) {
+            rafPending = false;
+            return;
         }
 
-        /*
-          Exact fallback for a one-screen front page:
-          hidden for the first 88% of one viewport.
-        */
-        return (window.innerHeight || 800) * 0.88;
-    }
+        var y = window.pageYOffset ||
+                document.documentElement.scrollTop ||
+                document.body.scrollTop ||
+                0;
 
-    function updateNavVisibility() {
-        var scrollY = Math.max(
-            window.scrollY || document.documentElement.scrollTop || 0,
-            0
+        /*
+          The current front page is a full-screen opening section.
+          Keep navigation hidden for the full first viewport.
+          Show it only once the user has clearly entered the main website.
+        */
+        var frontPageEnd = Math.max(
+            520,
+            (window.innerHeight || document.documentElement.clientHeight || 800) * 0.92
         );
 
-        var boundary = getFrontPageBoundary();
+        var onFrontPage = y < frontPageEnd;
 
-        /*
-          FRONT PAGE       => HIDDEN
-          MAIN/HOME PAGE   => VISIBLE
-          BACK TO FRONT    => HIDDEN AGAIN
-        */
-        setNavState(scrollY >= boundary);
+        header.classList.toggle("mcx-v85-hide-nav", onFrontPage);
+        header.classList.toggle("mcx-v85-show-nav", !onFrontPage);
 
-        ticking = false;
+        rafPending = false;
     }
 
-    function requestUpdate() {
-        if (ticking) return;
-        ticking = true;
-        window.requestAnimationFrame(updateNavVisibility);
+    function scheduleUpdate() {
+        if (rafPending) return;
+        rafPending = true;
+        requestAnimationFrame(updateFrontPageNav);
     }
 
-    window.addEventListener("scroll", requestUpdate, { passive: true });
-    window.addEventListener("resize", requestUpdate);
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", scheduleUpdate);
+    window.addEventListener("hashchange", scheduleUpdate);
 
     if (document.readyState === "loading") {
-        document.addEventListener(
-            "DOMContentLoaded",
-            updateNavVisibility,
-            { once: true }
-        );
+        document.addEventListener("DOMContentLoaded", updateFrontPageNav, { once: true });
     } else {
-        updateNavVisibility();
+        updateFrontPageNav();
     }
 
-    window.addEventListener("load", updateNavVisibility);
+    window.addEventListener("load", updateFrontPageNav);
 
-    setTimeout(updateNavVisibility, 250);
-    setTimeout(updateNavVisibility, 750);
-    setTimeout(updateNavVisibility, 1500);
+    /* Re-apply after existing welcome/nav scripts finish. */
+    setTimeout(updateFrontPageNav, 250);
+    setTimeout(updateFrontPageNav, 750);
+    setTimeout(updateFrontPageNav, 1500);
+    setTimeout(updateFrontPageNav, 3000);
+    setTimeout(updateFrontPageNav, 6000);
 })();
- /* MCX_V84_FRONT_NAV_EXACT_END */
+ /* MCX_V85_FRONT_NAV_HARD_FIX_END */

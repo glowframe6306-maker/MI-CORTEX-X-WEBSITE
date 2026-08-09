@@ -5851,25 +5851,24 @@ body.mcx-v76-nav-ready .site-header .nav {
 
 /* MCX_V82_ULTRA_BLUR_ZOOM_END */
 
-/* MCX_V84_FRONT_NAV_EXACT_START */
+/* MCX_V85_FRONT_NAV_HARD_FIX_START */
 /*
-  VISIBILITY ONLY:
-  - Front page: navigation hidden
-  - After scrolling into main/home content: navigation visible
-  - Scroll back to front page: navigation hidden again
-  No other design/position/blur/button/content changes.
+  VISIBILITY ONLY.
+  Front page = navigation completely hidden.
+  Main website = navigation visible.
+  No design/position/blur/button/content changes.
 */
 
-.site-header.mcx-v84-front-hidden {
+.site-header.mcx-v85-hide-nav {
     opacity: 0 !important;
     visibility: hidden !important;
     pointer-events: none !important;
 }
 
-.site-header.mcx-v84-main-visible {
+.site-header.mcx-v85-show-nav {
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
 }
 
-/* MCX_V84_FRONT_NAV_EXACT_END */
+/* MCX_V85_FRONT_NAV_HARD_FIX_END */
