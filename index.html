@@ -1319,6 +1319,73 @@ html.mcx-real-front-page-visible #mcx-contact-hub-root.mcx-hub-fab-label {
 </script>
 <!-- MCX_V60_POST_WELCOME_UI_END -->
 
+
+<!-- MCX_V61_AFTER_WELCOME_START -->
+<script>
+(function(){
+  "use strict";
+
+  function releaseAfterWelcome(){
+    var neural=document.getElementById("mi-neural-intro");
+    if(!neural) return false;
+
+    /* V52 itself adds mcx-v52-done only when curtain + logo + lift sequence is over. */
+    if(!neural.classList.contains("mcx-v52-done")) return false;
+
+    var html=document.documentElement;
+    html.classList.add("mcx-v61-after-welcome");
+
+    /* V19 hides navigation forever on an empty hash. Override that state only now,
+       after the welcome has completed. */
+    html.classList.remove("mcx-v19-front-page");
+    html.classList.add("mcx-v19-inner-page");
+
+    document.querySelectorAll(
+      ".mcx-overview-page .reveal, .mcx-main-directory, .mcx-main-directory-card"
+    ).forEach(function(el){
+      el.classList.add("is-visible");
+      el.style.removeProperty("display");
+      el.style.removeProperty("visibility");
+      el.style.removeProperty("opacity");
+      el.style.removeProperty("transform");
+      el.style.removeProperty("pointer-events");
+    });
+
+    return true;
+  }
+
+  function start(){
+    if(releaseAfterWelcome()) return;
+
+    var neural=document.getElementById("mi-neural-intro");
+    if(!neural) return;
+
+    var observer=new MutationObserver(function(){
+      if(releaseAfterWelcome()) observer.disconnect();
+    });
+
+    observer.observe(neural,{attributes:true,attributeFilter:["class"]});
+
+    /* Safety polling for class changes made by other animation scripts. */
+    var count=0;
+    var timer=setInterval(function(){
+      count++;
+      if(releaseAfterWelcome() || count>120){
+        clearInterval(timer);
+        observer.disconnect();
+      }
+    },250);
+  }
+
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded",start,{once:true});
+  }else{
+    start();
+  }
+})();
+</script>
+<!-- MCX_V61_AFTER_WELCOME_END -->
+
 </body>
 </html>
 

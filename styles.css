@@ -5266,3 +5266,33 @@ html.mcx-post-welcome-ready .category-section {
 }
 
 /* MCX_V60_POST_WELCOME_UI_END */
+
+/* MCX_V61_AFTER_WELCOME_START */
+/* This applies only after the existing V52 welcome has fully finished. */
+
+html.mcx-v61-after-welcome .site-header {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: translateY(0) !important;
+}
+
+/* The uploaded project has .reveal {opacity:0}; make the actual directory visible
+   after the welcome, even if IntersectionObserver was missed. */
+html.mcx-v61-after-welcome .mcx-overview-page .mcx-main-directory.reveal,
+html.mcx-v61-after-welcome .mcx-overview-page .mcx-main-directory,
+html.mcx-v61-after-welcome .mcx-overview-page .mcx-page-header.reveal {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
+}
+
+/* Keep the category cards rendered normally. */
+html.mcx-v61-after-welcome .mcx-main-directory-card {
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* MCX_V61_AFTER_WELCOME_END */
