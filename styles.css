@@ -6440,3 +6440,95 @@ html.mcx-v61-after-welcome .mcx-main-directory-card {
 
 
 /* MCX_V68_NAV_ALIGN_END */
+
+/* MCX_V69_NAV_SPACING_START */
+
+/* Keep logo left, distribute navigation buttons neatly inside the rounded bar */
+.site-header .nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+}
+
+/* Brand stays exactly where it is */
+.site-header .brand {
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+}
+
+/* Category buttons area */
+.site-header .nav-links {
+    flex: 1 1 auto !important;
+
+    display: grid !important;
+    grid-template-columns: repeat(7, minmax(78px, 1fr)) !important;
+
+    align-items: center !important;
+    justify-items: center !important;
+
+    gap: 8px !important;
+
+    margin-left: 34px !important;
+    margin-right: 6px !important;
+
+    width: auto !important;
+    height: 100% !important;
+
+    transform: none !important;
+}
+
+/* Every category gets equal width and same center alignment */
+.site-header .nav-links > a {
+    width: 100% !important;
+    max-width: 112px !important;
+
+    height: 42px !important;
+    min-height: 42px !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    margin: 0 !important;
+    padding: 0 12px !important;
+
+    box-sizing: border-box !important;
+
+    line-height: 1 !important;
+    text-align: center !important;
+
+    border-radius: 999px !important;
+}
+
+/* Selected category stays neatly inside its own equal slot */
+.site-header .nav-links > a.active,
+.site-header .nav-links > a[aria-current="page"] {
+    width: 100% !important;
+    max-width: 112px !important;
+
+    height: 42px !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Responsive */
+@media (max-width: 1050px) {
+
+    .site-header .nav-links {
+        margin-left: 18px !important;
+
+        grid-template-columns:
+            repeat(7, minmax(68px, 1fr)) !important;
+
+        gap: 4px !important;
+    }
+
+    .site-header .nav-links > a {
+        max-width: 96px !important;
+        padding: 0 8px !important;
+    }
+}
+
+/* MCX_V69_NAV_SPACING_END */
