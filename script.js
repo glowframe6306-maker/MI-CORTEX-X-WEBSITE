@@ -12480,72 +12480,72 @@ document.addEventListener('DOMContentLoaded', function () {
 })();
  /* MCX_V82_ULTRA_BLUR_ZOOM_END */
 
-/* MCX_V83_FRONT_NAV_AUTO_HIDE_START */
+/* MCX_V84_FRONT_NAV_EXACT_START */
 (function () {
     "use strict";
 
     var ticking = false;
 
-    function getHeader() {
-        return document.querySelector(".site-header");
-    }
-
-    function getFrontPage() {
-        var selectors = [
-            "#front-page",
-            ".front-page",
-            ".frontpage",
-            ".hero-front-page",
-            ".front-page-section",
-            ".home-hero",
-            ".hero-section",
-            ".hero"
-        ];
-
-        for (var i = 0; i < selectors.length; i++) {
-            var el = document.querySelector(selectors[i]);
-            if (el) return el;
-        }
-
-        return null;
-    }
-
-    function setHidden(hidden) {
-        var header = getHeader();
+    function setNavState(show) {
+        var header = document.querySelector(".site-header");
         if (!header) return;
 
-        header.classList.toggle("mcx-v83-front-hidden", hidden);
-        header.classList.toggle("mcx-v83-main-visible", !hidden);
+        header.classList.toggle("mcx-v84-front-hidden", !show);
+        header.classList.toggle("mcx-v84-main-visible", show);
+    }
+
+    function getFrontPageBoundary() {
+        /*
+          Current site front page is the first full-screen visual section.
+          Use a named front-page/hero element when available.
+        */
+        var candidates = [
+            document.querySelector("#front-page"),
+            document.querySelector(".front-page"),
+            document.querySelector(".frontpage"),
+            document.querySelector(".front-page-banner"),
+            document.querySelector(".hero-front-page"),
+            document.querySelector(".home-hero"),
+            document.querySelector(".hero-section"),
+            document.querySelector(".hero")
+        ];
+
+        for (var i = 0; i < candidates.length; i++) {
+            var el = candidates[i];
+            if (!el) continue;
+
+            var rect = el.getBoundingClientRect();
+            var pageTop = rect.top + (window.scrollY || 0);
+            var height = Math.max(rect.height, window.innerHeight || 0);
+
+            /*
+              Show nav only after almost all of the front page has passed.
+            */
+            return pageTop + (height * 0.88);
+        }
+
+        /*
+          Exact fallback for a one-screen front page:
+          hidden for the first 88% of one viewport.
+        */
+        return (window.innerHeight || 800) * 0.88;
     }
 
     function updateNavVisibility() {
-        var header = getHeader();
-        if (!header) {
-            ticking = false;
-            return;
-        }
+        var scrollY = Math.max(
+            window.scrollY || document.documentElement.scrollTop || 0,
+            0
+        );
 
-        var front = getFrontPage();
-        var hide = false;
+        var boundary = getFrontPageBoundary();
 
-        if (front) {
-            var rect = front.getBoundingClientRect();
-            var viewportH = window.innerHeight || document.documentElement.clientHeight;
+        /*
+          FRONT PAGE       => HIDDEN
+          MAIN/HOME PAGE   => VISIBLE
+          BACK TO FRONT    => HIDDEN AGAIN
+        */
+        setNavState(scrollY >= boundary);
 
-            /*
-              Hide while the front page still occupies the main viewport.
-              As soon as the user scrolls into the main website, show nav.
-            */
-            hide = rect.bottom > Math.min(viewportH * 0.58, 520);
-        } else {
-            /*
-              Fallback for current full-screen front page:
-              hide only near the top, then show automatically after entering main content.
-            */
-            hide = (window.scrollY || 0) < Math.max(180, window.innerHeight * 0.52);
-        }
-
-        setHidden(hide);
         ticking = false;
     }
 
@@ -12557,16 +12557,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.addEventListener("scroll", requestUpdate, { passive: true });
     window.addEventListener("resize", requestUpdate);
-    window.addEventListener("hashchange", requestUpdate);
 
     if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", updateNavVisibility, { once: true });
+        document.addEventListener(
+            "DOMContentLoaded",
+            updateNavVisibility,
+            { once: true }
+        );
     } else {
         updateNavVisibility();
     }
 
     window.addEventListener("load", updateNavVisibility);
-    setTimeout(updateNavVisibility, 400);
-    setTimeout(updateNavVisibility, 1200);
+
+    setTimeout(updateNavVisibility, 250);
+    setTimeout(updateNavVisibility, 750);
+    setTimeout(updateNavVisibility, 1500);
 })();
- /* MCX_V83_FRONT_NAV_AUTO_HIDE_END */
+ /* MCX_V84_FRONT_NAV_EXACT_END */
