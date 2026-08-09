@@ -5658,97 +5658,80 @@ html.mcx-v61-after-welcome .mcx-main-directory-card {
 
 /* MCX_V73_CENTERED_NAV_END */
 
-/* MCX_V74_STICKY_BLUR_NAV_START */
+/* MCX_V75_FIXED_BLUR_NAV_START */
 /*
-   Sticky / floating blur navigation.
-   Welcome / curtain / neural intro / page content are NOT modified.
+  V75: TRUE FIXED NAVIGATION
+  Unlike position:sticky, this is attached to the viewport and will NOT
+  travel upward with page content.
 */
 
-/* Keep the navigation visible while the page scrolls. */
 .site-header {
-    position: sticky !important;
-    top: 10px !important;
+    position: fixed !important;
+    top: 12px !important;
     left: 0 !important;
     right: 0 !important;
+    bottom: auto !important;
 
     width: 100% !important;
+    height: auto !important;
 
-    z-index: 9999 !important;
+    margin: 0 !important;
+    padding: 0 !important;
 
-    padding-top: 10px !important;
-    padding-bottom: 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    z-index: 2147483000 !important;
 
     overflow: visible !important;
+    transform: none !important;
 
     background: transparent !important;
+    pointer-events: none !important;
 }
 
-/* Strong premium glass effect on the complete rounded bar. */
 .site-header .nav {
     position: relative !important;
 
+    width: min(1160px, calc(100vw - 48px)) !important;
+    max-width: 1160px !important;
+    min-height: 86px !important;
+
+    margin: 0 auto !important;
+
     overflow: visible !important;
+
+    pointer-events: auto !important;
 
     background:
         linear-gradient(
             110deg,
-            rgba(4, 18, 35, .66) 0%,
-            rgba(13, 36, 82, .62) 48%,
-            rgba(37, 18, 92, .60) 100%
+            rgba(4, 22, 42, .68) 0%,
+            rgba(18, 50, 111, .64) 50%,
+            rgba(48, 18, 126, .62) 100%
         ) !important;
 
-    border:
-        1px solid rgba(96, 202, 255, .46) !important;
+    border: 1px solid rgba(81, 194, 255, .52) !important;
 
-    -webkit-backdrop-filter:
-        blur(30px)
-        saturate(175%)
-        brightness(.90) !important;
-
-    backdrop-filter:
-        blur(30px)
-        saturate(175%)
-        brightness(.90) !important;
+    -webkit-backdrop-filter: blur(28px) saturate(175%) !important;
+    backdrop-filter: blur(28px) saturate(175%) !important;
 
     box-shadow:
-        0 14px 36px rgba(0,0,0,.34),
-        inset 0 1px 0 rgba(255,255,255,.10),
-        0 0 24px rgba(50,153,255,.08) !important;
+        0 14px 38px rgba(0,0,0,.34),
+        inset 0 1px 0 rgba(255,255,255,.11),
+        0 0 26px rgba(37,151,255,.08) !important;
+
+    transform: none !important;
 }
 
-/* Add a subtle internal sheen without blocking clicks. */
-.site-header .nav::after {
-    content: "" !important;
-
-    position: absolute !important;
-    inset: 1px !important;
-
-    border-radius: inherit !important;
-
-    pointer-events: none !important;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(255,255,255,.055),
-            transparent 38%
-        ) !important;
-
-    opacity: .72 !important;
-}
-
-/* Keep all nav content above the sheen. */
-.site-header .brand,
-.site-header .nav-links {
-    position: relative !important;
-    z-index: 2 !important;
-}
-
-/* Never clip hover / selected button outlines while scrolling. */
+/* Ensure the fixed bar never gets clipped by old navigation rules. */
 .site-header,
 .site-header .nav,
+.site-header .brand,
 .site-header .nav-links {
-    overflow: visible !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
-/* MCX_V74_STICKY_BLUR_NAV_END */
+/* MCX_V75_FIXED_BLUR_NAV_END */
