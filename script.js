@@ -12613,3 +12613,29 @@ document.addEventListener('DOMContentLoaded', function () {
     setTimeout(applyV89Effect, 1500);
 })();
  /* MCX_V89_DOUBLE_BLUR_ZOOM_END */
+
+/* MCX_V90_DIRECTORY_BUTTON_FIX_START */
+/* Fix ONLY the large HOME / ABOUT / PRODUCTS / SERVICES / PRICING / PREMIUM / CONTACT directory cards. */
+(function () {
+    "use strict";
+
+    document.addEventListener("click", function (event) {
+        var card = event.target.closest(".mcx-main-directory-card[data-mcx-page-link]");
+        if (!card) return;
+
+        event.preventDefault();
+        event.stopImmediatePropagation();
+
+        var page = (card.getAttribute("data-mcx-page-link") || "").trim().toLowerCase();
+        if (!page) return;
+
+        var nextHash = "#" + page;
+
+        if (window.location.hash === nextHash) {
+            window.dispatchEvent(new HashChangeEvent("hashchange"));
+        } else {
+            window.location.hash = nextHash;
+        }
+    }, true);
+})();
+/* MCX_V90_DIRECTORY_BUTTON_FIX_END */
