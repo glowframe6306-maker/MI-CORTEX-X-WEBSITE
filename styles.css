@@ -5352,647 +5352,6 @@ html.mcx-v61-after-welcome .mcx-main-directory-card {
 }
 
 /* MCX_V62B_END */
-
-/* MCX_V63_CENTER_GLASS_NAV_START */
-
-/* =========================================================
-   MI CORTEX X - CENTERED GLASS NAVIGATION
-   Welcome / curtain / neural intro are NOT modified.
-   ========================================================= */
-
-/* Header scrolls normally with the page */
-.site-header {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-
-    width: 100% !important;
-
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-
-    padding: 16px 0 !important;
-
-    transform: none !important;
-}
-
-
-/* Actual navigation bar - EXACTLY centered */
-.site-header .nav {
-    position: relative !important;
-
-    left: auto !important;
-    right: auto !important;
-
-    width: min(1180px, calc(100% - 64px)) !important;
-    max-width: 1180px !important;
-
-    margin-left: auto !important;
-    margin-right: auto !important;
-
-    padding: 9px 17px !important;
-
-    min-height: 72px !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-
-    border-radius: 999px !important;
-
-    background:
-        linear-gradient(
-            115deg,
-            rgba(4, 24, 44, .62) 0%,
-            rgba(19, 49, 105, .55) 48%,
-            rgba(50, 27, 119, .56) 100%
-        ) !important;
-
-    border:
-        1px solid rgba(83, 197, 255, .46) !important;
-
-    -webkit-backdrop-filter:
-        blur(28px)
-        saturate(175%) !important;
-
-    backdrop-filter:
-        blur(28px)
-        saturate(175%) !important;
-
-    box-shadow:
-        0 14px 42px rgba(0,0,0,.30),
-        inset 0 1px 0 rgba(255,255,255,.10),
-        0 0 20px rgba(47,157,255,.09) !important;
-
-    transform: none !important;
-}
-
-
-/* Logo / company section */
-.site-header .brand {
-    flex: 0 0 auto !important;
-
-    display: flex !important;
-    align-items: center !important;
-
-    margin: 0 !important;
-
-    gap: 12px !important;
-}
-
-
-/* Logo */
-.site-header .brand-logo {
-    width: 58px !important;
-    height: 58px !important;
-
-    flex: 0 0 58px !important;
-
-    border-radius: 50% !important;
-
-    object-fit: cover !important;
-
-    box-shadow:
-        0 0 0 1px rgba(92,214,255,.40),
-        0 0 12px rgba(45,185,255,.28) !important;
-}
-
-
-/* MI CORTEX X */
-.site-header .brand > span {
-    color: #FFD34A !important;
-    -webkit-text-fill-color: #FFD34A !important;
-
-    font-weight: 900 !important;
-    font-size: 1.08rem !important;
-
-    letter-spacing: .025em !important;
-
-    -webkit-text-stroke:
-        .7px rgba(0,0,0,.95) !important;
-
-    paint-order: stroke fill !important;
-
-    text-shadow:
-        0 1px 1px #000,
-        0 0 7px rgba(255,211,74,.26) !important;
-
-    white-space: nowrap !important;
-}
-
-
-/* Menu remains inside the centered navigation */
-.site-header .nav-links {
-    position: relative !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-
-    flex: 0 1 auto !important;
-
-    width: auto !important;
-
-    margin-left: auto !important;
-    margin-right: 0 !important;
-
-    gap: 5px !important;
-
-    transform: none !important;
-}
-
-
-/* Every navigation item gets a subtle glass effect */
-.site-header .nav-links > a {
-    position: relative !important;
-
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    padding: 10px 13px !important;
-
-    margin: 0 !important;
-
-    border-radius: 999px !important;
-
-    color: rgba(238,243,255,.80) !important;
-
-    font-weight: 700 !important;
-    font-size: .89rem !important;
-
-    text-decoration: none !important;
-
-    border:
-        1px solid rgba(255,255,255,.035) !important;
-
-    background:
-        rgba(255,255,255,.018) !important;
-
-    -webkit-backdrop-filter:
-        blur(13px)
-        saturate(140%) !important;
-
-    backdrop-filter:
-        blur(13px)
-        saturate(140%) !important;
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.025) !important;
-
-    transition:
-        color .22s ease,
-        background .22s ease,
-        border-color .22s ease,
-        box-shadow .22s ease !important;
-
-    white-space: nowrap !important;
-}
-
-
-/* Hover */
-.site-header .nav-links > a:hover {
-    color: #FFFFFF !important;
-
-    background:
-        rgba(255,255,255,.060) !important;
-
-    border-color:
-        rgba(110,210,255,.16) !important;
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.06),
-        0 0 11px rgba(52,168,255,.08) !important;
-}
-
-
-/* Selected option */
-.site-header .nav-links > a.active,
-.site-header .nav-links > a[aria-current="page"] {
-    color: #FFE070 !important;
-
-    font-weight: 850 !important;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(255,211,72,.15),
-            rgba(142,94,9,.08)
-        ) !important;
-
-    border:
-        1px solid rgba(255,207,67,.54) !important;
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,244,179,.16),
-        0 0 13px rgba(255,197,39,.13) !important;
-
-    text-shadow:
-        0 0 6px rgba(255,211,79,.25) !important;
-}
-
-
-/* Tablet */
-@media (max-width: 1050px) {
-
-    .site-header .nav {
-        width: calc(100% - 32px) !important;
-
-        padding-left: 13px !important;
-        padding-right: 13px !important;
-    }
-
-    .site-header .nav-links {
-        gap: 2px !important;
-    }
-
-    .site-header .nav-links > a {
-        padding: 9px 10px !important;
-
-        font-size: .80rem !important;
-    }
-}
-
-
-/* MCX_V63_CENTER_GLASS_NAV_END */
-
-/* MCX_V64_NAV_START */
-
-/* =========================================================
-   MI CORTEX X - CLEAN CENTER NAVIGATION
-   Welcome page / curtain / neural animation untouched.
-   ========================================================= */
-
-
-/* ==========================================
-   COMPLETE NAV BAR - TRUE CENTER
-   ========================================== */
-
-.site-header {
-    position: relative !important;
-
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-
-    width: 100% !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    padding: 16px 0 !important;
-
-    transform: none !important;
-
-    /* Navigation scrolls normally with page */
-    z-index: 1000 !important;
-}
-
-
-/* Actual navigation panel */
-
-.site-header .nav {
-
-    position: relative !important;
-
-    left: auto !important;
-    right: auto !important;
-
-    width: min(1180px, calc(100% - 48px)) !important;
-    max-width: 1180px !important;
-
-    margin-left: auto !important;
-    margin-right: auto !important;
-
-    min-height: 72px !important;
-
-    padding: 9px 17px !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-
-    border-radius: 999px !important;
-
-    background:
-        linear-gradient(
-            110deg,
-            rgba(7, 24, 43, .62),
-            rgba(18, 35, 76, .58) 52%,
-            rgba(45, 22, 88, .58)
-        ) !important;
-
-    border:
-        1px solid rgba(87, 195, 255, .42) !important;
-
-    -webkit-backdrop-filter:
-        blur(26px)
-        saturate(170%) !important;
-
-    backdrop-filter:
-        blur(26px)
-        saturate(170%) !important;
-
-    box-shadow:
-        0 14px 38px rgba(0,0,0,.28),
-        inset 0 1px 0 rgba(255,255,255,.09) !important;
-
-    transform: none !important;
-}
-
-
-/* ==========================================
-   BRAND / LOGO
-   ========================================== */
-
-.site-header .brand {
-
-    display: flex !important;
-    align-items: center !important;
-
-    gap: 12px !important;
-
-    flex: 0 0 auto !important;
-
-    margin: 0 !important;
-
-    background: transparent !important;
-
-    border: none !important;
-
-    border-radius: 0 !important;
-
-    box-shadow: none !important;
-}
-
-
-/* Logo */
-
-.site-header .brand-logo {
-
-    width: 58px !important;
-    height: 58px !important;
-
-    flex: 0 0 58px !important;
-
-    border-radius: 50% !important;
-
-    object-fit: cover !important;
-
-    background: transparent !important;
-}
-
-
-/* MI CORTEX X
-   Gold text ONLY.
-   NO gold round / pill around company name.
-*/
-
-.site-header .brand > span {
-
-    color: #FFD34D !important;
-
-    -webkit-text-fill-color: #FFD34D !important;
-
-    font-size: 1.08rem !important;
-
-    font-weight: 900 !important;
-
-    letter-spacing: .025em !important;
-
-    white-space: nowrap !important;
-
-    background: transparent !important;
-
-    border: none !important;
-
-    border-radius: 0 !important;
-
-    box-shadow: none !important;
-
-    padding: 0 !important;
-
-    -webkit-text-stroke:
-        .7px rgba(0,0,0,.90) !important;
-
-    text-shadow:
-        0 1px 1px rgba(0,0,0,.9),
-        0 0 6px rgba(255,210,69,.20) !important;
-}
-
-
-/* ==========================================
-   MENU LINKS
-   ========================================== */
-
-.site-header .nav-links {
-
-    display: flex !important;
-
-    align-items: center !important;
-
-    justify-content: flex-end !important;
-
-    width: auto !important;
-
-    margin-left: auto !important;
-    margin-right: 0 !important;
-
-    gap: 5px !important;
-
-    transform: none !important;
-}
-
-
-/* ------------------------------------------
-   NORMAL ITEMS
-
-   No circles.
-   No blue pills.
-   No permanent background.
-   ------------------------------------------ */
-
-.site-header .nav-links > a {
-
-    position: relative !important;
-
-    display: inline-flex !important;
-
-    align-items: center !important;
-
-    justify-content: center !important;
-
-    margin: 0 !important;
-
-    padding: 10px 13px !important;
-
-    color: rgba(240,244,255,.78) !important;
-
-    font-size: .89rem !important;
-
-    font-weight: 700 !important;
-
-    white-space: nowrap !important;
-
-    text-decoration: none !important;
-
-    background: transparent !important;
-
-    border: 1px solid transparent !important;
-
-    border-radius: 999px !important;
-
-    box-shadow: none !important;
-
-    text-shadow: none !important;
-
-    -webkit-backdrop-filter: none !important;
-    backdrop-filter: none !important;
-
-    transition:
-        color .20s ease,
-        border-color .20s ease,
-        background .20s ease,
-        box-shadow .20s ease,
-        transform .20s ease !important;
-}
-
-
-/* ==========================================
-   HOVER
-
-   Mouse over:
-   WHITE rounded outline.
-
-   Mouse leaves:
-   automatically disappears.
-   ========================================== */
-
-.site-header .nav-links > a:hover:not(.active):not([aria-current="page"]) {
-
-    color: #FFFFFF !important;
-
-    background:
-        rgba(255,255,255,.055) !important;
-
-    border:
-        1px solid rgba(255,255,255,.72) !important;
-
-    border-radius: 999px !important;
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.10),
-        0 0 11px rgba(255,255,255,.07) !important;
-
-    -webkit-backdrop-filter:
-        blur(12px) !important;
-
-    backdrop-filter:
-        blur(12px) !important;
-}
-
-
-/* ==========================================
-   SELECTED / CLICKED CATEGORY
-
-   ONLY selected option becomes gold.
-   ========================================== */
-
-.site-header .nav-links > a.active,
-.site-header .nav-links > a[aria-current="page"] {
-
-    color: #FFE071 !important;
-
-    font-weight: 850 !important;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(255,210,69,.16),
-            rgba(154,103,8,.08)
-        ) !important;
-
-    border:
-        1px solid rgba(255,205,61,.72) !important;
-
-    border-radius: 999px !important;
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,246,184,.18),
-        0 0 13px rgba(255,194,34,.15) !important;
-
-    text-shadow:
-        0 0 6px rgba(255,211,74,.26) !important;
-
-    -webkit-backdrop-filter:
-        blur(13px) !important;
-
-    backdrop-filter:
-        blur(13px) !important;
-}
-
-
-/* Active item hover stays GOLD */
-.site-header .nav-links > a.active:hover,
-.site-header .nav-links > a[aria-current="page"]:hover {
-
-    color: #FFE071 !important;
-
-    border-color:
-        rgba(255,211,72,.86) !important;
-}
-
-
-/* ==========================================
-   REMOVE PREVIOUS SMALL DOTS / CIRCLES
-   ========================================== */
-
-.site-header .nav-links > a::before,
-.site-header .nav-links > a::after {
-
-    content: none !important;
-
-    display: none !important;
-}
-
-
-/* ==========================================
-   RESPONSIVE
-   ========================================== */
-
-@media (max-width: 1050px) {
-
-    .site-header .nav {
-
-        width: calc(100% - 28px) !important;
-
-        padding:
-            9px 12px !important;
-    }
-
-
-    .site-header .nav-links {
-
-        gap: 2px !important;
-    }
-
-
-    .site-header .nav-links > a {
-
-        padding:
-            9px 9px !important;
-
-        font-size:
-            .79rem !important;
-    }
-}
-
-
-/* MCX_V64_NAV_END */
-
 /* ===== MCX EXACT CENTER NAV FIX ===== */
 
 .site-header .nav {
@@ -6024,79 +5383,87 @@ html.mcx-v61-after-welcome .mcx-main-directory-card {
 
 /* ===== END EXACT CENTER NAV FIX ===== */
 
-/* MCX_V67_EXECUTIVE_NAV_START */
+/* MCX_V73_CENTERED_NAV_START */
 
 /* =========================================================
-   MI CORTEX X - EXECUTIVE GLASS NAVIGATION
+   V73 - CENTERED NAVIGATION / NO HOVER CLIPPING
+   Welcome, curtain, neural intro and page content untouched.
    ========================================================= */
 
+/* Full-width header wrapper. The rounded nav itself is centered. */
 .site-header {
     position: relative !important;
-    width: 100% !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
 
-    padding: 16px 0 !important;
+    width: 100% !important;
+    max-width: none !important;
 
     display: flex !important;
-    justify-content: center !important;
     align-items: center !important;
+    justify-content: center !important;
 
-    background: transparent !important;
+    padding: 16px 0 !important;
+    margin: 0 !important;
 
+    overflow: visible !important;
     transform: none !important;
 }
 
-
-/* MAIN NAV GLASS PANEL */
-
+/* The complete rounded navigation bar is centered in the viewport. */
 .site-header .nav {
-    width: min(1140px, calc(100% - 48px)) !important;
+    position: relative !important;
 
-    min-height: 74px !important;
+    width: min(1160px, calc(100% - 64px)) !important;
+    max-width: 1160px !important;
+    min-height: 86px !important;
 
     margin: 0 auto !important;
+    padding: 10px 18px !important;
 
-    padding: 8px 18px !important;
-
-    display: flex !important;
+    display: grid !important;
+    grid-template-columns: 280px minmax(0, 1fr) !important;
     align-items: center !important;
+
+    box-sizing: border-box !important;
+
+    /* IMPORTANT: do not clip hover/selected rings */
+    overflow: visible !important;
 
     border-radius: 999px !important;
 
     background:
         linear-gradient(
             110deg,
-            rgba(5, 18, 35, .76) 0%,
-            rgba(13, 31, 64, .70) 46%,
-            rgba(30, 19, 66, .69) 100%
+            rgba(5, 28, 52, .80) 0%,
+            rgba(20, 55, 126, .78) 52%,
+            rgba(52, 20, 145, .76) 100%
         ) !important;
 
-    border:
-        1px solid rgba(72, 175, 229, .42) !important;
+    border: 1px solid rgba(70, 190, 255, .52) !important;
 
-    -webkit-backdrop-filter:
-        blur(24px)
-        saturate(150%) !important;
-
-    backdrop-filter:
-        blur(24px)
-        saturate(150%) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(160%) !important;
+    backdrop-filter: blur(24px) saturate(160%) !important;
 
     box-shadow:
-        0 16px 40px rgba(0,0,0,.26),
-        inset 0 1px 0 rgba(255,255,255,.08),
-        0 0 26px rgba(30,114,200,.07) !important;
+        0 16px 42px rgba(0,0,0,.27),
+        inset 0 1px 0 rgba(255,255,255,.10),
+        0 0 24px rgba(42,142,255,.08) !important;
+
+    transform: none !important;
 }
 
-
-/* =========================================================
-   BRAND
-   ========================================================= */
-
+/* Brand block stays neatly on the left. */
 .site-header .brand {
+    position: static !important;
+
+    min-width: 0 !important;
+    width: auto !important;
+
     display: flex !important;
     align-items: center !important;
-
-    flex: 0 0 auto !important;
+    justify-content: flex-start !important;
 
     gap: 12px !important;
 
@@ -6104,120 +5471,109 @@ html.mcx-v61-after-welcome .mcx-main-directory-card {
     padding: 0 !important;
 
     background: transparent !important;
-
     border: none !important;
     box-shadow: none !important;
+
+    transform: none !important;
 }
-
-
-/* LOGO */
 
 .site-header .brand-logo {
     width: 58px !important;
     height: 58px !important;
-
     flex: 0 0 58px !important;
 
+    margin: 0 !important;
     border-radius: 50% !important;
-
     object-fit: cover !important;
-
-    box-shadow:
-        0 0 0 1px rgba(82,193,255,.30),
-        0 0 12px rgba(44,168,255,.16) !important;
 }
 
-
-/* MI CORTEX X */
-
 .site-header .brand > span {
+    display: inline-block !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    white-space: nowrap !important;
+
     color: #F3C94F !important;
     -webkit-text-fill-color: #F3C94F !important;
 
     font-size: 1.05rem !important;
     font-weight: 900 !important;
-
-    letter-spacing: .035em !important;
-
-    white-space: nowrap !important;
+    letter-spacing: .03em !important;
 
     background: transparent !important;
-
     border: none !important;
     box-shadow: none !important;
 
-    padding: 0 !important;
-
-    -webkit-text-stroke:
-        .55px rgba(0,0,0,.85) !important;
-
+    -webkit-text-stroke: .55px rgba(0,0,0,.85) !important;
     text-shadow:
-        0 1px 1px rgba(0,0,0,.85),
+        0 1px 1px rgba(0,0,0,.86),
         0 0 7px rgba(243,201,79,.16) !important;
 }
 
-
-/* =========================================================
-   MENU
-   ========================================================= */
-
+/* All navigation categories remain INSIDE the bar and on one baseline. */
 .site-header .nav-links {
-    margin-left: auto !important;
-    margin-right: 2px !important;
+    position: static !important;
 
-    width: auto !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
 
     display: flex !important;
     align-items: center !important;
-    justify-content: flex-end !important;
+    justify-content: space-between !important;
 
-    gap: 8px !important;
+    gap: 6px !important;
+
+    overflow: visible !important;
+
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
 
     transform: none !important;
 }
 
-
-/* NORMAL BUTTON */
-
+/* Base item: no permanent bubble. */
 .site-header .nav-links > a {
     position: relative !important;
+
+    flex: 0 1 auto !important;
+
+    height: 42px !important;
+    min-height: 42px !important;
+    width: auto !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+    padding: 0 12px !important;
 
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
 
-    padding: 9px 12px !important;
+    box-sizing: border-box !important;
 
-    margin: 0 !important;
-
-    color:
-        rgba(232,237,249,.76) !important;
-
-    font-family:
-        "Inter",
-        "Segoe UI",
-        sans-serif !important;
-
-    font-size: .84rem !important;
-    font-weight: 720 !important;
-
-    letter-spacing: .015em !important;
-
-    text-decoration: none !important;
-
+    line-height: 1 !important;
     white-space: nowrap !important;
 
+    color: rgba(239,243,255,.82) !important;
+    font-size: .84rem !important;
+    font-weight: 740 !important;
+    letter-spacing: .01em !important;
+
     background: transparent !important;
-
-    border:
-        1px solid transparent !important;
-
+    border: 1px solid transparent !important;
     border-radius: 999px !important;
-
     box-shadow: none !important;
-
     text-shadow: none !important;
 
+    overflow: visible !important;
     transform: none !important;
 
     transition:
@@ -6228,449 +5584,63 @@ html.mcx-v61-after-welcome .mcx-main-directory-card {
         transform .18s ease !important;
 }
 
-
-/* =========================================================
-   HOVER
-   ========================================================= */
-
+/* Hover: clean white ring, fully visible - not cut at top. */
 .site-header .nav-links > a:hover:not(.active):not([aria-current="page"]) {
     color: #FFFFFF !important;
 
-    background:
-        rgba(255,255,255,.045) !important;
+    background: rgba(255,255,255,.045) !important;
 
-    border-color:
-        rgba(255,255,255,.22) !important;
+    border: 1px solid rgba(255,255,255,.62) !important;
 
     box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.06),
-        0 4px 14px rgba(0,0,0,.11) !important;
+        inset 0 1px 0 rgba(255,255,255,.08),
+        0 0 0 1px rgba(255,255,255,.02),
+        0 5px 14px rgba(0,0,0,.12) !important;
 
-    transform:
-        translateY(-1px) !important;
+    transform: translateY(-1px) !important;
 }
 
-
-/* =========================================================
-   SELECTED
-   ========================================================= */
-
+/* Selected/clicked category: premium compact gold pill. */
 .site-header .nav-links > a.active,
 .site-header .nav-links > a[aria-current="page"] {
-    color: #FFD75A !important;
-
-    font-weight: 830 !important;
+    color: #FFD95C !important;
+    font-weight: 840 !important;
 
     background:
         linear-gradient(
             180deg,
-            rgba(255,209,65,.105),
-            rgba(128,84,9,.055)
+            rgba(255,210,70,.13),
+            rgba(137,88,7,.06)
         ) !important;
 
-    border:
-        1px solid rgba(222,167,38,.50) !important;
-
-    border-radius:
-        999px !important;
+    border: 1px solid rgba(231,174,40,.64) !important;
 
     box-shadow:
-        inset 0 1px 0 rgba(255,242,164,.10),
-        0 0 9px rgba(211,149,27,.08) !important;
+        inset 0 1px 0 rgba(255,246,184,.12),
+        0 0 10px rgba(219,157,28,.09) !important;
 
-    text-shadow:
-        0 0 5px rgba(255,203,53,.18) !important;
+    text-shadow: 0 0 5px rgba(255,204,55,.18) !important;
 }
 
-
-/* Selected hover */
-
+/* Selected item remains gold when hovered. */
 .site-header .nav-links > a.active:hover,
 .site-header .nav-links > a[aria-current="page"]:hover {
-    color: #FFE27D !important;
-
-    border-color:
-        rgba(239,184,48,.66) !important;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(255,216,77,.13),
-            rgba(128,84,9,.065)
-        ) !important;
+    color: #FFE47F !important;
+    border-color: rgba(246,190,51,.78) !important;
 }
 
-
-/* REMOVE OLD DOTS */
-
+/* Remove any older pseudo-element dots/decorations. */
 .site-header .nav-links > a::before,
 .site-header .nav-links > a::after {
     content: none !important;
     display: none !important;
 }
 
-
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
-
-@media (max-width: 1050px) {
-
+/* Laptop-size fallback, still completely inside the centered bar. */
+@media (max-width: 1180px) {
     .site-header .nav {
-        width: calc(100% - 28px) !important;
-
-        padding:
-            8px 12px !important;
-    }
-
-    .site-header .nav-links {
-        gap: 3px !important;
-    }
-
-    .site-header .nav-links > a {
-        padding:
-            8px 8px !important;
-
-        font-size:
-            .77rem !important;
-    }
-}
-
-
-/* MCX_V67_EXECUTIVE_NAV_END */
-
-/* MCX_V68_NAV_ALIGN_START */
-
-/* Main rounded navigation bar */
-.site-header .nav {
-    min-height: 88px !important;
-
-    display: flex !important;
-    align-items: center !important;
-
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    padding-left: 18px !important;
-    padding-right: 22px !important;
-}
-
-
-/* Logo + company name centered inside the round bar */
-.site-header .brand {
-    height: 100% !important;
-
-    display: flex !important;
-    align-items: center !important;
-
-    flex: 0 0 auto !important;
-
-    margin: 0 !important;
-}
-
-
-/* Navigation buttons aligned to the SAME center line */
-.site-header .nav-links {
-    align-self: stretch !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-
-    margin-left: auto !important;
-    margin-right: 0 !important;
-
-    gap: 12px !important;
-
-    height: auto !important;
-}
-
-
-/* All buttons same vertical alignment */
-.site-header .nav-links > a {
-    height: 42px !important;
-    min-height: 42px !important;
-
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    box-sizing: border-box !important;
-
-    padding: 0 13px !important;
-
-    margin: 0 !important;
-
-    line-height: 1 !important;
-
-    vertical-align: middle !important;
-}
-
-
-/* Selected button fits neatly inside the round navigation */
-.site-header .nav-links > a.active,
-.site-header .nav-links > a[aria-current="page"] {
-    height: 42px !important;
-
-    padding-left: 15px !important;
-    padding-right: 15px !important;
-
-    border-radius: 999px !important;
-}
-
-
-/* Company text stays clean */
-.site-header .brand > span {
-    line-height: 1 !important;
-
-    display: flex !important;
-    align-items: center !important;
-
-    margin: 0 !important;
-}
-
-
-/* Logo centered vertically */
-.site-header .brand-logo {
-    display: block !important;
-
-    margin: 0 !important;
-
-    align-self: center !important;
-}
-
-
-/* MCX_V68_NAV_ALIGN_END */
-
-/* MCX_V69_NAV_SPACING_START */
-
-/* Keep logo left, distribute navigation buttons neatly inside the rounded bar */
-.site-header .nav {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-}
-
-/* Brand stays exactly where it is */
-.site-header .brand {
-    flex: 0 0 auto !important;
-    margin: 0 !important;
-}
-
-/* Category buttons area */
-.site-header .nav-links {
-    flex: 1 1 auto !important;
-
-    display: grid !important;
-    grid-template-columns: repeat(7, minmax(78px, 1fr)) !important;
-
-    align-items: center !important;
-    justify-items: center !important;
-
-    gap: 8px !important;
-
-    margin-left: 34px !important;
-    margin-right: 6px !important;
-
-    width: auto !important;
-    height: 100% !important;
-
-    transform: none !important;
-}
-
-/* Every category gets equal width and same center alignment */
-.site-header .nav-links > a {
-    width: 100% !important;
-    max-width: 112px !important;
-
-    height: 42px !important;
-    min-height: 42px !important;
-
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    margin: 0 !important;
-    padding: 0 12px !important;
-
-    box-sizing: border-box !important;
-
-    line-height: 1 !important;
-    text-align: center !important;
-
-    border-radius: 999px !important;
-}
-
-/* Selected category stays neatly inside its own equal slot */
-.site-header .nav-links > a.active,
-.site-header .nav-links > a[aria-current="page"] {
-    width: 100% !important;
-    max-width: 112px !important;
-
-    height: 42px !important;
-
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-
-/* Responsive */
-@media (max-width: 1050px) {
-
-    .site-header .nav-links {
-        margin-left: 18px !important;
-
-        grid-template-columns:
-            repeat(7, minmax(68px, 1fr)) !important;
-
-        gap: 4px !important;
-    }
-
-    .site-header .nav-links > a {
-        max-width: 96px !important;
-        padding: 0 8px !important;
-    }
-}
-
-/* MCX_V69_NAV_SPACING_END */
-
-/* MCX_V70_NAV_LAYOUT_START */
-/*
-  NAVIGATION LAYOUT FIX ONLY.
-  Welcome / curtain / neural intro / page content are untouched.
-*/
-
-/* Keep the whole rounded navigation bar properly contained. */
-.site-header .nav {
-    position: relative !important;
-    display: grid !important;
-    grid-template-columns: minmax(250px, 300px) minmax(0, 1fr) !important;
-    align-items: center !important;
-
-    width: min(1140px, calc(100% - 48px)) !important;
-    max-width: 1140px !important;
-
-    margin-left: auto !important;
-    margin-right: auto !important;
-
-    padding: 8px 18px !important;
-    min-height: 78px !important;
-
-    overflow: hidden !important;
-    box-sizing: border-box !important;
-}
-
-/* Brand stays clean on the left. */
-.site-header .brand {
-    min-width: 0 !important;
-    width: auto !important;
-    margin: 0 !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-
-    gap: 12px !important;
-
-    position: relative !important;
-    left: auto !important;
-    right: auto !important;
-    top: auto !important;
-
-    transform: none !important;
-}
-
-/* The category row stays INSIDE the rounded bar. */
-.site-header .nav-links {
-    position: static !important;
-
-    min-width: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-
-    gap: clamp(3px, .55vw, 9px) !important;
-
-    overflow: hidden !important;
-    transform: none !important;
-}
-
-/* All categories sit on one neat baseline. */
-.site-header .nav-links > a {
-    flex: 0 1 auto !important;
-
-    min-width: 0 !important;
-    width: auto !important;
-    max-width: none !important;
-
-    height: 40px !important;
-    min-height: 40px !important;
-
-    margin: 0 !important;
-    padding: 0 clamp(8px, .78vw, 12px) !important;
-
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    box-sizing: border-box !important;
-
-    line-height: 1 !important;
-    white-space: nowrap !important;
-
-    border-radius: 999px !important;
-
-    font-size: clamp(.72rem, .78vw, .86rem) !important;
-    letter-spacing: .008em !important;
-}
-
-/* Normal category = no pill. */
-.site-header .nav-links > a:not(.active):not([aria-current="page"]) {
-    background: transparent !important;
-    border-color: transparent !important;
-    box-shadow: none !important;
-}
-
-/* Hover = clean white outline only while mouse is over it. */
-.site-header .nav-links > a:hover:not(.active):not([aria-current="page"]) {
-    color: #ffffff !important;
-    background: rgba(255,255,255,.035) !important;
-    border: 1px solid rgba(255,255,255,.42) !important;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,.05) !important;
-}
-
-/* Selected category = compact premium gold pill. */
-.site-header .nav-links > a.active,
-.site-header .nav-links > a[aria-current="page"] {
-    color: #FFD85A !important;
-    background: linear-gradient(
-        180deg,
-        rgba(255,211,70,.11),
-        rgba(135,87,6,.055)
-    ) !important;
-    border: 1px solid rgba(229,173,40,.56) !important;
-    box-shadow:
-        inset 0 1px 0 rgba(255,244,177,.10),
-        0 0 9px rgba(218,156,28,.07) !important;
-}
-
-/* Remove old decorative dots/circles. */
-.site-header .nav-links > a::before,
-.site-header .nav-links > a::after {
-    content: none !important;
-    display: none !important;
-}
-
-/* Medium screens: reduce the brand column and menu spacing, still no overflow. */
-@media (max-width: 1100px) {
-    .site-header .nav {
-        grid-template-columns: minmax(220px, 260px) minmax(0, 1fr) !important;
-        width: calc(100% - 28px) !important;
+        width: calc(100% - 32px) !important;
+        grid-template-columns: 255px minmax(0, 1fr) !important;
         padding-left: 14px !important;
         padding-right: 14px !important;
     }
@@ -6680,227 +5650,10 @@ html.mcx-v61-after-welcome .mcx-main-directory-card {
     }
 
     .site-header .nav-links > a {
-        padding-left: 7px !important;
-        padding-right: 7px !important;
-        font-size: .72rem !important;
-    }
-}
-
-/* MCX_V70_NAV_LAYOUT_END */
-
-/* MCX V71 - NAV BUTTON VERTICAL CENTER FIX */
-
-.site-header .nav {
-    align-items: center !important;
-}
-
-.site-header .nav-links {
-    align-self: center !important;
-    height: 100% !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-
-    position: relative !important;
-    top: 0 !important;
-    bottom: auto !important;
-
-    transform: translateY(4px) !important;
-}
-
-.site-header .nav-links > a {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-
-    align-self: center !important;
-}
-
-/* END MCX V71 */
-
-/* MCX_V72_NAV_FINAL_START */
-
-/* FINAL CLEAN NAVIGATION LAYOUT
-   Welcome / curtain / neural / page content are untouched. */
-
-.site-header {
-    position: relative !important;
-    width: 100% !important;
-    padding: 16px 0 !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    overflow: visible !important;
-}
-
-.site-header .nav {
-    position: relative !important;
-
-    width: min(1160px, calc(100% - 40px)) !important;
-    max-width: 1160px !important;
-    min-height: 86px !important;
-
-    margin: 0 auto !important;
-    padding: 10px 18px !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-
-    box-sizing: border-box !important;
-    overflow: hidden !important;
-
-    border-radius: 999px !important;
-}
-
-/* Left brand block */
-.site-header .brand {
-    position: static !important;
-
-    flex: 0 0 auto !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-
-    min-width: 230px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-
-    gap: 12px !important;
-
-    transform: none !important;
-}
-
-/* Keep logo/name fully visible */
-.site-header .brand-logo {
-    flex: 0 0 58px !important;
-    width: 58px !important;
-    height: 58px !important;
-}
-
-.site-header .brand > span {
-    display: inline-block !important;
-    max-width: none !important;
-    overflow: visible !important;
-    white-space: nowrap !important;
-}
-
-/* Right menu block. Never allowed to leave the rounded bar. */
-.site-header .nav-links {
-    position: static !important;
-
-    flex: 1 1 auto !important;
-    min-width: 0 !important;
-    max-width: calc(100% - 250px) !important;
-
-    margin: 0 0 0 24px !important;
-    padding: 0 !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-
-    gap: clamp(4px, .55vw, 9px) !important;
-
-    overflow: hidden !important;
-
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    bottom: auto !important;
-
-    transform: none !important;
-}
-
-/* Every navigation category gets the same vertical position. */
-.site-header .nav-links > a {
-    position: static !important;
-
-    flex: 0 1 auto !important;
-
-    height: 40px !important;
-    min-height: 40px !important;
-
-    margin: 0 !important;
-    padding: 0 clamp(9px, .8vw, 13px) !important;
-
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    box-sizing: border-box !important;
-
-    line-height: 1 !important;
-    white-space: nowrap !important;
-
-    transform: none !important;
-
-    border-radius: 999px !important;
-}
-
-/* Normal item */
-.site-header .nav-links > a:not(.active):not([aria-current="page"]) {
-    background: transparent !important;
-    border: 1px solid transparent !important;
-    box-shadow: none !important;
-}
-
-/* Hover only */
-.site-header .nav-links > a:hover:not(.active):not([aria-current="page"]) {
-    color: #ffffff !important;
-    background: rgba(255,255,255,.04) !important;
-    border-color: rgba(255,255,255,.38) !important;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,.05) !important;
-}
-
-/* Selected category */
-.site-header .nav-links > a.active,
-.site-header .nav-links > a[aria-current="page"] {
-    color: #FFD85A !important;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(255,210,69,.12),
-            rgba(136,89,7,.055)
-        ) !important;
-
-    border: 1px solid rgba(230,174,39,.58) !important;
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,245,180,.10),
-        0 0 9px rgba(218,156,28,.07) !important;
-}
-
-/* Remove old dots / decorations */
-.site-header .nav-links > a::before,
-.site-header .nav-links > a::after {
-    content: none !important;
-    display: none !important;
-}
-
-/* Current desktop width */
-@media (max-width: 1180px) {
-    .site-header .nav {
-        width: calc(100% - 28px) !important;
-    }
-
-    .site-header .brand {
-        min-width: 215px !important;
-    }
-
-    .site-header .nav-links {
-        max-width: calc(100% - 230px) !important;
-        margin-left: 18px !important;
-        gap: 3px !important;
-    }
-
-    .site-header .nav-links > a {
         padding-left: 8px !important;
         padding-right: 8px !important;
         font-size: .76rem !important;
     }
 }
 
-/* MCX_V72_NAV_FINAL_END */
+/* MCX_V73_CENTERED_NAV_END */
