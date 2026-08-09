@@ -12480,65 +12480,74 @@ document.addEventListener('DOMContentLoaded', function () {
 })();
  /* MCX_V82_ULTRA_BLUR_ZOOM_END */
 
-/* MCX_V85_FRONT_NAV_HARD_FIX_START */
+/* MCX_V86_EXACT_FRONT_NAV_HIDE_START */
 (function () {
     "use strict";
 
-    var rafPending = false;
+    var ticking = false;
 
-    function updateFrontPageNav() {
+    function updateNav() {
         var header = document.querySelector(".site-header");
-        if (!header) {
-            rafPending = false;
+        var frontPage = document.querySelector("#mi-front-page, .mi-front-page");
+
+        if (!header || !frontPage) {
+            ticking = false;
             return;
         }
 
-        var y = window.pageYOffset ||
-                document.documentElement.scrollTop ||
-                document.body.scrollTop ||
-                0;
+        var rect = frontPage.getBoundingClientRect();
 
         /*
-          The current front page is a full-screen opening section.
-          Keep navigation hidden for the full first viewport.
-          Show it only once the user has clearly entered the main website.
+          EXACT BEHAVIOR:
+          - If ANY part of the real front page is still visible -> HIDE nav.
+          - Only after the front page has completely scrolled above viewport -> SHOW nav.
+          - Scroll back until front page appears again -> HIDE nav immediately.
         */
-        var frontPageEnd = Math.max(
-            520,
-            (window.innerHeight || document.documentElement.clientHeight || 800) * 0.92
+        var frontPageVisible = rect.bottom > 0 && rect.top < window.innerHeight;
+
+        header.classList.toggle(
+            "mcx-v86-front-page-hidden",
+            frontPageVisible
         );
 
-        var onFrontPage = y < frontPageEnd;
+        header.classList.toggle(
+            "mcx-v86-main-page-visible",
+            !frontPageVisible
+        );
 
-        header.classList.toggle("mcx-v85-hide-nav", onFrontPage);
-        header.classList.toggle("mcx-v85-show-nav", !onFrontPage);
-
-        rafPending = false;
+        ticking = false;
     }
 
-    function scheduleUpdate() {
-        if (rafPending) return;
-        rafPending = true;
-        requestAnimationFrame(updateFrontPageNav);
+    function requestUpdate() {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(updateNav);
     }
 
-    window.addEventListener("scroll", scheduleUpdate, { passive: true });
-    window.addEventListener("resize", scheduleUpdate);
-    window.addEventListener("hashchange", scheduleUpdate);
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+    window.addEventListener("hashchange", requestUpdate);
 
     if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", updateFrontPageNav, { once: true });
+        document.addEventListener(
+            "DOMContentLoaded",
+            updateNav,
+            { once: true }
+        );
     } else {
-        updateFrontPageNav();
+        updateNav();
     }
 
-    window.addEventListener("load", updateFrontPageNav);
+    window.addEventListener("load", updateNav);
 
-    /* Re-apply after existing welcome/nav scripts finish. */
-    setTimeout(updateFrontPageNav, 250);
-    setTimeout(updateFrontPageNav, 750);
-    setTimeout(updateFrontPageNav, 1500);
-    setTimeout(updateFrontPageNav, 3000);
-    setTimeout(updateFrontPageNav, 6000);
+    /*
+      Existing welcome/front-page scripts can finish later.
+      Re-check without changing any other behavior.
+    */
+    setTimeout(updateNav, 250);
+    setTimeout(updateNav, 750);
+    setTimeout(updateNav, 1500);
+    setTimeout(updateNav, 3000);
+    setTimeout(updateNav, 6000);
 })();
- /* MCX_V85_FRONT_NAV_HARD_FIX_END */
+ /* MCX_V86_EXACT_FRONT_NAV_HIDE_END */
