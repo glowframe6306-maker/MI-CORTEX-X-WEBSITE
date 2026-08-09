@@ -6024,3 +6024,35 @@ html.mcx-v61-after-welcome .mcx-main-directory-card {
 
 /* ===== END EXACT CENTER NAV FIX ===== */
 
+
+/* ===== MCX EXACT CENTER NAV FIX ===== */
+
+.site-header .nav {
+    position: relative !important;
+}
+
+/* MI CORTEX X left side එකේම */
+.site-header .brand {
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+/* HOME - CONTACT screen එකේ EXACT CENTER */
+.site-header .nav-links {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+
+    transform: translate(-50%, -50%) !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: max-content !important;
+    margin: 0 !important;
+    gap: 8px !important;
+}
+
+/* ===== END EXACT CENTER NAV FIX ===== */
+
