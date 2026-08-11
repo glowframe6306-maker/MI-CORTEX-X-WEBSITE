@@ -12785,3 +12785,169 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 })();
 /* MCX_V92_BLANK_PAGE_FIX_END */
+
+/* MCX_CURRENT_ZIP_03_START */
+/*
+  INTERNAL PAGE CONTENT VISIBILITY FIX
+  Scope: only the currently opened top-level internal page.
+  Navigation, front-page behavior, blur/zoom, colors, layout and existing
+  product/service data are not modified.
+*/
+(function () {
+    "use strict";
+
+    var TOP_LEVEL = {
+        home: true,
+        about: true,
+        products: true,
+        services: true,
+        pricing: true,
+        premium: true,
+        contact: true
+    };
+
+    function routeName() {
+        var raw = (window.location.hash || "").replace(/^#\/?/, "");
+        return (raw.split("/")[0] || "").toLowerCase();
+    }
+
+    function isTopLevelPage(name) {
+        return !!TOP_LEVEL[name];
+    }
+
+    function visibleElement(el) {
+        if (!el) return false;
+        var s = window.getComputedStyle(el);
+        var r = el.getBoundingClientRect();
+        return s.display !== "none" &&
+               s.visibility !== "hidden" &&
+               s.opacity !== "0" &&
+               (r.width > 0 || r.height > 0);
+    }
+
+    function findPageRoot(name) {
+        var selectors = [
+            '[data-page="' + name + '"]',
+            '[data-route="' + name + '"]',
+            '[data-section="' + name + '"]',
+            '[data-mcx-page="' + name + '"]',
+            "#" + name,
+            "." + name + "-page",
+            ".page-" + name,
+            "[id$='-" + name + "']"
+        ];
+
+        for (var i = 0; i < selectors.length; i++) {
+            try {
+                var list = document.querySelectorAll(selectors[i]);
+                for (var j = 0; j < list.length; j++) {
+                    var el = list[j];
+
+                    /* Never treat the navigation itself as the page root. */
+                    if (el.closest &&
+                        (el.closest("nav") || el.closest("header"))) {
+                        continue;
+                    }
+
+                    if (el.tagName === "MAIN" || el.tagName === "SECTION" ||
+                        el.classList.contains("page") ||
+                        el.classList.contains("content") ||
+                        el.classList.contains("page-content") ||
+                        visibleElement(el)) {
+                        return el;
+                    }
+                }
+            } catch (_) {}
+        }
+
+        /* Fallback: use the main content host, never header/nav. */
+        var mains = document.querySelectorAll("main, [role='main']");
+        for (var k = 0; k < mains.length; k++) {
+            if (!mains[k].closest || (!mains[k].closest("nav") && !mains[k].closest("header"))) {
+                return mains[k];
+            }
+        }
+
+        return null;
+    }
+
+    function revealOnlyPageContent(root) {
+        if (!root) return;
+
+        /*
+          Remove only visibility states commonly used by the page-reveal
+          animation. We do NOT touch navigation or unrelated UI.
+        */
+        var revealSelectors = [
+            ".reveal",
+            ".fade-in",
+            ".fadeIn",
+            ".page-reveal",
+            ".content-reveal",
+            ".hidden-content",
+            "[data-reveal]"
+        ];
+
+        for (var i = 0; i < revealSelectors.length; i++) {
+            var nodes = [];
+            try { nodes = root.querySelectorAll(revealSelectors[i]); } catch (_) {}
+
+            for (var j = 0; j < nodes.length; j++) {
+                var el = nodes[j];
+
+                el.hidden = false;
+                el.classList.remove(
+                    "hidden",
+                    "invisible",
+                    "opacity-0",
+                    "is-hidden",
+                    "is-invisible",
+                    "reveal-hidden"
+                );
+
+                if (el.style) {
+                    if (el.style.display === "none") el.style.removeProperty("display");
+                    if (el.style.visibility === "hidden") el.style.removeProperty("visibility");
+                    if (el.style.opacity === "0") el.style.removeProperty("opacity");
+                }
+
+                el.classList.add("is-visible");
+            }
+        }
+
+        /* If the page root itself is hidden, reveal that root only. */
+        var rs = window.getComputedStyle(root);
+        if (root.hidden) root.hidden = false;
+        if (rs.visibility === "hidden") root.style.removeProperty("visibility");
+        if (rs.display === "none") root.style.removeProperty("display");
+        if (rs.opacity === "0") root.style.removeProperty("opacity");
+    }
+
+    function fixCurrentPage() {
+        var name = routeName();
+        if (!isTopLevelPage(name)) return;
+
+        var root = findPageRoot(name);
+        if (!root) return;
+
+        revealOnlyPageContent(root);
+    }
+
+    function scheduleFix() {
+        [0, 50, 150, 350, 700].forEach(function (delay) {
+            setTimeout(function () {
+                try { fixCurrentPage(); } catch (_) {}
+            }, delay);
+        });
+    }
+
+    window.addEventListener("hashchange", scheduleFix);
+    window.addEventListener("load", scheduleFix);
+    document.addEventListener("DOMContentLoaded", scheduleFix);
+
+    /* Covers apps that change the route without firing hashchange. */
+    setInterval(function () {
+        try { fixCurrentPage(); } catch (_) {}
+    }, 1000);
+})();
+/* MCX_CURRENT_ZIP_03_END */
