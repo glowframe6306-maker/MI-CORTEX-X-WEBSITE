@@ -12951,3 +12951,81 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 1000);
 })();
 /* MCX_CURRENT_ZIP_03_END */
+
+/* MCX_INTERNAL_CONTENT_VISIBILITY_FIX_START */
+/*
+  EXACT FIX:
+  Restore visibility of EXISTING content on internal pages.
+
+  Pages:
+  HOME
+  ABOUT
+  PRODUCTS
+  SERVICES
+  PRICING
+  PREMIUM
+  CONTACT
+
+  IMPORTANT:
+  Navigation, front page, blur, zoom, colors, layout,
+  animations and existing content are NOT modified.
+*/
+(function () {
+    "use strict";
+
+    function fixCurrentPageContent() {
+        var hash = window.location.hash || "";
+        var route = hash.replace(/^#\/?/, "").split("/")[0].toLowerCase();
+
+        if (!route) return;
+
+        var page =
+            document.querySelector('[data-mcx-page="' + route + '"]') ||
+            document.querySelector(".mcx-main-page.active");
+
+        if (!page) return;
+
+        /*
+          Only reveal EXISTING elements inside the active page.
+          No new content is created.
+        */
+        page.querySelectorAll(".reveal").forEach(function (element) {
+            element.classList.add("is-visible");
+        });
+
+        page.querySelectorAll("[hidden]").forEach(function (element) {
+            if (
+                element.children.length > 0 ||
+                element.textContent.trim().length > 0
+            ) {
+                element.hidden = false;
+            }
+        });
+    }
+
+    function runFix() {
+        requestAnimationFrame(function () {
+            fixCurrentPageContent();
+
+            requestAnimationFrame(function () {
+                fixCurrentPageContent();
+            });
+        });
+    }
+
+    window.addEventListener("hashchange", runFix);
+    window.addEventListener("load", runFix);
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", runFix, {
+            once: true
+        });
+    } else {
+        runFix();
+    }
+
+    [100, 300, 700, 1200].forEach(function (delay) {
+        setTimeout(runFix, delay);
+    });
+})();
+/* MCX_INTERNAL_CONTENT_VISIBILITY_FIX_END */
