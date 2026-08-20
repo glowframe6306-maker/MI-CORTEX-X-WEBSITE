@@ -11497,7 +11497,7 @@ document.addEventListener('DOMContentLoaded', function () {
  const validPages = ["overview",...Object.keys(pageData), "premium"];
  const esc = (value) => String(value?? "").replace(/[&<>\"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[char]));
  const priceFormatter = new Intl.NumberFormat("en-LK", { maximumFractionDigits: 0 });
- const state = { currency: "LKR", exchangeRate: null, exchangeRateUpdatedAt: null, rateLoading: false, rateError: "", ratePromise: null, filteredType: "all", selectedGroup: "all", search: "", sort: "name", pageSize: 8, visibleCount: 8, modalItem: null, modalReference: null };
+ const state = { currency: "LKR", exchangeRate: null, exchangeRateUpdatedAt: null, rateLoading: false, rateError: "", ratePromise: null, filteredType: "all", selectedGroup: "all", search: "", sort: "price-low", pageSize: 8, visibleCount: 8, modalItem: null, modalReference: null };
 
  function restoreCachedExchangeRate() {
  try {
