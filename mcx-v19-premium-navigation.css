@@ -361,7 +361,7 @@ body.mcx-v76-nav-ready .site-header .nav,
   .site-header[class*="mcx-v"] {
     left: 50% !important;
     right: auto !important;
-    width: min(1050px, calc(100vw - 24px)) !important;
+    width: min(930px, calc(100vw - 24px)) !important;
     max-width: calc(100vw - 24px) !important;
     margin: 0 !important;
     padding: 0 !important;
