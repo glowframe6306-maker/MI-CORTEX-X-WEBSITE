@@ -283,41 +283,6 @@ body.mcx-v76-nav-ready .site-header .nav,
   transition: transform .18s ease-out, backdrop-filter .18s ease-out, -webkit-backdrop-filter .18s ease-out !important;
 }
 
-@media (min-width: 901px) {
-  .site-header[class*="mcx-v"] {
-    position: fixed !important;
-    top: 12px !important;
-    left: 50% !important;
-    right: auto !important;
-    width: min(1160px, calc(100vw - 32px)) !important;
-    max-width: 1160px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    transform: translateX(-50%) !important;
-    z-index: 2147483000 !important;
-  }
-
-  .site-header[class*="mcx-v"] .nav {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-height: 64px !important;
-    padding: 6px 16px !important;
-    display: grid !important;
-    grid-template-columns: minmax(210px, 250px) minmax(0, 1fr) !important;
-    gap: 16px !important;
-  }
-
-  .site-header[class*="mcx-v"] .brand {
-    min-width: 0 !important;
-  }
-
-  .site-header[class*="mcx-v"] .nav-links {
-    min-width: 0 !important;
-    justify-content: space-between !important;
-    gap: 4px !important;
-  }
-}
-
 .site-header .brand-logo {
   width: 50px !important;
   height: 50px !important;
