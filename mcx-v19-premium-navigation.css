@@ -294,9 +294,9 @@ body.mcx-v76-nav-ready .site-header .nav,
 }
 
 .site-header .nav-links a {
-  height: 32px !important;
-  min-height: 32px !important;
-  padding: 0 9px !important;
+  height: 38px !important;
+  min-height: 38px !important;
+  padding: 0 10px !important;
   font-size: clamp(.67rem, .78vw, .78rem) !important;
   border: 1px solid rgba(255, 204, 76, .24) !important;
   border-radius: 999px !important;
@@ -351,8 +351,8 @@ body.mcx-v76-nav-ready .site-header .nav,
   }
 
   .site-header .nav-links a {
-    height: 30px !important;
-    min-height: 30px !important;
-    padding-inline: 8px !important;
+    height: 34px !important;
+    min-height: 34px !important;
+    padding-inline: 9px !important;
   }
 }
