@@ -265,6 +265,15 @@ html:not(.mcx-v19-front-page) .site-header {
   padding: 6px 12px !important;
   border-radius: 999px !important;
   overflow: visible !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .11) !important;
+}
+
+body.mcx-v76-nav-ready .site-header .nav,
+.site-header.mcx-v80-true-center .nav,
+.site-header.mcx-v82-effect .nav,
+.site-header.mcx-v89-effect .nav,
+.site-header[class*="mcx-v"] .nav {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .11) !important;
 }
 
 .site-header .brand-logo {
@@ -278,10 +287,45 @@ html:not(.mcx-v19-front-page) .site-header {
 }
 
 .site-header .nav-links a {
-  min-height: 38px !important;
-  padding-inline: 9px !important;
+  height: 32px !important;
+  min-height: 32px !important;
+  padding: 0 9px !important;
   font-size: clamp(.67rem, .78vw, .78rem) !important;
+  border: 1px solid rgba(255, 204, 76, .24) !important;
   border-radius: 999px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  filter: none !important;
+  text-shadow: none !important;
+  transform: none !important;
+  transition: color .18s ease, background-color .18s ease, border-color .18s ease !important;
+}
+
+.site-header .nav-links a::before,
+.site-header .nav-links a::after {
+  content: none !important;
+  display: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.site-header .nav-links a:hover,
+.site-header .nav-links a:focus-visible {
+  background: rgba(255, 204, 76, .07) !important;
+  border-color: rgba(255, 204, 76, .52) !important;
+  box-shadow: none !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+.site-header .nav-links a.active,
+.site-header .nav-links a[aria-current="page"],
+.site-header .nav-links a.mcx-v19-active {
+  background: rgba(255, 204, 76, .12) !important;
+  border-color: rgba(255, 204, 76, .72) !important;
+  box-shadow: none !important;
+  filter: none !important;
+  text-shadow: none !important;
 }
 
 @media (max-width: 900px) {
@@ -297,5 +341,11 @@ html:not(.mcx-v19-front-page) .site-header {
     width: 42px !important;
     height: 42px !important;
     min-width: 42px !important;
+  }
+
+  .site-header .nav-links a {
+    height: 30px !important;
+    min-height: 30px !important;
+    padding-inline: 8px !important;
   }
 }
