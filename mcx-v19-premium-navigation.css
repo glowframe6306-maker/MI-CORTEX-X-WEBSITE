@@ -28,8 +28,8 @@ html:not(.mcx-v19-front-page) .site-header {
 }
 
 .site-header .nav {
-  width: min(1148px, calc(100vw - 24px)) !important;
-  min-height: 72px !important;
+  width: min(1050px, calc(100vw - 24px)) !important;
+  min-height: 46px !important;
   margin: 0 auto !important;
   padding: 8px 14px 8px 12px !important;
   display: flex !important;
