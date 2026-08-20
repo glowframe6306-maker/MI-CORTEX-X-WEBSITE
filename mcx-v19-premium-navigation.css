@@ -28,7 +28,9 @@ html:not(.mcx-v19-front-page) .site-header {
 }
 
 .site-header .nav {
+  box-sizing: border-box !important;
   width: min(1050px, calc(100vw - 24px)) !important;
+  max-width: calc(100vw - 24px) !important;
   min-height: 46px !important;
   margin: 0 auto !important;
   padding: 8px 14px 8px 12px !important;
@@ -37,7 +39,7 @@ html:not(.mcx-v19-front-page) .site-header {
   justify-content: space-between !important;
   gap: 14px !important;
   border: 1.5px solid rgba(83, 208, 255, .78) !important;
-  border-radius: 48px !important;
+  border-radius: 999px !important;
   background:
     linear-gradient(
       100deg,
@@ -52,7 +54,7 @@ html:not(.mcx-v19-front-page) .site-header {
     inset 0 1px 0 rgba(255, 255, 255, .11) !important;
   backdrop-filter: blur(24px) saturate(165%) !important;
   -webkit-backdrop-filter: blur(24px) saturate(165%) !important;
-  overflow: visible !important;
+  overflow: hidden !important;
 }
 
 .site-header .brand {
