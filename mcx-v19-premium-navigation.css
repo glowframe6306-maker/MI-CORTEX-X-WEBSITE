@@ -574,6 +574,35 @@ html, body {
   text-shadow: none !important;
 }
 
+/* Final override: completely remove any border/outline/glow from nav links */
+html body .site-header[class*="mcx-v"] .nav-links a,
+html body .site-header .nav-links a,
+.site-header .nav-links a:hover,
+.site-header .nav-links a:focus,
+.site-header .nav-links a:active,
+.site-header .nav-links a[aria-current="page"],
+.site-header .nav-links a.mcx-v19-active {
+  border: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+  background: transparent !important;
+  background-image: none !important;
+  -webkit-filter: none !important;
+  filter: none !important;
+  text-shadow: none !important;
+}
+
+/* Ensure pseudo-elements don't draw outlines */
+.site-header .nav-links a::before,
+.site-header .nav-links a::after {
+  content: none !important;
+  display: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+
 @media (max-width: 900px) {
   .site-header .nav {
     width: calc(100vw - 24px) !important;
