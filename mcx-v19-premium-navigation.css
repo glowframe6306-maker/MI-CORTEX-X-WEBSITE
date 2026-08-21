@@ -602,6 +602,46 @@ html body .site-header .nav-links a,
   border: none !important;
 }
 
+/* ===== Convert nav to plain text links (remove pill shapes) ===== */
+html body .site-header[class*="mcx-v"] .nav-links {
+  display: flex !important;
+  gap: 18px !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+}
+
+html body .site-header .nav-links a {
+  background: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 4px 8px !important;
+  min-height: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  text-transform: none !important;
+  font-weight: 600 !important;
+  font-size: .95rem !important;
+  letter-spacing: .02em !important;
+}
+
+html body .site-header .nav-links a:hover,
+html body .site-header .nav-links a:focus {
+  background: transparent !important;
+  color: #ffffff !important;
+  transform: none !important;
+}
+
+/* Active link: plain text with subtle underline in gold */
+html body .site-header .nav-links a[aria-current="page"],
+html body .site-header .nav-links a.mcx-v19-active {
+  color: #ffd36b !important;
+  text-decoration: underline !important;
+  text-decoration-color: #ffd36b !important;
+  text-underline-offset: 6px !important;
+}
+
+
 
 @media (max-width: 900px) {
   .site-header .nav {
