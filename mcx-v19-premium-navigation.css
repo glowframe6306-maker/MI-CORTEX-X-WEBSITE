@@ -429,6 +429,76 @@ html::after {
   transform: none !important;
 }
 
+/* Final navbar style to match provided image: wide pill, bright gradient, crisp ovals */
+.site-header[class*="mcx-v"] {
+  left: 50% !important;
+  right: auto !important;
+  width: min(1200px, calc(100vw - 48px)) !important;
+  transform: translateX(-50%) !important;
+}
+
+.site-header[class*="mcx-v"] .nav {
+  background: linear-gradient(90deg, #28d0e6 0%, #3f4fd8 50%, #9b4ff0 100%) !important;
+  border-radius: 46px !important;
+  padding: 10px 22px !important;
+  border: 1px solid rgba(255,255,255,0.06) !important;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.32) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+.site-header .brand {
+  gap: 14px !important;
+  min-width: 220px !important;
+}
+
+.site-header .brand-logo {
+  border: 2px solid rgba(255,255,255,0.08) !important;
+  box-shadow: 0 0 0 4px rgba(0,0,0,0.16) !important;
+}
+
+.site-header .nav-links {
+  display: flex !important;
+  gap: 12px !important;
+  margin-left: auto !important;
+}
+
+.site-header .nav-links a {
+  padding: 8px 18px !important;
+  border-radius: 28px !important;
+  background: rgba(255,255,255,0.03) !important;
+  border: 1px solid rgba(255,255,255,0.06) !important;
+  color: rgba(255,255,255,0.95) !important;
+  font-weight: 800 !important;
+  letter-spacing: .04em !important;
+  text-transform: uppercase !important;
+}
+
+.site-header .nav-links a:hover {
+  background: rgba(255,255,255,0.06) !important;
+}
+
+.site-header .nav-links a.active,
+.site-header .nav-links a[aria-current="page"] {
+  background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)) !important;
+  color: #fff !important;
+  box-shadow: 0 0 0 2px rgba(255,215,0,0.08) inset !important;
+  border: 1px solid rgba(255,215,0,0.12) !important;
+}
+
+@media (max-width: 900px) {
+  .site-header[class*="mcx-v"] .nav {
+    width: calc(100vw - 28px) !important;
+    border-radius: 28px !important;
+    padding: 8px 12px !important;
+  }
+
+  .site-header .nav-links a {
+    padding: 6px 12px !important;
+    border-radius: 18px !important;
+  }
+}
+
 
 
 .site-header .nav-links a::before,
