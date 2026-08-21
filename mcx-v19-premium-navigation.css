@@ -27,6 +27,54 @@ html:not(.mcx-v19-front-page) .site-header {
     transform .38s cubic-bezier(.2,.8,.2,1) !important;
 }
 
+/* Make the navbar a single sharp bar (no visual blur, no neon ovals) */
+.site-header .nav {
+  background: #071127 !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(255,255,255,0.04) !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.28) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+.site-header .nav-links {
+  gap: 10px !important;
+  align-items: center !important;
+}
+
+.site-header .nav-links a {
+  background: transparent !important;
+  border: none !important;
+  color: rgba(245,245,255,0.92) !important;
+  padding: 8px 12px !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+}
+
+.site-header .nav-links a.active,
+.site-header .nav-links a[aria-current="page"] {
+  background: rgba(255,255,255,0.03) !important;
+  color: #fff !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+/* Make category/product cards less rounded (more professional) */
+.mcx-main-directory-card,
+.mcx-catalogue-card,
+.product-card,
+.catalogue-item,
+.mcx-card,
+.panel {
+  border-radius: 8px !important;
+  overflow: visible !important;
+  border: 1px solid rgba(255,255,255,0.04) !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.28) !important;
+  background: linear-gradient(180deg, rgba(7,10,18,0.98), rgba(9,12,24,0.98)) !important;
+}
+
+
 .site-header .nav {
   box-sizing: border-box !important;
   width: min(1050px, calc(100vw - 24px)) !important;
