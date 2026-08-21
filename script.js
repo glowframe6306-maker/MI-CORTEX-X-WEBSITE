@@ -12002,6 +12002,49 @@ document.addEventListener('DOMContentLoaded', function () {
  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init, { once: true }); else init();
 })();
 
+/* Navigation capture: prefer existing page sections for category clicks
+	 This capturing handler prevents the default category-detail rendering
+	 when a matching `.mcx-<page>-<category>` section exists on the page. */
+document.addEventListener(
+	"click",
+	function (event) {
+		try {
+			var categoryEl = event.target.closest
+				? event.target.closest("[data-mcx-category]")
+				: null;
+			if (!categoryEl) return;
+
+			var parts = (categoryEl.dataset && categoryEl.dataset.mcxCategory) ? categoryEl.dataset.mcxCategory.split("/") : [];
+			if (!parts || parts.length < 2) return;
+			var page = parts[0];
+			var id = parts[1];
+			var existing = document.querySelector('.mcx-' + page + '-' + id);
+			if (!existing) return;
+
+			// Prevent the default category handler from rendering a detail panel
+			event.preventDefault();
+			event.stopPropagation();
+			if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+
+			// Navigate to the page and scroll to the existing section
+			setHash(page);
+			window.setTimeout(function () {
+				var fixedNavigation = document.querySelector('.site-header') || document.querySelector('header') || document.querySelector('nav');
+				var navigationOffset = 22;
+				if (fixedNavigation) {
+					var navigationStyle = window.getComputedStyle(fixedNavigation);
+					if (navigationStyle.position === 'fixed' || navigationStyle.position === 'sticky') navigationOffset = fixedNavigation.getBoundingClientRect().height + 22;
+				}
+				var top = existing.getBoundingClientRect().top + window.scrollY - navigationOffset;
+				window.scrollTo({ top: Math.max(0, top), left: 0, behavior: 'smooth' });
+			}, 80);
+		} catch (err) {
+			// ignore and fall back to original handlers
+		}
+	},
+	true
+);
+
 
 /* MI_CORTEX_PRO_CATEGORY_SYSTEM_END */
 
