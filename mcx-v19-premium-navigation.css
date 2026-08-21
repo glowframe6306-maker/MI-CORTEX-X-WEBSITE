@@ -619,3 +619,40 @@ html, body {
     -moz-osx-font-smoothing: grayscale !important;
   }
 
+  /* ===== Force: remove borders from all category elements ===== */
+  /* Ensures category cards, rows and related elements show no borders or glows */
+  .mcx-category-index,
+  .mcx-category-detail,
+  .mcx-category-index *,
+  .mcx-category-detail *,
+  .mcx-main-directory-card,
+  .mcx-category-row,
+  .mcx-main-directory-number,
+  .mcx-category-number,
+  .mcx-main-directory-card .mcx-main-directory-number,
+  .mcx-main-directory-card .mcx-main-directory-copy,
+  .mcx-category-item,
+  .mcx-category-card {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    background-clip: padding-box !important;
+  }
+
+  /* hide decorative separators */
+  .mcx-category-row::before,
+  .mcx-category-row::after,
+  .mcx-category-index .divider,
+  .mcx-category-detail .divider {
+    content: none !important;
+    display: none !important;
+  }
+
+  /* keep keyboard focus visible but without border/glow */
+  .mcx-category-row:focus-visible,
+  .mcx-category-row:hover {
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+
