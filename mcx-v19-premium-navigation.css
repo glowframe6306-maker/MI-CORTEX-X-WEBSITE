@@ -368,3 +368,23 @@ body.mcx-v76-nav-ready .site-header .nav,
     max-width: 100% !important;
   }
 }
+
+  /* Force-crisp override: ensure header/nav are visually sharp (no blur/glow) */
+  .site-header,
+  .site-header .nav,
+  .site-header .nav *,
+  .site-header .brand,
+  .site-header .brand-logo,
+  .site-header .nav-links,
+  .site-header .nav-links a {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    filter: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    outline: none !important;
+    backface-visibility: hidden !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+  }
+
