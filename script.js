@@ -12046,11 +12046,11 @@ try { window.createStaticCategorySections = createStaticCategorySections; } catc
 // Ensure static category sections are created after DOM is ready so that
 // the navigation capture handler can find them and avoid duplicate rendering.
 document.addEventListener("DOMContentLoaded", function () {
-    try {
-        createStaticCategorySections();
-    } catch (e) {
-        console.warn('createStaticCategorySections initialization failed:', e);
-    }
+	try {
+		if (window.createStaticCategorySections) window.createStaticCategorySections();
+	} catch (e) {
+		console.warn('createStaticCategorySections initialization failed:', e);
+	}
 }, { once: true });
 
 /* Navigation capture: prefer existing page sections for category clicks
