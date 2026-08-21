@@ -11909,6 +11909,45 @@ document.addEventListener('DOMContentLoaded', function () {
  return "Reusable product solutions for modern operations.";
  }
 
+/* Create static category sections for pages that have category data.
+   This ensures the navigation can scroll to existing sections instead
+   of rendering duplicate detail panels under the nav. */
+function createStaticCategorySections() {
+	try {
+		Object.keys(pageData).forEach(function (page) {
+			var container = document.querySelector(`[data-mcx-page="${page}"] .mcx-page-wrap`);
+			if (!container) return;
+
+			var existingShell = container.querySelector('.mcx-static-categories');
+			if (existingShell) return; // already created
+
+			var shell = document.createElement('div');
+			shell.className = 'mcx-static-categories';
+
+			pageData[page].categories.forEach(function (category) {
+				var sec = document.createElement('section');
+				sec.className = 'mcx-' + page + '-' + category.id + ' mcx-static-category';
+				sec.id = 'mcx-' + page + '-' + category.id;
+				var html = '';
+				html += `<header class="mcx-static-header"><h2>${esc(category.title)}</h2><p>${esc(category.summary)}</p></header>`;
+				html += '<div class="mcx-static-subtopics">';
+				category.subtopics.forEach(function (topic, idx) {
+					html += `<article class="mcx-static-subtopic"><h3>${esc(topic.title)}</h3><p>${esc(topic.summary)}</p><ul>`;
+					topic.points && topic.points.forEach(function (pt) { html += `<li>${esc(pt)}</li>`; });
+					html += '</ul>' + (topic.note? `<p class="mcx-topic-note">${esc(topic.note)}</p>`: '') + '</article>';
+				});
+				html += '</div>';
+				sec.innerHTML = html;
+				shell.appendChild(sec);
+			});
+
+			container.appendChild(shell);
+		});
+	} catch (err) {
+		console.warn('createStaticCategorySections failed:', err);
+	}
+}
+
  if (page === "services") {
  return "Custom service solutions tailored to each client project.";
  }
@@ -12002,10 +12041,20 @@ document.addEventListener('DOMContentLoaded', function () {
  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init, { once: true }); else init();
 })();
 
+// Ensure static category sections are created after DOM is ready so that
+// the navigation capture handler can find them and avoid duplicate rendering.
+document.addEventListener("DOMContentLoaded", function () {
+    try {
+        createStaticCategorySections();
+    } catch (e) {
+        console.warn('createStaticCategorySections initialization failed:', e);
+    }
+}, { once: true });
+
 /* Navigation capture: prefer existing page sections for category clicks
- 	 This capturing handler prevents the default category-detail rendering
- 	 when a matching section already exists on the page (by id, class or prefix).
- 	 It also accepts anchors with hash patterns like "#/page/category". */
+	 This capturing handler prevents the default category-detail rendering
+	 when a matching section already exists on the page (by id, class or prefix).
+	 It also accepts anchors with hash patterns like "#/page/category". */
 document.addEventListener(
 	"click",
 	function (event) {
