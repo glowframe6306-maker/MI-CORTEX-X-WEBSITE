@@ -12003,22 +12003,71 @@ document.addEventListener('DOMContentLoaded', function () {
 })();
 
 /* Navigation capture: prefer existing page sections for category clicks
-	 This capturing handler prevents the default category-detail rendering
-	 when a matching `.mcx-<page>-<category>` section exists on the page. */
+ 	 This capturing handler prevents the default category-detail rendering
+ 	 when a matching section already exists on the page (by id, class or prefix).
+ 	 It also accepts anchors with hash patterns like "#/page/category". */
 document.addEventListener(
 	"click",
 	function (event) {
 		try {
+			// normalize extractor: try data-mcx-category first
+			var page = null;
+			var id = null;
+
 			var categoryEl = event.target.closest
 				? event.target.closest("[data-mcx-category]")
 				: null;
-			if (!categoryEl) return;
 
-			var parts = (categoryEl.dataset && categoryEl.dataset.mcxCategory) ? categoryEl.dataset.mcxCategory.split("/") : [];
-			if (!parts || parts.length < 2) return;
-			var page = parts[0];
-			var id = parts[1];
-			var existing = document.querySelector('.mcx-' + page + '-' + id);
+			if (categoryEl && categoryEl.dataset && categoryEl.dataset.mcxCategory) {
+				var parts = categoryEl.dataset.mcxCategory.split("/");
+				if (parts && parts.length >= 2) {
+					page = parts[0];
+					id = parts[1];
+				}
+			}
+
+			// fallback: anchor href like "#/page/category" or "#page/category"
+			if ((!page || !id) && event.target.closest) {
+				var anchor = event.target.closest("a[href]");
+				if (anchor) {
+					var href = String(anchor.getAttribute("href") || "");
+					var hash = href.replace(/^.*#/, "");
+					hash = hash.replace(/^\/?/, ""); // remove leading slash
+					var parts2 = hash.split("/").filter(Boolean);
+					if (parts2.length >= 2) {
+						page = page || parts2[0];
+						id = id || parts2[1];
+					}
+				}
+			}
+
+			if (!page || !id) return;
+
+			// Find an existing section using a set of reasonable selectors
+			var existing = null;
+			var selectors = [
+				'#' + id,
+				'[id$="-' + id + '"]',
+				'.mcx-' + page + '-' + id,
+				'.mcx-' + id,
+				'#mcx-' + page + '-' + id,
+				'#mcx-' + id,
+				'.' + id.replace(/[^a-zA-Z0-9-_]/g, '-'),
+				'[data-mcx-section="' + id + '"]',
+				'[data-mcx-' + id + ']'
+			];
+
+			for (var i = 0; i < selectors.length; i++) {
+				try {
+					var s = selectors[i];
+					if (!s) continue;
+					existing = document.querySelector(s);
+					if (existing) break;
+				} catch (ignore) {
+					// ignore invalid selector
+				}
+			}
+
 			if (!existing) return;
 
 			// Prevent the default category handler from rendering a detail panel
@@ -12026,7 +12075,7 @@ document.addEventListener(
 			event.stopPropagation();
 			if (event.stopImmediatePropagation) event.stopImmediatePropagation();
 
-			// Navigate to the page and scroll to the existing section
+			// Activate the page (without category) and smoothly scroll to the existing section
 			setHash(page);
 			window.setTimeout(function () {
 				var fixedNavigation = document.querySelector('.site-header') || document.querySelector('header') || document.querySelector('nav');
