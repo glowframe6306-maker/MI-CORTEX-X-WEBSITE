@@ -446,10 +446,11 @@ html::after {
   max-width: none !important;
   margin: 0 auto !important;
   padding: 10px 22px !important;
-  background: linear-gradient(90deg, rgba(9,67,124,0.92) 0%, rgba(14,45,112,0.94) 36%, rgba(30,22,112,0.95) 70%, rgba(47,14,110,0.96) 100%) !important;
+  /* smooth premium gradient (keeps original colors, more even) */
+  background: linear-gradient(90deg, rgba(6,24,48,0.98) 0%, rgba(18,20,60,0.98) 50%, rgba(40,18,80,0.98) 100%) !important;
   border-radius: 999px !important;
   border: 1.5px solid rgba(83, 208, 255, .78) !important;
-  box-shadow: 0 18px 48px rgba(0, 0, 0, .34), inset 0 1px 0 rgba(255, 255, 255, .11) !important;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, .34), inset 0 1px 0 rgba(255, 255, 255, .06) !important;
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
 }
@@ -478,8 +479,8 @@ html, body {
 .site-header .nav-links a {
   padding: 8px 18px !important;
   border-radius: 28px !important;
-  background: rgba(255,255,255,0.03) !important;
-  border: 1px solid rgba(255,255,255,0.06) !important;
+  background: transparent !important;
+  border: none !important;
   color: rgba(255,255,255,0.95) !important;
   font-weight: 800 !important;
   letter-spacing: .04em !important;
@@ -492,10 +493,13 @@ html, body {
 
 .site-header .nav-links a.active,
 .site-header .nav-links a[aria-current="page"] {
-  background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)) !important;
-  color: #fff !important;
-  box-shadow: 0 0 0 2px rgba(255,215,0,0.08) inset !important;
-  border: 1px solid rgba(255,215,0,0.12) !important;
+  /* gold oval for selected category */
+  background: linear-gradient(90deg, #ffd36b 0%, #ffb84d 100%) !important;
+  color: rgba(6,12,28,1) !important;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18) inset, 0 2px 6px rgba(0,0,0,0.12) !important;
+  border: none !important;
+  padding: 8px 26px !important; /* extra horizontal padding for oval look */
+  border-radius: 999px !important;
 }
 
 @media (max-width: 900px) {
