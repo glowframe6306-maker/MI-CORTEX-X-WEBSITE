@@ -303,6 +303,18 @@ body.mcx-v76-nav-ready .site-header .nav,
   padding-bottom: clamp(48px, 6vw, 76px) !important;
 }
 
+/* High-quality hero glass: subtle sharp blur behind the hero only */
+.mcx-overview-header {
+  background: rgba(6, 10, 22, 0.56) !important;
+  border: 1px solid rgba(255,255,255,0.06) !important;
+  border-radius: 30px !important;
+  -webkit-backdrop-filter: blur(6px) saturate(110%) !important;
+  backdrop-filter: blur(6px) saturate(110%) !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.22) !important;
+  overflow: visible !important;
+}
+
+
 .site-header .nav-links a::before,
 .site-header .nav-links a::after {
   content: none !important;
