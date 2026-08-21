@@ -737,4 +737,117 @@ html body .site-header .nav-links a.mcx-v19-active {
     border: none !important;
   }
 
+  /* ===== NAVBAR: subtle vertical shift + premium glass blur + silver active border ===== */
+  /* All rules below are high-specificity overrides to preserve the existing design */
+
+  /* Move navbar slightly down (responsive) */
+  .site-header[class*="mcx-v"] > .nav,
+  .site-header > .nav {
+    margin-top: 10px !important; /* slight vertical shift */
+  }
+
+  /* Create a large soft glass/zoom atmosphere behind the nav using a pseudo-element.
+     The nav itself remains sharp; the pseudo-element provides a wide blurred halo effect. */
+  .site-header[class*="mcx-v"] > .nav::before,
+  .site-header > .nav::before {
+    content: "";
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) scale(1) !important;
+    width: 2400px !important; /* very wide to create ~1000px visual radius */
+    height: 1200px !important; /* tall for vertical spread */
+    pointer-events: none !important;
+    z-index: -1 !important; /* behind the nav */
+    border-radius: 999px !important;
+    background: radial-gradient(closest-side, rgba(255,255,255,0.03), rgba(30,40,70,0.0) 50%);
+    filter: blur(140px) saturate(110%) !important; /* creates soft, zoomed blur */
+    opacity: 0.95 !important;
+    transition: opacity .35s ease, transform .45s cubic-bezier(.2,.9,.27,1) !important;
+    will-change: transform, opacity;
+  }
+
+  /* Ensure the pseudo-element sits behind the nav container but above page background */
+  .site-header[class*="mcx-v"],
+  .site-header {
+    position: relative !important;
+    z-index: 50 !important;
+  }
+
+  /* Remove any permanent borders on nav links */
+  .site-header .nav-links a {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    background: transparent !important;
+  }
+
+  /* Hover state: subtle feedback only */
+  .site-header .nav-links a:hover,
+  .site-header .nav-links a:focus {
+    background: rgba(255,255,255,0.03) !important;
+    color: inherit !important;
+    transform: translateY(0) !important;
+  }
+
+  /* Active/selected state: silver border only (no gold) */
+  /* Use an absolutely positioned pseudo-element to draw the border so layout doesn't shift. */
+  .site-header .nav-links a[aria-current="page"]::after,
+  .site-header .nav-links a.mcx-v19-active::after {
+    content: "";
+    position: absolute !important;
+    inset: -8px !important; /* space outside the link so border doesn't affect layout */
+    border-radius: 999px !important;
+    border: 2px solid rgba(200, 200, 208, 0.78) !important; /* premium silver */
+    box-shadow: 0 6px 24px rgba(200,200,208,0.08) !important; /* subtle premium glow */
+    pointer-events: none !important;
+    transition: all .32s cubic-bezier(.2,.9,.27,1) !important;
+    opacity: 1 !important;
+  }
+
+  /* Hide the pseudo-element by default for non-active links */
+  .site-header .nav-links a::after {
+    content: none !important;
+  }
+
+  /* For accessibility, keep focus-visible clear but not permanently bordered */
+  .site-header .nav-links a:focus-visible::after {
+    content: "" !important;
+    inset: -6px !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+    opacity: .9 !important;
+  }
+
+  /* Smooth transition when active moves between items: fade-in/out on ::after
+     (Note: visual 'movement' is achieved by the active pseudo-element appearing on the new item while disappearing on the old one) */
+  .site-header .nav-links a[aria-current="page"],
+  .site-header .nav-links a.mcx-v19-active {
+    color: inherit !important; /* remove gold color */
+    background: transparent !important;
+  }
+
+  /* Responsive adjustments: keep the pseudo-element sized appropriately on small screens */
+  @media (max-width: 900px) {
+    .site-header[class*="mcx-v"] > .nav::before,
+    .site-header > .nav::before {
+      width: 1400px !important;
+      height: 700px !important;
+      filter: blur(100px) !important;
+    }
+    .site-header[class*="mcx-v"] > .nav,
+    .site-header > .nav {
+      margin-top: 6px !important;
+    }
+    .site-header .nav-links a[aria-current="page"]::after,
+    .site-header .nav-links a.mcx-v19-active::after {
+      inset: -6px !important;
+      border-width: 1px !important;
+    }
+  }
+
+  /* Ensure the nav links keep position:relative so ::after positions correctly */
+  .site-header .nav-links a { position: relative !important; z-index: 2 !important; }
+
+
 
