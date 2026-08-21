@@ -300,12 +300,23 @@ body.mcx-v76-nav-ready .site-header .nav,
   font-size: clamp(.67rem, .78vw, .78rem) !important;
   border: 1px solid rgba(255, 204, 76, .24) !important;
   border-radius: 999px !important;
+  color: rgba(248, 250, 255, .9) !important;
+  letter-spacing: .02em !important;
   background: transparent !important;
   box-shadow: none !important;
   filter: none !important;
   text-shadow: none !important;
   transform: none !important;
   transition: color .18s ease, background-color .18s ease, border-color .18s ease !important;
+}
+
+.mcx-overview-header > .eyebrow {
+  display: none !important;
+}
+
+.mcx-overview-header {
+  padding-top: clamp(48px, 6vw, 76px) !important;
+  padding-bottom: clamp(48px, 6vw, 76px) !important;
 }
 
 .site-header .nav-links a::before,
