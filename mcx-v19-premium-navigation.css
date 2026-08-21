@@ -322,6 +322,40 @@ body.mcx-v76-nav-ready .site-header .nav,
   filter: none !important;
 }
 
+/* Forcefully remove any blurred background layers or pseudo-elements
+   that may sit behind the hero to ensure absolute sharpness */
+.mcx-page-wrap,
+.mcx-page-wrap::before,
+.mcx-page-wrap::after,
+.container,
+.container::before,
+.container::after,
+main,
+main::before,
+main::after,
+body,
+body::before,
+body::after,
+html,
+html::before,
+html::after {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  filter: none !important;
+  background-image: none !important;
+  background-blend-mode: normal !important;
+}
+
+.mcx-overview-header::before,
+.mcx-overview-header::after,
+.mcx-overview-header *::before,
+.mcx-overview-header *::after {
+  content: none !important;
+  display: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
 
 .site-header .nav-links a::before,
 .site-header .nav-links a::after {
