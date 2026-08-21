@@ -11947,6 +11947,8 @@ function createStaticCategorySections() {
 		console.warn('createStaticCategorySections failed:', err);
 	}
 }
+// expose for external callers (capture handler / DOM listeners outside the IIFE)
+try { window.createStaticCategorySections = createStaticCategorySections; } catch (e) { /* ignore */ }
 
  if (page === "services") {
  return "Custom service solutions tailored to each client project.";
