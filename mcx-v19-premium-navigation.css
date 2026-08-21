@@ -502,6 +502,20 @@ html, body {
   border-radius: 999px !important;
 }
 
+/* Strong override: ensure active/selected nav item is gold across all states */
+.site-header .nav-links a.active,
+.site-header .nav-links a[aria-current="page"],
+.site-header .nav-links a:active,
+.site-header .nav-links a:focus,
+.site-header .nav-links a:focus-visible {
+  background: linear-gradient(90deg, #ffd36b 0%, #ffb84d 100%) !important;
+  color: rgba(6,12,28,1) !important;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18) inset, 0 2px 6px rgba(0,0,0,0.12) !important;
+  border: none !important;
+  -webkit-text-fill-color: rgba(6,12,28,1) !important;
+}
+
+
 @media (max-width: 900px) {
   .site-header[class*="mcx-v"] .nav {
     width: calc(100vw - 28px) !important;
