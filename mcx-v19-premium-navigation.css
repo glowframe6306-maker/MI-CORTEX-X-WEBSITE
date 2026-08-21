@@ -38,8 +38,8 @@ html:not(.mcx-v19-front-page) .site-header {
 }
 
 .site-header .nav-links {
-  gap: 10px !important;
-  align-items: center !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .site-header .nav-links a {
@@ -508,8 +508,21 @@ html, body {
 .site-header .nav-links a[aria-current="page"],
 .site-header .nav-links a:active,
 .site-header .nav-links a:focus,
-.site-header .nav-links a:focus-visible {
+  box-shadow: none !important;
+  border: none !important;
+  background: transparent !important;
   /* Selected style matching reference: subtle bright pill */
+
+/* Force remove any residual outline/border/glow on nav links */
+.site-header .nav-links a,
+.site-header .nav-links a:hover,
+.site-header .nav-links a:focus,
+.site-header .nav-links a:active {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  background: transparent !important;
+}
   background: rgba(255,255,255,0.12) !important;
   color: #ffffff !important;
   box-shadow: 0 6px 18px rgba(0,0,0,0.36) inset, 0 0 14px rgba(255,255,255,0.06) !important;
