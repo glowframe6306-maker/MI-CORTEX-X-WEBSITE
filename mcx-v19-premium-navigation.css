@@ -1,18 +1,6 @@
 /* MI CORTEX X V19 - Premium navigation matching the requested design */
 
-html.mcx-v19-front-page .site-header {
-  opacity: 0 !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
-  transform: translateY(-28px) !important;
-}
-
-html:not(.mcx-v19-front-page) .site-header {
-  opacity: 1 !important;
-  visibility: visible !important;
-  pointer-events: auto !important;
-  transform: translateY(0) !important;
-}
+/* Keep the navigation bar visible and preserve its original layout. */
 
 .site-header {
   position: sticky !important;
@@ -152,8 +140,8 @@ html:not(.mcx-v19-front-page) .site-header {
   box-shadow: none !important;
 }
 
-.site-header .nav-links a:hover,
-.site-header .nav-links a:focus-visible {
+.site-header .nav-links a:hover:not(.active):not([aria-current="page"]):not(.mcx-v19-active),
+.site-header .nav-links a:focus-visible:not(.active):not([aria-current="page"]):not(.mcx-v19-active) {
   color: #dfe7f3 !important;
   background: transparent !important;
   border: none !important;
@@ -175,9 +163,16 @@ html:not(.mcx-v19-front-page) .site-header {
 }
 
 .site-header .nav-links a.active:hover,
+.site-header .nav-links a.active:focus-visible,
 .site-header .nav-links a[aria-current="page"]:hover,
-.site-header .nav-links a.mcx-v19-active:hover {
+.site-header .nav-links a[aria-current="page"]:focus-visible,
+.site-header .nav-links a.mcx-v19-active:hover,
+.site-header .nav-links a.mcx-v19-active:focus-visible {
   color: #f7c75f !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  transform: none !important;
   text-shadow: 0 0 12px rgba(247, 199, 95, 0.88), 0 0 22px rgba(247, 199, 95, 0.44) !important;
 }
 
