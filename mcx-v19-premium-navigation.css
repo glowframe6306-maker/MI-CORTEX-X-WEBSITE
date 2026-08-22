@@ -162,6 +162,12 @@
   text-shadow: 0 0 12px rgba(247, 199, 95, 0.88), 0 0 22px rgba(247, 199, 95, 0.44) !important;
 }
 
+.site-header .nav-links a:hover:not(.active):not([aria-current="page"]):not(.mcx-v19-active),
+.site-header .nav-links a:focus-visible:not(.active):not([aria-current="page"]):not(.mcx-v19-active) {
+  color: #dfe7f3 !important;
+  opacity: 1 !important;
+}
+
 .site-header .nav-links a.active:hover,
 .site-header .nav-links a.active:focus-visible,
 .site-header .nav-links a[aria-current="page"]:hover,

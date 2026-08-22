@@ -11915,47 +11915,6 @@ document.addEventListener('DOMContentLoaded', function () {
  return "Reusable product solutions for modern operations.";
  }
 
-/* Create static category sections for pages that have category data.
-   This ensures the navigation can scroll to existing sections instead
-   of rendering duplicate detail panels under the nav. */
-function createStaticCategorySections() {
-	try {
-		Object.keys(pageData).forEach(function (page) {
-			var container = document.querySelector(`[data-mcx-page="${page}"] .mcx-page-wrap`);
-			if (!container) return;
-
-			var existingShell = container.querySelector('.mcx-static-categories');
-			if (existingShell) return; // already created
-
-			var shell = document.createElement('div');
-			shell.className = 'mcx-static-categories';
-
-			pageData[page].categories.forEach(function (category) {
-				var sec = document.createElement('section');
-				sec.className = 'mcx-' + page + '-' + category.id + ' mcx-static-category';
-				sec.id = 'mcx-' + page + '-' + category.id;
-				var html = '';
-				html += `<header class="mcx-static-header"><h2>${esc(category.title)}</h2><p>${esc(category.summary)}</p></header>`;
-				html += '<div class="mcx-static-subtopics">';
-				category.subtopics.forEach(function (topic, idx) {
-					html += `<article class="mcx-static-subtopic"><h3>${esc(topic.title)}</h3><p>${esc(topic.summary)}</p><ul>`;
-					topic.points && topic.points.forEach(function (pt) { html += `<li>${esc(pt)}</li>`; });
-					html += '</ul>' + (topic.note? `<p class="mcx-topic-note">${esc(topic.note)}</p>`: '') + '</article>';
-				});
-				html += '</div>';
-				sec.innerHTML = html;
-				shell.appendChild(sec);
-			});
-
-			container.appendChild(shell);
-		});
-	} catch (err) {
-		console.warn('createStaticCategorySections failed:', err);
-	}
-}
-// expose for external callers (capture handler / DOM listeners outside the IIFE)
-try { window.createStaticCategorySections = createStaticCategorySections; } catch (e) { /* ignore */ }
-
  if (page === "services") {
  return "Custom service solutions tailored to each client project.";
  }
@@ -12008,7 +11967,7 @@ try { window.createStaticCategorySections = createStaticCategorySections; } catc
  function openOrderModal(page, item) { state.modalItem = item; state.modalReference = getReferenceNumber(); const overlay = document.createElement("div"); overlay.className = "mcx-modal-overlay"; overlay.innerHTML = `<div class="mcx-modal" role="dialog" aria-modal="true" aria-labelledby="mcx-modal-title"><button type="button" class="mcx-modal-close" data-mcx-close-modal aria-label="Close order request">&#10005;</button><h2 id="mcx-modal-title">Order request for ${esc(item.name)}</h2><p class="mcx-modal-intro">${esc(item.type === "service"? "Service request": "Product request")}</p><div class="mcx-modal-grid"><div class="mcx-modal-column"><p><strong>Selected item:</strong> ${esc(item.name)}</p><p><strong>Type:</strong> ${esc(item.type === "service"? "Service": "Product")}</p><p><strong>Currency:</strong> USD estimate with fixed LKR reference</p><p><strong>Estimated price:</strong> ${esc(formatPriceForModal(item))}</p><p><strong>Reference:</strong> ${esc(state.modalReference)}</p></div><div class="mcx-modal-column"><label class="mcx-modal-field"><span>Customer name</span><input name="customerName" required></label><label class="mcx-modal-field"><span>Email address</span><input name="customerEmail" type="email" required></label><label class="mcx-modal-field"><span>WhatsApp number</span><input name="customerWhatsapp" required></label><label class="mcx-modal-field"><span>Country</span><input name="customerCountry" required></label><label class="mcx-modal-field"><span>Business / company</span><input name="customerCompany"></label></div></div><label class="mcx-modal-field full"><span>Required features</span><textarea name="requiredFeatures" rows="3"></textarea></label><label class="mcx-modal-field full"><span>Project description</span><textarea name="projectDescription" rows="4" required></textarea></label><label class="mcx-modal-field full"><span>Preferred delivery date</span><input name="deliveryDate" type="date"></label><label class="mcx-checkbox"><input type="checkbox" name="agreement" required> I agree to share these details for quotation and support follow-up.</label><div class="mcx-payment-box"><h3>Payment options</h3><ul><li>PayPal   Coming Soon</li><li>PayHere   Coming Soon</li><li>Stripe / Card   Coming Soon</li></ul><p>Online payments are being configured. Submit an order request and our team will contact you with an approved payment method.</p></div><div class="mcx-card-actions"><button type="button" class="mcx-action" data-mcx-send-whatsapp>Send via WhatsApp</button><button type="button" class="mcx-secondary-button" data-mcx-send-email>Send via Email</button></div></div>`; document.body.appendChild(overlay); document.body.classList.add("mcx-modal-open"); setTimeout(() => overlay.querySelector("input, textarea, button").focus(), 40); }
  function closeOrderModal() { document.querySelector(".mcx-modal-overlay")?.remove(); document.body.classList.remove("mcx-modal-open"); }
  function sendOrderRequest(mode) { if (!state.modalItem) return; const overlay = document.querySelector(".mcx-modal-overlay"); if (!overlay) return; const fields = overlay.querySelectorAll("input, textarea"); const data = {}; fields.forEach((field) => { if (field.name) data[field.name] = field.value; }); const reference = state.modalReference || getReferenceNumber(); const item = state.modalItem; const body = [`Reference: ${reference}`, `Customer Name: ${data.customerName || "Not provided"}`, `Selected Item: ${item.name}`, `Type: ${item.type === "service"? "Service": "Product"}`, "Display Currency: USD estimate with fixed LKR reference", `Estimated Price: ${formatPriceForModal(item)}`, `Requirements: ${data.requiredFeatures || "Not specified"}`, `Project Description: ${data.projectDescription || "No project description provided."}`, `Preferred Delivery Date: ${data.deliveryDate || "Not provided"}`].join("\n"); if (mode === "whatsapp") { window.open(`https://wa.me/${company.whatsapp}?text=${encodeURIComponent(body)}`, "_blank", "noopener,noreferrer"); } else { window.location.href = `mailto:${company.salesEmail}?subject=${encodeURIComponent(`Quotation Request - ${item.name}`)}&body=${encodeURIComponent(body)}`; } const note = document.createElement("p"); note.className = "mcx-request-status"; note.textContent = mode === "whatsapp"? "Quotation request prepared for WhatsApp follow-up.": "Quotation request prepared for email follow-up."; overlay.querySelector(".mcx-card-actions").insertAdjacentElement("afterend", note); }
- function route(scroll = true) { const { page, category, subtopic } = hashState(); document.querySelectorAll("[data-mcx-page]").forEach((section) => { const active = section.dataset.mcxPage === page; section.classList.toggle("active", active); section.hidden =!active; }); document.querySelectorAll("[data-mcx-page-link]").forEach((link) => link.classList.toggle("active", link.dataset.mcxPageLink === page)); const index = document.querySelector(`[data-mcx-category-index="${page}"]`); const detail = document.querySelector(`[data-mcx-category-detail="${page}"]`); if (!category) { hideAllCategoryPanels(); } else if (["products", "services", "pricing", "premium"].includes(page)) { if (category) { const item = getCatalogueItem(page, category); if (item) { renderCatalogueDetail(page, item); } else { if (index) index.hidden = false; if (detail) { detail.hidden = false; detail.innerHTML = `<div class="mcx-not-found"><h2>Not Found</h2><p>The requested catalogue item is not available yet. Please return to the main catalogue and choose another item.</p><button type="button" class="mcx-action" data-mcx-route="${page}">BACK TO CATALOGUE</button></div>`; } } } } else if (category && renderCategory(page, category, subtopic)) { } else { if (index) index.hidden = false; if (detail) { detail.hidden = true; detail.innerHTML = ""; } renderIndex(page); } if (scroll) { const activePage = document.querySelector(`[data-mcx-page="${page}"]`); const scrollTarget = detail &&!detail.hidden? detail: activePage; if (scrollTarget) { const fixedNavigation = document.querySelector(".site-header") || document.querySelector("header") || document.querySelector("nav"); let navigationOffset = 22; if (fixedNavigation) { const navigationStyle = window.getComputedStyle(fixedNavigation); if (navigationStyle.position === "fixed" || navigationStyle.position === "sticky") navigationOffset = fixedNavigation.getBoundingClientRect().height + 22; } const targetTop = scrollTarget.getBoundingClientRect().top + window.scrollY - navigationOffset; window.scrollTo({ top: Math.max(0, targetTop), left: 0, behavior: "smooth" }); } } }
+ function route(scroll = true) { const { page, category, subtopic } = hashState(); const activePage = document.querySelector(`[data-mcx-page="${page}"]`); document.querySelectorAll("[data-mcx-page]").forEach((section) => { const active = section.dataset.mcxPage === page; section.classList.toggle("active", active); section.hidden = false; }); document.querySelectorAll("[data-mcx-page-link]").forEach((link) => { const linkPage = String(link.dataset.mcxPageLink || "").trim().toLowerCase(); const active = linkPage === page; link.classList.toggle("active", active); if (active) { link.setAttribute("aria-current", "page"); } else { link.removeAttribute("aria-current"); } }); const index = document.querySelector(`[data-mcx-category-index="${page}"]`); const detail = document.querySelector(`[data-mcx-category-detail="${page}"]`); if (!category) { hideAllCategoryPanels(); } else if (["products", "services", "pricing", "premium"].includes(page)) { if (category) { const item = getCatalogueItem(page, category); if (item) { renderCatalogueDetail(page, item); } else { if (index) index.hidden = false; if (detail) { detail.hidden = false; detail.innerHTML = `<div class="mcx-not-found"><h2>Not Found</h2><p>The requested catalogue item is not available yet. Please return to the main catalogue and choose another item.</p><button type="button" class="mcx-action" data-mcx-route="${page}">BACK TO CATALOGUE</button></div>`; } } } } else if (category && renderCategory(page, category, subtopic)) { } else { if (index) index.hidden = false; if (detail) { detail.hidden = true; detail.innerHTML = ""; } renderIndex(page); } if (scroll && activePage) { const fixedNavigation = document.querySelector(".site-header") || document.querySelector("header") || document.querySelector("nav"); let navigationOffset = 22; if (fixedNavigation) { const navigationStyle = window.getComputedStyle(fixedNavigation); if (navigationStyle.position === "fixed" || navigationStyle.position === "sticky") navigationOffset = fixedNavigation.getBoundingClientRect().height + 22; } const targetTop = activePage.getBoundingClientRect().top + window.scrollY - navigationOffset; window.scrollTo({ top: Math.max(0, targetTop), left: 0, behavior: "smooth" }); } } }
  function init() {
  ensurePremiumPageHost();
  /* MCX_LIVE_DUAL_PRICE_INIT */
@@ -12049,15 +12008,6 @@ try { window.createStaticCategorySections = createStaticCategorySections; } catc
  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init, { once: true }); else init();
 })();
 
-// Ensure static category sections are created after DOM is ready so that
-// the navigation capture handler can find them and avoid duplicate rendering.
-document.addEventListener("DOMContentLoaded", function () {
-	try {
-		if (window.createStaticCategorySections) window.createStaticCategorySections();
-	} catch (e) {
-		console.warn('createStaticCategorySections initialization failed:', e);
-	}
-}, { once: true });
 
 /* Navigation capture: prefer existing page sections for category clicks
 	 This capturing handler prevents the default category-detail rendering
