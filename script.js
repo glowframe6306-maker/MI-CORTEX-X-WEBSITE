@@ -11969,6 +11969,9 @@ document.addEventListener('DOMContentLoaded', function () {
  function sendOrderRequest(mode) { if (!state.modalItem) return; const overlay = document.querySelector(".mcx-modal-overlay"); if (!overlay) return; const fields = overlay.querySelectorAll("input, textarea"); const data = {}; fields.forEach((field) => { if (field.name) data[field.name] = field.value; }); const reference = state.modalReference || getReferenceNumber(); const item = state.modalItem; const body = [`Reference: ${reference}`, `Customer Name: ${data.customerName || "Not provided"}`, `Selected Item: ${item.name}`, `Type: ${item.type === "service"? "Service": "Product"}`, "Display Currency: USD estimate with fixed LKR reference", `Estimated Price: ${formatPriceForModal(item)}`, `Requirements: ${data.requiredFeatures || "Not specified"}`, `Project Description: ${data.projectDescription || "No project description provided."}`, `Preferred Delivery Date: ${data.deliveryDate || "Not provided"}`].join("\n"); if (mode === "whatsapp") { window.open(`https://wa.me/${company.whatsapp}?text=${encodeURIComponent(body)}`, "_blank", "noopener,noreferrer"); } else { window.location.href = `mailto:${company.salesEmail}?subject=${encodeURIComponent(`Quotation Request - ${item.name}`)}&body=${encodeURIComponent(body)}`; } const note = document.createElement("p"); note.className = "mcx-request-status"; note.textContent = mode === "whatsapp"? "Quotation request prepared for WhatsApp follow-up.": "Quotation request prepared for email follow-up."; overlay.querySelector(".mcx-card-actions").insertAdjacentElement("afterend", note); }
  function route(scroll = true) { const { page, category, subtopic } = hashState(); const activePage = document.querySelector(`[data-mcx-page="${page}"]`); document.querySelectorAll("[data-mcx-page]").forEach((section) => { const active = section.dataset.mcxPage === page; section.classList.toggle("active", active); section.hidden = false; }); document.querySelectorAll("[data-mcx-page-link]").forEach((link) => { const linkPage = String(link.dataset.mcxPageLink || "").trim().toLowerCase(); const active = linkPage === page; link.classList.toggle("active", active); if (active) { link.setAttribute("aria-current", "page"); } else { link.removeAttribute("aria-current"); } }); const index = document.querySelector(`[data-mcx-category-index="${page}"]`); const detail = document.querySelector(`[data-mcx-category-detail="${page}"]`); if (!category) { hideAllCategoryPanels(); } else if (["products", "services", "pricing", "premium"].includes(page)) { if (category) { const item = getCatalogueItem(page, category); if (item) { renderCatalogueDetail(page, item); } else { if (index) index.hidden = false; if (detail) { detail.hidden = false; detail.innerHTML = `<div class="mcx-not-found"><h2>Not Found</h2><p>The requested catalogue item is not available yet. Please return to the main catalogue and choose another item.</p><button type="button" class="mcx-action" data-mcx-route="${page}">BACK TO CATALOGUE</button></div>`; } } } } else if (category && renderCategory(page, category, subtopic)) { } else { if (index) index.hidden = false; if (detail) { detail.hidden = true; detail.innerHTML = ""; } renderIndex(page); } if (scroll && activePage) { const fixedNavigation = document.querySelector(".site-header") || document.querySelector("header") || document.querySelector("nav"); let navigationOffset = 22; if (fixedNavigation) { const navigationStyle = window.getComputedStyle(fixedNavigation); if (navigationStyle.position === "fixed" || navigationStyle.position === "sticky") navigationOffset = fixedNavigation.getBoundingClientRect().height + 22; } const targetTop = activePage.getBoundingClientRect().top + window.scrollY - navigationOffset; window.scrollTo({ top: Math.max(0, targetTop), left: 0, behavior: "smooth" }); } } }
  function init() {
+	// Activate the consolidated navigation controller to prevent
+	// legacy duplicate handlers from interfering with routing.
+	try { window.__MCX_NAVIGATION_CONTROLLER__ = true; } catch (e) {}
  ensurePremiumPageHost();
  /* MCX_LIVE_DUAL_PRICE_INIT */
  state.currency = "USD";
@@ -12016,6 +12019,10 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener(
 	"click",
 	function (event) {
+		// If the consolidated navigation controller is enabled,
+		// avoid running this legacy capture handler to prevent
+		// competing scroll / route behavior.
+		if (window.__MCX_NAVIGATION_CONTROLLER__) return;
 		try {
 			// normalize extractor: try data-mcx-category first
 			var page = null;
@@ -12461,17 +12468,23 @@ document.addEventListener(
  }
 
  window.addEventListener("hashchange", function () {
- window.requestAnimationFrame(updateActiveNavigation);
+	if (window.__MCX_NAVIGATION_CONTROLLER__) return;
 
- window.setTimeout(updateActiveNavigation, 50);
- window.setTimeout(updateActiveNavigation, 200);
+	window.requestAnimationFrame(updateActiveNavigation);
+
+	window.setTimeout(updateActiveNavigation, 50);
+	window.setTimeout(updateActiveNavigation, 200);
  });
 
- window.addEventListener("popstate", updateActiveNavigation);
+window.addEventListener("popstate", function () {
+	if (window.__MCX_NAVIGATION_CONTROLLER__) return;
+	updateActiveNavigation();
+});
 
  document.addEventListener(
  "click",
  function (event) {
+		if (window.__MCX_NAVIGATION_CONTROLLER__) return;
  const link = event.target.closest(
  'nav a,' +
  'header nav a,' +
@@ -12775,7 +12788,9 @@ document.addEventListener(
     document.addEventListener(
         "click",
         function (event) {
-            var card = event.target.closest(".mcx-main-directory-card");
+			// Short-circuit if the main navigation controller is active
+			if (window.__MCX_NAVIGATION_CONTROLLER__) return;
+			var card = event.target.closest(".mcx-main-directory-card");
 
             if (!card) return;
 
