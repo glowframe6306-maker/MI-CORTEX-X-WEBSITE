@@ -46,6 +46,11 @@
  section.classList.toggle("active", active);
  });
 
+ document.querySelectorAll("[data-mcx-category-index], [data-mcx-category-detail]").forEach(function (panel) {
+ panel.hidden = true;
+ panel.innerHTML = "";
+ });
+
  document.querySelectorAll("[data-mcx-page-link]").forEach(function (link) {
  var active = link.getAttribute("data-mcx-page-link") === page;
  link.classList.toggle("active", active);

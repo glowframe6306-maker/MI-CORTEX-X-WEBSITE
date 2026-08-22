@@ -1062,19 +1062,29 @@ window.__miWelcomeIntroInitialized = true;
  function updateNavigationVisibility() {
  framePending = false;
 
- var hideNavigation =
- welcomeIsActive() ||
- frontPageIsActive();
+ /* Primary navigation must always remain visible and usable.
+    The old welcome/front-page logic was hiding the header and preventing
+    direct section navigation. Keep the header visible at all times. */
+ var hideNavigation = false;
 
- document.documentElement.classList.toggle(
- "mcx-hide-content-navigation",
- hideNavigation
- );
-
+ document.documentElement.classList.remove("mcx-hide-content-navigation");
  document.documentElement.classList.toggle(
  "mcx-content-navigation-scrolled",
 !hideNavigation && window.scrollY > 60
  );
+
+ document.querySelectorAll(".site-header").forEach(function (header) {
+   header.style.removeProperty("display");
+   header.style.removeProperty("opacity");
+   header.style.removeProperty("visibility");
+   header.style.setProperty("pointer-events", "auto", "important");
+ });
+ document.querySelectorAll(".site-header .nav, .site-header .nav-links").forEach(function (element) {
+   element.style.removeProperty("display");
+   element.style.removeProperty("opacity");
+   element.style.removeProperty("visibility");
+   element.style.setProperty("pointer-events", "auto", "important");
+ });
  }
 
  function requestUpdate() {
@@ -1710,32 +1720,21 @@ html.mcx-real-front-page-visible #mcx-contact-hub-root.mcx-hub-fab-label {
     }
 
     function forceState() {
-        var front = isFrontPageNow();
+        var front = false;
 
-        document.documentElement.classList.toggle("mcx-v87-front-page", front);
-        document.documentElement.classList.toggle("mcx-v87-main-page", !front);
+        document.documentElement.classList.toggle("mcx-v87-front-page", false);
+        document.documentElement.classList.toggle("mcx-v87-main-page", true);
 
         if (document.body) {
-            document.body.classList.toggle("mcx-v87-front-page", front);
-            document.body.classList.toggle("mcx-v87-main-page", !front);
+            document.body.classList.toggle("mcx-v87-front-page", false);
+            document.body.classList.toggle("mcx-v87-main-page", true);
         }
 
-        /*
-          Enforce directly on EVERY existing navigation header so older
-          CSS/JS patches cannot make it visible on the front page.
-        */
         document.querySelectorAll(".site-header").forEach(function (header) {
-            if (front) {
-                header.style.setProperty("display", "none", "important");
-                header.style.setProperty("opacity", "0", "important");
-                header.style.setProperty("visibility", "hidden", "important");
-                header.style.setProperty("pointer-events", "none", "important");
-            } else {
-                header.style.removeProperty("display");
-                header.style.removeProperty("opacity");
-                header.style.removeProperty("visibility");
-                header.style.removeProperty("pointer-events");
-            }
+            header.style.removeProperty("display");
+            header.style.removeProperty("opacity");
+            header.style.removeProperty("visibility");
+            header.style.removeProperty("pointer-events");
         });
 
         ticking = false;
@@ -1816,24 +1815,17 @@ html.mcx-real-front-page-visible #mcx-contact-hub-root.mcx-hub-fab-label {
     }
 
     function applyNavVisibility() {
-        var front = onFrontPage();
-
-        document.documentElement.classList.toggle("mcx-v88-front-page", front);
+        document.documentElement.classList.toggle("mcx-v88-front-page", false);
 
         if (document.body) {
-            document.body.classList.toggle("mcx-v88-front-page", front);
+            document.body.classList.toggle("mcx-v88-front-page", false);
         }
 
-        /*
-          Directly force every existing nav header hidden on the front page.
-          Remove ONLY this inline display rule after entering main content.
-        */
         document.querySelectorAll(".site-header").forEach(function (header) {
-            if (front) {
-                header.style.setProperty("display", "none", "important");
-            } else {
-                header.style.removeProperty("display");
-            }
+            header.style.removeProperty("display");
+            header.style.removeProperty("opacity");
+            header.style.removeProperty("visibility");
+            header.style.removeProperty("pointer-events");
         });
 
         ticking = false;

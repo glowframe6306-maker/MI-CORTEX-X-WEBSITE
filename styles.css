@@ -3023,6 +3023,17 @@ html.mcx-hide-content-navigation.mi-fixed-glass-nav {
  filter: blur(14px)!important;
 }
 
+html.mcx-hide-content-navigation .site-header,
+html.mcx-hide-content-navigation .site-header .nav,
+html.mcx-hide-content-navigation .site-header .nav-links {
+ opacity: 1 !important;
+ visibility: visible !important;
+ pointer-events: auto !important;
+ filter: none !important;
+ transform: none !important;
+ display: flex !important;
+}
+
 .site-header {
  position: fixed!important;
 
@@ -5606,6 +5617,24 @@ html.mcx-v61-after-welcome .mcx-main-directory-card {
     text-shadow: 0 0 12px rgba(247,199,95,.88), 0 0 22px rgba(247,199,95,.44) !important;
 }
 
+@media (min-width: 761px) {
+    .site-header,
+    .site-header .nav,
+    .site-header .nav-links {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+
+    .site-header .nav-links > a {
+        display: inline-flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+}
+
 /* Keep active category gold even when hovered. */
 .site-header .nav-links > a.active:hover,
 .site-header .nav-links > a[aria-current="page"]:hover,
@@ -5676,7 +5705,7 @@ body.mcx-v76-nav-ready .site-header {
     z-index: 2147483000 !important;
 
     overflow: visible !important;
-    pointer-events: none !important;
+    pointer-events: auto !important;
 
     background: transparent !important;
 }
@@ -5861,13 +5890,13 @@ body.mcx-v76-nav-ready .site-header .nav {
 
 /* MCX_V87_FRONT_NAV_ABSOLUTE_HIDE_START */
 
-/* FRONT PAGE: navigation MUST NOT be visible under any circumstance. */
+/* FRONT PAGE: keep the main navigation visible and usable. */
 html.mcx-v87-front-page .site-header,
 body.mcx-v87-front-page .site-header {
-    display: none !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
 }
 
 /* MAIN WEBSITE: restore the existing navigation exactly as it is. */
@@ -5884,7 +5913,10 @@ body.mcx-v87-main-page .site-header {
 
 html.mcx-v88-front-page .site-header,
 body.mcx-v88-front-page .site-header {
-    display: none !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
 }
 
 /* MCX_V88_FRONT_NAV_HIDE_END */
