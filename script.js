@@ -12669,13 +12669,13 @@ document.addEventListener(
         var progress = Math.min(y / 4, 1);
 
         /*
-          About 2x stronger than V82:
-          Zoom max : 1.36x
-          Blur max : 232px
+          Maximum blur/zoom treatment for the sticky nav:
+          Zoom max : 1.90x
+          Blur max : 360px
         */
-        var scale = 1 + (0.36 * progress);
-        var blur  = 90 + (142 * progress);
-        var glow  = 0.22 + (0.28 * progress);
+        var scale = 1 + (0.90 * progress);
+        var blur  = 120 + (240 * progress);
+        var glow  = 0.35 + (0.65 * progress);
 
         nav.style.setProperty("--mcx-v89-scale", scale.toFixed(4));
         nav.style.setProperty("--mcx-v89-blur", blur.toFixed(1) + "px");
