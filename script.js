@@ -12597,7 +12597,9 @@ document.addEventListener(
         }
 
         var rect = frontPage.getBoundingClientRect();
-        var frontPageVisible = rect.bottom > 0 && rect.top < window.innerHeight;
+        var viewport = window.innerHeight || document.documentElement.clientHeight || 800;
+        var scrolledPastHero = (window.scrollY || window.pageYOffset || 0) > (viewport * 0.92);
+        var frontPageVisible = (rect.height > 0 && rect.bottom > 0 && rect.top < viewport) || (!scrolledPastHero && rect.top <= viewport * 0.9 && rect.bottom >= 0);
 
         header.classList.remove("mcx-v86-front-page-hidden", "mcx-v86-main-page-visible");
         header.classList.toggle("mcx-v86-front-page-hidden", frontPageVisible);

@@ -5891,11 +5891,13 @@ body.mcx-real-front-page-visible .site-header {
     pointer-events: none !important;
     transform: translateY(-16px) scale(0.98) !important;
     filter: blur(10px) !important;
+    display: none !important;
 }
 
 .site-header.mcx-v86-main-page-visible,
 html:not(.mcx-real-front-page-visible) .site-header,
 body:not(.mcx-real-front-page-visible) .site-header {
+    display: flex !important;
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
