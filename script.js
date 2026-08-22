@@ -12597,24 +12597,14 @@ document.addEventListener(
         }
 
         var rect = frontPage.getBoundingClientRect();
-
-        /*
-          EXACT BEHAVIOR:
-          - If ANY part of the real front page is still visible -> HIDE nav.
-          - Only after the front page has completely scrolled above viewport -> SHOW nav.
-          - Scroll back until front page appears again -> HIDE nav immediately.
-        */
         var frontPageVisible = rect.bottom > 0 && rect.top < window.innerHeight;
 
-        header.classList.toggle(
-            "mcx-v86-front-page-hidden",
-            frontPageVisible
-        );
+        header.classList.remove("mcx-v86-front-page-hidden", "mcx-v86-main-page-visible");
+        header.classList.toggle("mcx-v86-front-page-hidden", frontPageVisible);
+        header.classList.toggle("mcx-v86-main-page-visible", !frontPageVisible);
 
-        header.classList.toggle(
-            "mcx-v86-main-page-visible",
-            !frontPageVisible
-        );
+        document.documentElement.classList.toggle("mcx-real-front-page-visible", frontPageVisible);
+        document.body.classList.toggle("mcx-real-front-page-visible", frontPageVisible);
 
         ticking = false;
     }

@@ -5883,16 +5883,24 @@ body.mcx-v76-nav-ready .site-header .nav {
   Uses the REAL front-page section: #mi-front-page / .mi-front-page.
 */
 
-.site-header.mcx-v86-front-page-hidden {
+.site-header.mcx-v86-front-page-hidden,
+html.mcx-real-front-page-visible .site-header,
+body.mcx-real-front-page-visible .site-header {
     opacity: 0 !important;
     visibility: hidden !important;
     pointer-events: none !important;
+    transform: translateY(-16px) scale(0.98) !important;
+    filter: blur(10px) !important;
 }
 
-.site-header.mcx-v86-main-page-visible {
+.site-header.mcx-v86-main-page-visible,
+html:not(.mcx-real-front-page-visible) .site-header,
+body:not(.mcx-real-front-page-visible) .site-header {
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
+    transform: translateY(0) scale(1) !important;
+    filter: none !important;
 }
 
 /* MCX_V86_EXACT_FRONT_NAV_HIDE_END */
