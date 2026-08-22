@@ -156,27 +156,27 @@ html:not(.mcx-v19-front-page) .site-header {
 
 .site-header .nav-links a:hover,
 .site-header .nav-links a:focus-visible {
-  color: #eef4ff !important;
-  background: linear-gradient(135deg, rgba(203, 214, 234, 0.18), rgba(129, 143, 169, 0.14)) !important;
-  border-color: rgba(197, 216, 255, 0.44) !important;
+  color: #f4f7fb !important;
+  background: linear-gradient(135deg, rgba(206, 214, 224, 0.25), rgba(142, 156, 176, 0.18), rgba(198, 210, 226, 0.12)) !important;
+  border-color: rgba(214, 222, 234, 0.5) !important;
   transform: translateY(-2px) scale(1.04) !important;
-  box-shadow: 0 10px 24px rgba(176, 196, 224, 0.22), inset 0 1px 0 rgba(255,255,255,0.14) !important;
+  box-shadow: 0 12px 26px rgba(181, 189, 203, 0.28), inset 0 1px 0 rgba(255,255,255,0.18) !important;
   filter: blur(0.15px) !important;
 }
 
 .site-header .nav-links a:hover::before,
 .site-header .nav-links a:focus-visible::before {
   transform: scaleX(1) !important;
-  background: linear-gradient(90deg, rgba(198, 212, 232, 0), rgba(198, 212, 232, 0.9), rgba(198, 212, 232, 0)) !important;
+  background: linear-gradient(90deg, rgba(214, 222, 234, 0), rgba(214, 222, 234, 0.9), rgba(214, 222, 234, 0)) !important;
 }
 
 .site-header .nav-links a.active,
 .site-header .nav-links a[aria-current="page"],
 .site-header .nav-links a.mcx-v19-active {
-  color: #111827 !important;
-  border-color: rgba(255, 211, 102, 0.2) !important;
-  background: linear-gradient(135deg, #ffe39a 0%, #ffc86c 38%, #ffb347 100%) !important;
-  box-shadow: 0 12px 28px rgba(255, 176, 82, 0.28), inset 0 1px 0 rgba(255,255,255,0.45) !important;
+  color: #17130a !important;
+  border-color: rgba(255, 199, 76, 0.7) !important;
+  background: linear-gradient(135deg, #ffefaf 0%, #ffd76a 28%, #f8b640 70%, #f0a424 100%) !important;
+  box-shadow: 0 12px 28px rgba(255, 176, 82, 0.32), inset 0 1px 0 rgba(255,255,255,0.52), 0 0 18px rgba(255, 202, 87, 0.28) !important;
   transform: scale(1.02) !important;
 }
 
@@ -184,7 +184,7 @@ html:not(.mcx-v19-front-page) .site-header {
 .site-header .nav-links a[aria-current="page"]::before,
 .site-header .nav-links a.mcx-v19-active::before {
   transform: scaleX(1) !important;
-  background: linear-gradient(90deg, rgba(255, 214, 102, 0), rgba(255, 214, 102, 0.9), rgba(255, 214, 102, 0)) !important;
+  background: linear-gradient(90deg, rgba(255, 214, 102, 0), rgba(255, 214, 102, 0.95), rgba(255, 214, 102, 0)) !important;
 }
 
 .site-header .nav-toggle {
