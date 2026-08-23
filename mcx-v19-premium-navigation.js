@@ -22,6 +22,7 @@
   }
 
   function updateNavigation(forcePage) {
+    if (window.__MCX_NAVIGATION_CONTROLLER__) return;
     var html = document.documentElement;
     var route = forcePage || normalizedRoute();
     var front = isFrontBannerRoute();
@@ -54,6 +55,7 @@
   }
 
   function updateNavigationFromVisibleSection() {
+    if (window.__MCX_NAVIGATION_CONTROLLER__) return;
     var sections = Array.from(
       document.querySelectorAll("[data-mcx-page]")
     );

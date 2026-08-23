@@ -1,6 +1,9 @@
 (function () {
  "use strict";
 
+ // If a consolidated navigation controller exists, let it handle routing.
+ if (window.__MCX_NAVIGATION_CONTROLLER__) return;
+
  if (window.__mcxNavigationClickFixInstalled) {
  return;
  }
